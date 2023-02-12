@@ -65,7 +65,7 @@ There are several tools available to support citizen science as it relates to cl
 
 Our goal is for GGC to complement existing approaches to Citizen Science. We would like to work with these organizations to determine the best wa for GGC to collect data to augment current data sets and make them more valuable to researchers.
 
-### How does GGC fit in?
+## How does GGC fit in?
 
 Analysis of the technology landscape reveals that there are basically two clusters of features: "Novice" features that are associated with the garden planning tools, and "professional" features that are associated with the urban agriculture tools.
 
