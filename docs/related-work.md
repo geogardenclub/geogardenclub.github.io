@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## Garden Planning Tools
 
-If you search for "garden planning tools" on the Internet, you'll find dozens of applications.  Most of those are essentially "landscape architecture" tools for people who want to design the visual look of their (flower) gardens. This is an interesting design problem, but not the problem addressed by Agile Garden Club.
+If you search for "garden planning tools" on the Internet, you'll find dozens of applications.  Most of those are essentially "landscape architecture" tools for people who want to design the visual look of their (flower) gardens. This is an interesting design problem, but not the problem addressed by Geo Garden Club.
 
 If you narrow the search to say, "vegetable garden planning tools", you'll still find many that focus on the visual look of the garden bed, but there are a few that focus on the kinds of issues of interest to AGC. Here are the most relevant applications we have found:
 
