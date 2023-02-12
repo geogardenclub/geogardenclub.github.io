@@ -52,6 +52,7 @@ Some general observations about urban agriculture tools:
   * These tools all emphasize (and provide support for) commercial, for-profit farming (albeit on a small scale).
   * Several focus on record-keeping required for organic certification.
   * Several focus on people management.
+  * None have mechanisms to share data with neighboring farms.
 
 ## Citizen Science technologies
 
@@ -68,4 +69,8 @@ Our goal is for GGC to complement existing approaches to Citizen Science. We wou
 
 Analysis of the technology landscape reveals that there are basically two clusters of features: "Novice" features that are associated with the garden planning tools, and "professional" features that are associated with the urban agriculture tools.
 
-The market niche for GGC is between these two areas: a gardener who is beyond the introductory level, but is not yet interested in commercial gardening and/or organic certification.
+The market niche for GGC is between these two areas:
+
+* "Beyond Novice". GGC gardeners have generally solved the "layout problem", and are interested in more sophisticated record keeping than is available in current garden planning tools.
+
+* "Non-professional". GGC gardeners do not require people management technology. In addition, in a professional setting, local data sharing could be undesirable to farmers as it might reveal competitive secrets.  GGC gardeners are in a non-competitive environment where data sharing within the community has little downside.
