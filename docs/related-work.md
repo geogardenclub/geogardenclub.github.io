@@ -8,7 +8,7 @@ sidebar_position: 3
 
 If you search for "garden planning tools" on the Internet, you'll find dozens of applications.  Most of those are essentially "landscape architecture" tools for people who want to design the visual look of their (flower) gardens. This is an interesting design problem, but not the problem addressed by Geo Garden Club.
 
-If you narrow the search to say, "vegetable garden planning tools", you'll still find many that focus on the visual look of the garden bed, but there are a few that focus on the kinds of issues of interest to AGC. Here are the most relevant applications we have found:
+If you narrow the search to say, "vegetable garden planning tools", you'll still find many that focus on the visual look of the garden bed, but there are a few that focus on the kinds of issues of interest to GGC. Here are the most relevant applications we have found:
 
 |    | Name/URL | Users | Cost |
 | -- | -------  | ----- | ---- |
@@ -62,10 +62,10 @@ There are several tools available to support citizen science as it relates to cl
 | NN | [Nature's Notebook](https://www.usanpn.org/natures_notebook) | 1000s | Free | 
 | SF | [SmartFin](https://smartfin.org/) | ? | Free | 
 
-Our goal is for AGC to complement existing approaches to Citizen Science. We would like to work with these organizations to determine the best wa for AGC to collect data to augment current data sets and make them more valuable to researchers.
+Our goal is for GGC to complement existing approaches to Citizen Science. We would like to work with these organizations to determine the best wa for GGC to collect data to augment current data sets and make them more valuable to researchers.
 
-### How does AGC fit in?
+### How does GGC fit in?
 
 Analysis of the technology landscape reveals that there are basically two clusters of features: "Novice" features that are associated with the garden planning tools, and "professional" features that are associated with the urban agriculture tools.
 
-The market niche for AGC is between these two areas: a gardener who is beyond the introductory level, but is not yet interested in commercial gardening and/or organic certification.
+The market niche for GGC is between these two areas: a gardener who is beyond the introductory level, but is not yet interested in commercial gardening and/or organic certification.

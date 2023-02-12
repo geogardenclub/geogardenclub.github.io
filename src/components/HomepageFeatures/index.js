@@ -8,7 +8,7 @@ const FeatureList = [
     png: '/img/icons/garden.png',
     description: (
       <>
-        Home gardening over multiple seasons yields many useful insights. AGC provides new ways to gather and reflect on your home garden's history in order to improve your future gardening outcomes.
+        Home gardening over multiple seasons yields many useful insights. GGC provides new ways to gather and reflect on your home garden's history in order to improve your future gardening outcomes.
       </>
     ),
   },
@@ -17,7 +17,7 @@ const FeatureList = [
     png: '/img/icons/people-circle.png',
     description: (
       <>
-        AGC facilitates the creation and management of local "communities of practice" allowing members to more easily share garden outcome data and best practices with each other.
+        GGC facilitates the creation and management of local "communities of practice" allowing members to more easily share garden outcome data and best practices with each other.
       </>
     ),
   },
@@ -26,7 +26,7 @@ const FeatureList = [
     png: '/img/icons/vegetables-circle.png',
     description: (
       <>
-        Home gardens are an important and underutilized resource for increasing community resilience, health, and emotional well-being. AGC provides new ways for home gardens and gardeners to create a "virtual" local community garden.
+        Home gardens are an important and underutilized resource for increasing community resilience, health, and emotional well-being. GGC provides new ways for home gardens and gardeners to create a "virtual" local community garden.
       </>
     ),
   },

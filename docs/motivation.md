@@ -12,7 +12,7 @@ Home gardens are an important, underutilized resource for addressing food insecu
 Geo Garden Club is designing and implementing collaborative technologies to improve the efficiency and effectiveness of home gardeners.
 :::
 
-## Food security, home gardens, and AGC
+## Food security, home gardens, and GGC
 
 Food security, as defined by the [United Nations’ Committee on World Food Security](https://www.fao.org/home/en/), means that all people, at all times, have physical, social, and economic access to sufficient, safe, and nutritious food that meets their food preferences and dietary needs for an active and healthy life. In the coming decades, food security will become an increasingly critical issue due to population growth in combination with climate change, the latter of which which will negatively impact agricultural water availability, arable land availability, and the diversity and distribution of agricultural plant, insect, and animal species ([Kwasek, 2012](https://ageconsearch.umn.edu/record/143167/files/10%20EP%204%202012-11.pdf)).
 
@@ -22,7 +22,7 @@ Food insecurity is not only an issue for the distant future or for underdevelope
 
 Community gardens are similar to home gardens in scale and the types of food products grown, but community gardens create and foster "communities of practice" with significant health consequences: In a study by ([Alaimo et al, 2008](https://nccommunitygardens.ces.ncsu.edu/resources-3/nccommunitygardens-research/)), community gardeners consumed fruits and vegetables 5.7 times per day, compared with home gardeners (4.6 times per day) and nongardeners (3.9 times per day). Moreover, 56% of community gardeners met national recommendations to consume fruits and vegetables at least 5 times per day, compared with 37% of home gardeners and 25% of nongardeners. 
 
-A fundamental goal of Geo Garden Club (AGC) is to address food insecurity by increasing: (a) the numbers of home gardens (and home gardeners), (b) the productivity of home gardens, and (c) the ability of home gardens to improve human health. To accomplish this, we are designing technology to not just facilitate home garden planning and implementation, but also to facilitate the creation of local "communities of practice" for home gardening. If successful, AGC home gardeners will (among other things) reap the health benefits currently enjoyed by community gardeners.
+A fundamental goal of Geo Garden Club (GGC) is to address food insecurity by increasing: (a) the numbers of home gardens (and home gardeners), (b) the productivity of home gardens, and (c) the ability of home gardens to improve human health. To accomplish this, we are designing technology to not just facilitate home garden planning and implementation, but also to facilitate the creation of local "communities of practice" for home gardening. If successful, GGC home gardeners will (among other things) reap the health benefits currently enjoyed by community gardeners.
 
 ## Our target demographic: the "serious" gardener
 
