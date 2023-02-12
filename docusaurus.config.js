@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Agile Garden Club',
+  title: 'Geo Garden Club',
   tagline: 'Growing better gardens, gardeners, and communities, one plant at a time',
   favicon: 'img/favicon.ico',
   url: 'https://geogardenclub.github.io',
@@ -44,7 +44,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/ggc-social-card.jpg',
       navbar: {
         title: 'Geo Garden Club',
         logo: { alt: 'Geo Garden Club', src: 'img/peony.png' },
