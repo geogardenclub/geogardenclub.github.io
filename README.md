@@ -1,41 +1,91 @@
-# Website
+# Geo Garden Club Documentation 
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This repository contains the sources to construct <https://geogardenclub.github.io>.
 
-### Installation
+This site uses [Docusaurus](https://docusaurus.io/).
 
-```
-$ yarn
-```
+## Installation
 
-### Local Development
+### Install Node
 
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
+First, download and install [Node](https://nodejs.org/en/download/).  Verify that your installation was successful by invoking:
 
 ```
-$ yarn build
+$ node -v
+v14.16.0
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+### Download sources
 
-### Deployment
+Second, download the sources for this site from [https://github.com/geogardenclub/geogardenclub.github.io](https://github.com/geogardenclub/geogardenclub.github.io).
 
-Using SSH:
+Make sure you are in the "source" branch, not the "main" branch.
 
-```
-$ USE_SSH=true yarn deploy
-```
+### Install libraries
 
-Not using SSH:
+Third, change directories into the geogardenclub.github.io repo directory and install third party libraries with:
 
 ```
-$ GIT_USER=<Your GitHub username> yarn deploy
+$ npm install
+
+up to date, audited 1162 packages in 13s
+
+205 packages are looking for funding
+  run `npm fund` for details
+
+27 vulnerabilities (9 moderate, 18 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+The current security problems are unfortunate. Hopefully the Docusaurus folks will clean this up soon.
+
+## Run the site locally
+
+To run the site locally, invoke:
+
+```
+ $ npm start
+
+> geogardenclub@1.0.0 start
+> docusaurus start
+
+Starting the development server...
+Docusaurus website is running at "http://localhost:3000/".
+
+✔ Client
+  Compiled successfully in 8.57s
+
+client (webpack 5.64.1) compiled successfully
+
+```
+
+The site should shortly appear at [http://localhost:3000](http://localhost:3000).
+
+## Deployment
+
+To simplify things for now, anyone can edit the sources, but Philip will be in charge of deployment. This means that deployment has the following steps:
+
+### 1. Commit and push your changes to the sources
+
+Commit and push your changes to the source (i.e. the `source` branch).
+
+### 2. Notify Philip
+
+Tell Philip you've made changes to the sources.
+
+### 3. Philip deploys the site
+
+To deploy the site, make sure that GIT_USER is set and that you have commit privileges to the repo, then invoke:
+
+```
+npm run deploy
+```
+
+This builds the static HTML and commits the results to the `main` branch of the geogardenclub.github.io repository.
