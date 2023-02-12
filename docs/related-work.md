@@ -58,8 +58,8 @@ Some general observations about urban agriculture tools:
 
 There are several tools available to support citizen science as it relates to climate change:
 
-|    | Name/URL | Users | Cost | Screenshots |
-| -- | -------  | ----- | ---- | ----------- |
+|    | Name/URL | Users | Cost | 
+| -- | -------  | ----- | ---- | 
 | NN | [Nature's Notebook](https://www.usanpn.org/natures_notebook) | 1000s | Free | 
 | SF | [SmartFin](https://smartfin.org/) | ? | Free | 
 
