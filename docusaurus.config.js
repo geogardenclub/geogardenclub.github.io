@@ -55,6 +55,22 @@ const config = {
             label: 'Why GGC?',
             position: 'right',
           },
+          {
+            type: 'dropdown',
+            label: 'Public Gardens',
+            position: 'right',
+            items: [
+              {
+                label: '45ght3cf',
+                href: 'https://agilegardenclub.com/public-garden/?name=45ght3cf',
+              },
+              {
+                label: '67abh39db',
+                href: 'https://agilegardenclub.com/public-garden/?name=67abh39db',
+              },
+            ],
+          },
+
           {to: '/blog', label: 'News', position: 'right'},
 
           {href: 'https://github.com/geogardenclub', label: 'GitHub', position: 'right'},
