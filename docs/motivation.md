@@ -28,7 +28,7 @@ A fundamental goal of Geo Garden Club (GGC) is to address food insecurity by inc
 
 We view food production as a spectrum of activities and levels of commitment, as shown in the following diagram:
 
-<img src="/img/overview/gardening-farming.png"/>
+<img src="/img/gardening-farming.png"/>
 
 On the far left side are "recreational" gardeners. These are people who are either just getting into gardening, and/or are relatively uncommitted to gardening.  There are a variety of technologies (websites and applications) oriented to the needs of "recreational" gardeners.
 
