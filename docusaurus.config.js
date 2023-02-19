@@ -70,15 +70,27 @@ const config = {
               },
             ],
           },
-
-          {to: '/blog', label: 'News', position: 'right'},
-
-          {href: 'https://github.com/geogardenclub', label: 'GitHub', position: 'right'},
         ],
       },
       footer: {
         style: 'dark',
         links: [
+          {
+            label: 'Facebook',
+            href: 'https://www.facebook.com/geogardenclub',
+          },
+          {
+            label: 'Instagram',
+            href: 'https://www.instagram.com/geogardenclub/',
+          },
+          {
+            label: 'Join the GGC mailing list',
+            href: 'https://geogardenclub.us10.list-manage.com/subscribe?u=2c9db5ab59b4602f6c71e2091&id=c75bee0e1e',
+          },
+          {
+            label: 'News Archive',
+            href: 'https://us10.campaign-archive.com/home/?u=2c9db5ab59b4602f6c71e2091&id=c75bee0e1e',
+          },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Geo Garden Club, LLC`,
       },
