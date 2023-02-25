@@ -47,7 +47,7 @@ const config = {
       image: 'img/logos/png/wordmark.png',
       navbar: {
         title: 'Geo Garden Club',
-        logo: { alt: 'Geo Garden Club', src: 'img/logos/png/Icon2.png' },
+        logo: { alt: 'Geo Garden Club', src: 'img/logos/png/icon2.png' },
         items: [
           {
             to: 'docs/motivation',
