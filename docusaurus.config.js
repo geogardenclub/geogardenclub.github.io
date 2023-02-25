@@ -44,10 +44,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/ggc-social-card.jpg',
+      image: 'img/logos/png/wordmark.png',
       navbar: {
         title: 'Geo Garden Club',
-        logo: { alt: 'Geo Garden Club', src: 'img/peony.png' },
+        logo: { alt: 'Geo Garden Club', src: 'img/logos/png/Icon2.png' },
         items: [
           {
             to: 'docs/motivation',

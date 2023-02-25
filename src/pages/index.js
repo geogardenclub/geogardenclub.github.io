@@ -12,7 +12,10 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
+        <div className="text--center">
+          <img height="350px" src={'/img/logos/png/seal1.png'} />
+        </div>
+        {/* <h1 className="hero__title">{siteConfig.title}</h1> */}
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         {/* <YouTube id="VqfuRmlm-yE"/> */}
       </div>
