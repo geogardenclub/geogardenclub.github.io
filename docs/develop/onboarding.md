@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-# hide_table_of_contents: true
+hide_table_of_contents: false
 # sidebar_label: "Welcome"
 ---
 
@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Welcome, new GGC developer!  This page provides a checklist of things required to get started developing our technology. 
 
-## Access rights
+## Site access
 
 You will need access to the following:
 
@@ -18,4 +18,8 @@ You will need access to the following:
 
 ## Proficiency in Dart and Flutter
 
-We assume that you already have basic proficiency in Dart and Flutter.  If you are not sure of your proficiency, then we recommend that you skim through the [Dartapalooza](https://courses.ics.hawaii.edu/mobile-application-development/modules/dartapalooza/) and [Flutterpalooza](https://courses.ics.hawaii.edu/mobile-application-development/modules/flutterpalooza/) modules of Philip's mobile application development course. 
+We assume that you already have basic proficiency in Dart and Flutter.  If you are not sure of your proficiency, then we recommend that you work through the [Dartapalooza](https://courses.ics.hawaii.edu/mobile-application-development/modules/dartapalooza/) and [Flutterpalooza](https://courses.ics.hawaii.edu/mobile-application-development/modules/flutterpalooza/) modules of Philip's mobile application development course. 
+
+## Assignment of rights
+
+Before you can contribute code to this project, you will need to sign a document that assigns the ownership of the code you contribute to Geo Garden Club, LLC.  Please contact Philip or Jenna for details on how to do this.
