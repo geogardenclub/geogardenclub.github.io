@@ -50,7 +50,7 @@ const config = {
         logo: { alt: 'Geo Garden Club', src: 'img/logos/png/icon2.png' },
         items: [
           {
-            to: 'docs/motivation',
+            to: 'docs/home/motivation',
             activeBasePath: 'docs',
             label: 'Why GGC?',
             position: 'right',
