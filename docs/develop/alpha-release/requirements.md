@@ -1,10 +1,9 @@
 ---
-sidebar_position: 8
 hide_table_of_contents: false
 # sidebar_label: "Welcome"
 ---
 
-# Functional requirements
+# Requirements
 
 ## The Core Value Propositions
 
