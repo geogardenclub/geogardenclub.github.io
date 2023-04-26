@@ -5,14 +5,14 @@ hide_table_of_contents: false
 
 # Onboarding
 
-Welcome, new GGC developer!  This page provides a checklist of things required to get started developing our technology. 
+Welcome, new GGC Alpha Release developer!  This page provides a checklist of things required to get started developing our technology. 
 
 ## Site access
 
 You will need access to the following:
 
-* Our Discord server. Request an invite from Philip or Jenna.
-* The GGC github organization. Please send Philip your GitHub username and he will invite you. 
+* The GGC Discord server. Request an invite from Philip or Jenna.
+* The GGC GitHub organization. Please send Philip your GitHub username and he will invite you. 
 * The ggc_app Firebase project. Please send Philip your gmail account name and he will add you. 
 
 ## Proficiency in Dart and Flutter

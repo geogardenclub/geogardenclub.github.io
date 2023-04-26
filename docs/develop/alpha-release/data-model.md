@@ -5,9 +5,9 @@ hide_table_of_contents: false
 
 # Data Model
 
-This page documents the data model intended to satisfy the [GGC Alpha Release Functional Requirements](https://github.com/geogardenclub/ggc_app/discussions/19).
+This page documents the data model intended to satisfy the Alpha release requirements.
 
-## Overview of entities
+## Entities
 
 In this document, "entity" refers to the fundamental forms of persistent data objects.  Each entity is defined as a set of typed fields.
 
@@ -25,7 +25,7 @@ To facilitate the design description, each field of an entity will be documented
 
 Finally, the following documentation includes example documents (JSON objects) generated from the [DataModelMigrator](https://github.com/geogardenclub/data-model-migrator) application.
 
-## Chapter
+### Chapter
 
 The Chapter entity contains the following fields:
 
@@ -65,7 +65,7 @@ Here is an example of a Chapter collection document from the migrated data:
   }
 ```
 
-## User
+### User
 
 The User entity represents all of the people who have created an account with the system.
 
@@ -103,7 +103,7 @@ To illustrate, here is an example document from the Gardener collection:
 
 
 
-## Gardener
+### Gardener
 
 The Gardener entity is designed to represent two distinct classes of gardeners in GGC:  (1) "normal" home gardeners and (2) commercial seed vendors.
 
@@ -144,7 +144,7 @@ To illustrate, here is an example document from the Gardener collection:
 
 
 
-## Garden
+### Garden
 
 The Garden entity represents a plot of land (or maybe even just some pots) that can hold Plantings over one or more years.
 
@@ -186,7 +186,7 @@ Here is an example Garden document:
   }
 ```
 
-## Editor
+### Editor
 
 In the alpha release, the access control capability enables a Gardener to allow another Chapter member to edit one of their gardens.  (There is no implementation of a "viewer", who can see more of someone else's garden than a normal Chapter member.)
 
@@ -212,7 +212,7 @@ Here is an example Editor document:
   }
 ```
 
-## Bed
+### Bed
 
 Each Garden consists of a number of Beds.
 
@@ -239,7 +239,7 @@ Here is an example Bed document:
   }
 ```
 
-## Planting
+### Planting
 
 A Planting is represents a set of plants of the same variety or crop, planted in a single bed, all with the same approximate timings (i.e. planting, transplanting, harvesting, etc.).   If the same variety or crop is planted in two different beds, then this must be represented by two Planting instances. (Alternatively, you could define an additional, "virtual" Bed that conceptually represents the contents of two physical beds and put a single Planting in it.)
 
@@ -299,7 +299,7 @@ Here is an example Planting document:
   }
 ```
 
-## Variety
+### Variety
 
 Variety is a specific kind of Crop which has seeds. For example, a seed packet such as "Tomato (Sun Gold)" specifies the crop ("Tomato") and the Variety ("Sun Gold").
 
@@ -330,7 +330,7 @@ Here is a sample Variety document:
   }
 ```
 
-## Crop
+### Crop
 
 Crop specifies a type of plant independent of its Variety. For example, "Tomato" is a Crop.
 
@@ -359,7 +359,7 @@ Here is an example Crop document:
   }
 ```
 
-## Family
+### Family
 
 Family specifies the botanical family associated with one or more Crops (and implicitly, Varieties). For example, the "Nightshade" family groups together Tomatoes, Potatoes, and Peppers. Family data is useful during garden planning to facilitate planning issues including crop rotation and companion planting.
 
@@ -391,7 +391,7 @@ Here is an example Family document:
   }
 ```
 
-## Outcome
+### Outcome
 
 Outcome data is gardener-supplied information about the result of a single planting.  We want to specify results of a planting that is useful and actionable for gardeners, that captures the most important properties of a planting, that is relatively easy to provide, and that is specified in sufficient detail that we can create meaningful aggregations of outcome data for crops and varieties.
 
@@ -444,7 +444,7 @@ Here is an example of an Outcome document:
   }
 ```
 
-## Seed
+### Seed
 
 The ability to save and share seeds within a Chapter is a significant core value proposition for GGC.
 
@@ -497,7 +497,7 @@ Here is an example Seed document:
 
 In general, a Garden associated with a vendor will have a single Planting instance for each Variety that they offer. This Planting instance will have a single Seed instance, with `seedsAvailable` set to `true`.  In reality, a vendor may or may not have seeds in stock for a given Variety at any given time.  And, in reality, a vendor will produce their seeds from growing plants each year. But, we will not represent these "realities" about vendor gardens and seeds in our data model, at least for the alpha release.
 
-## Observation
+### Observation
 
 An observation is a note (and, typically, a picture) taken by a gardener regarding a planting at a specific point in time.
 
@@ -543,7 +543,6 @@ Here is an example Observation document:
     "lastUpdate": "2023-04-01T00:00:00.000Z"
   }
 ```
-### Tag Taxonomy
 
 If we provide a specific set of tags, rather than allow a gardener to enter free text, then the tag system will be much more useful. Here is a proposal for an initial set of tags:
 

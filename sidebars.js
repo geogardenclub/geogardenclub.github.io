@@ -20,33 +20,26 @@ const sidebars = {
     'develop/roadmap',
     {
       type: 'category',
-      collapsed: false,
-      label: 'Getting Started',
-      items: [
-        'develop/getting-started/onboarding',
-        'develop/getting-started/installation',
-        'develop/getting-started/monarch',
-        'develop/getting-started/scripts',
-      ],
-    },
-    {
-      type: 'category',
-      collapsed: false,
+      collapsed: true,
       label: 'Mockup',
       items: [
         'develop/mockup/design',
         'develop/mockup/customer-feedback',
         'develop/mockup/entrepreneur-feedback',
+        'develop/mockup/chatgpt-feedback',
       ],
     },
     {
       type: 'category',
       label: 'Alpha Release',
-      collapsed: false,
+      collapsed: true,
       items: [
+        'develop/alpha-release/onboarding',
+        'develop/alpha-release/installation',
         'develop/alpha-release/requirements',
         'develop/alpha-release/data-model',
         'develop/alpha-release/architecture',
+        'develop/alpha-release/scripts',
       ],
     },],
 

@@ -11,8 +11,6 @@ The identity of the respondents is elided.
 
 ## Entrepreneur 1 (E1)
 
-From: E1
-
 Hi Philip,
 
 Again, apologies for missing your first email. I watched the AGC app video. It's a promising idea. Here are my thoughts:
@@ -56,7 +54,6 @@ Thanks again,
 Philip
 
 ----------
-From: E1
 
 Hi Philip,
 
@@ -124,11 +121,8 @@ Thanks again,
 Jenna
 
 ----------
-From: E1
 
 Hi Jenna,
-
-Comments below:
 
 *Thanks for the feedback and tips!  You mentioned how in rural Japan gardeners operate as a "unified community gardening engine" and that is exactly what this technology aims to do.  Do I need to plan a trip to Japan to research?  Obviously yes.  ;)*
 
@@ -181,8 +175,6 @@ GGC Motivation page notes:
 
 ## Entrepreneur 4 (E4)
 
-Also had some great comments from E4. Here's a summary of my recollection and their addendum:
-
 I want to try to recapture E4’s excellent napkin points.  All I can remember so far this morning is:
 
 1. Avoid conflating “food resilience” (direct hit for GGC) with “food insecurity” (lots of structural barriers for GGC).
@@ -201,7 +193,7 @@ Other points (by E4):
 
 ## Entrepreneur 5 (E5)
 
-*E5 is a commercial nursery owner, and so has both entreprenurial and gardening experience.*
+*(E5 is a commercial nursery owner, and so has both entreprenurial and gardening experience.)*
 
 Aloha Philip,
 
