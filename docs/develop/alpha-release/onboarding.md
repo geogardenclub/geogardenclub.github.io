@@ -22,3 +22,15 @@ We assume that you already have basic proficiency in Dart and Flutter.  If you a
 ## Assignment of rights
 
 Before you can contribute code to this project, you will need to sign a document that assigns the ownership of the code you contribute to Geo Garden Club, LLC.  Please contact Philip or Jenna for details on how to do this.
+
+## Developer workflow
+
+We use a basic process for development:
+
+* Tasks are specified in a GitHub project board. The project board for GGC is available at: <https://github.com/orgs/geogardenclub/projects/1/views/1>
+
+* Code is developed using a branch-and-merge model. Please name the branch "issue-XXX", where XXX is the issue number associated with the task associated with your coding.
+
+* If you are making a trivial fix, feel free to commit directly to the main branch. 
+
+* We run a CI task to ensure that all code committed to the main branch passes `dart analyze` without triggering warnings or errors. 

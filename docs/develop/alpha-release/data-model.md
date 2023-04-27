@@ -546,7 +546,7 @@ In addition, we might want to have tags  that provide "meta" information:
 | Public | Indicate if an observation can appear on the public page. |
 | Help wanted |  Indicates if the Observation describes an issue or problem for which the gardener needs help. For example, "What is this pest?" |
 
-## Collections
+## Collections and business logic
 
 As noted above, each entity is represented in the ggc_app as a Dart class, and made persistent as a document in Firebase. 
 

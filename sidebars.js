@@ -39,7 +39,6 @@ const sidebars = {
         'develop/alpha-release/requirements',
         'develop/alpha-release/data-model',
         'develop/alpha-release/architecture',
-        'develop/alpha-release/scripts',
       ],
     },
     {
