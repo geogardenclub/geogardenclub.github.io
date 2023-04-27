@@ -41,7 +41,16 @@ const sidebars = {
         'develop/alpha-release/architecture',
         'develop/alpha-release/scripts',
       ],
-    },],
+    },
+    {
+      type: 'category',
+      label: 'Beyond Alpha',
+      collapsed: true,
+      items: [
+        'develop/beyond-alpha/chapterzipmap',
+      ],
+    },
+  ],
 
   // But you can create a sidebar manually
   /*
