@@ -17,7 +17,7 @@ For each of the following four CVPs, we will indicate which aspects are unique, 
 
 ### 1. Effective support for chapters.
 
-All users are associated with a single chapter based upon their zip code. For the alpha release, there is no visibility outside one's current chapter.
+All users are associated with a single chapter based upon their zip code. For the alpha release, only a single chapter (Whatcom-WA) will be supported.
 
 The concept of a chapter, and an associated geographic boundary for shared data,  is a unique value proposition of GGC. To our knowledge, no other garden planning app has this capability.
 
@@ -26,18 +26,17 @@ Effective support means:
 * Users are comfortable sharing data only within the boundaries of their chapter.
 
 Design implications include:
-* Upon initial signin, the user must enter a zip code. This is used to identify their chapter. One cannot edit their zip code once entered in order to prevent users from "skipping around" to different chapters.
-* We maintain a mapping of zip codes to chapter names. Zip codes are initially mapped to county names, so there exists a chapter for every zip code.
-* Chapter information is derived from chapter member data.
+* Upon initial signin, the user must enter a zip code. This is used to identify their chapter. One cannot edit their zip code once entered in order to prevent users from "skipping around" to different chapters. For the alpha release, the only valid zip codes are those associated with Whatcom-WA.
+* We will implement a Firebase collection that maps zip codes to chapter names. Zip codes are initially mapped to county names, so there will exist a chapter for every zip code. The alpha release will not require this collection.
 
 ### 2. Effective support for garden planning.
 
 The alpha release provides the ability for users to easily define one or more gardens. Each garden consists of a number of beds. Beds contain plantings. Plantings consist of crops or varieties, plus several important dates and (potentially) observations.
 
-Garden planning is not, in general, a unique value proposition of GGC. There are many garden planning apps. Our goal is to be competitive with any other garden planning app with respect to the user experience.  There are a couple of value propositions unique to GGC due to Chapters.
+Garden planning is not, in general, a unique value proposition of GGC. There are many garden planning apps. Our goal is to be competitive with any other garden planning app with respect to the user experience.  In addition, there are a couple of value propositions unique to GGC due to Chapters.
 
 Effective support means:
-* Users find that GGC has an above threshold feature set for planning
+* Users find that GGC has an above threshold feature set for garden planning.
 * In general, users find GGC to be as easy (or hopefully easier) to use for planning than whatever they were doing before.
 * If some aspect of GGC planning is more complicated, then the additional complexity has a positive return on investment for users.
 
@@ -85,10 +84,11 @@ Design implications include:
 ## Features outside scope
 
 To clarify what will be in the alpha release, it is also useful to clarify what will not be in this release.  The excluded features include:
+* Chapters other than Whatcom-WA.
 * Allowing a user to be a member of multiple chapters.
 * Sharing of data beyond the members of a chapter.
 * A "public", web-based view of a garden that can be shared to anyone with the URL.
 * Climate data.
 * Chapter Chairs, who can moderate, promote, and otherwise manage the chapter.
 * Hashtags, and the ability to filter gardens, plantings, observations, etc by the hashtag.
-* Disconnected operation. The alpha release will require an internet connection to enable full capabilities. It will implement a local cache so it may be possible to provide read-only access to the garden plans and data when not connected to the internet.
+* Disconnected operation. The alpha release will require an internet connection to enable full capabilities. It might implement a local cache so it would be possible to provide read-only access to the garden plans and data when not connected to the internet.

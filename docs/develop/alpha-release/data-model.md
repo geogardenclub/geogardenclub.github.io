@@ -5,7 +5,7 @@ hide_table_of_contents: false
 
 # Data Model
 
-This page documents the data model intended to satisfy the Alpha release requirements.
+This page documents the data model intended to satisfy the alpha release requirements.
 
 ## Entities
 
@@ -13,15 +13,14 @@ In this document, "entity" refers to the fundamental forms of persistent data ob
 
 Entities are persisted through a set of Firebase collections. In general, each entity is a document that is stored in a corresponding collection: all of the Chapter entity documents are stored in a Firebase collection called Chapters, all of the Gardener entity documents are stored in a Firebase collection called Gardeners.  Unfortunately, the "News" entity documents are stored in a Firebase collection called "Newss" (with two s's at the end) so that the entity and collection name are different.
 
-In the ggc_app, there are Dart "domain" classes that mirror these Firebase collections, so there is a Dart class called "Chapter", a Dart class called "ChapterCollection", and so forth. These domain classes augment the set of fields with behaviors---methods that perform computation.  So, for example, the ChapterCollection class includes a GetChapter() method that takes a chapterID string and returns the Chapter instance associated with that ID.  Because the set of behaviors associated with a collection is constantly changing and expanding, only a subset will be documented here.
+In the ggc_app application, there are Dart "domain" classes that mirror these Firebase collections, so there is a Dart class called "Chapter", a Dart class called "ChapterCollection", and so forth. 
 
 To facilitate the design description, each field of an entity will be documented with one of the following "variants" R, O, or D:
 
-| Variant | Description |
-| --- |  --- |
-| R  | Required: The field value is stored as an explicit value in each document of the entity's collection, and all documents have a value for this field. |
-| O  | Optional: The field value may or may not exist in a given document associated with the collection.  |
-| D  | Derived: The field value is not stored explicitly in the collection associated with the entity, but is rather computed  by referring to documents associated with other collections. | 
+| Variant | Description                                                                                                                                          |
+|---------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| R       | Required: The field value is stored as an explicit value in each document of the entity's collection, and all documents have a value for this field. |
+| O       | Optional: The field value may or may not exist in a given document associated with the collection.                                                   | 
 
 Finally, the following documentation includes example documents (JSON objects) generated from the [DataModelMigrator](https://github.com/geogardenclub/data-model-migrator) application.
 
@@ -29,19 +28,14 @@ Finally, the following documentation includes example documents (JSON objects) g
 
 The Chapter entity contains the following fields:
 
-| Field | Type | R/O/D | Description |
-| ----  | ----- | ------ | -------- |
-| chapterID | `String` | R | A unique ID with the format `chapter-<chapterNum>` |
-| name | `String` | R | The name of the chapter, such as "Whatcom-WA" |
-| zipCodes | `List<ZipCode>` |  D | The Zip Codes associated with the chapter, derived from the ChapterZipMap. |
-| profilePicture | `String` |  R | The path to a profile picture for this chapter |
-| pictures | `List<String>` |  O | The paths for additional pictures of this chapter. |
-| gardenerIDs |  `List<GardenerID>` |  D | All of the gardeners associated with this chapter, derived from the Gardener collection. |
-| gardenIDs |  `List<GardenID>` | D | All of the gardens associated with this chapter, derived from the Garden collection. |
-| cropIDs | `List<CropID>` | D | All of the crops associated with this chapter, derived from the Planting collection. |
-| varietyIDs | `List<VarietyID>` |  D | All of the varieties associated with this chapter, derived from the Planting collection. |
-| availableSeedIDs* |  `List<SeedID>` |  D | All of the seeds that are currently known as available for sharing in this chapter, derived from the Planting collection.  |
-| lastUpdate | `DateTime` | R | A `DateTime` instance that timestamps the last update.  |
+| Field             | Type | R/O | Description                                                                |
+|-------------------| ----- | ------ |----------------------------------------------------------------------------|
+| chapterID         | `String` | R | A unique ID with the format `chapter-<chapterNum>`                         |
+| name              | `String` | R | The name of the chapter, such as "Whatcom-WA"                              |
+| zipCodes          | `List<ZipCode>` |  D | The zip codes associated with the chapter, derived from the ChapterZipMap. |
+| profilePicture    | `String` |  R | The path to a profile picture for this chapter                             |
+| pictures          | `List<String>` |  O | The paths for additional pictures of this chapter.                         |
+| lastUpdate        | `DateTime` | R | A `DateTime` instance that timestamps the last update.                     |
 
 Here is an example of a Chapter collection document from the migrated data:
 
@@ -79,7 +73,7 @@ For the alpha release, the data model does not include information about the sub
 
 Each User entity provides the following information:
 
-| Field | Type | R/O/D | Description |
+| Field | Type | R/O | Description |
 | ----  | ----- | ------ | -------- |
 | userID | `UserID` | R | A unique ID corresponding to the email address associated with this user.  |
 | chapterID | `ChapterID` | R | The chapterID associated with this Gardener. |
@@ -113,7 +107,7 @@ This does create some UI complexity, in that commercial seed vendors are not int
 
 Each Gardener entity provides the following information:
 
-| Field | Type | R/O/D | Description |
+| Field | Type | R/O | Description |
 | ----  | ----- | ------ | -------- |
 | gardenerID | `GardenerID` | R | A unique ID corresponding to the email address of this user.|
 | chapterID | `ChapterID` | R | The chapterID associated with this Gardener. |
@@ -121,9 +115,6 @@ Each Gardener entity provides the following information:
 | vendorName | `String` | O | If `isVendor`, then this string is present and specifies the full vendor name.   |
 | vendorShortName | `String` | O | If `isVendor`, then this string is present and specifies a short vendor name.   |
 | vendorURL | `String` | O | If `isVendor`, then this string is present and specifies a URL to the vendor site.   |
-| gardenIDs | `List<GardenID>` | D | The gardenIDs of the gardens owned by this gardener. |
-| numYears | `number` | D | The number of years (seasons) for which this gardener has gardens in this app |
-| numPlantings | `number` | D | The total number of Plantings by this gardener across all of their Gardens. |
 | masterGardener | `boolean` | O  |  `true` if this gardener is a Master Gardener. (This is an example "badge". There could be many others.) |
 | lastUpdate | `DateTime` | R | The DateTime object indicating the last update. |
 
@@ -159,10 +150,6 @@ The Garden entity contains the following fields:
 | profilePicture | `String` | The path to an image to be used as the profile picture for this garden. |
 | pictures | `List<String>` | A list of image paths. |
 | isVendor | `bool` | R | If `true`, then this is a commercial garden, not a home garden. |
-| bedIDs | `List<BedID>` | D | The Beds associated with this Garden.  |
-| plantingIDs | `List<PlantingID>` | D | The Plantings associated with this Garden. |
-| observationIDs | `List<ObservationID>` | D | The Observations associated with this Garden. |
-| numYears* | `number` | D | The number of years for which there is data associated with this Garden. | 
 | pictures | `List<Pictures>` | O | (Public) Pictures of this garden. | 
 | climateVictoryGarden | `boolean` | O |  An example "badge" associated with this garden.  |
 | lastUpdate | `DateTime` | R | The last update timestamp. |
@@ -192,7 +179,7 @@ In the alpha release, the access control capability enables a Gardener to allow 
 
 This capability is implemented by the Editor entity, which implements a mapping between a Garden and a Gardener:
 
-| Field | Type | R/O/D | Description |
+| Field | Type | R/O | Description |
 | ----  | ----- | ------ | -------- |
 | editorID | `String` | R | A unique ID with the format `editor-<chapterNum>-<editorNum>` |
 | chapterID | `ChapterID` | R | The ChapterID. |
@@ -218,13 +205,12 @@ Each Garden consists of a number of Beds.
 
 The Bed entity has the following conceptual structure.
 
-| Field | Type | R/O/D | Description |
+| Field | Type | R/O | Description |
 | ----  | ----- | ------ | -------- |
 | bedID | `BedID` | R | A unique ID with the format `bed-<chapterNum>-<gardenNum>-<bedNum>`. BedNums are unique within a Chapter and Garden and start at 200.  |
 | chapterID | `ChapterID` | R | The ChapterID. |
 | gardenID | `GardenID` | R | The garden associated with this Bed. |
 | name | `String` | R | The name associated with this Bed. |
-| plantingIDs | `List<PlantingID>` | D | The Plantings associated with this Bed. |
 | lastUpdate | `DateTime` | R | A `DateTime` instance that timestamps the last update.  |
 
 Here is an example Bed document:
@@ -247,7 +233,7 @@ It is common during the garden planning process to first design the garden at th
 
 The Planting entity has the following conceptual structure.
 
-| Field | Type | R/O/D | Description |
+| Field | Type | R/O | Description |
 | ----  | ----- | ------ | -------- |
 | plantingID | `PlantingID` | R | A unique ID with the format `planting-<chapterNum>-<gardenNum>-<plantingNum>`. PlantingNums are unique within a Chapter and Garden and start at 1000.  |
 | chapterID | `ChapterID` | R | The ChapterID. |
@@ -307,14 +293,13 @@ It is possible for multiple gardeners (either home or commercial) to produce See
 
 The Variety entity has the following conceptual structure.
 
-| Field | Type | R/O/D | Description |
+| Field | Type | R/O | Description |
 | ----  | ----- | ------ | -------- |
 | varietyID | `VarietyID` | R | A unique ID with the format `variety-chapterNum-varietyNum`. VarietyNums are unique within a Chapter and start at 900.  |
 | chapterID | `ChapterID` | R | The ChapterID. |
 | cropID | `CropID` | R | The Crop associated with this Variety. |
 | cropName | `String` | R | The name associated with the above CropID. |
 | name | `String` | R | The name associated with this Variety. |
-| availableSeedIDs | `List<SeedID>` | D | A list of all available Seeds that will grow this Variety. |
 | lastUpdate | `DateTime` | R | A `DateTime` instance that timestamps the last update.  |
 
 Here is a sample Variety document:
@@ -338,13 +323,12 @@ Each Variety is associated with a single Crop.
 
 The Crop entity has the following conceptual structure.
 
-| Field | Type | R/O/D | Description |
+| Field | Type | R/O | Description |
 | ----  | ----- | ------ | -------- |
 | cropID | `CropID` | R | A unique ID with the format `crop-<chapterNum>-<cropNum>`. CropNums are unique within a Chapter and start at 500.  |
 | chapterID | `ChapterID` | R | The ChapterID. |
 | familyID | `FamilyID` | R | The plant Family associated with this Crop. |
 | name | `String` | R | The name associated with this Crop. |
-| VarietyIDs | `List<VarietyID>` | D | A list of all Varieties associated with this Crop in this Chapter. |
 | lastUpdate | `DateTime` | R | A `DateTime` instance that timestamps the last update.  |
 
 Here is an example Crop document:
@@ -367,14 +351,12 @@ The Family entity is one of the few "global" collections in GGC. In other words,
 
 The Family entity has the following conceptual structure.
 
-| Field | Type | R/O/D | Description |
+| Field | Type | R/O | Description |
 | ----  | ----- | ------ | -------- |
 | familyID | `FamilyID` | R | A unique ID with the format `family-<familyNum>`. FamilyNums are unique and start at 400.  |
 | formal | `String` | R | The formal name associated with this Family. |
 | common | `String` | R | The common name associated with this Family. |
 | examples | `String` | R | A documentation string providing examples of Crops within this Family. |
-| cropIDs | `List<CropID>` | D | A list of all Crops associated with this Family in this Chapter. |
-| varietyIDs | `List<VarietyID>` | D | A list of all Varieties associated with this Family in this Chapter. |
 | lastUpdate | `DateTime` | R | A `DateTime` instance that timestamps the last update.  |
 
 Note that computing the cropIDs or varietyIDs associated with a familyID requires specifying a chapterID.
@@ -407,7 +389,7 @@ To support these requirements, we define five outcome types: germination, yield,
 
 The Family entity has the following conceptual structure.
 
-| Field | Type | R/O/D | Description |
+| Field | Type | R/O | Description |
 | ----  | ----- | ------ | -------- |
 | outcomeID | `OutcomeID` | R | A unique ID with the format `outcome-<chapterNum>-<gardenNum>-<outcomeNum>`. OutcomeNums are equal to the PlantingNum of the Planting associated with this Outcome. |
 | chapterID | `ChapterID` | R | The ChapterID. |
@@ -463,7 +445,7 @@ In other words, our data model can represent a "chain" of Plantings, in which on
 
 The Seed entity has the following conceptual structure:
 
-| Field | Type | R/O/D | Description |
+| Field | Type | R/O | Description |
 | ----  | ----- | ------ | -------- |
 | seedID | `SeedID` | R | A unique ID with the format `seed-<chapterNum>-<gardenNum>-<plantingNum>-<seedNum>`. SeedNums are unique within a Chapter and Garden and start at 000. |
 | chapterID | `ChapterID` | R | The ChapterID. |
@@ -503,7 +485,7 @@ An observation is a note (and, typically, a picture) taken by a gardener regardi
 
 The Observation entity has the following conceptual structure.
 
-| Field | Type | R/O/D | Description |
+| Field | Type | R/O | Description |
 | ----  | ----- | ------ | -------- |
 | observationID | `ObservationID` | R | A unique ID with the format `observation-<chapterNum>-<gardenNum>-<observationNum>`.  ObservationNums are unique within a Chapter and Garden and start at 700.  |
 | chapterID | `ChapterID` | R | The ChapterID. |
@@ -564,9 +546,55 @@ In addition, we might want to have tags  that provide "meta" information:
 | Public | Indicate if an observation can appear on the public page. |
 | Help wanted |  Indicates if the Observation describes an issue or problem for which the gardener needs help. For example, "What is this pest?" |
 
-## Miscellaneous Design Issues
+## Collections
 
-### ChapterZipMap
+As noted above, each entity is represented in the ggc_app as a Dart class, and made persistent as a document in Firebase. 
+
+Groups of entity instances of the same type are also represented in the ggc_app as a Dart class, and made persistent as a collection in Firebase.   So, for example, in ggc_app, there is a Dart class called "Chapter" (to represent individual instances of that entity) and a Dart class called "ChapterCollection" (to manage a set of Chapter instances). On the Firebase side, there is a collection called Chapters, and each document in that collection has the same structure as the corresponding Dart class. We use [freezed](https://pub.dev/packages/freezed) to support the translation between the Dart class instance for an entity and its persistent representation as a Firebase document in JSON format.
+
+That said, not all Collections in the ggc_app are created equally!  Consider the following typical query:
+
+*"What are the names of the crops that have been planted by johnson@hawaii.edu?"*
+
+The answer to this query involves finding all the Gardens owned by johnson@hawaii.edu, then retrieving all of the Plantings associated with those Gardens, then building a set of Crop entities from those Plantings, then mapping over that set of Crop entities to build a list of crop names, then sorting that list of names into alphabetical order, and finally returning that list.
+
+In this case, three different collections (Gardens, Plantings, and Crops) must be manipulated to satisfy the query. Other queries could require the manipulation of even more collections.
+
+These kinds of queries represent the "business logic" of the application. In ggc_app, we want to follow the software engineering best practice of "separating business logic from user interface logic". To do that, ggc_app defines three "top-level" collections: UserCollection, GardenCollection, and ChapterCollection. Whenever possible, the UI can simply call a method on one of those top-level collections to obtain the data to present in the UI. So, if a UI component needs to present a list of crop names planted by a user, it can simply call `users.getCrops(userID)`. The `getCrops()` method takes care of accessing all of the additional collections to obtain the desired data. 
+
+To make this more concrete, here are a sampling of the methods associated with the ggc_app "top-level" collections.
+
+### ChapterCollection
+
+| Method signature | Return value                      |
+| ---------------- |-----------------------------------|
+| `List<String> getChapterIDs()`  | All chapter IDs                   |
+| `List<String> getAssociatedUserIDs(String chapterID)` | All users in this chapter         |
+| `List<String> getChapterNames()` | Chapter names                     |
+| `String getChapterIDFromName(String name)` | (Since chapter names are unique.) |
+
+### UserCollection
+
+| Method signature | Return value                      |
+| ---------------- |-----------------------------------|
+| `User getUser(String userID)` | Return the User entity |
+| `bool areUserNames(List<String> userNames)` | Verify the list of usernames |
+| `int getNumNews(userID)` | Number of news items for this user. |
+| `List<String> getAssociatedGardenNames(userID)` | Gardens associated with this user. |
+
+### GardenCollection
+
+| Method signature | Return value                                                |
+| ---------------- |-------------------------------------------------------------|
+| `List<Garden> getGardens({String? userID, String? chapterID})` | The gardens associated with either the user or the chapter. | 
+| `String getOwnerUserID(String gardenID)` | The garden owner.                                           |
+| `List<String> getEditorUserIDs(String gardenID)` | The garden editors.                                         |
+| `bool _userIsAssociated(String gardenID, String userID)` | Is this user an owner or editor of this garden              |
+| `void setGarden(Garden garden)` | Update the Firebase document associated with this garden. |
+
+When doing UI design, if you find yourself writing more than a couple of lines of code to produce the data for display, you should consider whether this code should be made "business logic" and provided as a method in either the ChapterCollection, GardenCollection, or UserCollection.
+
+## ChapterZipMap
 
 In the alpha release, the geographic region associated with a chapter is defined through a collection called "ChapterZipMap" that maps US zip codes to their corresponding chapter name and chapterID, where the chapter name is constructed from the county and state associated with the zip code. For example, the zip code "96822" maps to the chapter named "Honolulu-HI".  We want chapter names to be unique, and so we add the state to the county name because there are many county names that occur in more than one state (i.e. 31 states have a "Washington" county).  This collection also defines the chapterID. A portion of the documents in the collection might look like this:
 
@@ -605,6 +633,8 @@ Here is an example excerpt of the JSON file for initializing the ChapterZipMap c
   }
 ]
 ```
+
+## Other Data Model issues
 
 ### Privacy
 
