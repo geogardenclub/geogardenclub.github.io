@@ -29,13 +29,13 @@ Finally, the following documentation includes example documents (JSON objects) g
 The Chapter entity contains the following fields:
 
 | Field             | Type | R/O | Description                                                                |
-|-------------------| ----- | ------ |----------------------------------------------------------------------------|
-| chapterID         | `String` | R | A unique ID with the format `chapter-<chapterNum>`                         |
-| name              | `String` | R | The name of the chapter, such as "Whatcom-WA"                              |
-| zipCodes          | `List<ZipCode>` |  D | The zip codes associated with the chapter, derived from the ChapterZipMap. |
-| profilePicture    | `String` |  R | The path to a profile picture for this chapter                             |
-| pictures          | `List<String>` |  O | The paths for additional pictures of this chapter.                         |
-| lastUpdate        | `DateTime` | R | A `DateTime` instance that timestamps the last update.                     |
+|-------------------| ----- |-----|----------------------------------------------------------------------------|
+| chapterID         | `String` | R   | A unique ID with the format `chapter-<chapterNum>`                         |
+| name              | `String` | R   | The name of the chapter, such as "Whatcom-WA"                              |
+| zipCodes          | `List<ZipCode>` | R   | The zip codes associated with the chapter, derived from the ChapterZipMap. |
+| profilePicture    | `String` | R   | The path to a profile picture for this chapter                             |
+| pictures          | `List<String>` | O   | The paths for additional pictures of this chapter.                         |
+| lastUpdate        | `DateTime` | R   | A `DateTime` instance that timestamps the last update.                     |
 
 Here is an example of a Chapter collection document from the migrated data:
 

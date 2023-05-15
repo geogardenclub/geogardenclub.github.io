@@ -16,18 +16,46 @@ It is important that you are able to run `flutter doctor` without error:
 ```shell
 % flutter doctor
 Doctor summary (to see all details, run flutter doctor -v):
-[✓] Flutter (Channel stable, 3.7.11, on macOS 13.3.1 22E261 darwin-arm64, locale en-US)
+[✓] Flutter (Channel stable, 3.10.0, on macOS 13.3.1 22E772610a darwin-arm64, locale en-US)
 [✓] Android toolchain - develop for Android devices (Android SDK version 33.0.1)
-[✓] Xcode - develop for iOS and macOS (Xcode 14.2)
+[✓] Xcode - develop for iOS and macOS (Xcode 14.3)
 [✓] Chrome - develop for the web
 [✓] Android Studio (version 2021.3)
 [✓] IntelliJ IDEA Ultimate Edition (version 2023.1)
-[✓] Connected device (2 available)
-[✓] HTTP Host Availability
+[✓] Connected device (3 available)
+[✓] Network resources
 
 • No issues found!
-
 ```
+
+## XCode 14.3 configuration
+
+To my great dismay, ggc_app does not build for the iOS simulator using XCode 14.3 without some additional configuration. The only way I have found to get the ggc_app to run on the iOS simulator is by installing the libarclite library manually into XCode.  Here are the steps:
+
+1. *Open the Terminal app and go to the XCode library folder:*
+```shell
+cd /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/
+```
+
+2. *Allow the Terminal app to create directories in "protected" areas such Applications/.*  To do this, go to `System Preferences > Security & Privacy > Privacy > Full Disk Access`, and add the Terminal app to the list of apps that have full disk access by toggling the radio button next to the Terminal app.  You will need to enter your password to make this change. Afterwards, the Terminal app will need to restart for these changes to take effect.
+
+3. *Add the libarclite files to the XCode library folder:*
+```shell
+sudo mkdir arc
+cd  arc
+sudo git clone https://github.com/kamyarelyasi/Libarclite-Files.git .
+sudo chmod +x *
+```
+
+:::info Additional shenanigans
+The above information should be enough for you to proceed. However, I want to document some additional details in case they become relevant in the future.
+
+First, after doing the above, when trying to deploy to the iOS Simulator, I got an XCode error that  CFBundleVersion was invalid.  I fixed this (and related errors) by editing the `ios/Runner/Info.plist` file manually, and setting both CFBundleVersion and CFBundleShortVersionString to "1". Since this file is version controlled, and does not appear to be affected by running `pod install` etc, I don't think you need to worry about it.
+
+Second, this approach to resolving XCode 14.3 problems was found [here](https://stackoverflow.com/a/75924853/2038293). What you see is that the above instructions only resolving building, but not "archiving".  Additional steps are provided to support archiving. Since I don't know anything about archiving, I didn't do this additional step, but I want to note it while I am thing about it. 
+
+Finally, in case we need to look at these changes more closely in the future, the commit is [here](https://github.com/geogardenclub/ggc_app/commit/ef53b52a217ca4eed1307235d8da84dad607c5db).
+:::
 ## ggc_app
 
 To install the app, first clone the sources from <https://github.com/geogardenclub/ggc_app>.
