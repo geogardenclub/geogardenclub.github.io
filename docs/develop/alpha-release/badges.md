@@ -86,17 +86,7 @@ Levels:
 
 <Badges>Permacultural</Badges>
 
-Criteria: The garden exhibits permacultural practices, including:
-* Collecting rainwater or greywater and using it to replace city water in the garden;
-* Intercropping and/or companion planting
-* Sheet mulching
-* No-till or reduced-till gardening
-* Planting perennial crops
-* Planting native plants
-* Planting cover crops
-* Using organic fertilizers
-* Using organic and/or integrated pest control methods
-* Using composting and/or vermicomposting
+Criteria: The garden exhibits one or more of the following permacultural practices, including: (1) Collecting rainwater or greywater and using it to replace city water in the garden, (2) Intercropping and/or companion planting, (3) Sheet mulching, (4) No-till or reduced-till gardening, (5) Planting perennial crops, (6) Planting native plants, (7) Planting cover crops, (8) Using organic fertilizers, (9) Using organic and/or integrated pest control methods, (10) Using composting and/or vermicomposting. 
 
 Levels:
 * Level 1: The garden implements at least one permaculture practice during one garden season. (Self-awarded.)
@@ -207,22 +197,16 @@ Levels:
 Criteria: The gardener has provided educational experiences such as leading workshops, writing articles, or working as a garden educator in schools.
 
 Levels:
-Level 1: The gardener has provided at least one educational experience of the given type. (Self-awarded.)
-Level 2: The gardener has provided at least three educational experiences of the given type. (Requires photo observations and/or links as evidence. Self-awarded.)
-Level 3: The gardener has provided at least five educational experiences of the given type. (Requires photo observations as evidence. Chapter Chair must verify.)
+* Level 1: The gardener has provided at least one educational experience of the given type. (Self-awarded.)
+* Level 2: The gardener has provided at least three educational experiences of the given type. (Requires photo observations and/or links as evidence. Self-awarded.)
+* Level 3: The gardener has provided at least five educational experiences of the given type. (Requires photo observations as evidence. Chapter Chair must verify.)
 
 ### Pollinator Protector
 
 <Badges>Pollinator Protector</Badges>
 
 Criteria: The gardener has implemented pollinator-friendly garden by practices such as:
-* Use a wide variety of plants that bloom from early spring into late fall.
-* Avoid modern hybrid flowers, especially those with "doubled" flowers.
-* Eliminate pesticides whenever possible.
-* Include larval host plants in your landscape.
-* Create a damp salt lick for butterflies and bees.
-* Leave dead trees, or at least an occasional dead limb, in order to provide essential nesting sites for native bees.
-* Add to nectar resources by providing a hummingbird feeder.
+(1) Using a wide variety of plants that bloom from early spring into late fall, (2) Avoiding modern hybrid flowers, especially those with "doubled" flowers, (3) Eliminating pesticides whenever possible, (4) Including larval host plants in your landscape, (5) Creating a damp salt lick for butterflies and bees, (6) Leaving dead trees, or at least an occasional dead limb, in order to provide essential nesting sites for native bees, and (7) Adding to nectar resources by providing a hummingbird feeder.
 
 Reference: <https://www.fs.usda.gov/managing-land/wildflowers/pollinators/gardening>
 
@@ -288,6 +272,10 @@ Levels:
 * Level 3: The gardener has served as a Chapter Chair for three or more years. (Automatically awarded.)
 
 ## Chapter badges
+
+Here are some proposals for chapter badges to be displayed in the Chapter Summary card.
+
+Note that we could extend these to many of the badges associated with gardens and gardeners, I provide these two as examples.
 
 ### Pesticide Resistors
 
