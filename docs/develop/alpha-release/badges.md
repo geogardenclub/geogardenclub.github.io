@@ -52,6 +52,8 @@ export const Badges = ({children}) => (
 
 <Badges>Pesticide Free</Badges>
 
+At some point, it might be cool to hire an artist (Andy?) to implement icons for each of the badges. 
+
 Finally, we will need to implement a "Badges" page that provides detailed information about each badge, including a description of the badge, the criteria for achieving the badge at each level, and the gardens, members, and/or chapters who have achieved the badge.
 
 ## Garden badges
@@ -79,6 +81,27 @@ Levels:
 * Level 1: Added to the database, and implements at least one of the five practices for at least one growing season. (Self-awarded.)
 * Level 2: Added to the database, and implements at least three of the five practices for at least three growing seasons. (Requires data on three growing seasons. Self-awarded.)
 * Level 3: Added to the database, and implements all five practices for at least five growing seasons. (Requires data on five growing seasons. Chapter Chair must verify.) 
+
+### Permacultural
+
+<Badges>Permacultural</Badges>
+
+Criteria: The garden exhibits permacultural practices, including:
+* Collecting rainwater or greywater and using it to replace city water in the garden;
+* Intercropping and/or companion planting
+* Sheet mulching
+* No-till or reduced-till gardening
+* Planting perennial crops
+* Planting native plants
+* Planting cover crops
+* Using organic fertilizers
+* Using organic and/or integrated pest control methods
+* Using composting and/or vermicomposting
+
+Levels:
+* Level 1: The garden implements at least one permaculture practice during one garden season. (Self-awarded.)
+* Level 2: The garden implements at least three permaculture practices during two garden seasons. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The garden implements at least five permaculture practices during five garden seasons. (Requires photo observations as evidence. Chapter Chair must verify.)
 
 ## Gardener badges
 
@@ -126,10 +149,8 @@ Criteria: The gardener has experience composting.
 
 Levels:
 * Level 1: The gardener has produced compost to support their garden's fertilizer needs during at least one growing season. (Self-awarded.)
-* Level 2: The gardener has produced compost to support their garden's fertilizer needs during at least two growing seasons. (Self-awarded.)
-* Level 3: The gardener has produced compost to support their garden's fertilizer needs during at least five growing seasons. (Chapter Chair must verify.)
-
-*Note: The level criteria for this badge needs to be improved, but I don't know enough about composting to know how to do it.*
+* Level 2: The gardener has produced compost to support their garden's fertilizer needs during at least two growing seasons. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has produced compost to support their garden's fertilizer needs during at least five growing seasons. (Requires photo observations as evidence. Chapter Chair must verify.)
 
 ### Bee Buddy
 
@@ -139,8 +160,8 @@ Criteria: The gardener has experience supporting pollinators.
 
 Levels:
 * Level 1: The gardener has kept and cared for bees for at least one season to produce honey and/or support crop pollination. (Self-awarded.)
-* Level 2: The gardener has kept and cared for bees for at least two seasons to produce honey and/or support crop pollination. (Self-awarded.)
-* Level 3: The gardener has kept and cared for bees for at least five seasons to produce honey and/or support crop pollination. (Chapter Chair must verify.)
+* Level 2: The gardener has kept and cared for bees for at least two seasons to produce honey and/or support crop pollination. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has kept and cared for bees for at least five seasons to produce honey and/or support crop pollination. (Requires photo observations as evidence. Chapter Chair must verify.)
 
 ### Vermiculture Virtuoso
 
@@ -151,8 +172,8 @@ Criteria: The gardener has demonstrated experience with vermicomposting.
 
 Levels:
 * Level 1: The gardener has kept and cared for worms for at least one season to produce worm castings and/or worm tea for your garden. (Self-awarded.)
-* Level 2: The gardener has kept and cared for worms for at least two seasons to produce worm castings and/or worm tea for your garden. (Self-awarded.)
-* Level 3: The gardener has kept and cared for worms for at least five seasons to produce worm castings and/or worm tea for your garden. (Chapter Chair must verify.)
+* Level 2: The gardener has kept and cared for worms for at least two seasons to produce worm castings and/or worm tea for your garden. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has kept and cared for worms for at least five seasons to produce worm castings and/or worm tea for your garden. (Requires photo observations as evidence. Chapter Chair must verify.)
 
 ### Aquaponics Ace
 
@@ -163,8 +184,8 @@ Criteria: The gardener has demonstrated experience with aquaponics.
 
 Levels:
 * Level 1: The gardener has kept and cared for fish and plants in an aquaponics system for at least one season to produce food for their garden. (Self-awarded.)
-* Level 2: The gardener has kept and cared for fish and plants in an aquaponics system for at least two seasons to produce food for their garden. (Self-awarded.)
-* Level 3: The gardener has kept and cared for fish and plants in an aquaponics system for at least five seasons to produce food for their garden. (Chapter Chair must verify.)
+* Level 2: The gardener has kept and cared for fish and plants in an aquaponics system for at least two seasons to produce food for their garden. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has kept and cared for fish and plants in an aquaponics system for at least five seasons to produce food for their garden. (Requires photo observations as evidence. Chapter Chair must verify.)
 
 ### Herbalist Hero
 
@@ -174,8 +195,8 @@ Criteria: The gardener has grown medicinal herbs and created remedies from them.
 
 Levels:
 * Level 1: The gardener has grown at least one medicinal herb and created a remedy from it. (Self-awarded.)
-* Level 2: The gardener has grown at least three medicinal herbs and created remedies from them. (Self-awarded.)
-* Level 3: The gardener has grown at least five medicinal herbs and created remedies from them. (Chapter Chair must verify.)
+* Level 2: The gardener has grown at least three medicinal herbs and created remedies from them. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has grown at least five medicinal herbs and created remedies from them. (Requires photo observations as evidence. Chapter Chair must verify.)
 
 ### Educator Extraordinaire
 
@@ -185,6 +206,107 @@ Levels:
 
 Criteria: The gardener has provided educational experiences such as leading workshops, writing articles, or working as a garden educator in schools.
 
+Levels:
 Level 1: The gardener has provided at least one educational experience of the given type. (Self-awarded.)
-Level 2: The gardener has provided at least three educational experiences of the given type. (Self-awarded.)
-Level 3: The gardener has provided at least five educational experiences of the given type. (Chapter Chair must verify.)
+Level 2: The gardener has provided at least three educational experiences of the given type. (Requires photo observations and/or links as evidence. Self-awarded.)
+Level 3: The gardener has provided at least five educational experiences of the given type. (Requires photo observations as evidence. Chapter Chair must verify.)
+
+### Pollinator Protector
+
+<Badges>Pollinator Protector</Badges>
+
+Criteria: The gardener has implemented pollinator-friendly garden by practices such as:
+* Use a wide variety of plants that bloom from early spring into late fall.
+* Avoid modern hybrid flowers, especially those with "doubled" flowers.
+* Eliminate pesticides whenever possible.
+* Include larval host plants in your landscape.
+* Create a damp salt lick for butterflies and bees.
+* Leave dead trees, or at least an occasional dead limb, in order to provide essential nesting sites for native bees.
+* Add to nectar resources by providing a hummingbird feeder.
+
+Reference: <https://www.fs.usda.gov/managing-land/wildflowers/pollinators/gardening>
+
+Levels:
+* Level 1: The gardener has implemented at least one pollinator-friendly practice during one garden season. (Self-awarded.)
+* Level 2: The gardener has implemented at least three pollinator-friendly practices during two garden seasons. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has implemented at least five pollinator-friendly practices during five garden seasons. (Requires photo observations as evidence. Chapter Chair must verify.)
+
+### Orchard Orchestrator
+
+<Badges>Orchard Orchestrator</Badges>
+
+Criteria: The gardener has demonstrated experience with orchard management.
+
+Levels:
+* Level 1: The gardener has managed at least one fruit tree for at least one season, and obtained a harvest. (Self-awarded.)
+* Level 2: The gardener has managed at least three fruit trees for at least two seasons, and obtained a harvest from all trees. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has managed at least five fruit trees for at least five seasons, and obtained a harvest in all cases. (Requires photo observations as evidence. Chapter Chair must verify.)
+
+### Permaculture Pro
+
+<Badges>Permaculture Pro</Badges>
+
+Criteria: The gardener has demonstrated experience implementing permaculture practices in their gardens.
+
+This badge is awarded automatically to gardeners based upon the Permacultural badges associated with their gardens. So, if any gardens owned by this gardener have a Permacultural badge, then this gardener automatically gets the Permaculture Pro badge at the highest level associated with any of their gardens. 
+
+### Seed Saving Specialist
+
+<Badges>Seed Saving Specialist</Badges>
+
+Criteria: The gardener has demonstrated experience with seed saving practices, including: 
+* Harvesting seeds from plants
+* Drying seeds
+* Storing seeds
+* Germinating seeds
+
+Levels:
+* Level 1: The gardener has saved seeds from at least one plant during one garden season and successfully grown plants from them in a later season. (Self-awarded.)
+* Level 2: The gardener has saved (and later used) seeds from at least three plants during two garden seasons. Furthermore, the gardener must have shared seeds from at least one plant with another gardener. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has saved and shared seeds from at least five plants for at least three garden seasons. (Requires photo observations as evidence. Chapter Chair must verify.)
+
+### Community Cultivator
+
+<Badges>Community Cultivator</Badges>
+
+Criteria: The gardener has demonstrated experience with community gardening. 
+
+Levels:
+* Level 1: The gardener has participated in at least one community garden project for one season. (Self-awarded.)
+* Level 2: The gardener has participated in at least one community garden projects for at least two seasons. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has participated in at least one community garden project for at least three seasons, and has served in a leadership role in at least one of those projects. (Requires photo observations as evidence. Chapter Chair must verify.)
+
+### Chapter Chair
+
+<Badges>Chapter Chair</Badges>
+
+Criteria: The gardener has served as a Chapter Chair for a garden chapter.
+
+Levels:
+* Level 1: The gardener has served as a Chapter Chair for one year. (Automatically awarded.)
+* Level 2: The gardener has served as a Chapter Chair for two years. (Automatically awarded.)
+* Level 3: The gardener has served as a Chapter Chair for three or more years. (Automatically awarded.)
+
+## Chapter badges
+
+### Pesticide Resistors
+
+<Badges>Pesticide Resistors</Badges>
+
+Criteria: The chapter has demonstrated a commitment to avoiding the use of pesticides in their gardens.
+
+Levels:
+* Level 1: At least 50% of the chapter gardens have achieved a Pesticide Free badge. (Automatically awarded.)
+* Level 2: At least 75% of the chapter gardens have achieved a Pesticide Free badge. (Automatically awarded.)
+* Level 3: All chapter gardens have achieved a Pesticide Free badge. (Automatically awarded.)
+
+### Climate Victors 
+
+<Badges>Climate Victors</Badges>
+
+Criteria: The chapter has demonstrated a commitment to creating Climate Victory Gardens.
+
+Levels: 
+* Level 1: At least 50% of the chapter gardens have achieved a Climate Victory Garden badge. (Automatically awarded.)
+* Level 2: At least 75% of the chapter gardens have achieved a Climate Victory Garden badge. (Automatically awarded.)
+* Level 3: All chapter gardens have achieved a Climate Victory Garden badge. (Automatically awarded.)
