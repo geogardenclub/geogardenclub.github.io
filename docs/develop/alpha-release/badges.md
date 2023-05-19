@@ -22,7 +22,7 @@ The three types are: garden, gardener, and chapter.  Garden badges reflect the c
 
 Each badge can be achieved at three levels of increasing sophistication and/or expertise. Level 1 badges are relatively easy to achieve, and in many cases can be "self-awarded" by the gardener. Level 2 and Level 3 badges indicate increasing levels of expertise or accomplishment with respect to the badge subject. Level 2 and Level 3 badges require some supporting documentation (i.e. outcome and/or planting data) and/or verification by a chapter chair.  This means that "confidence" in the validity of the badge increases at higher levels. 
 
-Levels are visually represented by the color scheme associated with the badge. It would be nice to have gold, silver, and bronze backgrounds, but gold and bronze colors are difficult to distinguish in practice. An alternative is to use a color palette involving dark gold, light gold, and white. For example:
+Levels are visually represented by the color scheme associated with the badge. It would be nice to have gold, silver, and bronze backgrounds, but gold and bronze colors are difficult to distinguish in practice. One alternative is to use a color palette involving dark gold, light gold, and white. For example:
 
 export const Badge = ({children, background, color, bordercolor}) => (
 <span style={{ backgroundColor: background, borderRadius: '10px', borderColor: bordercolor, borderStyle: 'solid', color: color, padding: '0.5rem', fontWeight: 700 }}>
@@ -52,7 +52,7 @@ export const Badges = ({children}) => (
 
 <Badges>Pesticide Free</Badges>
 
-At some point, it might be cool to hire an artist (Andy?) to implement icons for each of the badges. 
+We'll use this approach in this document. Another approach would be to stack 1-3 small stars over the badge.  This would enable each badge to have a single design and any color, which might be visually more appealing. At some point, it might be cool to hire an artist (Andy?) to implement icons for each of the badges (or find some stock icons at The Noun Project). 
 
 Finally, we will need to implement a "Badges" page that provides detailed information about each badge, including a description of the badge, the criteria for achieving the badge at each level, and the gardens, members, and/or chapters who have achieved the badge.
 
