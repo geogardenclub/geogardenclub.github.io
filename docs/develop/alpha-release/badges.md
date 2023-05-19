@@ -146,7 +146,7 @@ Levels:
 
 <Badges>Bee Buddy</Badges>
 
-Criteria: The gardener has experience supporting pollinators.
+Criteria: The gardener has experience caring for bees.
 
 Levels:
 * Level 1: The gardener has kept and cared for bees for at least one season to produce honey and/or support crop pollination. (Self-awarded.)
@@ -161,9 +161,9 @@ Levels:
 Criteria: The gardener has demonstrated experience with vermicomposting.
 
 Levels:
-* Level 1: The gardener has kept and cared for worms for at least one season to produce worm castings and/or worm tea for your garden. (Self-awarded.)
-* Level 2: The gardener has kept and cared for worms for at least two seasons to produce worm castings and/or worm tea for your garden. (Requires photo observations as evidence. Self-awarded.)
-* Level 3: The gardener has kept and cared for worms for at least five seasons to produce worm castings and/or worm tea for your garden. (Requires photo observations as evidence. Chapter Chair must verify.)
+* Level 1: The gardener has kept and cared for worms for at least one season to produce worm castings and/or worm tea for a garden. (Self-awarded.)
+* Level 2: The gardener has kept and cared for worms for at least two seasons to produce worm castings and/or worm tea for a garden. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has kept and cared for worms for at least five seasons to produce worm castings and/or worm tea for a garden. (Requires photo observations as evidence. Chapter Chair must verify.)
 
 ### Aquaponics Ace
 
@@ -238,11 +238,7 @@ This badge is awarded automatically to gardeners based upon the Permacultural ba
 
 <Badges>Seed Saving Specialist</Badges>
 
-Criteria: The gardener has demonstrated experience with seed saving practices, including: 
-* Harvesting seeds from plants
-* Drying seeds
-* Storing seeds
-* Germinating seeds
+Criteria: The gardener has demonstrated experience with seed saving practices, including: (1) Harvesting seeds from plants, (2) Drying seeds, (3) Storing seeds, (4) Germinating seeds, (5) Providing seeds to other members of the community.
 
 Levels:
 * Level 1: The gardener has saved seeds from at least one plant during one garden season and successfully grown plants from them in a later season. (Self-awarded.)
@@ -257,7 +253,7 @@ Criteria: The gardener has demonstrated experience with community gardening.
 
 Levels:
 * Level 1: The gardener has participated in at least one community garden project for one season. (Self-awarded.)
-* Level 2: The gardener has participated in at least one community garden projects for at least two seasons. (Requires photo observations as evidence. Self-awarded.)
+* Level 2: The gardener has participated in at least one community garden project for at least two seasons. (Requires photo observations as evidence. Self-awarded.)
 * Level 3: The gardener has participated in at least one community garden project for at least three seasons, and has served in a leadership role in at least one of those projects. (Requires photo observations as evidence. Chapter Chair must verify.)
 
 ### Chapter Chair
