@@ -16,13 +16,15 @@ The alpha release will implement an initial version of a badge system. This badg
 
 ## Design principles
 
-Badges come in three types and three levels. 
+### Types
 
-The three types are: garden, gardener, and chapter.  Garden badges reflect the characteristics of a garden across all of its growing seasons.  Gardener badges reflect achievements of a gardener across all of the gardens with which they are associated.  Finally, chapter badges reflect the achievements of a chapter across all of its gardens and members.
+There are three types of badges: garden, gardener, and chapter.  Garden badges reflect the characteristics of a garden across all of its growing seasons.  Gardener badges reflect achievements of a gardener across all of the gardens with which they are associated.  Finally, chapter badges reflect the achievements of a chapter across all of its gardens and members.
 
-Each badge can be achieved at three levels of increasing sophistication and/or expertise. Level 1 badges are relatively easy to achieve, and in many cases can be "self-awarded" by the gardener. Level 2 and Level 3 badges indicate increasing levels of expertise or accomplishment with respect to the badge subject. Level 2 and Level 3 badges require some supporting documentation (i.e. outcome and/or planting data) and/or verification by a chapter chair.  This means that "confidence" in the validity of the badge increases at higher levels. 
+### Levels
 
-Levels are visually represented by the color scheme associated with the badge. It would be nice to have gold, silver, and bronze backgrounds, but gold and bronze colors are difficult to distinguish in practice. One alternative is to use a color palette involving dark gold, light gold, and white. For example:
+Each badge can be achieved at three levels of increasing sophistication and/or expertise. Level 1 badges are relatively easy to achieve, and in some cases can be "self-awarded" by the gardener. Level 2 and Level 3 badges indicate increasing levels of expertise or accomplishment with respect to the badge subject. Level 2 and Level 3 badges require some supporting documentation (i.e. outcome and/or planting data) and/or verification by a chapter chair.  This means that "confidence" in the validity of the badge increases at higher levels. 
+
+Levels will be visually represented in some way. For the purpose of this document, we will use the following approach, where a Level 1 badge has a white background, a Level 2 badge has a light yellow background, and a Level 3 badge has a dark yellow background:
 
 export const Badge = ({children, background, color, bordercolor}) => (
 <span style={{ backgroundColor: background, borderRadius: '10px', borderColor: bordercolor, borderStyle: 'solid', color: color, padding: '0.5rem', fontWeight: 700 }}>
@@ -44,21 +46,43 @@ export const Level1Badge = ({children}) => (
 
 export const Badges = ({children}) => (
 <p>
-<Level3Badge>{children}</Level3Badge> &nbsp;
-<Level2Badge>{children}</Level2Badge> &nbsp;
 <Level1Badge>{children}</Level1Badge> &nbsp;
+<Level2Badge>{children}</Level2Badge> &nbsp;
+<Level3Badge>{children}</Level3Badge> &nbsp;
 </p>
 );
 
-<Badges>Pesticide Free</Badges>
+<Badges>Badge Name</Badges>
 
-We'll use this approach in this document. Another approach would be to stack 1-3 small stars over the badge.  This would enable each badge to have a single design and any color, which might be visually more appealing. At some point, it might be cool to hire an artist (Andy?) to implement icons for each of the badges (or find some stock icons at The Noun Project). 
+For the alpha release, we'll probably implement a different scheme in which we stack 1-3 small stars over the badge.  This would enable each badge to have a single design and any color, which might be visually more appealing. At some point, it might be cool to hire an artist (Andy?) to implement icons for each of the badges (or find some stock icons at The Noun Project). 
 
-Finally, we will need to implement a "Badges" page that provides detailed information about each badge, including a description of the badge, the criteria for achieving the badge at each level, and the gardens, members, and/or chapters who have achieved the badge.
+### Verification
+
+Verification of badges can be done in two ways: "self-awarded" and "automatically awarded".
+
+"Self-awarded" badges means that the gardener has to initiate the badge awarding process themselves. The self-awarding process can involve the user attesting to certain practices or to have completed some activity. 
+
+If not "self-awarded", then the badge is "automatically awarded".  This means that the badge is awarded by the system without the gardener having to manually initiate the award process.  It is likely that automatically awarded badges will be implemented by a server-side process that runs (say) once a day to check for new badges to award to gardens, gardeners, or chapters.
+
+There are four verification mechanisms: attestation, data, observations, and prior year badges.  These mechanisms can be used in combination.  For example, a badge might be awarded if the user attests to a practice, and has also posted an observation with a certain tag.
+
+Attestation-based verification means that the user is on the "honor system" to verify the practice. For example, for the pesticide free practice, the system will just ask the user to attest to the absence of pesticides during the current gardening season. 
+
+Data-based verification means the use of garden planning data.  For example, if a user has entered data indicating that they have grown many varieties of tomato plants over several years to the point of harvest with good outcomes, this might make them eligible for a "Tomato Whisperer" badge.  
+
+Observation-based verification means the user has posted public Observations (including photos) with one or more pre-defined tags to indicate that the observation is intended to be used as evidence toward a particular badge (or badges). So, for example, if a user posts an observation of their worm bin along with the tag "#Vermiculture", this can support verification for a Vermiculture Virtuoso badge. 
+
+Prior year badge-based verification means that part of the requirements for earning the badge is that the same badge has been awarded in some number of prior years.
+
+### Observation tags
+
+Many badges will require the posting of Observations. In order to support automatic awarding of Badges, the system will need to be able to identify Observations that are intended to support a particular badge.  This will be done by the user adding one or more pre-defined tags to an Observation. Some practices (i.e. cover crops) can support multiple badges, so the tags are not designed to specify  a single badge. 
+
+The system has to "take the user's word" for the appropriateness of the tags to the Observation. We hope that the public nature of these observations will prevent users from misusing this process.  If we find that users are abusing the system, we can implement some way for users to "flag" observations that they believe have been inappropriately tagged.
 
 ## Garden badges
 
-Here are some proposals for garden badges to be displayed in the Garden Summary card. 
+Here are proposals for garden badges.
 
 ### Pesticide free
 
@@ -67,9 +91,9 @@ Here are some proposals for garden badges to be displayed in the Garden Summary 
 Criteria: No pesticides are used in this garden.
 
 Levels: 
-* Level 1: No pesticides have been applied during the current season. (Self-awarded.)  
-* Level 2: No pesticides have been applied for at least two growing seasons. (Requires data on two growing seasons. Self-awarded.)
-* Level 3: No pesticides for at least five growing seasons. (Requires data on five growing seasons. Chapter Chair must verify.)
+* Level 1: No pesticides have been applied during the current season. Verification: Self-awarded. When the gardener attempts to self-award for the current season, the system will prompt them to attest to pesticide-free practices.   
+* Level 2: No pesticides have been applied for at least three growing seasons. Verification: Self-awarded.  When the gardener self-awards for the current season, they will get a Level 2 badge if the garden has a Pesticide Free badge for the previous two seasons. 
+* Level 3: No pesticides for at least five growing seasons. Verification: Self-awarded.  When the gardener self-awards for the current season, they will get a Level 3 badge if the garden has a Pesticide Free badge for the previous four seasons.
 
 ### Climate Victory
 
@@ -77,21 +101,25 @@ Levels:
 
 Criteria: A Climate Victory Garden has been added to Green America's database and involves one or more of following 5 practices: (1) grow food, (2) cover soils, (3) compost, (4) ditch chemicals, and (5) encourage biodiversity.
 
+Observation tags: '#Food', '#SheetMulch', '#Compost', '#CoverCrops', '#DitchChemicals', '#Biodiversity'.
+
 Levels: 
-* Level 1: Added to the database, and implements at least one of the five practices for at least one growing season. (Self-awarded.)
-* Level 2: Added to the database, and implements at least three of the five practices for at least three growing seasons. (Requires data on three growing seasons. Self-awarded.)
-* Level 3: Added to the database, and implements all five practices for at least five growing seasons. (Requires data on five growing seasons. Chapter Chair must verify.) 
+* Level 1: The garden is present in the Green America database, and implements at least three of the five practices for at least one growing season. Verification: Self-awarded in year 1, automatically awarded thereafter. For a garden to obtain its first Climate Victory badge, the gardener must self-award and attest that they've added their garden to the Green America database. In addition, they must have posted at least three Observations with at least three different Climate Victory tags during the current season. Once a garden has received its first Climate Victory badge, the remaining badges can be auto-awarded based on Observation data alone. We don't require the gardener to repeatedly attest every year to the presence of the garden in the Green America database. So, in the year following the first year that the garden received this badge, all the gardener has to do is to post three Observations with at least three different Climate Victory tags and then the system will automatically award a Level 1 badge.
+* Level 2: The garden is present in the Green America database, and implements at least three of the five practices for at least three growing seasons. Verification: Automatically awarded when the previous two years have Climate Victory badges and the current year has Observations indicating three out of five Climate Victory practices.
+* Level 3: The garden is present in the Green America database, and implements at least three of the five practices for at least five growing seasons. Verification: Automatically awarded when the previous four years have Climate Victory badges and the current year has Observations indicating three out of five Climate Victory practices.
 
-### Permacultural
+### Sustainable Soil
 
-<Badges>Permacultural</Badges>
+<Badges>Sustainable Soil</Badges>
 
-Criteria: The garden exhibits one or more of the following permacultural practices, including: (1) Collecting rainwater or greywater and using it to replace city water in the garden, (2) Intercropping and/or companion planting, (3) Sheet mulching, (4) No-till or reduced-till gardening, (5) Planting perennial crops, (6) Planting native plants, (7) Planting cover crops, (8) Using organic fertilizers, (9) Using organic and/or integrated pest control methods, (10) Using composting and/or vermicomposting. 
+Criteria: Garden soil has been improved by using sheet mulch, compost, and/or cover crops.
+
+Observation tags: '#SheetMulch', '#Compost', '#CoverCrops'.
 
 Levels:
-* Level 1: The garden implements at least one permaculture practice during one garden season. (Self-awarded.)
-* Level 2: The garden implements at least three permaculture practices during two garden seasons. (Requires photo observations as evidence. Self-awarded.)
-* Level 3: The garden implements at least five permaculture practices during five garden seasons. (Requires photo observations as evidence. Chapter Chair must verify.)
+* Level 1: The garden implements at least two soil building practice during one or two years. Verification: Automatically awarded when there are Observations indicating at least two of the practices during the current season. 
+* Level 2: The garden implements at least two soil building practices during three garden seasons. Verification: Automatically awarded when there are Observations indicating at least two of the practices during the current year, and the garden has the Sustainable Soil badge for the previous two years.
+* Level 3: The garden implements at least two soil building practices during three garden seasons. Verification: Automatically awarded when there are Observations indicating at least two of the practices during the current year, and the garden has the Sustainable Soil badge for the previous five years.
 
 ## Gardener badges
 
