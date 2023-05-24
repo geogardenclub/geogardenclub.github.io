@@ -37,15 +37,15 @@ As noted before, a popular tool for serious gardeners is a spreadsheet such as G
 "Urban Agriculture" is a general term for cultivating, processing, and distributing food in or around urban areas.  These tools are distinguished from home garden planner tools by a focus on more professional, market-oriented approach to small-scale farming.
 
 |    | Name/URL | Users | Cost | 
-| -- | -------  | ----- | ---- | 
-| LF | [LiteFarm](https://www.litefarm.org/), [wiki](https://lite-farm.atlassian.net/wiki/spaces/LITEFARM/overview?homepageId=32998), [github](https://github.com/LiteFarmOrg/LiteFarm) | 1200 | Free, Open Source | 
-| COG | [COG-Pro](https://cog-pro.com/) | ? | $79-$159/year | 
-| VT | [VeggieTables](http://veggietables.org/) | ? | $89/year + $19/additional user | 
+| -- | -------  |-------| ---- | 
+| LF | [LiteFarm](https://www.litefarm.org/), [wiki](https://lite-farm.atlassian.net/wiki/spaces/LITEFARM/overview?homepageId=32998), [github](https://github.com/LiteFarmOrg/LiteFarm) | 1000s | Free, Open Source | 
+| COG | [COG-Pro](https://cog-pro.com/) | ?     | $79-$159/year | 
+| VT | [VeggieTables](http://veggietables.org/) | ?     | $89/year + $19/additional user | 
 | AS | [AgSquared SimpleFarm](http://www.agsquared.com/simple-farm) | 1000s | $10/user/month |
-| FB | [Farmbrite](https://www.farmbrite.com/) |  1000s | $15-$30/month | 
-| T | [Tend](https://www.tend.com/) | ?  | $30-39/month | 
-| FS | [FarmStatistics](https://farmstatistics.com/) | ? | $20/year | 
-| AD | [Agritecture Designer](https://design.agritecture.com/) | 120 | $30-80/month | 
+| FB | [Farmbrite](https://www.farmbrite.com/) | 1000s | $15-$30/month | 
+| T | [Tend](https://www.tend.com/) | ?     | $30-39/month | 
+| FS | [FarmStatistics](https://farmstatistics.com/) | ?     | $20/year | 
+| AD | [Agritecture Designer](https://design.agritecture.com/) | 120   | $30-80/month | 
 
 Some general observations about urban agriculture tools:
 
