@@ -58,8 +58,6 @@ For the alpha release, we'll probably implement a different scheme in which we s
 
 ### Verification
 
-
-
 Verification of badges can be done in two ways: "self-awarded" and "automatically awarded".
 
 "Self-awarded" badges means that the gardener must initiate the badge awarding process themselves. The self-awarding process requires the user to attest to certain practices or to have completed some activity. 
@@ -100,6 +98,19 @@ To help users remember what to do, the system's "Badge" page could (among other 
 
 Here are proposals for garden badges.
 
+### Climate Victory
+
+<Badges>Climate Victory</Badges>
+
+Criteria: A Climate Victory Garden has been added to Green America's database and involves one or more of following 5 practices: (1) grow food, (2) cover soils, (3) compost, (4) ditch chemicals, and (5) encourage biodiversity.
+
+Observation tags: '#Food', '#SheetMulch', '#Compost', '#CoverCrops', '#DitchChemicals', '#Biodiversity'.
+
+Levels:
+* Level 1: The garden is present in the Green America database, and implements at least three of the five practices for one or two years. Verification: Self-awarded the first time the user applies for the badge, because they must attest to having added the garden to the Green America database. In addition to attesting, there must be prior Observations with at least three of the associated tags.
+* Level 2: The garden is present in the Green America database, and has implemented at least three of the five practices for three or four years. Verification: Automatically awarded when there are Observations indicating three out of five Climate Victory practices in each of three or four years.
+* Level 3: The garden is present in the Green America database, and implements at least three of the five practices for at least five years. Verification: Automatically awarded when there are Observations indicating three out of five Climate Victory practices in each of five or more years.
+
 ### Pesticide free
 
 <Badges>Pesticide Free</Badges>
@@ -113,18 +124,18 @@ Levels:
 * Level 2: No pesticides have been applied for three or four years. Verification: Self-awarded.  When the gardener self-awards for the current year, they will get a Level 2 badge if the garden has a Pesticide Free badge for two or three prior years. 
 * Level 3: No pesticides for at least five years. Verification: Self-awarded.  When the gardener self-awards for the current year, they will get a Level 3 badge if the garden has a Pesticide Free badge for at least four prior years. 
 
-### Climate Victory
+### Pollinator Friendly
 
-<Badges>Climate Victory</Badges>
+<Badges>Pollinator Friendly</Badges>
 
-Criteria: A Climate Victory Garden has been added to Green America's database and involves one or more of following 5 practices: (1) grow food, (2) cover soils, (3) compost, (4) ditch chemicals, and (5) encourage biodiversity.
+Criteria: The garden has pollinator-friendly practices such as: (1) Using a wide variety of plants that bloom from early spring into late fall, (2) Avoiding modern hybrid flowers, especially those with "doubled" flowers, (3) Eliminating pesticides whenever possible, (4) Including larval host plants in your landscape, (5) Creating a damp salt lick for butterflies and bees, (6) Leaving dead trees, or at least an occasional dead limb, in order to provide essential nesting sites for native bees, and (7) Adding to nectar resources by providing a hummingbird feeder.
 
-Observation tags: '#Food', '#SheetMulch', '#Compost', '#CoverCrops', '#DitchChemicals', '#Biodiversity'.
+Observation tags: '#SaltLick', '#HummingbirdFeeder', '#NativePlants', '#DitchChemicals', '#DeadTrees', '#LarvalHostPlants', '#BeeFriendly'.
 
-Levels: 
-* Level 1: The garden is present in the Green America database, and implements at least three of the five practices for one or two years. Verification: Self-awarded the first time the user applies for the badge, because they must attest to having added the garden to the Green America database. In addition to attesting, there must be prior Observations with at least three of the associated tags. 
-* Level 2: The garden is present in the Green America database, and has implemented at least three of the five practices for three or four years. Verification: Automatically awarded when there are Observations indicating three out of five Climate Victory practices in each of three or four years.
-* Level 3: The garden is present in the Green America database, and implements at least three of the five practices for at least five years. Verification: Automatically awarded when there are Observations indicating three out of five Climate Victory practices in each of five or more years.
+Levels:
+* Level 1: The garden includes three pollinator friendly practice during the current year. Verification: Automatically awarded when there are Observations indicating at least three of the practices during the current year.
+* Level 2: The garden includes three pollinator friendly practice for three years. Verification: Automatically awarded when there are Observations indicating at least three of the practices during the current year, and the Pollinator Friendly badge has been awarded to this garden for the prior two years.
+* Level 3: The garden includes three pollinator friendly practice for five years. Verification: Automatically awarded when there are Observations indicating at least three of the practices during the current year, and the Pollinator Friendly badge has been awarded to this garden for the prior four years.
 
 ### Sustainable Soil
 
@@ -152,22 +163,52 @@ Levels:
 * Level 2: The garden includes least one water saving practice for three years. Verification: Automatically awarded when there are Observations indicating at least one of the practices during the current year, and the Water Smart badge has been awarded to this garden for the prior two years. 
 * Level 3: The garden includes least one water saving practice for five years. Verification: Automatically awarded when there are Observations indicating at least one of the practices during the current year, and the Water Smart badge has been awarded to this garden for the prior four years.
 
-### Pollinator Friendly
-
-<Badges>Pollinator Friendly</Badges>
-
-Criteria: The garden has pollinator-friendly practices such as: (1) Using a wide variety of plants that bloom from early spring into late fall, (2) Avoiding modern hybrid flowers, especially those with "doubled" flowers, (3) Eliminating pesticides whenever possible, (4) Including larval host plants in your landscape, (5) Creating a damp salt lick for butterflies and bees, (6) Leaving dead trees, or at least an occasional dead limb, in order to provide essential nesting sites for native bees, and (7) Adding to nectar resources by providing a hummingbird feeder.
-
-Observation tags: '#SaltLick', '#HummingbirdFeeder', '#NativePlants', '#DitchChemicals', '#DeadTrees', '#LarvalHostPlants', '#BeeFriendly'.
-
-Levels:
-* Level 1: The garden includes three pollinator friendly practice during the current year. Verification: Automatically awarded when there are Observations indicating at least three of the practices during the current year.
-* Level 2: The garden includes three pollinator friendly practice for three years. Verification: Automatically awarded when there are Observations indicating at least three of the practices during the current year, and the Pollinator Friendly badge has been awarded to this garden for the prior two years.
-* Level 3: The garden includes three pollinator friendly practice for five years. Verification: Automatically awarded when there are Observations indicating at least three of the practices during the current year, and the Pollinator Friendly badge has been awarded to this garden for the prior four years.
 
 ## Gardener badges
 
 Here are proposals for Gardener badges to be displayed on the Gardener Summary card.
+
+### Chapter Chair
+
+<Badges>Chapter Chair</Badges>
+
+Criteria: The gardener is serving as a Chair for the Chapter.
+
+Note that GGC System Admins are responsible to designating which member(s) of a Chapter are the Chair(s). When they do this designation, they set a flag in the member's profile indicating that they are currently a Chapter Chair and what date they started being Chair.
+
+Levels:
+* Level 1: The gardener has served as a Chapter Chair for one year. Verification:  Automatically awarded when the gardener has the Chapter Chair flag set and the start date is less than 3 years ago.
+* Level 2: The gardener has served as a Chapter Chair for three years. Verification:  Automatically awarded when the gardener has the Chapter Chair flag set and the start date is between three and four years ago.
+* Level 3: The gardener has served as a Chapter Chair for five or more years. Verification:  Automatically awarded when the gardener has the Chapter Chair flag set and the start date is five or more years ago.
+
+Note that the Chapter Chair badge is an exception to the "Badges Never Expire" rule. This is because we want this badge to also serve as an indication of who the *current* Chair(s) of the Chapter are. So, whenever the GGC Sys Admins indicate that a person is a Chair or is no longer a Chair, the badge will be added or removed at that time.
+
+
+### Community Cultivator
+
+<Badges>Community Cultivator</Badges>
+
+Criteria: The gardener has demonstrated experience with community and/or school gardening.
+
+Observation tags: '#CommunityGarden', '#SchoolGarden'
+
+Levels:
+* Level 1: The gardener has participated in at least one community or school garden project for one year. Verification: Automatically awarded if there is at least one Observation with either the '#CommunityGarden' or '#SchoolGarden' tags.
+* Level 2: The gardener has participated in at least one community or school garden project for three years. Verification: Automatically awarded if there are Observations with either the '#CommunityGarden' or '#SchoolGarden' tags over three years.
+* Level 3: The gardener has participated in at least one community or school garden project for five years. Verification: Automatically awarded if there are Observations with either the '#CommunityGarden' or '#SchoolGarden' tags over five years.
+
+### Compost Champion
+
+<Badges>Compost Champion</Badges>
+
+Criteria: The gardener has experience composting.
+
+Observation tags: '#Compost'.
+
+Levels:
+* Level 1: The gardener has produced compost to support their garden's fertilizer needs for one or two years. Verification: Automatically awarded when there is an Observation with the tag '#Compost' during the current year, and the gardener does not have the Compost Champion badge for more than one prior year.
+* Level 2: The gardener has produced compost to support their garden's fertilizer needs for three or four years. Verification: Automatically awarded when there is an Observation with the tag '#Compost' during the current year, and the gardener has the Compost Champion badge for two or three prior years.
+* Level 3: The gardener has produced compost to support their garden's fertilizer needs for five or more years. Verification: Automatically awarded when there is an Observation with the tag '#Compost' during the current year, and the gardener has the Compost Champion badge for at least four prior years.
 
 ### Crop Whisperer
 
@@ -183,20 +224,6 @@ Levels:
 * Level 2: The gardener has grown at least three varieties of the specified crop, and each variety has been planted in at least two years, and four stars have been achieved for at least two outcomes for each variety. Verification: automatically awarded based on planting data. 
 * Level 3: The gardener has grown at least five varieties of the specified crop, and each variety has been planted in at least two years, and four stars have been achieved for at least two outcomes for each variety. Verification: automatically awarded based on planting data.
 
-_Jenna: Note that this differs from your criteria. Level 1 seemed to easy to achieve, and so I modified it to require at least three varieties in order to avoid too many Level 1 Crop Whisperer badges._
-
-### Master gardener
-
-<Badges>Master Gardener</Badges>
-
-Criteria: The gardener has completed a master gardener program and volunteers time to support gardening practices in their community.
-
-Observation tags: '#MasterGardenerCertificate', '#MasterGardenerAtWork'.
-
-Levels: 
-* Level 1: The gardener has completed a master gardener program and been certified as a master gardener, and has volunteered time as a master gardener for one or two years. Verification: Automatically awarded when there is an Observation with the tag '#MasterGardenerCertificate' (in any prior year) and an Observation with the tag '#MasterGardenerAtWork' (in the current year), and the Master Gardener badge has been awarded to this gardener for a maximum of one prior year. 
-* Level 2: The gardener has volunteered time as a Master Gardener for three to four years. Verification: Automatically awarded when there is an Observation with the tag '#MasterGardenerAtWork' (in the current year), and the Master Gardener badge has been awarded to this gardener two or three prior years.
-* Level 3: The gardener has volunteered time as a master gardener for at least five years. Verification:  Automatically awarded when there is an Observation with the tag '#MasterGardenerAtWork' (in the current year), and the Master Gardener badge has been awarded to this gardener at least four prior years. 
 
 ### Greenhouse grower
 
@@ -211,18 +238,31 @@ Levels:
 * Level 2: The gardener has started at least three different crops that survived to harvest for three or four years. Verification: Automatically awarded based on planting data.
 * Level 3: The gardener has started at least five different crops that survived to harvest for at least five years. Verification: Automatically awarded based on planting data.
 
-### Compost Champion
+### Master gardener
 
-<Badges>Compost Champion</Badges>
+<Badges>Master Gardener</Badges>
 
-Criteria: The gardener has experience composting.
+Criteria: The gardener has completed a master gardener program and volunteers time to support gardening practices in their community.
 
-Observation tags: '#Compost'.
+Observation tags: '#MasterGardenerCertificate', '#MasterGardenerAtWork'.
+
+Levels: 
+* Level 1: The gardener has completed a master gardener program and been certified as a master gardener, and has volunteered time as a master gardener for one or two years. Verification: Automatically awarded when there is an Observation with the tag '#MasterGardenerCertificate' (in any prior year) and an Observation with the tag '#MasterGardenerAtWork' (in the current year), and the Master Gardener badge has been awarded to this gardener for a maximum of one prior year. 
+* Level 2: The gardener has volunteered time as a Master Gardener for three to four years. Verification: Automatically awarded when there is an Observation with the tag '#MasterGardenerAtWork' (in the current year), and the Master Gardener badge has been awarded to this gardener two or three prior years.
+* Level 3: The gardener has volunteered time as a master gardener for at least five years. Verification:  Automatically awarded when there is an Observation with the tag '#MasterGardenerAtWork' (in the current year), and the Master Gardener badge has been awarded to this gardener at least four prior years. 
+
+### Permaculture Pro
+
+<Badges>Permaculture Pro</Badges>
+
+Observation tags: '#PermacultureCertificate'
+
+Criteria: The gardener has completed a Permaculture workshop to learn about the philosophy of permaculture and is also associated with garden(s) that have achieved permaculture-related badges (Pesticide Free, Sustainable Soil, Water Smart, Pollinator Friendly).
 
 Levels:
-* Level 1: The gardener has produced compost to support their garden's fertilizer needs for one or two years. Verification: Automatically awarded when there is an Observation with the tag '#Compost' during the current year, and the gardener does not have the Compost Champion badge for more than one prior year. 
-* Level 2: The gardener has produced compost to support their garden's fertilizer needs for three or four years. Verification: Automatically awarded when there is an Observation with the tag '#Compost' during the current year, and the gardener has the Compost Champion badge for two or three prior years. 
-* Level 3: The gardener has produced compost to support their garden's fertilizer needs for five or more years. Verification: Automatically awarded when there is an Observation with the tag '#Compost' during the current year, and the gardener has the Compost Champion badge for at least four prior years.
+Level 1: The gardener has completed a Permaculture workshop and has implemented at least one permaculture practice in one of their gardens. Verification: Automatically awarded when the gardener has posted a public Observation with the tag '#PermacultureCertificate' and is associated with a garden that has one of the permaculture-related badges.
+Level 2: The gardener has completed a Permaculture workshop and has implemented at least three permaculture practices among their gardens, at least one of which is at Level 2. Verification: Automatically awarded when the gardener has posted a public Observation with the tag '#PermacultureCertificate' and is associated with gardens that collectively have at least three permaculture related badges. At least one of these badges must be at Level 2.
+Level 3: The gardener has completed a Permaculture workshop and has implemented at least three permaculture practices among their gardens, one of which is at Level 3. Verification: Automatically awarded when the gardener has posted a public Observation with the tag '#PermacultureCertificate' and is associated with gardens that collectively have at least three permaculture related badges. At least one of these badges must be at Level 3.
 
 ### Vermiculturalist
 
@@ -237,18 +277,6 @@ Levels:
 * Level 2: The gardener used worms to produce compost for three or four years. Verification: automatically awarded when there is an Observation with the associated tag for the current year, and the gardener has the Vermiculturalist tag for two or three prior years. 
 * Level 3: The gardener used worms to produce compost for five or more years. Verification: automatically awarded when there is an Observation with the associated tag for the current year, and the gardener has the Vermiculturalist tag for four or more prior years.
 
-### Permaculture Pro
-
-<Badges>Permaculture Pro</Badges>
-
-Observation tags: '#PermacultureCertificate'
-
-Criteria: The gardener has completed a Permaculture workshop to learn about the philosophy of permaculture and is also associated with garden(s) that have achieved permaculture-related badges (Pesticide Free, Sustainable Soil, Water Smart, Pollinator Friendly).
-
-Levels:
-Level 1: The gardener has completed a Permaculture workshop and has implemented at least one permaculture practice in one of their gardens. Verification: Automatically awarded when the gardener has posted a public Observation with the tag '#PermacultureCertificate' and is associated with a garden that has one of the permaculture-related badges. 
-Level 2: The gardener has completed a Permaculture workshop and has implemented at least three permaculture practices among their gardens, at least one of which is at Level 2. Verification: Automatically awarded when the gardener has posted a public Observation with the tag '#PermacultureCertificate' and is associated with gardens that collectively have at least three permaculture related badges. At least one of these badges must be at Level 2.
-Level 3: The gardener has completed a Permaculture workshop and has implemented at least three permaculture practices among their gardens, one of which is at Level 3. Verification: Automatically awarded when the gardener has posted a public Observation with the tag '#PermacultureCertificate' and is associated with gardens that collectively have at least three permaculture related badges. At least one of these badges must be at Level 3.
 
 ### Seed Saver
 
@@ -263,37 +291,33 @@ Levels:
 * Level 2: The gardener has saved seeds and successfully grown plants from saved seeds from at least three plants during three garden seasons. Furthermore, the gardener must have shared seeds at least once. Verification: Automatically awarded when there are Observations with the tags tags '#SavedSeedsCollection' and '#SavedSeedsPlanting' from at least three years, and there is at least one Observation with the tag '#ShavedSeedsSharing'.
 * Level 3: The gardener has saved seeds and successfully grown plants from saved seeds from at least five plants during at least five garden seasons. Furthermore, the gardener must have shared seeds during at least five garden seasons. Verification: Automatically awarded when there are Observations with the tags '#SavedSeedsCollection', '#SavedSeedsPlanting', and '#ShavedSeedsSharing' from at least five years.
 
-### Community Cultivator
 
-<Badges>Community Cultivator</Badges>
-
-Criteria: The gardener has demonstrated experience with community and/or school gardening.
-
-Observation tags: '#CommunityGarden', '#SchoolGarden'
-
-Levels:
-* Level 1: The gardener has participated in at least one community or school garden project for one year. Verification: Automatically awarded if there is at least one Observation with either the '#CommunityGarden' or '#SchoolGarden' tags.
-* Level 2: The gardener has participated in at least one community or school garden project for three years. Verification: Automatically awarded if there are Observations with either the '#CommunityGarden' or '#SchoolGarden' tags over three years. 
-* Level 3: The gardener has participated in at least one community or school garden project for five years. Verification: Automatically awarded if there are Observations with either the '#CommunityGarden' or '#SchoolGarden' tags over five years.
-
-### Chapter Chair
-
-<Badges>Chapter Chair</Badges>
-
-Criteria: The gardener is serving as a Chair for the Chapter.
-
-Note that GGC System Admins are responsible to designating which member(s) of a Chapter are the Chair(s). When they do this designation, they set a flag in the member's profile indicating that they are currently a Chapter Chair and what date they started being Chair.  
-
-Levels:
-* Level 1: The gardener has served as a Chapter Chair for one year. Verification:  Automatically awarded when the gardener has the Chapter Chair flag set and the start date is less than 3 years ago.
-* Level 2: The gardener has served as a Chapter Chair for three years. Verification:  Automatically awarded when the gardener has the Chapter Chair flag set and the start date is between three and four years ago.
-* Level 3: The gardener has served as a Chapter Chair for five or more years. Verification:  Automatically awarded when the gardener has the Chapter Chair flag set and the start date is five or more years ago.
-
-Note that the Chapter Chair badge is an exception to the "Badges Never Expire" rule. This is because we want this badge to also serve as an indication of who the *current* Chair(s) of the Chapter are. So, whenever the GGC Sys Admins indicate that a person is a Chair or is no longer a Chair, the badge will be added or removed at that time.
 
 ## Chapter badges
 
 Here are some proposals for chapter badges to be displayed in the Chapter Summary card.
+
+### Connected Community
+
+<Badges>Connected Community</Badges>
+
+Criteria: The chapter has demonstrated a commitment to building a community of practice.
+
+Levels:
+* Level 1: At least 100 members in the community. Verification: Automatically awarded.
+* Level 2: At least 250 members in the community. Verification: Automatically awarded.
+* Level 3: At least 500 members in the community. Verification: Automatically awarded.
+
+### Climate Victors
+
+<Badges>Climate Victors</Badges>
+
+Criteria: The chapter has demonstrated a commitment to creating Climate Victory Gardens.
+
+Levels:
+* Level 1: At least 50% of the chapter gardens have achieved a Climate Victory badge. Verification: Automatically awarded.
+* Level 2: At least 75% of the chapter gardens have achieved a Climate Victory badge. Verification: Automatically awarded.
+* Level 3: At least 90% of the chapter gardens have achieved a Climate Victory badge. Verification: Automatically awarded.
 
 ### Pesticide Resistors
 
@@ -306,16 +330,6 @@ Levels:
 * Level 2: At least 75% of the chapter gardens have achieved a Pesticide Free badge. Verification: Automatically awarded.
 * Level 3: At least 90% of the chapter gardens have achieved a Pesticide Free badge. Verification: Automatically awarded.
 
-### Climate Victors 
-
-<Badges>Climate Victors</Badges>
-
-Criteria: The chapter has demonstrated a commitment to creating Climate Victory Gardens.
-
-Levels: 
-* Level 1: At least 50% of the chapter gardens have achieved a Climate Victory badge. Verification: Automatically awarded.
-* Level 2: At least 75% of the chapter gardens have achieved a Climate Victory badge. Verification: Automatically awarded.
-* Level 3: At least 90% of the chapter gardens have achieved a Climate Victory badge. Verification: Automatically awarded.
 
 ### Seed Sharers
 
@@ -328,16 +342,6 @@ Levels:
 * Level 2: At least 75% of the chapter gardeners have achieved a Seed Saver badge. Verification: Automatically awarded.
 * Level 3: At least 90% of the chapter gardeners have achieved a Seed Saver badge. Verification: Automatically awarded.
 
-### Connected Community
-
-<Badges>Connected Community</Badges>
-
-Criteria: The chapter has demonstrated a commitment to building a community of practice.
-
-Levels:
-* Level 1: At least 100 members in the community. Verification: Automatically awarded.
-* Level 2: At least 250 members in the community. Verification: Automatically awarded.
-* Level 3: At least 500 members in the community. Verification: Automatically awarded.
 
 ## Other badge ideas
 
