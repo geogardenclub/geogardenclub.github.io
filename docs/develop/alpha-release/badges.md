@@ -104,7 +104,7 @@ Here are proposals for garden badges.
 
 Criteria: A Climate Victory Garden has been added to Green America's database and involves one or more of following 5 practices: (1) grow food, (2) cover soils, (3) compost, (4) ditch chemicals, and (5) encourage biodiversity.
 
-Observation tags: '#Food', '#SheetMulch', '#Compost', '#CoverCrops', '#DitchChemicals', '#Biodiversity'.
+Observation tags: '#SheetMulch', '#Compost', '#CoverCrops', '#PesticideFree', '#DitchChemicals', '#PollinatorFriendly', '#Biodiversity'.
 
 Levels:
 * Level 1: The garden is present in the Green America database, and implements at least three of the five practices for one or two years. Verification: Self-awarded the first time the user applies for the badge, because they must attest to having added the garden to the Green America database. In addition to attesting, there must be prior Observations with at least three of the associated tags.
@@ -130,7 +130,7 @@ Levels:
 
 Criteria: The garden has pollinator-friendly practices such as: (1) Using a wide variety of plants that bloom from early spring into late fall, (2) Avoiding modern hybrid flowers, especially those with "doubled" flowers, (3) Eliminating pesticides whenever possible, (4) Including larval host plants in your landscape, (5) Creating a damp salt lick for butterflies and bees, (6) Leaving dead trees, or at least an occasional dead limb, in order to provide essential nesting sites for native bees, and (7) Adding to nectar resources by providing a hummingbird feeder.
 
-Observation tags: '#SaltLick', '#HummingbirdFeeder', '#NativePlants', '#DitchChemicals', '#DeadTrees', '#LarvalHostPlants', '#BeeFriendly'.
+Observation tags: '#SaltLick', '#Hummingbirds', '#NativePlants', '#PesticideFree', '#DitchChemicals', '#Habitat', '#LarvalHostPlants', '#NativeBees'.
 
 Levels:
 * Level 1: The garden includes three pollinator friendly practice during the current year. Verification: Automatically awarded when there are Observations indicating at least three of the practices during the current year.
@@ -203,7 +203,7 @@ Levels:
 
 Criteria: The gardener has experience composting.
 
-Observation tags: '#Compost'.
+Observation tags: #Compost', '#Worms', '#Hugelkulture',  '#CompostTea', '#Vermiculture'
 
 Levels:
 * Level 1: The gardener has produced compost to support their garden's fertilizer needs for one or two years. Verification: Automatically awarded when there is an Observation with the tag '#Compost' during the current year, and the gardener does not have the Compost Champion badge for more than one prior year.
@@ -270,7 +270,7 @@ Level 3: The gardener has completed a Permaculture workshop and has implemented 
 
 Criteria: The gardener has demonstrated experience with vermiculture (the controlled growing of worms) and vermicomposting (the use of worms to produce compost).
 
-Observation tags: '#Worms'  (or '#Vermiculture', not sure which is better).
+Observation tags: '#Worms',  '#CompostTea', '#Vermiculture'
 
 Levels:
 * Level 1: The gardener used worms to produce compost for one or two years. Verification: automatically awarded when there is an Observation with the associated tag for the current year, and the gardener has the Vermiculturalist tag for no more than one prior year. 
@@ -284,12 +284,12 @@ Levels:
 
 Criteria: The gardener has demonstrated experience with seed saving practices, including: (1) Harvesting seeds from plants, (2) Drying seeds, (3) Storing seeds, (4) Germinating seeds, (5) Providing seeds to other members of the community.
 
-Observation tags: '#SavedSeedsCollection', '#SavedSeedsPlanting', '#ShavedSeedsSharing'
+Observation tags: #SeedSaving', '#SeedSharing"
 
 Levels:
-* Level 1: The gardener has saved seeds from at least one plant and successfully grown plants from saved seeds in at least one year. Verification: Automatically awarded when the gardener has Observations with the tags '#SavedSeedsCollection' and '#SavedSeedsPlanting'. 
-* Level 2: The gardener has saved seeds and successfully grown plants from saved seeds from at least three plants during three garden seasons. Furthermore, the gardener must have shared seeds at least once. Verification: Automatically awarded when there are Observations with the tags tags '#SavedSeedsCollection' and '#SavedSeedsPlanting' from at least three years, and there is at least one Observation with the tag '#ShavedSeedsSharing'.
-* Level 3: The gardener has saved seeds and successfully grown plants from saved seeds from at least five plants during at least five garden seasons. Furthermore, the gardener must have shared seeds during at least five garden seasons. Verification: Automatically awarded when there are Observations with the tags '#SavedSeedsCollection', '#SavedSeedsPlanting', and '#ShavedSeedsSharing' from at least five years.
+* Level 1: The gardener has saved seeds from at least one plant and successfully grown plants from saved seeds in at least one year. Verification: Automatically awarded when the gardener has at least Observation with the tag '#SeedSaving'.
+* Level 2: The gardener has saved seeds and successfully grown plants from saved seeds from at least three plants during three garden seasons. Furthermore, the gardener must have shared seeds at least once. Verification: Automatically awarded when there are Observations with the tags tags '#SeedSaving' from at least three years, and there is at least one Observation with the tag '#SeedSharing'.
+* Level 3: The gardener has saved seeds and successfully grown plants from saved seeds from at least five plants during at least five garden seasons. Furthermore, the gardener must have shared seeds during at least five garden seasons. Verification: Automatically awarded when there are Observations with the tags '#SeedSaving' and '#SeedSharing' from at least five years.
 
 
 
@@ -353,6 +353,8 @@ Here are some proposals for badges that we could add after the alpha release. I 
 
 Criteria: The gardener has experience caring for bees.
 
+Observation tags: #Beekeeping', '#Beekeeper'
+
 Levels:
 * Level 1: The gardener has kept and cared for bees for at least one season to produce honey and/or support crop pollination. (Self-awarded.)
 * Level 2: The gardener has kept and cared for bees for at least two seasons to produce honey and/or support crop pollination. (Requires photo observations as evidence. Self-awarded.)
@@ -364,6 +366,8 @@ Levels:
 
 Criteria: The gardener has demonstrated experience with aquaponics.
 
+Observation tags: #Aquaponics', '#FishAndPlants',
+
 Levels:
 * Level 1: The gardener has kept and cared for fish and plants in an aquaponics system for at least one season to produce food for their garden. (Self-awarded.)
 * Level 2: The gardener has kept and cared for fish and plants in an aquaponics system for at least two seasons to produce food for their garden. (Requires photo observations as evidence. Self-awarded.)
@@ -372,6 +376,8 @@ Levels:
 ### Herbalist Hero
 
 <Badges>Herbalist Hero</Badges>
+
+Observation tags: #Herbalist', '#HerbalRemedy', '#PlantMedicine'
 
 Criteria: The gardener has grown medicinal herbs and created remedies from them.
 
@@ -387,6 +393,8 @@ Levels:
 <Badges>Garden Educator</Badges>
 
 Criteria: The gardener has provided educational experiences such as leading workshops, writing articles, or working as a garden educator in schools.
+
+Observation tags: #InspireAndTeach', '#SkillSharing', '#CommunityWorkshop'
 
 Levels:
 * Level 1: The gardener has provided at least one educational experience of the given type. (Self-awarded.)
