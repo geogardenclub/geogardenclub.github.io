@@ -104,7 +104,7 @@ Here are proposals for garden badges.
 
 Criteria: A Climate Victory Garden has been added to Green America's database and involves one or more of following 5 practices: (1) grow food, (2) cover soils, (3) compost, (4) ditch chemicals, and (5) encourage biodiversity.
 
-Observation tags: '#SheetMulch', '#Compost', '#CoverCrops', '#PesticideFree', '#DitchChemicals', '#PollinatorFriendly', '#Biodiversity'.
+Observation tags: '#Biodiversity', '#Compost', '#CoverCrops','#DitchChemicals', '#PesticideFree', '#PollinatorFriendly', '#SheetMulch'.
 
 Levels:
 * Level 1: The garden is present in the Green America database, and implements at least three of the five practices for one or two years. Verification: Self-awarded the first time the user applies for the badge, because they must attest to having added the garden to the Green America database. In addition to attesting, there must be prior Observations with at least three of the associated tags.
@@ -130,7 +130,7 @@ Levels:
 
 Criteria: The garden has pollinator-friendly practices such as: (1) Using a wide variety of plants that bloom from early spring into late fall, (2) Avoiding modern hybrid flowers, especially those with "doubled" flowers, (3) Eliminating pesticides whenever possible, (4) Including larval host plants in your landscape, (5) Creating a damp salt lick for butterflies and bees, (6) Leaving dead trees, or at least an occasional dead limb, in order to provide essential nesting sites for native bees, and (7) Adding to nectar resources by providing a hummingbird feeder.
 
-Observation tags: '#SaltLick', '#Hummingbirds', '#NativePlants', '#PesticideFree', '#DitchChemicals', '#Habitat', '#LarvalHostPlants', '#NativeBees'.
+Observation tags: '#DitchChemicals', '#Habitat', '#Hummingbirds', '#LarvalHostPlants', '#NativeBees', '#NativePlants', '#PesticideFree', '#SaltLick'.
 
 Levels:
 * Level 1: The garden includes three pollinator friendly practice during the current year. Verification: Automatically awarded when there are Observations indicating at least three of the practices during the current year.
@@ -143,12 +143,12 @@ Levels:
 
 Criteria: Garden soil has been improved by using sheet mulch, compost, and/or cover crops.
 
-Observation tags: '#SheetMulch', '#Compost', '#CoverCrops'.
+Observation tags: '#Compost', '#CoverCrops', #SheetMulch'.
 
 Levels:
-* Level 1: The garden implements at least two soil building practice during one or two years. Verification: Automatically awarded when there are Observations indicating at least two of the practices during the current season. 
-* Level 2: The garden implements at least two soil building practices during three garden seasons. Verification: Automatically awarded when there are Observations indicating at least two of the practices during the current year, and the garden has the Sustainable Soil badge for the previous two years.
-* Level 3: The garden implements at least two soil building practices during three garden seasons. Verification: Automatically awarded when there are Observations indicating at least two of the practices during the current year, and the garden has the Sustainable Soil badge for the previous five years.
+* Level 1: The garden implements at least two soil building practice during one or two years. Verification: Automatically awarded when there are Observations indicating at least two of the practices during the current year. 
+* Level 2: The garden implements at least two soil building practices during three years. Verification: Automatically awarded when there are Observations indicating at least two of the practices during the current year, and the garden has the Sustainable Soil badge for the previous two years.
+* Level 3: The garden implements at least two soil building practices during three years. Verification: Automatically awarded when there are Observations indicating at least two of the practices during the current year, and the garden has the Sustainable Soil badge for the previous five years.
 
 ### Water Smart
 
@@ -156,7 +156,7 @@ Levels:
 
 Criteria: The garden involves water conservation practices, including: (1) collecting and using rainwater; (2) drip irrigation or soaker hoses, or (3) timers to water during cooler parts of day to minimize water use.
 
-Observation tags: '#Rainwater', '#DripIrrigation', '#WaterTimer'.
+Observation tags: '#DripIrrigation', '#Rainwater', '#WaterTimer'.
 
 Levels:
 * Level 1: The garden includes least one water saving practice during the current year. Verification: Automatically awarded when there are Observations indicating at least one of the practices during the current year.
@@ -177,8 +177,8 @@ Criteria: The gardener is serving as a Chair for the Chapter.
 Note that GGC System Admins are responsible to designating which member(s) of a Chapter are the Chair(s). When they do this designation, they set a flag in the member's profile indicating that they are currently a Chapter Chair and what date they started being Chair.
 
 Levels:
-* Level 1: The gardener has served as a Chapter Chair for one year. Verification:  Automatically awarded when the gardener has the Chapter Chair flag set and the start date is less than 3 years ago.
-* Level 2: The gardener has served as a Chapter Chair for three years. Verification:  Automatically awarded when the gardener has the Chapter Chair flag set and the start date is between three and four years ago.
+* Level 1: The gardener has served as a Chapter Chair for one or two years. Verification:  Automatically awarded when the gardener has the Chapter Chair flag set and the start date is less than 3 years ago.
+* Level 2: The gardener has served as a Chapter Chair for three or four years. Verification:  Automatically awarded when the gardener has the Chapter Chair flag set and the start date is between three and four years ago.
 * Level 3: The gardener has served as a Chapter Chair for five or more years. Verification:  Automatically awarded when the gardener has the Chapter Chair flag set and the start date is five or more years ago.
 
 Note that the Chapter Chair badge is an exception to the "Badges Never Expire" rule. This is because we want this badge to also serve as an indication of who the *current* Chair(s) of the Chapter are. So, whenever the GGC Sys Admins indicate that a person is a Chair or is no longer a Chair, the badge will be added or removed at that time.
@@ -193,9 +193,9 @@ Criteria: The gardener has demonstrated experience with community and/or school 
 Observation tags: '#CommunityGarden', '#SchoolGarden'
 
 Levels:
-* Level 1: The gardener has participated in at least one community or school garden project for one year. Verification: Automatically awarded if there is at least one Observation with either the '#CommunityGarden' or '#SchoolGarden' tags.
-* Level 2: The gardener has participated in at least one community or school garden project for three years. Verification: Automatically awarded if there are Observations with either the '#CommunityGarden' or '#SchoolGarden' tags over three years.
-* Level 3: The gardener has participated in at least one community or school garden project for five years. Verification: Automatically awarded if there are Observations with either the '#CommunityGarden' or '#SchoolGarden' tags over five years.
+* Level 1: The gardener has participated in at least one community or school garden project for one or two years. Verification: Automatically awarded if there is at least one Observation with either the '#CommunityGarden' or '#SchoolGarden' tags.
+* Level 2: The gardener has participated in at least one community or school garden project for three or four years. Verification: Automatically awarded if there are Observations with either the '#CommunityGarden' or '#SchoolGarden' tags over three to four years.
+* Level 3: The gardener has participated in at least one community or school garden project for five years. Verification: Automatically awarded if there are Observations with either the '#CommunityGarden' or '#SchoolGarden' tags over at least five years.
 
 ### Compost Champion
 
@@ -203,12 +203,12 @@ Levels:
 
 Criteria: The gardener has experience composting.
 
-Observation tags: #Compost', '#Worms', '#Hugelkulture',  '#CompostTea', '#Vermiculture'
+Observation tags: #Compost', '#CompostTea', '#Hugelkulture', '#Vermiculture', '#Worms'.    
 
 Levels:
-* Level 1: The gardener has produced compost to support their garden's fertilizer needs for one or two years. Verification: Automatically awarded when there is an Observation with the tag '#Compost' during the current year, and the gardener does not have the Compost Champion badge for more than one prior year.
-* Level 2: The gardener has produced compost to support their garden's fertilizer needs for three or four years. Verification: Automatically awarded when there is an Observation with the tag '#Compost' during the current year, and the gardener has the Compost Champion badge for two or three prior years.
-* Level 3: The gardener has produced compost to support their garden's fertilizer needs for five or more years. Verification: Automatically awarded when there is an Observation with the tag '#Compost' during the current year, and the gardener has the Compost Champion badge for at least four prior years.
+* Level 1: The gardener has produced compost to support their garden's fertilizer needs for one or two years. Verification: Automatically awarded when there is an Observation with an associated tag during the current or previous years, and the gardener does not have the Compost Champion badge for more than one prior year.
+* Level 2: The gardener has produced compost to support their garden's fertilizer needs for three or four years. Verification: Automatically awarded when there is an Observation with an associated tag during the current year, and the gardener has the Compost Champion badge for two or three prior years.
+* Level 3: The gardener has produced compost to support their garden's fertilizer needs for five or more years. Verification: Automatically awarded when there is an Observation with an associated tag during the current year, and the gardener has the Compost Champion badge for at least four prior years.
 
 ### Crop Whisperer
 
@@ -244,7 +244,7 @@ Levels:
 
 Criteria: The gardener has completed a master gardener program and volunteers time to support gardening practices in their community.
 
-Observation tags: '#MasterGardenerCertificate', '#MasterGardenerAtWork'.
+Observation tags: '#MasterGardenerAtWork', '#MasterGardenerCertificate'.
 
 Levels: 
 * Level 1: The gardener has completed a master gardener program and been certified as a master gardener, and has volunteered time as a master gardener for one or two years. Verification: Automatically awarded when there is an Observation with the tag '#MasterGardenerCertificate' (in any prior year) and an Observation with the tag '#MasterGardenerAtWork' (in the current year), and the Master Gardener badge has been awarded to this gardener for a maximum of one prior year. 
@@ -257,7 +257,7 @@ Levels:
 
 Observation tags: '#PermacultureCertificate'
 
-Criteria: The gardener has completed a Permaculture workshop to learn about the philosophy of permaculture and is also associated with garden(s) that have achieved permaculture-related badges (Pesticide Free, Sustainable Soil, Water Smart, Pollinator Friendly).
+Criteria: The gardener has completed a Permaculture workshop to learn about the philosophy of permaculture and is also associated with garden(s) that have achieved permaculture-related badges (#PesticideFree, #SustainableSoil, #WaterSmart, #PollinatorFriendly).
 
 Levels:
 Level 1: The gardener has completed a Permaculture workshop and has implemented at least one permaculture practice in one of their gardens. Verification: Automatically awarded when the gardener has posted a public Observation with the tag '#PermacultureCertificate' and is associated with a garden that has one of the permaculture-related badges.
@@ -268,9 +268,9 @@ Level 3: The gardener has completed a Permaculture workshop and has implemented 
 
 <Badges>Vermiculturalist</Badges>
 
-Criteria: The gardener has demonstrated experience with vermiculture (the controlled growing of worms) and vermicomposting (the use of worms to produce compost).
+Criteria: The gardener has experience with vermiculture (the controlled growing of worms) and vermicomposting (the use of worms to produce compost).
 
-Observation tags: '#Worms',  '#CompostTea', '#Vermiculture'
+Observation tags: '#CompostTea', '#Vermiculture', '#Worms'.  
 
 Levels:
 * Level 1: The gardener used worms to produce compost for one or two years. Verification: automatically awarded when there is an Observation with the associated tag for the current year, and the gardener has the Vermiculturalist tag for no more than one prior year. 
@@ -288,8 +288,8 @@ Observation tags: #SeedSaving', '#SeedSharing"
 
 Levels:
 * Level 1: The gardener has saved seeds from at least one plant and successfully grown plants from saved seeds in at least one year. Verification: Automatically awarded when the gardener has at least Observation with the tag '#SeedSaving'.
-* Level 2: The gardener has saved seeds and successfully grown plants from saved seeds from at least three plants during three garden seasons. Furthermore, the gardener must have shared seeds at least once. Verification: Automatically awarded when there are Observations with the tags tags '#SeedSaving' from at least three years, and there is at least one Observation with the tag '#SeedSharing'.
-* Level 3: The gardener has saved seeds and successfully grown plants from saved seeds from at least five plants during at least five garden seasons. Furthermore, the gardener must have shared seeds during at least five garden seasons. Verification: Automatically awarded when there are Observations with the tags '#SeedSaving' and '#SeedSharing' from at least five years.
+* Level 2: The gardener has saved seeds and successfully grown plants from saved seeds from at least three plants during three years. Furthermore, the gardener must have shared seeds at least once. Verification: Automatically awarded when there are Observations with the tags tags '#SeedSaving' from at least three years, and there is at least one Observation with the tag '#SeedSharing'.
+* Level 3: The gardener has saved seeds and successfully grown plants from saved seeds from at least five plants during at least five years. Furthermore, the gardener must have shared seeds during at least five years. Verification: Automatically awarded when there are Observations with the tags '#SeedSaving' and '#SeedSharing' from at least five years.
 
 
 
@@ -357,8 +357,8 @@ Observation tags: #Beekeeping', '#Beekeeper'
 
 Levels:
 * Level 1: The gardener has kept and cared for bees for at least one season to produce honey and/or support crop pollination. (Self-awarded.)
-* Level 2: The gardener has kept and cared for bees for at least two seasons to produce honey and/or support crop pollination. (Requires photo observations as evidence. Self-awarded.)
-* Level 3: The gardener has kept and cared for bees for at least five seasons to produce honey and/or support crop pollination. (Requires photo observations as evidence. Chapter Chair must verify.)
+* Level 2: The gardener has kept and cared for bees for at least two years to produce honey and/or support crop pollination. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has kept and cared for bees for at least five years to produce honey and/or support crop pollination. (Requires photo observations as evidence. Chapter Chair must verify.)
 ### Aquaponics Ace
 
 <Badges>Aquaponics Ace</Badges>
@@ -370,8 +370,8 @@ Observation tags: #Aquaponics', '#FishAndPlants',
 
 Levels:
 * Level 1: The gardener has kept and cared for fish and plants in an aquaponics system for at least one season to produce food for their garden. (Self-awarded.)
-* Level 2: The gardener has kept and cared for fish and plants in an aquaponics system for at least two seasons to produce food for their garden. (Requires photo observations as evidence. Self-awarded.)
-* Level 3: The gardener has kept and cared for fish and plants in an aquaponics system for at least five seasons to produce food for their garden. (Requires photo observations as evidence. Chapter Chair must verify.)
+* Level 2: The gardener has kept and cared for fish and plants in an aquaponics system for at least two years to produce food for their garden. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has kept and cared for fish and plants in an aquaponics system for at least five years to produce food for their garden. (Requires photo observations as evidence. Chapter Chair must verify.)
 
 ### Herbalist Hero
 
@@ -409,5 +409,5 @@ Criteria: The gardener has demonstrated experience with orchard management.
 
 Levels:
 * Level 1: The gardener has managed at least one fruit tree for at least one season, and obtained a harvest. (Self-awarded.)
-* Level 2: The gardener has managed at least three fruit trees for at least two seasons, and obtained a harvest from all trees. (Requires photo observations as evidence. Self-awarded.)
-* Level 3: The gardener has managed at least five fruit trees for at least five seasons, and obtained a harvest in all cases. (Requires photo observations as evidence. Chapter Chair must verify.)
+* Level 2: The gardener has managed at least three fruit trees for at least two years, and obtained a harvest from all trees. (Requires photo observations as evidence. Self-awarded.)
+* Level 3: The gardener has managed at least five fruit trees for at least five years, and obtained a harvest in all cases. (Requires photo observations as evidence. Chapter Chair must verify.)
