@@ -432,6 +432,6 @@ The following image is the Help page. Note that the badges I have earned have a 
 
 ### Khan Academy
 
-Khan Academy has five levels (from Meteorite to Black Hole) plus a special category called "Challenge" patches:
+Khan Academy has five levels of badges (from Meteorite to Black Hole) plus a special category called "Challenge Patches":
 
 <img style={{borderStyle: "solid"}} src="/img/develop/alpha-release/khan-academy-badges.png"/>
