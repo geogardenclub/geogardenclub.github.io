@@ -411,3 +411,27 @@ Levels:
 * Level 1: The gardener has managed at least one fruit tree for at least one season, and obtained a harvest. (Self-awarded.)
 * Level 2: The gardener has managed at least three fruit trees for at least two years, and obtained a harvest from all trees. (Requires photo observations as evidence. Self-awarded.)
 * Level 3: The gardener has managed at least five fruit trees for at least five years, and obtained a harvest in all cases. (Requires photo observations as evidence. Chapter Chair must verify.)
+
+## Badge UI ideas
+
+### Stack Overflow
+
+Here is how Stack Overflow implements badges.
+
+The following image shows the "summary". It uses gold, silver, and bronze dots: 
+
+<img style={{borderStyle: "solid"}} src="/img/develop/alpha-release/stackoverflow-badge-1.png"/>
+
+The following image shows the "details" page:
+
+<img style={{borderStyle: "solid"}} src="/img/develop/alpha-release/stackoverflow-badge-2.png"/>
+
+The following image is the Help page. Note that the badges I have earned have a check mark beside them:
+
+<img style={{borderStyle: "solid"}} src="/img/develop/alpha-release/stackoverflow-badge-3.png"/>
+
+### Khan Academy
+
+Khan Academy has five levels (from Meteorite to Black Hole) plus a special category called "Challenge" patches:
+
+<img style={{borderStyle: "solid"}} src="/img/develop/alpha-release/khan-academy-badges.png"/>
