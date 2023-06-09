@@ -485,22 +485,22 @@ An observation is a note (and, typically, a picture) taken by a gardener regardi
 
 The Observation entity has the following conceptual structure.
 
-| Field | Type | R/O | Description |
-| ----  | ----- | ------ | -------- |
+| Field | Type            | R/O | Description |
+| ----  |-----------------| ------ | -------- |
 | observationID | `ObservationID` | R | A unique ID with the format `observation-<chapterNum>-<gardenNum>-<observationNum>`.  ObservationNums are unique within a Chapter and Garden and start at 700.  |
-| chapterID | `ChapterID` | R | The ChapterID. |
-| gardenID | `GardenID` | R | The Garden associated with this Observation. |
-| gardenName | `String` | R | The Garden name associated with the above GardenID. |
-| plantingID | `GardenID` | R | The Planting associated with this Observation. |
-| cropID | `CropID` | R | The Crop associated with this Observation. |
-| cropName | `String` | R | The name associated with the above CropID. |
-| varietyID | `VarietyID` | R | The VarietyID. |
-| varietyName | `String` | R | The name associated with the above VarietyID. |
-| observationDate | `DateTime` | R | The  time and date associated with this Observation. |
-| tags | `List<String>` | R | A list of strings that tag this Observation. |
-| description | `String` | R | A textual description of this Observation. |
-| picture | `String` | O | A string that can be used to retrieve the picture associated with this Observation. Or the empty string. |
-| lastUpdate | `DateTime` | R | A `DateTime` instance that timestamps the last update.  |
+| chapterID | `ChapterID`     | R | The ChapterID. |
+| gardenID | `GardenID`      | R | The Garden associated with this Observation. |
+| gardenName | `String`        | R | The Garden name associated with the above GardenID. |
+| plantingID | `PlantingID`    | R | The Planting associated with this Observation. |
+| cropID | `CropID`        | R | The Crop associated with this Observation. |
+| cropName | `String`        | R | The name associated with the above CropID. |
+| varietyID | `VarietyID`     | R | The VarietyID. |
+| varietyName | `String`        | R | The name associated with the above VarietyID. |
+| observationDate | `DateTime`      | R | The  time and date associated with this Observation. |
+| tags | `List<String>`  | R | A list of strings that tag this Observation. |
+| description | `String`        | R | A textual description of this Observation. |
+| picture | `String`        | O | A string that can be used to retrieve the picture associated with this Observation. Or the empty string. |
+| lastUpdate | `DateTime`      | R | A `DateTime` instance that timestamps the last update.  |
 
 Here is an example Observation document:
 
