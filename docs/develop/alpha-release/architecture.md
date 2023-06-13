@@ -74,32 +74,36 @@ features/
   discussion/
   garden/
   gardener/
-  news/
+  home/
   observation/
    :
-  drawer_view.dart       # DrawerView appears in many feature Screens.
-  home_screen.dart       # Initial screen
-  with_core.dart         # Hides asynchronous database retrieval from UI
-  with_monarch.dart      # Mocks the DB for Monarch.
+  drawer_view.dart         # DrawerView appears in many feature Screens.
+  with_core_data.dart      # Hide asynchronous database retrieval from UI
+  with_garden_data.dart    # Hide asynchronous database retrieval from UI
+  with_monarch_data.dart   # Mock the DB for Monarch.
 ```
 
 Each feature can have one or more of the following subdirectories: domain/, data/, and presentation/.  The authentication feature only requires a presentation/ subdirectory, while the chapter feature requires all three.
 
 The features/ directory also contains a few top-level files containing "cross-cutting" code that applies to many features. 
 
-## WithCore
+## The "With" widgets
 
-One complicate thing to solve in a client-server architecture is the asynchronous nature of client-server communication. In other words, when the client needs data from the server, it makes a request that can take time to complete, and may not complete successfully.  The client UI should not simply "freeze" during this time, and should "fail gracefully" if the request does not complete successfully. 
+One complicated issue to address in a client-server architecture is the asynchronous nature of client-server communication. In other words, when the client needs data from the server, it makes a request that can take time to complete, and may not complete successfully.  The client UI should not simply "freeze" during this time, and should "fail gracefully" if the request does not complete successfully. 
 
-Making things a bit more complicated is the desire for modern UIs to be "reactive". This means that if the server's database content changes (for example, a user creates a new garden), then all other clients currently connected should see their UI automatically refresh with updated information (for example, the number of gardens in the Chapter should increase by one.)
+Making things even more complicated is the desire for modern UIs to be "reactive". This means that if the server's database content changes (for example, one user creates a new garden), then all the other clients currently connected should see their UI automatically refresh with updated information (for example, the number of gardens in the Chapter should increase by one for all other users.)
 
-Making things yet more complicated in GGC is the desire to support a "Storybook" style system like Monarch, in which individual Views as well as entire Screens can be displayed with sample data values without requiring a database connection.
+Making things yet more complicated in GGC is the desire to support a "Storybook" style design system like Monarch, in which individual Views as well as entire Screens can be displayed with sample data values without requiring a database connection.
 
-In the alpha release, we address all of these issues through a set of utilities called the "With" utilities. Currently, there are two: WithCore and WithMonarch, although we will implement additional ones as we start to implement garden planning.
+In the alpha release, we address all of these issues through a design pattern that starts with a set of widgets which we will call the "With" widgets. Currently, there are three: WithCoreData, WithGardenData and WithMonarchData, but there will be others (WithObservationData, WithSeedData, etc.) as we continue to build out the system.
 
-The basic idea is that all of the data that the client needs for the user interface can be found by calling methods on the three "top-level" collections: ChapterCollection, GardenCollection, and UserCollection.  Each Screen is implemented by two Widgets: a Widget that calls WithCore in its build method, and then passes to WithCore a callback which is another "Internal" widget that takes fully populated ChapterCollection, GardenCollection, and UserCollection instances. 
+In this design pattern, all of the data that a Widget needs to build a user interface component can always be found somewhere within three "top-level" client-side classes: ChapterCollection, GardenCollection, and UserCollection.
 
-Let's see a simple example of the use of WithCore:
+In addition, UI widgets come in two basic flavors, "Screens" and "Views".  Screens are a kind of "top-level" UI widget which must take responsibility for building the ChapterCollection, GardenCollection, and UserCollection classes. They accomplish this by invoking a "With" widget.  Views are always a "child" of a Screen widget, and must be passed ChapterCollection, GardenCollection, and UserCollection instances from their parent Widget. So, database access always happens at the Screen-level, and from then on the Views all receive locally cached data.
+
+To support the use of Monarch, each Screen is implemented by two Widgets: the Widget that calls (for example) WithCoreData in its build method, and then invokes an "Internal" widget with populated instances of ChapterCollection, GardenCollection, and UserCollection. The two-widget structure is necessary in order to support Monarch storybooks, as will be demonstrated later below. 
+
+Let's see a simple example of the use of WithCoreData:
 
 ```dart
 class ChaptersScreen extends StatelessWidget {
@@ -109,7 +113,7 @@ class ChaptersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WithCore(whenData: (
+    return WithCoreData(whenCoreData: (
         {required ChapterCollection chapters,
         required GardenCollection gardens,
         required UserCollection users}) {
@@ -120,9 +124,11 @@ class ChaptersScreen extends StatelessWidget {
 }
 ```
 
-In a nutshell, when the ChaptersScreen widget's build method is called, it will call WithCore.  WithCore will retrieve the "core" Chapter, Garden, and User data from Firebase (caching it locally through Riverpod).  While it is retrieving it, the CircularProgressIndicator widget will be displayed. Once all of the data for the Chapter, Garden, and User collections (as well as potentially other data from other collections) is successfully retrieved, then the ChaptersScreenInternal widget's build method will called, and it is called with these fully populated collection class instances. 
+In a nutshell, when the ChaptersScreen widget's build method is called, it will call WithCoreData.  WithCoreData will retrieve the "core" Chapter, Garden, and User data from Firebase (the first time it is called during a session---after that, the local Riverpod cache of the documents will be used). Note that core data includes documents from a variety of Firebase collections, including chapters, gardens, users, crops, badges.   
 
-Let's look at the ChapterScreenInternal widget:
+While this retrieval process is going on, this "With" widget will display the CircularProgressIndicator widget. Once all of the core data is successfully retrieved, then the ChaptersScreenInternal widget's build method will called and passed these fully populated collection class instances, and the intended screen UI will appear. If an error occurs during database retrieval, the "With" widget will display a generic error page. 
+
+The net effect is that the UI code is insulated from technicalities resulting from the asynchronous nature of data retrieval.  It just wraps the code for the "happy path" inside a "With" widget and proceeds. For example, here's an elided version of the "Internal" widget:
 
 ```dart
 class ChaptersScreenInternal extends StatelessWidget {
@@ -151,19 +157,19 @@ class ChaptersScreenInternal extends StatelessWidget {
 }
 ```
 
-What's cool is that the ChaptersScreenInternal is a StatelessWidget that gets passed three collections: Chapters, Gardens, and Users, and this is all the data that it (or any of its component Views) needs to render the Screen. 
+What's nice is that ChaptersScreenInternal is a StatelessWidget that gets passed three collections: Chapters, Gardens, and Users, and this is all the data that it (or any of its component Views) needs to render the Screen. 
 
-As you look through the code, you will see that almost all of the Screen widgets are implemented with a "top-level" Widget that calls WithCore, along with a callback that calls the corresponding "Internal" widget with the three collection classes (and potentially some other data).
+As you look through the code, you will see that Screen widgets generally follow this design pattern:  a "top-level" Widget that calls WithCoreData, along with a callback that calls the corresponding "Internal" widget with the three collection classes (and potentially some other data).
 
-## WithMonarch
+## WithMonarchData
 
-The decomposition of a Screen into a top-level widget and an internal widget is an important design pattern in ggc_app because it makes it easy to implement Monarch stories.  You can do this by writing a story that instead of called WithCore, calls WithMonarch, and then calls the "Internal" widget with the collections created by WithMonarch. 
+The decomposition of a Screen into a top-level widget and an internal widget is an important design pattern in ggc_app because it makes it easy to implement Monarch stories.  You can do this by writing a story that first calls WithMonarchData, and then calls the "Internal" widget with the collections created by WithMonarchData. 
 
 For example:
 
 ```dart
 Widget showChaptersScreen() {
-  return WithMonarch(whenData: (
+  return WithMonarchData(whenMonarchData: (
       {required ChapterCollection chapters,
       required GardenCollection gardens,
       required UserCollection users}) {
@@ -173,13 +179,13 @@ Widget showChaptersScreen() {
 }
 ```
 
-The difference between WithCore and WithMonarch is that WithCore builds the Chapters, Gardens, and Users collections by accessing Firestore, while WithMonarch retrieves sample data for all of the collections from the assets/monarch directory. 
+The difference between WithCoreData and WithMonarchData is that WithCoreData builds the Chapters, Gardens, and Users collections by accessing Firestore, while WithMonarchData builds the Chapters, Gardens, and Users collections from sample data stored in the assets/monarch directory. 
 
 What makes Monarch so useful for UI development is that it makes it really easy to display a UI component in different states. For example, here is an example of displaying the Drawer UI component with data from two different users (one with a profile picture, one who does not):
 
 ```dart
 Widget showDrawer() {
-  return WithMonarch(whenData: (
+  return WithMonarchData(whenMonarchData: (
       {required ChapterCollection chapters,
         required GardenCollection gardens,
         required UserCollection users}) {
@@ -188,7 +194,7 @@ Widget showDrawer() {
 }
 
 Widget showDrawer2() {
-  return WithMonarch(whenData: (
+  return WithMonarchData(whenMonarchData: (
       {required ChapterCollection chapters,
         required GardenCollection gardens,
         required UserCollection users}) {
@@ -201,8 +207,43 @@ To view these two states using the emulator, you would have to login and logout 
 
 :::warning
 
-The "Screen" and "View" design patterns in ggc_app have some important constraints:
+These "Screen" and "View" design patterns in ggc_app have some important constraints:
 
-1. Only Screen widgets call WithCore.  All View widgets should be passed the Chapter, User, and Garden collections from their parents. 
-2. Neither Screen nor View widgets call Riverpod providers.  All of the Riverpod providers are called within WithCore.
+1. Only Screen widgets call a "With" widget.  All View widgets should be passed the Chapter, User, and Garden collections from their parents. 
+2. Neither Screen nor View widgets call Riverpod providers.  All of the Riverpod providers are called within the "With" widgets.
 :::
+
+## WithGardenData, etc
+
+WithCoreData is responsible for retrieving "core" data, which means the data that is necessary to build the initial set of Screens that the user sees after logging in. We don't want to retrieve all of the data that the user might ever want to see immediately upon logging in, as that might require the UI to pause for several-to-many seconds, degrading the user experience. Instead, upon logging in, only the minimum "core" data is retrieved from the database so that the wait time is minimal.
+
+Now, consider the situation where the user wants to navigate to the Garden Details screen.  This screen will require (among other things) all of the Planting data associated with that specific garden. To retrieve additional data beyond the core data, we will provide additional "With" widgets, of which WithGardenData is an example. 
+
+Here's an example invocation of WithGardenData:
+
+```dart
+class GardenDetailsScreen extends StatelessWidget {
+  const GardenDetailsScreen({Key? key, required this.gardenID})
+      : super(key: key);
+
+  final String gardenID;
+  @override
+  Widget build(BuildContext context) {
+    return WithGardenData(
+        gardenID: gardenID,
+        whenGardenData: (
+            {required ChapterCollection chapters,
+            required GardenCollection gardens,
+            required UserCollection users}) {
+          return GardenDetailsScreenInternal(gardenID: gardenID,
+              chapters: chapters, gardens: gardens, users: users);
+        });
+  }
+}
+```
+
+Notice that WithGardenData takes two arguments, a gardenID (used to determine which garden's detailed data to retrieve), plus the standard callback that will be passed filled out instances of ChapterCollection, GardenCollection, and UserCollection. For convenience, the GardenDetailsScreenInternal widget is passed the gardenID as well. 
+
+It is important to note that "extended" With widgets like WithGardenData call WithCoreData internally, so the resulting collection instances include all of the core data, plus (in this case) the garden details data.  As a result, the client code never needs to nest multiple With widgets. 
+
+Due to the wonders of Riverpod, data is cached and reactive.  The user can navigate away from this garden and return to it later and the system will build the collections from local copies of the data. Even better, Riverpod will keep its local copies in sync with Firebase, so that if other users add data, the current user will see the updates when they redisplay the page.
