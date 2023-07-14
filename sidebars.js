@@ -50,6 +50,7 @@ const sidebars = {
         'develop/beyond-alpha/chapterzipmap',
       ],
     },
+    'develop/best-practices',
   ],
 
   // But you can create a sidebar manually
