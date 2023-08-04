@@ -546,6 +546,67 @@ In addition, we might want to have tags  that provide "meta" information:
 | Public | Indicate if an observation can appear on the public page. |
 | Help wanted |  Indicates if the Observation describes an issue or problem for which the gardener needs help. For example, "What is this pest?" |
 
+### Task
+
+A task is a todo/reminder for the gardener. There are two types of tasks:
+
+1. A task generated from a planting, such as `transplant` or `first harvest`. Eventually, GeoGardenClub will generate these tasks automatically when a new planting is created.
+2. A task created by the gardener, such as `Weed bed 1` or `Water bed 2`.
+
+The Task entity has the following conceptual structure.
+
+| Field | Type            | R/O | Description                                                                                                                                                                    |
+| ----  |-----------------|-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| taskID | `TaskID`        | R   | A unique identifier for this Task with the format `task-<chapterNum>-<gardenNum>-<plantingNum>-taskNum`. If the task is created by the gardener the `<plantingNum>` is `0000`. |
+| chapterID | `ChapterID`     | R   | The ChapterID.                                                                                                                                                                 |
+| gardenID | `GardenID`      | R   | The Garden associated with this Task.                                                                                                                                          |
+| taskType  | `TaskType`      | R   | The type of task. There are 6 task types: `sow`, `transplant`, `firstHarvest`, `endHarvest`, `pull`, and `other`.                                                              |
+| description | `String`      | O   | A description of the task. This is used for `other` tasks.                                                                                                                     |
+| dueDate | `DateTime`      | R   | The date the task is due.                                                                                                                                                      |
+| cropID | `CropID`        | O   | The CropID associated with this Task. This is used for planting generated tasks.                                                                                               |
+| cropName | `String`      | O   | The name of the crop associated with this Task. This is used for planting generated tasks.                                                                                     |
+| bedID | `BedID`          | O   | The BedID associated with this Task. This is used for planting generated tasks.                                                                                                 |
+| varietyID | `VarietyID`  | O   | The VarietyID associated with this Task. This is used for planting generated tasks.                                                                                            |
+| varietyName | `String`   | O   | The name of the variety associated with this Task. This is used for planting generated tasks.                                                                                  |
+| lastUpdate | `DateTime`   | R   | The date the task was last updated.                                                                                                                                            |
+
+Here's an example planting generated task.
+
+```json
+{
+    "taskID": "task-001-101-1068-006",
+    "chapterID": "chapter-001",
+    "gardenID": "garden-001-101",
+    "taskType": "transplant",
+    "description": "",
+    "dueDate": "2023-07-25T00:00:00.000",
+    "cropID": "crop-001-516",
+    "cropName": "Dill",
+    "bedID": "bed-001-101-208",
+    "varietyID": "variety-001-848",
+    "varietyName": "Goldkrone",
+    "lastUpdate": "2023-04-01T00:00:00.000Z"
+  }
+```
+and a gardener generated task.
+
+```json
+{
+    "taskID": "task-001-101-0000-008",
+    "chapterID": "chapter-001",
+    "gardenID": "garden-001-101",
+    "taskType": "other",
+    "description": "Weed bed 1",
+    "dueDate": "2023-07-25T00:00:00.000",
+    "cropID": "",
+    "cropName": "",
+    "bedID": "",
+    "varietyID": "",
+    "varietyName": "",
+    "lastUpdate": "2023-04-01T00:00:00.000Z"
+  }
+```
+
 ## Collections and business logic
 
 As noted above, each entity is represented in the ggc_app as a Dart class, and made persistent as a document in Firebase. 
