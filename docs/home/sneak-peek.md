@@ -17,11 +17,11 @@ As with all mobile apps, you will be asked to sign in and/or register when you d
 
 ## Home Screen
 
-After logging in, you will come to your home screen. The home screen has a bottom navigation bar providing various views on your gardens:
+After logging in, you will come to your home screen. The home screen has a bottom navigation bar providing various views on your garden(s):
 
 <img style={{float: "left", marginLeft: "20px", marginRight: "20px"}} width="300" src="/img/sneak-peek/home-tasks.png"/>
 
-The Home Screen "Tasks" View provides a kind of "To Do" list. Most entries are automatically generated from your garden plan, although you can add Tasks manually if you wish.
+The Home Screen "Tasks" View provides a kind of "To Do" list. Most entries are automatically generated from your garden plan(s), although you can add Tasks manually if you wish.
 
 <div style={{clear:"both"}}></div>
 
@@ -96,6 +96,13 @@ For privacy purposes, users get to pick a unique "username" when they register, 
 
 <div style={{clear:"both"}}></div>
 
+## Chapter Gardens Screen
+
+<img style={{float: "left", marginLeft: "20px", marginRight: "20px"}} width="300" src="/img/sneak-peek/chapter-gardens.png"/>
+
+Like the Chapter Gardeners Screen, the Chapter Gardens Screen also provides a kind of "Directory", but this is for the Gardens in the Chapter, not the Gardeners. 
+
+<div style={{clear:"both"}}></div>
 
 ## there's more to come...
 
