@@ -50,11 +50,34 @@ const config = {
         logo: { alt: 'Geo Garden Club', src: 'img/logos/png/icon2.png' },
         items: [
           {
-            to: 'docs/home/motivation',
-            activeBasePath: 'docs',
-            label: 'Why GGC?',
+            type: 'dropdown',
+            label: 'Learn more',
             position: 'right',
+            items: [
+              {
+                label: 'Why GGC?',
+                to: 'docs/home/motivation',
+              },
+              {
+                label: 'Design Innovations',
+                to: 'docs/home/innovations',
+              },
+              {
+                label: 'Related Work',
+                to: 'docs/home/related-work',
+              },
+              {
+                label: 'The Team',
+                to: 'docs/home/team',
+              },
+              {
+                label: 'Mobile App Sneak Peek',
+                to: 'docs/home/sneak-peek',
+              },
+
+            ],
           },
+
           {
             type: 'dropdown',
             label: 'Public Gardens',

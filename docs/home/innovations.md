@@ -16,6 +16,12 @@ Geo Garden Club includes the following design innovations:
 8. The public view provides garden owners with controlled, public, read-only access.
 :::
 
+:::warning Mockup screenshot alert
+To illustrate our design innovations, this page uses excerpts from our web-based mockup.
+
+See the [Mobile App Sneak Peek](/docs/home/sneak-peek.html) page for screenshots of our mobile app, now under development!
+:::
+
 ## 1. Garden data is aggregated within local geographic regions called "Chapters".
 
 <img style={{float: "left", margin: "20px", borderStyle: "solid"}} width="400" src="/img/innovations/chapter-overview-excerpt.png"/>
