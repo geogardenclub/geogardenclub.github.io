@@ -162,7 +162,7 @@ String gardenName = widget.gardens.getGarden(gardenID).name;
 
 We can also use the GardenDropdown Input Field in a non-form context. For example, in the Outcomes screen accessible from the Drawer, there is a Garden dropdown such that the displayed outcomes update immediately each time a new garden is selected. 
 
-To do this, the Outcomes screen must provide an onTap function which is called each time the dropdown is manipulated.  Here's how the GardenDropdown is called to provide this functionality:
+To do this, the Outcomes screen must provide an onTap function which is called each time the dropdown is manipulated.  Here's is how the GardenDropdown can be called to provide this functionality:
 
 ```dart
 GardenDropdown(
