@@ -40,6 +40,7 @@ const sidebars = {
         'develop/alpha-release/data-model',
         'develop/alpha-release/architecture',
         'develop/alpha-release/badges',
+        'develop/alpha-release/input-fields',
       ],
     },
     {
