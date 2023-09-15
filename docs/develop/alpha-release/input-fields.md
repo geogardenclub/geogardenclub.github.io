@@ -20,7 +20,7 @@ To support these three design goals, GGC provides a set of custom input fields (
 
 The goal of this page is to document how GGC Input Fields are created and used in order to facilitate their future evolution.
 
-## Form Builder Input Fields
+## Background: Form Builder Input Fields
 
 A good overview of Form Builder Input Fields and their use is available in the [Flutter Form Builder Readme](https://pub.dev/packages/flutter_form_builder). As noted in the [Parameters section](https://pub.dev/packages/flutter_form_builder#parameters), there are several attributes that all Form Builder Input Fields support. In many cases, a GGC Input Field will provide a value for these standard attributes:
 
@@ -182,4 +182,10 @@ GardenDropdown(
 
 In this situation, we pass in an onTap method that calls setState() to update local state variables for gardenID, cropID, and varietyID. This forces a rebuild of the screen with those new state values, which in turn recomputes the outcomes to be displayed.
 
-(More documentation coming soon.)
+This example illustrates how GardenDropdown achieves the three design goals:
+
+* It is specialized for a given GGC entity. The client just passes in the gardens and chapters collection instances and GardenDropdown does the work of extracting garden names and IDs and building the dropdown object.
+* The invocation of the GardenDropdown has no "look-and-feel" code associated with it. All of the decoration and theme data is internal.
+* The GardenDropdown can be used both within a form (where the data is extracted using a FormKey) or outside a form (where the data is extracted using an onTap callback).
+
+(More documentation to come)
