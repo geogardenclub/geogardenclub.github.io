@@ -39,6 +39,7 @@ const sidebars = {
         'develop/alpha-release/requirements',
         'develop/alpha-release/data-model',
         'develop/alpha-release/architecture',
+        'develop/alpha-release/coding-standards',
         'develop/alpha-release/badges',
         'develop/alpha-release/input-fields',
       ],
@@ -51,7 +52,6 @@ const sidebars = {
         'develop/beyond-alpha/chapterzipmap',
       ],
     },
-    'develop/best-practices',
   ],
 
   // But you can create a sidebar manually

@@ -16,7 +16,7 @@ While this is great, Flutter Form Builder does not, by itself, accomplish two ad
 There is a third design goal as well.  GGC sometimes wants to use input fields outside the context of a "form"---i.e. a context in which data is gathered but not made available to the system until a "Submit" button is pressed. For example, the Outcome screen has input fields to select a garden, crop, and/or variety, and as these fields are manipulated by the user, the screen immediately refreshes to show Outcome data filtered by the values of the input fields. There is no "Submit" button in this screen, and so some of the Flutter Form Builder mechanisms are not used. The third design goal is:
 * Support both in-form and outside-form contexts without having to create two separate Garden dropdown widgets (for example).
 
-To support these three design goals, GGC provides a set of custom input fields (in the `lib/features/common/inputfields directory`). We call these "GGC Input Fields" to distinguish them from "Form Builder Input Fields".
+To support these three design goals, GGC provides a set of custom input fields (in the `lib/features/common/input-fields directory`). We call these "GGC Input Fields" to distinguish them from "Form Builder Input Fields".
 
 The goal of this page is to document how GGC Input Fields are created and used in order to facilitate their future evolution.
 
