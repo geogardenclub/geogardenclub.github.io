@@ -233,6 +233,105 @@ It is hard to provide simple "before and after" code samples, because the situat
 
 One thing not covered in these readings is how to handle the situation where you need to make multiple asynchronous calls.  In the long term, we will probably want to implement [Firestore transactions](https://firebase.google.com/docs/firestore/manage-data/transactions) when relevant. In the short term, the [AllData provider](https://github.com/philipmjohnson/flutter_agc_mockup_5/blob/main/lib/features/all_data_provider.dart) illustrates a design pattern for making multiple asynchronous requests and providing a single AsyncValue to the caller representing loading (i.e. at least one of the calls have not completed), error (for at least one of the calls), and success (all calls completed successfully). What AllData doesn't do is "roll back" when some of the calls succeed and others fail. But that's probably OK for the alpha release. 
 
+## Don't mix UI and repository code (Use Async, Part 2)
+
+The Task card implementation currently contains the following code:
+
+```dart title="task_card.dart"
+  if (updatedPlanting.plantingID != 'plantingID') {
+      _service
+          .setData(
+              path: FirestorePath.planting(updatedPlanting.plantingID),
+              data: updatedPlanting.toJson())
+          .then((val) => GlobalSnackBar.show('Planting update succeeded.'))
+          .catchError((e) =>
+              GlobalSnackBar.show('Planting update failed\n${e.toString()}.'));
+    }
+    // remove the task
+    deleteTask(task);
+  }
+
+  Future deleteTask(Task task) async {
+    // logger.d('deleteTask(): ${task.taskID}');
+    _service
+        .deleteData(path: FirestorePath.task(task.taskID))
+        .then((val) => GlobalSnackBar.show('Task delete succeeded.'))
+        .catchError(
+            (e) => GlobalSnackBar.show('Task delete failed\n${e.toString()}.'));
+  }
+```
+
+While this code was a reasonable "quick and dirty" way to explore the Task Card behavior, it has a couple of important design problems:
+
+1. *UI (front-end) code and database (back-end) code are intermingled.*  One easy way to see this is that the variable `_service` appears in this UI widget. Recall that one names a variable with an underscore when the intent is to only reference it within the defining class.
+2. *The UI will freeze during execution of the asynchronous task.*  This is because the code as currently written does not handle the "loading" state of the asynchronous call. 
+
+To fix these problems, we should follow the design pattern for mutating data established in [How to fetch data and perform data mutations with the Riverpod architecture](https://codewithandrea.com/articles/data-mutations-riverpod/). In general, this involves the following:
+
+* Move database mutation code out of the presentation/ directory and into the data/ directory.
+* Access the database mutation function via a Riverpod provider.
+* Redesign the database mutation function to return an AsyncValue.
+* Redesign the UI code to handle the AsyncValue's three states, and use a Controller class rather than a Stateful widget to manage the various states of processing.
+
+Currently, sample code for this approach can be found in the above article and in the garden feature of [flutter_agc_mockup_5](https://github.com/philipmjohnson/flutter_agc_mockup_5). Here are some excerpts.
+
+First, here is an excerpt of UI code to perform a data mutation. It uses a Riverpod provider to access the `updateGarden` mutation function. Two (inline) callbacks are passed to handle the success and error states (loading is handled inside the provider).  These callbacks are so simple that one could argue for them to be inlined in production code, but it would also be fine to implement them as local private methods.
+
+Notice that no database manipulation code appears in the UI code, apart from a call to `updateGarden`.
+
+```dart title="flutter_agc_mockup_5/lib/features/garden/presentation/edit_garden_view.dart"
+// Calling the database function to update a garden.
+ref.read(editGardenControllerProvider.notifier).updateGarden(
+    garden: garden,
+    onSuccess: () {
+      Navigator.pushReplacementNamed(context, GardensView.routeName);
+      GlobalSnackBar.show('Garden update succeeded.');
+    },
+    onError: () {
+      Navigator.pushReplacementNamed(context, GardensView.routeName);
+      GlobalSnackBar.show('Garden update failed.');
+    });
+```
+
+The design pattern recommended by Andrea involves the creation of a Controller class. This class acts as a "bridge" between the UI code and the asynchronous database mutation code--in this case, `gardenDatabase.setGarden()`. Hopefully the "mounted shenanigans" will be resolved in a future Flutter or Riverpod release.
+
+```dart title="flutter_agc_mockup_5/lib/features/garden/presentation/edit_garden_controller.dart"
+// Excerpt from the controller class. 
+// Handling mounted requires shenanigans:
+//   https://codewithandrea.com/articles/async-notifier-mounted-riverpod/
+@riverpod
+class EditGardenController extends _$EditGardenController {
+  bool mounted = true;
+
+  @override
+  FutureOr<void> build() {
+    ref.onDispose(() => mounted = false);
+  }
+
+  Future<void> updateGarden(
+      {required Garden garden, required VoidCallback onSuccess, required VoidCallback onError}) async {
+    state = const AsyncLoading();
+    GardenDatabase gardenDatabase = ref.watch(gardenDatabaseProvider);
+    final newState =
+      await AsyncValue.guard(() => gardenDatabase.setGarden(garden));
+    if (mounted) {
+      state = newState;
+      if (state.hasError) {
+        onError();
+      }
+      if (state.hasValue) {
+        onSuccess();
+      }
+    } else {
+      onSuccess();
+    }
+  }
+```
+I want to note that this approach is "not recommended" in [Andrea's article](https://codewithandrea.com/articles/async-notifier-mounted-riverpod/), but the other approaches aren't much better (including one which requires abandoning Riverpod annotations).
+
+Apparently, there will eventually be an update to Riverpod to [support query mutation](https://github.com/rrousselGit/riverpod/issues/1660) better, and at that point we can implement a more robust solution.
+
+
 ## Don't write media-adaptive code
 
 For the alpha release, we are not going to optimize layout for different screen sizes. So, please do not (for example) use MediaQuery to adjust values. For example:
@@ -249,7 +348,12 @@ if (width > 400) {
 }
 ```
 
-The reason for this is to avoid: (a) investing time into writing code that we might abandon later once we decide on a standardized approach to screen-dependent layout, and (b) an inconsistent UI that is sometimes adaptive and sometimes not.
+The reason for this is to avoid: (a) investing time into writing code that we might abandon later once we decide on a comprehensive approach to screen-dependent layout, and (b) an inconsistent UI that is sometimes adaptive and sometimes not.
+
+For more information on this issue, see:
+* [Creating responsive and adaptive apps](https://docs.flutter.dev/ui/layout/responsive/adaptive-responsive) provides an overview of the issue. 
+* [Flutter Folio walkthrough](https://www.youtube.com/watch?v=yytBENOnF0w) illustrates how a single app can provide different behaviors to support the strengths of different platforms.
+* [Search pub.dev for "responsive"]https://pub.dev/packages?q=responsive) to see the many packages available to support responsive design.
 
 
 ## Use named routes
