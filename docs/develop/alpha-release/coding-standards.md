@@ -353,7 +353,7 @@ The reason for this is to avoid: (a) investing time into writing code that we mi
 For more information on this issue, see:
 * [Creating responsive and adaptive apps](https://docs.flutter.dev/ui/layout/responsive/adaptive-responsive) provides an overview of the issue. 
 * [Flutter Folio walkthrough](https://www.youtube.com/watch?v=yytBENOnF0w) illustrates how a single app can provide different behaviors to support the strengths of different platforms.
-* [Search pub.dev for "responsive"]https://pub.dev/packages?q=responsive) to see the many packages available to support responsive design.
+* [Search pub.dev for "responsive"](https://pub.dev/packages?q=responsive) to see the many packages available to support responsive design.
 
 
 ## Use named routes
