@@ -287,18 +287,12 @@ ref.read(editGardenControllerProvider.notifier).updateGarden(
       Navigator.pushReplacementNamed(context, GardensView.routeName);
       GlobalSnackBar.show('Garden update succeeded.');
     },
-    onError: () {
-      Navigator.pushReplacementNamed(context, GardensView.routeName);
-      GlobalSnackBar.show('Garden update failed.');
-    });
+);
 ```
 
 The design pattern recommended by Andrea involves the creation of a Controller class. This class acts as a "bridge" between the UI code and the asynchronous database mutation code--in this case, `gardenDatabase.setGarden()`. Hopefully the "mounted shenanigans" will be resolved in a future Flutter or Riverpod release.
 
 ```dart title="flutter_agc_mockup_5/lib/features/garden/presentation/edit_garden_controller.dart"
-// Excerpt from the controller class. 
-// Handling mounted requires shenanigans:
-//   https://codewithandrea.com/articles/async-notifier-mounted-riverpod/
 @riverpod
 class EditGardenController extends _$EditGardenController {
   bool mounted = true;
@@ -306,35 +300,39 @@ class EditGardenController extends _$EditGardenController {
   @override
   FutureOr<void> build() {
     ref.onDispose(() => mounted = false);
+    state = const AsyncData(null);
   }
 
-  Future<void> updateGarden(
-      {required Garden garden, required VoidCallback onSuccess, required VoidCallback onError}) async {
+  Future<void> updateGarden({
+    required Garden garden,
+    required VoidCallback onSuccess,
+  }) async {
     state = const AsyncLoading();
     GardenDatabase gardenDatabase = ref.watch(gardenDatabaseProvider);
     final newState =
       await AsyncValue.guard(() => gardenDatabase.setGarden(garden));
     if (mounted) {
       state = newState;
-      if (state.hasError) {
-        onError();
-      }
-      if (state.hasValue) {
-        onSuccess();
-      }
-    } else {
+    }
+    // Weird. Can't use "if (state.hasValue)" below.
+    if (!state.hasError) {
       onSuccess();
     }
   }
-```
-I want to note that this approach is "not recommended" in [Andrea's article](https://codewithandrea.com/articles/async-notifier-mounted-riverpod/), but the other approaches aren't much better (including one which requires abandoning Riverpod annotations).
 
-Apparently, there will eventually be an update to Riverpod to [support query mutation](https://github.com/rrousselGit/riverpod/issues/1660) better, and at that point we can implement a more robust solution.
+```
+
+Some notes on this approach:
+
+* This approach handles success, loading, and error states. The Garden database class implements setGarden(), setGardenDelayed(), and setGardenError() methods to allow you to see what happens under each situation by modifying the call in the controller.
+* The controller initializes its state to AsyncData(). That allows the EditGardenView to display the edit form. 
+* This approach involving a `mounted` boolean is "not recommended" in [Andrea's article](https://codewithandrea.com/articles/async-notifier-mounted-riverpod/), but the other approaches aren't much better (including one which requires abandoning Riverpod annotations).
+* Apparently, there will eventually be an update to Riverpod to [support query mutation](https://github.com/rrousselGit/riverpod/issues/1660) better, and at that point we might be able to implement a more elegant solution. 
 
 
 ## Don't write media-adaptive code
 
-For the alpha release, we are not going to optimize layout for different screen sizes. So, please do not (for example) use MediaQuery to adjust values. For example:
+For the alpha release, we are not going to optimize layout for different screen sizes. So, please do not (for example) use MediaQuery to adjust values for different screen sizes. For example:
 
 ```dart
 double width = MediaQuery.of(context).size.width;
@@ -355,6 +353,7 @@ For more information on this issue, see:
 * [Flutter Folio walkthrough](https://www.youtube.com/watch?v=yytBENOnF0w) illustrates how a single app can provide different behaviors to support the strengths of different platforms.
 * [Search pub.dev for "responsive"](https://pub.dev/packages?q=responsive) to see the many packages available to support responsive design.
 
+If you need to adjust the screen size for some other reason, that's OK.
 
 ## Use named routes
 
