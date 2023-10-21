@@ -57,7 +57,7 @@ You can zoom in to display the garden at 6 month or 1 month views. Each planting
 
 The Garden Details Screen "Filter" View provides a perspective on your garden over multiple years. 
 
-For example, this screenshot allows the gardener to review what varieties of cucumbers they have planted over the past four years, and the timings associated with each of them.
+For example, this screenshot allows the gardener to review what varieties of beans they have planted over the past four years, and the timings associated with each of them.
 <div style={{clear:"both"}}></div>
 
 <img style={{float: "left", marginLeft: "20px", marginRight: "20px"}} width="300" src="/img/sneak-peek/details-outcomes.png"/>
