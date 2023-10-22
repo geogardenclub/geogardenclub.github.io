@@ -233,103 +233,154 @@ It is hard to provide simple "before and after" code samples, because the situat
 
 One thing not covered in these readings is how to handle the situation where you need to make multiple asynchronous calls.  In the long term, we will probably want to implement [Firestore transactions](https://firebase.google.com/docs/firestore/manage-data/transactions) when relevant. In the short term, the [AllData provider](https://github.com/philipmjohnson/flutter_agc_mockup_5/blob/main/lib/features/all_data_provider.dart) illustrates a design pattern for making multiple asynchronous requests and providing a single AsyncValue to the caller representing loading (i.e. at least one of the calls have not completed), error (for at least one of the calls), and success (all calls completed successfully). What AllData doesn't do is "roll back" when some of the calls succeed and others fail. But that's probably OK for the alpha release. 
 
-## Don't mix UI and repository code (Use Async, Part 2)
+## Observe GGC data mutation design pattern
 
-The Task card implementation currently contains the following code:
+"Data mutation" refers to creating, updating, and deleting entities from the database. In some cases, mutating one entity (i.e. deleting a Garden) requires the implicit mutation of many other entities (i.e. deleting the Garden's associated Beds, Plantings, Observations, Outcomes, and Tasks). 
 
-```dart title="task_card.dart"
-  if (updatedPlanting.plantingID != 'plantingID') {
-      _service
-          .setData(
-              path: FirestorePath.planting(updatedPlanting.plantingID),
-              data: updatedPlanting.toJson())
-          .then((val) => GlobalSnackBar.show('Planting update succeeded.'))
-          .catchError((e) =>
-              GlobalSnackBar.show('Planting update failed\n${e.toString()}.'));
+Accomplishing a data mutation involves a complex interaction between the front-end user interface and the back-end database. There are many potential ways to accomplish this interaction, but we will follow a design pattern documented by Andrea Bizzotti in his various [Code With Andrea](https://codewithandrea.com/) tutorials, with some additional customizations to suit our own GGC architecture.  
+
+At the time of writing, these design patterns have been implemented only for creating, updating, and deleting Garden entities. The [EditGardenScreen](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/garden/presentation/edit_garden_screen.dart) and  [EditGardenController](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/garden/presentation/edit_garden_screen.dart) classes currently illustrate our data mutation design pattern.
+
+Here is a walkthrough of some of the Garden code to illustrate the basic ideas of this design pattern.
+
+#### 1. The data mutation widget
+
+The "Data mutation widget" (for example, EditGardenScreen) presents a user interface for performing a data mutation. The actual UI component displayed at any moment in time by the widget is determined by an associated controller (for example, EditGardenController).  The controller indicates which of four UI components to present: (1) an initial UI component (typically a form), (2) a loading indicator UI component (while waiting for an asynchronous action to complete, (3) a "success" component (displayed if the asynchronous action completes successfully) or (4) an error UI component (displayed if the asynchronous completes with an error).
+
+Here's an excerpt of EditGardenScreen illustrating the basic way in which the controller controls the UI state of the screen:
+
+```dart title="lib/features/garden/presentation/edit_garden_screen.dart"
+  AsyncValue asyncUpdate = ref.watch(editGardenControllerProvider);
+  return Scaffold(
+    appBar: AppBar(
+      title: const Text('Edit Garden'),
+      actions: [HelpButton(routeName: AppRoute.addGarden.name)],
+    ),
+    body: asyncUpdate.when(
+        data: (_) => editGardenForm(),
+        loading: () => const GgcLoadingIndicator(),
+        error: (e, st) => GgcError(e.toString(), st.toString())));
+}
+```
+
+#### 2. The onSubmit() method
+
+If the initial UI component is a form, then it should have an async onSubmit() callback method. This method typically involves a sequence of three phases. The first phase checks that the form field values pass any validation criteria. If so, the second phase creates domain model entities as indicated by the form values. The third phase calls the appropriate controller method, passing it the domain entities and an onSuccess() callback, which tells the controller which page to go to if the data mutation is successful.
+
+Here's an example:
+
+```dart title="lib/features/garden/presentation/edit_garden_screen.dart"
+   onSubmit() async {
+      // 1. Check that form fields are valid.
+      bool isValid = _formKey.currentState?.saveAndValidate() ?? false;
+      if (!isValid) return;
+      // 2. Create domain objects to send to controller.
+      String name = FieldKey.gardenTextField.currentState?.value;
+      List<dynamic> xFiles =
+          FieldKey.singleImagePicker.currentState?.value ?? [];
+      String editorsString =
+          FieldKey.editorsTextField.currentState?.value ?? '';
+      Garden garden = gardens.getGarden(gardenID);
+      List<String> updatedEditorUserIDs = users.parseUsernames(editorsString);
+      List<Editor> editorsToAdd = gardens.editors.makeNewEditors(
+          gardenID: gardenID,
+          chapterID: garden.chapterID,
+          gardenerIDs: updatedEditorUserIDs);
+      List<Editor> editorsToDelete = gardens.editors.getEditors(gardenID);
+      // Only update Editors collection if the field has changed.
+      if (gardens.editors.sameEditorList(editorsToAdd, editorsToDelete)) {
+        editorsToAdd = [];
+        editorsToDelete = [];
+      }
+      String profilePictureUrl = (xFiles.isNotEmpty && xFiles[0] is XFile)
+          ? await ImageStorage.cropAndUploadImage(
+              xFile: xFiles[0], entityID: gardenID, context: context)
+          : garden.profilePicture;
+      Garden updatedGarden = Garden(
+          gardenID: gardenID,
+          name: name,
+          profilePicture: profilePictureUrl,
+          chapterID: chapters.currentChapterID,
+          cropIDs: garden.cropIDs,
+          sharedSeedIDs: garden.sharedSeedIDs,
+          lastUpdate: DateTime.now(),
+          ownerID: users.currentUserID,
+          pictures: []);
+      // 3. Use controller to invoke updates on database.
+      ref.read(editGardenControllerProvider.notifier).updateGarden(
+            garden: updatedGarden,
+            editorsToAdd: editorsToAdd,
+            editorsToDelete: editorsToDelete,
+            onSuccess: () {
+              context.pop();
+              GlobalSnackBar.show('Garden "$name" updated.');
+            },
+          );
     }
-    // remove the task
-    deleteTask(task);
-  }
-
-  Future deleteTask(Task task) async {
-    // logger.d('deleteTask(): ${task.taskID}');
-    _service
-        .deleteData(path: FirestorePath.task(task.taskID))
-        .then((val) => GlobalSnackBar.show('Task delete succeeded.'))
-        .catchError(
-            (e) => GlobalSnackBar.show('Task delete failed\n${e.toString()}.'));
-  }
 ```
+:::important Don't pass Collection classes to the controller method
+To maintain separation of concerns, the values passed to controller methods should be individual domain entities (i.e. `Garden`, `Editor`), lists of domain entities (i.e. `List<Garden>`, `List<Editor>`), or primitive types (`String`, `int`, etc).  Don't pass collections (i.e. `GardenCollection`, `EditorCollection`).  Use these collection classes within the onSubmit() method to determine the domain entities to pass.  
+:::
 
-While this code was a reasonable "quick and dirty" way to explore the Task Card behavior, it has a couple of important design problems:
+#### 3. Controller add, update, delete methods
 
-1. *UI (front-end) code and database (back-end) code are intermingled.*  One easy way to see this is that the variable `_service` appears in this UI widget. Recall that one names a variable with an underscore when the intent is to only reference it within the defining class.
-2. *The UI will freeze during execution of the asynchronous task.*  This is because the code as currently written does not handle the "loading" state of the asynchronous call. 
+The Controller class typically implements add, update, and delete methods to handle the associated mutation.  These methods will often need to make multiple asynchronous calls to the backend database.  To do this efficiently, and also to provide atomicity, the controller should use the [Firestore batched write](https://firebase.google.com/docs/firestore/manage-data/transactions#batched-writes) facility. 
 
-To fix these problems, we should follow the design pattern for mutating data established in [How to fetch data and perform data mutations with the Riverpod architecture](https://codewithandrea.com/articles/data-mutations-riverpod/). In general, this involves the following:
+Here is an example from the EditGardenController for adding a new Garden. Note that both the Garden and Editor databases are mutated:
 
-* Move database mutation code out of the presentation/ directory and into the data/ directory.
-* Access the database mutation function via a Riverpod provider.
-* Redesign the database mutation function to return an AsyncValue.
-* Redesign the UI code to handle the AsyncValue's three states, and use a Controller class rather than a Stateful widget to manage the various states of processing.
-
-Currently, sample code for this approach can be found in the above article and in the garden feature of [flutter_agc_mockup_5](https://github.com/philipmjohnson/flutter_agc_mockup_5). Here are some excerpts.
-
-First, here is an excerpt of UI code to perform a data mutation. It uses a Riverpod provider to access the `updateGarden` mutation function. Two (inline) callbacks are passed to handle the success and error states (loading is handled inside the provider).  These callbacks are so simple that one could argue for them to be inlined in production code, but it would also be fine to implement them as local private methods.
-
-Notice that no database manipulation code appears in the UI code, apart from a call to `updateGarden`.
-
-```dart title="flutter_agc_mockup_5/lib/features/garden/presentation/edit_garden_view.dart"
-// Calling the database function to update a garden.
-ref.read(editGardenControllerProvider.notifier).updateGarden(
-    garden: garden,
-    onSuccess: () {
-      Navigator.pushReplacementNamed(context, GardensView.routeName);
-      GlobalSnackBar.show('Garden update succeeded.');
-    },
-);
-```
-
-The design pattern recommended by Andrea involves the creation of a Controller class. This class acts as a "bridge" between the UI code and the asynchronous database mutation code--in this case, `gardenDatabase.setGarden()`. Hopefully the "mounted shenanigans" will be resolved in a future Flutter or Riverpod release.
-
-```dart title="flutter_agc_mockup_5/lib/features/garden/presentation/edit_garden_controller.dart"
-@riverpod
-class EditGardenController extends _$EditGardenController {
-  bool mounted = true;
-
-  @override
-  FutureOr<void> build() {
-    ref.onDispose(() => mounted = false);
-    state = const AsyncData(null);
-  }
-
-  Future<void> updateGarden({
+```dart title="lib/features/garden/presentation/edit_garden_controller.dart"
+ Future<void> addGarden({
     required Garden garden,
+    required List<Editor> editors,
     required VoidCallback onSuccess,
   }) async {
     state = const AsyncLoading();
+    AsyncValue nextState = const AsyncLoading();
     GardenDatabase gardenDatabase = ref.watch(gardenDatabaseProvider);
-    final newState =
-      await AsyncValue.guard(() => gardenDatabase.setGarden(garden));
+    EditorDatabase editorDatabase = ref.watch(editorDatabaseProvider);
+    final WriteBatch batch = FirebaseFirestore.instance.batch();
+    gardenDatabase.setGardenBatch(batch, garden);
+    editorDatabase.addEditorsBatch(batch, editors);
+    await batch
+        .commit()
+        .then((_) => nextState = const AsyncValue.data(null))
+        .catchError((e, st) => nextState = AsyncValue.error(e, st));
     if (mounted) {
-      state = newState;
+      state = nextState;
     }
-    // Weird. Can't use "if (state.hasValue)" below.
     if (!state.hasError) {
       onSuccess();
     }
   }
+```
+Following the CodeWithAndrea guidelines, this method first sets the controller state to `AsyncLoading`.  Then it gets the databases of interest, creates a `batch` variable, and adds mutations to that batch variable by passing it into the appropriate methods in the variable database classes. Finally, it invokes the `batch.commit()` method to do all of the mutations at once, and either sets the state to `AsyncData()` if everything went well or `AsyncError()` if a problem occurred. A nice feature of batched writes is that they are performed as a transaction---either all of the writes succeed, or none of them do.
 
+#### 4. Database methods
+
+The final part of this coding standard involves the appropriate definition of database methods. As shown above, database methods should be written to accept a `batch` parameter, and result in that parameter being updated with additional operations to perform. Here is an example:
+
+```dart title="lib/features/garden/data/editor_database.dart
+ void addEditorsBatch(WriteBatch batch, List<Editor> editors) {
+    for (Editor editor in editors) {
+      _service.setDataBatch(
+          batch: batch,
+          path: FirestorePath.editor(editor.editorID),
+          data: editor.toJson());
+    }
+  }
 ```
 
-Some notes on this approach:
+:::warning Caveats and gotchas
+This design pattern is "fresh off the presses", which has the following implications:
 
-* This approach handles success, loading, and error states. The Garden database class implements setGarden(), setGardenDelayed(), and setGardenError() methods to allow you to see what happens under each situation by modifying the call in the controller.
-* The controller initializes its state to AsyncData(). That allows the EditGardenView to display the edit form. 
-* This approach involving a `mounted` boolean is "not recommended" in [Andrea's article](https://codewithandrea.com/articles/async-notifier-mounted-riverpod/), but the other approaches aren't much better (including one which requires abandoning Riverpod annotations).
-* Apparently, there will eventually be an update to Riverpod to [support query mutation](https://github.com/rrousselGit/riverpod/issues/1660) better, and at that point we might be able to implement a more elegant solution. 
-
-
+1. Batched writes are limited to 500 operations.  Our current database organization will result in exceeding that limit for gardens of reasonable size (i.e. hundreds of plantings).  This means we really need to reorganize the database to use subcollections. Then, for example, deleting a garden will delete all of its associated plantings in one batch operation.
+2. Collection classes shouldn't access the database methods at all.  We should remove those methods.
+3. For uniformity, get rid of the getAll() methods from collection classes. Just access the list of domain entities directly.
+4. ObservationDatabase: consider using the .fromJson() method.
+5. Remove database fields from collection classes. We should access databases using Riverpod provider variables.
+6. Database methods should return Futures, and not implement then() or catchError() clauses.
+7. WithGarden now provides access to Observations, Tasks, and Outcomes. The "extended" WithGarden widgets might no longer be necessary.
+:::
 ## Don't write media-adaptive code
 
 For the alpha release, we are not going to optimize layout for different screen sizes. So, please do not (for example) use MediaQuery to adjust values for different screen sizes. For example:
