@@ -6,7 +6,6 @@ sidebar_position: 5
 
 We are working on the alpha release of the GeoGardenClub mobile app, with an expected release date of early 2024. While the app is not yet ready for prime time, we thought it would be fun to show you some selected screen shots so you can get an idea of where we're heading.
 
-
 ## Login
 
 <img width="300" src="/img/sneak-peek/login.png"/>
@@ -17,8 +16,7 @@ As with all mobile apps, you will be asked to sign in and/or register when you d
 
 <img width="300" src="/img/sneak-peek/home-tasks.png"/>
 
-After logging in, you will come to your home screen. The home screen has a bottom navigation bar providing various views on your garden(s).
-
+After logging in, you will come to your home screen. The home screen has a bottom navigation bar providing four views: Tasks, Gardens, Chat, and Observations. Let's look at each of these in turn. 
 
 The Home Screen "Tasks" View provides a kind of "To Do" list. Most entries are automatically generated from your garden plan(s), although you can add Tasks manually if you wish.
 
@@ -32,6 +30,13 @@ The Home Screen "Gardens" View provides a summary of all of the gardens that you
 
 You can click the "Details" button to get more information about a specific garden. (More below.)
 
+## Home (Chat View) 
+
+<img width="300" src="/img/sneak-peek/home-chat.png"/>
+
+The Home Screen "Chat" View provides access to a set of system-managed Chat rooms to facilitate communication between gardeners.  
+
+Gardeners cannot create their own chat rooms.  Instead, the system defines one Chat room for the Chapter, with access granted to all members of the Chapter.  In addition, the system creates a chat room for each Garden in the Chapter, and access to each of those chat rooms is granted to the owners and editors of that garden.  
 ## Home (Observations View)
 
 <img width="300" src="/img/sneak-peek/home-observations.png"/>
