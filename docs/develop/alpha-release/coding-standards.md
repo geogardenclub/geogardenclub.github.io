@@ -380,6 +380,7 @@ This design pattern is "fresh off the presses", which has the following implicat
 5. Remove database fields from collection classes. We should access databases using Riverpod provider variables.
 6. Database methods should return Futures, and not implement then() or catchError() clauses.
 7. WithGarden now provides access to Observations, Tasks, and Outcomes. The "extended" WithGarden widgets might no longer be necessary.
+8. The Garden Delete UI needs fixing. The showDialog() method interacts poorly with the controller design pattern. This must be reimplemented as a standard page, not a popup dialog.
 :::
 ## Don't write media-adaptive code
 
