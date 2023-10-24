@@ -370,6 +370,92 @@ The final part of this coding standard involves the appropriate definition of da
   }
 ```
 
+#### A template for the controller class
+
+There is some boilerplate code for controllers.  To make it a little easier to create new controllers, here is a template.  See the TODO comments for places where code needs to be added, and replace all occurrences of "TEMPLATE" by the entity being controller (i.e. Garden, User, Task, etc)
+
+```dart
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'mutate_TEMPLATE_controller.g.dart';
+
+@riverpod
+class MutateTEMPLATEController extends _$MutateTEMPLATEController {
+  bool mounted = true;
+
+  @override
+  FutureOr<void> build() {
+    ref.onDispose(() => mounted = false);
+    state = const AsyncData(null);
+  }
+
+  Future<void> updateTEMPLATE({
+    /// TODO: Pass in domain data here
+    required VoidCallback onSuccess,
+  }) async {
+    state = const AsyncLoading();
+    AsyncValue nextState = const AsyncLoading();
+    /// TODO: ref.watch the appropriate databases here.
+    final WriteBatch batch = FirebaseFirestore.instance.batch();
+    /// TODO: Invoke the appropriate database batch methods here.
+    await batch
+        .commit()
+        .then((_) => nextState = const AsyncValue.data(null))
+        .catchError((e, st) => nextState = AsyncValue.error(e, st));
+    if (mounted) {
+      state = nextState;
+    }
+    if (!state.hasError) {
+      onSuccess();
+    }
+  }
+
+  Future<void> addTEMPLATE({
+    /// TODO: Pass in domain object here.
+    required VoidCallback onSuccess,
+  }) async {
+    state = const AsyncLoading();
+    AsyncValue nextState = const AsyncLoading();
+    // TODO: Watch the appropriate database instances here.
+    final WriteBatch batch = FirebaseFirestore.instance.batch();
+    // TODO: Invoke the database batch methods here.
+    await batch
+        .commit()
+        .then((_) => nextState = const AsyncValue.data(null))
+        .catchError((e, st) => nextState = AsyncValue.error(e, st));
+    if (mounted) {
+      state = nextState;
+    }
+    if (!state.hasError) {
+      onSuccess();
+    }
+  }
+
+  Future<void> deleteTEMPLATE({
+    /// TODO: Pass in the appropriate domain objects here
+    required VoidCallback onSuccess,
+  }) async {
+    state = const AsyncLoading();
+    AsyncValue nextState = const AsyncLoading();
+    /// TODO: Watch the appropriate databases here.
+    final WriteBatch batch = FirebaseFirestore.instance.batch();
+    /// TODO: Invoke the appropriate database batch methods here.
+    await batch
+        .commit()
+        .then((_) => nextState = const AsyncValue.data(null))
+        .catchError((e, st) => nextState = AsyncValue.error(e, st));
+    if (mounted) {
+      state = nextState;
+    }
+    if (!state.hasError) {
+      onSuccess();
+    }
+  }
+}
+```
+
 :::warning Caveats and gotchas
 This design pattern is "fresh off the presses", which reveals a few issues:
 
