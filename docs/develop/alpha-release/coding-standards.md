@@ -239,18 +239,18 @@ One thing not covered in these readings is how to handle the situation where you
 
 Accomplishing a data mutation involves a complex interaction between the front-end user interface and the back-end database. There are many potential ways to accomplish this interaction, but we will follow a design pattern documented by Andrea Bizzotti in his various [Code With Andrea](https://codewithandrea.com/) tutorials, with some additional customizations to suit our own GGC architecture.  
 
-At the time of writing, these design patterns have been implemented only for creating, updating, and deleting Garden entities. The [EditGardenScreen](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/garden/presentation/edit_garden_screen.dart) and  [EditGardenController](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/garden/presentation/edit_garden_screen.dart) classes currently illustrate our data mutation design pattern.
+At the time of writing, these design patterns have been implemented only for creating, updating, and deleting Garden entities. The [EditGardenScreen](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/garden/presentation/edit_garden_screen.dart) and  [MutateGardenController](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/garden/presentation/mutate_garden_controller.dart) classes currently illustrate our data mutation design pattern.
 
 Here is a walkthrough of some of the Garden code to illustrate the basic ideas of this design pattern.
 
 #### 1. The data mutation widget
 
-The "Data mutation widget" (for example, EditGardenScreen) presents a user interface for performing a data mutation. The actual UI component displayed at any moment in time by the widget is determined by an associated controller (for example, EditGardenController).  The controller indicates which of four UI components to present: (1) an initial UI component (typically a form), (2) a loading indicator UI component (while waiting for an asynchronous action to complete, (3) a "success" component (displayed if the asynchronous action completes successfully) or (4) an error UI component (displayed if the asynchronous completes with an error).
+A "Data mutation widget" (for example, EditGardenScreen) presents a user interface for performing a data mutation. The actual UI component displayed at any moment in time by the widget is determined by an associated controller (for example, MutateGardenController).  The controller indicates which of four UI components to present: (1) an initial UI component (typically a form), (2) a loading indicator UI component (while waiting for an asynchronous action to complete, (3) a "success" component (displayed if the asynchronous action completes successfully) or (4) an error UI component (displayed if the asynchronous completes with an error).
 
 Here's an excerpt of EditGardenScreen illustrating the basic way in which the controller controls the UI state of the screen:
 
 ```dart title="lib/features/garden/presentation/edit_garden_screen.dart"
-  AsyncValue asyncUpdate = ref.watch(editGardenControllerProvider);
+  AsyncValue asyncUpdate = ref.watch(mutateGardenControllerProvider);
   return Scaffold(
     appBar: AppBar(
       title: const Text('Edit Garden'),
@@ -265,7 +265,7 @@ Here's an excerpt of EditGardenScreen illustrating the basic way in which the co
 
 #### 2. The onSubmit() method
 
-If the initial UI component is a form, then it should have an async onSubmit() callback method. This method typically involves a sequence of three phases. The first phase checks that the form field values pass any validation criteria. If so, the second phase creates domain model entities as indicated by the form values. The third phase calls the appropriate controller method, passing it the domain entities and an onSuccess() callback, which tells the controller which page to go to if the data mutation is successful.
+If the initial UI component is a form, then it should have an async onSubmit() callback method. This method typically involves a sequence of three phases. The first phase checks that the form field values pass any validation criteria. If so, the second phase creates domain model entities as indicated by the form values. The third phase calls the appropriate mutate controller method, passing it the domain entities and an onSuccess() callback, which tells the controller which page to go to if the data mutation is successful.
 
 Here's an example:
 
@@ -307,7 +307,7 @@ Here's an example:
           ownerID: users.currentUserID,
           pictures: []);
       // 3. Use controller to invoke updates on database.
-      ref.read(editGardenControllerProvider.notifier).updateGarden(
+      ref.read(mutateGardenControllerProvider.notifier).updateGarden(
             garden: updatedGarden,
             editorsToAdd: editorsToAdd,
             editorsToDelete: editorsToDelete,
@@ -319,16 +319,16 @@ Here's an example:
     }
 ```
 :::important Don't pass Collection classes to the controller method
-To maintain separation of concerns, the values passed to controller methods should be individual domain entities (i.e. `Garden`, `Editor`), lists of domain entities (i.e. `List<Garden>`, `List<Editor>`), or primitive types (`String`, `int`, etc).  Don't pass collections (i.e. `GardenCollection`, `EditorCollection`).  Use these collection classes within the onSubmit() method to determine the domain entities to pass.  
+To maintain separation of concerns, the values passed to mutate controller methods should be individual domain entities (i.e. `Garden`, `Editor`), lists of domain entities (i.e. `List<Garden>`, `List<Editor>`), or primitive types (`String`, `int`, etc).  Don't pass collections (i.e. `GardenCollection`, `EditorCollection`).  Use these collection classes within the onSubmit() method to determine the domain entities to pass.  
 :::
 
-#### 3. Controller add, update, delete methods
+#### 3. Mutate controller add, update, delete methods
 
-The Controller class typically implements add, update, and delete methods to handle the associated mutation.  These methods will often need to make multiple asynchronous calls to the backend database.  To do this efficiently, and also to provide atomicity, the controller should use the [Firestore batched write](https://firebase.google.com/docs/firestore/manage-data/transactions#batched-writes) facility. 
+The Mutate Controller class typically implements add, update, and delete methods to handle the associated mutation.  These methods will often need to make multiple asynchronous calls to the backend database.  To do this efficiently, and also to provide atomicity, the controller should use the [Firestore batched write](https://firebase.google.com/docs/firestore/manage-data/transactions#batched-writes) facility. 
 
-Here is an example from the EditGardenController for adding a new Garden. Note that both the Garden and Editor databases are mutated:
+Here is an example from MutateGardenController for adding a new Garden. Note that both the Garden and Editor databases are mutated:
 
-```dart title="lib/features/garden/presentation/edit_garden_controller.dart"
+```dart title="lib/features/garden/presentation/mutate_garden_controller.dart"
  Future<void> addGarden({
     required Garden garden,
     required List<Editor> editors,
@@ -371,16 +371,15 @@ The final part of this coding standard involves the appropriate definition of da
 ```
 
 :::warning Caveats and gotchas
-This design pattern is "fresh off the presses", which has the following implications:
+This design pattern is "fresh off the presses", which reveals a few issues:
 
 1. Batched writes are limited to 500 operations.  Our current database organization will result in exceeding that limit for gardens of reasonable size (i.e. hundreds of plantings).  This means we really need to reorganize the database to use subcollections. Then, for example, deleting a garden will delete all of its associated plantings in one batch operation.
 2. Collection classes shouldn't access the database methods at all.  We should remove those methods.
-3. For uniformity, get rid of the getAll() methods from collection classes. Just access the list of domain entities directly.
-4. ObservationDatabase: consider using the .fromJson() method.
-5. Remove database fields from collection classes. We should access databases using Riverpod provider variables.
-6. Database methods should return Futures, and not implement then() or catchError() clauses.
-7. WithGarden now provides access to Observations, Tasks, and Outcomes. The "extended" WithGarden widgets might no longer be necessary.
-8. The Garden Delete UI needs fixing. The showDialog() method interacts poorly with the controller design pattern. This must be reimplemented as a standard page, not a popup dialog.
+3. Remove database fields from collection classes. We should access databases using Riverpod provider variables.
+4. Database methods should return Futures, and not implement then() or catchError() clauses.
+5. WithGarden now provides access to Observations, Tasks, and Outcomes. The "extended" WithGarden widgets might no longer be necessary.
+
+There are a set of issues labeled "Technical Debt" that divide up the work of implementing this design pattern into discrete chunks of work.
 :::
 ## Don't write media-adaptive code
 
