@@ -239,25 +239,25 @@ One thing not covered in these readings is how to handle the situation where you
 
 Accomplishing a data mutation involves a complex interaction between the front-end user interface and the back-end database. There are many potential ways to accomplish this interaction, but we will follow a design pattern documented by Andrea Bizzotti in his various [Code With Andrea](https://codewithandrea.com/) tutorials, with some additional customizations to suit our own GGC architecture.  
 
-At the time of writing, these design patterns have been implemented only for creating, updating, and deleting Garden entities. The [EditGardenScreen](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/garden/presentation/edit_garden_screen.dart) and  [MutateGardenController](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/garden/presentation/mutate_garden_controller.dart) classes currently illustrate our data mutation design pattern.
+At the time of writing, these design patterns have been implemented only for creating, updating, and deleting Garden entities. The [CreateGardenScreen](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/garden/presentation/create_garden_screen.dart) and  [MutateGardenController](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/garden/presentation/mutate_garden_controller.dart) classes currently illustrate our data mutation design pattern.
 
 Here is a walkthrough of some of the Garden code to illustrate the basic ideas of this design pattern.
 
 #### 1. The data mutation widget
 
-A "Data mutation widget" (for example, EditGardenScreen) presents a user interface for performing a data mutation. The actual UI component displayed at any moment in time by the widget is determined by an associated controller (for example, MutateGardenController).  The controller indicates which of four UI components to present: (1) an initial UI component (typically a form), (2) a loading indicator UI component (while waiting for an asynchronous action to complete, (3) a "success" component (displayed if the asynchronous action completes successfully) or (4) an error UI component (displayed if the asynchronous completes with an error).
+A "Data mutation widget" (for example, UpdateGardenScreen) presents a user interface for performing a data mutation. The actual UI component displayed at any moment in time by the widget is determined by an associated controller (for example, MutateGardenController).  The controller indicates which of four UI components to present: (1) an initial UI component (typically a form), (2) a loading indicator UI component (while waiting for an asynchronous action to complete, (3) a "success" component (displayed if the asynchronous action completes successfully) or (4) an error UI component (displayed if the asynchronous completes with an error).
 
-Here's an excerpt of EditGardenScreen illustrating the basic way in which the controller controls the UI state of the screen:
+Here's an excerpt of UpdateGardenScreen illustrating the basic way in which the controller controls the UI state of the screen:
 
-```dart title="lib/features/garden/presentation/edit_garden_screen.dart"
+```dart title="lib/features/garden/presentation/update_garden_screen.dart"
   AsyncValue asyncUpdate = ref.watch(mutateGardenControllerProvider);
   return Scaffold(
     appBar: AppBar(
-      title: const Text('Edit Garden'),
-      actions: [HelpButton(routeName: AppRoute.addGarden.name)],
+      title: const Text('Update Garden'),
+      actions: [HelpButton(routeName: AppRoute.updateGarden.name)],
     ),
     body: asyncUpdate.when(
-        data: (_) => editGardenForm(),
+        data: (_) => updateGardenForm(),
         loading: () => const GgcLoadingIndicator(),
         error: (e, st) => GgcError(e.toString(), st.toString())));
 }
@@ -322,14 +322,14 @@ Here's an example:
 To maintain separation of concerns, the values passed to mutate controller methods should be individual domain entities (i.e. `Garden`, `Editor`), lists of domain entities (i.e. `List<Garden>`, `List<Editor>`), or primitive types (`String`, `int`, etc).  Don't pass collections (i.e. `GardenCollection`, `EditorCollection`).  Use these collection classes within the onSubmit() method to determine the domain entities to pass.  
 :::
 
-#### 3. Mutate controller add, update, delete methods
+#### 3. Mutate controller create, update, delete methods
 
-The Mutate Controller class typically implements add, update, and delete methods to handle the associated mutation.  These methods will often need to make multiple asynchronous calls to the backend database.  To do this efficiently, and also to provide atomicity, the controller should use the [Firestore batched write](https://firebase.google.com/docs/firestore/manage-data/transactions#batched-writes) facility. 
+The Mutate Controller class typically implements create, update, and delete methods to handle the associated mutation.  These methods will often need to make multiple asynchronous calls to the backend database.  To do this efficiently, and also to provide atomicity, the controller should use the [Firestore batched write](https://firebase.google.com/docs/firestore/manage-data/transactions#batched-writes) facility. 
 
-Here is an example from MutateGardenController for adding a new Garden. Note that both the Garden and Editor databases are mutated:
+Here is an example from MutateGardenController for creating a new Garden. Note that both the Garden and Editor databases are mutated:
 
 ```dart title="lib/features/garden/presentation/mutate_garden_controller.dart"
- Future<void> addGarden({
+ Future<void> createGarden({
     required Garden garden,
     required List<Editor> editors,
     required VoidCallback onSuccess,
@@ -360,7 +360,7 @@ Following the CodeWithAndrea guidelines, this method first sets the controller s
 The final part of this coding standard involves the appropriate definition of database methods. As shown above, database methods should be written to accept a `batch` parameter, and result in that parameter being updated with additional operations to perform. Here is an example:
 
 ```dart title="lib/features/garden/data/editor_database.dart
- void addEditorsBatch(WriteBatch batch, List<Editor> editors) {
+ void createEditorsBatch(WriteBatch batch, List<Editor> editors) {
     for (Editor editor in editors) {
       _service.setDataBatch(
           batch: batch,
