@@ -512,3 +512,91 @@ onPressed: () =>
 ```
 
 The reason is that if you change the path, you will have to change all the links to that path. If you use named routing, you only have to change the path in one place.
+
+## Prefer widgets to helper methods
+
+It is possible to create "helper" functions that return widgets, such as:
+
+```dart title="lib/common/functions/make_fab.dart"
+FloatingActionButton makeFAB(String route, BuildContext context) {
+  return FloatingActionButton(
+    onPressed: () {
+      context.pushNamed(route);
+    },
+    child: const Icon(Icons.add),
+  );
+}
+
+FloatingActionButton makeFABWithParameters(
+    String route, Map<String, String> pathParameters, BuildContext context) {
+  return FloatingActionButton(
+    onPressed: () {
+      context.pushNamed(route, pathParameters: pathParameters);
+    },
+    child: const Icon(Icons.add),
+  );
+}
+```
+
+There are several reasons why it is better to create widgets than helper methods, as is explained here:
+
+
+<iframe width="100%" height="415" src="https://www.youtube.com/embed/IOyq-eTRhvo?si=arTUGsj7E-6iK0_Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+In this case, here's what the stateless widget version would look like:
+
+```dart title="lib/common/widgets/ggc_fab.dart"
+class GgcFAB extends StatelessWidget {
+  const GgcFAB(
+      {super.key, required this.route, this.pathParameters = const {}});
+
+  final String route;
+  final Map<String, String> pathParameters;
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {
+        context.pushNamed(route, pathParameters: pathParameters);
+      },
+      child: const Icon(Icons.add),
+    );
+  }
+}
+```
+
+The following code illustrates the very minimal differences in how they are called:
+
+```dart
+  Widget? getFloatingActionButton(BuildContext context, int selectedIndex) {
+      if (selectedIndex == 0) {
+        return GgcFAB(route: AppRoute.createPlanting.name);
+      }
+      if (selectedIndex == 3) {
+        return makeFABWithParameters(AppRoute.createGardenTask.name,
+            {'gardenID': widget.gardenID}, context);
+      }
+      return null;
+    }
+```
+
+It gets a little nicer if you convert to the stateless widget approach entirely, since you can tighten up the return type and remove the context argument:
+
+```dart
+  GgcFAB? getFloatingActionButton(int selectedIndex) {
+      if (selectedIndex == 0) {
+        return GgcFAB(route: AppRoute.createPlanting.name);
+      }
+      if (selectedIndex == 3) {
+        return GgcFAB(route: AppRoute.createGardenTask.name,
+            pathParameters: {'gardenID': widget.gardenID});
+      }
+      return null;
+    }
+```
+
+## Don't repeat titles
+
+The title should appear in the scaffold. It does not need to be repeated in the body:
+
+<img width="300px" style={{borderStyle: "solid"}} src="/img/develop/alpha-release/coding-standards/repeated-title.png"/>
