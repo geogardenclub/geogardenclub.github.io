@@ -36,15 +36,19 @@ Levels will be visually represented by 1-3 stars along the left side of the badg
 <img style={{borderStyle: "solid"}} width="300px" src="/img/develop/alpha-release/badges/badge-examples.png"/>
 
 
-### Verification
+### Verification (i.e. badge processing)
 
 Verification of badges can be done in the following ways: "via attestation", "via observation", or "via planting".
 
-"Via attestation" badges means that the gardener can simply attest that they (or their garden) adheres to certain practices. This is implemented as an "Attestation" section in the Create/Update Garden forms and the Update Profile form. For example, when creating or updating a Garden, the gardener can simply check a box to attest that the garden is pesticide-free. Gardeners are on the honor system to attest only to practices that they believe to be true. Many Level 1 badges can be obtained via attestation. The badge processing system runs each time the user creates or edits a garden or user document. A snackbar should pop up if one of these actions results in the awarding of a new badge.
+"Via attestation" badges means that the gardener can simply attest that they (or their garden) adheres to certain practices. This is implemented as an "Attestation" section in the Create/Update Garden forms and the Update Profile form. For example, when creating or updating a Garden, the gardener can simply check a box to attest that the garden is pesticide-free. Gardeners are on the honor system to attest only to practices that they believe to be true. Many Level 1 badges can be obtained via attestation. *The badge processing system runs each time the user creates or edits a garden or gardener document.* A snackbar should pop up if one of these actions results in the awarding of a new badge.
 
-"Via observation" badges are awarded based upon the gardener posting one or more observations with one or more badge-specific tags. The badge processing system runs each time an observation is created, updated, or deleted. A snackbar should pop up if one of these actions results in the awarding of a new badge.
+"Via observation" badges are awarded based upon the gardener posting one or more observations with one or more badge-specific tags. *The badge processing system runs each time an observation is created, updated, or deleted.* A snackbar should pop up if one of these actions results in the awarding of a new badge.
 
-"Via planting" badges are awarded based upon the planting data associated with one or more gardens. The badge processing system runs each time a Planting is created, updated, or deleted.  A snackbar should pop up if one of these actions results in the awarding of a new badge. 
+"Via planting" badges are awarded based upon the planting data associated with one or more gardens. *The badge processing system runs each time a Planting is created, updated, or deleted.*  A snackbar should pop up if one of these actions results in the awarding of a new badge.
+
+:::info Alpha release badge processing is client-side only
+As the above indicates, for the alpha release, badge processing occurs on the client-side, and is triggered by updates to garden, gardener, observation, or planting documents.
+:::
 
 ### Observation tags
 
