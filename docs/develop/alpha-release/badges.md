@@ -7,7 +7,7 @@ hide_table_of_contents: false
 
 ## Goals
 
-The alpha release will implement an initial version of a badge system for gardens and gardeners. This badge system is designed to accomplish several goals:
+The alpha release will implement a badge system for gardens and gardeners. This badge system is designed to accomplish the following goals:
 
 1. *Foster user engagement and enjoyment through a game mechanic that publicizes achievements by gardens and gardeners.*  Gardeners should find it fun to accumulate badges that are associated with their profile and their garden(s).
 2. *Foster a community of practice by helping gardeners connect with others with similar interests and/or greater expertise with respect to a specific gardening topic.* For example, if a user is interested in vermiculture, the badge system provides a mechanism for them to find other gardeners who already have experience in this area. 
