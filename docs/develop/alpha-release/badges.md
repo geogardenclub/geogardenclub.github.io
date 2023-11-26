@@ -71,22 +71,6 @@ To do this, when the badge processing system is triggered (via a change to the G
 
 Here are proposals for the alpha release garden badges.
 
-### Climate Victory
-
-#### General Criteria
-
-A Climate Victory Garden has been added to [Green America`s database](https://www.greenamerica.org/climate-victory-gardens) and the garden implements one or more of the following practices: (1) grow food, (2) cover soils, (3) compost, (4) ditch chemicals, and (5) encourage biodiversity.
-
-#### Observation tags 
-
-`#Biodiversity`, `#Compost`, `#CoverCrops`,`#DitchChemicals`, `#PesticideFree`, `#PollinatorFriendly`, `#SheetMulch`.
-
-| Level | Verification                                                                                                                                                                       |
-|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. The user has attested that the Garden is in the Green America database. <br /> b. There are Observations associated with this garden for at least two of the associated tags.   |
-| 2     | a. The user has attested that the Garden is in the Green America database. <br /> b. There are Observations associated with this garden for at least five of the associated tags.  |
-| 3     | a. The user has attested that the Garden is in the Green America database. <br /> b. There are Observations associated with this garden for at least five of the associated tags in at least two different calendar years. |
-
 
 
 ### Pesticide free
@@ -230,25 +214,6 @@ N/A.
 | 2     | a. There are Plantings indicating at least three varieties that were started in a greenhouse and that survived to harvest and were all awarded at least three stars for two outcomes. |
 | 3     | a. There are Plantings indicating at least five varieties that were started in a greenhouse and that survived to harvest and were all awarded at least three stars for two outcomes.  |
 
-### Master gardener
-
-#### General Criteria
-
-The gardener has completed a master gardener program.
-
-:::warning Shucks
-I cannot think of a simple way to award more than one star. Ideas?
-:::
-
-#### Observation tags
-
-N/A
-
-| Level | Verification                                                                                 |
-|-------|----------------------------------------------------------------------------------------------|
-| 1     | a. The gardener attests in their profile to having received a Master Gardener certification. |
-| 2     | (Not yet available)                                                                          |
-| 3     | (Not yet available)                                                                          |
 
 ### Permaculture Pro
 
@@ -375,6 +340,43 @@ The chapter has demonstrated a commitment to seed sharing.
 ## Other (Post Alpha) badge ideas
 
 Here are some proposals for badges that we could add after the alpha release. I have not edited these descriptions to conform to the latest design principles.
+
+### Climate Victory
+
+#### General Criteria
+
+A Climate Victory Garden has been added to [Green America`s database](https://www.greenamerica.org/climate-victory-gardens) and the garden implements one or more of the following practices: (1) grow food, (2) cover soils, (3) compost, (4) ditch chemicals, and (5) encourage biodiversity.
+
+#### Observation tags
+
+`#Biodiversity`, `#Compost`, `#CoverCrops`,`#DitchChemicals`, `#PesticideFree`, `#PollinatorFriendly`, `#SheetMulch`.
+
+| Level | Verification                                                                                                                                                                       |
+|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | a. The user has attested that the Garden is in the Green America database. <br /> b. There are Observations associated with this garden for at least two of the associated tags.   |
+| 2     | a. The user has attested that the Garden is in the Green America database. <br /> b. There are Observations associated with this garden for at least five of the associated tags.  |
+| 3     | a. The user has attested that the Garden is in the Green America database. <br /> b. There are Observations associated with this garden for at least five of the associated tags in at least two different calendar years. |
+
+
+### Master gardener
+
+#### General Criteria
+
+The gardener has completed a master gardener program.
+
+:::warning Shucks
+I cannot think of a simple way to award more than one star. Ideas?
+:::
+
+#### Observation tags
+
+N/A
+
+| Level | Verification                                                                                 |
+|-------|----------------------------------------------------------------------------------------------|
+| 1     | a. The gardener attests in their profile to having received a Master Gardener certification. |
+| 2     | (Not yet available)                                                                          |
+| 3     | (Not yet available)                                                                          |
 
 ### Bee Buddy
 
