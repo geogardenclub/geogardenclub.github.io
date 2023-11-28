@@ -333,11 +333,10 @@ Triggered as part of Observation mutations.
 
 Requires WithGardenData.
 
-## Chapter badges
 
-:::warning Not for alpha
-These badge descriptions are provided for future use, but will not be implemented in the alpha release.
-:::
+## Post-Alpha badges
+
+Here are some proposals for badges that we could add after the alpha release. I have not edited these descriptions to conform to the latest design principles.
 
 ### Chapter Chair
 
@@ -394,7 +393,7 @@ The chapter has demonstrated a commitment to avoiding the use of pesticides in t
 
 ### Seed Sharers
 
-#### General Criteria: 
+#### General Criteria:
 
 The chapter has demonstrated a commitment to seed sharing.
 
@@ -405,9 +404,6 @@ The chapter has demonstrated a commitment to seed sharing.
 | 3     | a. At least 90% of the chapter gardens have achieved the badge. |
 
 
-## Other (Post Alpha) badge ideas
-
-Here are some proposals for badges that we could add after the alpha release. I have not edited these descriptions to conform to the latest design principles.
 
 ### Climate Victory
 
