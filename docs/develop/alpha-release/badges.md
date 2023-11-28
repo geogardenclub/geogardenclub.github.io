@@ -49,7 +49,7 @@ Verification of badges can be done in the following ways: "via attestation", "vi
 :::warning Alpha release badge processing is client-side only
 As the above indicates, for the alpha release, badge processing occurs on the client-side, and is triggered by updates to garden, gardener, observation, or planting documents.
 
-The current criteria are designed so that they can be assessed via either WithCoreData or WithGardenData.
+The current criteria are designed so that they can be assessed via either WithCoreData or WithGardenData. See the Implementation Notes section associated with each badge for an indication of which "With" widget can be used.
 
 There are many ways we could define the criteria for a badge. The criteria we choose must align with the alpha release design constraints. If a criteria turns out to be too expensive to verify via client-side processing, then we should change the criteria, not change the design.
 :::
