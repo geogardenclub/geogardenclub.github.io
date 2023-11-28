@@ -38,16 +38,18 @@ Levels will be visually represented by 1-3 stars along the left side of the badg
 
 ### Verification (i.e. badge processing)
 
-Verification of badges can be done in the following ways: "via attestation", "via observation", or "via planting".
+Verification of badges can be done in the following ways: "via attestation", "via observation", or "via planting". Depending upon the badge and/or level, one or more of these verification approaches might be required.
 
-"Via attestation" badges means that the gardener can simply attest that they (or their garden) adheres to certain practices. This is implemented as an "Attestation" section in the Create/Update Garden forms and the Update Profile form. For example, when creating or updating a Garden, the gardener can simply check a box to attest that the garden is pesticide-free. Gardeners are on the honor system to attest only to practices that they believe to be true. Many Level 1 badges can be obtained via attestation. *The badge processing system runs each time the user creates or edits a garden or gardener document.* A snackbar should pop up if one of these actions results in the awarding of a new badge.
+"Via attestation" means that the Gardener has simply attested that they (or their garden) adheres to certain practices. This is implemented as an "Attestation" section in the Garden and Gardener forms. For example, when creating or updating a Garden, the gardener can simply check a box to attest that the garden is pesticide-free. Gardeners are on the honor system to attest only to practices that they believe to be true.
 
-"Via observation" badges are awarded based upon the gardener posting one or more observations with one or more badge-specific tags. *The badge processing system runs each time an observation is created, updated, or deleted.* A snackbar should pop up if one of these actions results in the awarding of a new badge.
+"Via Observation" requires the Gardener to post one or more Observations with one or more badge-specific tags in a single Garden. 
 
-"Via planting" badges are awarded based upon the planting data associated with one or more gardens. *The badge processing system runs each time a Planting is created, updated, or deleted.*  A snackbar should pop up if one of these actions results in the awarding of a new badge.
+"Via Planting" requires the Gardener to have created Planting data in a single Garden that helps to satisfy the criteria for a badge.
 
 :::warning Alpha release badge processing is client-side only
 As the above indicates, for the alpha release, badge processing occurs on the client-side, and is triggered by updates to garden, gardener, observation, or planting documents.
+
+The current criteria are designed so that they can be assessed via either WithCoreData or WithGardenData.
 
 There are many ways we could define the criteria for a badge. The criteria we choose must align with the alpha release design constraints. If a criteria turns out to be too expensive to verify via client-side processing, then we should change the criteria, not change the design.
 :::
@@ -67,11 +69,11 @@ Badge processing has the following general implementation characteristics:
 
 Badge implementation also involves the creation of the Badges page. This page should provide a description of each Badge, the criteria required to obtain each level, and chips to indicate the Gardens (or Gardeners) that currently hold the badge.
 
+Badge implementation will also require updates to the Garden and Gardener entities and mutation processing in order to support the various "attestation" checkboxes. Each attestation can be implemented as an optional boolean field in the Garden or Gardener entity.
+
 ## Garden badges
 
 Here are proposals for the alpha release garden badges.
-
-
 
 ### Pesticide free
 
