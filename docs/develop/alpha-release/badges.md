@@ -128,7 +128,7 @@ Garden soil has been improved by using sheet mulch, compost, and/or cover crops.
 
 #### Observation tags
 
-`#Compost`, `#CoverCrops`, `#SheetMulch`.
+`#Compost`, `#CoverCrops`, `#SheetMulch`, `#Mulch`, `#CropRotation`
 
 | Level | Verification                                                                                                                                                                                                |
 |-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
