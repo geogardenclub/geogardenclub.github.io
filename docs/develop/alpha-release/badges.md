@@ -40,11 +40,11 @@ Levels will be visually represented by 1-3 stars along the left side of the badg
 
 Verification of badges can be done in the following ways: "via attestation", "via observation", or "via planting". Depending upon the badge and/or level, one or more of these verification approaches might be required.
 
-"Via attestation" means that the Gardener has simply attested that they (or their garden) adheres to certain practices. This is implemented as an "Attestation" section in the Garden and Gardener forms. For example, when creating or updating a Garden, the gardener can simply check a box to attest that the garden is pesticide-free. Gardeners are on the honor system to attest only to practices that they believe to be true.
+"Via attestation" means that the Gardener (owner) has simply attested that they (or their garden) adheres to certain practices. This is implemented as an "Attestation" section in the Garden and Gardener forms. For example, when creating or updating a Garden, the gardener (owner) can simply check a box to attest that the garden is pesticide-free. Gardeners are on the honor system to attest only to practices that they believe to be true.
 
-"Via Observation" requires the Gardener to post one or more Observations with one or more badge-specific tags in a single Garden. 
+"Via Observation" requires the Gardener (owner or editor) to post one or more Observations with one or more badge-specific tags in a single Garden. 
 
-"Via Planting" requires the Gardener to have created Planting data in a single Garden that helps to satisfy the criteria for a badge.
+"Via Planting" requires the Gardener (owner) to have created Planting data in a single Garden that helps to satisfy the criteria for a badge.
 
 :::warning Alpha release badge processing is client-side only
 As the above indicates, for the alpha release, badge processing occurs on the client-side, and is triggered by updates to garden, gardener, observation, or planting documents.
@@ -65,7 +65,7 @@ The system will "take the user's word" for the appropriateness of the tags to th
 
 Badge processing has the following general implementation characteristics:
 * Triggered as part of "mutation" of Gardener, Garden, Planting, and Observation entities.
-* During submit() processing, the BadgeProcessor is called with the Garden, Chapter, and User collections, plus the entities about to be mutated. It then calls a function for each Badge, passing it this data. Each badge-specific function  has its own function returns the set of BadgeInstances to be created and deleted. 
+* During submit() processing, the BadgeProcessor is called with the Garden, Chapter, and User collections, plus the entities about to be mutated. It then calls a function for each Badge, passing it this data. Each badge-specific function has its own function returns the set of BadgeInstances to be created and deleted. 
 
 Badge implementation also involves the creation of the Badges page. This page should provide a description of each Badge, the criteria required to obtain each level, and chips to indicate the Gardens (or Gardeners) that currently hold the badge.
 
@@ -201,11 +201,11 @@ The gardener has experience composting in a gardens.
 
 `#Compost`, `#CompostTea`, `#Hugelkulture`, `#Vermiculture`, `#Worms`. 
 
-| Level | Verification                                                                                                             |
-|-------|--------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. The gardener has posted Observations indicating at least one of the practices for a single calendar year in a garden. |
-| 2     | a. The gardener has posted Observations indicating at least one of the practices for two calendar years in a single garden.            |
-| 3     | a. The gardener has posted Observations indicating at least one of the practices for three or more calendar years in a single garden.  |
+| Level | Verification                                                                                                                               |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | a. The gardener (owner or editor) has posted Observations indicating at least one of the practices for a single calendar year in a garden. |
+| 2     | a. The gardener (owner or editor) has posted Observations indicating at least one of the practices for two calendar years in a single garden.                |
+| 3     | a. The gardener (owner or editor) has posted Observations indicating at least one of the practices for three or more calendar years in a single garden.      |
 
 #### Implementation notes
 
@@ -278,9 +278,9 @@ The gardener has completed a Permaculture workshop to learn about the philosophy
 
 | Level | Verification                                                                                                                                                                                                |
 |-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. The gardener has attested in their profile that they have completed a permaculture workshop. <br /> b. There are Observations indicating at least one of the practices within a single calendar year.    |
-| 2     | a. The gardener has attested in their profile that they have completed a permaculture workshop. <br /> b. There are Observations indicating at least one of the practices for exactly two calendar years.   |
-| 3     | a. The gardener has attested in their profile that they have completed a permaculture workshop. <br /> b. There are Observations indicating at least one of the practices for three or more calendar years. |
+| 1     | a. The gardener (owner or editor) has attested in their profile that they have completed a permaculture workshop. <br /> b. There are Observations indicating at least one of the practices within a single calendar year.    |
+| 2     | a. The gardener (owner or editor) has attested in their profile that they have completed a permaculture workshop. <br /> b. There are Observations indicating at least one of the practices for exactly two calendar years.   |
+| 3     | a. The gardener (owner or editor) has attested in their profile that they have completed a permaculture workshop. <br /> b. There are Observations indicating at least one of the practices for three or more calendar years. |
 
 #### Implementation notes
 
