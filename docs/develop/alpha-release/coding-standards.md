@@ -600,3 +600,75 @@ It gets a little nicer if you convert to the stateless widget approach entirely,
 The title should appear in the scaffold. It does not need to be repeated in the body:
 
 <img width="300px" style={{borderStyle: "solid"}} src="/img/develop/alpha-release/coding-standards/repeated-title.png"/>
+
+## Prefer late to dummy field values
+
+Sometimes you need to create an entity that has required fields before you know what those fields are.  It is tempting to create a "dummy" entity with clearly incorrect values and then overwrite the fields once you know what the correct values are. For example, here's some code from TaskCard:
+
+```dart
+    Planting updatedPlanting = Planting(
+        plantingID: 'plantingID',
+        chapterID: 'chapterID',
+        gardenID: 'gardenID',
+        cropID: 'cropID',
+        cropName: 'cropName',
+        lastUpdate: DateTime.now());
+    switch (task.taskType) {
+      case 'sow':
+        updatedPlanting = planting.copyWith(
+            startDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'transplant':
+        updatedPlanting = planting.copyWith(
+            transplantDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'firstHarvest':
+        updatedPlanting = planting.copyWith(
+            firstHarvestDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'endHarvest':
+        updatedPlanting = planting.copyWith(
+            endHarvestDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'pull':
+        updatedPlanting = planting.copyWith(
+            pullDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'other':
+        // TODO: implement other what do we do if they are finishing a non planting task?
+        break;
+    }
+```
+
+You can make the code shorter, and communicate your intent more clearly, by using the `late` keyword:
+
+```dart
+    late Planting updatedPlanting;
+    switch (task.taskType) {
+      case 'sow':
+        updatedPlanting = planting.copyWith(
+            startDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'transplant':
+        updatedPlanting = planting.copyWith(
+            transplantDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'firstHarvest':
+        updatedPlanting = planting.copyWith(
+            firstHarvestDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'endHarvest':
+        updatedPlanting = planting.copyWith(
+            endHarvestDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'pull':
+        updatedPlanting = planting.copyWith(
+            pullDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'other':
+        // TODO: implement other what do we do if they are finishing a non planting task?
+        break;
+    }
+```
+
+A more important reason to use `late` is that if you fail to initialize the entity, you will get a runtime error that clearly indicates the problem, rather than a runtime error that initially seems unrelated (i.e. failure to find a chapterID).  
