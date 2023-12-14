@@ -672,3 +672,341 @@ You can make the code shorter, and communicate your intent more clearly, by usin
 ```
 
 A more important reason to use `late` is that if you fail to initialize the entity, you will get a runtime error that clearly indicates the problem, rather than a runtime error that initially seems unrelated (i.e. failure to find a chapterID).  
+
+## Case Study: Task Card
+
+I've recently refactored the code for Task Cards and believe a short description of the experience could provide some insight into our current design and coding best practices.
+
+The GGC Task Card (at the time of writing) looked like this:
+
+<img width="300px" style={{borderStyle: "solid"}} src="/img/develop/alpha-release/coding-standards/task-card.png"/>
+
+As you can see, the "description" is a little wordy. My initial goal was to simply change the implementation of this card so that the description would be more tabular in nature, provide the garden and bed names (if available) from the task document, and include the description field only in the case of "custom" tasks.
+
+### The problem
+
+So, I went to `task_card.dart`, and discovered this:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
+import 'package:jiffy/jiffy.dart';
+
+import '../../../repositories/firestore/firestore_path.dart';
+import '../../../repositories/firestore/firestore_service.dart';
+import '../../../router.dart';
+import '../../chapter/domain/chapter_collection.dart';
+import '../../common/widgets/ggc_card.dart';
+import '../../common/widgets/ggc_loading_indicator.dart';
+import '../../garden/domain/garden_collection.dart';
+import '../../global_snackbar.dart';
+import '../../planting/domain/planting.dart';
+import '../../user/domain/user_collection.dart';
+import '../domain/task.dart';
+
+class TaskCard extends StatefulWidget {
+  final Task task;
+  final ChapterCollection chapters;
+  final GardenCollection gardens;
+  final UserCollection users;
+  final bool readOnly;
+
+  const TaskCard(
+      {super.key,
+        required this.task,
+        required this.chapters,
+        required this.gardens,
+        required this.users,
+        required this.readOnly});
+
+  @override
+  State<TaskCard> createState() => _TaskCardState();
+}
+
+enum TaskCardAction { updateTask, deleteTask }
+
+class _TaskCardState extends State<TaskCard> {
+  final _service = FirestoreService.instance;
+  bool _isWorking = false;
+  bool isChecked = false;
+  TaskCardAction? _selectedAction;
+
+  Future<Planting> getPlanting(String plantingID) {
+    return _service.fetchDocument(
+        path: FirestorePath.planting(plantingID),
+        builder: (data, documentId) => Planting.fromJson(data!));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+    bool late = widget.task.dueDate.isBefore(now);
+    final difference = widget.task.dueDate.difference(now);
+    final days = difference.inDays;
+    String dateStr = '';
+    if (days > 60) {
+      dateStr = DateFormat.yMd().format(widget.task.dueDate);
+    } else {
+      dateStr = Jiffy.parseFromDateTime(widget.task.dueDate).fromNow();
+    }
+    TextStyle? textStyle;
+    if (late) {
+      textStyle = TextStyle(
+        color: Theme.of(context).colorScheme.error,
+        // fontWeight: FontWeight.bold
+      );
+    }
+    double width = MediaQuery.of(context).size.width;
+    if (!widget.readOnly) {
+      // compensate for the checkbox
+      width = width - 50;
+    }
+    width = width - 120;
+    List<PopupMenuEntry<TaskCardAction>> popupMenuItems = [
+      const PopupMenuItem<TaskCardAction>(
+        value: TaskCardAction.updateTask,
+        child: Text('Update Task'),
+      ),
+      const PopupMenuItem(
+          value: TaskCardAction.deleteTask, child: Text('Delete Task'))
+    ];
+
+    return _isWorking
+        ? const GgcLoadingIndicator()
+        : GgcCard(
+      child: ListTile(
+        dense: false,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 8.0),
+        horizontalTitleGap: 6,
+        //Code runs with this line commented out but theme isn't used.
+        //    tileColor: tileColor,
+        title: Row(
+          children: [
+            SizedBox(
+                width: width,
+                child: Text(widget.task.title,
+                    style: textStyle,
+                    softWrap: false,
+                    overflow: TextOverflow.ellipsis)),
+            const Spacer(),
+            PopupMenuButton(
+                initialValue: _selectedAction,
+                onSelected: (TaskCardAction result) {
+                  setState(() {
+                    _selectedAction = result;
+                  });
+                  switch (result) {
+                    case TaskCardAction.updateTask:
+                      context.pushNamed(AppRoute.taskUpdate.name,
+                          pathParameters: {
+                            'taskID': widget.task.taskID,
+                            'gardenID': widget.task.gardenID
+                          });
+                      break;
+                    case TaskCardAction.deleteTask:
+                      context.pushNamed(AppRoute.taskDelete.name,
+                          pathParameters: {
+                            'gardenID': widget.task.gardenID,
+                            'taskID': widget.task.taskID
+                          });
+                      break;
+                  }
+                },
+                itemBuilder: (BuildContext context) => popupMenuItems),
+          ],
+        ),
+        subtitle: Text('${widget.task.description} Due $dateStr',
+            style: textStyle),
+        isThreeLine: true,
+        leading: !widget.readOnly
+            ? Checkbox(
+          checkColor: Theme.of(context).primaryColor,
+          fillColor: MaterialStateProperty.resolveWith<Color?>(
+                  (Set<MaterialState> states) {
+                if (states.contains(MaterialState.pressed)) {
+                  return Theme.of(context)
+                      .primaryColor; // Color when checkbox is checked
+                }
+                return Colors
+                    .transparent; // Transparent fill color when checkbox is not checked
+              }),
+          value: isChecked,
+          onChanged: (bool? value) async {
+            if (value == true) {
+              DateTime? completedDate = await showDatePicker(
+                  context: context,
+                  helpText:
+                  'When did you complete ${widget.task.title}?',
+                  initialDate: widget.task.dueDate,
+                  firstDate: DateTime(2020),
+                  lastDate: DateTime((DateTime.now().year + 1)));
+              if (completedDate != null) {
+                setState(() {
+                  _isWorking = true;
+                });
+                updatePlanting(widget.task, completedDate)
+                    .then((_) => setState(() {
+                  _isWorking = false;
+                }));
+              }
+            }
+          },
+        )
+            : null,
+      ),
+    );
+  }
+
+  Future updatePlanting(Task task, DateTime completedDate) async {
+    String plantingID = widget.task.plantingID;
+    Planting planting = await getPlanting(plantingID);
+    late Planting updatedPlanting;
+    switch (task.taskType) {
+      case 'sow':
+        updatedPlanting = planting.copyWith(
+            startDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'transplant':
+        updatedPlanting = planting.copyWith(
+            transplantDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'firstHarvest':
+        updatedPlanting = planting.copyWith(
+            firstHarvestDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'endHarvest':
+        updatedPlanting = planting.copyWith(
+            endHarvestDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'pull':
+        updatedPlanting = planting.copyWith(
+            pullDate: completedDate, lastUpdate: DateTime.now());
+        break;
+      case 'other':
+      // TODO: implement other what do we do if they are finishing a non planting task?
+        break;
+    }
+    // update the planting if completed
+    if (updatedPlanting.plantingID != 'plantingID') {
+      _service
+          .setData(
+          path: FirestorePath.planting(updatedPlanting.plantingID),
+          data: updatedPlanting.toJson())
+          .then((val) => GlobalSnackBar.show('Planting update succeeded.'))
+          .catchError((e) =>
+          GlobalSnackBar.show('Planting update failed\n${e.toString()}.'));
+    }
+    // remove the task
+    deleteTask(task);
+  }
+
+  Future deleteTask(Task task) async {
+    _service
+        .deleteData(path: FirestorePath.task(task.taskID))
+        .then((val) => GlobalSnackBar.show('Task delete succeeded.'))
+        .catchError(
+            (e) => GlobalSnackBar.show('Task delete failed\n${e.toString()}.'));
+  }
+}
+```
+
+Here are a few of the things I noticed about `task_card.dart`:
+
+* It is over 200 LOC. Generally, our top-level Card implementations are around 50 LOC. This is a red flag.
+* The implementation is what I would call "flat", or "inline". In other words, there is no modularization of the TaskCard UI components. You can see this by looking at the import statements: there is not a single import of a widget in the same directory. 
+* The code to implement the popup menu is approximately 35 LOC, but is scattered across 100 LOC. 
+* The implementation of a UI component (TaskCard) includes code making asynchronous database calls. Our current best practice calls for the use of "mutator controllers" to bridge between UI components and the backend database.
+
+These issues make understanding this single file of code difficult. For example:
+
+* How and where should I change to code to conditionally format the description field based on task type?
+* What are the functions of the `_isWorking`, `_isChecked`, and `_selectedAction` state variables? 
+* Changes or enhancements following this "inline" design will make this code even more complicated. At some point, it will become very difficult to understand and maintain. 
+
+### One solution
+
+There are two simple design patterns that I used to modularize and simplify the code so that I could implement my table-based description enhancement.
+
+**I made each visible UI component into its own widget.** Looking at the TaskCard, an obvious top-level decomposition is into two Widgets: a "Title" widget and a "Description" widget. The "Title" widget can be further decomposed into three widgets: a "Checkbox", "Title", and "PopUp Menu".  The following annotated screenshot of the TaskCard illustrates this breakdown with the top-level decomposition in red and the nested decomposition in green:
+
+<img width="300px" style={{borderStyle: "solid"}} src="/img/develop/alpha-release/coding-standards/task-card-widgets.png"/>
+
+**I used the mutator controller design pattern to move the database access code out of the UI component and into the controller.**  Interestingly, this not only made the DB access code more simple, it even made it a bit more efficient because multiple collections needed updates and the mutator controller supports batch updates.
+
+After implementing these changes, `task_card.dart` now looks like this:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../chapter/domain/chapter_collection.dart';
+import '../../common/widgets/ggc_card.dart';
+import '../../common/widgets/ggc_error.dart';
+import '../../common/widgets/ggc_loading_indicator.dart';
+import '../../garden/domain/garden_collection.dart';
+import '../../global_snackbar.dart';
+import '../../user/domain/user_collection.dart';
+import '../domain/task.dart';
+import 'mutate_task_controller.dart';
+import 'task_card_description.dart';
+import 'task_card_title_row.dart';
+
+typedef OnCompletedCallback = void Function(Task task, DateTime completedDate);
+
+class TaskCard extends ConsumerWidget {
+  final Task task;
+  final ChapterCollection chapters;
+  final GardenCollection gardens;
+  final UserCollection users;
+  final bool readOnly;
+
+  const TaskCard(
+      {super.key,
+      required this.task,
+      required this.chapters,
+      required this.gardens,
+      required this.users,
+      required this.readOnly});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    void onCompleted(Task task, DateTime completedDate) {
+      ref.read(mutateTaskControllerProvider.notifier).completeTask(
+          task: task,
+          completedDate: completedDate,
+          onSuccess: () {
+            GlobalSnackBar.show('Task completed.');
+          });
+    }
+
+    AsyncValue asyncUpdate = ref.watch(mutateTaskControllerProvider);
+    return asyncUpdate.when(
+        data: (_) => GgcCard(
+                child: Column(children: [
+                                TaskCardTitleRow(task: task, onCompleted: onCompleted),
+                                TaskCardDescription(task: task),
+            ])),
+        loading: () => const GgcLoadingIndicator(),
+        error: (e, st) => GgcError(e.toString(), st.toString()));
+  }
+}
+```
+
+Let's see how the problems with the original implementation have been addressed.
+
+First, the size of `task_card.dart` is now around 50 lines of code, back to a typical size for a GGC "Card" UI component. 
+
+Second, the UI code is modularized into five widgets: TaskCard, TaskCardTitleRow, TaskCardDescription, TaskCardCheckbox, and TaskCardPopupMenu. 
+
+Third, the code to implement the PopupMenu is now encapsulated within a single widget. Interestingly, this refactoring revealed that there is a popup menu in ObservationCard with a very similar structure!  It would be straight forward to do an additional refactoring to create a single generic popup menu (for example, GgcPopupMenu) that can be used anywhere we need one.
+
+Fourth, as already noted, the asynchronous DB access code is now entirely encapsulated within the completeTask method of the mutator. The completeTask method is 25 LOC, while the original inline approach required approximately 60 LOC. That is a significant simplification.
+
+Finally, here's what my new version of TaskCard looks like:
+
+<img width="300px" style={{borderStyle: "solid"}} src="/img/develop/alpha-release/coding-standards/tasks-revised.png"/>
+
+The top and bottom tasks are "implicit" tasks (based on Planting dates), while the middle task is an "explicit" task (defined by the gardener.)
+
+No code is ever "perfect" or "complete". I am sure that there are more improvements to be made to TaskCard. But I hope this case study helps improve our collective intuition about how to design and implement Flutter code.
