@@ -18,6 +18,7 @@ const sidebars = {
   developSidebar: [
     'develop/index',
     'develop/roadmap',
+    'develop/onboarding',
     {
       type: 'category',
       collapsed: true,
@@ -34,14 +35,23 @@ const sidebars = {
       label: 'Alpha Release',
       collapsed: true,
       items: [
-        'develop/alpha-release/onboarding',
         'develop/alpha-release/installation',
+        'develop/alpha-release/scripts',
         'develop/alpha-release/requirements',
-        'develop/alpha-release/data-model',
+        'develop/alpha-release/deployment',
         'develop/alpha-release/architecture',
+        'develop/alpha-release/patterns',
         'develop/alpha-release/coding-standards',
-        'develop/alpha-release/badges',
-        'develop/alpha-release/input-fields',
+        {
+          type: 'category',
+          collapsed: true,
+          label: 'Design Components',
+          items: [
+            'develop/alpha-release/design-components/data-model',
+            'develop/alpha-release/design-components/badges',
+            'develop/alpha-release/design-components/input-fields',
+          ],
+        },
       ],
     },
     {
