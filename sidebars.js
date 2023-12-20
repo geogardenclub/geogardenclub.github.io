@@ -35,9 +35,10 @@ const sidebars = {
       label: 'Alpha Release',
       collapsed: true,
       items: [
+        'develop/alpha-release/goals',
         'develop/alpha-release/installation',
         'develop/alpha-release/scripts',
-        'develop/alpha-release/requirements',
+        'develop/alpha-release/cvp',
         'develop/alpha-release/deployment',
         'develop/alpha-release/architecture',
         'develop/alpha-release/patterns',
