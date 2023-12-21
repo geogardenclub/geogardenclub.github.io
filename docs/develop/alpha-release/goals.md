@@ -46,6 +46,7 @@ The 1.0 release period should result in examples of "successful" use of GGC to s
 The more empirical this data, the better.  Much of this will require some information about what the garden/gardener was doing before the introduction of GGC.
 
 Evaluation:
+* Analysis of an "onboarding" questionnaire to help establish what each gardener was doing "before" they started with GGC. What their technologies were, what their pain points were, etc.
 * Documentation of use cases.
 * Evaluation by entreprenurial board members and/or other external stakeholders.
 
