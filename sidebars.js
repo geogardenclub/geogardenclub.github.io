@@ -32,7 +32,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Alpha Release',
+      label: '1.0 (Alpha) Release',
       collapsed: true,
       items: [
         'develop/alpha-release/goals',
@@ -57,7 +57,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Beyond Alpha',
+      label: 'Beyond 1.0',
       collapsed: true,
       items: [
         'develop/beyond-alpha/chapterzipmap',
