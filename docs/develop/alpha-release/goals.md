@@ -5,7 +5,7 @@ hide_table_of_contents: false
 
 # Goals
 
-Here are an initial set of goals for the 1.0 (Alpha) release.
+Here are a proposed set of goals for the 1.0 (Alpha) release. Some of these goals are motivated by [Champion Building: How to successfully adopt a developer too](https://www.gitpod.io/blog/champion-building). Although this blog post focuses on how to get developers in an organization to adopt a new tool, the recommendation seem very applicable to getting gardeners in a community to adopt GGC.
 
 ## Develop a fast, reliable, robust app that satisfies the Core Value Propositions
 
