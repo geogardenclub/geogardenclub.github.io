@@ -46,7 +46,7 @@ The 1.0 release period should result in examples of "successful" use of GGC to s
 The more empirical this data, the better.  Much of this will require some information about what the garden/gardener was doing before the introduction of GGC.
 
 Evaluation:
-* Analysis of an "onboarding" questionnaire to help establish what each gardener was doing "before" they started with GGC. What their technologies were, what their pain points were, etc.
+* Analysis of "pre" and "post" questionnaires. The pre questionnaires establish what each gardener was doing prior to GGC: what their technologies were, what their pain points were, etc. The post questionnaires establish their feelings after using GGC: what worked, what didn't work, what they wish would be changed about the app.
 * Documentation of use cases.
 * Evaluation by entreprenurial board members and/or other external stakeholders.
 
