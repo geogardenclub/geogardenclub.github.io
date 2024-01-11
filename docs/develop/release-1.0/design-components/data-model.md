@@ -22,9 +22,9 @@ The following sections document the structure of the most important entities in 
 
 ### Chapter
 
-A Chapter instance defines its geographic region through a a two character (alpha-2) country code, plus a set of one or more postal (zip) codes.  GGC ensures that Chapter instances partition the world: every pair of (country code, zip code) can be mapped to exactly one Chapter.
+The Chapter entity defines a geographic region through a a two character (alpha-2) country code, plus a set of one or more postal (zip) codes.  GGC ensures that Chapter instances partition the world: every pair of (country code, zip code) is mapped to exactly one Chapter.
 
-GGC will provide a Firebase collection called ChapterZipMap which provides a default mapping of US zip codes to chapterIDs.  This mapping results in a GGC Chapter for each US county. We will use this data structure to determine the chapter geographic boundaries for users in the US.  
+The Firebase collection called ChapterZipMap will provide a default mapping of US zip codes to chapterIDs.  This mapping defines a single GGC Chapter for each US county. We will use this data structure to determine the chapter geographic boundaries for users in the US.  
 
 Outside of the US, each (country code, postal code) pair will be its own Chapter. This is not optimal but it provides a way to make GGC available to users outside the US. 
 
@@ -32,58 +32,43 @@ New user registration will work as follows. If they supply "US" as their country
 
 If the new user supplies a non-US country code, then the chapterID is implicitly defined as `chapter-<country code>-<postal code>`. If no Chapter entity exists yet corresponding to that ChapterID, then it will be created.
 
-As will be seen, most entities will contain a chapterID field.  When a client retrieves data from Firebase, it will normally request all of the documents where the chapterID field is the one associated with their chapter. This is the primary way in which GGC can scale. 
+Note that [some countries do not have a postal code](https://tosbourn.com/list-of-countries-without-a-postcode/). In this case, we will create a default postal code (i.e. "00") for those countries and not request it from the user if they select one of those countries. This implies that for those countries, there will be only one chapter for the entire country. Since most of those countries are pretty small, that seems like a reasonable design decision.
 
-Here is a representation of the Chapter schema:
+As will be seen, most entities will contain a chapterID field.  When a client retrieves data from Firebase, it will normally request all of the documents where the chapterID field is the one associated with their chapter. This is the primary way in which GGC can scale. For this to work effectively, we must define an index on the chapterID field for all collections in which the entities have that field.
+
+Here is a representation of the Chapter schema with example values:
 
 ```dart
 const factory Chapter(
-      {required String chapterID,
-      required String name,
-      required String countryCode,
-      required List<String> zipcodes,
-      required DateTime lastUpdate});
+  {required String chapterID,        // 'chapter-001', 'chapter-CA-V6K1G8'
+  required String name,              // 'Whatcom-WA', 'CA-V6K1G8'
+  required String countryCode,       // 'US', 'CA'
+  required List<String> zipcodes,    // ['98225', '98226'], ['V6K1GB']
+  required DateTime lastUpdate});    // '2023-03-19T12:19:14.164090'
 ```
 
-
+In Release 2.0, users will be able to see information about Chapters other than their own. To implement this, we will expand the representation of the Chapter entity with additional information, perhaps the number of gardeners, the Chapter badges awarded to that chapter, and so forth. Release 2.0 might also include climate-related features, which might result in associating a list of hardiness zones with each Chapter entity.
 
 ### User
 
 The User entity represents all of the people who have created an account with the system.
 
-Note that not all Gardeners are users: commercial seed vendors won't generally have an account on the system.
+Note that all User entities have a corresponding Gardener entity, but not vice-versa: not all Gardener entities have a corresponding User entity. This is because commercial seed vendors won't generally have an account on the system.
 
-Currently all Users are also Gardeners, though the design does not require this. In future, there may also be Users who are not Gardeners.
+Every User is associated with a unique email address, which is their UserID.
 
-Every user is associated with a unique email address, which is their UserID.
+Here is a representation of the User schema with example values:
 
-For the beta release, the data model does not include information about the subscriptions, payments, credit card, etc associated with a gardener.
-
-Each User entity provides the following information:
-
-| Field | Type | R/O | Description |
-| ----  | ----- | ------ | -------- |
-| userID | `UserID` | R | A unique ID corresponding to the email address associated with this user.  |
-| chapterID | `ChapterID` | R | The chapterID associated with this Gardener. |
-| name | `String` | R | The users name. The user name is normally not provided in the UI. |
-| username | `String` | R |  The username is what is normally used to identify the user in the UI. |
-| imagePath | `String` | O | A path to the image to be associated with this user.   |
-| lastUpdate | `DateTime` | R | The DateTime object indicating the last update. |
-
-To illustrate, here is an example document from the Gardener collection:
-
-```json
- {
-    "userID": "johnson@hawaii.edu",
-    "chapterID": "chapter-001",
-    "name": "Philip Johnson",
-    "username": "@fiveoclockphil",
-    "imagePath": "",
-    "lastUpdate": "2023-04-01T00:00:00.000Z"
-  }
+```dart
+const factory User(
+  {required String userID,        // 'johnson@hawaii.edu'
+  required String chapterID,      // 'chapter-001'
+  required String name,           // 'Philip Johnson'
+  required String username,       // '@fiveoclockphil'
+  required String uid,            // '6iyiBithQGZ8Op8rpP1ELIzkMKk2'
+  String? picture,                // 'https://firebasestorage.googleapis.com/v0/...', null
+  required DateTime lastUpdate})  // '2023-03-19T12:19:14.164090'
 ```
-
-
 
 ### Gardener
 
