@@ -5,7 +5,9 @@ hide_table_of_contents: false
 
 # ChapterZipMap
 
-In GGC 1.0, the geographic region associated with a chapter will be defined through a collection called "ChapterZipMap" that maps US zip codes to their corresponding chapter name and chapterID, where the chapter name is constructed from the county and state associated with the zip code. For example, the zip code "96822" maps to the chapter named "Honolulu-HI".  We want chapter names to be unique, and so we add the state to the county name because there are many county names that occur in more than one state (i.e. 31 states have a "Washington" county).  This collection also defines the chapterID. A portion of the documents in the collection might look like this:
+In the 2.0 release, users will be able to register with the system from any geographic area and, based on their country and postal code, be automatically placed into a GGC Chapter.
+
+The geographic region associated with a (US) chapter will be defined through a collection called "ChapterZipMap" that maps US zip codes to their corresponding chapter name and chapterID, where the chapter name is constructed from the county and state associated with the zip code. For example, the zip code "96822" maps to the chapter named "Honolulu-HI".  We want chapter names to be unique, and so we add the state to the county name because there are many county names that occur in more than one state (i.e. 31 states have a "Washington" county).  This collection also defines the chapterID. A portion of the documents in the collection might look like this:
 
 | zipcode | chapterName | chapterID |
 | -------  | -------------- | --------- |

@@ -5,13 +5,13 @@ hide_table_of_contents: false
 
 # Architecture
 
-The alpha release currently conforms (most of the time) to the architectural approach advocated by Andreas Bizzotto which he calls the "Riverpod Architecture".  If you are not familiar with this approach, it's worth spending a few minutes reading through his description, which is available as a set of readings in the [architecture module](https://courses.ics.hawaii.edu/mobile-application-development/modules/architecture/) in my mobile application development course.
+The GeoGardenClub app (GGC) conforms (most of the time) to the architectural approach advocated by Andreas Bizzotto which he calls the "Riverpod Architecture".  If you are not familiar with this approach, it's worth spending a few minutes reading through his description, which is available as a set of readings in the [architecture module](https://courses.ics.hawaii.edu/mobile-application-development/modules/architecture/) in my mobile application development course.
 
 ## Client-server architecture perspective
 
-To begin, the ggc_app can be viewed as a simple client-server application: there is a central back-end server (in our case, [Firestore](https://firebase.google.com/docs/firestore)) that communicates with front-end clients (in our case, the Flutter ggc_app application):
+To begin, GGC can be viewed as a simple client-server application: there is a central back-end server (in our case, [Firestore](https://firebase.google.com/docs/firestore)) that communicates with front-end clients (in our case, the Flutter ggc_app application):
 
-<img src="/img/develop/alpha-release/ggc-architecture.png"/>
+<img src="/img/develop/release-1.0/ggc-architecture.png"/>
 
 ## Layered application architecture perspective
 
@@ -21,7 +21,7 @@ In the above diagram, the client app is structured as four layers. This layering
 
 **Data Layer**.  The data layer implements "feature-specific" communication with Firebase. For example, the Data Layer code for the Chapter feature implements classes that queries the Chapter collection in appropriate ways. In this layer, data is still represented as JSON or binary.
 
-**Domain Layer**. The domain layer implements code to translate between the data representations used at the data layer (i.e. JSON and Binary) and the data representations used at the Presentation Layer (i.e. Dart classes for entities and collections). The domain layer also implements the "business logic" of the application as discussed in the [Collections and business logic](/docs/develop/alpha-release/design-components/data-model#collections-and-business-logic) section.
+**Domain Layer**. The domain layer implements code to translate between the data representations used at the data layer (i.e. JSON and Binary) and the data representations used at the Presentation Layer (i.e. Dart classes for entities and collections). The domain layer also implements the "business logic" of the application as discussed in the [Collections and business logic](/docs/develop/release-1.0/design-components/data-model#collections-and-business-logic) section.
 
 **Presentation Layer**. The presentation layer implements the Flutter-based user interface.  All of the classes at the presentation layer are Widgets. GGC divides UI classes into two types: "Screens" and "Views".  Screens implement a "top-level" page: they return a Scaffold Widget and can be routed to.  Views are "components": they are the building blocks for Screens and can potentially appear in multiple Screens.
 
@@ -65,24 +65,22 @@ Finally, here's a look inside the features/ directory:
 ```
 features/
   authentication/        # Authentication using firebase_ui_auth.
-    /presentation        # Implementation only requires Widgets.
+    /presentation        # Implementation only requires UI widgets.
+    
+  common/                # Cross-cutting code
+  
   chapter/               # Implementation of Chapter feature
-    domain/              # Chapter and ChapterCollection
     data/                # Firebase interface
-    presentation/        # ChapterScreen, ChapterCardView, etc.
+    domain/              # Chapter, ChapterCollection, etc.
+    presentation/        # ChapterIndexScreen, ChapterView, etc.
+    
   crop/
-  discussion/
   garden/
   gardener/
   home/
   observation/
-   :
-  drawer_view.dart         # DrawerView appears in many feature Screens.
-  with_core_data.dart      # Hide asynchronous database retrieval from UI
-  with_garden_data.dart    # Hide asynchronous database retrieval from UI
-  with_monarch_data.dart   # Mock the DB for Monarch.
+  :
+  :
 ```
 
 Each feature can have one or more of the following subdirectories: domain/, data/, and presentation/.  The authentication feature only requires a presentation/ subdirectory, while the chapter feature requires all three.
-
-The features/ directory also contains a few top-level files containing "cross-cutting" code that applies to many features. 

@@ -5,9 +5,9 @@ hide_table_of_contents: false
 
 # Goals
 
-Here are a proposed set of goals for the 1.0 (Alpha) release. Some of these goals are motivated by [Champion Building: How to successfully adopt a developer too](https://www.gitpod.io/blog/champion-building). Although this blog post focuses on how to get developers in an organization to adopt a new tool, the recommendation seem very applicable to getting gardeners in a community to adopt GGC.
+Here are a proposed set of goals for the 1.0 (Beta) release. Some of these goals are motivated by [Champion Building: How to successfully adopt a developer too](https://www.gitpod.io/blog/champion-building). Although this blog post focuses on how to get developers in an organization to adopt a new tool, the recommendation seem very applicable to getting gardeners in a community to adopt GGC.
 
-## Develop a fast, reliable, robust app that satisfies the Core Value Propositions
+## 1. Provide a fast, reliable, robust app that satisfies the Core Value Propositions
 
 By the end of the 1.0 release period, we need to have an app that satisfies the [Core Value Propositions](cvp#the-core-value-propositions) while being fast, easy to use, and not prone to crashing.
 
@@ -17,26 +17,27 @@ Evaluation:
 * Crashlytics data 
 * Usability Evaluation of 1.0 user base with respect to app usability.
 
-## Determine what it means to be a champion/chapter chair
+## 2. Determine what it means to be a champion/chapter chair
 
-Successful chapters will need one or more champions. We need to use the 1.0 release period to develop an understanding of what it means to be champion: what their responsibilities are, how to carry out their responsibilities, and how the GGC organization should support and/or compensate them.
+Successful chapters will need one or more champions. We hope to use the 1.0 release period to develop an understanding of what it means to be champion: what their responsibilities are, how to carry out their responsibilities, and how the GGC organization should support and/or compensate them.
 
 Evaluation criteria:
 * User-facing documentation for Chapter Chairs. 
 
-## Provide high quality documentation
+## 3. Determine how to provide high quality documentation
 
-We should use the 1.0 release to determine what needs to be documented, and how it should be documented. Some possible documentation sources include:
-* In app documentation (the ? icon)
+We hope to use the 1.0 release to determine what needs to be documented, and how it should be documented. Some possible documentation sources include:
+* In-app documentation (the ? icon)
 * YouTube (shorts and/or regular videos)
+* User Guide (within geogardenclub.com)
 * GGC Discord Server: channels visible to those in the "User" role.
 
 Evaluation criteria:
 * Usability evaluation of 1.0 user base with respect to app documentation.
 
-## Develop evidence-based use cases
+## 4. Gather evidence-based successful use cases
 
-The 1.0 release period should result in examples of "successful" use of GGC to solve real world problems for gardeners.  Example use cases include:
+We hope that the 1.0 release period will result in examples of "successful" use of GGC to solve real world problems for gardeners.  Example use cases include:
 
 * The gardener can plan/manage their garden more easily
 * The gardener makes better choices for their seeds and/or management of plants
@@ -50,7 +51,7 @@ Evaluation:
 * Documentation of use cases.
 * Evaluation by entreprenurial board members and/or other external stakeholders.
 
-## Integrate AI in a useful manner
+## 5. Determine how to usefully integrate AI
 
 AI technologies like ChatGPT impact the viability of our business model. We must be able to show users why they should pay for our app instead of using a generic AI. I believe that the best way to answer this question is to provide access to AI capabilities within the app, and provide concrete use cases of how using AI within the app is better than using AI without the app.
 

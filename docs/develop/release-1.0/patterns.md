@@ -15,7 +15,7 @@ Making things even more complicated is the desire for modern UIs to be "reactive
 
 Making things yet more complicated in GGC is the desire to support a "Storybook" style design system like Monarch, in which individual Views as well as entire Screens can be displayed with sample data values without requiring a database connection.
 
-In the alpha release, we address all of these issues through a design pattern that starts with a set of widgets which we will call the "With" widgets. Currently, there are three: WithCoreData, WithGardenData and WithMonarchData, but there will be others (WithObservationData, WithSeedData, etc.) as we continue to build out the system.
+In the beta release, we address all of these issues through a design pattern that starts with a set of widgets which we will call the "With" widgets. Currently, there are three: WithCoreData, WithGardenData and WithMonarchData, but there will be others (WithObservationData, WithSeedData, etc.) as we continue to build out the system.
 
 In this design pattern, all of the data that a Widget needs to build a user interface component can always be found somewhere within three "top-level" client-side classes: ChapterCollection, GardenCollection, and UserCollection.
 

@@ -9,7 +9,7 @@ For the GeoGardenClub project, deployment refers to the process by which a versi
 
 ## Firebase App Distribution
 
-For the Alpha Release, we are using [Firebase App Distribution](https://firebase.google.com/docs/app-distribution) as the deployment mechanism. This has the following implications:
+For the Beta Release, we are using [Firebase App Distribution](https://firebase.google.com/docs/app-distribution) as the deployment mechanism. This has the following implications:
 
 1. We deploy only to iOS and Android devices (no Linux, desktop, or web).
 2. We must obtain the email address for every user who wishes to have GGC on their device. 
@@ -18,11 +18,11 @@ For the Alpha Release, we are using [Firebase App Distribution](https://firebase
 
 ## Documenting deployment versions
 
-We expect to make many deployments during the Alpha release period as we fix bugs or implement enhancements. Each new deployment will require a new version number (specified in the pubspec.yml file), and we will document what has changed in each new version via [CHANGELOG.md](https://github.com/geogardenclub/ggc_app/blob/main/CHANGELOG.md).  To manage version numbers and the changelog file, we will use [Cider](https://pub.dev/packages/cider). 
+We expect to make many deployments during the Beta release period as we fix bugs or implement enhancements. Each new deployment will require a new version number (specified in the pubspec.yml file), and we will document what has changed in each new version via [CHANGELOG.md](https://github.com/geogardenclub/ggc_app/blob/main/CHANGELOG.md).  To manage version numbers and the changelog file, we will use [Cider](https://pub.dev/packages/cider). 
 
 We will adhere to two standards:
 * For the changelog format, we will adhere to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
-* For the version number format, we will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). For the alpha release, since there is no public "API", the *major* version will always be "1". We will increment the *minor* version when there are new UI or business logic enhancements to the application, and we will increment the *patch* version in the event of deployments made only to fix bugs. We will not use the pre-release or build suffix notation.
+* For the version number format, we will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). For the beta release, since there is no public "API", the *major* version will always be "1". We will increment the *minor* version when there are new UI or business logic enhancements to the application, and we will increment the *patch* version in the event of deployments made only to fix bugs. We will not use the pre-release or build suffix notation.
 
 ## Deployment management
 

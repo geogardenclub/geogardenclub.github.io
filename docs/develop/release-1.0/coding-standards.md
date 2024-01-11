@@ -175,7 +175,7 @@ class GardenTextField extends StatelessWidget {
           decoration: ggcInputDecoration(
             label: fieldName,
             required: true,
-            hintText: '4-20 chars, alphanumeric/spaces, unique',
+            hintText: '4-20 chars, betanumeric/spaces, unique',
           ),
           initialValue: currName,
           validator: FormBuilderValidators.compose([
@@ -216,7 +216,7 @@ As a heuristic, if indentation exceeds 5 or 6 levels, think about creating local
 
 ## Don't write media-adaptive code
 
-For the alpha release, we are not going to optimize layout for different screen sizes. So, please do not (for example) use MediaQuery to adjust values for different screen sizes. For example:
+For the beta release, we are not going to optimize layout for different screen sizes. So, please do not (for example) use MediaQuery to adjust values for different screen sizes. For example:
 
 ```dart
 double width = MediaQuery.of(context).size.width;
@@ -343,7 +343,7 @@ It gets a little nicer if you convert to the stateless widget approach entirely,
 
 The title should appear in the scaffold. It does not need to be repeated in the body:
 
-<img width="300px" style={{borderStyle: "solid"}} src="/img/develop/alpha-release/coding-standards/repeated-title.png"/>
+<img width="300px" style={{borderStyle: "solid"}} src="/img/develop/release-1.0/coding-standards/repeated-title.png"/>
 
 ## Prefer late to dummy field values
 
@@ -423,7 +423,7 @@ I've recently refactored the code for Task Cards and believe a short description
 
 The GGC Task Card (at the time of writing) looked like this:
 
-<img width="300px" style={{borderStyle: "solid"}} src="/img/develop/alpha-release/coding-standards/task-card.png"/>
+<img width="300px" style={{borderStyle: "solid"}} src="/img/develop/release-1.0/coding-standards/task-card.png"/>
 
 As you can see, the "description" is a little wordy. My initial goal was to simply change the implementation of this card so that the description would be more tabular in nature, provide the garden and bed names (if available) from the task document, and include the description field only in the case of "custom" tasks.
 
@@ -674,7 +674,7 @@ There are two simple design patterns that I used to modularize and simplify the 
 
 **I made each visible UI component into its own widget.** Looking at the TaskCard, an obvious top-level decomposition is into two Widgets: a "Title" widget and a "Description" widget. The "Title" widget can be further decomposed into three widgets: a "Checkbox", "Title", and "PopUp Menu".  The following annotated screenshot of the TaskCard illustrates this breakdown with the top-level decomposition in red and the nested decomposition in green:
 
-<img width="300px" style={{borderStyle: "solid"}} src="/img/develop/alpha-release/coding-standards/task-card-widgets.png"/>
+<img width="300px" style={{borderStyle: "solid"}} src="/img/develop/release-1.0/coding-standards/task-card-widgets.png"/>
 
 **I used the mutator controller design pattern to move the database access code out of the UI component and into the controller.**  Interestingly, this not only made the DB access code more simple, it even made it a bit more efficient because multiple collections needed updates and the mutator controller supports batch updates.
 
@@ -749,7 +749,7 @@ Fourth, as already noted, the asynchronous DB access code is now entirely encaps
 
 Finally, here's what my new version of TaskCard looks like:
 
-<img width="300px" style={{borderStyle: "solid"}} src="/img/develop/alpha-release/coding-standards/tasks-revised.png"/>
+<img width="300px" style={{borderStyle: "solid"}} src="/img/develop/release-1.0/coding-standards/tasks-revised.png"/>
 
 The top and bottom tasks are "implicit" tasks (based on Planting dates), while the middle task is an "explicit" task (defined by the gardener.)
 
