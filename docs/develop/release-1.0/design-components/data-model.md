@@ -17,7 +17,32 @@ Entities are persisted through a set of Firebase collections. In general, each e
 
 The GGC app implements a set of Dart "domain" classes that mirror these Firebase collections, so (for example) there is a Dart class called "Chapter" (that defines the structure of a Chapter entity), and a Dart class called "ChapterCollection" (which holds a list of Chapter entity instances and provides operations upon them).
 
-The following sections document the structure of the most important entities in the system
+The following diagram provides a high-level overview of the entities in the data model and their basic relationships:
+
+<img style={{borderStyle: "solid"}} src="/img/develop/release-1.0/data-model/entity-overview.png"/>
+
+The diagram separates the entities into three categories:
+
+1. "Global-level" entities.  These entities are defined at the "system-level". In other words, they can only be changed by GGC developers, and changes to these entities might involve changes to the source code, the database, and possibly redeployment of the app.
+2. "Chapter-level" entities. These are "top-level" entities for any given chapter. These entities all include a chapterID field. Each user is always associated with a single Chapter, and thus can only "see" the entities with a matching chapterID. The Chapter-level entities are global with respect to all the Gardens in the Chapter.
+3. "Garden-level" entities. These entities are all specific to a single Garden, and include both a chapterID and a gardenID. 
+
+This diagram can also be used to understand the relative numbers of entities that a given client must manipulate. Each of the "Global-level" entity will have dozens to hundreds of instances, and so it is practical for the client application to cache them locally without a large performance impact. 
+
+Since each User is associated with a single Chapter, the number of "Chapter-level" entity instances visible to a User is not expected to exceed several hundred to a thousand. This means it is practical for the client application to cache all "visible" Chapter-level entities locally.
+
+We expect each User to be associated with one to a dozen Gardens. Each Garden might have hundreds to thousands of Plantings. This means it is practical for the client application to cache the "Garden-level" entities that they are associated with.
+
+The goal of this design is to create "chapter-level" and "garden-level" namespaces, such that GeoGardenClub can scale to thousands of Chapters, where each Chapter contains hundreds of members, and still provide a responsive client application to each user. 
+
+This design does have a potential problem: what if a Chapter becomes wildly popular and grows to many thousand members? It is possible that the performance of the client application can degrade if the number of members (and thus gardens) in a single Chapter becomes too large. 
+
+To address this potential problem, the data model is designed to facilitate splitting of Chapters into two or more new Chapters in the event that the number of members becomes too large. We foresee an annual end-of-year review, where we see if any Chapters are reaching a size where it would be appropriate to split them up into two or more new, smaller Chapters by partitioning the postal (zip) codes. By doing it in Winter (at least for the Northern Hemisphere), such Chapter reorganization should have less impact on the Gardeners. 
+
+To facilitate Chapter splitting, the IDs associated with Garden-level entities do not encode the chapterID, but instead the two character (alpha2) country code and the zip code. This allows Garden-level data to more easily migrate to new Chapters without needing to change their entity IDs. 
+
+
+Let's now turn to a more detailed description of the entities in the data model. 
 
 
 ### Chapter
@@ -26,37 +51,42 @@ The Chapter entity defines a geographic region based on a country (represented a
 
 #### ChapterID management
 
-The Firebase collection called ChapterZipMap will provide a default mapping of US zip codes to chapterIDs.  This mapping defines a single GGC Chapter for each US county. We will use this data structure to determine the chapter geographic boundaries for users in the US.  
+A Firebase collection called ChapterZipMap will provide a default mapping of US zip codes to chapterIDs.  This mapping initially defines each US county as a GGC Chapter.   
 
-Outside of the US, each (country code, postal code) pair will be its own Chapter. This is not optimal but it provides a way to make GGC available to users outside the US. 
+Outside of the US, each (country code, postal code) pair will be its own Chapter. This is not optimal but it provides a way to make GGC available to users outside the US without constructing a world-wide ChapterZipMap. 
 
-The implication of this approach is that, unlike other entity IDs, the complete set of chapterIDs is defined in advance in GGC. In other words, we can compute all of the chapterIDs on earth, and they do not depend upon the number of users or their behavior. In contrast, there is no *a priori* limit to the number of (say) Planting IDs. 
+Unlike many other entity IDs, the complete set of chapterIDs is defined in advance in GGC. In other words, we can compute all of the chapterIDs on earth, and they do not depend upon the number of users or their behavior. In contrast, there is no *a priori* limit to the number of (say) Planting IDs. 
 
 While chapterIDs are finite, they are not necessarily *fixed*. For US Chapters, we can change the set of chapters by changing the entries in the ChapterZipMap. For example, while our initial approach is to implement the ChapterZipMap such that there is a one-to-one correspondence between US chapters and US counties, we could in future change the ChapterZipMap so that a single US county could have multiple Chapters, or multiple counties could be combined into a single Chapter, or some other approach. (Changing chapter geographic boundaries requires more than just changing the ChapterZipMap; the point here is that our representation does not lock us in to our initial definition for Chapters.) The only hard constraint is that each Zip Code is assigned to one and only one Chapter.  
 
-To support readability, chapter numbers in this documentation page will begin with a "0". We will not enforce this in the actual app.
+To support readability, chapter numbers in this documentation page will begin with a "0". We do not need to enforce this in the actual app.
 
 #### User registration and chapter assignment
 
-New user registration will work as follows. If they supply "US" as their country code, then the system will query the ChapterZipMap collection to determine their chapterID based on the zip code that they supply.  If no Chapter entity exists yet with that chapterID, it will be created with the chapterID provided in the ChapterZipMap collection. 
+New user registration works as follows. If they supply "US" as their country code, then the system will query the ChapterZipMap collection to determine their chapterID based on the postal (zip) code that they also supply.  If no Chapter entity exists yet with that chapterID, it will be created with the chapterID provided by the ChapterZipMap collection. 
 
 If the new user supplies a non-US country code, then the ChapterZipMap is not consulted. Instead, the chapterID is defined as `chapter-<country code>-<postal code>`. If no Chapter entity exists yet corresponding to that ChapterID, then it will be created.
 
 Note that [some countries do not have a postal code](https://tosbourn.com/list-of-countries-without-a-postcode/). In this case, we will create a default postal code (i.e. "00") for those countries and not request it from the user if they select one of those countries. This implies that for those countries, there will be only one chapter for the entire country. Since most of those countries are pretty small, that seems like a reasonable design decision.
 
+:::info The beta release works differently
+The Beta release will only be distributed to users in Whatcom Country, WA, and so the registration mechanism will be simplified. See below for details.
+:::
+
+
 #### ChapterID as Firebase index
 
-As will be seen, most entities will contain a chapterID field.  When a client retrieves data from Firebase, it will normally request all of the documents where the chapterID field is the one associated with their chapter. This is the primary way in which GGC can scale. For this to work effectively, we must define an index on the chapterID field for all collections in which the entities have that field.
+As will be seen, many entities contain a chapterID field.  When a client retrieves data from Firebase, it will normally request all of the documents where the chapterID field is the one associated with their chapter. This is the primary way in which GGC can scale. For this to work effectively, we must define an index on the chapterID field for all collections in which the entities have that field.
 
 #### Chapter entity representation
 
 
 ```dart
 const factory Chapter(
-  {required String chapterID,        // 'chapter-001', 'chapter-CA-V6K1G8'
-  required String name,              // 'Whatcom-WA', 'CA-V6K1G8'
+  {required String chapterID,        // 'chapter-001', or 'chapter-CA-V6K1G8'
+  required String name,              // 'Whatcom-WA', or 'CA-V6K1G8'
   required String countryCode,       // 'US', 'CA'
-  required List<String> zipcodes,    // ['98225', '98226'], ['V6K1GB']
+  required List<String> zipcodes,    // ['98225', '98226'], or ['V6K1GB']
   required DateTime lastUpdate});    // '2023-03-19T12:19:14.164090'
 ```
 
@@ -88,15 +118,18 @@ The form provides fields for the user's:
 * Name
 * Username
 * Country
-* Zip (postal) code
+* Postal (Zip) code
 
 In addition, the user can provide a picture at this time if they want.
 
-For the initial beta release: 
-* The country field will be a read-only drop-down and "United States" will be selected. It returns the alpha2 code for the United States (i.e. "US") 
-* The Zip (Postal) Code input field will be a pull-down list of zip codes associated with Whatcom, Washington. 
+:::info Beta Release modifications
 
-These modifications to the Onboarding screen guarantee that beta test users will be associated with the Whatcom-WA Chapter, and allow us to defer the creation of the ChapterZipMap and associated implicit Chapter creation, at least for the initial part of the beta release. 
+For the initial beta release: 
+* The country field will be a read-only drop-down and "United States" will be selected. It returns the alpha2 code for the United States (i.e. "us") 
+* The Postal (Zip) Code input field will be a pull-down list of zip codes associated with Whatcom, Washington. 
+
+These modifications to the Onboarding screen guarantee that beta test users will be associated with the Whatcom-WA Chapter, and allow us to avoid the need to design and implement the ChapterZipMap and associated processing.  
+:::
 
 Once the form is successfully filled out, a User and Gardener document is created for that email address. If those documents are created successfully, then the application displays the Home screen for that User.
 
@@ -108,8 +141,10 @@ const factory User(
   required String chapterID,      // 'chapter-001'
   required String name,           // 'Philip Johnson'
   required String username,       // '@fiveoclockphil'
+  required String country,        // 'us'
+  required String postal,         // '98225'
   required String uid,            // '6iyiBithQGZ8Op8rpP1ELIzkMKk2'
-  String? pictureURL,             // null, 'https://firebasestorage.googleapis.com/v0/...'
+  String? pictureURL,             // null, or 'https://firebasestorage.googleapis.com/v0/...'
   required DateTime lastUpdate})  // '2023-03-19T12:19:14.164090'
 ```
 
@@ -143,13 +178,13 @@ GardenerIDs are the email addresses of the gardener. In the case of registered u
 const factory Gardener(
   {required String gardenerID,             // 'johnson@hawaii.edu'
   required String chapterID,               // 'chapter-001'
-  required List<String> cachedCropIDs,     // ['crop-001-203']
-  required List<String> cachedVarietyIDs,  // ['variety-001-305']
-  @Default(false) bool isVendor,           // true, false
-  String? vendorName,                      // null, 'Johnnys Seeds and Supplies'
-  String? vendorShortName,                 // null, 'Johnnys'
-  String? vendorURL,                       // null, 'https://johnnys.com'
-  @Default(false) bool attestPermacultureWorkshop,       // true, false
+  required List<String> cachedCropIDs,     // ['crop-001-203-9987']
+  required List<String> cachedVarietyIDs,  // ['variety-001-305-8765']
+  @Default(false) bool isVendor,           // true, or false
+  String? vendorName,                      // null, or 'Johnnys Seeds and Supplies'
+  String? vendorShortName,                 // null, or 'Johnnys'
+  String? vendorURL,                       // null, or 'https://johnnys.com'
+  @Default(false) bool attestPermacultureWorkshop,       // true, or false
   required DateTime lastUpdate})           // '2023-03-19T12:19:14.164090' 
 ```
 
@@ -162,7 +197,7 @@ The Garden entity represents a plot of land (or maybe even just some pots) that 
 
 GardenIDs are generated dynamically when a Chapter member defines a new Garden or when a Chapter member defines a new Vendor (which implicitly results in the creation of a new Garden). 
 
-GardenIDs have the format `garden-<chapterNum>-<gardenNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+GardenIDs have the format `garden-<country>-<postal>-<gardenNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 To support readability and initial development, the gardenNum starts at "100" for each chapter.
 
@@ -184,15 +219,16 @@ Certain badges require Chapter members to "attest" to the Garden having certain 
 
 ```dart
 const factory Garden(
-  {required String gardenID,                // 'garden-001-101'
+  {required String gardenID,                // 'garden-us-98225-101-4567'
   required String chapterID,                // 'chapter-001'
   required String name,                     // 'Kale is for Kids'
   required String ownerID,                  // 'jessie@gmail.com'
-  required List<String> cachedCropIDs,      // ['crop-001-201']
-  required List<String> cachedVarietyIDs,   // ['variety-001-302']
+  required List<String> cachedCropIDs,      // ['crop-001-201-9876']
+  required List<String> cachedVarietyIDs,   // ['variety-001-302-7865']
   required List<int> cachedYears,           // [2023, 2022]
   required int cachedNumPlantings,          // 231
   String? pictureURL,                       // null, 'https://firebasestorage.googleapis.com/v0/...'
+  String? plotPlanURL,                      // null, 'https://firebasestorage.googleapis.com/v0/...'     
   @Default(false) bool isVendor,                  // true, false
   @Default(false) bool attestClimateVictory,      // true, false
   @Default(false) bool attestPesticideFree,       // true, false
@@ -210,7 +246,7 @@ There are some things Editors cannot do. For example, they cannot delete the gar
 
 Editor entities are created or deleted when the owner of a Garden edits the Editor field of the Garden Details form.
 
-EditorIDs have the format `editor-<chapterNum>-<gardenNum>-<editorNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+EditorIDs have the format `editor-<country>-<postal>-<gardenNum>-<editorNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 EditorNums start at 001 for each garden.
 
@@ -218,8 +254,8 @@ EditorNums start at 001 for each garden.
 
 ```dart
 const factory Editor(
-  {required String editorID,         // 'editor-001-102-001'
-  required String gardenID,          // 'garden-001-102'
+  {required String editorID,         // 'editor-us-98225-102-001-5231'
+  required String gardenID,          // 'garden-us-98225-102-6789'
   required String chapterID,         // 'chapter-001'
   required String gardenerID,        // 'johnson@hawaii.edu'
   required DateTime lastUpdate})     // '2023-03-19T12:19:14.164090'
@@ -231,7 +267,7 @@ Each Garden consists of a number of Beds. An owner can edit the name of an exist
 
 #### BedID management
 
-BedIDs have the format `bed-<chapterNum>-<gardenNum>-<bedNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+BedIDs have the format `bed-<country>-<postal>-<gardenNum>-<bedNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 BedNums start at 001 for each garden.
 
@@ -239,9 +275,9 @@ BedNums start at 001 for each garden.
 
 ```dart
  const factory Bed(
-  {required String bedID,          // 'bed-001-101-001'
+  {required String bedID,          // 'bed-us-98225-101-001-5634'
   required String chapterID,       // 'chapter-001'
-  required String gardenID,        // 'garden-001-101'
+  required String gardenID,        // 'garden-us-98225-101-6789'
   required String name,            // '02'
   required DateTime lastUpdate})   // '2023-03-19T12:19:14.164090'
 ```
@@ -284,7 +320,9 @@ The reason we do not provide a global collection of Crops is because a single co
 
 #### CropID management
 
-CropIDs have the format `crop-<chapterNum>-<cropNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+CropIDs have the format `crop-<chapterNum>-<cropNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+
+CropIDs embed the chapterNum. In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Crop collection with the updated chapterNum.  This will require a pass through all of the Garden-level entities to update the value of their cropID fields to the new string value.
 
 CropNums start at 201 for each chapter.
 
@@ -292,7 +330,7 @@ CropNums start at 201 for each chapter.
 
 ```dart
 const factory Crop(
-  {required String cropID,        // 'crop-001-201'
+  {required String cropID,        // 'crop-001-201-3452'
   required String chapterID,      // 'chapter-001'
   required String familyID,       // 'family-001'
   required String name,           // 'Tomato'
@@ -308,7 +346,9 @@ Note that it is possible (and common) for multiple gardeners (either home or com
 
 #### VarietyID management
 
-VarietyIDs have the format `crop-<chapterNum>-<varietyNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+VarietyIDs have the format `crop-<chapterNum>-<varietyNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+
+Like CropIDs, VarietyIDs embed the chapterNum. In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Variety collection with the updated chapterNum.  This will require a pass through all of the Garden-level entities to update their varietyID fields to the new string value.
 
 VarietyNums start at 301 for each chapter.
 
@@ -316,9 +356,9 @@ VarietyNums start at 301 for each chapter.
 
 ```dart
 const factory Variety(
-  {required String varietyID,      // 'variety-001-302'
+  {required String varietyID,      // 'variety-001-302-7654'
   required String chapterID,       // 'chapter-001'
-  required String cropID,          // 'crop-001-203'
+  required String cropID,          // 'crop-001-203-2354'
   required String name,            // 'Jersey Knight' 
   required DateTime lastUpdate})   // '2023-03-19T12:19:14.164090'
 ```
@@ -341,7 +381,7 @@ Finally, there is a boolean field called seedsAvailable. If true, this means not
 
 #### PlantingID management
 
-PlantingIDs have the format `planting-<chapterNum>-<gardenNum>-<plantingNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+PlantingIDs have the format `planting-<country>-<postal>-<gardenNum>-<plantingNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 Since, over a period of years, a single garden can result in over a thousand plantings, we generally use a four digit number for the plantingNum.
 
@@ -361,20 +401,20 @@ Note that if both a cropID and varietyID is provided, then the varietyID must "m
 
 ```dart
 factory Planting(
-  {required String plantingID,   // 'planting-001-102-1001'
+  {required String plantingID,   // 'planting-us-98225-102-1001-7645'
   required String chapterID,     // 'chapter-001'
-  required String gardenID,      // 'garden-001-102'
-  required String cropID,        // 'crop-001-202'
-  required String bedID,         // 'bed-001-102-003'
-  String? varietyID,             // null, 'variety-001-310'
-  String? outcomeID,             // null, 'outcome-001-102-1001'
+  required String gardenID,      // 'garden-us-98225-102-5678'
+  required String cropID,        // 'crop-001-202-9432'
+  required String bedID,         // 'bed-us-98225-102-003-4823'
+  String? varietyID,             // null, 'variety-001-310-7645'
+  String? outcomeID,             // null, 'outcome-us-98225-102-1001-3472'
   DateTime? startDate,           // null, '2023-03-19T12:19:14.164090'
   DateTime? transplantDate,      // null, '2023-04-19T12:19:14.164090'
   DateTime? firstHarvestDate,    // null, '2023-05-19T12:19:14.164090'
   DateTime? endHarvestDate,      // null, '2023-06-19T12:19:14.164090'
   DateTime? pullDate,            // null, '2023-07-19T12:19:14.164090'
-  String? sowSeedID,             // null, 'seed-001-102-001'
-  String? harvestSeedID,         // null, 'seed-001-102-005'
+  String? sowSeedID,             // null, 'seed-us-98225-102-001-3563'
+  String? harvestSeedID,         // null, 'seed-us-98225-102-005-2185'
   @Default(false) bool usedGreenhouse,  // true, false 
   @Default(false) bool isVendor,        // true, false
   @Default(false) bool seedsAvailable,  // true, false
@@ -404,7 +444,7 @@ In addition, an Outcome type can have a value of "0", which means there is no da
 
 #### OutcomeID management
 
-OutcomeIDs have the format `outcome-<chapterNum>-<gardenNum>-<outcomeNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+OutcomeIDs have the format `outcome-<country>-<postal>-<gardenNum>-<outcomeNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 Each Outcome entity is associated with exactly one Planting entity. To help indicate this, the `<outcomeNum>` is always the same as the associated Planting's `<plantingNum>`. (Note that the converse is not true: a Planting entity need not be associated with an Outcome entity, since the Gardener might not choose to record any Outcome data.)
 
@@ -418,12 +458,12 @@ Outcome value must be integers between 0 (indicating no data) and 5 (indicating 
 
 ```dart
 const factory Outcome(
-  {required String outcomeID,         // 'outcome-001-102-1001'
+  {required String outcomeID,         // 'outcome-us-98225-102-1001-5218'
   required String chapterID,          // 'chapter-001'
-  required String gardenID,           // 'garden-102'
-  required String plantingID,         // 'planting-001-102-1001'
-  required String cachedCropID,       // 'crop-001-245'
-  required String cachedVarietyID,    // 'variety-001-321'
+  required String gardenID,           // 'garden-us-98225-102-6789'
+  required String plantingID,         // 'planting-us-98225-102-1001-9213'
+  required String cachedCropID,       // 'crop-001-245-4376'
+  required String cachedVarietyID,    // 'variety-001-321-3214'
   int? germination,                   // null, or 0-5
   int? yieldd,                        // null, or 0-5 (yield is a reserved word)
   int? flavor,                        // null, or 0-5
@@ -445,7 +485,7 @@ Our data model enables us to represent both seeds that are locally produced by g
 
 #### SeedID management
 
-VarietyIDs have the format `seed-<chapterNum>-<gardenNum>-<seedNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+VarietyIDs have the format `seed-<country>-<postal>-<gardenNum>-<seedNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 SeedNums start at 001.
 
@@ -461,12 +501,12 @@ The Seed entity indicates the garden in which they were grown (but not the one o
 
 ```dart
 const factory Seed(
-  {required String seedID,            // 'seed-001-102-001'
+  {required String seedID,            // 'seed-us-98225-102-001-3218'
   required String chapterID,          // 'chapter-001'
-  required String gardenID,           // 'garden-001-102'
+  required String gardenID,           // 'garden-us-98225-102-6789'
   required String cachedGardenerID,   // 'info@heritageseeds.com' 
-  required String cachedCropID,       // 'crop-001-201'
-  required String cachedVarietyID,    // 'variety-001-303'
+  required String cachedCropID,       // 'crop-001-201-3462'
+  required String cachedVarietyID,    // 'variety-001-303-6534'
   required bool cachedSeedsAvailable, // true, false
   required DateTime lastUpdate})      // '2023-03-19T12:19:14.164090'
 ```
@@ -483,7 +523,7 @@ An Observation is a textual comment (and, typically, a picture) provided by a Ga
 
 #### ObservationID management
 
-ObservationIDs have the format `observation-<chapterNum>-<gardenNum>-<observationNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+ObservationIDs have the format `observation-<country>-<postal>-<gardenNum>-<observationNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 ObservationNums start at 401 for each Garden.
 
@@ -496,19 +536,19 @@ Observations cache several values in order to allow the Observation card to pres
 
 ```dart
 const factory Observation(
-  {required String observationID,       // 'observation-001-102-401'
+  {required String observationID,       // 'observation-us-98225-102-401-5634'
   required String chapterID,            // 'chapter-001'
-  required String gardenID,             // 'garden-001-102'
+  required String gardenID,             // 'garden-us-98225-102-6789'
   required String gardenerID,           // 'johnson@hawaii.edu'
-  required String plantingID,           // 'planting-001-102-1002'
+  required String plantingID,           // 'planting-us-98225-102-1002-9432'
   required DateTime observationDate,    // '2023-03-19T12:19:14.164090'
   required List<String> tagIDs,         // ['tag-001-501']
-  required List<ObservationComment> comments,  // ['observation-001-102-401-001']
+  required List<ObservationComment> comments,  // ['observation-us-98225-102-401-001-9876']
   required String description,          // 'First harvest of the season'  
   String? pictureURL,                   // null, 'https://firebasestorage.googleapis.com/v0/...' 
   @Default(false) bool isPrivate,       // true, false
-  required String cachedCropID,         // 'crop-001-243'
-  required String cachedVarietyID,      // 'variety-001-323'
+  required String cachedCropID,         // 'crop-001-243-3425'
+  required String cachedVarietyID,      // 'variety-001-323-9654'
   required String cachedBedName,        // '03'
   required DateTime cachedStartDate,    // '2023-03-19T12:19:14.164090'
   required DateTime lastUpdate})    // '2023-03-19T12:19:14.164090'
@@ -520,7 +560,7 @@ As shown above, each Observation entity includes an embedded (potentially empty)
 
 ```dart
 const factory ObservationComment(
-  {required String observationCommentID,   // 'observation-001-102-401-001'
+  {required String observationCommentID,   // 'observation-us-98225-102-401-001-4532'
   required String gardenerID,              // 'johnson@hawaii.edu'
   required String description,             // 'Is that an aphid on the left leaf?'
   required DateTime lastUpdate})           // '2023-03-19T12:19:14.164090'
@@ -564,7 +604,7 @@ Tasks are ephemeral.  When a gardener indicates that a task has been completed, 
 
 #### TaskID management
 
-TaskIDs have the format `task-<chapterNum>-<gardenNum>-<plantingNum>-<taskNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+TaskIDs have the format `task-<country>-<postal>-<gardenNum>-<plantingNum>-<taskNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 TaskIDs start at 001.
 
@@ -573,14 +613,14 @@ TaskIDs start at 001.
 Each Task has a TaskType:
 
 ```dart
-enum TaskType { sow, transplant, firstHarvest, endHarvest, pull, other }
+enum TaskType { start, transplant, firstHarvest, endHarvest, pull, other }
 ```
 
 The first five correspond to the Planting dates. "Other" is used for manually created Tasks.
 
 #### Task titles and descriptions
 
-For automatically generated tasks, the title is automatically generated using the task type plus the variety, for example "Sow Tomato (Big Boy)".  There is no description for automatically generated tasks by default.
+For automatically generated tasks, the title is automatically generated using the task type plus the variety, for example "Start Tomato (Big Boy)".  There is no description for automatically generated tasks by default.
 
 For manually generated tasks, the gardener specifies both the title and (optionally) the description.
 
@@ -588,16 +628,16 @@ For manually generated tasks, the gardener specifies both the title and (optiona
 
 ```dart
 factory Task(
-  {required String taskID,          // 'task-001-101-1003-001' 
+  {required String taskID,          // 'task-us-98225-101-1003-001-7634' 
   required String chapterID,        // 'chapter-001'
-  required String gardenID,         // 'garden-101'
-  required String taskType,         // 'sow'
-  required String title,            // 'Sow Tomato (Big Boy)'
+  required String gardenID,         // 'garden-us-98225-101-6789'
+  required String taskType,         // 'start'
+  required String title,            // 'Start Tomato (Big Boy)'
   String? description,              // null, 'Clean up ground cherries.'
-  required String cropID,           // 'crop-001-203'
-  required String varietyID,        // 'variety-001-101-304'
-  required String bedID,            // 'bed-001-101-003'
-  required String plantingID,       // 'planting-001-101-1003'
+  required String cropID,           // 'crop-001-203-5412'
+  required String varietyID,        // 'variety-001-101-304-6534'
+  required String bedID,            // 'bed-us-98225-101-003-8956'
+  required String plantingID,       // 'planting-us-98225-101-1003-3214'
   required DateTime dueDate,        // '2023-03-19T12:19:14.164090'
   required String cachedBedName,    // '02'
   required String cachedCropName,   // 'Tomato'
@@ -605,23 +645,79 @@ factory Task(
   required DateTime lastUpdate})    // '2023-03-19T12:19:14.164090'
   ```
 
+### Badge
+
+GGC provides a game mechanic called "Badges". These are designations for Gardens, Gardeners, and (in future) Chapters that recognize the use of best practices for gardening (such as composting), or significant experience with a specific crop, or other behaviors that we wish to encourage. 
+
+The Badge game mechanic is implemented through two entities: "Badge" and "BadgeInstance". The Badge entity is a global entity (i.e. independent of any Chapter and defined by the system), and defines the game mechanic.  The BadgeInstance entity represents the achievement of a Badge by a Garden, Gardener, or (in future) Chapter.
+
+#### BadgeID and BadgeInstanceID management
+
+BadgeIDs have the format `badge-<badgeNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+
+BadgeIDs start at 001.
+
+BadgeInstanceIDs have the format `badgeinstance-<country>-<postal>-<badgeinstanceNum>-<millis>`.
+
+BadgeInstanceNums start at 001.
+
+There is a BadgeType enum represented as follows:
+
+```dart
+enum BadgeType { garden, gardener, chapter }
+```
+
+#### Badge entity representation
+
+Badges:
+```dart
+const factory Badge(
+  {required String badgeID,       // 'badge-001'
+  required String type,           // 'garden'
+  required String name,           // 'Climate Victory'
+  required String criteria,       // 'A climate victory garden has been...' 
+  required String level1,         // 'The garden is present...'
+  required String level2,         // 'The garden is present..., and...'
+  required String level3,         // 'The garden is present..., and..., and...'
+  required List<String> tagIDs,   // ['tag-024', 'tag-037']
+  required DateTime lastUpdate})   // '2023-03-19T12:19:14.164090'
+```
+Badge Instances:
+
+```dart
+const factory BadgeInstance(
+  {required String badgeInstanceID,  // 'badgeinstance-us-98225-001-5634'
+  required String chapterID,         // 'chapter-001'
+  required String badgeID,           // 'badge-001'
+  required int level,                // 1
+  String? ownerID,                   // null, 'johnson@hawaii.edu'
+  String? gardenID,                  // null, 'garden-us-98225-101-6789'
+  String? data,                      // null, 'supplementary data'
+  String? data2,                     // null, 'supplementary data2'
+  String? data3,                     // null, 'supplementary data3'
+  required DateTime lastUpdate})     // // '2023-03-19T12:19:14.164090'
+```
 ## Collections and business logic
 
 As noted above, each entity is represented as a Dart class, and made persistent as a document in Firebase. 
 
 Groups of entity instances of the same type are also represented as a Dart class, and made persistent as a collection in Firebase.   So, for example, there is a Dart class called "Chapter" (to represent individual instances of that entity) and a Dart class called "ChapterCollection" (to manage a set of Chapter instances). On the Firebase side, there is a collection called Chapters, and each document in that collection has the same structure as the corresponding Dart class. We use [freezed](https://pub.dev/packages/freezed) to support the translation between the Dart class instance for an entity and its persistent representation as a Firebase document in JSON format.
 
+The client-side collection classes (ChapterCollection, GardenCollection, etc) are intended to encapsulate the "business logic" for the application. 
+
 ## Privacy
 
 On the one hand, we want to preserve certain types of privacy:
 
 * Users pick a unique "username" which is used in postings so that they do not have to reveal their true name.
-* The application does not reveal (and does not know) the precise location of gardens, only their zip code.
-* Users can tag an Observation as "private", and in that case it will not be visible to others.
+* The application does not reveal (and does not know) the precise location of gardens, only their postal (zip) code.
+* Users can tag an Observation as "private", and in that case it will not be visible to users outside of the garden's owner and editors.  This allows users to take photos regarding the garden for their personal data collection without feeling inhibited about it becoming "public". For example, the photo might reveal faces or locations.
 
-On the other hand, we want to facilitate the creation of a community of practice. For this reason, 
+On the other hand, we want to facilitate the creation of a community of practice. For this reason, all garden data (plantings, etc) are available, in at least a read-only format, to all members of a chapter. 
 
-A significant goal for the beta release is to test the hypothesis that it is not problematic for users to share garden details with others in the chapter. For that reason, any user can access the details of a garden (though only "editors" can change information).
+A significant goal for the beta release is to test the hypothesis that it is not problematic for users to share these kinds garden details with others in the chapter. 
+
+A broader question, that we will not explore in the beta release, is what kinds of data could be made available across Chapters. 
 
 ## IDs
 
@@ -629,19 +725,26 @@ In NoSQL databases, it is common for each document to be automatically provided 
 
 In GGC, we use a different approach. There is no "docID" field. Instead, the Crop collection has a unique ID called "cropID", the Chapter collection has a unique ID called "chapterID", and so forth. We tell the NoSQL database (in our case, Firebase) that these various ID fields should be used as the primary key (i.e. the docID) for each of the collections. 
 
-In addition, rather than having the server generate the cropID, chapterID, etc, each client is responsible for generating the ID when creating a new document to insert into a collection. 
+Importantly, non-global entities are generally created by clients, and in GGC, clients (not the server) are responsible for generating the primary keys for non-global entities.  (The global entities, such as Chapter, Family, Badge, etc. are constructed by the system, not clients.)
 
-This has one major benefit:
-* Rather than a random string, GGC IDs are "human readable". You can look at an ID string and know what kind of entity it is associated with (all GGC IDs have a prefix like "chapter-", "crop-", etc). This helps in development. 
+We have clients generate the primary keys for non-global entities for the following reasons:
+* Rather than a server-generated random string, our client-generated primary keys are "human-readable". You can look at an ID string and know what kind of entity it is associated with (all GGC IDs have a prefix like "chapter-", "crop-", etc). Since many entities have fields containing the IDs of other entities, human-readable IDs help in development and system understanding.
+* In many cases, an update to the database can involve the creation of a new entity (or entities) as well as updates to other entities to include the primary key of the newly created entity (or entities). If primary keys are generated by the server, such updates would become a complex, multi-step process. Since primary keys are generated by the client, these updates are much more simple to accomplish.
 
-And one major drawback:
-* It is technically possible for two clients to try to create two entities with the same ID at the same time. 
+However, client-generated primary keys have one significant drawback:
+* It becomes technically possible for two clients to generate a "primary key collision", i.e. an attempt by different clients to create two entities with the same primary key value at the same time. 
 
-Practically speaking, we believe that attempts to create entities with the same ID by different clients will happen extremely rarely or never in practice. This is because we cache the relevant documents in a collection locally, and (unless we are in offline mode) Firebase updates the local cache of these collections with new documents within a second or so.  This creates a very, very small window of time during which two gardeners would need to attempt to create the same thing in order to create a collision.  Furthermore, the strings for frequently changing IDs (such as Planting IDs) are constructed to encode the Chapter and Garden ID, so that even though a large scale, world-wide deployment of GGC could have hundreds of Plantings created each minute, a collision will only occur if two gardeners associated with the same garden in the same chapter try to each create a Planting within a few seconds of each other.  That seems quite unlikely.
+To deal with this drawback, we have carefully designed the primary keys in GGC to make it extremely unlikely for primary key collisions to occur.
+
+First, primary keys are constructed to include one or more of the chapterID, the country code, the postal code, or the gardenID. This means, for example, that rather than it being possible for a primary key collision to occur by any two GGC users anywhere in the world, it is becomes only possible for it to occur between the owner and editors of a single garden. 
+
+Second, client-generated primary keys are constructed with a "millis" field. This is a four digit number representing the millisecond value at the time the client created the primary key. 
+
+We believe that these two properties of primary keys mean that collisions will not occur in practice, even when clients are operating in disconnected mode.
 
 Finally, let's say that this exceedingly unlikely event actually occurs.  In that case, because we have told Firebase that the plantingID (for example) is the primary key, Firebase will reject the second plantingID creation. In this case, the application can simply report the error and instruct the user to try again in a few seconds. By this time, the local cache should be updated and the request to create the new entity should succeed.
 
-Note that [Firebase recommends against creating documentIDs with lexicographically close ranges](https://firebase.google.com/docs/firestore/best-practices#hotspots).  However, this recommendation applies only to situations with **high** levels of reads or writes.  Even at scale, we do not expect GGC to experience "high" levels of reads or writes (from a database point of view). If necessary, we could migrate to a randomized string for IDs in future if this actually becomes an database bottleneck.
+Note that [Firebase recommends against creating documentIDs with lexicographically close ranges](https://firebase.google.com/docs/firestore/best-practices#hotspots). We expect that the inclusion of the millis field mitigates this potential performance issue.
 
 ## Normalization and caching
 
@@ -649,10 +752,10 @@ A best practice for relational database design is "[normalization](https://en.wi
 
 The GGC app has the following design considerations that impact on the issue of normalization:
 
-* Updates and deletions are rare.  GGC is mostly an "additive" database. While deletions and updates can occur, they are relatively rare and it's OK if they are "expensive" in time.
-* Reads are common, and we need local caches for many kinds of Chapter data, and all of the user's Garden-related data.
-* In general, Gardeners do not access data outside their Chapter.
+* Updates and deletions are (relatively) rare.  GGC is mostly an "additive" database. While deletions and updates can occur, it's OK if they are "expensive" in time.
+* Reads are common, and to make these reads fast, GGC implements client-side caches for many of the entities.
+* Gardeners do not access to data outside their Chapter, so client-side caches are not impacted if the number of Chapters in GGC becomes large. 
 
 As a result of these design considerations, GGC collections are designed to facilitate caching by including chapterID and gardenID fields whenever relevant.
 
-We also "denormalize" by occasionally providing "redundant" fields in a collection's documents. For example, in some cases a document will include a cropName field even though it already has a cropID field.  We do this avoid having to download large collections (i.e. Plantings for all Gardens in the Chapter). These redundant fields are named starting with "cached" to make this explicit in the data model.
+We also "denormalize" by occasionally providing "redundant" fields in a collection's documents. For example, in some cases a document will include a cropName field even though it already has a cropID field.  We do this avoid having to download large numbers of documents  (i.e. Plantings for all Gardens in the Chapter) in order to perform a calculation. These redundant fields are named starting with "cached" to make this explicit in the data model.
