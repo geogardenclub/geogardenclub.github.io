@@ -31,12 +31,19 @@ The deployment process is handled by a single developer refered to as the "Deplo
 The DM has the following responsibilities:
 
 1. As changes are made to the system and "Main Merge Alerts" show up in Discord, the DM decides if the merge constitutes a change appropriate for inclusion in the changelog. If so, the DM uses the appropriate Cider command to make an entry in the Unreleased section of the changelog.
-2. When the time has come to make a new deployment, the DM: 
 
-  a. Uses the appropriate Cider command to bump either the *minor* or *patch* version number in pubspec.yml depending upon the nature of the changes since the last deployment. (This should be easy to determine by reviewing the Unreleased section of the changelog.) 
+2. When the time has come to make a new deployment, the DM will:
 
-  b. Runs `cider release` to update the changelog to indicate the changes in the upcoming deployment. 
+  a. Use the appropriate Cider command to bump either the *minor* or *patch* version number in pubspec.yml depending upon the nature of the changes since the last deployment. (This should be easy to determine by reviewing the Unreleased section of the changelog.) 
 
-  c. Commits the changed changelog to main.
+  b. Run `cider release` to update the changelog to indicate the changes in the upcoming deployment.
 
-  d. Builds the iOS .ipa file, uploads it to Firebase App Distribution, adds any new users, and initiates deployment.
+  c. Commit the changed changelog to main.
+
+  d. Build the iOS .ipa file (see [Distribute your Flutter App with FireBase App Distribution](https://medium.com/@Ikay_codes/distribute-your-flutter-app-with-firebase-app-distribution-fc83e0ffb547) for details). Note that you'll need to update the version number (Runner | General) in XCode to be the same as the new version number in pubspec.yml. 
+  
+  e. Upload the new .ipa to Firebase App Distribution by going to the App Distribution tab in the Firebase console and dropping the file into the upload area. 
+  
+  f. Select the testers to receive the deployment.
+  
+  g. Initiate deployment.
