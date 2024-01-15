@@ -759,3 +759,7 @@ The GGC app has the following design considerations that impact on the issue of 
 As a result of these design considerations, GGC collections are designed to facilitate caching by including chapterID and gardenID fields whenever relevant.
 
 We also "denormalize" by occasionally providing "redundant" fields in a collection's documents. For example, in some cases a document will include a cropName field even though it already has a cropID field.  We do this avoid having to download large numbers of documents  (i.e. Plantings for all Gardens in the Chapter) in order to perform a calculation. These redundant fields are named starting with "cached" to make this explicit in the data model.
+
+## Chat rooms
+
+We use the [Flutter Chat UI](https://pub.dev/packages/flutter_chat_ui) package to implement Chat rooms and users. This results in the addition of some collections to Firebase. We do not document this here.
