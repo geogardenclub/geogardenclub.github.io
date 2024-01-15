@@ -23,9 +23,9 @@ The following diagram provides a high-level overview of the entities in the data
 
 The diagram separates the entities into three categories:
 
-1. "Global-level" entities.  These entities are defined at the "system-level". In other words, they can only be changed by GGC developers, and changes to these entities might involve changes to the source code, the database, and possibly redeployment of the app.
-2. "Chapter-level" entities. These are "top-level" entities for any given chapter. These entities all include a chapterID field. Each user is always associated with a single Chapter, and thus can only "see" the entities with a matching chapterID. The Chapter-level entities are global with respect to all the Gardens in the Chapter.
-3. "Garden-level" entities. These entities are all specific to a single Garden, and include both a chapterID and a gardenID. 
+1. "Global-level" entities.  These entities are defined at the "system-level". In other words, they can only be changed by GGC developers, and changes to these entities might involve changes to the source code, the database, and possibly redeployment of the app. 
+2. "Chapter-level" entities. These are "top-level" entities for any given chapter. These entities all include a chapterID field. Each user is always associated with a single Chapter, and thus can only "see" the entities with a matching chapterID. The Chapter-level entities are visible only to the entities in their Chapter. They are normally downloaded and cached in the client application upon login.
+3. "Garden-level" entities. These entities are all specific to a single Garden, and include both a chapterID and a gardenID. Garden-level entities are only visible to entities within their Chapter. In addition, Garden-level entities are only downloaded and cached in the client application when the user explicitly navigates to a Garden's details page. 
 
 This diagram can also be used to understand the relative numbers of entities that a given client must manipulate. Each of the "Global-level" entity will have dozens to hundreds of instances, and so it is practical for the client application to cache them locally without a large performance impact. 
 
