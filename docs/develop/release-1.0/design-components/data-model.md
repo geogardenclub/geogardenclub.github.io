@@ -760,6 +760,16 @@ As a result of these design considerations, GGC collections are designed to faci
 
 We also "denormalize" by occasionally providing "redundant" fields in a collection's documents. For example, in some cases a document will include a cropName field even though it already has a cropID field.  We do this avoid having to download large numbers of documents  (i.e. Plantings for all Gardens in the Chapter) in order to perform a calculation. These redundant fields are named starting with "cached" to make this explicit in the data model.
 
+## Root collections vs subcollections
+
+In Firebase, you can organize the data into root collections or subcollections, as explained in [Choose a data structure](https://firebase.google.com/docs/firestore/manage-data/structure-data).
+
+Since GGC involves many many-to-many relationships, we choose to organize all of our data as root collections. 
+
+In Firebase, there are no performance differences between root collections and subcollections, so we do not gain or lose anything by making this choice.
+
+
+
 ## Chat rooms
 
 We use the [Flutter Chat UI](https://pub.dev/packages/flutter_chat_ui) package to implement Chat rooms and users. This results in the addition of some collections to Firebase. We do not document this here.
