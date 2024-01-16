@@ -33,7 +33,7 @@ Since each User is associated with a single Chapter, the number of "Chapter-leve
 
 We expect each User to be associated with one to a dozen Gardens. Each Garden might have hundreds to thousands of Plantings. This means it is practical for the client application to cache the "Garden-level" entities that they are associated with.
 
-The goal of this design is to create "chapter-level" and "garden-level" namespaces, such that GeoGardenClub can scale to thousands of Chapters, where each Chapter contains hundreds of members, and still provide a responsive client application to each user. 
+The goal of this design is to create "chapter-level" and "garden-level" namespaces, such that GeoGardenClub can scale to thousands of Chapters, where each Chapter contains hundreds of gardens, and where each Garden contains thousands of Plantings, all while providing a fast, intuitive, and responsive application for each user. 
 
 This design does have a potential problem: what if a Chapter becomes wildly popular and grows to many thousand members? It is possible that the performance of the client application can degrade if the number of members (and thus gardens) in a single Chapter becomes too large. 
 
