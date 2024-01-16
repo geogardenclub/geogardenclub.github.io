@@ -87,8 +87,7 @@ const factory Chapter(
   {required String chapterID,        // 'chapter-001', or 'chapter-CA-V6K1G8'
   required String name,              // 'Whatcom-WA', or 'CA-V6K1G8'
   required String countryCode,       // 'US', 'CA'
-  required List<String> zipcodes,    // ['98225', '98226'], or ['V6K1GB']
-  required DateTime lastUpdate});    // '2023-03-19T12:19:14.164090'
+  required List<String> zipcodes});  // ['98225', '98226'], or ['V6K1GB']
 ```
 
 #### Projected Release 2.0 changes 
@@ -145,8 +144,7 @@ const factory User(
   required String country,        // 'us'
   required String postal,         // '98225'
   required String uid,            // '6iyiBithQGZ8Op8rpP1ELIzkMKk2'
-  String? pictureURL,             // null, or 'https://firebasestorage.googleapis.com/v0/...'
-  required DateTime lastUpdate})  // '2023-03-19T12:19:14.164090'
+  String? pictureURL})            // null, or 'https://firebasestorage.googleapis.com/v0/...'
 ```
 
 ### Gardener
@@ -185,8 +183,7 @@ const factory Gardener(
   String? vendorName,                      // null, or 'Johnnys Seeds and Supplies'
   String? vendorShortName,                 // null, or 'Johnnys'
   String? vendorURL,                       // null, or 'https://johnnys.com'
-  @Default(false) bool attestPermacultureWorkshop,       // true, or false
-  required DateTime lastUpdate})           // '2023-03-19T12:19:14.164090' 
+  @Default(false) bool attestPermacultureWorkshop})       // true, or false
 ```
 
 
@@ -233,8 +230,7 @@ const factory Garden(
   @Default(false) bool isVendor,                  // true, false
   @Default(false) bool attestClimateVictory,      // true, false
   @Default(false) bool attestPesticideFree,       // true, false
-  @Default(false) bool attestCommunityOrSchool,   // true, false
-  required DateTime lastUpdate})            // '2023-03-19T12:19:14.164090'
+  @Default(false) bool attestCommunityOrSchool})   // true, false
 ```
 
 ### Editor
@@ -258,8 +254,7 @@ const factory Editor(
   {required String editorID,         // 'editor-us-98225-102-001-5231'
   required String gardenID,          // 'garden-us-98225-102-6789'
   required String chapterID,         // 'chapter-001'
-  required String gardenerID,        // 'johnson@hawaii.edu'
-  required DateTime lastUpdate})     // '2023-03-19T12:19:14.164090'
+  required String gardenerID})       // 'johnson@hawaii.edu'
 ```
 
 ### Bed
@@ -279,8 +274,7 @@ BedNums start at 001 for each garden.
   {required String bedID,          // 'bed-us-98225-101-001-5634'
   required String chapterID,       // 'chapter-001'
   required String gardenID,        // 'garden-us-98225-101-6789'
-  required String name,            // '02'
-  required DateTime lastUpdate})   // '2023-03-19T12:19:14.164090'
+  required String name})           // '02'
 ```
 
 ### Family
@@ -305,8 +299,7 @@ const factory Family(
   {required String familyID,       // 'family-001'
   required String formal,          // 'Amryllidaceae'
   required String common,          // 'Allium'
-  required String examples,        // 'onion, leek, garlic, shallot'
-  required DateTime lastUpdate})   // '2023-03-19T12:19:14.164090'
+  required String examples})       // 'onion, leek, garlic, shallot'
 ```
 
 ### Crop
@@ -334,8 +327,7 @@ const factory Crop(
   {required String cropID,        // 'crop-001-201-3452'
   required String chapterID,      // 'chapter-001'
   required String familyID,       // 'family-001'
-  required String name,           // 'Tomato'
-  required DateTime lastUpdate})  // '2023-03-19T12:19:14.164090'
+  required String name})          // 'Tomato'
 ```
 ### Variety
 
@@ -347,7 +339,7 @@ Note that it is possible (and common) for multiple gardeners (either home or com
 
 #### VarietyID management
 
-VarietyIDs have the format `crop-<chapterNum>-<varietyNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+VarietyIDs have the format `variety-<chapterNum>-<varietyNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 Like CropIDs, VarietyIDs embed the chapterNum. In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Variety collection with the updated chapterNum.  This will require a pass through all of the Garden-level entities to update their varietyID fields to the new string value.
 
@@ -360,8 +352,7 @@ const factory Variety(
   {required String varietyID,      // 'variety-001-302-7654'
   required String chapterID,       // 'chapter-001'
   required String cropID,          // 'crop-001-203-2354'
-  required String name,            // 'Jersey Knight' 
-  required DateTime lastUpdate})   // '2023-03-19T12:19:14.164090'
+  required String name})           // 'Jersey Knight' 
 ```
 
 ### Planting
@@ -418,8 +409,7 @@ factory Planting(
   String? harvestSeedID,         // null, 'seed-us-98225-102-005-2185'
   @Default(false) bool usedGreenhouse,  // true, false 
   @Default(false) bool isVendor,        // true, false
-  @Default(false) bool seedsAvailable,  // true, false
-  required DateTime lastUpdate})        // '2023-03-19T12:19:14.164090'
+  @Default(false) bool seedsAvailable})  // true, false
 ```
 
 ### Outcome
@@ -447,7 +437,7 @@ In addition, an Outcome type can have a value of "0", which means there is no da
 
 OutcomeIDs have the format `outcome-<country>-<postal>-<gardenNum>-<outcomeNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
-Each Outcome entity is associated with exactly one Planting entity. To help indicate this, the `<outcomeNum>` is always the same as the associated Planting's `<plantingNum>`. (Note that the converse is not true: a Planting entity need not be associated with an Outcome entity, since the Gardener might not choose to record any Outcome data.)
+Each Outcome entity is associated with exactly one Planting entity.  (Note that the converse is not true: a Planting entity need not be associated with an Outcome entity, since the Gardener might not choose to record any Outcome data.)
 
 #### Field validation
 
@@ -465,12 +455,11 @@ const factory Outcome(
   required String plantingID,         // 'planting-us-98225-102-1001-9213'
   required String cachedCropID,       // 'crop-001-245-4376'
   required String cachedVarietyID,    // 'variety-001-321-3214'
-  int? germination,                   // null, or 0-5
-  int? yieldd,                        // null, or 0-5 (yield is a reserved word)
-  int? flavor,                        // null, or 0-5
-  int? resistance,                    // null, or 0-5
-  int? appearance,                    // null, or 0-5
-  required DateTime lastUpdate})      // '2023-03-19T12:19:14.164090'
+  int germination,                   // 0-5
+  int yieldd,                        // 0-5 (yield is a reserved word)
+  int flavor,                        // 0-5
+  int resistance,                    // 0-5
+  int appearance})                   // 0-5
 ```
 
 ### Seed
@@ -486,7 +475,7 @@ Our data model enables us to represent both seeds that are locally produced by g
 
 #### SeedID management
 
-VarietyIDs have the format `seed-<country>-<postal>-<gardenNum>-<seedNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+SeedIDs have the format `seed-<country>-<postal>-<gardenNum>-<seedNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 SeedNums start at 001.
 
@@ -508,8 +497,7 @@ const factory Seed(
   required String cachedGardenerID,   // 'info@heritageseeds.com' 
   required String cachedCropID,       // 'crop-001-201-3462'
   required String cachedVarietyID,    // 'variety-001-303-6534'
-  required bool cachedSeedsAvailable, // true, false
-  required DateTime lastUpdate})      // '2023-03-19T12:19:14.164090'
+  required bool cachedSeedsAvailable}) // true, false
 ```
 
 #### Seed caveats
@@ -543,6 +531,7 @@ const factory Observation(
   required String gardenerID,           // 'johnson@hawaii.edu'
   required String plantingID,           // 'planting-us-98225-102-1002-9432'
   required DateTime observationDate,    // '2023-03-19T12:19:14.164090'
+  required DateTime lastUpdate,         // '2023-03-19T12:19:14.164090'
   required List<String> tagIDs,         // ['tag-001-501']
   required List<ObservationComment> comments,  // ['observation-us-98225-102-401-001-9876']
   required String description,          // 'First harvest of the season'  
@@ -551,8 +540,7 @@ const factory Observation(
   required String cachedCropID,         // 'crop-001-243-3425'
   required String cachedVarietyID,      // 'variety-001-323-9654'
   required String cachedBedName,        // '03'
-  required DateTime cachedStartDate,    // '2023-03-19T12:19:14.164090'
-  required DateTime lastUpdate})    // '2023-03-19T12:19:14.164090'
+  required DateTime cachedStartDate})    // '2023-03-19T12:19:14.164090'
 ```
 
 #### Observation Comments
@@ -563,8 +551,7 @@ As shown above, each Observation entity includes an embedded (potentially empty)
 const factory ObservationComment(
   {required String observationCommentID,   // 'observation-us-98225-102-401-001-4532'
   required String gardenerID,              // 'johnson@hawaii.edu'
-  required String description,             // 'Is that an aphid on the left leaf?'
-  required DateTime lastUpdate})           // '2023-03-19T12:19:14.164090'
+  required String description})             // 'Is that an aphid on the left leaf?'
 ```
 
 ### Tag
@@ -589,8 +576,7 @@ TagIDs start at 001.
 const factory Tag(
   {required String tagID,          // 'tag-001'
   required String name,            // '#Biodiversity'
-  required String description,     // 'Use of practices to increase biodiversity...'
-  required DateTime lastUpdate})   // '2023-03-19T12:19:14.164090'
+  required String description})     // 'Use of practices to increase biodiversity...'
 ```
 
 ### Task
@@ -642,8 +628,7 @@ factory Task(
   required DateTime dueDate,        // '2023-03-19T12:19:14.164090'
   required String cachedBedName,    // '02'
   required String cachedCropName,   // 'Tomato'
-  required String cachedVarietyName, // 'Big Boy'
-  required DateTime lastUpdate})    // '2023-03-19T12:19:14.164090'
+  required String cachedVarietyName}) // 'Big Boy'
   ```
 
 ### Badge
@@ -680,8 +665,7 @@ const factory Badge(
   required String level1,         // 'The garden is present...'
   required String level2,         // 'The garden is present..., and...'
   required String level3,         // 'The garden is present..., and..., and...'
-  required List<String> tagIDs,   // ['tag-024', 'tag-037']
-  required DateTime lastUpdate})   // '2023-03-19T12:19:14.164090'
+  required List<String> tagIDs})   // ['tag-024', 'tag-037']
 ```
 Badge Instances:
 
@@ -695,8 +679,7 @@ const factory BadgeInstance(
   String? gardenID,                  // null, 'garden-us-98225-101-6789'
   String? data,                      // null, 'supplementary data'
   String? data2,                     // null, 'supplementary data2'
-  String? data3,                     // null, 'supplementary data3'
-  required DateTime lastUpdate})     // // '2023-03-19T12:19:14.164090'
+  String? data3})                     // null, 'supplementary data3'
 ```
 ## Collections and business logic
 
@@ -768,8 +751,6 @@ In Firebase, you can organize the data into root collections or subcollections, 
 Since GGC involves many many-to-many relationships, we choose to organize all of our data as root collections. 
 
 In Firebase, there are no performance differences between root collections and subcollections, so we do not gain or lose anything by making this choice.
-
-
 
 ## Chat rooms
 
