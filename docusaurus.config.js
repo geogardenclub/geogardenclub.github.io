@@ -71,8 +71,8 @@ const config = {
                 to: 'docs/home/team',
               },
               {
-                label: 'Mobile App Sneak Peek',
-                to: 'docs/home/sneak-peek',
+                label: 'User Guide',
+                to: 'docs/user-guide/overview',
               },
 
             ],
