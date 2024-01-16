@@ -35,12 +35,13 @@ We expect each User to be associated with one to a dozen Gardens. Each Garden mi
 
 The goal of this design is to create "chapter-level" and "garden-level" namespaces, such that GeoGardenClub can scale to thousands of Chapters, where each Chapter contains hundreds of gardens, and where each Garden contains thousands of Plantings, all while providing a fast, intuitive, and responsive application for each user. 
 
-This design does have a potential problem: what if a Chapter becomes wildly popular and grows to many thousand members? It is possible that the performance of the client application can degrade if the number of members (and thus gardens) in a single Chapter becomes too large. 
+This design does have a potential problem: what if a Chapter becomes wildly popular and grows to many hundreds of members? It is possible that the performance of the client application can degrade if the number of members (and thus gardens) in a single Chapter becomes too large. 
 
-To address this potential problem, the data model is designed to facilitate splitting of Chapters into two or more new Chapters in the event that the number of members becomes too large. We foresee an annual end-of-year review, where we see if any Chapters are reaching a size where it would be appropriate to split them up into two or more new, smaller Chapters by partitioning the postal (zip) codes. By doing it in Winter (at least for the Northern Hemisphere), such Chapter reorganization should have less impact on the Gardeners. 
+To address this potential problem, the data model is designed to facilitate partitioning of large Chapters into multiple smaller Chapters in the event that the number of members becomes too large. For example, the initial definition of a Chapter may comprise 8 postal (zip) codes, corresponding to all the zip codes in that country. But if that Chapter becomes too large, we could split it into two Chapters, each defined with 4 zip codes (or one with 3 zip codes and one with 5, depending upon the concentration of members in each zip code).  Our data model does not currently allow Chapter definition "below" the level of a zip code, so the smallest possible Chapter in GeoGardenClub would be one defined by a single zip code.
+
+We foresee an annual end-of-year review, where we see if any Chapters are reaching a size where it would be appropriate to split them up into smaller Chapters. By doing it in Winter (at least for the Northern Hemisphere), such Chapter reorganization should have less impact on the Gardeners. 
 
 To facilitate Chapter splitting, the IDs associated with Garden-level entities do not encode the chapterID, but instead the two character (alpha2) country code and the zip code. This allows Garden-level data to more easily migrate to new Chapters without needing to change their entity IDs. 
-
 
 Let's now turn to a more detailed description of the entities in the data model. 
 
