@@ -33,7 +33,7 @@ Since each User is associated with a single Chapter, the number of "Chapter-leve
 
 We expect each User to be associated with one to a dozen Gardens. Each Garden might have hundreds to thousands of Plantings. This means it is practical for the client application to cache the "Garden-level" entities that they are associated with.
 
-The goal of this design is to create "chapter-level" and "garden-level" namespaces, such that GeoGardenClub can scale to thousands of Chapters, where each Chapter contains hundreds of gardens, and where each Garden contains thousands of Plantings, all while providing a fast, intuitive, and responsive application for each user. 
+The goal of this design is to create "chapter-level" and "garden-level" namespaces, such that GeoGardenClub can scale to hundreds of Chapters, where each Chapter contains hundreds of gardens, and where each Garden contains hundreds of Plantings (and other Garden-specific entities), all while providing a fast, intuitive, and responsive application for each user. Our design means that the GGC database can grow to millions of documents while individual client apps require access to only thousands of documents.  
 
 This design does have a potential problem: what if a Chapter becomes wildly popular and grows to many hundreds of members? It is possible that the performance of the client application can degrade if the number of members (and thus gardens) in a single Chapter becomes too large. 
 
@@ -159,6 +159,8 @@ This does create some UI complexity, in that commercial seed vendors do not appe
 
 The Gardener entity indicates that it is representing a Vendor by setting the isVendor flag to true. If that flag is true, then the vendorName, vendorShortName, and vendorUrl fields must be non-null.
 
+The Vendors in a Chapter are crowd-sourced, which means any Chapter member can create a new Vendor. When a Vendor is created, they are given the country and postal code of the member who defined them. This is necessary so that their implicitly defined Garden and Plantings can have Chapter-appropriate ID strings.  
+
 #### Cached values
 
 We want to provide information about Gardeners such as the crops and varieties that they are growing in the Index screens, and for performance reasons, we want to provide this information without having to retrieve all of the Planting instances associated with their gardens. To do this, we "cache" the cropIDs and varietyIDs associated with this gardener in this entity.
@@ -179,6 +181,8 @@ const factory Gardener(
   required String chapterID,               // 'chapter-001'
   required List<String> cachedCropIDs,     // ['crop-001-203-9987']
   required List<String> cachedVarietyIDs,  // ['variety-001-305-8765']
+  required String country,                 // 'us'
+  required String postal,                  // '98225'
   @Default(false) bool isVendor,           // true, or false
   String? vendorName,                      // null, or 'Johnnys Seeds and Supplies'
   String? vendorShortName,                 // null, or 'Johnnys'
@@ -238,6 +242,10 @@ const factory Garden(
 The owner of a Garden can add other Chapter members as "editors", which enables those users to edit the Plantings and other information associated with a Garden.
 
 There are some things Editors cannot do. For example, they cannot delete the garden. Only the owner can do that.
+
+To earn a Gardener Badge, only the data associated with Gardens that you own is used. Being an Editor on a Garden does not support Badge processing.
+
+In addition, when displaying the Crops and Varieties associated with a Gardener, only those Crops and Varieties for the Gardens that you own are displayed.  The Crops and Varieties for Gardens for which you are an Editor are not included.  
 
 #### EditorID management
 
