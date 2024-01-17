@@ -37,22 +37,22 @@ The goal of this design is to create "chapter-level" and "garden-level" namespac
 
 This design does have a potential problem: what if a Chapter becomes wildly popular and grows to many hundreds of members? It is possible that the performance of the client application can degrade if the number of members (and thus gardens) in a single Chapter becomes too large. 
 
-To address this potential problem, the data model is designed to facilitate partitioning of large Chapters into multiple smaller Chapters in the event that the number of members becomes too large. For example, the initial definition of a Chapter may comprise 8 postal (zip) codes, corresponding to all the zip codes in that country. But if that Chapter becomes too large, we could split it into two Chapters, each defined with 4 zip codes (or one with 3 zip codes and one with 5, depending upon the concentration of members in each zip code).  Our data model does not currently allow Chapter definition "below" the level of a zip code, so the smallest possible Chapter in GeoGardenClub would be one defined by a single zip code.
+To address this potential problem, the data model is designed to facilitate partitioning of large Chapters into multiple smaller Chapters in the event that the number of members becomes too large. For example, the initial definition of a Chapter may comprise 8 postal (zip) codes, corresponding to all the postal codes in that country. But if that Chapter becomes too large, we could split it into two Chapters, each defined with 4 postal codes (or one with 3 postal codes and one with 5 postal codes, depending upon the concentration of members in each postal code).  Our data model does not currently allow Chapter definition "below" the level of a postal code, so the smallest possible Chapter in GeoGardenClub would be one defined by a single postal code.
 
 We foresee an annual end-of-year review, where we see if any Chapters are reaching a size where it would be appropriate to split them up into smaller Chapters. By doing it in Winter (at least for the Northern Hemisphere), such Chapter reorganization should have less impact on the Gardeners. 
 
-To facilitate Chapter splitting, the IDs associated with Garden-level entities do not encode the chapterID, but instead the two character (alpha2) country code and the zip code. This allows Garden-level data to more easily migrate to new Chapters without needing to change their entity IDs. 
+To facilitate Chapter splitting, the IDs associated with Garden-level entities do not encode the chapterID, but instead the two character (alpha2) country code and the postal code. This allows Garden-level data to more easily migrate to new Chapters without needing to change their entity IDs. 
 
 Let's now turn to a more detailed description of the entities in the data model. 
 
 
 ### Chapter
 
-The Chapter entity defines a geographic region based on a country (represented as a two character (alpha-2) country code), and a set of one or more postal (zip) codes.  GGC ensures that Chapter instances partition the world: every pair of (country code, zip code) is mapped to exactly one Chapter.
+The Chapter entity defines a geographic region based on a country (represented as a two character (alpha-2) country code), and a set of one or more postal (zip) codes.  GGC ensures that Chapter instances partition the world: every pair of (country code, postal code) is mapped to exactly one Chapter.
 
 #### ChapterID management
 
-A Firebase collection called ChapterZipMap will provide a default mapping of US zip codes to chapterIDs.  This mapping initially defines each US county as a GGC Chapter.   
+A Firebase collection called ChapterZipMap will provide a default mapping of US postal (zip) codes to chapterIDs.  This mapping initially defines each US county as a GGC Chapter.   
 
 Outside of the US, each (country code, postal code) pair will be its own Chapter. This is not optimal but it provides a way to make GGC available to users outside the US without constructing a world-wide ChapterZipMap. 
 
@@ -87,7 +87,7 @@ const factory Chapter(
   {required String chapterID,        // 'chapter-001', or 'chapter-CA-V6K1G8'
   required String name,              // 'Whatcom-WA', or 'CA-V6K1G8'
   required String countryCode,       // 'US', 'CA'
-  required List<String> zipcodes});  // ['98225', '98226'], or ['V6K1GB']
+  required List<String> postalcodes});  // ['98225', '98226'], or ['V6K1GB']
 ```
 
 #### Projected Release 2.0 changes 
@@ -126,7 +126,7 @@ In addition, the user can provide a picture at this time if they want.
 
 For the initial beta release: 
 * The country field will be a read-only drop-down and "United States" will be selected. It returns the alpha2 code for the United States (i.e. "us") 
-* The Postal (Zip) Code input field will be a pull-down list of zip codes associated with Whatcom, Washington. 
+* The Postal (Zip) Code input field will be a pull-down list of postal codes associated with Whatcom, Washington. 
 
 These modifications to the Onboarding screen guarantee that beta test users will be associated with the Whatcom-WA Chapter, and allow us to avoid the need to design and implement the ChapterZipMap and associated processing.  
 :::
@@ -702,7 +702,7 @@ The client-side collection classes (ChapterCollection, GardenCollection, etc) ar
 On the one hand, we want to preserve certain types of privacy:
 
 * Users pick a unique "username" which is used in postings so that they do not have to reveal their true name.
-* The application does not reveal (and does not know) the precise location of gardens, only their postal (zip) code.
+* The application does not reveal (and does not know) the precise location of gardens, only their country and postal code.
 * Users can tag an Observation as "private", and in that case it will not be visible to users outside of the garden's owner and editors.  This allows users to take photos regarding the garden for their personal data collection without feeling inhibited about it becoming "public". For example, the photo might reveal faces or locations.
 
 On the other hand, we want to facilitate the creation of a community of practice. For this reason, all garden data (plantings, etc) are available, in at least a read-only format, to all members of a chapter. 
