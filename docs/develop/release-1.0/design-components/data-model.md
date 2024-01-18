@@ -179,8 +179,8 @@ GardenerIDs are the email addresses of the gardener. In the case of registered u
 const factory Gardener(
   {required String gardenerID,             // 'johnson@hawaii.edu'
   required String chapterID,               // 'chapter-US-001'
-  required List<String> cachedCropIDs,     // ['crop-001-203-9987']
-  required List<String> cachedVarietyIDs,  // ['variety-001-305-8765']
+  required List<String> cachedCropIDs,     // ['crop-US-001-203-9987']
+  required List<String> cachedVarietyIDs,  // ['variety-US-001-305-8765']
   required String country,                 // 'US'
   required String postal,                  // '98225'
   @Default(false) bool isVendor,           // true, or false
@@ -201,7 +201,7 @@ GardenIDs are generated dynamically when a Chapter member defines a new Garden o
 
 GardenIDs have the format `garden-<country>-<postal>-<gardenNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
-To support readability and initial development, the gardenNum starts at "100" for each chapter.
+To support readability in this document and initial development, the gardenNum starts at "100" for each chapter.
 
 #### Field Validation
 
@@ -225,8 +225,8 @@ const factory Garden(
   required String chapterID,                // 'chapter-US-001'
   required String name,                     // 'Kale is for Kids'
   required String ownerID,                  // 'jessie@gmail.com'
-  required List<String> cachedCropIDs,      // ['crop-001-201-9876']
-  required List<String> cachedVarietyIDs,   // ['variety-001-302-7865']
+  required List<String> cachedCropIDs,      // ['crop-US-001-201-9876']
+  required List<String> cachedVarietyIDs,   // ['variety-US-001-302-7865']
   required List<int> cachedYears,           // [2023, 2022]
   required int cachedNumPlantings,          // 231
   String? pictureURL,                       // null, 'https://firebasestorage.googleapis.com/v0/...'
@@ -322,9 +322,9 @@ The reason we do not provide a global collection of Crops is because a single co
 
 #### CropID management
 
-CropIDs have the format `crop-<chapterNum>-<cropNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+CropIDs have the format `crop-<country>-<chapterNum>-<cropNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
-CropIDs embed the chapterNum. In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Crop collection with the updated chapterNum.  This will require a pass through all of the Garden-level entities to update the value of their cropID fields to the new string value.
+CropIDs embed the chapter country code and chapterNum. In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Crop collection where the IDs have been changed to embed the new chapterNum..  This will require a pass through all of the Garden-level entities to update the value of their cropID fields to the new string value.
 
 CropNums start at 201 for each chapter.
 
@@ -332,7 +332,7 @@ CropNums start at 201 for each chapter.
 
 ```dart
 const factory Crop(
-  {required String cropID,        // 'crop-001-201-3452'
+  {required String cropID,        // 'crop-US-001-201-3452'
   required String chapterID,      // 'chapter-US-001'
   required String familyID,       // 'family-001'
   required String name})          // 'Tomato'
@@ -347,9 +347,9 @@ Note that it is possible (and common) for multiple gardeners (either home or com
 
 #### VarietyID management
 
-VarietyIDs have the format `variety-<chapterNum>-<varietyNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+VarietyIDs have the format `variety-<country>-<chapterNum>-<varietyNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
-Like CropIDs, VarietyIDs embed the chapterNum. In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Variety collection with the updated chapterNum.  This will require a pass through all of the Garden-level entities to update their varietyID fields to the new string value.
+Like CropIDs, VarietyIDs embed the country code and chapterNum. In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Variety collection with the updated chapterNum.  This will require a pass through all of the Garden-level entities to update their varietyID fields to the new string value.
 
 VarietyNums start at 301 for each chapter.
 
@@ -357,9 +357,9 @@ VarietyNums start at 301 for each chapter.
 
 ```dart
 const factory Variety(
-  {required String varietyID,      // 'variety-001-302-7654'
+  {required String varietyID,      // 'variety-US-001-302-7654'
   required String chapterID,       // 'chapter-US-001'
-  required String cropID,          // 'crop-001-203-2354'
+  required String cropID,          // 'crop-US-001-203-2354'
   required String name})           // 'Jersey Knight' 
 ```
 
@@ -404,9 +404,9 @@ factory Planting(
   {required String plantingID,   // 'planting-US-98225-102-1001-7645'
   required String chapterID,     // 'chapter-US-001'
   required String gardenID,      // 'garden-US-98225-102-5678'
-  required String cropID,        // 'crop-001-202-9432'
+  required String cropID,        // 'crop-US-001-202-9432'
   required String bedID,         // 'bed-US-98225-102-003-4823'
-  String? varietyID,             // null, 'variety-001-310-7645'
+  String? varietyID,             // null, 'variety-US-001-310-7645'
   String? outcomeID,             // null, 'outcome-US-98225-102-1001-3472'
   DateTime? startDate,           // null, '2023-03-19T12:19:14.164090'
   DateTime? transplantDate,      // null, '2023-04-19T12:19:14.164090'
@@ -461,8 +461,8 @@ const factory Outcome(
   required String chapterID,          // 'chapter-US-001'
   required String gardenID,           // 'garden-US-98225-102-6789'
   required String plantingID,         // 'planting-US-98225-102-1001-9213'
-  required String cachedCropID,       // 'crop-001-245-4376'
-  required String cachedVarietyID,    // 'variety-001-321-3214'
+  required String cachedCropID,       // 'crop-US-001-245-4376'
+  required String cachedVarietyID,    // 'variety-US-001-321-3214'
   int germination,                   // 0-5
   int yieldd,                        // 0-5 (yield is a reserved word)
   int flavor,                        // 0-5
@@ -503,8 +503,8 @@ const factory Seed(
   required String chapterID,          // 'chapter-US-001'
   required String gardenID,           // 'garden-US-98225-102-6789'
   required String cachedGardenerID,   // 'info@heritageseeds.com' 
-  required String cachedCropID,       // 'crop-001-201-3462'
-  required String cachedVarietyID,    // 'variety-001-303-6534'
+  required String cachedCropID,       // 'crop-US-001-201-3462'
+  required String cachedVarietyID,    // 'variety-US-001-303-6534'
   required bool cachedSeedsAvailable}) // true, false
 ```
 
@@ -545,8 +545,8 @@ const factory Observation(
   required String description,          // 'First harvest of the season'  
   String? pictureURL,                   // null, 'https://firebasestorage.googleapis.com/v0/...' 
   @Default(false) bool isPrivate,       // true, false
-  required String cachedCropID,         // 'crop-001-243-3425'
-  required String cachedVarietyID,      // 'variety-001-323-9654'
+  required String cachedCropID,         // 'crop-US-001-243-3425'
+  required String cachedVarietyID,      // 'variety-US-001-323-9654'
   required String cachedBedName,        // '03'
   required DateTime cachedStartDate})    // '2023-03-19T12:19:14.164090'
 ```
@@ -629,8 +629,8 @@ factory Task(
   required String taskType,         // 'start'
   required String title,            // 'Start Tomato (Big Boy)'
   String? description,              // null, 'Clean up ground cherries.'
-  required String cropID,           // 'crop-001-203-5412'
-  required String varietyID,        // 'variety-001-101-304-6534'
+  required String cropID,           // 'crop-US-001-203-5412'
+  required String varietyID,        // 'variety-US-001-101-304-6534'
   required String bedID,            // 'bed-US-98225-101-003-8956'
   required String plantingID,       // 'planting-US-98225-101-1003-3214'
   required DateTime dueDate,        // '2023-03-19T12:19:14.164090'
