@@ -54,11 +54,11 @@ The Chapter entity defines a geographic region based on a country (represented a
 
 A Firebase collection called ChapterZipMap will provide a default mapping of US postal (zip) codes to chapterIDs.  This mapping initially defines each US county as a GGC Chapter.   
 
-Outside of the US, each (country code, postal code) pair will be its own Chapter. This is not optimal but it provides a way to make GGC available to users outside the US without constructing a world-wide ChapterZipMap. 
+Outside of the US, each (country code, postal code) pair will be its own Chapter. This is not optimal but it provides a way to make GGC immediately available to users outside the US without constructing a world-wide ChapterZipMap. We can restructure non-US chapters later. 
 
 Unlike many other entity IDs, the complete set of chapterIDs is defined in advance in GGC. In other words, we can compute all of the chapterIDs on earth, and they do not depend upon the number of users or their behavior. In contrast, there is no *a priori* limit to the number of (say) Planting IDs. 
 
-While chapterIDs are finite, they are not necessarily *fixed*. For US Chapters, we can change the set of chapters by changing the entries in the ChapterZipMap. For example, while our initial approach is to implement the ChapterZipMap such that there is a one-to-one correspondence between US chapters and US counties, we could in future change the ChapterZipMap so that a single US county could have multiple Chapters, or multiple counties could be combined into a single Chapter, or some other approach. (Changing chapter geographic boundaries requires more than just changing the ChapterZipMap; the point here is that our representation does not lock us in to our initial definition for Chapters.) The only hard constraint is that each Zip Code is assigned to one and only one Chapter.  
+While chapterIDs are finite, they are not necessarily *fixed* in terms of their numbers and the geographic regions that they encompass. For US Chapters, we can change the set of chapters by changing the entries in the ChapterZipMap. For example, while our initial approach is to implement a one-to-one correspondence between US chapters and US counties, we could in future change the ChapterZipMap so that a single US county could have multiple Chapters, or multiple counties could be combined into a single Chapter, or some other approach. (Changing chapter geographic boundaries requires more than just changing the ChapterZipMap; the point here is that our representation does not lock us in to our initial definition for Chapters.) The only hard constraint is that each postal code is assigned to one and only one Chapter.  
 
 To support readability, chapter numbers in this documentation page will begin with a "0". We do not need to enforce this in the actual app.
 
@@ -68,7 +68,7 @@ New user registration works as follows. If they supply "US" as their country cod
 
 If the new user supplies a non-US country code, then the ChapterZipMap is not consulted. Instead, the chapterID is defined as `chapter-<country code>-<postal code>`. If no Chapter entity exists yet corresponding to that ChapterID, then it will be created.
 
-Note that [some countries do not have a postal code](https://tosbourn.com/list-of-countries-without-a-postcode/). In this case, we will create a default postal code (i.e. "00") for those countries and not request it from the user if they select one of those countries. This implies that for those countries, there will be only one chapter for the entire country. Since most of those countries are pretty small, that seems like a reasonable design decision.
+Note that [some countries do not have a postal code](https://tosbourn.com/list-of-countries-without-a-postcode/). In this case, we will create a default postal code (i.e. "000") for those countries and not request it from the user if they select one of those countries. This implies that for those countries, there will be only one chapter for the entire country. Since most of those countries are pretty small, that seems like a reasonable design decision.
 
 :::info The beta release works differently
 The Beta release will only be distributed to users in Whatcom Country, WA, and so the registration mechanism will be simplified. See below for details.
@@ -84,7 +84,7 @@ As will be seen, many entities contain a chapterID field.  When a client retriev
 
 ```dart
 const factory Chapter(
-  {required String chapterID,        // 'chapter-001', or 'chapter-CA-V6K1G8'
+  {required String chapterID,        // 'chapter-US-001', or 'chapter-CA-V6K1G8'
   required String name,              // 'Whatcom-WA', or 'CA-V6K1G8'
   required String countryCode,       // 'US', 'CA'
   required List<String> postalcodes});  // ['98225', '98226'], or ['V6K1GB']
@@ -138,10 +138,10 @@ Once the form is successfully filled out, a User and Gardener document is create
 ```dart
 const factory User(
   {required String userID,        // 'johnson@hawaii.edu'
-  required String chapterID,      // 'chapter-001'
+  required String chapterID,      // 'chapter-US-001'
   required String name,           // 'Philip Johnson'
   required String username,       // '@fiveoclockphil'
-  required String country,        // 'us'
+  required String country,        // 'US'
   required String postal,         // '98225'
   required String uid,            // '6iyiBithQGZ8Op8rpP1ELIzkMKk2'
   String? pictureURL})            // null, or 'https://firebasestorage.googleapis.com/v0/...'
@@ -178,10 +178,10 @@ GardenerIDs are the email addresses of the gardener. In the case of registered u
 ```dart
 const factory Gardener(
   {required String gardenerID,             // 'johnson@hawaii.edu'
-  required String chapterID,               // 'chapter-001'
+  required String chapterID,               // 'chapter-US-001'
   required List<String> cachedCropIDs,     // ['crop-001-203-9987']
   required List<String> cachedVarietyIDs,  // ['variety-001-305-8765']
-  required String country,                 // 'us'
+  required String country,                 // 'US'
   required String postal,                  // '98225'
   @Default(false) bool isVendor,           // true, or false
   String? vendorName,                      // null, or 'Johnnys Seeds and Supplies'
@@ -221,8 +221,8 @@ Certain badges require Chapter members to "attest" to the Garden having certain 
 
 ```dart
 const factory Garden(
-  {required String gardenID,                // 'garden-us-98225-101-4567'
-  required String chapterID,                // 'chapter-001'
+  {required String gardenID,                // 'garden-US-98225-101-4567'
+  required String chapterID,                // 'chapter-US-001'
   required String name,                     // 'Kale is for Kids'
   required String ownerID,                  // 'jessie@gmail.com'
   required List<String> cachedCropIDs,      // ['crop-001-201-9876']
@@ -259,9 +259,9 @@ EditorNums start at 001 for each garden.
 
 ```dart
 const factory Editor(
-  {required String editorID,         // 'editor-us-98225-102-001-5231'
-  required String gardenID,          // 'garden-us-98225-102-6789'
-  required String chapterID,         // 'chapter-001'
+  {required String editorID,         // 'editor-US-98225-102-001-5231'
+  required String gardenID,          // 'garden-US-98225-102-6789'
+  required String chapterID,         // 'chapter-US-001'
   required String gardenerID})       // 'johnson@hawaii.edu'
 ```
 
@@ -279,9 +279,9 @@ BedNums start at 001 for each garden.
 
 ```dart
  const factory Bed(
-  {required String bedID,          // 'bed-us-98225-101-001-5634'
-  required String chapterID,       // 'chapter-001'
-  required String gardenID,        // 'garden-us-98225-101-6789'
+  {required String bedID,          // 'bed-US-98225-101-001-5634'
+  required String chapterID,       // 'chapter-US-001'
+  required String gardenID,        // 'garden-US-98225-101-6789'
   required String name})           // '02'
 ```
 
@@ -333,7 +333,7 @@ CropNums start at 201 for each chapter.
 ```dart
 const factory Crop(
   {required String cropID,        // 'crop-001-201-3452'
-  required String chapterID,      // 'chapter-001'
+  required String chapterID,      // 'chapter-US-001'
   required String familyID,       // 'family-001'
   required String name})          // 'Tomato'
 ```
@@ -358,7 +358,7 @@ VarietyNums start at 301 for each chapter.
 ```dart
 const factory Variety(
   {required String varietyID,      // 'variety-001-302-7654'
-  required String chapterID,       // 'chapter-001'
+  required String chapterID,       // 'chapter-US-001'
   required String cropID,          // 'crop-001-203-2354'
   required String name})           // 'Jersey Knight' 
 ```
@@ -401,20 +401,20 @@ Note that if both a cropID and varietyID is provided, then the varietyID must "m
 
 ```dart
 factory Planting(
-  {required String plantingID,   // 'planting-us-98225-102-1001-7645'
-  required String chapterID,     // 'chapter-001'
-  required String gardenID,      // 'garden-us-98225-102-5678'
+  {required String plantingID,   // 'planting-US-98225-102-1001-7645'
+  required String chapterID,     // 'chapter-US-001'
+  required String gardenID,      // 'garden-US-98225-102-5678'
   required String cropID,        // 'crop-001-202-9432'
-  required String bedID,         // 'bed-us-98225-102-003-4823'
+  required String bedID,         // 'bed-US-98225-102-003-4823'
   String? varietyID,             // null, 'variety-001-310-7645'
-  String? outcomeID,             // null, 'outcome-us-98225-102-1001-3472'
+  String? outcomeID,             // null, 'outcome-US-98225-102-1001-3472'
   DateTime? startDate,           // null, '2023-03-19T12:19:14.164090'
   DateTime? transplantDate,      // null, '2023-04-19T12:19:14.164090'
   DateTime? firstHarvestDate,    // null, '2023-05-19T12:19:14.164090'
   DateTime? endHarvestDate,      // null, '2023-06-19T12:19:14.164090'
   DateTime? pullDate,            // null, '2023-07-19T12:19:14.164090'
-  String? sowSeedID,             // null, 'seed-us-98225-102-001-3563'
-  String? harvestSeedID,         // null, 'seed-us-98225-102-005-2185'
+  String? sowSeedID,             // null, 'seed-US-98225-102-001-3563'
+  String? harvestSeedID,         // null, 'seed-US-98225-102-005-2185'
   @Default(false) bool usedGreenhouse,  // true, false 
   @Default(false) bool isVendor,        // true, false
   @Default(false) bool seedsAvailable})  // true, false
@@ -457,10 +457,10 @@ Outcome value must be integers between 0 (indicating no data) and 5 (indicating 
 
 ```dart
 const factory Outcome(
-  {required String outcomeID,         // 'outcome-us-98225-102-1001-5218'
-  required String chapterID,          // 'chapter-001'
-  required String gardenID,           // 'garden-us-98225-102-6789'
-  required String plantingID,         // 'planting-us-98225-102-1001-9213'
+  {required String outcomeID,         // 'outcome-US-98225-102-1001-5218'
+  required String chapterID,          // 'chapter-US-001'
+  required String gardenID,           // 'garden-US-98225-102-6789'
+  required String plantingID,         // 'planting-US-98225-102-1001-9213'
   required String cachedCropID,       // 'crop-001-245-4376'
   required String cachedVarietyID,    // 'variety-001-321-3214'
   int germination,                   // 0-5
@@ -499,9 +499,9 @@ The Seed entity indicates the garden in which they were grown (but not the one o
 
 ```dart
 const factory Seed(
-  {required String seedID,            // 'seed-us-98225-102-001-3218'
-  required String chapterID,          // 'chapter-001'
-  required String gardenID,           // 'garden-us-98225-102-6789'
+  {required String seedID,            // 'seed-US-98225-102-001-3218'
+  required String chapterID,          // 'chapter-US-001'
+  required String gardenID,           // 'garden-US-98225-102-6789'
   required String cachedGardenerID,   // 'info@heritageseeds.com' 
   required String cachedCropID,       // 'crop-001-201-3462'
   required String cachedVarietyID,    // 'variety-001-303-6534'
@@ -533,15 +533,15 @@ Observations cache several values in order to allow the Observation card to pres
 
 ```dart
 const factory Observation(
-  {required String observationID,       // 'observation-us-98225-102-401-5634'
-  required String chapterID,            // 'chapter-001'
-  required String gardenID,             // 'garden-us-98225-102-6789'
+  {required String observationID,       // 'observation-US-98225-102-401-5634'
+  required String chapterID,            // 'chapter-US-001'
+  required String gardenID,             // 'garden-US-98225-102-6789'
   required String gardenerID,           // 'johnson@hawaii.edu'
-  required String plantingID,           // 'planting-us-98225-102-1002-9432'
+  required String plantingID,           // 'planting-US-98225-102-1002-9432'
   required DateTime observationDate,    // '2023-03-19T12:19:14.164090'
   required DateTime lastUpdate,         // '2023-03-19T12:19:14.164090'
   required List<String> tagIDs,         // ['tag-001-501']
-  required List<ObservationComment> comments,  // ['observation-us-98225-102-401-001-9876']
+  required List<ObservationComment> comments,  // ['observation-US-98225-102-401-001-9876']
   required String description,          // 'First harvest of the season'  
   String? pictureURL,                   // null, 'https://firebasestorage.googleapis.com/v0/...' 
   @Default(false) bool isPrivate,       // true, false
@@ -557,7 +557,7 @@ As shown above, each Observation entity includes an embedded (potentially empty)
 
 ```dart
 const factory ObservationComment(
-  {required String observationCommentID,   // 'observation-us-98225-102-401-001-4532'
+  {required String observationCommentID,   // 'observation-US-98225-102-401-001-4532'
   required String gardenerID,              // 'johnson@hawaii.edu'
   required String description})             // 'Is that an aphid on the left leaf?'
 ```
@@ -623,16 +623,16 @@ For manually generated tasks, the gardener specifies both the title and (optiona
 
 ```dart
 factory Task(
-  {required String taskID,          // 'task-us-98225-101-1003-001-7634' 
-  required String chapterID,        // 'chapter-001'
-  required String gardenID,         // 'garden-us-98225-101-6789'
+  {required String taskID,          // 'task-US-98225-101-1003-001-7634' 
+  required String chapterID,        // 'chapter-US-001'
+  required String gardenID,         // 'garden-US-98225-101-6789'
   required String taskType,         // 'start'
   required String title,            // 'Start Tomato (Big Boy)'
   String? description,              // null, 'Clean up ground cherries.'
   required String cropID,           // 'crop-001-203-5412'
   required String varietyID,        // 'variety-001-101-304-6534'
-  required String bedID,            // 'bed-us-98225-101-003-8956'
-  required String plantingID,       // 'planting-us-98225-101-1003-3214'
+  required String bedID,            // 'bed-US-98225-101-003-8956'
+  required String plantingID,       // 'planting-US-98225-101-1003-3214'
   required DateTime dueDate,        // '2023-03-19T12:19:14.164090'
   required String cachedBedName,    // '02'
   required String cachedCropName,   // 'Tomato'
@@ -679,12 +679,12 @@ Badge Instances:
 
 ```dart
 const factory BadgeInstance(
-  {required String badgeInstanceID,  // 'badgeinstance-us-98225-001-5634'
-  required String chapterID,         // 'chapter-001'
+  {required String badgeInstanceID,  // 'badgeinstance-US-98225-001-5634'
+  required String chapterID,         // 'chapter-US-001'
   required String badgeID,           // 'badge-001'
   required int level,                // 1
   String? ownerID,                   // null, 'johnson@hawaii.edu'
-  String? gardenID,                  // null, 'garden-us-98225-101-6789'
+  String? gardenID,                  // null, 'garden-US-98225-101-6789'
   String? data,                      // null, 'supplementary data'
   String? data2,                     // null, 'supplementary data2'
   String? data3})                     // null, 'supplementary data3'
