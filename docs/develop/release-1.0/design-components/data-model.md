@@ -366,6 +366,12 @@ Like CropIDs, VarietyIDs embed the country code and chapterNum. In the event tha
 
 VarietyNums start at 301 for each chapter.
 
+#### Field validation
+
+Note that we cache the Crop Name because it will rarely, if ever, change and it is useful to have it in the Variety document so that we can return the full name without needing the Crop collection.
+
+That implies, however, that if the name of a Crop is ever changed, then we must find all of the Variety documents associated with that cropID and update the cachedCropName field. This is an acceptable trade-off. 
+
 #### Variety entity representation
 
 ```dart
@@ -373,6 +379,7 @@ const factory Variety(
   {required String varietyID,      // 'variety-US-001-302-7654'
   required String chapterID,       // 'chapter-US-001'
   required String cropID,          // 'crop-US-001-203-2354'
+  required String cachedCropName,  // 'Asparagus'
   required String name}            // 'Jersey Knight' 
 )
 ```
