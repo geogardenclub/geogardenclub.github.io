@@ -87,7 +87,8 @@ const factory Chapter(
   {required String chapterID,        // 'chapter-US-001', or 'chapter-CA-V6K1G8'
   required String name,              // 'Whatcom-WA', or 'CA-V6K1G8'
   required String countryCode,       // 'US', 'CA'
-  required List<String> postalcodes});  // ['98225', '98226'], or ['V6K1GB']
+  required List<String> postalcodes}  // ['98225', '98226'], or ['V6K1GB']
+)
 ```
 
 #### Projected Release 2.0 changes 
@@ -144,7 +145,8 @@ const factory User(
   required String country,        // 'US'
   required String postal,         // '98225'
   required String uid,            // '6iyiBithQGZ8Op8rpP1ELIzkMKk2'
-  String? pictureURL})            // null, or 'https://firebasestorage.googleapis.com/v0/...'
+  String? pictureURL}             // null, or 'https://firebasestorage.googleapis.com/v0/...'
+)
 ```
 
 ### Gardener
@@ -187,7 +189,8 @@ const factory Gardener(
   String? vendorName,                      // null, or 'Johnnys Seeds and Supplies'
   String? vendorShortName,                 // null, or 'Johnnys'
   String? vendorURL,                       // null, or 'https://johnnys.com'
-  @Default(false) bool attestPermacultureWorkshop})       // true, or false
+  @Default(false) bool attestPermacultureWorkshop}       // true, or false
+)
 ```
 
 
@@ -199,9 +202,11 @@ The Garden entity represents a plot of land (or maybe even just some pots) that 
 
 GardenIDs are generated dynamically when a Chapter member defines a new Garden or when a Chapter member defines a new Vendor (which implicitly results in the creation of a new Garden). 
 
-GardenIDs have the format `garden-<country>-<postal>-<gardenNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+GardenIDs have the format `garden-<country>-<postal>-<gardenNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.  
 
-To support readability in this document and initial development, the gardenNum starts at "100" for each chapter.
+The GardenID embeds the country code and postal code associated with the ownerID. Note that this might not be the same postal code as the one associated with the physical location of the garden!  We do this in order to ensure that if a Chapter's set of postal codes is reorganized, then the Gardens owned by a Gardener will always end up in the same new Chapter.
+
+To support readability in this document and initial development, the gardenNum starts at "101" for each chapter.
 
 #### Field Validation
 
@@ -212,6 +217,8 @@ The Garden name must be unique within a Chapter.
 #### Cached values
 
 Each Garden entity caches the CropIDs, VarietyIDs, years, and the number of Plantings. This allows the Index screens to show this information about Gardens without needing to retrieve and process Plantings. 
+
+In addition, whenever there is a change to the Plantings associated with this Garden, the lastUpdated field is set to the current time.  This allows the community to see which Gardens in their Chapter are active.
 
 #### Badge attestation values
 
@@ -230,11 +237,13 @@ const factory Garden(
   required List<int> cachedYears,           // [2023, 2022]
   required int cachedNumPlantings,          // 231
   String? pictureURL,                       // null, 'https://firebasestorage.googleapis.com/v0/...'
-  String? plotPlanURL,                      // null, 'https://firebasestorage.googleapis.com/v0/...'     
+  String? plotPlanURL,                      // null, 'https://firebasestorage.googleapis.com/v0/...' 
+  DateTime? lastUpdate,                    // null (for vendors), '2023-03-19T12:19:14.164090'            
   @Default(false) bool isVendor,                  // true, false
   @Default(false) bool attestClimateVictory,      // true, false
   @Default(false) bool attestPesticideFree,       // true, false
-  @Default(false) bool attestCommunityOrSchool})   // true, false
+  @Default(false) bool attestCommunityOrSchool}   // true, false
+)
 ```
 
 ### Editor
@@ -262,7 +271,8 @@ const factory Editor(
   {required String editorID,         // 'editor-US-98225-102-001-5231'
   required String gardenID,          // 'garden-US-98225-102-6789'
   required String chapterID,         // 'chapter-US-001'
-  required String gardenerID})       // 'johnson@hawaii.edu'
+  required String gardenerID}        // 'johnson@hawaii.edu'
+)
 ```
 
 ### Bed
@@ -282,7 +292,8 @@ BedNums start at 001 for each garden.
   {required String bedID,          // 'bed-US-98225-101-001-5634'
   required String chapterID,       // 'chapter-US-001'
   required String gardenID,        // 'garden-US-98225-101-6789'
-  required String name})           // '02'
+  required String name}            // '02'
+)
 ```
 
 ### Family
@@ -307,7 +318,8 @@ const factory Family(
   {required String familyID,       // 'family-001'
   required String formal,          // 'Amryllidaceae'
   required String common,          // 'Allium'
-  required String examples})       // 'onion, leek, garlic, shallot'
+  required String examples}        // 'onion, leek, garlic, shallot'
+)
 ```
 
 ### Crop
@@ -335,7 +347,8 @@ const factory Crop(
   {required String cropID,        // 'crop-US-001-201-3452'
   required String chapterID,      // 'chapter-US-001'
   required String familyID,       // 'family-001'
-  required String name})          // 'Tomato'
+  required String name}           // 'Tomato'
+)
 ```
 ### Variety
 
@@ -360,7 +373,8 @@ const factory Variety(
   {required String varietyID,      // 'variety-US-001-302-7654'
   required String chapterID,       // 'chapter-US-001'
   required String cropID,          // 'crop-US-001-203-2354'
-  required String name})           // 'Jersey Knight' 
+  required String name}            // 'Jersey Knight' 
+)
 ```
 
 ### Planting
@@ -417,7 +431,8 @@ factory Planting(
   String? harvestSeedID,         // null, 'seed-US-98225-102-005-2185'
   @Default(false) bool usedGreenhouse,  // true, false 
   @Default(false) bool isVendor,        // true, false
-  @Default(false) bool seedsAvailable})  // true, false
+  @Default(false) bool seedsAvailable}  // true, false
+)
 ```
 
 ### Outcome
@@ -467,7 +482,8 @@ const factory Outcome(
   int yieldd,                        // 0-5 (yield is a reserved word)
   int flavor,                        // 0-5
   int resistance,                    // 0-5
-  int appearance})                   // 0-5
+  int appearance}                    // 0-5
+)
 ```
 
 ### Seed
@@ -505,7 +521,8 @@ const factory Seed(
   required String cachedGardenerID,   // 'info@heritageseeds.com' 
   required String cachedCropID,       // 'crop-US-001-201-3462'
   required String cachedVarietyID,    // 'variety-US-001-303-6534'
-  required bool cachedSeedsAvailable}) // true, false
+  required bool cachedSeedsAvailable} // true, false
+)
 ```
 
 #### Seed caveats
@@ -548,7 +565,8 @@ const factory Observation(
   required String cachedCropID,         // 'crop-US-001-243-3425'
   required String cachedVarietyID,      // 'variety-US-001-323-9654'
   required String cachedBedName,        // '03'
-  required DateTime cachedStartDate})    // '2023-03-19T12:19:14.164090'
+  required DateTime cachedStartDate}    // '2023-03-19T12:19:14.164090'
+)
 ```
 
 #### Observation Comments
@@ -559,7 +577,8 @@ As shown above, each Observation entity includes an embedded (potentially empty)
 const factory ObservationComment(
   {required String observationCommentID,   // 'observation-US-98225-102-401-001-4532'
   required String gardenerID,              // 'johnson@hawaii.edu'
-  required String description})             // 'Is that an aphid on the left leaf?'
+  required String description}             // 'Is that an aphid on the left leaf?'
+)
 ```
 
 ### Tag
@@ -584,7 +603,8 @@ TagIDs start at 001.
 const factory Tag(
   {required String tagID,          // 'tag-001'
   required String name,            // '#Biodiversity'
-  required String description})     // 'Use of practices to increase biodiversity...'
+  required String description}     // 'Use of practices to increase biodiversity...'
+)
 ```
 
 ### Task
@@ -636,8 +656,9 @@ factory Task(
   required DateTime dueDate,        // '2023-03-19T12:19:14.164090'
   required String cachedBedName,    // '02'
   required String cachedCropName,   // 'Tomato'
-  required String cachedVarietyName}) // 'Big Boy'
-  ```
+  required String cachedVarietyName} // 'Big Boy'
+)
+```
 
 ### Badge
 
@@ -673,7 +694,8 @@ const factory Badge(
   required String level1,         // 'The garden is present...'
   required String level2,         // 'The garden is present..., and...'
   required String level3,         // 'The garden is present..., and..., and...'
-  required List<String> tagIDs})   // ['tag-024', 'tag-037']
+  required List<String> tagIDs}   // ['tag-024', 'tag-037']
+)
 ```
 Badge Instances:
 
@@ -687,7 +709,8 @@ const factory BadgeInstance(
   String? gardenID,                  // null, 'garden-US-98225-101-6789'
   String? data,                      // null, 'supplementary data'
   String? data2,                     // null, 'supplementary data2'
-  String? data3})                     // null, 'supplementary data3'
+  String? data3}                     // null, 'supplementary data3'
+)
 ```
 ## Collections and business logic
 
