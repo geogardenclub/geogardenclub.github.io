@@ -23,5 +23,3 @@ Fill out the form in the **Create Garden Screen**
  - Pesticide free garden?  Check this box if you are committed to not using pesticides in your garden.  There are special badges for gardeners who choose to be pesticide free.
 
 Hit **Submit** and you are ready to start adding crops.
-
-![Simulator Screenshot - iPhone 15 Pro - 2024-01-20 at 09 03 47](https://github.com/geogardenclub/geogardenclub.github.io/assets/87399238/fe66f685-4e83-4b6c-84d8-771a81b4c1a0)
