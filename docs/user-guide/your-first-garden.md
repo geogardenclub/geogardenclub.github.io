@@ -18,7 +18,7 @@ In the bottom menu bar tap **Gardens.**  You'll see a large **+Garden** button o
 
 <img width="600" src="/img/user-guide/select-gardens.png"/>
 
-Tap +Garden  to open the **Create Garden Screen.**
+Tap **+Garden**  to open the **Create Garden Screen.**
 
 <img width="600" src="/img/user-guide/create-garden.png"/>
 
