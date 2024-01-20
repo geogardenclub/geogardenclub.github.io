@@ -5,7 +5,8 @@ sidebar_position: 1
 # Overview
 Geo Garden Club is an application that connects you with other gardeners in your community to share garden plans, observations, and seeds.  It provides practical garden planning support and easy record keeping so that you can easily learn from your successes and failures.
 
-**Local data is what matters**  When you register your Geo Garden Club app you will be placed in a local chapter based on your zip code.  You will only see gardening data and observations from those in your chapter.
+## Local data is what matters  
+When you register your Geo Garden Club app you will be placed in a local chapter based on your zip code.  You will only see gardening data and observations from those in your chapter.
 
 Discover local best practices by viewing chapter-wide outcome data for crops and varieties.  Chapter timelines provide answers to when is best time in _your area_ to grow a crop. 
 
