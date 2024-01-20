@@ -12,13 +12,13 @@ Discover local best practices by viewing chapter-wide outcome data for crops and
 
 Easily track of your garden's outcomes and stop making the same mistakes twice.
 
-## Collaboration
+## Collaboration is essential
 Work collaboratively with other gardeners by granting "edit" access to those who share in the task load.  
 
 Notifications and observations encourage communication between chapter members.  Garden and chapter based chat rooms organize comversations to easily ask questions to the right group of gardeners.
 
-## Multi-year timelines
+## Gardens are long term
 Garden timelines support long term garden planning, winter crops, and biennial crops. 
 
-## Seed saving
+## Seed saving and sharing builds resiliency
 Seed saving is supported in garden timelines.  Gardeners with seeds to share can add them to the chapter database.  Gardeners looking for seeds can review available seeds and see the outcomes and planting timeline from their parent plant.
