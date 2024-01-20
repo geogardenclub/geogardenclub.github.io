@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+hide_table_of_contents: true
 ---
 
 # Your first garden
@@ -23,3 +23,6 @@ Fill out the form in the **Create Garden Screen**
  - Pesticide free garden?  Check this box if you are committed to not using pesticides in your garden.  There are special badges for gardeners who choose to be pesticide free.
 
 Hit **Submit** and you are ready to start adding crops.
+
+
+
