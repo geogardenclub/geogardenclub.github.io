@@ -17,7 +17,9 @@ Entities are persisted through a set of Firebase collections. In general, each e
 
 The GGC app implements a set of Dart "domain" classes that mirror these Firebase collections, so (for example) there is a Dart class called "Chapter" (that defines the structure of a Chapter entity), and a Dart class called "ChapterCollection" (which holds a list of Chapter entity instances and provides operations upon them).
 
-The following diagram provides a high-level overview of the entities in the data model and their basic relationships:
+#### Entity Hierarchy
+
+The following diagram provides a high-level overview of the entities in the data model organized into a three level hierarchy:
 
 <img style={{borderStyle: "solid"}} src="/img/develop/release-1.0/data-model/entity-overview.png"/>
 
@@ -34,14 +36,25 @@ Since each User is associated with a single Chapter, the number of "Chapter-leve
 We expect each User to be associated with one to a dozen Gardens. Each Garden might have hundreds to thousands of Plantings. This means it is practical for the client application to cache the "Garden-level" entities that they are associated with.
 
 The goal of this design is to create "chapter-level" and "garden-level" namespaces, such that GeoGardenClub can scale to hundreds of Chapters, where each Chapter contains hundreds of gardens, and where each Garden contains hundreds of Plantings (and other Garden-specific entities), all while providing a fast, intuitive, and responsive application for each user. Our design means that the GGC database can grow to millions of documents while individual client apps require access to only thousands of documents.  
-
 This design does have a potential problem: what if a Chapter becomes wildly popular and grows to many hundreds of members? It is possible that the performance of the client application can degrade if the number of members (and thus gardens) in a single Chapter becomes too large. 
 
 To address this potential problem, the data model is designed to facilitate partitioning of large Chapters into multiple smaller Chapters in the event that the number of members becomes too large. For example, the initial definition of a Chapter may comprise 8 postal (zip) codes, corresponding to all the postal codes in that country. But if that Chapter becomes too large, we could split it into two Chapters, each defined with 4 postal codes (or one with 3 postal codes and one with 5 postal codes, depending upon the concentration of members in each postal code).  Our data model does not currently allow Chapter definition "below" the level of a postal code, so the smallest possible Chapter in GeoGardenClub would be one defined by a single postal code.
 
 We foresee an annual end-of-year review, where we see if any Chapters are reaching a size where it would be appropriate to split them up into smaller Chapters. By doing it in Winter (at least for the Northern Hemisphere), such Chapter reorganization should have less impact on the Gardeners. 
 
-To facilitate Chapter splitting, the IDs associated with Garden-level entities do not encode the chapterID, but instead the two character (alpha2) country code and the postal code. This allows Garden-level data to more easily migrate to new Chapters without needing to change their entity IDs. 
+To facilitate Chapter splitting, the IDs associated with Garden-level entities do not encode the chapterID, but instead the two character (alpha2) country code and the postal code. This allows Garden-level data to more easily migrate to new Chapters without needing to change their entity IDs.
+
+#### Entity dependencies
+
+The following diagram presents an alternative perspective on the entities. In this case, there is a line between two entities when there is a relationship between them; in other words, one of the entities refers to the other with a foreign key (i.e. ID) field.
+
+<img style={{borderStyle: "solid"}} src="/img/develop/release-1.0/data-model/entity-dependencies.png"/>
+
+The primary goal of this diagram is to make it clear that there is a fairly rich set of dependencies among the entities in this data model. 
+
+This is a positive thing, because it means that there are many different and interesting ways to "slice and dice" the data. 
+
+It also illustrates why we have chosen to implement the data model as a set of top-level collections. The many different relationships argue against the use of subcollections. 
 
 Let's now turn to a more detailed description of the entities in the data model. 
 
@@ -366,7 +379,7 @@ Like CropIDs, VarietyIDs embed the country code and chapterNum. In the event tha
 
 VarietyNums start at 301 for each chapter.
 
-#### Field validation
+#### Field notes
 
 Note that we cache the Crop Name because it will rarely, if ever, change and it is useful to have it in the Variety document so that we can return the full name without needing the Crop collection.
 
@@ -408,7 +421,7 @@ Since, over a period of years, a single garden can result in over a thousand pla
 
 PlantingNums start at 1001 for each garden.
 
-#### Field validation
+#### Field notes
 
 Validators should guarantee that startDate < transplantDate < firstHarvestDate < endHarvestDate < pullDate. 
 
@@ -469,7 +482,7 @@ OutcomeIDs have the format `outcome-<country>-<postal>-<gardenNum>-<outcomeNum>-
 
 Each Outcome entity is associated with exactly one Planting entity.  (Note that the converse is not true: a Planting entity need not be associated with an Outcome entity, since the Gardener might not choose to record any Outcome data.)
 
-#### Field validation
+#### Field notes
 
 Outcomes cache the cropID and varietyID associated with their Planting. This is to allow Index and View widgets to display Outcome data without having to retrieve Plantings from the database. 
 
@@ -510,7 +523,7 @@ SeedIDs have the format `seed-<country>-<postal>-<gardenNum>-<seedNum>-<millis>`
 
 SeedNums start at 001.
 
-#### Field validation
+#### Field notes
 
 Seed instances cache the cropID, varietyID, and the seedsAvailable field from the Planting from which they were harvested.
 
@@ -548,7 +561,7 @@ ObservationIDs have the format `observation-<country>-<postal>-<gardenNum>-<obse
 
 ObservationNums start at 401 for each Garden.
 
-#### Field validation
+#### Field notes
 
 Observations cache several values in order to allow the Observation card to present information without having to retrieve the Planting.
 
