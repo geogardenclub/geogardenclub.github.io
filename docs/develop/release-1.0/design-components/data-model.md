@@ -139,7 +139,7 @@ In addition, the user can provide a picture at this time if they want.
 :::info Beta Release modifications
 
 For the initial beta release: 
-* The country field will be a read-only drop-down and "United States" will be selected. It returns the alpha2 code for the United States (i.e. "us") 
+* The country field will be a read-only drop-down and "United States" will be selected. It returns the alpha2 code for the United States (i.e. "US") 
 * The Postal (Zip) Code input field will be a pull-down list of postal codes associated with Whatcom, Washington. 
 
 These modifications to the Onboarding screen guarantee that beta test users will be associated with the Whatcom-WA Chapter, and allow us to avoid the need to design and implement the ChapterZipMap and associated processing.  
@@ -157,7 +157,7 @@ const factory User(
   required String username,       // '@fiveoclockphil'
   required String country,        // 'US'
   required String postal,         // '98225'
-  required String uid,            // '6iyiBithQGZ8Op8rpP1ELIzkMKk2'
+  required String uid,            // '22e9fe1b-445c-4523-89c2-4450244f1959'
   String? pictureURL}             // null, or 'https://firebasestorage.googleapis.com/v0/...'
 )
 ```
@@ -179,6 +179,8 @@ The Vendors in a Chapter are crowd-sourced, which means any Chapter member can c
 #### Cached values
 
 We want to provide information about Gardeners such as the crops and varieties that they are growing in the Index screens, and for performance reasons, we want to provide this information without having to retrieve all of the Planting instances associated with their gardens. To do this, we "cache" the cropIDs and varietyIDs associated with this gardener in this entity.
+
+By "associated", we mean the crops and varieties in the garden(s) for which this gardener is an owner.
 
 #### Badge attestation values
 
@@ -221,11 +223,13 @@ The GardenID embeds the country code and postal code associated with the ownerID
 
 To support readability in this document and initial development, the gardenNum starts at "101" for each chapter.
 
-#### Field Validation
+#### Field Notes
 
 The form field for vendor name entry imposes validation criteria. See [validators.dart](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/common/input-fields/validators.dart) for details.
 
 The Garden name must be unique within a Chapter.
+
+The cachedYears value is based on the StartDate for the Plantings associated with the Garden.
 
 #### Cached values
 
@@ -425,6 +429,8 @@ PlantingNums start at 1001 for each garden.
 
 Validators should guarantee that startDate < transplantDate < firstHarvestDate < endHarvestDate < pullDate. 
 
+All Plantings must have a startDate and a pullDate. Other dates are optional.
+
 If a Gardener wants to indicate that seeds are available, they must provide the Variety for this Planting.
 
 If the gardener sets usedGreenhouse to true, then they should (eventually) record a transplantDate, although this is not mandatory. 
@@ -440,13 +446,13 @@ factory Planting(
   required String gardenID,      // 'garden-US-98225-102-5678'
   required String cropID,        // 'crop-US-001-202-9432'
   required String bedID,         // 'bed-US-98225-102-003-4823'
+  required DateTime startDate,   // '2023-03-19T12:19:14.164090'
+  required DateTime pullDate,    // '2023-07-19T12:19:14.164090'
   String? varietyID,             // null, 'variety-US-001-310-7645'
   String? outcomeID,             // null, 'outcome-US-98225-102-1001-3472'
-  DateTime? startDate,           // null, '2023-03-19T12:19:14.164090'
   DateTime? transplantDate,      // null, '2023-04-19T12:19:14.164090'
   DateTime? firstHarvestDate,    // null, '2023-05-19T12:19:14.164090'
   DateTime? endHarvestDate,      // null, '2023-06-19T12:19:14.164090'
-  DateTime? pullDate,            // null, '2023-07-19T12:19:14.164090'
   String? sowSeedID,             // null, 'seed-US-98225-102-001-3563'
   String? harvestSeedID,         // null, 'seed-US-98225-102-005-2185'
   @Default(false) bool usedGreenhouse,  // true, false 
@@ -565,6 +571,7 @@ ObservationNums start at 401 for each Garden.
 
 Observations cache several values in order to allow the Observation card to present information without having to retrieve the Planting.
 
+Observations are presented in reverse chronological order by lastUpdate. When someone adds a comment, that sets the lastUpdate field.
 
 #### Observation entity representation
 
