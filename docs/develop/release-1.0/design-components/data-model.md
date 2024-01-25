@@ -156,7 +156,7 @@ const factory User(
   required String name,           // 'Philip Johnson'
   required String username,       // '@fiveoclockphil'
   required String country,        // 'US'
-  required String postal,         // '98225'
+  required String postalcode,         // '98225'
   required String uid,            // '22e9fe1b-445c-4523-89c2-4450244f1959'
   String? pictureURL}             // null, or 'https://firebasestorage.googleapis.com/v0/...'
 )
