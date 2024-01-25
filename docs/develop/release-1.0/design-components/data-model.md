@@ -17,7 +17,9 @@ Entities are persisted through a set of Firebase collections. In general, each e
 
 The GGC app implements a set of Dart "domain" classes that mirror these Firebase collections, so (for example) there is a Dart class called "Chapter" (that defines the structure of a Chapter entity), and a Dart class called "ChapterCollection" (which holds a list of Chapter entity instances and provides operations upon them).
 
-The following diagram provides a high-level overview of the entities in the data model and their basic relationships:
+#### Entity Hierarchy
+
+The following diagram provides a high-level overview of the entities in the data model organized into a three level hierarchy:
 
 <img style={{borderStyle: "solid"}} src="/img/develop/release-1.0/data-model/entity-overview.png"/>
 
@@ -34,14 +36,25 @@ Since each User is associated with a single Chapter, the number of "Chapter-leve
 We expect each User to be associated with one to a dozen Gardens. Each Garden might have hundreds to thousands of Plantings. This means it is practical for the client application to cache the "Garden-level" entities that they are associated with.
 
 The goal of this design is to create "chapter-level" and "garden-level" namespaces, such that GeoGardenClub can scale to hundreds of Chapters, where each Chapter contains hundreds of gardens, and where each Garden contains hundreds of Plantings (and other Garden-specific entities), all while providing a fast, intuitive, and responsive application for each user. Our design means that the GGC database can grow to millions of documents while individual client apps require access to only thousands of documents.  
-
 This design does have a potential problem: what if a Chapter becomes wildly popular and grows to many hundreds of members? It is possible that the performance of the client application can degrade if the number of members (and thus gardens) in a single Chapter becomes too large. 
 
 To address this potential problem, the data model is designed to facilitate partitioning of large Chapters into multiple smaller Chapters in the event that the number of members becomes too large. For example, the initial definition of a Chapter may comprise 8 postal (zip) codes, corresponding to all the postal codes in that country. But if that Chapter becomes too large, we could split it into two Chapters, each defined with 4 postal codes (or one with 3 postal codes and one with 5 postal codes, depending upon the concentration of members in each postal code).  Our data model does not currently allow Chapter definition "below" the level of a postal code, so the smallest possible Chapter in GeoGardenClub would be one defined by a single postal code.
 
 We foresee an annual end-of-year review, where we see if any Chapters are reaching a size where it would be appropriate to split them up into smaller Chapters. By doing it in Winter (at least for the Northern Hemisphere), such Chapter reorganization should have less impact on the Gardeners. 
 
-To facilitate Chapter splitting, the IDs associated with Garden-level entities do not encode the chapterID, but instead the two character (alpha2) country code and the postal code. This allows Garden-level data to more easily migrate to new Chapters without needing to change their entity IDs. 
+To facilitate Chapter splitting, the IDs associated with Garden-level entities do not encode the chapterID, but instead the two character (alpha2) country code and the postal code. This allows Garden-level data to more easily migrate to new Chapters without needing to change their entity IDs.
+
+#### Entity dependencies
+
+The following diagram presents an alternative perspective on the entities. In this case, there is a line between two entities when there is a relationship between them; in other words, one of the entities refers to the other with a foreign key (i.e. ID) field.
+
+<img style={{borderStyle: "solid"}} src="/img/develop/release-1.0/data-model/entity-dependencies.png"/>
+
+The primary goal of this diagram is to make it clear that there is a fairly rich set of dependencies among the entities in this data model. 
+
+This is a positive thing, because it means that there are many different and interesting ways to "slice and dice" the data. 
+
+It also illustrates why we have chosen to implement the data model as a set of top-level collections. The many different relationships argue against the use of subcollections. 
 
 Let's now turn to a more detailed description of the entities in the data model. 
 
@@ -126,7 +139,7 @@ In addition, the user can provide a picture at this time if they want.
 :::info Beta Release modifications
 
 For the initial beta release: 
-* The country field will be a read-only drop-down and "United States" will be selected. It returns the alpha2 code for the United States (i.e. "us") 
+* The country field will be a read-only drop-down and "United States" will be selected. It returns the alpha2 code for the United States (i.e. "US") 
 * The Postal (Zip) Code input field will be a pull-down list of postal codes associated with Whatcom, Washington. 
 
 These modifications to the Onboarding screen guarantee that beta test users will be associated with the Whatcom-WA Chapter, and allow us to avoid the need to design and implement the ChapterZipMap and associated processing.  
@@ -144,7 +157,7 @@ const factory User(
   required String username,       // '@fiveoclockphil'
   required String country,        // 'US'
   required String postal,         // '98225'
-  required String uid,            // '6iyiBithQGZ8Op8rpP1ELIzkMKk2'
+  required String uid,            // '22e9fe1b-445c-4523-89c2-4450244f1959'
   String? pictureURL}             // null, or 'https://firebasestorage.googleapis.com/v0/...'
 )
 ```
@@ -166,6 +179,8 @@ The Vendors in a Chapter are crowd-sourced, which means any Chapter member can c
 #### Cached values
 
 We want to provide information about Gardeners such as the crops and varieties that they are growing in the Index screens, and for performance reasons, we want to provide this information without having to retrieve all of the Planting instances associated with their gardens. To do this, we "cache" the cropIDs and varietyIDs associated with this gardener in this entity.
+
+By "associated", we mean the crops and varieties in the garden(s) for which this gardener is an owner.
 
 #### Badge attestation values
 
@@ -208,11 +223,13 @@ The GardenID embeds the country code and postal code associated with the ownerID
 
 To support readability in this document and initial development, the gardenNum starts at "101" for each chapter.
 
-#### Field Validation
+#### Field Notes
 
 The form field for vendor name entry imposes validation criteria. See [validators.dart](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/common/input-fields/validators.dart) for details.
 
 The Garden name must be unique within a Chapter.
+
+The cachedYears value is based on the StartDate for the Plantings associated with the Garden.
 
 #### Cached values
 
@@ -366,7 +383,7 @@ Like CropIDs, VarietyIDs embed the country code and chapterNum. In the event tha
 
 VarietyNums start at 301 for each chapter.
 
-#### Field validation
+#### Field notes
 
 Note that we cache the Crop Name because it will rarely, if ever, change and it is useful to have it in the Variety document so that we can return the full name without needing the Crop collection.
 
@@ -408,9 +425,11 @@ Since, over a period of years, a single garden can result in over a thousand pla
 
 PlantingNums start at 1001 for each garden.
 
-#### Field validation
+#### Field notes
 
 Validators should guarantee that startDate < transplantDate < firstHarvestDate < endHarvestDate < pullDate. 
+
+All Plantings must have a startDate and a pullDate. Other dates are optional.
 
 If a Gardener wants to indicate that seeds are available, they must provide the Variety for this Planting.
 
@@ -427,13 +446,13 @@ factory Planting(
   required String gardenID,      // 'garden-US-98225-102-5678'
   required String cropID,        // 'crop-US-001-202-9432'
   required String bedID,         // 'bed-US-98225-102-003-4823'
+  required DateTime startDate,   // '2023-03-19T12:19:14.164090'
+  required DateTime pullDate,    // '2023-07-19T12:19:14.164090'
   String? varietyID,             // null, 'variety-US-001-310-7645'
   String? outcomeID,             // null, 'outcome-US-98225-102-1001-3472'
-  DateTime? startDate,           // null, '2023-03-19T12:19:14.164090'
   DateTime? transplantDate,      // null, '2023-04-19T12:19:14.164090'
   DateTime? firstHarvestDate,    // null, '2023-05-19T12:19:14.164090'
   DateTime? endHarvestDate,      // null, '2023-06-19T12:19:14.164090'
-  DateTime? pullDate,            // null, '2023-07-19T12:19:14.164090'
   String? sowSeedID,             // null, 'seed-US-98225-102-001-3563'
   String? harvestSeedID,         // null, 'seed-US-98225-102-005-2185'
   @Default(false) bool usedGreenhouse,  // true, false 
@@ -469,7 +488,7 @@ OutcomeIDs have the format `outcome-<country>-<postal>-<gardenNum>-<outcomeNum>-
 
 Each Outcome entity is associated with exactly one Planting entity.  (Note that the converse is not true: a Planting entity need not be associated with an Outcome entity, since the Gardener might not choose to record any Outcome data.)
 
-#### Field validation
+#### Field notes
 
 Outcomes cache the cropID and varietyID associated with their Planting. This is to allow Index and View widgets to display Outcome data without having to retrieve Plantings from the database. 
 
@@ -510,7 +529,7 @@ SeedIDs have the format `seed-<country>-<postal>-<gardenNum>-<seedNum>-<millis>`
 
 SeedNums start at 001.
 
-#### Field validation
+#### Field notes
 
 Seed instances cache the cropID, varietyID, and the seedsAvailable field from the Planting from which they were harvested.
 
@@ -548,10 +567,11 @@ ObservationIDs have the format `observation-<country>-<postal>-<gardenNum>-<obse
 
 ObservationNums start at 401 for each Garden.
 
-#### Field validation
+#### Field notes
 
 Observations cache several values in order to allow the Observation card to present information without having to retrieve the Planting.
 
+Observations are presented in reverse chronological order by lastUpdate. When someone adds a comment, that sets the lastUpdate field.
 
 #### Observation entity representation
 
