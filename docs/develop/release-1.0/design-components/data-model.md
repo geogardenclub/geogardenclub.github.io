@@ -100,7 +100,7 @@ const factory Chapter(
   {required String chapterID,        // 'chapter-US-001', or 'chapter-CA-V6K1G8'
   required String name,              // 'Whatcom-WA', or 'CA-V6K1G8'
   required String countryCode,       // 'US', 'CA'
-  required List<String> postalcodes}  // ['98225', '98226'], or ['V6K1GB']
+  required List<String> postalCodes}  // ['98225', '98226'], or ['V6K1GB']
 )
 ```
 
@@ -156,7 +156,7 @@ const factory User(
   required String name,           // 'Philip Johnson'
   required String username,       // '@fiveoclockphil'
   required String country,        // 'US'
-  required String postalcode,         // '98225'
+  required String postalCode,         // '98225'
   required String uid,            // '22e9fe1b-445c-4523-89c2-4450244f1959'
   String? pictureURL}             // null, or 'https://firebasestorage.googleapis.com/v0/...'
 )
