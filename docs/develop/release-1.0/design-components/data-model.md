@@ -219,7 +219,7 @@ GardenIDs are generated dynamically when a Chapter member defines a new Garden o
 
 GardenIDs have the format `garden-<country>-<postal>-<gardenNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.  
 
-The GardenID embeds the country code and postal code associated with the ownerID. Note that this might not be the same postal code as the one associated with the physical location of the garden!  We do this in order to ensure that if a Chapter's set of postal codes is reorganized, then the Gardens owned by a Gardener will always end up in the same new Chapter.
+The GardenID embeds the country code and postal code associated with the ownerID. Note that this might not be the same postal code as the one associated with the physical location of the garden!  We do this in order to ensure that if a Chapter's set of postal codes is reorganized, then the Gardens owned by a Gardener will always end up in the same Chapter as their owner.
 
 To support readability in this document and initial development, the gardenNum starts at "101" for each chapter.
 
