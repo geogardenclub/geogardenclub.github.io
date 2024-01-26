@@ -182,9 +182,9 @@ We want to provide information about Gardeners such as the crops and varieties t
 
 By "associated", we mean the crops and varieties in the garden(s) for which this gardener is an owner.
 
-#### Badge attestation values
+#### Badge attestations
 
-Certain badges require Chapter members to "attest" to having performed activities. The Gardener entity contains boolean fields to hold these attestations. 
+Certain badges require Gardeners to "attest" to having performed activities. The Gardener entity contains an attestations field that holds strings indicating what has been attested to.
 
 #### GardenerID management
 
@@ -200,11 +200,11 @@ const factory Gardener(
   required List<String> cachedVarietyIDs,  // ['variety-US-001-305-8765']
   required String country,                 // 'US'
   required String postalCode,              // '98225'
+  required List<String> attestations,      // ['PermacultureWorkshop']
   @Default(false) bool isVendor,           // true, or false
   String? vendorName,                      // null, or 'Johnnys Seeds and Supplies'
   String? vendorShortName,                 // null, or 'Johnnys'
-  String? vendorURL,                       // null, or 'https://johnnys.com'
-  @Default(false) bool attestPermacultureWorkshop}       // true, or false
+  String? vendorURL}       // true, or false
 )
 ```
 
@@ -237,9 +237,9 @@ Each Garden entity caches the CropIDs, VarietyIDs, years, and the number of Plan
 
 In addition, whenever there is a change to the Plantings associated with this Garden, the lastUpdated field is set to the current time.  This allows the community to see which Gardens in their Chapter are active.
 
-#### Badge attestation values
+#### Badge attestations
 
-Certain badges require Chapter members to "attest" to the Garden having certain properties. The Garden entity contains boolean fields to hold these attestations.
+Certain badges require Gardeners to "attest" to their Garden having certain properties. The Garden entity contains an attestations field with strings indicating the properties that they have attested to.
 
 #### Garden entity representation
 
@@ -253,13 +253,11 @@ const factory Garden(
   required List<String> cachedVarietyIDs,   // ['variety-US-001-302-7865']
   required List<int> cachedYears,           // [2023, 2022]
   required int cachedNumPlantings,          // 231
+  required List<String> attestations,      // ['ClimateVictory', 'PesticideFree', 'CommunityOrSchool']
   String? pictureURL,                       // null, 'https://firebasestorage.googleapis.com/v0/...'
   String? plotPlanURL,                      // null, 'https://firebasestorage.googleapis.com/v0/...' 
   DateTime? lastUpdate,                    // null (for vendors), '2023-03-19T12:19:14.164090'            
-  @Default(false) bool isVendor,                  // true, false
-  @Default(false) bool attestClimateVictory,      // true, false
-  @Default(false) bool attestPesticideFree,       // true, false
-  @Default(false) bool attestCommunityOrSchool}   // true, false
+  @Default(false) bool isVendor}   // true, false
 )
 ```
 
