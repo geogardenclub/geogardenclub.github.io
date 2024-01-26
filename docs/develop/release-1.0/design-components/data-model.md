@@ -199,7 +199,7 @@ const factory Gardener(
   required List<String> cachedCropIDs,     // ['crop-US-001-203-9987']
   required List<String> cachedVarietyIDs,  // ['variety-US-001-305-8765']
   required String country,                 // 'US'
-  required String postal,                  // '98225'
+  required String postalCode,              // '98225'
   @Default(false) bool isVendor,           // true, or false
   String? vendorName,                      // null, or 'Johnnys Seeds and Supplies'
   String? vendorShortName,                 // null, or 'Johnnys'
