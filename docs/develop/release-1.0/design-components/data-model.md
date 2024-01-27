@@ -65,11 +65,11 @@ The Chapter entity defines a geographic region based on a country (represented a
 
 #### ChapterID management
 
-A Firebase collection called ChapterZipMap will provide a default mapping of US postal (zip) codes to chapterIDs.  This mapping initially defines each US county as a GGC Chapter.   
+A Firebase collection called ChapterZipMap will provide a default mapping of US postal (i.e. zip) codes to chapterIDs.  This mapping initially defines a one-to-one correspondence between US counties and GGC Chapters.   
 
-Outside of the US, each (country code, postal code) pair will be its own Chapter. This is not optimal but it provides a way to make GGC immediately available to users outside the US without constructing a world-wide ChapterZipMap. We can restructure non-US chapters later. 
+Outside of the US, each (country code, postal code) pair will be its own Chapter. This is not optimal but it provides a way to make GGC immediately available to users outside the US without constructing a world-wide ChapterPostalCodeMap. We can add this later without any change to the data model.
 
-Unlike many other entity IDs, the complete set of chapterIDs is defined in advance in GGC. In other words, we can compute all of the chapterIDs on earth, and they do not depend upon the number of users or their behavior. In contrast, there is no *a priori* limit to the number of (say) Planting IDs. 
+Unlike most other entity IDs, the complete set of chapterIDs is defined in advance in GGC. In other words, we can compute all of the chapterIDs on earth, and they do not depend upon the number of users or their behavior. In contrast, there is no *a priori* limit to the number of (say) Planting IDs. 
 
 While chapterIDs are finite, they are not necessarily *fixed* in terms of their numbers and the geographic regions that they encompass. For US Chapters, we can change the set of chapters by changing the entries in the ChapterZipMap. For example, while our initial approach is to implement a one-to-one correspondence between US chapters and US counties, we could in future change the ChapterZipMap so that a single US county could have multiple Chapters, or multiple counties could be combined into a single Chapter, or some other approach. (Changing chapter geographic boundaries requires more than just changing the ChapterZipMap; the point here is that our representation does not lock us in to our initial definition for Chapters.) The only hard constraint is that each postal code is assigned to one and only one Chapter.  
 
@@ -351,7 +351,9 @@ The reason we do not provide a global collection of Crops is because a single co
 
 CropIDs have the format `crop-<country>-<chapterNum>-<cropNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
-CropIDs embed the chapter country code and chapterNum. In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Crop collection where the IDs have been changed to embed the new chapterNum..  This will require a pass through all of the Garden-level entities to update the value of their cropID fields to the new string value.
+CropIDs embed the chapter country code and chapterNum. (In the event of a non-US Chapter, the chapter "num" won't be a number, it could be a postal code like 'VNZ034', but we will call it chapterNum for now.) 
+
+In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Crop collection where the IDs have been changed to embed the new chapterNum..  This will require a pass through all of the Garden-level entities to update the value of their cropID fields to the new string value.
 
 CropNums start at 201 for each chapter.
 
@@ -377,7 +379,9 @@ Note that it is possible (and common) for multiple gardeners (either home or com
 
 VarietyIDs have the format `variety-<country>-<chapterNum>-<varietyNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
-Like CropIDs, VarietyIDs embed the country code and chapterNum. In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Variety collection with the updated chapterNum.  This will require a pass through all of the Garden-level entities to update their varietyID fields to the new string value.
+Like CropIDs, VarietyIDs embed the country code and chapterNum.  (Like CropIDs, in the event of a non-US Chapter, the chapter "num" won't be a number, it could be a postal code like 'VNZ034', but we will call it chapterNum for now.)
+
+In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Variety collection with the updated chapterNum.  This will require a pass through all of the Garden-level entities to update their varietyID fields to the new string value.
 
 VarietyNums start at 301 for each chapter.
 
@@ -418,6 +422,8 @@ Finally, there is a boolean field called seedsAvailable. If true, this means not
 #### PlantingID management
 
 PlantingIDs have the format `planting-<country>-<postal>-<gardenNum>-<plantingNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+
+The country and postal fields in the ID must match those fields in the gardenID associated with this Planting. 
 
 Since, over a period of years, a single garden can result in over a thousand plantings, we generally use a four digit number for the plantingNum.
 
