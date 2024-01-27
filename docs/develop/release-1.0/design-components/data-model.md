@@ -73,7 +73,9 @@ Unlike most other entity IDs, the complete set of chapterIDs is defined in advan
 
 While chapterIDs are finite, they are not necessarily *fixed* in terms of their numbers and the geographic regions that they encompass. For US Chapters, we can change the set of chapters by changing the entries in the ChapterZipMap. For example, while our initial approach is to implement a one-to-one correspondence between US chapters and US counties, we could in future change the ChapterZipMap so that a single US county could have multiple Chapters, or multiple counties could be combined into a single Chapter, or some other approach. (Changing chapter geographic boundaries requires more than just changing the ChapterZipMap; the point here is that our representation does not lock us in to our initial definition for Chapters.) The only hard constraint is that each postal code is assigned to one and only one Chapter.  
 
-To support readability, chapter numbers in this documentation page will begin with a "0". We do not need to enforce this in the actual app.
+ChapterIDs have the format `chapter-<country>-<chapterCode>`.  In the case of a US Chapter, an example Chapter ID is: "chapter-US-001".  In the case of a non-US Chapter, an example Chapter ID is "chapter-CA-V6K1G8".
+
+To support readability in this document, we will use US chapters and the chapterCodes will be numeric.
 
 #### User registration and chapter assignment
 
@@ -217,7 +219,7 @@ The Garden entity represents a plot of land (or maybe even just some pots) that 
 
 GardenIDs are generated dynamically when a Chapter member defines a new Garden or when a Chapter member defines a new Vendor (which implicitly results in the creation of a new Garden). 
 
-GardenIDs have the format `garden-<country>-<postal>-<gardenNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.  
+GardenIDs have the format `garden-<country>-<postalCode>-<gardenNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.  
 
 The GardenID embeds the country code and postal code associated with the ownerID. Note that this might not be the same postal code as the one associated with the physical location of the garden!  We do this in order to ensure that if a Chapter's set of postal codes is reorganized, then the Gardens owned by a Gardener will always end up in the same Chapter as their owner.
 
@@ -275,7 +277,7 @@ In addition, when displaying the Crops and Varieties associated with a Gardener,
 
 Editor entities are created or deleted when the owner of a Garden edits the Editor field of the Garden Details form.
 
-EditorIDs have the format `editor-<country>-<postal>-<gardenNum>-<editorNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+EditorIDs have the format `editor-<country>-<postalCode>-<gardenNum>-<editorNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 EditorNums start at 001 for each garden.
 
@@ -296,7 +298,7 @@ Each Garden consists of a number of Beds. An owner can edit the name of an exist
 
 #### BedID management
 
-BedIDs have the format `bed-<country>-<postal>-<gardenNum>-<bedNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+BedIDs have the format `bed-<country>-<postalCode>-<gardenNum>-<bedNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 BedNums start at 001 for each garden.
 
@@ -349,11 +351,11 @@ The reason we do not provide a global collection of Crops is because a single co
 
 #### CropID management
 
-CropIDs have the format `crop-<country>-<chapterNum>-<cropNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+CropIDs have the format `crop-<country>-<chapterCode>-<cropNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
-CropIDs embed the chapter country code and chapterNum. (In the event of a non-US Chapter, the chapter "num" won't be a number, it could be a postal code like 'VNZ034', but we will call it chapterNum for now.) 
+CropIDs embed the chapter's country code and chapterCode. (ChapterCodes could be a number like '001' in the case of a US Chapter, or a postal code like 'VNZ76T' in the case of a non-US chapter.) 
 
-In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Crop collection where the IDs have been changed to embed the new chapterNum..  This will require a pass through all of the Garden-level entities to update the value of their cropID fields to the new string value.
+In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Crop collection where the IDs have been changed to embed the new chapterCode.  This will require a pass through all of the Garden-level entities to update the value of their cropID fields to the new string value.
 
 CropNums start at 201 for each chapter.
 
@@ -377,11 +379,11 @@ Note that it is possible (and common) for multiple gardeners (either home or com
 
 #### VarietyID management
 
-VarietyIDs have the format `variety-<country>-<chapterNum>-<varietyNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+VarietyIDs have the format `variety-<country>-<chapterCode>-<varietyNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
-Like CropIDs, VarietyIDs embed the country code and chapterNum.  (Like CropIDs, in the event of a non-US Chapter, the chapter "num" won't be a number, it could be a postal code like 'VNZ034', but we will call it chapterNum for now.)
+Like CropIDs, VarietyIDs embed the country code and chapterCode.  (Like CropIDs, ChapterCodes could be a number like '001' in the case of a US Chapter, or a postal code like 'VNZ76T' in the case of a non-US chapter.)
 
-In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Variety collection with the updated chapterNum.  This will require a pass through all of the Garden-level entities to update their varietyID fields to the new string value.
+In the event that a Chapter is divided into two or more smaller chapters, each of the new Chapters needs a copy of the Variety collection with the updated chapterCode.  This will require a pass through all of the Garden-level entities to update their varietyID fields to the new string value.
 
 VarietyNums start at 301 for each chapter.
 
@@ -421,9 +423,9 @@ Finally, there is a boolean field called seedsAvailable. If true, this means not
 
 #### PlantingID management
 
-PlantingIDs have the format `planting-<country>-<postal>-<gardenNum>-<plantingNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+PlantingIDs have the format `planting-<country>-<postalCode>-<gardenNum>-<plantingNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
-The country and postal fields in the ID must match those fields in the gardenID associated with this Planting. 
+The country and postal code fields in the ID must match those fields in the gardenID associated with this Planting. 
 
 Since, over a period of years, a single garden can result in over a thousand plantings, we generally use a four digit number for the plantingNum.
 
@@ -488,7 +490,7 @@ In addition, an Outcome type can have a value of "0", which means there is no da
 
 #### OutcomeID management
 
-OutcomeIDs have the format `outcome-<country>-<postal>-<gardenNum>-<outcomeNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+OutcomeIDs have the format `outcome-<country>-<postalCode>-<gardenNum>-<outcomeNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 Each Outcome entity is associated with exactly one Planting entity.  (Note that the converse is not true: a Planting entity need not be associated with an Outcome entity, since the Gardener might not choose to record any Outcome data.)
 
@@ -529,9 +531,11 @@ Our data model enables us to represent both seeds that are locally produced by g
 
 #### SeedID management
 
-SeedIDs have the format `seed-<country>-<postal>-<gardenNum>-<seedNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+SeedIDs have the format `seed-<country>-<postalCode>-<gardenNum>-<seedNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 SeedNums start at 001.
+
+The country and postal code fields are taken from the Planting that this seed was harvested from.
 
 #### Field notes
 
@@ -567,9 +571,11 @@ An Observation is a textual comment (and, typically, a picture) provided by a Ga
 
 #### ObservationID management
 
-ObservationIDs have the format `observation-<country>-<postal>-<gardenNum>-<observationNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+ObservationIDs have the format `observation-<country>-<postalCode>-<gardenNum>-<observationNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 ObservationNums start at 401 for each Garden.
+
+The country and postal code fields are taken from the Planting associated with this Observation.
 
 #### Field notes
 
@@ -650,9 +656,11 @@ Tasks are ephemeral.  When a gardener indicates that a task has been completed, 
 
 #### TaskID management
 
-TaskIDs have the format `task-<country>-<postal>-<gardenNum>-<plantingNum>-<taskNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
+TaskIDs have the format `task-<country>-<postalCode>-<gardenNum>-<plantingNum>-<taskNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 TaskIDs start at 001.
+
+The country and postal code fields are taken from the garden associated with this Task.
 
 #### Task Types
 
@@ -703,9 +711,11 @@ BadgeIDs have the format `badge-<badgeNum>`. Please see the [ID Section](#ids) f
 
 BadgeIDs start at 001.
 
-BadgeInstanceIDs have the format `badgeinstance-<country>-<postal>-<badgeinstanceNum>-<millis>`.
+BadgeInstanceIDs have the format `badgeinstance-<country>-<chapterCode>-<badgeinstanceNum>-<millis>`.
 
 BadgeInstanceNums start at 001.
+
+The country and chapterCode fields are taken from the Chapter associated with this Garden or Gardener (and in the future, Chapter).
 
 There is a BadgeType enum represented as follows:
 
@@ -732,7 +742,7 @@ Badge Instances:
 
 ```dart
 const factory BadgeInstance(
-  {required String badgeInstanceID,  // 'badgeinstance-US-98225-001-5634'
+  {required String badgeInstanceID,  // 'badgeinstance-US-001-001-5634'
   required String chapterID,         // 'chapter-US-001'
   required String badgeID,           // 'badge-001'
   required int level,                // 1
