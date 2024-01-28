@@ -541,9 +541,13 @@ The country and postal code fields are taken from the Planting that this seed wa
 
 Seed instances cache the cropID, varietyID, and the seedsAvailable field from the Planting from which they were harvested.
 
-Seeds can be associated only with the Planting from which they were harvested, or they can be associated only with a Planting which they were used to grow it, or they can be associated with two Plantings.  Those Plantings do not have to be in the same Garden (in fact, they most commonly are not in the same Garden.)  
+A Seed instance is always associated with the Planting from which it was harvested, as it's ID will appear in the harvestSeedID field of the Planting. In this case, the Seed instance's GardenID and the Planting instance's GardenID must be the same.
+
+A Seed instance can also be associated with one or more additional Plantings as the seed from which the Planting was grown. In this case, the Seed's ID appears in the Planting in the sowSeedID field. Those Plantings do not have to be in the same Garden (in fact, they will often be in a different garden).
 
 The Seed entity indicates the garden in which they were grown (but not the one or more gardens in which they are used to sow new Plantings). The entity also caches the gardenerID, cropID, varietyID, and seedsAvailable in order to simplify presentation of Seed data in Index and View pages without having to retrieve Planting data. 
+
+Finally, in order to safely delete a Seed instance, it must not have been used to sow any Plantings. To make this check performant, the field sowSeedNum is initialized to zero and incremented whenever a Seed instance is referenced in the sowSeedID field of a new Planting. A Seed instance can only be deleted when the sowSeedNum is zero. 
 
 #### Seed entity representation
 
@@ -555,7 +559,7 @@ const factory Seed(
   required String cachedGardenerID,   // 'info@heritageseeds.com' 
   required String cachedCropID,       // 'crop-US-001-201-3462'
   required String cachedVarietyID,    // 'variety-US-001-303-6534'
-  required bool cachedSeedsAvailable} // true, false
+  bool cachedSeedsAvailable = true} // true, false
 )
 ```
 
