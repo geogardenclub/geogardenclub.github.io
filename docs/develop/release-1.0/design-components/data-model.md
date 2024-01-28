@@ -451,10 +451,13 @@ factory Planting(
   required String chapterID,     // 'chapter-US-001'
   required String gardenID,      // 'garden-US-98225-102-5678'
   required String cropID,        // 'crop-US-001-202-9432'
+  required String cachedCropName,// 'Bean'
   required String bedID,         // 'bed-US-98225-102-003-4823'
+  required String cachedBedName, // '02'
   required DateTime startDate,   // '2023-03-19T12:19:14.164090'
   required DateTime pullDate,    // '2023-07-19T12:19:14.164090'
   String? varietyID,             // null, 'variety-US-001-310-7645'
+  String? cachedVarietyName,     // null, 'Big Boy'
   String? outcomeID,             // null, 'outcome-US-98225-102-1001-3472'
   DateTime? transplantDate,      // null, '2023-04-19T12:19:14.164090'
   DateTime? firstHarvestDate,    // null, '2023-05-19T12:19:14.164090'
@@ -547,7 +550,7 @@ A Seed instance can also be associated with one or more additional Plantings as 
 
 The Seed entity indicates the garden in which they were grown (but not the one or more gardens in which they are used to sow new Plantings). The entity also caches the gardenerID, cropID, varietyID, and seedsAvailable in order to simplify presentation of Seed data in Index and View pages without having to retrieve Planting data. 
 
-Finally, in order to safely delete a Seed instance, it must not have been used to sow any Plantings. So that we don't have to search through all the Plantings across an entire chapter, the Seed entity provides a field called sowSeedNum. This field is initialized to zero and incremented whenever a Seed instance is referenced in the sowSeedID field of a new Planting. A Seed instance can only be deleted when the sowSeedNum is zero. 
+Finally, in order to safely delete a Seed instance, it must not have been used to sow any Plantings. So that we don't have to search through all the Plantings across an entire chapter, the Seed entity provides a field called sowSeedCount. This field is initialized to zero and incremented whenever a Seed instance is referenced in the sowSeedID field of a new Planting. A Seed instance can only be deleted when the sowSeedCount is zero. 
 
 #### Seed entity representation
 
@@ -559,6 +562,7 @@ const factory Seed(
   required String cachedGardenerID,   // 'info@heritageseeds.com' 
   required String cachedCropID,       // 'crop-US-001-201-3462'
   required String cachedVarietyID,    // 'variety-US-001-303-6534'
+  @Default(0) sowSeedCount,           // 0, 1, 2
   bool cachedSeedsAvailable = true} // true, false
 )
 ```
@@ -567,7 +571,7 @@ const factory Seed(
 
 In GGC, a Garden associated with a Vendor has a single Planting instance for each Variety that they offer Seeds for. This single Planting instance will have a single Seed instance in the harvestSeedID field, with `seedsAvailable` set to `true`.  
 
-In reality, a vendor may or may not have seeds in stock for a given Variety at any given time.  And, in reality, a vendor will produce their seeds from new Plantings each year. But, GGC will not represent these "realities" about vendor gardens and seeds.
+In reality, a vendor may or may not have seeds in stock for a given Variety at any given time.  And, in reality, a vendor will produce their seeds from new Plantings each year. But, GGC will not attempt to keep track of real-time inventory.
 
 ### Observation
 
