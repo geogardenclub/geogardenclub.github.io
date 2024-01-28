@@ -435,7 +435,7 @@ PlantingNums start at 1001 for each garden.
 
 Validators should guarantee that startDate < transplantDate < firstHarvestDate < endHarvestDate < pullDate. 
 
-All Plantings must have a startDate and a pullDate. Other dates are optional.
+All Plantings must have a startDate, a pullDate, and a bedID. These values are required so that the Planting can be displayed as a horizontal bar in the Garden details view.
 
 If a Gardener wants to indicate that seeds are available, they must provide the Variety for this Planting.
 
