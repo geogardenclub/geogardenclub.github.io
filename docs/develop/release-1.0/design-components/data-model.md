@@ -513,11 +513,11 @@ const factory Outcome(
   required String plantingID,         // 'planting-US-98225-102-1001-9213'
   required String cachedCropID,       // 'crop-US-001-245-4376'
   required String cachedVarietyID,    // 'variety-US-001-321-3214'
-  int germination,                   // 0-5
-  int yieldd,                        // 0-5 (yield is a reserved word)
-  int flavor,                        // 0-5
-  int resistance,                    // 0-5
-  int appearance}                    // 0-5
+  @Default(0) int germination,        // 0-5
+  @Default(0) int yieldd,             // 0-5 (yield is a reserved word)
+  @Default(0) int flavor,             // 0-5
+  @Default(0) int resistance,         // 0-5
+  @Default(0) int appearance}         // 0-5
 )
 ```
 
