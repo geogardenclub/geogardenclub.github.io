@@ -32,9 +32,9 @@ const sidebars = {
       label: "User Guide",
       items: [
        'user-guide/overview',
+       'user-guide/guided-tour',
         'user-guide/downloading',
         'user-guide/registration',
-        'user-guide/guided-tour',
         'user-guide/your-first-garden',
         'user-guide/adding-vendors-crops-varieties',
         'user-guide/observations',
