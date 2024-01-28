@@ -547,7 +547,7 @@ A Seed instance can also be associated with one or more additional Plantings as 
 
 The Seed entity indicates the garden in which they were grown (but not the one or more gardens in which they are used to sow new Plantings). The entity also caches the gardenerID, cropID, varietyID, and seedsAvailable in order to simplify presentation of Seed data in Index and View pages without having to retrieve Planting data. 
 
-Finally, in order to safely delete a Seed instance, it must not have been used to sow any Plantings. To make this check performant, the field sowSeedNum is initialized to zero and incremented whenever a Seed instance is referenced in the sowSeedID field of a new Planting. A Seed instance can only be deleted when the sowSeedNum is zero. 
+Finally, in order to safely delete a Seed instance, it must not have been used to sow any Plantings. So that we don't have to search through all the Plantings across an entire chapter, the Seed entity provides a field called sowSeedNum. This field is initialized to zero and incremented whenever a Seed instance is referenced in the sowSeedID field of a new Planting. A Seed instance can only be deleted when the sowSeedNum is zero. 
 
 #### Seed entity representation
 
