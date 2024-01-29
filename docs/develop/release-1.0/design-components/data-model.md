@@ -542,7 +542,8 @@ The country and postal code fields are taken from the Planting that this seed wa
 
 :::warning Chapter reorganization and seeds
 
-Note that Seeds har
+Note that Seeds harvested from one postal code in a Chapter can be sowed in another postal code in a Chapter. This means that if a Chapter is split up into two sub-Chapters, there is the possibility that the original Seed will need to be "cloned" into the two sub-Chapters.
+:::
 
 #### Field notes
 
@@ -582,6 +583,10 @@ In reality, a vendor may or may not have seeds in stock for a given Variety at a
 ### Observation
 
 An Observation is a textual comment (and, typically, a picture) provided by a Gardener regarding a specific Planting at a specific point in time.
+
+If a Gardener wishes to make a comment about a non-Planting issue (i.e. their Garden, or the Chapter, or whatever), they can use the Chat Rooms for Gardens and Chapters.
+
+The essential difference is that an Observation will be "carried along" with a Planting---in other words, when the Gardener retrieves a View of a specific Planting, they will also see all of the Observations associated with that Planting. We hope that this will help create a useful historical record of a Planting. 
 
 #### ObservationID management
 
