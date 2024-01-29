@@ -548,7 +548,7 @@ A Seed instance is always associated with the Planting from which it was harvest
 
 A Seed instance can also be associated with one or more additional Plantings as the seed from which the Planting was grown. In this case, the Seed's ID appears in the Planting in the sowSeedID field. Those Plantings do not have to be in the same Garden (in fact, they will often be in a different garden).
 
-The Seed entity indicates the garden in which they were grown (but not the one or more gardens in which they are used to sow new Plantings). The entity also caches the gardenerID, cropID, varietyID, and seedsAvailable in order to simplify presentation of Seed data in Index and View pages without having to retrieve Planting data. 
+The Seed entity provides information about where it was harvested from (but not about where it was used to sow new Plantings). This information includes the gardenerID, cropID, cropName, varietyID, varietyName and seedsAvailable. Providing this information in the Seed entity simplifies presentation of Seed data in Index and View pages.
 
 Finally, in order to safely delete a Seed instance, it must not have been used to sow any Plantings. So that we don't have to search through all the Plantings across an entire chapter, the Seed entity provides a field called sowSeedCount. This field is initialized to zero and incremented whenever a Seed instance is referenced in the sowSeedID field of a new Planting. A Seed instance can only be deleted when the sowSeedCount is zero. 
 
@@ -559,11 +559,13 @@ const factory Seed(
   {required String seedID,            // 'seed-US-98225-102-001-3218'
   required String chapterID,          // 'chapter-US-001'
   required String gardenID,           // 'garden-US-98225-102-6789'
+  @Default(0) int sowSeedCount,           // 0, 1, 2
   required String cachedGardenerID,   // 'info@heritageseeds.com' 
   required String cachedCropID,       // 'crop-US-001-201-3462'
   required String cachedVarietyID,    // 'variety-US-001-303-6534'
-  @Default(0) sowSeedCount,           // 0, 1, 2
-  bool cachedSeedsAvailable = true} // true, false
+  required String cachedCropName,     // 'Tomato'
+  required String cachedVarietyName,  // 'Cherokee Purple'
+  @Default(true) bool cachedSeedsAvailable} // true, false
 )
 ```
 
@@ -812,17 +814,17 @@ Note that [Firebase recommends against creating documentIDs with lexicographical
 
 ## Normalization and caching
 
-A best practice for relational database design is "[normalization](https://en.wikipedia.org/wiki/Database_normalization)", which means that a value should only occur in one place at a time.  Normalization has a number of virtues, such as making updates and deletions more efficient and less error prone.  But normalization has a substantial cost: queries can become very complicated, involving complex "joins" of data from a variety of tables.
+A best practice for relational database design is "[normalization](https://en.wikipedia.org/wiki/Database_normalization)", which means that a value should only occur in one place at a time.  Normalization has a number of virtues, such as making updates and deletions more efficient and less error prone.  But normalization also has a cost: queries can become very complicated, involving complex "joins" from a variety of data sources.
 
 The GGC app has the following design considerations that impact on the issue of normalization:
 
-* Updates and deletions are (relatively) rare.  GGC is mostly an "additive" database. While deletions and updates can occur, it's OK if they are "expensive" in time.
-* Reads are common, and to make these reads fast, GGC implements client-side caches for many of the entities.
+* Updates and deletions are (relatively) rare.  GGC is mostly an "additive" database. While deletions and updates can occur, it's OK if they are "expensive".
+* Reads are common, and to make these reads fast, GGC implements client-side caches (using Riverpod) for many of the entities.
 * Gardeners do not access to data outside their Chapter, so client-side caches are not impacted if the number of Chapters in GGC becomes large. 
 
-As a result of these design considerations, GGC collections are designed to facilitate caching by including chapterID and gardenID fields whenever relevant.
+To simplify retrieval and caching of the appropriate chapter or garden-level "slice" of the database by a client, almost all GGC entities include a chapterID and gardenID field.
 
-We also "denormalize" by occasionally providing "redundant" fields in a collection's documents. For example, in some cases a document will include a cropName field even though it already has a cropID field.  We do this avoid having to download large numbers of documents  (i.e. Plantings for all Gardens in the Chapter) in order to perform a calculation. These redundant fields are named starting with "cached" to make this explicit in the data model.
+We also "denormalize" by providing "redundant" fields in certain entities. For example, in some cases a document will include a cropName field even though it already has a cropID field.  We do this avoid having to download large numbers of documents  (i.e. Plantings for all Gardens in the Chapter) in order to perform a calculation. These redundant field names have the prefix "cached" in order to make this denormalization explicit in the data model.
 
 ## Root collections vs subcollections
 
