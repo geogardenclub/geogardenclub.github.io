@@ -538,7 +538,11 @@ SeedIDs have the format `seed-<country>-<postalCode>-<gardenNum>-<seedNum>-<mill
 
 SeedNums start at 001.
 
-The country and postal code fields are taken from the Planting that this seed was harvested from.
+The country and postal code fields are taken from the Planting that this seed was harvested from. This is to ensure that if a Chapter is reorganized, the Seed will move with the Planting it was harvested from.
+
+:::warning Chapter reorganization and seeds
+
+Note that Seeds har
 
 #### Field notes
 
@@ -583,7 +587,7 @@ An Observation is a textual comment (and, typically, a picture) provided by a Ga
 
 ObservationIDs have the format `observation-<country>-<postalCode>-<gardenNum>-<observationNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
-ObservationNums start at 401 for each Garden.
+ObservationNums start at 4001 and are incremented chapter-wide.
 
 The country and postal code fields are taken from the Planting associated with this Observation.
 
@@ -597,36 +601,42 @@ Observations are presented in reverse chronological order by lastUpdate. When so
 
 ```dart
 const factory Observation(
-  {required String observationID,       // 'observation-US-98225-102-401-5634'
-  required String chapterID,            // 'chapter-US-001'
-  required String gardenID,             // 'garden-US-98225-102-6789'
-  required String gardenerID,           // 'johnson@hawaii.edu'
-  required String plantingID,           // 'planting-US-98225-102-1002-9432'
-  required DateTime observationDate,    // '2023-03-19T12:19:14.164090'
-  required DateTime lastUpdate,         // '2023-03-19T12:19:14.164090'
-  required List<String> tagIDs,         // ['tag-001-501']
-  required List<ObservationComment> comments,  // ['observation-US-98225-102-401-001-9876']
-  required String description,          // 'First harvest of the season'  
-  String? pictureURL,                   // null, 'https://firebasestorage.googleapis.com/v0/...' 
-  @Default(false) bool isPrivate,       // true, false
-  required String cachedCropID,         // 'crop-US-001-243-3425'
-  required String cachedVarietyID,      // 'variety-US-001-323-9654'
-  required String cachedBedName,        // '03'
-  required DateTime cachedStartDate}    // '2023-03-19T12:19:14.164090'
+  {required String observationID,     // 'observation-US-98225-102-4001-5634'
+  required String chapterID,          // 'chapter-US-001'
+  required String gardenID,           // 'garden-US-98225-102-6789'
+  required String gardenerID,         // 'johnson@hawaii.edu'
+  required String plantingID,         // 'planting-US-98225-102-1002-9432'
+  required DateTime observationDate,  // '2023-03-19T12:19:14.164090'
+  required DateTime lastUpdate,       // '2023-03-19T12:19:14.164090'
+  required List<String> tagIDs,       // ['tag-001-501']
+  required List<ObservationComment> comments, // ['observation-US-98225-102-4001-001-9876']
+  required String description,        // 'First harvest of the season'
+  String? pictureURL,                 // null, 'https://firebasestorage.googleapis.com/v0/...'
+  @Default(false) bool isPrivate,     // true, false
+  required String cachedCropID,       // 'crop-US-001-243-3425'
+  required String cachedVarietyID,    // 'variety-US-001-323-9654'
+  required String cachedBedName,      // '03'
+  required String cachedCropName,     // 'Tomato'
+  required String cachedVarietyName,  // 'Cherokee Purple'
+  required String cachedGardenName,   // 'Kale is for Kids'
+  required DateTime cachedStartDate}  // '2023-03-19T12:19:14.164090'
 )
 ```
 
 #### Observation Comments
 
-As shown above, each Observation entity includes an embedded (potentially empty) list of ObservationComments, which have this structure
+As shown above, each Observation entity includes an embedded (potentially empty) list of ObservationComments, which have this structure:
 
 ```dart
 const factory ObservationComment(
-  {required String observationCommentID,   // 'observation-US-98225-102-401-001-4532'
+  {required String observationCommentID,   // 'observationcomment-US-98225-102-4001-001-4532'
   required String gardenerID,              // 'johnson@hawaii.edu'
-  required String description}             // 'Is that an aphid on the left leaf?'
+  required String description,             // 'Is that an aphid on the left leaf?'
+  required DateTime lastUpdate}            // '2023-03-19T12:19:14.164090'          
 )
 ```
+
+The lastUpdate field indicates when the comment was made or updated.
 
 ### Tag
 
