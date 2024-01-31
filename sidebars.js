@@ -71,7 +71,6 @@ const sidebars = {
         'develop/release-1.0/cvp',
         'develop/release-1.0/deployment',
         'develop/release-1.0/architecture',
-        'develop/release-1.0/patterns',
         'develop/release-1.0/coding-standards',
         {
           type: 'category',
@@ -81,6 +80,8 @@ const sidebars = {
             'develop/release-1.0/design-components/data-model',
             'develop/release-1.0/design-components/badges',
             'develop/release-1.0/design-components/input-fields',
+            'develop/release-1.0/design-components/with-widgets',
+            'develop/release-1.0/design-components/data-mutation',
           ],
         },
       ],

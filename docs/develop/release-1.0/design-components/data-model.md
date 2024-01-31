@@ -671,13 +671,19 @@ const factory Tag(
 
 ### Task
 
-A Task specifies an activity to perform for a specific planting in a specific Garden. There are two fundamental types of tasks:
+A Task specifies an activity to perform for a specific Planting in a specific Garden. There are two  types of tasks:
 
-1. An automatically created Task that is generated from the dates associated with a Planting, such as `transplant date` or `first harvest date`. Whenever the gardener adjusts the dates associated with a Planting, the associated Task is updated. Conversely, if a gardener adjusts the date associated with a Task, then the associated Planting date is updated as well. 
+1. An *automatically created* Task that is generated from the dates associated with a Planting, such as `transplant date` or `first harvest date`. Whenever the Gardener adjusts the dates associated with a Planting, the associated Task is updated. Conversely, if a Gardener adjusts the date associated with a Task, then the associated Planting date is updated as well. 
 
-2. A manually created Task created by a gardener, such as `Weed cucumbers` or `Add top dressing to radishes`. 
+2. A *manually created* Task created by a gardener, such as `Weed cucumbers` or `Add top dressing to radishes`. 
 
-Tasks are ephemeral.  When a gardener indicates that a task has been completed, it is deleted from the system. For automatically created Tasks that are associated with a Planting date, the system prompts the gardener to verify the completion date prior to deleting the Task.  This prompt is used to update the date in the Planting instance.  This is an important form of "quality assurance" for planting dates, since the gardener typically specifies these dates early in the season during planning. The ability of Tasks to help ensure that Planting dates are accurate can help make Chapter data more useful over time.
+Tasks are ephemeral.  When a Gardener indicates that a task has been completed, it is deleted from the system. For automatically created Tasks that are associated with a Planting date, the system prompts the gardener to verify the completion date prior to deleting the Task.  This prompt is used to update the date in the Planting instance.  This is an important form of "quality assurance" for Planting dates, since the Gardener typically specifies these dates early in the season during planning. The ability of Tasks to help ensure that Planting dates are accurate can make Chapter data more useful.
+
+:::info Non-ephemeral (manually generated) tasks would be cool
+Currently, all tasks are ephemeral. It would be potentially useful for a Gardener to be able to mark a manually generated Task as "non-ephemeral". This would mean that if the Gardener plans a future Garden, that task could be retrieved and associated with a new Planting. 
+
+We will leave this as a feature for a future release.
+:::
 
 #### TaskID management
 
@@ -685,7 +691,7 @@ TaskIDs have the format `task-<country>-<postalCode>-<gardenNum>-<plantingNum>-<
 
 TaskIDs start at 001.
 
-The country and postal code fields are taken from the garden associated with this Task.
+The country, postal code, gardenNum, and plantingNum fields are taken from the Planting associated with this Task.
 
 #### Task Types
 
@@ -699,9 +705,9 @@ The first five correspond to the Planting dates. "Other" is used for manually cr
 
 #### Task titles and descriptions
 
-For automatically generated tasks, the title is automatically generated using the task type plus the variety, for example "Start Tomato (Big Boy)".  There is no description for automatically generated tasks by default.
+For automatically generated tasks, the title is automatically generated using the task type plus the variety, for example "Start Tomato (Big Boy)".  Automatically generated tasks are not created with a description.
 
-For manually generated tasks, the gardener specifies both the title and (optionally) the description.
+For manually generated tasks, the Gardener must specify the title and can also supply a description if desired.
 
 #### Task entity representation
 
@@ -720,7 +726,7 @@ factory Task(
   required DateTime dueDate,        // '2023-03-19T12:19:14.164090'
   required String cachedBedName,    // '02'
   required String cachedCropName,   // 'Tomato'
-  required String cachedVarietyName} // 'Big Boy'
+  required String cachedVarietyName} // 'Kale is for Kids'
 )
 ```
 
