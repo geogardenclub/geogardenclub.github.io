@@ -5,7 +5,7 @@ hide_table_of_contents: false
 
 # Goals
 
-Here are a proposed set of goals for the 1.0 (Beta) release. Some of these goals are motivated by [Champion Building: How to successfully adopt a developer too](https://www.gitpod.io/blog/champion-building). Although this blog post focuses on how to get developers in an organization to adopt a new tool, the recommendation seem very applicable to getting gardeners in a community to adopt GGC.
+Here are a proposed set of goals for the 1.0 (Beta) release. Some of these goals are motivated by [Champion Building: How to successfully adopt a developer tool](https://www.gitpod.io/blog/champion-building). Although this blog post focuses on how to get developers in an organization to adopt a new tool, the recommendation seem very applicable to getting gardeners in a community to adopt GGC.
 
 ## 1. Provide a fast, reliable, robust app that satisfies the Core Value Propositions
 
@@ -35,7 +35,7 @@ We hope to use the 1.0 release to determine what needs to be documented, and how
 Evaluation criteria:
 * Usability evaluation of 1.0 user base with respect to app documentation.
 
-## 4. Gather evidence-based successful use cases
+## 4. Gather evidence-based "testimonials"
 
 We hope that the 1.0 release period will result in examples of "successful" use of GGC to solve real world problems for gardeners.  Example use cases include:
 
@@ -53,7 +53,7 @@ Evaluation:
 
 ## 5. Determine how to usefully integrate AI
 
-AI technologies like ChatGPT impact the viability of our business model. We must be able to show users why they should pay for our app instead of using a generic AI. I believe that the best way to answer this question is to provide access to AI capabilities within the app, and provide concrete use cases of how using AI within the app is better than using AI without the app.
+AI technologies like ChatGPT impact the viability of our business model. We must be able to show users why they should pay for our app instead of using a generic AI. One way to answer this question is to provide access to AI capabilities within the app, and provide concrete use cases of how using AI within the app is better than using AI without the app.
 
 Evaluation:
 * Test results of AI within app vs. AI external to app on basic gardening scenarios. 
