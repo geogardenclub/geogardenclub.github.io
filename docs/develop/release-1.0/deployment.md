@@ -40,7 +40,12 @@ The DM has the following responsibilities:
 
   c. Commit the changed changelog to main.
 
-  d. Build the iOS .ipa file (see [Distribute your Flutter App with FireBase App Distribution](https://medium.com/@Ikay_codes/distribute-your-flutter-app-with-firebase-app-distribution-fc83e0ffb547) for details). Note that you'll need to update the version number (Runner | General) in XCode to be the same as the new version number in pubspec.yml. 
+  d. Build the iOS .ipa file (see [Distribute your Flutter App with FireBase App Distribution](https://medium.com/@Ikay_codes/distribute-your-flutter-app-with-firebase-app-distribution-fc83e0ffb547) for details). Here's a summary:
+  
+    * In XCode, check "General" and "Signing and Capabilities" tabs. You may need to login to Apple to get the Team details and Provisioning details to be specified correctly.
+    * In a terminal, run `flutter build ios`.  Among other things, this tells XCode about the new version number in pubspec.yml. 
+    * Back in XCode, invoke Product > Build, then Product > Archive.
+    * If archiving completes successfully, then a dialog box will pop up with "Distribute App". Click it, and specify "Ad hoc" distribution, then keep clicking dialogs as they appear until the .ipa file is created. 
   
   e. Upload the new .ipa to Firebase App Distribution by going to the App Distribution tab in the Firebase console and dropping the file into the upload area. 
   

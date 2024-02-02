@@ -777,8 +777,9 @@ const factory BadgeInstance(
   required String chapterID,         // 'chapter-US-001'
   required String badgeID,           // 'badge-001'
   required int level,                // 1
-  String? ownerID,                   // null, 'johnson@hawaii.edu'
-  String? gardenID,                  // null, 'garden-US-98225-101-6789'
+  required String id,                // 'johnson@hawaii.edu', 'garden-US-98225-101-6789', 'chapter-US-001'
+  required String type,              // 'gardener', 'garden', 'chapter'
+  required String cachedName,        // 'Climate Victory'
   String? data,                      // null, 'supplementary data'
   String? data2,                     // null, 'supplementary data2'
   String? data3}                     // null, 'supplementary data3'
