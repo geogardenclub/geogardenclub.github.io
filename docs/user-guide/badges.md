@@ -24,7 +24,7 @@ Open the side navigation menu and select Badges to view the **Badge Index Screen
 
 <img width="600" src="/img/user-guide/find-badges.png"/>
 
-## How to earn Badges?
+## How to earn Badges
 
 Tag your observations with the appropriate tags to earn badges.  For example, to earn the Compost Champion Badge, tag your observations with #Compost, #CompostTea, #HugelCulture, #VermiCulture, or #Worms.  The app will automatically track your progress and award you the badge when you have met the requirements.
 
