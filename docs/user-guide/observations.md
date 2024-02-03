@@ -35,7 +35,6 @@ Then click the planting bar for the planting you are adding an observation for. 
 Fill out the **Create Observation Screen.**  The app will fill in some fields automatically, such as Garden, Bed, Crop, and Variety.
 
  - **Picture:** Tap the camera icon to take a picture of the planting or tap the gallery icon to select a picture from your device's gallery.
- - **Title:**
  - **Description:**  Describe the observation.  What is happening?  Do you have theories or questions other gardeners might be able to help with?
  - **Observation Date:** If you are adding an observation for a date other than today, tap the date to select a different date.
  - **Tags:** Add tags to make your observation easily filterable.  Tags are also important if you want that observation to satisfy a requirement of a badge.  For more on badges, see the [Badges](/docs/user-guide/badges) section.
@@ -45,8 +44,18 @@ Tap **Submit** to add the observation to the planting or **Cancel** to return to
 
 ## Editing an Observation
 
-If you'd like to edit an observation that has already been created, navigate to the Home/Observations screen and find the observation you'd like to edit.  Tap the three dots on the upper right of the observation card and select **Edit Observation.**
+If you'd like to edit an observation that has already been created, tap the three dots on the upper right of the **Observation Card** and select **Update Observation.**
 
+<img width="600" src="/img/user-guide/update-observation.png"/>
 
+_Note that if you need to change the garden, bed, crop, or variety of the observation, you will need to delete the observation and create a new one._
 
+Edit the title, description, tags, observation date, or privacy settings and then hit **Submit** to save your changes or **Cancel** to return to the **Planting Details Screen.**
 
+## Deleting an Observation
+
+If you'd like to delete an observation that has already been created, tap the three dots on the upper right of the **Observation Card** and select **Delete Observation.**  
+
+<img width="600" src="/img/user-guide/delete-observation.png"/>
+
+A confirmation box will appear.  Tap **Delete** to delete the observation or **Cancel** to return to the **Planting Details Screen.**
