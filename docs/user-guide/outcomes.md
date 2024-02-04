@@ -28,6 +28,8 @@ Let's look at outcomes by crop.  Tap **Crops** in the side navigation menu to op
 
 <img width="600" src="/img/user-guide/crops-sections.png"/>
 
+You can find Outcomes specific to your gardens by navigating to the **Garden Details Screen** and selecting **Outcomes** from the bottom navigation menu.
+
 ## How to use Outcomes
 
 Let's look at Amaranth.  It shows a rating of "good" for germination, one "good" and one rating of "excellent" for yield, and flavor, resistance, and appearance all have "excellent" ratings.  A gardener could infer that is a good crop to grow in this area.

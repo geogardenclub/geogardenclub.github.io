@@ -7,8 +7,6 @@ hide_table_of_contents: false
 ## Find your home screen
 To add your first garden navigate to the **Home Screen.**  You can always access the **Home Screen** by tapping the menu icon   <img width="20" src="/img/user-guide/menu-icon.jpg"/> at the top left of your screen.  Tap on **Home** to access your gardens, tasks, observations, and chat rooms.
 
-                                    h…¬≤˙∆
-
 ## Add a garden
 
 By tapping **Home** you will be now be in your **Tasks Screen.**  
