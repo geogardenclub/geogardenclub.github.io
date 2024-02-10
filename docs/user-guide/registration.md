@@ -27,9 +27,7 @@ A verification email will be sent to your email address.  Please check your emai
    - **Vendor Name:** Enter the name of your company.
    - **Vendor Short Name:** Enter the name you'd like displayed for your company.  This may be the same as the Vendor Name.
    - **Vendor URL:** Enter the website of your company. 
- - **Next:** Tap the **Next** button to create your user profile.
-
-To be continued...
+ - Tap the **Submit** button to create your user profile.
 
 
 
