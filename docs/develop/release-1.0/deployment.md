@@ -11,14 +11,14 @@ For the GeoGardenClub project, deployment refers to the process by which a versi
 
 For the Beta Release, we are using [Firebase App Distribution](https://firebase.google.com/docs/app-distribution) as the deployment mechanism. This has the following implications:
 
-1. We deploy only to iOS and Android devices (no Linux, desktop, or web).
+1. We deploy to iOS, Android, and the web.
 2. We must obtain the email address for every user who wishes to have GGC on their device. 
-3. For iOS, there is a somewhat complicated, multi-step process to build a version of GGC that is correctly "provisioned" such that Apple will allow the installation to occur.
-4. At present, we do not know what is involved with deployment to Android.
 
 ## Documenting deployment versions
 
-We expect to make many deployments during the Beta release period as we fix bugs or implement enhancements. Each new deployment will require a new version number (specified in the pubspec.yml file), and we will document what has changed in each new version via [CHANGELOG.md](https://github.com/geogardenclub/ggc_app/blob/main/CHANGELOG.md).  To manage version numbers and the changelog file, we will use [Cider](https://pub.dev/packages/cider). 
+We expect to make many deployments during the Beta release period as we fix bugs or implement enhancements. Each new deployment will require a new version number (specified in the pubspec.yml file), and we will document what has changed in each new version via [CHANGELOG.md](https://github.com/geogardenclub/ggc_app/blob/main/CHANGELOG.md).  To manage version numbers and the changelog file, we will use [Cider](https://pub.dev/packages/cider).
+
+We also want to be able to access the ChangeLog inside the deployed app---this is a simple way for users to both know what version of the app they have installed, and what new features or changes they can expect to find in a new version.  In order to implement that, there is a script called `run_cider.sh` that runs the cider command and also copies the resulting CHANGELOG.md file into the assets/changelog directory so that it will be bundled and deployed with the app, and available to users within their Settings screen.
 
 We will adhere to two standards:
 1. For the changelog format, we will adhere to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
@@ -26,15 +26,19 @@ We will adhere to two standards:
 
 ## Deployment management
 
-The deployment process is handled by a single developer refered to as the "Deployment Manager" (DM). Initially, Philip will be the DM.
+The deployment process is handled by a single developer referred to as the "Deployment Manager" (DM). Initially, Philip will be the DM.
 
 ## 1. Update the ChangeLog
 
-Invoke `cider log added <message>` to document new additions (or use `changed` or `fixed`) since the last release.
+Invoke `./run_cider log added <message>` to document new additions (or use `changed` or `fixed`) since the last release. Enclose the message in quotes. For example:
 
-Invoke `cider bump minor` to increment the version number in pubspec.yml.
+```shell
+./run_cider log added "Terms and Conditions"
+```
 
-Invoke `cider release` to update the ChangeLog to indicate that a new release with the current version in pubspec.yml has happened on the current date.
+Invoke `./run_cider bump minor` to increment the version number in pubspec.yml.
+
+Invoke `./run_cider release` to update the ChangeLog to indicate that a new release with the current version in pubspec.yml has happened on the current date.
 
 Commit the changed ChangeLog and pubspec.yml to main.
 

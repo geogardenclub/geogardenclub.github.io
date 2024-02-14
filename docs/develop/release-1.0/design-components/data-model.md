@@ -309,7 +309,9 @@ BedNums start at 001 for each garden.
   {required String bedID,          // 'bed-US-98225-101-001-5634'
   required String chapterID,       // 'chapter-US-001'
   required String gardenID,        // 'garden-US-98225-101-6789'
-  required String name}            // '02'
+  required String name,            // '02'
+  String? gardenerID,              // The owner of the garden, i.e. 'johnson@hawaii.edu'.
+  }              
 )
 ```
 
@@ -456,6 +458,7 @@ factory Planting(
   required String cachedBedName, // '02'
   required DateTime startDate,   // '2023-03-19T12:19:14.164090'
   required DateTime pullDate,    // '2023-07-19T12:19:14.164090'
+  String? gardenerID,            // The owner of the garden, i.e. 'johnson@hawaii.edu'.
   String? varietyID,             // null, 'variety-US-001-310-7645'
   String? cachedVarietyName,     // null, 'Big Boy'
   String? outcomeID,             // null, 'outcome-US-98225-102-1001-3472'
@@ -718,6 +721,7 @@ factory Task(
   required String gardenID,         // 'garden-US-98225-101-6789'
   required String taskType,         // 'start'
   required String title,            // 'Start Tomato (Big Boy)'
+  String? gardenerID,              // The owner of the garden, i.e. 'johnson@hawaii.edu'.
   String? description,              // null, 'Clean up ground cherries.'
   required String cropID,           // 'crop-US-001-203-5412'
   required String varietyID,        // 'variety-US-001-101-304-6534'
