@@ -560,6 +560,11 @@ The Seed entity provides information about where it was harvested from (but not 
 
 Finally, in order to safely delete a Seed instance, it must not have been used to sow any Plantings. So that we don't have to search through all the Plantings across an entire chapter, the Seed entity provides a field called sowSeedCount. This field is initialized to zero and incremented whenever a Seed instance is referenced in the sowSeedID field of a new Planting. A Seed instance can only be deleted when the sowSeedCount is zero. 
 
+
+::: warning
+In the beta release, sowSeedCount is incremented only a Planting creation and decremented only on Planting deletion. It does not track Planting updates. Because of this, in the beta release, once a Seed is created it is never deleted because we can't safely rely on the sowSeedCount.)
+:::
+
 #### Seed entity representation
 
 ```dart
