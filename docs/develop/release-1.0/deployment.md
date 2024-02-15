@@ -33,12 +33,12 @@ The deployment process is handled by a single developer referred to as the "Depl
 Invoke `./run_cider log added <message>` to document new additions (or use `changed` or `fixed`) since the last release. Enclose the message in quotes. For example:
 
 ```shell
-./run_cider log added "Terms and Conditions"
+./run_cider.sh log added "Terms and Conditions"
 ```
 
-Invoke `./run_cider bump minor` to increment the version number in pubspec.yml.
+Invoke `./run_cider.sh bump minor` to increment the version number in pubspec.yml.
 
-Invoke `./run_cider release` to update the ChangeLog to indicate that a new release with the current version in pubspec.yml has happened on the current date.
+Invoke `./run_cider.sh release` to update the ChangeLog to indicate that a new release with the current version in pubspec.yml has happened on the current date.
 
 Commit the changed ChangeLog and pubspec.yml to main.
 
