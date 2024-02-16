@@ -48,13 +48,13 @@ Documentation is available at: [Distribute your Flutter App with FireBase App Di
   
 In XCode, check "General" and "Signing and Capabilities" tabs. You may need to login to Apple to get the Team details and Provisioning details to be specified correctly.
 
-In a terminal, run `flutter build ios`.  Among other things, this tells XCode about the new version number in pubspec.yml. 
+In a terminal, run `flutter build ios`.  Among other things, this tells XCode about the new version number in pubspec.yml. (Note that the updated version number might not appear in XCode, this should not be a problem, but double check after the archive is generated.)
 
 Back in XCode, invoke Product > Build, then Product > Archive.
 
-If archiving completes successfully, then a dialog box will pop up with "Distribute App". Click it, and specify "Ad hoc" distribution, "Automatic signing", and keep clicking dialogs as they appear until the .ipa file is created. 
+If archiving completes successfully, then a dialog box will pop up with "Distribute App". Click it, and specify "Custom", then "Ad hoc" distribution, then "Automatic signing", and keep clicking dialogs as they appear until the .ipa file is created. 
   
-Upload the new .ipa to Firebase App Distribution by going to the App Distribution tab in the Firebase console and dropping the file into the upload area. 
+Upload the new .ipa to Firebase App Distribution by going to the App Distribution tab in the Firebase console, selecting `ggc_app (ios)` in the top pull-down menu,  and dropping the file into the upload area. 
   
 Select the testers to receive the deployment.
   
@@ -76,7 +76,7 @@ This should result in the creation of an APK file in `build/app/outputs/flutter-
 
 To upload it, go to App Distribution, select `ggc_app (android)` in the top of the window, and upload the file.
 
-Select testers and distribute in the standards way.
+Select testers and distribute in the standard way.
 
 ## 4. Build the web app
 
@@ -105,3 +105,14 @@ $ dhttpd --path build/web/
 ```
 
 Open http://localhost:8080 to see the app.
+
+## 5. When new testers are added
+
+When a new tester is added for the first time, there are a few additional steps:
+
+1. When the tester tries to install the system, the installation process will fail and an email will be generated to me with the UIUD of the device and name of the person attempting to install.
+2. Following the prompts results in my signing in to Apple and adding that person's device to the provisioning profile for the app. (There are a limit of 100 people who can be added this way.)
+3. Once I've added that person, I can simply re-build, re-archive, and re-upload the current version of the app. I do not have to change the code in any way.
+4. When I upload the re-built .ipa file, Google detects that a new device has been added to the provisioning profile and emails them automatically to download and install the new version.
+
+Once this two-phase installation process finishes for a user, subsequent updates occur in one step since they are now part of the provisioning profile.
