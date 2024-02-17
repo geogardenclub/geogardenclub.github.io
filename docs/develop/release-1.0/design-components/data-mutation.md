@@ -250,13 +250,3 @@ class MutateTEMPLATEController extends _$MutateTEMPLATEController {
   }
 }
 ```
-
-:::warning Caveats and gotchas
-Here are some issues:
-
-1. Batched writes are limited to 500 operations.  Our current database organization will result in exceeding that limit for gardens of reasonable size (i.e. hundreds of plantings).  This means we really need to reorganize the database to use subcollections. Then, for example, deleting a garden will delete all of its associated plantings in one batch operation.
-2. Collection classes shouldn't access the database methods at all.  We should remove those methods.
-3. Remove database fields from collection classes. We should access databases using Riverpod provider variables.
-4. Database methods should return Futures, and not implement then() or catchError() clauses.
-5. WithGarden now provides access to Observations, Tasks, and Outcomes. The "extended" WithGarden widgets might no longer be necessary.
-:::

@@ -309,7 +309,9 @@ BedNums start at 001 for each garden.
   {required String bedID,          // 'bed-US-98225-101-001-5634'
   required String chapterID,       // 'chapter-US-001'
   required String gardenID,        // 'garden-US-98225-101-6789'
-  required String name}            // '02'
+  required String name,            // '02'
+  String? gardenerID,              // The owner of the garden, i.e. 'johnson@hawaii.edu'.
+  }              
 )
 ```
 
@@ -456,6 +458,7 @@ factory Planting(
   required String cachedBedName, // '02'
   required DateTime startDate,   // '2023-03-19T12:19:14.164090'
   required DateTime pullDate,    // '2023-07-19T12:19:14.164090'
+  String? gardenerID,            // The owner of the garden, i.e. 'johnson@hawaii.edu'.
   String? varietyID,             // null, 'variety-US-001-310-7645'
   String? cachedVarietyName,     // null, 'Big Boy'
   String? outcomeID,             // null, 'outcome-US-98225-102-1001-3472'
@@ -556,6 +559,11 @@ A Seed instance can also be associated with one or more additional Plantings as 
 The Seed entity provides information about where it was harvested from (but not about where it was used to sow new Plantings). This information includes the gardenerID, cropID, cropName, varietyID, varietyName and seedsAvailable. Providing this information in the Seed entity simplifies presentation of Seed data in Index and View pages.
 
 Finally, in order to safely delete a Seed instance, it must not have been used to sow any Plantings. So that we don't have to search through all the Plantings across an entire chapter, the Seed entity provides a field called sowSeedCount. This field is initialized to zero and incremented whenever a Seed instance is referenced in the sowSeedID field of a new Planting. A Seed instance can only be deleted when the sowSeedCount is zero. 
+
+
+::: warning
+In the beta release, sowSeedCount is incremented only a Planting creation and decremented only on Planting deletion. It does not track Planting updates. Because of this, in the beta release, once a Seed is created it is never deleted because we can't safely rely on the sowSeedCount.)
+:::
 
 #### Seed entity representation
 
@@ -718,6 +726,7 @@ factory Task(
   required String gardenID,         // 'garden-US-98225-101-6789'
   required String taskType,         // 'start'
   required String title,            // 'Start Tomato (Big Boy)'
+  String? gardenerID,              // The owner of the garden, i.e. 'johnson@hawaii.edu'.
   String? description,              // null, 'Clean up ground cherries.'
   required String cropID,           // 'crop-US-001-203-5412'
   required String varietyID,        // 'variety-US-001-101-304-6534'

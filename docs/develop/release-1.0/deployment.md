@@ -11,14 +11,14 @@ For the GeoGardenClub project, deployment refers to the process by which a versi
 
 For the Beta Release, we are using [Firebase App Distribution](https://firebase.google.com/docs/app-distribution) as the deployment mechanism. This has the following implications:
 
-1. We deploy only to iOS and Android devices (no Linux, desktop, or web).
+1. We deploy to iOS, Android, and the web.
 2. We must obtain the email address for every user who wishes to have GGC on their device. 
-3. For iOS, there is a somewhat complicated, multi-step process to build a version of GGC that is correctly "provisioned" such that Apple will allow the installation to occur.
-4. At present, we do not know what is involved with deployment to Android.
 
 ## Documenting deployment versions
 
-We expect to make many deployments during the Beta release period as we fix bugs or implement enhancements. Each new deployment will require a new version number (specified in the pubspec.yml file), and we will document what has changed in each new version via [CHANGELOG.md](https://github.com/geogardenclub/ggc_app/blob/main/CHANGELOG.md).  To manage version numbers and the changelog file, we will use [Cider](https://pub.dev/packages/cider). 
+We expect to make many deployments during the Beta release period as we fix bugs or implement enhancements. Each new deployment will require a new version number (specified in the pubspec.yml file), and we will document what has changed in each new version via [CHANGELOG.md](https://github.com/geogardenclub/ggc_app/blob/main/CHANGELOG.md).  To manage version numbers and the changelog file, we will use [Cider](https://pub.dev/packages/cider).
+
+We also want to be able to access the ChangeLog inside the deployed app---this is a simple way for users to both know what version of the app they have installed, and what new features or changes they can expect to find in a new version.  In order to implement that, there is a script called `run_cider.sh` that runs the cider command and also copies the resulting CHANGELOG.md file into the assets/changelog directory so that it will be bundled and deployed with the app, and available to users within their Settings screen.
 
 We will adhere to two standards:
 1. For the changelog format, we will adhere to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
@@ -26,15 +26,19 @@ We will adhere to two standards:
 
 ## Deployment management
 
-The deployment process is handled by a single developer refered to as the "Deployment Manager" (DM). Initially, Philip will be the DM.
+The deployment process is handled by a single developer referred to as the "Deployment Manager" (DM). Initially, Philip will be the DM.
 
 ## 1. Update the ChangeLog
 
-Invoke `cider log added <message>` to document new additions (or use `changed` or `fixed`) since the last release.
+Invoke `./run_cider log added <message>` to document new additions (or use `changed` or `fixed`) since the last release. Enclose the message in quotes. For example:
 
-Invoke `cider bump minor` to increment the version number in pubspec.yml.
+```shell
+./run_cider.sh log added "Terms and Conditions"
+```
 
-Invoke `cider release` to update the ChangeLog to indicate that a new release with the current version in pubspec.yml has happened on the current date.
+Invoke `./run_cider.sh bump minor` to increment the version number in pubspec.yml.
+
+Invoke `./run_cider.sh release` to update the ChangeLog to indicate that a new release with the current version in pubspec.yml has happened on the current date.
 
 Commit the changed ChangeLog and pubspec.yml to main.
 
@@ -44,13 +48,13 @@ Documentation is available at: [Distribute your Flutter App with FireBase App Di
   
 In XCode, check "General" and "Signing and Capabilities" tabs. You may need to login to Apple to get the Team details and Provisioning details to be specified correctly.
 
-In a terminal, run `flutter build ios`.  Among other things, this tells XCode about the new version number in pubspec.yml. 
+In a terminal, run `flutter build ios`.  Among other things, this tells XCode about the new version number in pubspec.yml. (Note that the updated version number might not appear in XCode, this should not be a problem, but double check after the archive is generated.)
 
 Back in XCode, invoke Product > Build, then Product > Archive.
 
-If archiving completes successfully, then a dialog box will pop up with "Distribute App". Click it, and specify "Ad hoc" distribution, "Automatic signing", and keep clicking dialogs as they appear until the .ipa file is created. 
+If archiving completes successfully, then a dialog box will pop up with "Distribute App". Click it, and specify "Custom", then "Ad hoc" distribution, then "Automatic signing", and keep clicking dialogs as they appear until the .ipa file is created. 
   
-Upload the new .ipa to Firebase App Distribution by going to the App Distribution tab in the Firebase console and dropping the file into the upload area. 
+Upload the new .ipa to Firebase App Distribution by going to the App Distribution tab in the Firebase console, selecting `ggc_app (ios)` in the top pull-down menu,  and dropping the file into the upload area. 
   
 Select the testers to receive the deployment.
   
@@ -72,7 +76,7 @@ This should result in the creation of an APK file in `build/app/outputs/flutter-
 
 To upload it, go to App Distribution, select `ggc_app (android)` in the top of the window, and upload the file.
 
-Select testers and distribute in the standards way.
+Select testers and distribute in the standard way.
 
 ## 4. Build the web app
 
@@ -101,3 +105,14 @@ $ dhttpd --path build/web/
 ```
 
 Open http://localhost:8080 to see the app.
+
+## 5. When new testers are added
+
+When a new tester is added for the first time, there are a few additional steps:
+
+1. When the tester tries to install the system, the installation process will fail and an email will be generated to me with the UIUD of the device and name of the person attempting to install.
+2. Following the prompts results in my signing in to Apple and adding that person's device to the provisioning profile for the app. (There are a limit of 100 people who can be added this way.)
+3. Once I've added that person, I can simply re-build, re-archive, and re-upload the current version of the app. I do not have to change the code in any way.
+4. When I upload the re-built .ipa file, Google detects that a new device has been added to the provisioning profile and emails them automatically to download and install the new version.
+
+Once this two-phase installation process finishes for a user, subsequent updates occur in one step since they are now part of the provisioning profile.
