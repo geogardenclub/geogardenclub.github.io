@@ -58,7 +58,7 @@ When a new tester is added for the first time, there are a few additional steps:
 
 1. When the tester tries to install the system, the installation process will fail and an email will be generated to me with the UIUD of the device and name of the person attempting to install.
 2. Following the prompts results in my signing in to Apple and adding that person's device to the provisioning profile for the app. (There are a limit of 100 people who can be added this way.)
-3. Once I've added that person, I can simply re-build, re-archive, and re-upload the current version of the app. I do not have to change the code in any way.
+3. Once I've added that person, I can simply re-build, re-archive, and re-upload the current version of the app. I do not have to change the code in any way. To rebuild the ipa without making any other changes and place the results in the Desktop directory, invoke `./run_rebuild_ipa.sh`.
 4. When I upload the re-built .ipa file, Google detects that a new device has been added to the provisioning profile and emails them automatically to download and install the new version.
 
 Once this two-phase installation process finishes for a user, subsequent updates occur in one step since they are now part of the provisioning profile.
