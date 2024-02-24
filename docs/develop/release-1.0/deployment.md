@@ -52,13 +52,19 @@ Invoke `./run_deploy.sh`.  This script does the following:
 
 Upload the .ipa and .apk files to Firebase, select testers, add the release notes, and distribute.
 
-## When new testers are added
+## Adding new beta testers
 
 When a new tester is added for the first time, there are a few additional steps:
 
-1. When the tester tries to install the system, the installation process will fail and an email will be generated to me with the UIUD of the device and name of the person attempting to install.
-2. Following the prompts results in my signing in to Apple and adding that person's device to the provisioning profile for the app. (There are a limit of 100 people who can be added this way.)
-3. Once I've added that person, I can simply re-build, re-archive, and re-upload the current version of the app. I do not have to change the code in any way. To rebuild the ipa without making any other changes and place the results in the Desktop directory, invoke `./run_rebuild_ipa.sh`.
-4. When I upload the re-built .ipa file, Google detects that a new device has been added to the provisioning profile and emails them automatically to download and install the new version.
+1. Firebase App Distribution works reliably only with gmail accounts. We have not had good luck with hotmail accounts. This means that a new beta tester will need to have a gmail account in order to efficiently download and install the system. (They could then register in GGC using a different email account if they so choose.)
+2. When a new tester tries to install the system, the installation process will ask the user permission to send the device's UUID to GGC. 
+3. Philip will then get an email with the UIUD of the device and name of the person attempting to install.
+4. Following the prompts results in signing in to Apple to the "Certificates, Identifiers, and Profiles" page. There are several steps:
+  * Define that device as a new Device.
+  * Update the Profile named "GGC Beta Test" to include that device.
+  * Download that Profile to my laptop.
+  * Double click the downloaded Profile to add it to XCode. 
+5. Now re-build, re-archive, and re-upload the current version of the app. To rebuild the ipa without making any other changes and place the results in the Desktop directory, invoke `./run_rebuild_ipa.sh`.
+6. Upload the re-built .ipa file to App Distribution. If everything works correctly, Google detects that a new device has been added to the provisioning profile and an alert message is displayed indicating that the new tester has been emailed to complete the download process.
 
-Once this two-phase installation process finishes for a user, subsequent updates occur in one step since they are now part of the provisioning profile.
+Once this initial installation process finishes for a user, subsequent updates occur in one step since they are now part of the provisioning profile.
