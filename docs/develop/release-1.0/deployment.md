@@ -18,7 +18,7 @@ For the Beta Release, we are using [Firebase App Distribution](https://firebase.
 
 We expect to make many deployments during the Beta release period as we fix bugs or implement enhancements. Each new deployment will require a new version number (specified in the pubspec.yml file), and we will document what has changed in each new version via [CHANGELOG.md](https://github.com/geogardenclub/ggc_app/blob/main/CHANGELOG.md).  To manage version numbers and the changelog file, we will use [Cider](https://pub.dev/packages/cider).
 
-We also want to be able to access the ChangeLog inside the deployed app---this is a simple way for users to both know what version of the app they have installed, and what new features or changes they can expect to find in a new version.  In order to implement that, there is a script called `run_cider.sh` that runs the cider command and also copies the resulting CHANGELOG.md file into the assets/changelog directory so that it will be bundled and deployed with the app, and available to users within their Settings screen.
+We also want to be able to access the ChangeLog inside the deployed app---this is a simple way for users to both know what version of the app they have installed, and what new features or changes they can expect to find in a new version.  So, when we do a deployment, the `run_deploy.sh` script will copy the top-level CHANGELOG.md file into the assets/ folder so that it gets included in the various apps.
 
 We will adhere to two standards:
 1. For the changelog format, we will adhere to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
@@ -30,89 +30,41 @@ The deployment process is handled by a single developer referred to as the "Depl
 
 ## 1. Update the ChangeLog
 
-Invoke `./run_cider log added <message>` to document new additions (or use `changed` or `fixed`) since the last release. Enclose the message in quotes. For example:
+Invoke `cider log added <message>` to document new additions (or use `changed` or `fixed`) since the last release. Enclose the message in quotes. For example:
 
 ```shell
-./run_cider.sh log added "Terms and Conditions"
+cider log added "Terms and Conditions"
 ```
 
-Invoke `./run_cider.sh bump minor` to increment the version number in pubspec.yml.
+## 2. Build the deployment files
 
-Invoke `./run_cider.sh release` to update the ChangeLog to indicate that a new release with the current version in pubspec.yml has happened on the current date.
+Invoke `./run_deploy.sh`.  This script does the following:
 
-Commit the changed ChangeLog and pubspec.yml to main.
+* Invokes `cider bump minor` and `cider release` so that all of the unreleased changes are moved to a new release number, and that release number is recorded in the pubspec.yml.
+* Commits the updated CHANGELOG.md and pubspec.yml files to GitHub.
+* Creates a "deploy directory" at `~/Desktop/ggc-deploy-<VERSION>`.
+* Builds the ggc_app.ipa file and copies it to the deploy directory.
+* Builds the app-release.apk file and copies it to the deploy directory.
+* Gets the release notes for the current release and copies them to the deploy directory.
+* Invokes `firebase deploy` to build and deploy the web version of the app.
 
-## 2. Build the iOS release
+## 3. Upload the deployment files to Firebase App Distribution
 
-Documentation is available at: [Distribute your Flutter App with FireBase App Distribution](https://medium.com/@Ikay_codes/distribute-your-flutter-app-with-firebase-app-distribution-fc83e0ffb547) and [Build and release an iOS app](https://docs.flutter.dev/deployment/ios). Here's a summary:
-  
-In XCode, check "General" and "Signing and Capabilities" tabs. You may need to login to Apple to get the Team details and Provisioning details to be specified correctly.
+Upload the .ipa and .apk files to Firebase, select testers, add the release notes, and distribute.
 
-In a terminal, run `flutter build ios`.  Among other things, this tells XCode about the new version number in pubspec.yml. (Note that the updated version number might not appear in XCode, this should not be a problem, but double check after the archive is generated.)
-
-Back in XCode, invoke Product > Build, then Product > Archive.
-
-If archiving completes successfully, then a dialog box will pop up with "Distribute App". Click it, and specify "Custom", then "Ad hoc" distribution, then "Automatic signing", and keep clicking dialogs as they appear until the .ipa file is created. 
-  
-Upload the new .ipa to Firebase App Distribution by going to the App Distribution tab in the Firebase console, selecting `ggc_app (ios)` in the top pull-down menu,  and dropping the file into the upload area. 
-  
-Select the testers to receive the deployment.
-  
-Initiate deployment.
-
-## 3. Build the android release
-
-Documentation is available at [Build and release an Android app](https://docs.flutter.dev/deployment/android). Here's a summary:
-
-On my (2021) Mac laptop, I have generated an upload-keystore.jks file with CN=Philip Johnson, OU=geogardenclub, O=geogardenclub, L=Bellingham, ST=WA, C=US. 
-
-If no changes are required to build.gradle or AndroidManifest.xml, then it should be possible to build the Android APK file by invoking:
-
-```shell
-flutter build apk
-```
-
-This should result in the creation of an APK file in `build/app/outputs/flutter-apk/app-release.apk`.
-
-To upload it, go to App Distribution, select `ggc_app (android)` in the top of the window, and upload the file.
-
-Select testers and distribute in the standard way.
-
-## 4. Build the web app
-
-Documentation is available at: [Build and release a web app](https://docs.flutter.dev/deployment/web).
-
-There are some one-time configuration steps documented at the above link, but once you've gone through them, you can simply invoke:
-
-```shell
-firebase deploy
-```
-
-At the end, I received output like this:
-
-```shell
-Project Console: https://console.firebase.google.com/project/ggc-app-2de7b/overview
-Hosting URL: https://ggc-app-2de7b.web.app
-```
-
-#### Previewing prior to deployment
-
-Note that if you want to preview the webapp prior to deployment, you can install [dhttp](https://pub.dev/packages/dhttpd), then run:
-
-```shell
-$ flutter build web
-$ dhttpd --path build/web/
-```
-
-Open http://localhost:8080 to see the app.
-
-## 5. When new testers are added
+## Adding new beta testers
 
 When a new tester is added for the first time, there are a few additional steps:
 
-1. When the tester tries to install the system, the installation process will fail and an email will be generated to me with the UIUD of the device and name of the person attempting to install.
-2. Following the prompts results in my signing in to Apple and adding that person's device to the provisioning profile for the app. (There are a limit of 100 people who can be added this way.)
-3. Once I've added that person, I can simply re-build, re-archive, and re-upload the current version of the app. I do not have to change the code in any way.
-4. When I upload the re-built .ipa file, Google detects that a new device has been added to the provisioning profile and emails them automatically to download and install the new version.
+1. Firebase App Distribution works reliably only with gmail accounts. We have not had good luck with hotmail accounts. This means that a new beta tester will need to have a gmail account in order to efficiently download and install the system. (They could then register in GGC using a different email account if they so choose.)
+2. When a new tester tries to install the system, the installation process will ask the user permission to send the device's UUID to GGC. 
+3. Philip will then get an email with the UIUD of the device and name of the person attempting to install.
+4. Following the prompts results in signing in to Apple to the "Certificates, Identifiers, and Profiles" page. There are several steps:
+  * Define that device as a new Device.
+  * Update the Profile named "GGC Beta Test" to include that device.
+  * Download that Profile to my laptop.
+  * Double click the downloaded Profile to add it to XCode. 
+5. Now re-build, re-archive, and re-upload the current version of the app. To rebuild the ipa without making any other changes and place the results in the Desktop directory, invoke `./run_rebuild_ipa.sh`.
+6. Upload the re-built .ipa file to App Distribution. If everything works correctly, Google detects that a new device has been added to the provisioning profile and an alert message is displayed indicating that the new tester has been emailed to complete the download process.
 
-Once this two-phase installation process finishes for a user, subsequent updates occur in one step since they are now part of the provisioning profile.
+Once this initial installation process finishes for a user, subsequent updates occur in one step since they are now part of the provisioning profile.

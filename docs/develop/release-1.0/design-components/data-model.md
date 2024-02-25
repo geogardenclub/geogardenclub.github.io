@@ -403,6 +403,7 @@ const factory Variety(
   required String chapterID,       // 'chapter-US-001'
   required String cropID,          // 'crop-US-001-203-2354'
   required String cachedCropName,  // 'Asparagus'
+  bool? isGold,                    // If present and set to true, the variety has "gold" status.
   required String name}            // 'Jersey Knight' 
 )
 ```
