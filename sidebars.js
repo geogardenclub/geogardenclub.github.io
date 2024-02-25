@@ -44,6 +44,7 @@ const sidebars = {
         'user-guide/tasks',
         'user-guide/seeds',
         'user-guide/chat-rooms',
+        'user-guide/terms-and-conditions',
         ]
     }],
   developSidebar: [
