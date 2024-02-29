@@ -77,6 +77,6 @@ When a new tester is added for the first time, there are a few additional steps:
   * Download that Profile to my laptop.
   * Double click the downloaded Profile to add it to XCode. 
 5. Now re-build, re-archive, and re-upload the current version of the app. To rebuild the ipa without making any other changes and place the results in the Desktop directory, invoke `./run_rebuild_ipa.sh`.
-6. Upload the re-built .ipa file to App Distribution. If everything works correctly, Google detects that a new device has been added to the provisioning profile and an alert message is displayed indicating that the new tester has been emailed to complete the download process.
+6. Upload the re-built file to App Distribution. If everything works correctly, Google detects that a new device has been added to the provisioning profile and an alert message is displayed indicating that the new tester has been emailed to complete the download process.
 
 Once this initial installation process finishes for a user, subsequent updates occur in one step since they are now part of the provisioning profile.
