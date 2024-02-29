@@ -48,11 +48,23 @@ Invoke `./run_deploy.sh`.  This script does the following:
 * Gets the release notes for the current release and copies them to the deploy directory.
 * Invokes `firebase deploy` to build and deploy the web version of the app.
 
-## 3. Upload the deployment files to Firebase App Distribution
+## 3. Deploy the iOS app
 
-Upload the .ipa and .apk files to Firebase, select testers, add the release notes, and distribute.
+First, open the Transporter app and drag the ggc_app.ipa file from the Desktop folder onto the App. 
 
-## Adding new beta testers
+Second, login to [App Store Connect](https://appstoreconnect.apple.com/login). Click on "Apps", then "GeoGardenClub", then "TestFlight".
+
+Wait for a few minutes for the uploaded version to become available for distribution via TestFlight.
+
+## 3. Deploy the Android App
+
+Upload the .apk files to Firebase, select testers, add the release notes, and distribute.
+
+## Adding new beta testers (iOS)
+
+We need the email address they use with their Apple ID in order to add them as a user in App Store Connect.
+
+## Adding new beta testers (Android)
 
 When a new tester is added for the first time, there are a few additional steps:
 
