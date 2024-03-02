@@ -69,8 +69,6 @@ You can see the history of what was grown in a garden bed by first navigating to
 
 ## What if I know the crop but not the variety for seeds I'm planting?
 
-Sometimes you may not know the variety name of the seeds you are planting.  You can still enter the crop name and then select **Unknown Variety** from the variety dropdown menu.  This will allow you to enter the crop into your timeline without specifying the variety.  You can always update the variety later if you find out the name.
-
-
+Sometimes you may not know the variety name of the seeds you are planting (perhaps they were shared with you and just labelled with crop name or maybe you haven't decided which variety but know you want that crop included in your plans).  You can add that crop and leave variety blank. This will allow you to enter the crop into your timeline without specifying the variety.  You can always update the variety later if you find out the name.
 
 _More coming soon!_
