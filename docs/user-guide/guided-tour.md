@@ -2,17 +2,30 @@
 sidebar_position: 1
 ---
 
-# Guided Tour
+# Frequently Asked (Gardening) Questions
 
 Geo Garden Club was created to increase the performance of home, community, and school gardens and efficiency of the gardener by answering questions a gardener might have as they plan or work through the gardening season.  Here are some of the questions that Geo Garden Club can help answer:
 
 ## I'm new to the area, what should I plant here?
 
-Navigate to the **Crops Index Screen** and select the **Outcomes** check box to display outcomes for each crop.  Scroll through the list of crops to see how each crop has been rated and how many times it has been planted in a chapter garden.
+Look through the Crop Index for inspiration about what to grow.  Use it to jog your memory about a crop you might be forgetting to include or to learn about a new crop you've never grown before.
 
-<img width="600" src="/img/user-guide/crops-sections.png"/>
+Navigate to the Crops Index by tapping the menu icon <img width="20" src="/img/user-guide/menu-icon.jpg"/> at the top left of your screen.  Select **Crops.**
 
-After you've chosen a crop to grow, you can see which varieties have been most successfully grown by chapter gardeners.  Expand the Varieties section for that crop, or use the Outcomes Variety filter to see which varieties have been grown and how well they've performed.
+<img width="600" src="/img/user-guide/index-crops.png"/>
+
+For each crop, expand each section to see more details.
+- View which gardens have grown the crop, and tap those garden chips to be taken to the garden's **Garden Summary Screen,** and from there the **Garden Details** for timeline information.
+- See which gardeners have experience growing the crop
+- Check out the outcomes for a sense of how easy that crop is to grow locally
+- Notice which varieties are being grown.
+- Look through the observations to see pictures of that crop and notes from local gardeners.
+
+<img width="600" src="/img/user-guide/crops.png"/>
+
+After you've chosen a crop to grow, you can see which varieties have been most successfully grown by chapter gardeners.  Expand the Varieties section for that crop, or use the Outcomes Variety filter to see which varieties have been grown and how well they've performed.  Gold variety chips indicate that the variety has been frequently grown by chapter members with great outcomes.
+
+<img width="600" src="/img/user-guide/gold-varieties.png"/>
 
 You can see which gardens have grown this crop and which gardeners have experience growing this crop by expanding those sections.
 
@@ -46,7 +59,9 @@ To identify who in your chapter is really good at growing tomatoes, navigate to 
 
 You can replicate the practices of another gardener by finding them in the **Gardener Index Screen** Then, select the garden you are interested in learning specifics about.  From there, you can select **Details** to see information about their timing and outcomes for each crop they have grown.
 
-_Copy plantings from other gardener's gardens into your timeline coming soon!_
+A great garden planning feature is the ability to copy a planting from one year to the next or one bed to another.  Navigate to the planting and tap the copy icon at the top menu.  Update bed if needed.  Update the dates the the next year or make other adjustments as needed.  Then, select **Submit.**
+
+<img width="600" src="/img/user-guide/copy-planting.png"/>
 
 ## I like to rotate my crops.  What did I grow in a specific garden bed over the last three years?
 

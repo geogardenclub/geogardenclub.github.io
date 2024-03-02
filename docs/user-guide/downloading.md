@@ -4,15 +4,15 @@ hide_table_of_contents: false
 
 # Downloading
 
-This page details the downloading process for beta testers.  Once we move past beta testing, the app will be available for download in app stores.  If you have an iPhone or iPad, you will download the app through TestFlight.  If you have an Android device, you will download the app through Firebase.
+This page details the downloading process for beta testers.  Once we move past beta testing, the app will be available for download in app stores.  If you have an iPhone or iPad, you will download the app through TestFlight.  If you have an Android device, instructions will soon be available.
 
-## Downloading through TestFlight (iPhone and iPad only)
+## Downloading through TestFlight (iOS only)
 
 1.  Using your mobile device, open your inbox for your email account associated with your Apple ID.  Look for an email from App Store Connect inviting you to access App Store Connect (check Spam folder if you don't see it).  **Accept** the invitation.
 
 <img width="600" src="/img/user-guide/app-store-connect.png"/>
 
-2. After this invitation has been accepted, look for an email invitation from TestFlight inviting you to test GeoGardenClub (check Spam folder if you don't see it).  The subject line will read: "Philip Johnson has invited to test GeoGardenClub."  Tap **View in TestFlight.**
+2. After this invitation has been accepted, look for an email invitation from TestFlight inviting you to test GeoGardenClub (check Spam folder if you don't see it).  The subject line will read: "Philip Johnson has invited to test GeoGardenClub."  It will also include a redeem code that you'll enter once you open TestFlight.  Tap **View in TestFlight.**
 
 <img width="600" src="/img/user-guide/testflight.png"/>
 
@@ -24,10 +24,11 @@ This page details the downloading process for beta testers.  Once we move past b
 
 <img width="600" src="/img/user-guide/search-app-library.png"/>
 
-### Updating through TestFlight (iPhone and iOS only)
+## Updating through TestFlight (iOS only)
 
 You will receive emails from TestFlight everytime a new version is released.  You can open Testflight through the email link to get taken directly to TestFlight to update to the latest version.
 
+<!-- 
 ## Downloading through Firebase (Android)
 
 1. Using your mobile device, look for an email invitation to get started as an app tester.  The subject line will read: "You've been invited to test GeoGardenClub for iOS"  It might be in your spam folder.
@@ -68,3 +69,6 @@ You will receive emails from TestFlight everytime a new version is released.  Yo
 ### Updating through Firebase (Android)
 
 You will receive emails from "GeoGardenClub (via Firebase)" everytime a new version is released.  Tap **Download the latest build** and the app will begin updating.
+
+-->
+```
