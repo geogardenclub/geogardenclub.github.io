@@ -59,12 +59,18 @@ To identify who in your chapter is really good at growing tomatoes, navigate to 
 
 You can replicate the practices of another gardener by finding them in the **Gardener Index Screen** Then, select the garden you are interested in learning specifics about.  From there, you can select **Details** to see information about their timing and outcomes for each crop they have grown.
 
-A great garden planning feature is the ability to copy a planting from one year to the next or one bed to another.  Navigate to the planting and tap the copy icon at the top menu.  Update bed if needed.  Update the dates the the next year or make other adjustments as needed.  Then, select **Submit.**
+A great garden planning feature is the ability to copy a planting from one year to the next, one bed to another, or from another garden to your own.  Navigate to the planting and tap the copy icon at the top menu.  Update bed if needed.  The dates will automatically update to the current year and can be adjusted as needed.  Then, select **Submit.**
 
 <img width="600" src="/img/user-guide/copy-planting.png"/>
 
 ## I like to rotate my crops.  What did I grow in a specific garden bed over the last three years?
 
 You can see the history of what was grown in a garden bed by first navigating to that garden's **Garden Details Screen.**  Then, select **Filter** from the bottom navigation menu and at select **Filter by Bed.**  Select the bed you are interested in to see the crops that have been grown in that bed for all seasons of data you have entered into the app.
+
+## What if I know the crop but not the variety for seeds I'm planting?
+
+Sometimes you may not know the variety name of the seeds you are planting.  You can still enter the crop name and then select **Unknown Variety** from the variety dropdown menu.  This will allow you to enter the crop into your timeline without specifying the variety.  You can always update the variety later if you find out the name.
+
+
 
 _More coming soon!_
