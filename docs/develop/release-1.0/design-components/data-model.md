@@ -551,19 +551,18 @@ Note that Seeds harvested from one postal code in a Chapter can be sowed in anot
 
 #### Field notes
 
-Seed instances cache the cropID, varietyID, and the seedsAvailable field from the Planting from which they were harvested.
+Seed instances cache the gardenerID, cropID, varietyID, cropName, and seedsAvailable field values from the Planting from which they were harvested.
 
 A Seed instance is always associated with the Planting from which it was harvested, as it's ID will appear in the harvestSeedID field of the Planting. In this case, the Seed instance's GardenID and the Planting instance's GardenID must be the same.
 
 A Seed instance can also be associated with one or more additional Plantings as the seed from which the Planting was grown. In this case, the Seed's ID appears in the Planting in the sowSeedID field. Those Plantings do not have to be in the same Garden (in fact, they will often be in a different garden).
 
-The Seed entity provides information about where it was harvested from (but not about where it was used to sow new Plantings). This information includes the gardenerID, cropID, cropName, varietyID, varietyName and seedsAvailable. Providing this information in the Seed entity simplifies presentation of Seed data in Index and View pages.
+The Seed entity caches information about the Planting from which it was harvested (but has no information about where/when it was used to sow new Plantings). This information includes the gardenerID, cropID, cropName, varietyID, varietyName and seedsAvailable. Providing this information in the Seed entity simplifies presentation of Seed data in Index and View pages.
 
 Finally, in order to safely delete a Seed instance, it must not have been used to sow any Plantings. So that we don't have to search through all the Plantings across an entire chapter, the Seed entity provides a field called sowSeedCount. This field is initialized to zero and incremented whenever a Seed instance is referenced in the sowSeedID field of a new Planting. A Seed instance can only be deleted when the sowSeedCount is zero. 
 
-
-::: warning
-In the beta release, sowSeedCount is incremented only a Planting creation and decremented only on Planting deletion. It does not track Planting updates. Because of this, in the beta release, once a Seed is created it is never deleted because we can't safely rely on the sowSeedCount.)
+:::warning SowSeedCount is never decremented
+In the beta release, sowSeedCount is incremented each time a Planting specifies it as their sowSeedID. It is not reliably decremented. Because of this, in the beta release, once a Seed is created and used once as the sowSeedID, it can not be deleted. The only time you can delete a Seed is before it has ever been used as a sowSeedID in a Planting.
 :::
 
 #### Seed entity representation
@@ -585,7 +584,7 @@ const factory Seed(
 
 #### Seed caveats
 
-In GGC, a Garden associated with a Vendor has a single Planting instance for each Variety that they offer Seeds for. This single Planting instance will have a single Seed instance in the harvestSeedID field, with `seedsAvailable` set to `true`.  
+In GGC, the Garden associated with a Vendor has a single Planting instance for each Variety for which they offer Seeds. This single Planting instance will have a SeedID in the harvestSeedID field, with `seedsAvailable` set to `true`.  
 
 In reality, a vendor may or may not have seeds in stock for a given Variety at any given time.  And, in reality, a vendor will produce their seeds from new Plantings each year. But, GGC will not attempt to keep track of real-time inventory.
 
