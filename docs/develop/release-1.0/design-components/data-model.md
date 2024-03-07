@@ -459,7 +459,6 @@ factory Planting(
   required String cachedBedName, // '02'
   required DateTime startDate,   // '2023-03-19T12:19:14.164090'
   required DateTime pullDate,    // '2023-07-19T12:19:14.164090'
-  String? gardenerID,            // The owner of the garden, i.e. 'johnson@hawaii.edu'.
   String? varietyID,             // null, 'variety-US-001-310-7645'
   String? cachedVarietyName,     // null, 'Big Boy'
   String? outcomeID,             // null, 'outcome-US-98225-102-1001-3472'
