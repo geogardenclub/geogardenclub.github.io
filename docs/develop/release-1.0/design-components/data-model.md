@@ -539,7 +539,7 @@ Our data model enables us to represent both seeds that are locally produced by g
 
 SeedIDs have the format `seed-<country>-<postalCode>-<gardenNum>-<seedNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
-SeedNums start at 001.
+SeedNums is typically taken from the plantingNum of the Planting from which the Seed was harvested. 
 
 The country and postal code fields are taken from the Planting that this seed was harvested from. This is to ensure that if a Chapter is reorganized, the Seed will move with the Planting it was harvested from.
 
@@ -552,16 +552,21 @@ Note that Seeds harvested from one postal code in a Chapter can be sowed in anot
 
 Seed instances cache the gardenerID, cropID, varietyID, cropName, and seedsAvailable field values from the Planting from which they were harvested.
 
-A Seed instance is always associated with the Planting from which it was harvested, as it's ID will appear in the harvestSeedID field of the Planting. In this case, the Seed instance's GardenID and the Planting instance's GardenID must be the same.
+
+A Seed instance is always associated with a single Planting. Each Seed has a plantingID field indicating the Planting from which the Seed was harvested. In addition, that Planting has a harvestSeedID field which points to this Seed. So, there is a bi-directional mapping. 
 
 A Seed instance can also be associated with one or more additional Plantings as the seed from which the Planting was grown. In this case, the Seed's ID appears in the Planting in the sowSeedID field. Those Plantings do not have to be in the same Garden (in fact, they will often be in a different garden).
 
-The Seed entity caches information about the Planting from which it was harvested (but has no information about where/when it was used to sow new Plantings). This information includes the gardenerID, cropID, cropName, varietyID, varietyName and seedsAvailable. Providing this information in the Seed entity simplifies presentation of Seed data in Index and View pages.
+The Seed entity provides information about the Planting from which it was harvested (but has no information about where/when it was used to sow new Plantings). This information includes the plantingID, gardenerID, cropID, cropName, varietyID, varietyName and seedsAvailable. Providing this information in the Seed entity simplifies presentation of Seed data in Index and View pages.
 
 Finally, in order to safely delete a Seed instance, it must not have been used to sow any Plantings. So that we don't have to search through all the Plantings across an entire chapter, the Seed entity provides a field called sowSeedCount. This field is initialized to zero and incremented whenever a Seed instance is referenced in the sowSeedID field of a new Planting. A Seed instance can only be deleted when the sowSeedCount is zero. 
 
 :::warning SowSeedCount is never decremented
 In the beta release, sowSeedCount is incremented each time a Planting specifies it as their sowSeedID. It is not reliably decremented. Because of this, in the beta release, once a Seed is created and used once as the sowSeedID, it can not be deleted. The only time you can delete a Seed is before it has ever been used as a sowSeedID in a Planting.
+:::
+
+:::info plantingID field is currently optional
+In a future version, plantingID will be made required.
 :::
 
 #### Seed entity representation
@@ -571,6 +576,7 @@ const factory Seed(
   {required String seedID,            // 'seed-US-98225-102-001-3218'
   required String chapterID,          // 'chapter-US-001'
   required String gardenID,           // 'garden-US-98225-102-6789'
+  String? plantingID,
   @Default(0) int sowSeedCount,           // 0, 1, 2
   required String cachedGardenerID,   // 'info@heritageseeds.com' 
   required String cachedCropID,       // 'crop-US-001-201-3462'
