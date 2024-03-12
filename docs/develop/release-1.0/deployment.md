@@ -56,6 +56,10 @@ Second, login to [App Store Connect](https://appstoreconnect.apple.com/login). C
 
 Wait for a few minutes for the uploaded version to become available for distribution via TestFlight.
 
+Once available, the "internal" testers will be automatically notified.  
+
+To submit the build for external testing, click on "External" on the left sidebar, then click the "+" button next to the "Builds" section, and add the most recent build. It will then be submitted for review. This review appears to take 3-7 days to complete. At that point, the public URL can be distributed and anyone who already installed the app via that link should be able to update to the new build. 
+
 ## 3. Deploy the Android App
 
 Upload the .apk files to Firebase, select testers, add the release notes, and distribute.
