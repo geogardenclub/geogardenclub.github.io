@@ -73,6 +73,7 @@ const sidebars = {
         'develop/release-1.0/deployment',
         'develop/release-1.0/architecture',
         'develop/release-1.0/coding-standards',
+        'develop/release-1.0/beta-test-feedback',
         {
           type: 'category',
           collapsed: true,
