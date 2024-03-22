@@ -33,7 +33,7 @@ This will create a file named something like "ggc-app-2de7b-1711139889.jsonl".
 
 Next, rename the file with the format "ggc-backup-YYYY-MM-DD.jsonl" so that the file name contains the date that the backup was made.
 
-Next, compress the file. The compressed file will have the name "ggc-backup-YYYY-MM-DD.jsonl.zip" and will be much, much smaller, typically 10% or less.
+Next, compress the file. The compressed file will have the name "ggc-backup-YYYY-MM-DD.jsonl.zip" and will be much, much smaller, typically 10% or less. For example, as of May 2024, the uncompressed file was around 1 MB, and the compressed file was 87 KB.
 
 Finally, upload the file to the geogardenclub "backups" repo. When done, the repo will look something like this:
 
