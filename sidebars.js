@@ -71,6 +71,7 @@ const sidebars = {
         'develop/release-1.0/scripts',
         'develop/release-1.0/cvp',
         'develop/release-1.0/deployment',
+        'develop/release-1.0/testing',
         'develop/release-1.0/backups',
         'develop/release-1.0/architecture',
         'develop/release-1.0/coding-standards',
