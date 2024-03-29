@@ -48,7 +48,9 @@ The `lib/features/fixture_paths.dart` file defines two constants:
 
 ## Test Databases
 
-Each feature with a database that connects to Firebase has a test database that uses a fixture file. For example the `lib/features/bed/data` directory has the following files:
+Each feature with a database that connects to Firebase has a test database that uses a fixture file. All the test databases implement the Firebase's database interface with an additional `create` method that reads the fixture file and creates the test database.
+
+For example the `lib/features/bed/data` directory has the following files:
   * `bed_database.dart` the Firebase database class.
   * `bed_provider.dart` the providers for the database and beds.
   * `bed_provider.g.dart` the generated file for the providers.
@@ -134,10 +136,24 @@ class TestBedDatabase implements BedDatabase {
 }
 ```
 
-Each test database class has a `create` method that reads the fixture file and creates the test database. To instantiate the test database use the following code:
+To instantiate the test database use the following code:
 
 ```dart
 final testBedDatabase = await TestBedDatabase.create(testFixturePath);
+```
+
+### Firebase databases no longer have non batch methods
+
+We removed the non batch methods from the Firebase database classes. The `set` and `delete` methods are now `setBatch` and `deleteBatch`. The `setBatch` method takes a `WriteBatch` parameter and the `deleteBatch` method takes a `WriteBatch` parameter. The `setBatch` method is used to add or update a document in the database. The `deleteBatch` method is used to delete a document from the database. We might want to implement the non batch methods in our test databases to facilitate testing.
+
+```dart
+  void setBed(Bed bed) {
+    _upsertBed(bed);
+  }
+
+  void deleteBed(Bed bed) {
+    beds.remove(bed);
+  }
 ```
 
 ## AssetCollectionBuilder
