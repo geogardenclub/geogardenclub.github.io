@@ -12,7 +12,7 @@ hide_table_of_contents: true
 | 1   | 2/24/2024 | Jessie Beck    | iPhone     | 4 years data in app               |
 | 2   | 3/2/2024  | Jess Meyer     | iPhone     | Farm and school garden experience |
 | 3   | 3/2/2024  | Rory McMahon   | iPhone     | Partner of Jess Meyer             |
-| 4   | 3/16/2024 | Annika Sampson | iPhone     | Cloud Mountain Farm Center        |
+| 4   | 3/16/2024 | Annika Sampson | iPhone     | Farm and school garden experience |
 | 5   | 3/17/2024 | Krista Rome    | iPhone     | Professional seed grower          |
 | 6   | 3/21/2024 | Margo Heffron  | iPhone     | Concrete Farm to School           |
 
@@ -20,15 +20,15 @@ hide_table_of_contents: true
 ## Documentation/Training Issues
 This category groups together the beta test feedback that results from a user having an inadequate understanding of the system to use it correctly or efficiently.
 
-| Feedback                                                                                                                                                                                   | Related Screens         | Contact                  | Action                                    |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|--------------------------|-------------------------------------------|
-| * How to decide between one garden or multiple gardens for users with multiple or large gardens.                                                                                           | Home/Gardens            | Krista Rome, Jessie Beck | Added to User Guide issue (#15)           |
-| "Start date" confusion: How to designate direct sowing outside vs sowing in pots in greenhouse vs sowing in greenhouse ground?  Use of word "start" could seem connected to transplanting. | Add Planting            | Krista Rome, Jessie Beck | Added to User Guide issue (#15)           |
-| Add documentation about perennials.                                                                                                                                                        | Add Planting            | Krista Rome, Jessie Beck | Added to User Guide issue (#15)           |
-| How to register users and set up gardens for group/community/school gardens.                                                                                                               | Register, Create Garden | Margo Heffron            | Added to User Guide issue (#15)           |
-| Beds optional when adding a planting.                                                                                                                                                      | Add/Update Planting     | Krista Rome              | Krista chose to make a "Misc" garden bed. |
-| **How to interpret "Used Greenhouse."                                                                                                                                                      | Add/Update Planting     | Krista Rome, Jess Meyer  | Added to User Guide issue (#15)           |
-| How to distinguish something you planted as a purchased seedling vs direct seeding.                                                                                                        | Add/Update Planting     | Krista Rome | Added to User Guide issue (#15)           |
+| Feedback                                                                                                                                                                                   | Related Screens         | Contact                  | Action                          |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|--------------------------|---------------------------------|
+| * How to decide between one garden or multiple gardens for users with multiple or large gardens.                                                                                           | Home/Gardens            | Krista Rome, Jessie Beck | Added to User Guide issue (#15) |
+| "Start date" confusion: How to designate direct sowing outside vs sowing in pots in greenhouse vs sowing in greenhouse ground?  Use of word "start" could seem connected to transplanting. | Add Planting            | Krista Rome, Jessie Beck | Added to User Guide issue (#15) |
+| Add documentation about perennials instructing users to track perennial harvests by setting start date = first harvest date and end date = end harvest date.                               | Add Planting            | Krista Rome, Jessie Beck | Added to User Guide issue (#15) |
+| Add documentation about how to register users and set up gardens for group/community/school gardens.                                                                                       | Register, Create Garden | Margo Heffron            | Added to User Guide issue (#15) |
+| Add documentation about options for planning garden before assigning beds.  Krista chose to make a "Misc" garden bed.                                                                      | Add/Update Planting     | Krista Rome              | Added to User Guide issue (#15) |
+| **How to interpret "Used Greenhouse."                                                                                                                                                      | Add/Update Planting     | Krista Rome, Jess Meyer  | Added to User Guide issue (#15) |
+| How to distinguish something you planted as a purchased seedling vs direct seeding.                                                                                                        | Add/Update Planting     | Krista Rome              | Added to User Guide issue (#15) |
 
 ***One Big Garden vs Several Smaller Gardens**  Two users chose to split their garden into multiple smaller gardens, including a greenhouse garden, herb garden, and a vegetable garden.  Users considered which beds they'd want grouped in a timeline view and how many plot plans they'd naturally use to map out the beds.  Users appreciated the ability to have multiple gardens and see tasks for all gardens combined in the Home/Tasks screen.  
 
