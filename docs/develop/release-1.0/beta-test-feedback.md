@@ -98,6 +98,7 @@ This category groups together issues that result from users wanting a different 
 | Accommodate plantings grown outside in garden under row cover.                                                                                |                    | Margo Heffron              |        |
 | Make observations and tasks tagged to beds in addition to plantings to support tracking of soil amendment applications and soil testing data. | Create Observation | Margo Heffron, Krista Rome |        |
 | There isn't a way to distinguish a seed crop unless there is a portion of the season where you are harvesting it for fresh eating.            | Details/Timeline   | Krista Rome                |        |
+| Tasks only need to be generated for future events.  We can assume that day of/past events happened on the day the user entered.               | Add Planting/Tasks | Krista Rome                |        |
 
 
 ## UI Layout/Platform Issues
