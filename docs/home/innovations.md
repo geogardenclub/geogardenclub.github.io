@@ -62,19 +62,19 @@ Below represents a mockup of the Chapter Timelines feature.  This feature is sti
 
 One way to improve garden productivity is by learning best practices in your local geographic region for the timing of planting.  GGC Chapter Timelines provide a simple way to view timing data for your own garden, then compare it to timing data across the entire chapter. 
 
-While this feature is still in developement, we can see in the example image above that this gardener has planted broccoli only during Week 16 (i.e. between April 15-21) and the latest they left their broccoli was Week 29 (July 22-30).  The Chapter Timeline shows that there are gardeners in the Chapter who have planted broccoli as early as Week 7 and left the broccoli in the ground until the end of the year. 
+While this feature is still in development, we can see in the example image above that this gardener has planted broccoli only during Week 16 (i.e. between April 15-21) and the latest they left their broccoli was Week 29 (July 22-30).  The Chapter Timeline shows that there are gardeners in the Chapter who have planted broccoli as early as Week 7 and left the broccoli in the ground until the end of the year. 
 
 This chart alone is not enough information for the gardener to decide what to do, but it is enough information to start a conversation within the Chapter about the timing of broccoli if the gardener wants to change their practices. 
 
 ## 5. Notifications and observations provide context-specific chapter communication.
 
-<img style={{float: "left", margin: "20px", borderStyle: "solid"}} width="400" src="/img/innovations/observation.png"/>
+<img style={{float: "left"}} width="400" src="/img/innovations/observation.png"/>
 
 GGC allows gardeners to make "observations" regarding a planting of a plant variety on a specific day.
 
 Observations can include phenomena such as successful germination, first flower, first harvest, diseases, or pests.
 
-Observations can be automatically converted into "Notifications", which are made available to other gardeners in the same chapter growing the same plant variety.  For example, this Observation regarding Matina Tomatoes could produce a notification for other gardeners growing Matina Tomatoes in that chapter to inform them that leaf curl has been found to be a problem. This, in turn, could lead to communication between gardeners in this chapter if an effective approach to management of leaf curl for Matina Tomatoes is known.
+Observations are shared with other gardeners in the chapter and comments allow for further discussion.  Observations are stored with its corresponding planting card, so that the gardener can review observations for a particular planting.
 
 <div style={{clear:"both"}}></div>
 
@@ -82,7 +82,7 @@ Observations can be automatically converted into "Notifications", which are made
 
 An important mechanism for improvement is assessment of outcomes: How well did a single planting do?  And what insights can be gained from aggregating outcome data from multiple plantings during a single season, or multiple plantings over multiple seasons, or multiple plantings across the entire chapter?
 
-<img style={{float: "left", margin: "20px", borderStyle: "solid"}} width="300"  src="/img/innovations/outcome-chard.png"/>
+<img style={{float: "left"}} width="400" src="/img/innovations/outcome-chard.png"/>
 
 Outcome data is always created with respect to a single planting. For example, this image shows a summary of a single planting of Rainbow Chard during 2021, including the outcome data that the gardener assigned to it.  
 
@@ -94,13 +94,15 @@ In order to combine outcome data together and produce meaningful results, it's c
 
 <img style={{borderStyle: "solid"}} src="/img/innovations/outcome-table.png"/>
 
-Once outcome data exists for a set of plantings, then they can be combined to show the spectrum of outcomes associated with a plant variety (or crop) for the current garden or across all gardens in a chapter. GGC provides a visualization of the spectrum of outcome data as a horizontal stacked bar chart, where dark red is 1, light red is 2, grey is 3, light green is 4, and dark green is five. Here is an example for all of the Bean plant varieties:
+<div style={{clear:"both"}}></div>
 
-<img style={{borderStyle: "solid"}} src="/img/innovations/outcome-data.png"/>
+<img style={{float: "left"}} width="400" src="/img/innovations/outcome-data.png"/>
 
-So, the above chart reveals that bad Bean outcomes are unlikely but have still occurred for Appearance, Flavor, and Yield. Beans show uniformly good Resistance, and pretty good Germination.
+Once outcome data exists for a set of plantings, then they can be combined to show the spectrum of outcomes associated with a plant variety (or crop) for the current garden or across all gardens in a chapter. GGC provides a visualization of the spectrum of outcome data as a horizontal stacked bar chart, where dark red is 1, light red is 2, grey is 3, light green is 4, and dark green is five. Here is an example for all of the Bean plant varieties:So, the above chart reveals that bad Bean outcomes are unlikely but have still occurred for Appearance, Flavor, and Yield. Beans show uniformly good Resistance, and pretty good Germination.
 
 Selecting subsets of years makes it possible to see how outcomes are distributed in time and if the distributions of outcomes are different depending upon the year. 
+
+<div style={{clear:"both"}}></div>
 
 ## 7. Support for seed saving and sharing
 
