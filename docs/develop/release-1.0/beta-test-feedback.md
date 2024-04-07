@@ -92,13 +92,13 @@ This category groups together issues raised by users that indicate a desire for 
 ## Design Issues
 This category groups together issues that result from users wanting a different approach to the current functionality of the system. This is different from "Future Requirement Issues" (because that refers to additional functionality) or "Business Logic Issues" (because that refers to incorrect implementation of current requirements, not a disagreement with the nature of the requirement).
 
-| Feedback                                                                                                                                      | Related Screens    | Contact                    | Action |
-|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------|----------------------------|--------|
-| Accommodate gardeners having gardens in more than one chapter.                                                                                |                    | Margo Heffron              |        |
-| Accommodate plantings grown outside in garden under row cover.                                                                                |                    | Margo Heffron              |        |
-| Make observations and tasks tagged to beds in addition to plantings to support tracking of soil amendment applications and soil testing data. | Create Observation | Margo Heffron, Krista Rome |        |
-| There isn't a way to distinguish a seed crop unless there is a portion of the season where you are harvesting it for fresh eating.            | Details/Timeline   | Krista Rome                |        |
-| Tasks only need to be generated for future events.  We can assume that day of/past events happened on the day the user entered.               | Add Planting/Tasks | Krista Rome                |        |
+| Feedback                                                                                                                                      | Related Screens    | Contact                    | Action     |
+|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------|----------------------------|------------|
+| Accommodate gardeners having gardens in more than one chapter.                                                                                |                    | Margo Heffron              |            |
+| Accommodate plantings grown outside in garden under row cover.                                                                                |                    | Margo Heffron              |            |
+| Make observations and tasks tagged to beds in addition to plantings to support tracking of soil amendment applications and soil testing data. | Create Observation | Margo Heffron, Krista Rome |            |
+| There isn't a way to distinguish a seed crop unless there is a portion of the season where you are harvesting it for fresh eating.            | Details/Timeline   | Krista Rome                |            |
+| Tasks only need to be generated for future events.  We can assume that day of/past events happened on the day the user entered.               | Add Planting/Tasks | Krista Rome                | Issue #231 |
 
 
 ## UI Layout/Platform Issues
