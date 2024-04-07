@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Adding Vendors, Crops, and Varieties
 
-The varieties in each chapter's database are crowd sourced from the chapter's members.  This ensures that the varieties listed are varieties that have been grown in the chapter's area and are varieties that have been grown by the chapter's members.  To add a vendor, crop, or variety navigate to the appropriate index screen from the side navigation menu.
+The plant varieties listed in each chapter's database are crowdsourced from the chapter's members.  This ensures that the varieties listed are varieties that have been grown in the chapter's area and are varieties that have been grown by the chapter's members.  To add a vendor, crop, or variety navigate to the appropriate index screen from the side navigation menu.
 
 <img width="600" src="/img/user-guide/locate-home.png"/>
 

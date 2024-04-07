@@ -13,24 +13,19 @@ Geo Garden Club includes the following design innovations:
 5. Notifications and observations provide context-specific chapter communication.
 6. Outcome data supports improvement within a single garden and across the chapter.
 7. Support for seed saving and seed sharing.
-8. The public view provides garden owners with controlled, public, read-only access.
+8. Garden plans are viewable to all users and plantings available to copy.
 :::
 
-:::warning Mockup screenshot alert
-To illustrate our design innovations, this page uses excerpts from our web-based mockup.
-
-See the [Mobile App Sneak Peek](/docs/home/sneak-peek.html) page for screenshots of our mobile app, now under development!
-:::
 
 ## 1. Garden data is aggregated within local geographic regions called "Chapters".
 
-<img style={{float: "left", margin: "20px", borderStyle: "solid"}} width="400" src="/img/innovations/chapter-overview-excerpt.png"/>
+<img style={{float: "left"}} width="400" src="/img/innovations/chapter-overview-excerpt.png"/>
 
 Each GGC garden is associated with a "Chapter", which collects together a set of gardens that share the same geographic region and (mostly) similar climate. Just as important, the *gardeners* associated with a Chapter share the same geographic region: they are within walking (or biking) distance of each other.   
 
 Chapters are used by GGC to organize and limit the kinds of data sharing. Garden data is only shared within a Chapter. This means that data about plants, outcomes, and timing are all local to your garden's immediate geographical region.
 
-We anticipate that a Chapter can be "viable" with as little as a few dozen members. By viable, we mean that the collective data gathered and shared among Chapter members is sufficient to improve decision making and garden improvement, and that communication among Chapter members succeeds in creating a local "community of practice". 
+We anticipate that a Chapter can be "viable" with as little as a few dozen members. By viable, we mean that the collective data gathered and shared among Chapter members is sufficient to improve decision-making and garden improvement, and that communication among Chapter members succeeds in creating a local "community of practice". 
 
 On the other hand, we anticipate that if a Chapter grows beyond a few hundred members, then it might be advantageous to subdivide it into two smaller Chapters. 
 
@@ -38,34 +33,36 @@ On the other hand, we anticipate that if a Chapter grows beyond a few hundred me
 
 ## 2. Access control enables collaborative garden planning and management. 
 
-<img style={{float: "left", margin: "20px", borderStyle: "solid"}} width="400" src="/img/innovations/garden-access-control.png"/>
+<img style={{float: "left"}} width="400" src="/img/innovations/garden-access-control.png"/>
 
-Similar to other cloud-based document management systems, GGC enables collaborative access and management of garden data.  Gardeners can be have one of three roles: "owner" (with full access to the garden, including the ability to add other gardeners, modify roles, and delete the garden), "editor" (allowing the gardener to add and edit data), and "viewer" (allowing read-access only).
+Similar to other cloud-based document management systems, GGC enables collaborative access and management of garden data.  Gardeners can have one of two roles: "owner" (with full access to the garden, including the ability to add other gardeners, modify roles, and delete the garden) or "editor" (allowing the gardener to add and edit data).
+
+All gardeners have "view only" privileges of other chapter gardens.
 
 
 <div style={{clear:"both"}}></div>
 
 ## 3. Multi-year garden timelines facilitate experience-based improvement.
 
-GGC is oriented to the needs of gardeners who want to improve their gardens over multiple seasons, and thus need to compare and contrast their efforts over multiple years. An important way to represent a garden is via a timeline, which specifies the contents of the garden for each year as well as important dates during the lifecycle of a planting (such as start date, first harvest, and pull date.)  
+<img style={{float: "left"}} width="400" src="/img/innovations/garden-timelines.png"/>
 
-The following image shows a timeline view of a portion of a garden in Bellingham, WA during 2022:  
+GGC is oriented to the needs of gardeners who want to improve their gardens over multiple seasons, and thus need to compare and contrast their efforts over multiple years. An important way to represent a garden is via a timeline, which specifies the contents of the garden for each year as well as important dates during the lifecycle of a planting (such as start date, first harvest, and pull date.).  The left image shows a timeline view of a portion of a garden in Bellingham, WA during 2023
 
-<img style={{borderStyle: "solid"}} src="/img/innovations/garden-timelines.png"/>
+Timeline data can be filtered to provide many insights, particularly when multiple years of garden data are available. For example, it is useful to rotate the crops planted in a bed each year in order to mitigate certain pests, diseases, and soil nutrient imbalances. The "Bed" filter view makes it easy to review what plants have been in a particular bed over time.  Other filter options are: Crop, Variety, and Family.
 
-Timeline data can provide many insights, particularly when multiple years of garden data are available. For example, it is useful to rotate the crops planted in a bed each year in order to mitigate certain pests, diseases, and soil nutrient imbalances. The "Bed" timeline view makes it easy to review what plants have been in a particular bed over time:
-
-<img style={{borderStyle: "solid"}} src="/img/innovations/garden-timelines-2.png"/>
-
-Notice that GGC color codes each plant variety according to its family (i.e. pink for the Gourd Family, brown for the Legume family, etc). The above timeline illustrates how this gardener rotated crops in Bed 11 over the past three years, ensuring that different plant families were grown in the bed each successive year.
+<div style={{clear:"both"}}></div>
 
 ## 4. Chapter timelines facilitate discovery of local "best practices".
+
+:::warning Still in development
+Below represents a mockup of the Chapter Timelines feature.  This feature is still in development and is not yet available in the application.
+:::
 
 <img style={{borderStyle: "solid"}} src="/img/innovations/chapter-timelines.png"/>
 
 One way to improve garden productivity is by learning best practices in your local geographic region for the timing of planting.  GGC Chapter Timelines provide a simple way to view timing data for your own garden, then compare it to timing data across the entire chapter. 
 
-In the example image above, we can see that this gardener has planted broccoli only during Week 16 (i.e. between April 15-21) and the latest they left their broccoli was Week 29 (July 22-30).  The Chapter Timeline shows that there are gardeners in the Chapter who have planted broccoli as early as Week 7 and left the broccoli in the ground until the end of the year. 
+While this feature is still in developement, we can see in the example image above that this gardener has planted broccoli only during Week 16 (i.e. between April 15-21) and the latest they left their broccoli was Week 29 (July 22-30).  The Chapter Timeline shows that there are gardeners in the Chapter who have planted broccoli as early as Week 7 and left the broccoli in the ground until the end of the year. 
 
 This chart alone is not enough information for the gardener to decide what to do, but it is enough information to start a conversation within the Chapter about the timing of broccoli if the gardener wants to change their practices. 
 
