@@ -100,7 +100,7 @@ In order to combine outcome data together and produce meaningful results, it's c
 
 <img style={{float: "left"}} width="400" src="/img/innovations/outcome-data.png"/>
 
-Once outcome data exists for a set of plantings, then they can be combined to show the spectrum of outcomes associated with a plant variety (or crop) for the current garden or across all gardens in a chapter. GGC provides a visualization of the spectrum of outcome data as a horizontal stacked bar chart, where dark red is 1, orange is 2, yellow is 3, light green is 4, and dark green is five. Here is an example for all of the Tomato plant varieties:So, the above chart reveals that bad Tomato outcomes are unlikely but have still occurred for Appearance and Resistance, and to a lesser extent Yield, Flavor, and Germination. Tomatoes show uniformly good Resistance, and pretty good Germination.
+Once outcome data exists for a set of plantings, then they can be combined to show the spectrum of outcomes associated with a plant variety (or crop) for the current garden or across all gardens in a chapter. GGC provides a visualization of the spectrum of outcome data as a horizontal stacked bar chart, where dark red is 1, orange is 2, yellow is 3, light green is 4, and dark green is five. Here is an example for all the tomato plant varieties. So, the above chart reveals that bad tomato outcomes are unlikely but have still occurred for Appearance and Resistance, and to a lesser extent Yield, Flavor, and Germination. Tomatoes show uniformly good Resistance, and pretty good Germination.
 
 <div style={{clear:"both"}}></div>
 
