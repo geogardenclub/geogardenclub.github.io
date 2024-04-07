@@ -109,7 +109,7 @@ Once outcome data exists for a set of plantings, then they can be combined to sh
 <img style={{float: "left"}} width="400"  src="/img/innovations/seed-saving.png"/>
 
 We believe that an important step toward food resiliency is to develop local networks for seed production and sharing.
-To that end, GGC enables gardeners to indicate whether or not they are saving seeds from a particular planting, and if so, whether they have enough seeds that they are willing to share them with the local chapter. 
+To that end, GGC enables gardeners to indicate whether they are saving seeds from a particular planting, and if so, whether they have enough seeds that they are willing to share them with the local chapter. 
 
 The garden summary card at left indicates that this gardener has saved seeds from Dragon Langerie beans and Pokey Joe cilantro, and they have enough seeds to share some with other Chapter members.
 
