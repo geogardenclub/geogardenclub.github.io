@@ -13,7 +13,7 @@ Geo Garden Club includes the following design innovations:
 5. Notifications and observations provide context-specific chapter communication.
 6. Outcome data supports improvement within a single garden and across the chapter.
 7. Support for seed saving and seed sharing.
-8. Garden plans are viewable to all users and plantings available to copy.
+8. The public view provides garden owners with controlled, public, read-only access.
 :::
 
 
@@ -37,7 +37,7 @@ On the other hand, we anticipate that if a Chapter grows beyond a few hundred me
 
 Similar to other cloud-based document management systems, GGC enables collaborative access and management of garden data.  Gardeners can have one of two roles: "owner" (with full access to the garden, including the ability to add other gardeners, modify roles, and delete the garden) or "editor" (allowing the gardener to add and edit data).
 
-All gardeners have "view only" privileges of other chapter gardens.
+All gardeners have "view only" privileges of other chapter gardens and the ability to copy another garden's plantings into their own garden.
 
 
 <div style={{clear:"both"}}></div>
@@ -48,7 +48,7 @@ All gardeners have "view only" privileges of other chapter gardens.
 
 GGC is oriented to the needs of gardeners who want to improve their gardens over multiple seasons, and thus need to compare and contrast their efforts over multiple years. An important way to represent a garden is via a timeline, which specifies the contents of the garden for each year as well as important dates during the lifecycle of a planting (such as start date, first harvest, and pull date.).  The left image shows a timeline view of a portion of a garden in Bellingham, WA during 2023
 
-Timeline data can be filtered to provide many insights, particularly when multiple years of garden data are available. For example, it is useful to rotate the crops planted in a bed each year in order to mitigate certain pests, diseases, and soil nutrient imbalances. The "Bed" filter view makes it easy to review what plants have been in a particular bed over time.  Other filter options are: Crop, Variety, and Family.
+Timeline data can be filtered to provide many insights, particularly when multiple years of garden data are available. For example, it is useful to rotate the crops planted in a bed each year in order to mitigate certain pests, diseases, and soil nutrient imbalances. A "Bed" filter view makes it easy to review what plants have been in a particular bed over time.  Other filter options are: Crop, Variety, and Family.
 
 <div style={{clear:"both"}}></div>
 
@@ -82,15 +82,17 @@ Observations are shared with other gardeners in the chapter and comments allow f
 
 An important mechanism for improvement is assessment of outcomes: How well did a single planting do?  And what insights can be gained from aggregating outcome data from multiple plantings during a single season, or multiple plantings over multiple seasons, or multiple plantings across the entire chapter?
 
-<img style={{float: "left"}} width="400" src="/img/innovations/outcome-chard.png"/>
+<img style={{float: "left"}} width="400" src="/img/innovations/outcome-basil.png"/>
 
-Outcome data is always created with respect to a single planting. For example, this image shows a summary of a single planting of Rainbow Chard during 2021, including the outcome data that the gardener assigned to it.  
+Outcome data is always created with respect to a single planting. For example, this image shows a summary of a single planting of Italian Basil during 2023, including the outcome data that the gardener assigned to it.  
 
 Up to five outcome types can be associated with a planting: Appearance, Flavor, Germination, Resistance (to pests and/or disease), and Yield.
 
-Every outcome type is assigned a value based on a five point scale: 1 is the worst, and five is the best.  This image provides a visualization of outcome data using stars. In this case, Appearance was assigned 5 (the highest value), and Germination was assigned 2. If the gardener had chosen to not assign a value to one or more of the outcome types, then all the stars would be grey, indicating no outcome data of that type is available.
+Every outcome type is assigned a value based on a five point scale: 1 is the worst, and five is the best.  In this case, Germination was assigned a 3 while the other outcome categories were assigned the value of 5. If the gardener had chosen to not assign a value to one or more of the outcome types, then no outcome data will be listed.
 
 In order to combine outcome data together and produce meaningful results, it's crucial to define criteria for each numeric rating for each outcome type so that gardeners assign outcomes in a consistent manner.  The following table provides the GGC criteria for assigning 1, 2, 3, 4, or 5 for each of the five outcome types.  
+
+<div style={{clear:"both"}}></div>
 
 <img style={{borderStyle: "solid"}} src="/img/innovations/outcome-table.png"/>
 
@@ -98,46 +100,47 @@ In order to combine outcome data together and produce meaningful results, it's c
 
 <img style={{float: "left"}} width="400" src="/img/innovations/outcome-data.png"/>
 
-Once outcome data exists for a set of plantings, then they can be combined to show the spectrum of outcomes associated with a plant variety (or crop) for the current garden or across all gardens in a chapter. GGC provides a visualization of the spectrum of outcome data as a horizontal stacked bar chart, where dark red is 1, light red is 2, grey is 3, light green is 4, and dark green is five. Here is an example for all of the Bean plant varieties:So, the above chart reveals that bad Bean outcomes are unlikely but have still occurred for Appearance, Flavor, and Yield. Beans show uniformly good Resistance, and pretty good Germination.
-
-Selecting subsets of years makes it possible to see how outcomes are distributed in time and if the distributions of outcomes are different depending upon the year. 
+Once outcome data exists for a set of plantings, then they can be combined to show the spectrum of outcomes associated with a plant variety (or crop) for the current garden or across all gardens in a chapter. GGC provides a visualization of the spectrum of outcome data as a horizontal stacked bar chart, where dark red is 1, orange is 2, yellow is 3, light green is 4, and dark green is five. Here is an example for all of the Tomato plant varieties:So, the above chart reveals that bad Tomato outcomes are unlikely but have still occurred for Appearance and Resistance, and to a lesser extent Yield, Flavor, and Germination. Tomatoes show uniformly good Resistance, and pretty good Germination.
 
 <div style={{clear:"both"}}></div>
 
 ## 7. Support for seed saving and sharing
 
+<img style={{float: "left"}} width="400"  src="/img/innovations/seed-saving.png"/>
+
 We believe that an important step toward food resiliency is to develop local networks for seed production and sharing.
-
-<img style={{float: "left", margin: "20px", borderStyle: "solid"}} width="200"  src="/img/innovations/seed-saving.png"/>
-
 To that end, GGC enables gardeners to indicate whether or not they are saving seeds from a particular planting, and if so, whether they have enough seeds that they are willing to share them with the local chapter. 
 
-The planting card at left indicates that this gardener has both saved seeds from a specific planting of Lettuce, and they have enough seeds to share some with the Chapter.
+The garden summary card at left indicates that this gardener has saved seeds from Dragon Langerie beans and Pokey Joe cilantro, and they have enough seeds to share some with other Chapter members.
 
 <div style={{clear:"both"}}></div>
 
 Seed saving and sharing has another implication: when growing a plant for seeds, you will sometimes need to leave it in the garden after there is nothing more to harvest.  So, in GGC, there is the ability to indicate and "End Harvest" date as well as an "End" (i.e. Pull) date. 
 
-We can see this in the planting card above, as well as in the timeline view for that planting of lettuce:
+We can see this in the timeline view for these bean plantings:
 
-<img style={{borderStyle: "solid"}} src="/img/innovations/seed-saving-2.png"/>
+<img style={{float: "left"}} src="/img/innovations/seed-saving-2.png"/>
 
-The timeline bar is blue from January to mid-June, indicating that this gardener was actively harvesting lettuce for that entire period. But from mid-June to mid-July, the timeline bar switches to green, indicating that there is no longer any harvest but the plant is still growing (in this case, to produce seed). Reference to the planting card reveals that the harvest ended on 6/15/22 and the lettuce was pulled on 7/20/22.
+The timeline bar is green from mid-July to mid-August, indicating that this gardener was actively harvesting beans for that entire period. But from mid-August to miud-September, the timeline bar switches to blue, indicating that there is no longer any harvest but the plant is still growing (in this case, to produce seed). Reference to the planting card reveals that the harvest ended on 8/15/23 and the beans was pulled on 9/17/23.
 
 GGC can thus provide a new insight to gardeners: how long does it take not just to grow a seed to first harvest (which is typically provided on the seed packet) but also how long that plant yields harvest and, significantly, *how long is required to yield seeds*?
 
+<div style={{clear:"both"}}></div>
+
 ## 8. The public view provides garden owners with controlled, public, read-only access.
 
-We are currently developing a mobile app that members of Geo Garden Club will use to view and enter garden data and communicate with other members of the Chapter associated with each Garden.
+:::warning Still in development
+Below represents a mockup of the public view feature.  This feature is still in development and is not yet available in the application
+:::
+
+We are currently beta testing a mobile app that members of Geo Garden Club will use to view and enter garden data and communicate with other members of the Chapter associated with each Garden.  As part of being a member of Geo Garden Club, you get public view access to all gardens in the Chapter.
  
-In addition, we will implement access control mechanisms so that owners of a garden can control which other members of GGC can interact with garden data. 
+As noted in #2 above, there are access control mechanisms so that owners of a garden can control which other members of GGC can interact with garden data. 
 
-The requirement to download and install a mobile app, join GGC, and obtain access from the owner in order to see garden data creates a fairly high barrier to garden data. While this might be necessary and appropriate for active participants in a garden, it also erects a "walled garden". What if a gardener simply wants to ask a question in the Reddit "vegetablegardening" group and needs to provide some details about their garden?
+However, the requirement to download and install a mobile app, join GGC, and obtain access from the owner in order to see garden data creates a fairly high barrier to garden data. While this might be necessary and appropriate for active participants in a garden, it also erects a "walled garden". What if a gardener simply wants to ask a question in the Reddit "vegetablegardening" group and needs to provide some details about their garden?
 
-GGC allows the owner of each garden to enable a web-based "public view" of the garden (and its associated chapter).  In fact, all of the images on this documentation page were taken from a public view.  The public view is designed to allow the gardener to provide details about a garden without revealing its exact location or the identity of gardeners associated with it. 
+GGC allows the owner of each garden to enable a web-based "public view" of the garden (and its associated chapter).  The public view is designed to allow the gardener to provide details about a garden without revealing its exact location or the identity of gardeners associated with it. 
 
 Here is an example of a portion of a public view which is available at <https://agilegardenclub.com/public-garden/?name=45ght3cf>
 
-<img style={{borderStyle: "solid"}} src="/img/innovations/public-view.png"/>
-
-Garden owners opt-in to the public view, it is not enabled by default. While this site provides access to a couple of public views for documentation purposes, GGC will not provide a directory of public views, and so it is not likely that a person can find a public view without having been given the URL to it. 
+<img width="400" src="/img/innovations/public-view.png"/>
