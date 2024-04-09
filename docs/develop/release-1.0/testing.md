@@ -46,101 +46,6 @@ The `lib/features/fixture_paths.dart` file defines two constants:
  * `testFixturePath` - the path to the test fixture directory. This constant is used to load the test data in the tests.
  * `monarchFixturePath` - the path to the Monarch fixture directory used by `WithMonarchData`.
 
-## Test Databases
-
-Each feature with a database that connects to Firebase has a test database that uses a fixture file. All the test databases implement the Firebase's database interface with an additional `create` method that reads the fixture file and creates the test database.
-
-For example the `lib/features/bed/data` directory has the following files:
-  * `bed_database.dart` the Firebase database class.
-  * `bed_provider.dart` the providers for the database and beds.
-  * `bed_provider.g.dart` the generated file for the providers.
-  * `test_bed_database.dart` the test database class.
-  * `test_bed_provider.dart` the test providers for the database.
-  * `test_bed_provider.g.dart` the generated file for the test providers.
-
-The TestBedDatabase class implements the BedDatabase interface.
-
-```dart
-class TestBedDatabase implements BedDatabase {
-  List<Bed> beds = [];
-  TestBedDatabase();
-
-  static Future<TestBedDatabase> create(String assetPath) async {
-    final db = TestBedDatabase();
-    String content = await rootBundle.loadString("$assetPath/bedData.json");
-    List<dynamic> initialData = json.decode(content);
-    db.beds = initialData.map((jsonData) => Bed.fromJson(jsonData)).toList();
-    return db;
-  }
-
-  @override
-  void deleteBedBatch(WriteBatch batch, Bed bed) {
-    beds.remove(bed);
-  }
-
-  @override
-  void deleteBedsBatch(WriteBatch batch, List<Bed> beds) {
-    beds.removeWhere((bed) => beds.contains(bed));
-  }
-
-  @override
-  Future<Bed> fetchBed(String bedId) {
-    return Future.value(beds.firstWhere((bed) => bed.bedID == bedId));
-  }
-
-  @override
-  Future<List<Bed>> fetchBeds() {
-    return Future.value(beds);
-  }
-
-  @override
-  // TODO: implement ref
-  ProviderRef<BedDatabase> get ref => throw UnimplementedError();
-
-  void _upsertBed(Bed bed) {
-    final index = beds.indexWhere((element) => element.bedID == bed.bedID);
-    if (index == -1) {
-      beds.add(bed);
-    } else {
-      beds[index] = bed;
-    }
-  }
-
-  @override
-  void setBedBatch(WriteBatch batch, Bed bed) {
-    _upsertBed(bed);
-  }
-
-  @override
-  void setBedsBatch(WriteBatch batch, List<Bed> beds) {
-    for (final bed in beds) {
-      _upsertBed(bed);
-    }
-  }
-
-  @override
-  Stream<Bed> watchBed(String bedId) async* {
-    final index = beds.indexWhere((element) => element.bedID == bedId);
-    if (index != -1) {
-      yield beds[index];
-    } else {
-      throw StateError("Bed with ID $bedId not found");
-    }
-  }
-
-  @override
-  Stream<List<Bed>> watchBeds() async* {
-    yield beds;
-  }
-
-}
-```
-
-To instantiate the test database use the following code:
-
-```dart
-final testBedDatabase = await TestBedDatabase.create(testFixturePath);
-```
 
 ### Firebase databases no longer have non batch methods
 
@@ -158,29 +63,79 @@ We removed the non batch methods from the Firebase database classes. The `set` a
 
 ## AssetCollectionBuilder
 
-To facilitate the loading of the fixture files, we have created the `AssetCollectionBuilder` class. This class has static methods to produce each of the collections from a fixture path. For example, to create a `BedCollection` from the fixture path, use the following code:
+To facilitate the loading of the fixture files, we have created the `AssetCollectionBuilder` class. This class has three static methods to produce each of the collections from a fixture path. The three methods are as follows:
+  * ```Future<List<type>> getTypes(String assetPath)``` - loads the data from the fixture file and returns a list of the type.
+  * ```Future<Stream<List<type>>> getTypesStream(String assetPath)``` - loads the data from the fixture file and returns a stream of a list of the type.
+  * ```Future<TypeCollection> getTypeCollection(String assetPath)``` - loads the data from the fixture file and returns a collection of the type.
 
-```dart
-final bedCollection = await AssetCollectionBuilder.getBeds(testFixturePath);
+For example, to create a `BedCollection` from the fixture path, use the following code:
+
+```
+final bedCollection = await AssetCollectionBuilder.getBedCollection(testFixturePath);
 ```
 In addition, the `AssetCollectionBuilder` class has three build methods that build the collections with all the data like the `WithAllData` classes. The methods are as follows
   * `buildChapterCollection(String assetPath, String chapterId)` - builds a `ChapterCollection`.
   * `buildGardenCollection(String assetPath, String gardenId)` - builds a `GardenCollection`.
   * `buildUserCollection(String assetPath, String currentUserID, String currentUserUID)` - builds a `UserCollection`.
 
+## Unit Tests
 
-## Tests
-
-The tests are located in the `test` directory. The tests are organized by feature using the same directory structure as the feature. For example the `bed` feature has the following test files:
-  * `test/features/bed/data/test_bed_database_test.dart` tests for the `TestBedDatabase` class. Checks to see that the fixture is loaded and contains the expected data. We cannot test the `batch` methods since Firebase is not initialized in the test environment.
+The tests are located in the `test` directory. The tests are organized by feature using the same directory structure as the feature. For example the `bed` feature has the following test files
   * `test/features/bed/domain/bed_collection_test.dart` tests for the `BedCollection` class. Currently, just integrity checks for the test fixture and the Monarch fixture.
 
-## Running the tests
+## Running the unit tests
 
 To run the tests, use the following command:
 
 ```bash
 ⋊> ~/G/G/ggc_app on main ◦ flutter test             
-00:08 +120: All tests passed!
+00:08 +39: All tests passed!
 ⋊> ~/G/G/ggc_app on main ◦
 ```
+## Integration Tests
+
+The integration tests are located in the `integration_test` directory. We override the providers to use the test fixture. The file `integration_test/helpers.dart` contains n functions:
+  * `initIntegrationTest()` - initializes IntegrationTestWidgetsFlutterBinding, Firebase, and FirebaseUIAuth.
+  * `openDrawer(WidgetTester tester)` - opens the drawer. There will be other functions to open other widgets.
+  * `gotoScreen(WidgetTester tester, String key)` - navigates to the screen with the given key.
+  * `pumpMyApp(WidgetTester tester)` - pumps the MyApp widget with overridden providers. The providers get the data from the test fixtures.
+
+A typical integration test will look like this:
+
+```dart
+void main() async {
+  await initIntegrationTest();
+
+  testWidgets('Tests Vendors Drawer pages', (WidgetTester tester) async {
+    // Build our app with test data and trigger a frame.
+    await pumpMyApp(tester);
+    // If we haven't signed in yet, sign in. This isn't working yet.
+    final signIn = find.byKey(ValueKey(WidgetKeys.signInScreen.name));
+    if (signIn.evaluate().isNotEmpty) {
+      // TODO: How do we sign in?
+      return;
+    }
+    // Open the widget under test. In this case, the drawer.
+    await openDrawer(tester);
+    // Verify the we have the options we expect.
+    expect(find.text('Vendors'), findsOneWidget);
+    expect(find.byKey(ValueKey(WidgetKeys.drawerVendors.name)), findsOneWidget);
+    // Navigate to the screen under test.
+    await gotoScreen(tester, WidgetKeys.drawerVendors.name);
+    // Verify that we are on the screen under test.
+    expect(find.byIcon(Icons.expand_more), findsAtLeastNWidgets(5));
+  });
+}
+```
+
+## Running the integration tests
+
+The easiest way to run the tests is to run them in Intellij IDEA. Select the `integration_test` directory and right-click on the directory. Select `Run tests in integration...`. Or you can open the test file and run the tests from the IDE.
+
+You can also run them from the command line with the following command:
+
+```bash
+⋊> ~/G/G/ggc_app on main ◦ flutter test integration_test
+```
+
+**You need to have the ios simulator running to run the integration tests.**
