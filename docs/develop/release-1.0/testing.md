@@ -78,6 +78,18 @@ In addition, the `AssetCollectionBuilder` class has three build methods that bui
   * `buildGardenCollection(String assetPath, String gardenId)` - builds a `GardenCollection`.
   * `buildUserCollection(String assetPath, String currentUserID, String currentUserUID)` - builds a `UserCollection`.
 
+
+## TestFixture singleton
+
+The `TestFixture` singleton is used to load the test fixture data. The singleton has the following methods:
+  * `getInstance(String assetPath)` - returns a Future with the singleton instance. The first time it is called, it will load the test fixture data.
+  * `setup()` - initializes the singleton by loading the test fixture data.
+
+There are two methods for each entity in the test fixture:
+  * `get<Entity>Stream()` - returns a Stream of the List of the entities from the test fixture.
+  * `get<Entity>Database()` - returns The `Fixture<Entity>Database` from the test fixture.
+
+
 ## Unit Tests
 
 The tests are located in the `test` directory. The tests are organized by feature using the same directory structure as the feature. For example the `bed` feature has the following test files
@@ -124,6 +136,10 @@ void main() async {
     await gotoScreen(tester, WidgetKeys.drawerVendors.name);
     // Verify that we are on the screen under test.
     expect(find.byIcon(Icons.expand_more), findsAtLeastNWidgets(5));
+    expect(find.text('Vendors (13)'), findsOneWidget);
+    expect(find.byKey(ValueKey(WidgetKeys.vendorDropdown.name)), findsOneWidget);
+    expect(find.byKey(ValueKey(WidgetKeys.fabAddVendor.name)), findsOneWidget);
+    expect(find.byKey(ValueKey(WidgetKeys.vendorAddSeed.name)), findsNWidgets(4));
   });
 }
 ```
@@ -139,3 +155,12 @@ You can also run them from the command line with the following command:
 ```
 
 **You need to have the ios simulator running to run the integration tests.**
+
+## Helpers
+
+The `integration_test/helpers.dart` file contains the following functions:
+  * `initIntegrationTest()` - initializes IntegrationTestWidgetsFlutterBinding, Firebase, and FirebaseUIAuth.
+  * `openDrawer(WidgetTester tester)` - opens the drawer. There will be other functions to open other widgets.
+  * `gotoScreen(WidgetTester tester, String key)` - navigates to the screen with the given key.
+  * `pumpMyApp(WidgetTester tester)` - pumps the MyApp widget with overridden providers. The providers get the data from the test fixtures.
+  * `runIntegrityCheck(WidgetTester tester)` - runs the integrity check on the test fixture data. The drawer must be available to run this test. It does not check the number of violations.
