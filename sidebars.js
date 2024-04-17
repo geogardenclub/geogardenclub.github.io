@@ -86,6 +86,7 @@ const sidebars = {
             'develop/release-1.0/design-components/input-fields',
             'develop/release-1.0/design-components/with-widgets',
             'develop/release-1.0/design-components/data-mutation',
+            'develop/release-1.0/design-components/test-design',
           ],
         },
       ],
