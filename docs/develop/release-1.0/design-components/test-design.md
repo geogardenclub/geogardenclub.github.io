@@ -41,6 +41,7 @@ The JSON files need to have integrity, so their ids must align. Since many of th
  * seedIDs end with 6789.
  * taskIDs end with 8901.
  * varietyIDs end with 9012.
+ * badgeInstances end with 9876.
 :::
 
 ## Fixture Paths
