@@ -40,7 +40,7 @@ You can change the due date of a task from the Tasks Screen or Planting Details.
 
 ### Update Task from Task Screen
 
-From the Task Screen, tap the three dots at the top right of the Task Card.  Select Update Task.
+From the Task Screen, tap the three dots at the top right of the Task Card.  Select **Update Task.**
 
 <img width="600" src="/img/user-guide/update-task.png"/>
 

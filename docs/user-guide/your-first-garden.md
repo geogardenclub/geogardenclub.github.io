@@ -55,8 +55,8 @@ Fill out the form in the **Create Planting Screen**  Note that you don't need to
 - Pull Date:  Add the date you expect to pull your crop.  You can update this to the actual date the crop was pulled when you complete that task.
 - Transplant Date (optional): If you are starting your crop indoors, in a greenhouse, or using store bought starts, you can add the date you transplanted the crop into the garden here.  You can add your expected transplant date if you want a transplant task to populate in your **Tasks Screen.**  You can update this to the actual date the crop was transplanted when you complete that task.
 - First Harvest Date (optional): Once you have your first harvest, you can add the date here.  You can add your expected date of first harvest if you want a harvest task to populate in your **Tasks Screen.**  You can update this to the actual date the crop was harvested when you complete that task.
-- End Harvest Date (optional): If you have a crop that you expect to save seeds from and has some time between the final harvest and seed collection time, you can add the date you expect to stop harvesting here.  You can update this to the actual date the crop finished harvested when you complete that task.  Otherwise the Pull Date is assumed to be the End Harvest Date.
-- Used Greenhouse:  If the seeds were started in a greenhouse, check this box.
+- End Harvest Date (optional): If you have a crop that you expect to save seeds from and has some time between the final harvest and seed collection time, you can add the date you expect to stop harvesting here.  You can update this to the actual date the crop finished harvested when you complete that task.  Otherwise, the Pull Date is assumed to be the End Harvest Date.
+- Used Greenhouse:  If the seeds were started in a greenhouse **or other climate controlled scenario, like inside with grow lights,** check this box.
 - Has Seeds: If you saved seeds from this crop, check this box.
 - Are Seeds Available: If seeds are available for others in the chapter, check this box.
 - Outcomes:  Complete this section as the crop grows.  You can update this section at any time.

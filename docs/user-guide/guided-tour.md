@@ -71,4 +71,12 @@ You can see the history of what was grown in a garden bed by first navigating to
 
 Sometimes you may not know the variety name of the seeds you are planting (perhaps they were shared with you and just labelled with crop name or maybe you haven't decided which variety but know you want that crop included in your plans).  You can add that crop and leave variety blank. This will allow you to enter the crop into your timeline without specifying the variety.  You can always update the variety later if you find out the name.
 
+This means if you see a planting in a Garden Details Screen that doesn't include a variety, the variety is unknown.  
+
+## What does it mean when a Seed Start Date says N/A?
+
+This means that the seed is from a vendor, as opposed to being grown in the chapter,and so the date the parent plant was sown is unknown.
+
+
+
 _More coming soon!_

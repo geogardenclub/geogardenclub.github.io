@@ -36,6 +36,7 @@ const sidebars = {
         'user-guide/registration',
         'user-guide/your-first-garden',
         'user-guide/adding-vendors-crops-varieties',
+        'user-guide/scenarios',
         'user-guide/observations',
         'user-guide/badges',
         'user-guide/outcomes',
