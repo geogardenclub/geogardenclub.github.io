@@ -1,23 +1,23 @@
 ---
 sidebar_position: 2
+hide_table_of_contents: true
 ---
 
 # Design Innovations
 
-:::info tl;dr
 Geo Garden Club includes the following design innovations:
-1. Garden data is aggregrated within local geographic regions called "Chapters". 
+
+1. Garden data is aggregated within local geographic regions called "Chapters". 
 2. Access control enables collaborative garden planning and management. 
 3. Multi-year garden timelines facilitate experience-based improvement.
 4. Chapter timelines facilitate discovery of local "best practices".
 5. Notifications and observations provide context-specific chapter communication.
 6. Outcome data supports improvement within a single garden and across the chapter.
 7. Support for seed saving and seed sharing.
-8. The public view provides garden owners with controlled, public, read-only access.
-:::
 
 
-## 1. Garden data is aggregated within local geographic regions called "Chapters".
+
+## Garden data is aggregated within local geographic regions called "Chapters".
 
 <img style={{float: "left"}} width="400" src="/img/innovations/chapter-overview-excerpt.png"/>
 
@@ -31,7 +31,7 @@ On the other hand, we anticipate that if a Chapter grows beyond a few hundred me
 
 <div style={{clear:"both"}}></div>
 
-## 2. Access control enables collaborative garden planning and management. 
+## Access control enables collaborative garden planning and management. 
 
 <img style={{float: "left"}} width="400" src="/img/innovations/garden-access-control.png"/>
 
@@ -42,7 +42,7 @@ All gardeners have "view only" privileges of other chapter gardens and the abili
 
 <div style={{clear:"both"}}></div>
 
-## 3. Multi-year garden timelines facilitate experience-based improvement.
+## Multi-year garden timelines facilitate experience-based improvement.
 
 <img style={{float: "left"}} width="400" src="/img/innovations/garden-timelines.png"/>
 
@@ -52,7 +52,7 @@ Timeline data can be filtered to provide many insights, particularly when multip
 
 <div style={{clear:"both"}}></div>
 
-## 4. Chapter timelines facilitate discovery of local "best practices".
+## Chapter timelines facilitate discovery of local "best practices".
 
 :::warning Still in development
 Below represents a mockup of the Chapter Timelines feature.  This feature is still in development and is not yet available in the application.
@@ -66,7 +66,7 @@ While this feature is still in development, we can see in the example image abov
 
 This chart alone is not enough information for the gardener to decide what to do, but it is enough information to start a conversation within the Chapter about the timing of broccoli if the gardener wants to change their practices. 
 
-## 5. Notifications and observations provide context-specific chapter communication.
+## Notifications and observations provide context-specific chapter communication.
 
 <img style={{float: "left"}} width="400" src="/img/innovations/observation.png"/>
 
@@ -78,7 +78,7 @@ Observations are shared with other gardeners in the chapter and comments allow f
 
 <div style={{clear:"both"}}></div>
 
-## 6. Outcome data supports improvement within a single garden and across the chapter.
+## Outcome data supports improvement within a single garden and across the chapter.
 
 An important mechanism for improvement is assessment of outcomes: How well did a single planting do?  And what insights can be gained from aggregating outcome data from multiple plantings during a single season, or multiple plantings over multiple seasons, or multiple plantings across the entire chapter?
 
@@ -104,7 +104,7 @@ Once outcome data exists for a set of plantings, then they can be combined to sh
 
 <div style={{clear:"both"}}></div>
 
-## 7. Support for seed saving and sharing
+## Support for seed saving and sharing
 
 <img style={{float: "left"}} width="400"  src="/img/innovations/seed-saving.png"/>
 
@@ -126,21 +126,3 @@ The timeline bar is green from mid-July to mid-August, indicating that this gard
 GGC can thus provide a new insight to gardeners: how long does it take not just to grow a seed to first harvest (which is typically provided on the seed packet) but also how long that plant yields harvest and, significantly, *how long is required to yield seeds*?
 
 <div style={{clear:"both"}}></div>
-
-## 8. The public view provides garden owners with controlled, public, read-only access.
-
-:::warning Still in development
-Below represents a mockup of the public view feature.  This feature is still in development and is not yet available in the application
-:::
-
-We are currently beta testing a mobile app that members of Geo Garden Club will use to view and enter garden data and communicate with other members of the Chapter associated with each Garden.  As part of being a member of Geo Garden Club, you get public view access to all gardens in the Chapter.
- 
-As noted in #2 above, there are access control mechanisms so that owners of a garden can control which other members of GGC can interact with garden data. 
-
-However, the requirement to download and install a mobile app, join GGC, and obtain access from the owner in order to see garden data creates a fairly high barrier to garden data. While this might be necessary and appropriate for active participants in a garden, it also erects a "walled garden". What if a gardener simply wants to ask a question in the Reddit "vegetablegardening" group and needs to provide some details about their garden?
-
-GGC allows the owner of each garden to enable a web-based "public view" of the garden (and its associated chapter).  The public view is designed to allow the gardener to provide details about a garden without revealing its exact location or the identity of gardeners associated with it. 
-
-Here is an example of a portion of a public view which is available at <https://agilegardenclub.com/public-garden/?name=45ght3cf>
-
-<img width="400" src="/img/innovations/public-view.png"/>

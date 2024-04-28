@@ -49,54 +49,8 @@ const config = {
         title: 'Geo Garden Club',
         logo: { alt: 'Geo Garden Club', src: 'img/logos/png/icon2.png' },
         items: [
-          {
-            type: 'dropdown',
-            label: 'Learn more',
-            position: 'right',
-            items: [
-              {
-                label: 'Why GGC?',
-                to: 'docs/home/motivation',
-              },
-              {
-                label: 'Design Innovations',
-                to: 'docs/home/innovations',
-              },
-              {
-                label: 'Related Work',
-                to: 'docs/home/related-work',
-              },
-              {
-                label: 'The Team',
-                to: 'docs/home/team',
-              },
-              {
-                label: 'User Guide',
-                to: 'docs/user-guide/overview',
-              },
-
-            ],
-          },
-
-          {
-            type: 'dropdown',
-            label: 'Public Gardens',
-            position: 'right',
-            items: [
-              {
-                label: '45ght3cf',
-                href: 'https://agilegardenclub.com/public-garden/?name=45ght3cf',
-              },
-              {
-                label: '67abh39db',
-                href: 'https://agilegardenclub.com/public-garden/?name=67abh39db',
-              },
-              {
-                label: '32pcu61yt',
-                href: 'https://agilegardenclub.com/public-garden/?name=32pcu61yt',
-              },
-            ],
-          },
+          {label: 'Welcome', to: 'docs/home/welcome'},
+          {label: 'User Guide', to: 'docs/user-guide/overview'},
         ],
       },
       footer: {

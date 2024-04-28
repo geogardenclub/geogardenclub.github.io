@@ -20,7 +20,7 @@ const sidebars = {
     collapsed: false,
     label: "About GeoGardenClub",
     items: [
-      'home/motivation',
+      'home/welcome',
       'home/innovations',
       'home/related-work',
       'home/team',
@@ -31,7 +31,7 @@ const sidebars = {
       collapsed: false,
       label: "User Guide",
       items: [
-       'user-guide/overview',
+        'user-guide/overview',
         'user-guide/downloading',
         'user-guide/registration',
         'user-guide/your-first-garden',
