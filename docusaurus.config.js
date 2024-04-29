@@ -49,7 +49,7 @@ const config = {
         title: 'Geo Garden Club',
         logo: { alt: 'Geo Garden Club', src: 'img/logos/png/icon2.png' },
         items: [
-          {label: 'Welcome', to: 'docs/home/welcome'},
+          {label: 'About', to: 'docs/home/welcome'},
           {label: 'User Guide', to: 'docs/user-guide/overview'},
         ],
       },
