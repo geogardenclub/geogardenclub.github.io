@@ -98,7 +98,7 @@ In order to combine outcome data together and produce meaningful results, it's c
 
 <div style={{clear:"both"}}></div>
 
-<img style={{float: "left"}} width="400" src="/img/innovations/outcome-data.png"/>
+<img style={{float: "left"}} width="300" src="/img/innovations/outcome-data.png"/>
 
 Once outcome data exists for a set of plantings, then they can be combined to show the spectrum of outcomes associated with a plant variety (or crop) for the current garden or across all gardens in a chapter. GGC provides a visualization of the spectrum of outcome data as a horizontal stacked bar chart, where dark red is 1, orange is 2, yellow is 3, light green is 4, and dark green is five. Here is an example for all the tomato plant varieties. So, the above chart reveals that bad tomato outcomes are unlikely but have still occurred for Appearance and Resistance, and to a lesser extent Yield, Flavor, and Germination. Tomatoes show uniformly good Resistance, and pretty good Germination.
 
@@ -106,7 +106,7 @@ Once outcome data exists for a set of plantings, then they can be combined to sh
 
 ## Support for seed saving and sharing
 
-<img style={{float: "left"}} width="400"  src="/img/innovations/seed-saving.png"/>
+<img style={{float: "left"}} width="300"  src="/img/innovations/seed-saving.png"/>
 
 We believe that an important step toward food resiliency is to develop local networks for seed production and sharing.
 To that end, GGC enables gardeners to indicate whether they are saving seeds from a particular planting, and if so, whether they have enough seeds that they are willing to share them with the local chapter. 
@@ -119,7 +119,7 @@ Seed saving and sharing has another implication: when growing a plant for seeds,
 
 We can see this in the timeline view for these bean plantings:
 
-<img style={{float: "left"}} src="/img/innovations/seed-saving-2.png"/>
+<img style={{float: "left"}} width="300" src="/img/innovations/seed-saving-2.png"/>
 
 The timeline bar is green from mid-July to mid-August, indicating that this gardener was actively harvesting beans for that entire period. But from mid-August to miud-September, the timeline bar switches to blue, indicating that there is no longer any harvest but the plant is still growing (in this case, to produce seed). Reference to the planting card reveals that the harvest ended on 8/15/23 and the beans was pulled on 9/17/23.
 
