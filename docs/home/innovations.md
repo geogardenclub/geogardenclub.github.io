@@ -19,7 +19,7 @@ Geo Garden Club includes the following design innovations:
 
 ## Garden data is aggregated within local geographic regions called "Chapters".
 
-<img style={{float: "left"}} width="400" src="/img/innovations/chapter-overview-excerpt.png"/>
+<img style={{float: "left"}} width="300" src="/img/innovations/chapter-overview-excerpt.png"/>
 
 Each GGC garden is associated with a "Chapter", which collects together a set of gardens that share the same geographic region and (mostly) similar climate. Just as important, the *gardeners* associated with a Chapter share the same geographic region: they are within walking (or biking) distance of each other.   
 
@@ -33,7 +33,7 @@ On the other hand, we anticipate that if a Chapter grows beyond a few hundred me
 
 ## Access control enables collaborative garden planning and management. 
 
-<img style={{float: "left"}} width="400" src="/img/innovations/garden-access-control.png"/>
+<img style={{float: "left"}} width="300" src="/img/innovations/garden-access-control.png"/>
 
 Similar to other cloud-based document management systems, GGC enables collaborative access and management of garden data.  Gardeners can have one of two roles: "owner" (with full access to the garden, including the ability to add other gardeners, modify roles, and delete the garden) or "editor" (allowing the gardener to add and edit data).
 
@@ -44,7 +44,7 @@ All gardeners have "view only" privileges of other chapter gardens and the abili
 
 ## Multi-year garden timelines facilitate experience-based improvement.
 
-<img style={{float: "left"}} width="400" src="/img/innovations/garden-timelines.png"/>
+<img style={{float: "left"}} width="300" src="/img/innovations/garden-timelines.png"/>
 
 GGC is oriented to the needs of gardeners who want to improve their gardens over multiple seasons, and thus need to compare and contrast their efforts over multiple years. An important way to represent a garden is via a timeline, which specifies the contents of the garden for each year as well as important dates during the lifecycle of a planting (such as start date, first harvest, and pull date.).  The left image shows a timeline view of a portion of a garden in Bellingham, WA during 2023
 
@@ -68,7 +68,7 @@ This chart alone is not enough information for the gardener to decide what to do
 
 ## Notifications and observations provide context-specific chapter communication.
 
-<img style={{float: "left"}} width="400" src="/img/innovations/observation.png"/>
+<img style={{float: "left"}} width="300" src="/img/innovations/observation.png"/>
 
 GGC allows gardeners to make "observations" regarding a planting of a plant variety on a specific day.
 
@@ -82,7 +82,7 @@ Observations are shared with other gardeners in the chapter and comments allow f
 
 An important mechanism for improvement is assessment of outcomes: How well did a single planting do?  And what insights can be gained from aggregating outcome data from multiple plantings during a single season, or multiple plantings over multiple seasons, or multiple plantings across the entire chapter?
 
-<img style={{float: "left"}} width="400" src="/img/innovations/outcome-basil.png"/>
+<img style={{float: "left"}} width="300" src="/img/innovations/outcome-basil.png"/>
 
 Outcome data is always created with respect to a single planting. For example, this image shows a summary of a single planting of Italian Basil during 2023, including the outcome data that the gardener assigned to it.  
 
