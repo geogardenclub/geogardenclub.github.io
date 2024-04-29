@@ -52,19 +52,6 @@ Timeline data can be filtered to provide many insights, particularly when multip
 
 <div style={{clear:"both"}}></div>
 
-## Chapter timelines facilitate discovery of local "best practices".
-
-:::warning Still in development
-Below represents a mockup of the Chapter Timelines feature.  This feature is still in development and is not yet available in the application.
-:::
-
-<img style={{borderStyle: "solid"}} src="/img/innovations/chapter-timelines.png"/>
-
-One way to improve garden productivity is by learning best practices in your local geographic region for the timing of planting.  GGC Chapter Timelines provide a simple way to view timing data for your own garden, then compare it to timing data across the entire chapter. 
-
-While this feature is still in development, we can see in the example image above that this gardener has planted broccoli only during Week 16 (i.e. between April 15-21) and the latest they left their broccoli was Week 29 (July 22-30).  The Chapter Timeline shows that there are gardeners in the Chapter who have planted broccoli as early as Week 7 and left the broccoli in the ground until the end of the year. 
-
-This chart alone is not enough information for the gardener to decide what to do, but it is enough information to start a conversation within the Chapter about the timing of broccoli if the gardener wants to change their practices. 
 
 ## Notifications and observations provide context-specific chapter communication.
 
@@ -128,3 +115,17 @@ Another example of seed saving is the cilantro planting.  The gardener harvested
 GGC can thus provide a new insight to gardeners: how long does it take not just to grow a seed to first harvest (which is typically provided on the seed packet) but also how long that plant yields harvest and, significantly, *how long is required to yield seeds*?
 
 <div style={{clear:"both"}}></div>
+
+## Chapter timelines facilitate discovery of local "best practices".
+
+:::warning Still in development
+Below represents a mockup of the Chapter Timelines feature.  This feature is still in development and is not yet available in the application.
+:::
+
+<img style={{borderStyle: "solid"}} src="/img/innovations/chapter-timelines.png"/>
+
+One way to improve garden productivity is by learning best practices in your local geographic region for the timing of planting.  GGC Chapter Timelines provide a simple way to view timing data for your own garden, then compare it to timing data across the entire chapter.
+
+While this feature is still in development, we can see in the example image above that this gardener has planted broccoli only during Week 16 (i.e. between April 15-21) and the latest they left their broccoli was Week 29 (July 22-30).  The Chapter Timeline shows that there are gardeners in the Chapter who have planted broccoli as early as Week 7 and left the broccoli in the ground until the end of the year.
+
+This chart alone is not enough information for the gardener to decide what to do, but it is enough information to start a conversation within the Chapter about the timing of broccoli if the gardener wants to change their practices. 
