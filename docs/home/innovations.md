@@ -123,6 +123,8 @@ We can see this in the timeline view for these bean plantings:
 
 The timeline bar is green from mid-July to mid-August, indicating that this gardener was actively harvesting beans for that entire period. But from mid-August to miud-September, the timeline bar switches to blue, indicating that there is no longer any harvest but the plant is still growing (in this case, to produce seed). Reference to the planting card reveals that the harvest ended on 8/15/23 and the beans was pulled on 9/17/23.
 
+Another example of seed saving is the cilantro planting.  The gardener harvested cilantro from mid-May to mid-July, then let the plant go to seed.  The plant was pulled on 8/15/23.
+
 GGC can thus provide a new insight to gardeners: how long does it take not just to grow a seed to first harvest (which is typically provided on the seed packet) but also how long that plant yields harvest and, significantly, *how long is required to yield seeds*?
 
 <div style={{clear:"both"}}></div>
