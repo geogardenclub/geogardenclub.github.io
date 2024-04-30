@@ -3,7 +3,7 @@ sidebar_position: 1
 hide_table_of_contents: true
 ---
 
-# Welcome to GeoGardenClub
+# Welcome
 
 GGC started in 2021 when a small group of gardeners in Bellingham, Washington realized that, despite the availability of dozens of home gardening apps, we were planning and managing our gardens using spreadsheets, Word docs, and even paper and pencil!
 
