@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import YouTube from 'react-youtube'
 
 import styles from './index.module.css';
 
@@ -23,6 +24,18 @@ function HomepageHeader() {
   );
 }
 
+function HomepageFooter() {
+  const {siteConfig} = useDocusaurusContext();
+  return (
+    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      <div className="container">
+        <h3 className="hero__subtitle">Watch our 5 minute intro to GeoGardenClub</h3>
+        <YouTube videoId="nQuRtGop7ig"/>
+      </div>
+    </header>
+  );
+}
+
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -33,6 +46,7 @@ export default function Home() {
       <main>
         <HomepageFeatures />
       </main>
+      <HomepageFooter />
     </Layout>
   );
 }

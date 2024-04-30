@@ -1,12 +1,18 @@
 ---
-hide_table_of_contents: false
+hide_table_of_contents: true
 ---
 
 # Downloading
 
-This page details the downloading process for beta testers.  Once we move past beta testing, the app will be available for download in app stores.  If you have an iPhone or iPad, you will download the app through TestFlight.  If you have an Android device, instructions will soon be available.
+This page details the downloading process for beta testers.  Once we move past beta testing, the app will be available for download in app stores.  
 
-## Downloading through TestFlight (iOS only)
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="ios" label="iOS" default>
+
+## Download through TestFlight
 
 1.  Using your mobile device, open your inbox for your email account associated with your Apple ID.  Look for an email from App Store Connect inviting you to access App Store Connect (check Spam folder if you don't see it).  **Accept** the invitation.
 
@@ -16,7 +22,7 @@ This page details the downloading process for beta testers.  Once we move past b
 
 <img width="600" src="/img/user-guide/testflight.png"/>
 
-3. That will open TestFlight. Tap **Accept** to begin downloading the app.  Switch to your home screen to see progress on downloading the app. 
+3. That will open TestFlight. Tap **Accept** to begin downloading the app.  Switch to your home screen to see progress on downloading the app.
 
 <img width="600" src="/img/user-guide/testflight-accept.png"/>
 
@@ -24,9 +30,18 @@ This page details the downloading process for beta testers.  Once we move past b
 
 <img width="600" src="/img/user-guide/search-app-library.png"/>
 
-## Updating through TestFlight (iOS only)
+## Update through TestFlight
 
 You will receive emails from TestFlight everytime a new version is released.  You can open Testflight through the email link to get taken directly to TestFlight to update to the latest version.
+
+</TabItem>
+
+<TabItem value="android" label="Android">
+    Instructions forthcoming. If you have an Android device and are part of the beta test team, please contact geogardenclub@gmail.com for further instructions.
+</TabItem>
+</Tabs>
+
+
 
 <!-- 
 ## Downloading through Firebase (Android)
@@ -71,4 +86,3 @@ You will receive emails from TestFlight everytime a new version is released.  Yo
 You will receive emails from "GeoGardenClub (via Firebase)" everytime a new version is released.  Tap **Download the latest build** and the app will begin updating.
 
 -->
-```
