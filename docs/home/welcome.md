@@ -27,7 +27,7 @@ The home gardening apps we've seen focus on a single season. For us, gardening i
 **Seed saving and sharing builds community resiliency.**
 We buy seeds from companies, but we also want to get better at growing certain plants to seed and using (and sharing) those seeds in the next growing season. GGC enables you to incorporate seed saving into planting timelines to ensure accurate space allocation for each crop. In addition, GGC provides a seed sharing mechanism for each chapter, enabling gardeners to see what seeds are available from fellow chapter members, and review the outcomes and planting timelines for those seeds. We believe that connecting with other gardeners in your local community to share seeds helps foster a culture of resilience and resource sharing. 
 
-If the above sounds good to you, and you haven't watched our five minute introduction to GeoGardenClub yet, please check it out!
+If the above sounds good to you, and you haven't watched our five minute introduction to GeoGardenClub yet, please check it out! It shows our app in action and provides you with a much better sense of what it's like to be part of GeoGardenClub.
 
 import YouTube from 'react-youtube'
 
