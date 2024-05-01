@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import YouTube from 'react-youtube'
+import ReactPlayer from 'react-player/youtube'
 
 import styles from './index.module.css';
 
@@ -30,7 +31,10 @@ function HomepageFooter() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <h3 className="hero__subtitle">Watch our 5 minute intro to GeoGardenClub</h3>
-        <YouTube videoId="nQuRtGop7ig"/>
+        <div className='wrapper'>
+          <ReactPlayer className='player' url="https://www.youtube.com/watch?v=nQuRtGop7ig" width="100%" height="100%" ></ReactPlayer>
+        </div>
+
       </div>
     </header>
   );
