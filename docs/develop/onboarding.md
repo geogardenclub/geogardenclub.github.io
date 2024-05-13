@@ -5,7 +5,7 @@ hide_table_of_contents: false
 
 # Onboarding
 
-Welcome, new GGC Alpha Release developer!  This page provides a checklist of things required to get started developing our technology. 
+Welcome, new GGC developer!  This page provides a checklist of things required to get started with our technology. 
 
 ## Site access
 
