@@ -50,6 +50,7 @@ const sidebars = {
   developSidebar: [
     'develop/index',
     'develop/roadmap',
+    'develop/milestones',
     'develop/onboarding',
     {
       type: 'category',
