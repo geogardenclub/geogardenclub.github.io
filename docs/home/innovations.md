@@ -67,13 +67,13 @@ Timeline data can be filtered to provide many insights, particularly when multip
 
 ## Observations complement timeline data with visual data.
 
-Timeline data provides important information about a planting, but does tell the whole story. What did the plant look like at various points? Did it have a problem with pests at any point? Are there additional milestones during development that the gardener wants to keep track of (such as the appearance of the first bud)? 
+Timeline data provides important information about a planting, but does not tell the whole story. What did the plant look like at various points? Did it have a problem with pests at any point, and what did they look like? Are there additional milestones during development that the gardener wants to keep track of (such as the appearance of the first bud)? 
 
 <img style={{float: "left", padding: "20px"}} width="300" src="/img/innovations/observation.png"/>
 
 To complement the timeline, GGC allows gardeners to make "observations" regarding a single planting on a specific day. The adjacent image shows one such observation.
 
-Observations can include phenomena such as successful germination, first flower, first harvest, diseases, or pests.
+Observations can include phenomena such as successful germination, first flower, first harvest, diseases, or pests.  Or if one of your plants happens to be looking particularly good and want to share it, you can use an Observation for that as well! 
 
 Observations can be public or private. If public, they create a mechanism for communication among chapter members, as public observations can be commented upon by any other gardener in the chapter.  For example, a gardener might post an observation of a planting with an unknown pest on it and ask if other gardeners know what that pest is. 
 
