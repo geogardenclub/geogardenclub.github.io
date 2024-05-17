@@ -484,13 +484,13 @@ Outcome data is gardener-supplied information about the result of a single Plant
 
 To support these requirements, we define five outcome types: germination, yield, flavor, pest and disease resistance, and appearance. Each planting can receive a "grade" for each of these outcome types on a five point scale.  The following table presents the definitions for each scale value for each outcome type.
 
-|   | 1    | 2    | 3     | 4       | 5           |
-| - |------|------|-------|---------|-------------|
-| **Germination** | **None.** No germination. | **Poor.** ~25% germination.| **OK.** ~50% germination. | **Good.** ~75% germination. | **Excellent.** >90% germination.. |
+|   | 1    | 2    | 3                               | 4       | 5           |
+| - |------|------|---------------------------------|---------|-------------|
+| **Germination** | **None.** No germination. | **Poor.** ~25% germination.| **OK.** ~50% germination.       | **Good.** ~75% germination. | **Excellent.** >90% germination.. |
 | **Yield** | **None.** Died and/or no food | **Poor.** Less food than expected | **OK.** Expected amount of food | **Good.** More food than expected | **Excellent.** TWay more food than expected |
-| **Flavor** | **Bad.** Unappealing flavor | **Poor.** Bland flavor | **OK.** Expected flavor. | **Good.** Enjoyable flavor | **Excellent.** Awesome flavor. |
-| **Pest and disease resistance** | **Very poor.** >90% damaged | **Poor.** ~50% damaged | **OK.** <25% damaged | **Good.** Very few damaged | **Excellent.** No damage. |
-| **Appearance** | **Very poor.** >90% ugly | **Poor.** ~60% ugly | **OK.** ~60% not ugly | **Good.** ~60% beautiful | **Excellent.** >90% beautiful |
+| **Flavor** | **Bad.** Unappealing flavor | **Poor.** Bland flavor | **OK.** Expected flavor.        | **Good.** Enjoyable flavor | **Excellent.** Awesome flavor. |
+| **Pest and disease resistance** | **Very poor.** >90% damaged | **Poor.** ~50% damaged | **OK.** < 25% damaged           | **Good.** Very few damaged | **Excellent.** No damage. |
+| **Appearance** | **Very poor.** >90% ugly | **Poor.** ~60% ugly | **OK.** ~60% not ugly           | **Good.** ~60% beautiful | **Excellent.** >90% beautiful |
 
 In addition, an Outcome type can have a value of "0", which means there is no data regarding that type of outcome.
 

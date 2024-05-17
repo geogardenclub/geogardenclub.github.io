@@ -58,7 +58,7 @@ Finally, in case we need to look at these changes more closely in the future, th
 :::
 ## ggc_app
 
-To install the app, first clone the sources from <https://github.com/geogardenclub/ggc_app>.
+To install the app, first clone the sources from [https://github.com/geogardenclub/ggc_app](https://github.com/geogardenclub/ggc_app).
 
 Next, cd into the ggc_app directory and run `flutter pub get`. For example:
 

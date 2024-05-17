@@ -27,7 +27,7 @@ Before you can contribute code to this project, you will need to sign a document
 
 We use a basic process for development:
 
-* Tasks are specified in a GitHub project board. The project board for GGC is available at: <https://github.com/orgs/geogardenclub/projects/1/views/1>
+* Tasks are specified in a GitHub project board. The project board for GGC is available at: [https://github.com/orgs/geogardenclub/projects/1/views/1](https://github.com/orgs/geogardenclub/projects/1/views/1)
 
 * Code is developed using a branch-and-merge model. Please name the branch "issue-XXX", where XXX is the issue number associated with the task associated with your coding.
 
