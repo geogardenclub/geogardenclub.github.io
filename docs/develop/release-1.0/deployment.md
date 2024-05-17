@@ -28,6 +28,13 @@ We will adhere to two standards:
 
 The deployment process is handled by a single developer referred to as the "Deployment Manager" (DM). Initially, Philip will be the DM.
 
+## 0. Prerequisites
+
+Prior to a deployment, it is good practice to:
+
+* Do a [backup](backups).
+* Run the integrity checker and resolve any violations.
+
 ## 1. Update the ChangeLog
 
 Invoke `cider log added <message>` to document new additions (or use `changed` or `fixed`) since the last release. Enclose the message in quotes. For example:
