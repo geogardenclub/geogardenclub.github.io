@@ -5,7 +5,7 @@ hide_table_of_contents: true
 
 # Design Innovations
 
-The last section introduced several "distinguishing features" of GeoGardenClub. This section provides a more detailed look at the design innovations that distinguish GGC from other home gardening technologies:
+What should an app provide if it is intended to support the needs of "serious" gardeners? Here is GeoGardenClub's answer:
 
 1. Garden data is aggregated within local geographic regions called "Chapters". 
 2. Access control enables collaborative garden planning and management. 
@@ -150,3 +150,5 @@ One way to improve garden productivity is by learning best practices in your loc
 While this feature is still in development, we can see in the example image above that this gardener has planted broccoli only during Week 16 (i.e. between April 15-21) and the latest they left their broccoli was Week 29 (July 22-30).  The Chapter Timeline shows that there are gardeners in the Chapter who have planted broccoli as early as Week 7 and left the broccoli in the ground until the end of the year.
 
 This chart by itself is not enough information for the gardener to decide what to do, but it is enough information to start a conversation within the Chapter about the timing of broccoli if the gardener wants to change their practices. 
+
+In the next section, we describe some other gardening technologies and how they relate to GeoGardenClub.

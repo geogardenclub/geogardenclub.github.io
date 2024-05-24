@@ -1,86 +1,82 @@
 ---
 sidebar_position: 3
-hide_table_of_contents: true
+hide_table_of_contents: false
 ---
 
-# Related work
-
-The design of GeoGardenClub is influenced by other technologies, by the broader landscape of food production and distribution, and finally by potential impacts of climate change. This section provides a recap of our research on these and other issues.  
-
-## Food security, home gardens, and GGC
-
-Food security, as defined by the [United Nations’ Committee on World Food Security](https://www.fao.org/home/en/), means that all people, at all times, have physical, social, and economic access to sufficient, safe, and nutritious food that meets their food preferences and dietary needs for an active and healthy life. In the coming decades, food security will become an increasingly critical issue due to population growth in combination with climate change, the latter of which which will negatively impact agricultural water availability, arable land availability, and the diversity and distribution of agricultural plant, insect, and animal species ([Kwasek, 2012](https://ageconsearch.umn.edu/record/143167/files/10%20EP%204%202012-11.pdf)).
-
-Food insecurity is not only an issue for the distant future or for underdeveloped countries. In 2019, an estimated 1 in 8 Americans were food insecure, equating to over 38 million Americans, including almost 12 million children ([Coleman-Jensen, 2019](https://www.ers.usda.gov/webdocs/publications/94849/err-270.pdf?v=963.1)).
-
-([Galhenia et al, 2013](https://agricultureandfoodsecurity.biomedcentral.com/articles/10.1186/2048-7010-2-8)) provides evidence that home gardens can improve food security: "... Benefits of home gardens include enhancing food and nutritional security in many socio-economic and political situations, improving family health and human capacity, empowering women, promoting social justice and equity, and preserving indigenous knowledge and culture." In addition, "the most fundamental social benefit of home gardens stems from their direct contributions to household food security by increasing availability, accessibility, and utilization of food products".  According to ([Rai, 2020](https://link.springer.com/article/10.1007/s12571-020-01058-3)), home gardens can also strengthen numerous ecosystem serviecs, including plant biodiversity, microclimate, water runoff, urban soil restoration, and water quality. Finally, home gardens can play a significant role in combatting "food deserts", areas in which it is difficult to buy affordable or good-quality fresh food ([Palar et al., 2019](https://www.sciencedaily.com/releases/2019/10/191007180035.htm)).
-
-Community gardens are similar to home gardens in scale and the types of food products grown, but community gardens create and foster "communities of practice" with significant health consequences: In a study by ([Alaimo et al, 2008](https://nccommunitygardens.ces.ncsu.edu/resources-3/nccommunitygardens-research/)), community gardeners consumed fruits and vegetables 5.7 times per day, compared with home gardeners (4.6 times per day) and nongardeners (3.9 times per day). Moreover, 56% of community gardeners met national recommendations to consume fruits and vegetables at least 5 times per day, compared with 37% of home gardeners and 25% of nongardeners.
-
-A fundamental goal of Geo Garden Club (GGC) is to address food insecurity by increasing: (a) the numbers of home gardens (and home gardeners), (b) the productivity of home gardens, and (c) the ability of home gardens to improve human health. To accomplish this, we are designing technology to not just facilitate home garden planning and implementation, but also to facilitate the creation of local "communities of practice" for home gardening. If successful, GGC home gardeners will (among other things) reap the health benefits currently enjoyed by community gardeners.
-
-## Our target demographic: the "serious" gardener
-
-We view food production as a spectrum of activities and levels of commitment, as shown in the following diagram:
-
-<img src="/img/related/gardening-farming.png"/>
-
-On the far left side are "recreational" gardeners. These are people who are either just getting into gardening, and/or are relatively uncommitted to gardening.  There are a variety of technologies (websites and applications) oriented to the needs of "recreational" gardeners.
-
-On the right side are "farmers": those who make most or all of their living from growing food. Unlike gardeners, farmers cannot operate at a loss. There are also a variety of technologies available to support the needs of small scale farmers (i.e. "urban agriculture") as well as large scale farmers ("industrial agriculture").
-
-We call our target demographic the "serious gardener": a gardener who hopes to grow significant amounts of food, to improve their garden on a season-by-season basis, and who is open to sharing their experiences with other gardeners and learning from other gardener's experiences.  A serious gardener is not necessarily an "expert" gardener. In fact, one can be both a serious gardener and an absolute beginner!  Serious gardeners are defined by intent, not skill level.
-
-Improving a garden from year to year has multiple facets, including:
-
-* *Better choice of plant varietals* to improve yield or pest/environmental resistance
-* *Better planning of bed contents* (soil/amendments and plant varietals) and sequencing of planting to improve outcomes (yield, flavor, timing of harvest, reduced pests, etc.)
-* *Better use of resources* (i.e. growing season, bed size, water, nutrients)
-
-There are two basic approaches used by a serious gardener to improve their garden:
-
-1. *Individual experimentation and record keeping.*  A serious gardener tries to learn from their experience over multiple growing seasons. They may keep informal records to provide a more data-driven approach to improvement.
-
-2. *Collective interaction with a "community of practice".*  Most serious gardeners develop some sort of informal community of fellow-minded gardeners to whom they discuss issues and share experiences in hopes of improving their collective garden experiences. Traditionally, these communities of practice took the form of garden clubs, such as the [Garden Club of America](https://www.gcamerica.org/). More recently, communities of practice can take the form of local Facebook groups, or even global forums like the [Reddit r/vegetablegardening forum](https://www.reddit.com/r/vegetablegardening/). Interaction with others can also increase the enjoyment of gardening and provides motivation.
-
-Interestingly, this classification scheme reveals a technology gap: there is no technology designed to address the needs of gardeners who have more sophisticated goals than recreational gardeners, but who are not interested in running a business based on growing and selling food.  Geo Garden Club is targeting this market and technology niche.
-
-## The impact of improved garden knowledge
-
-Improving the ability of gardeners to learn effective gardening practices has been shown to facilitate participation in gardening. A study of the socio-behavioral drivers of growing produce at home ([Grebitus, 2021](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0256913)) found that knowledge of gardening practices was a significant factor. "...increased knowledge leads to increased participation in home and community gardens. Hence, we need to educate future gardeners, to increase their knowledge and ability to participate safely in small-scale urban agriculture, as stressed by Kortright and Wakefield, who suggested that home food gardeners could be supported with regard to acquiring ecological gardening skills and to general learning opportunities. Lack of knowledge can increase the risk for those who are unaware of safe gardening practices, for example the risk of soil contaminants."
-
-
-## Garden Planning Tools
+# Garden Planning Tools
 
 If you search for "garden planning tools" on the Internet, you'll find dozens of applications.  Most of those are essentially "landscape architecture" tools for people who want to design the visual look of their (flower) gardens. This is an interesting design problem, but not the problem addressed by Geo Garden Club.
 
-If you narrow the search to say, "vegetable garden planning tools", you'll still find many that focus on the visual look of the garden bed, but there are a few that focus on the kinds of issues of interest to GGC. Here are the most relevant applications we have found:
+If you narrow the search to say, "vegetable garden planning tools", you'll still find many that focus on the visual look of the garden bed, but there are a few that focus on the kinds of issues of interest to GGC. Here are a few of the applications we have found that address at least some of the needs of our target demographic: "serious" gardeners.
 
-|    | Name/URL | Users | Cost |
-| -- | -------  | ----- | ---- |
-| GP | [Garden Planner](https://www.growveg.com)  | 500K+ | $29-$40/year |
-| TS | [Territorial Seed](https://gardenplanner.territorialseed.com/) | ? | $29-$40/year |
-| VP  | [VegPlotter](https://vegplotter.com/) | ? | Free | 
-| GPP | [Garden Plan Pro](http://gardenplanpro.com/)  | 20K+ | Free version (1 bed), $19.99 one time purchase, $1.99/month subscription  | 
-| GM | [Garden Manager](https://www.gardenmanager.com/) | 20K+ | Planner: $0. Coach: $6/mo, Coach+Online Library, webinars, members only chat forum: $7.5/mo | 
-| GI | [Grow It!](https://eightbitstudios.com/growit) | 700K | Out of business (?) | 
-| PM | [Plants Map](https://www.plantsmap.com/) | ? | Free plan, or $49-$99/year | 
-| SG | [Smart Gardener](https://www.smartgardener.com/) | ? | $10/3 months; $30/year | 
-| GS | [Google Sheets](https://www.google.com/sheets/about/) | ? | Free |
+## Growing Interactive
 
-Some general observations about garden planning tools:
+[Growing Interactive](https://www.growinginteractive.com/) bills itself as "the leading software company for gardeners", and this is probably correct. They have released a family of 9 white label software applications including: 
 
-* Many of these sites focus primarily the needs of "recreational" or "beginner" gardeners, and/or focus on garden construction.
-* The social media integration for the some of the apps is questionable. Why "like" a picture of a plant?
-* The gardener-to-gardener communication channels are quite primitive, consisting of posting to Facebook or publishing journal entries.
-*  Most tools have a very limited free tier, with a typical paid subscriber base at $1-$3/month.
-*  Some tools tend to be underwritten by seed vendors, and so the planning tool is oriented toward marketing and seed sales.
+* [Grow Veg](https://www.growveg.com), 
+* [Territorial Seed Garden Planner](https://gardenplanner.territorialseed.com/), 
+* [VegPlotter](https://vegplotter.com/), 
+* [The Old Farmer's Almanac Garden Planner](https://gardenplanner.almanac.com/garden-planner-intro.aspx), 
+* [Mother Earth News Garden Planner](https://gardenplanner.motherearthnews.com/garden-planner-intro.aspx), 
+* [Mr. Fothergill's Seeds Garden Planner](https://www.mrfothergills.com.au/garden-planner-and-app), 
+* [Suttons Seeds Garden Planner](https://hub.suttons.co.uk/gardening-advice/apps/garden-planner), 
+* [Seed Money Garden Planner](https://gardenplanner.seedmoney.org/), and 
+* [Garden Plan Pro](http://gardenplanpro.com/). 
 
-As noted before, a popular tool for serious gardeners is a spreadsheet such as Google Sheets or Excel, perhaps in conjunction with a document editor (Google Docs or Word). This combination of tools is free and very flexible, but lacks any domain-specific functionality.
+They also appear to have spun off an independent mobile application development company called [Knowledge is Porridge](http://knowledgeisporridge.com/). 
+
+All of these garden planners appear to implement the same user interface, and differ in the contents of the application's seed catalog. In other words, Growing Interactive enables seed companies to augment their marketing materials (such as a color brochure) with an online application that helps gardeners design their garden plot and then guide them to the seeds from a specific vendor.  The apps are subscription-based, and users pay around $30-$40/year after a free trial period.
+
+This video appears to provide a good overview of the features associated with this family of applications:
+
+import ReactPlayer from 'react-player/youtube'
+
+<div className='wrapper'><ReactPlayer className='player' url="https://www.youtube.com/watch?v=EYWH8Z3e8cw" width="100%" height="100%" ></ReactPlayer></div>
+
+Here are some of the interesting capabilities of Growing Interactive:
+
+* An interactive, online mechanism for specifying the "plot plan" with the layout of beds and the square footage associated with each bed. Based on the plot plan, the software can 
+ provide various capabilities, such as indicating the maximum number of plants of a given type that can be grown in a particular bed.
+
+* The software asks you to specify the geographic location of your garden on a map. From that, the software attempts to determine the climate conditions associated with your garden and automatically predict frost dates and the appropriate dates for sowing, transplanting, or harvesting.
+
+* Growing Interactive has produced a [large YouTube library](https://www.youtube.com/c/Growveg-Garden-Planning-Apps) containing almost 500 videos and 750K subscribers.
+
+On the other hand, Growing Interactive's software does not implement many of the [GeoGardenClub design innovations](./innovations.md): Chapters, Access Control, Observations, Outcomes, Seed Saving and Sharing. Perhaps most interestingly, Growing Interactive's business model (i.e. white label software for use by seed companies) would make it difficult for them to embrace our approach of allowing Chapters to build their own seed databases with a combination of vendors and gardener-supplied seeds. 
+
+In summary, Growing Interactive's software products will appeal to gardeners who benefit from a design tool for creating the plot plan.  GGC will appeal to gardeners who benefit from our design innovations. 
+
+## Planter
+
+[Planter](https://planter.garden/) appears to be quite similar to Growing Interactive. It costs only $12/year. Here is an intro video:  
+
+<div className='wrapper'><ReactPlayer className='player' url="https://www.youtube.com/watch?v=3ADP-_PBP6c" width="100%" height="100%" ></ReactPlayer></div>
+
+From the video, Planter seems like a somewhat more primitive version of Growing Interactive's software. You create a plot plan, drag and drop plants to it, and select from a pre-built list of plants and varieties. You can see all of their videos [here](https://www.youtube.com/@planterapp).
+
+## Seed Time
+
+[SeedTime](https://seedtime.us/) bills itself as "the Fastest Way to Plan Your Garden or Small Farm Ever. Visualize exactly when to seed, transplant, or harvest crops in your garden all year round - based on your local area." It is the most expensive app we found, at $13/month or $109/year. Here is their [video library](https://www.youtube.com/@seedtimeplanner/videos).
+
+Here is an informative review by a user from [Circle City Seeds](https://circlecityseed.com/), a seed saving organization.
+
+<div className='wrapper'><ReactPlayer className='player' url="https://www.youtube.com/watch?v=P9DX7OcEEMY" width="100%" height="100%" ></ReactPlayer></div>
+
+From my experience signing up for the free trial, Seedtime is quite "aggressive" about marketing their affiliates to users. For example, there appear to be frequent time-limited promotions (i.e. "Get $5 off when you buy seeds from this vendor, this week only!").  This is not necessarily a bad thing, but it makes it clear that affiliate marketing is a revenue stream for them.
+
+
+## Obsolete applications
+
+There are some applications that are no longer available that can be instructive:
+
+* [Garden Manager](https://www.gardenmanager.com/) was designed to "keep you on track, helping optimize your plan for maximum food production, notifying you when it's time to start transplants, thin, harvest and more.  Weird weather on it's way, or haven't had enough rain for what you're growing?  No worries, your Garden Manager lets you know and shows you what to do." However, their home page goes on to say that "The Garden Manager App came down to make room for raising friends and families up."
+
+* [Grow It!](https://eightbitstudios.com/work/growit-social-gardening-platform) was the product of a collaboration between Ball Horticulture and Eight Bit Studios. They teamed up to "help the next generation of gardeners discover plants and learn about what grows in their region. What started out as a seed of an idea has bloomed into a community of over 1 million “Growers” who have submitted over 3 million photo ratings, while helping thousands of people identify plants and learn about what grows in their region."
+
 
 ## Urban Agriculture Tools
 
-"Urban Agriculture" is a general term for cultivating, processing, and distributing food in or around urban areas.  These tools are distinguished from home garden planner tools by a focus on more professional, market-oriented approach to small-scale farming.
+"Urban Agriculture" is a general term for cultivating, processing, and distributing food in or around urban areas.  These tools are distinguished from home garden planner tools by a focus on more professional, market-oriented approach to small-scale farming. Here are some of the products with some basic information:
 
 |    | Name/URL | Users | Cost | 
 | -- | -------  |-------| ---- | 
@@ -102,7 +98,7 @@ Some general observations about urban agriculture tools:
 
 ## Citizen Science technologies
 
-There are several tools available to support citizen science as it relates to climate change:
+Finally, we found a few tools that support citizen science as it relates to climate change:
 
 |    | Name/URL | Users | Cost | 
 | -- | -------  | ----- | ---- | 
@@ -110,13 +106,3 @@ There are several tools available to support citizen science as it relates to cl
 | SF | [SmartFin](https://smartfin.org/) | ? | Free | 
 
 Our goal is for GGC to complement existing approaches to Citizen Science. We would like to work with these organizations to determine the best wa for GGC to collect data to augment current data sets and make them more valuable to researchers.
-
-## How does GGC fit in?
-
-Analysis of the technology landscape reveals that there are basically two clusters of features: "Novice" features that are associated with the garden planning tools, and "professional" features that are associated with the urban agriculture tools.
-
-The market niche for GGC is between these two areas:
-
-* "Beyond Novice". GGC gardeners have generally solved the "layout problem", and are interested in more sophisticated record keeping than is available in current garden planning tools.
-
-* "Non-professional". GGC gardeners do not require people management technology. In addition, in a professional setting, local data sharing could be undesirable to farmers as it might reveal competitive secrets.  GGC gardeners are in a non-competitive environment where data sharing within the community has little downside.

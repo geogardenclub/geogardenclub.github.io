@@ -29,9 +29,10 @@ We buy seeds from companies, but we also want to get better at growing certain p
 
 If the above sounds good to you, and you haven't watched our five minute introduction to GeoGardenClub yet, please check it out! It shows our app in action and provides you with a much better sense of what it's like to be part of GeoGardenClub.
 
-
 import ReactPlayer from 'react-player/youtube'
 
 <div className='wrapper'><ReactPlayer className='player' url="https://www.youtube.com/watch?v=nQuRtGop7ig" width="100%" height="100%" ></ReactPlayer></div>
 
-As of 2024, the GeoGardenClub app is currently in closed beta testing. The next sections go into more detail about the motivation and design of GGC, and are followed by our User Guide.
+As of 2024, the GeoGardenClub app is currently in closed beta testing. 
+
+So, how do you know if you are the kind of person who might benefit from participating in GeoGardenClub? The next section presents our "target demographic"--folks we call "serious gardeners".
