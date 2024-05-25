@@ -4,19 +4,13 @@ hide_table_of_contents: false
 
 # Your First Garden
 
-## Find your home screen
-To add your first garden navigate to the **Home Screen.**  You can always access the **Home Screen** by tapping the menu icon   <img width="20" src="/img/user-guide/menu-icon.jpg"/> at the top left of your screen.  Tap on **Home** to access your gardens, tasks, observations, and chat rooms.
-
 ## Add a garden
+To add your first garden navigate to the **Home/Garden Screen.**  You can access all of the **Home Screens** by tapping the menu icon   <img width="20" src="/img/user-guide/menu-icon.jpg"/> at the top left of your screen and then tapping on **Home.** 
 
-By tapping **Home** you will be now be in your **Tasks Screen.**  
+First tap **Home** to access your home bottom menu.  Then tap **Gardens** to view your garden summary cards.
 <img width="600" src="/img/user-guide/select-home.png"/>
 
-In the bottom menu bar tap **Gardens.**  You'll see a large **+Garden** button onn the bottom right of the screen.  
-
-<img width="600" src="/img/user-guide/select-gardens.png"/>
-
-Tap **+Garden**  to open the **Create Garden Screen.**
+Tap **+Garden** in the bottom right corner to open the **Create Garden Screen.**
 
 <img width="600" src="/img/user-guide/create-garden.png"/>
 

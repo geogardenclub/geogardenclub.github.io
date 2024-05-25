@@ -4,7 +4,8 @@ hide_table_of_contents: true
 
 # Downloading
 
-This page details the downloading process for beta testers.  Once we move past beta testing, the app will be available for download in app stores.  
+:::tip How to download the app as a beta tester.
+:::
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -16,19 +17,11 @@ import TabItem from '@theme/TabItem';
 
 1.  Using your mobile device, open your inbox for your email account associated with your Apple ID.  Look for an email from App Store Connect inviting you to access App Store Connect (check Spam folder if you don't see it).  **Accept** the invitation.
 
-<img width="600" src="/img/user-guide/app-store-connect.png"/>
-
 2. After this invitation has been accepted, look for an email invitation from TestFlight inviting you to test GeoGardenClub (check Spam folder if you don't see it).  The subject line will read: "Philip Johnson has invited to test GeoGardenClub."  It will also include a redeem code that you'll enter once you open TestFlight.  Tap **View in TestFlight.**
-
-<img width="600" src="/img/user-guide/testflight.png"/>
 
 3. That will open TestFlight. Tap **Accept** to begin downloading the app.  Switch to your home screen to see progress on downloading the app.
 
-<img width="600" src="/img/user-guide/testflight-accept.png"/>
-
-5. The Geo Garden Club app will soon be available on your home screen.  If you can't find it, use the App Library search function.
-
-<img width="600" src="/img/user-guide/search-app-library.png"/>
+4. The Geo Garden Club app will soon be available on your home screen.  If you can't find it, use the App Library search function.
 
 ## Update through TestFlight
 
