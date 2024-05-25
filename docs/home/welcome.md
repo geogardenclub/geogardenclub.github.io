@@ -5,6 +5,9 @@ hide_table_of_contents: true
 
 # Welcome
 
+:::tip Why did we create GGC?
+:::
+
 GGC started in 2021 when a small group of gardeners in Bellingham, Washington realized that, despite the availability of dozens of home gardening apps, we were planning and managing our gardens using spreadsheets, Word docs, and even paper and pencil!
 
 We realized that we didn't use existing home garden apps because they were typically (a) focused on the needs of beginner gardeners, and/or (b) made available by seed companies as a way to make it easier for gardeners to decide what seeds to buy.

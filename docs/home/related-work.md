@@ -5,6 +5,9 @@ hide_table_of_contents: false
 
 # Garden Planning Tools
 
+:::tip How do other approaches compare to GGC?
+:::
+
 If you search for "garden planning tools" on the Internet, you'll find dozens of applications.  Most of those are essentially "landscape architecture" tools for people who want to design the visual look of their (flower) gardens. This is an interesting design problem, but not the problem addressed by Geo Garden Club.
 
 If you narrow the search to say, "vegetable garden planning tools", you'll still find many that focus on the visual look of the garden bed, but there are a few that focus on the kinds of issues of interest to GGC. Here are a few of the applications we have found that address at least some of the needs of our target demographic: "serious" gardeners.

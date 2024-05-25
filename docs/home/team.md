@@ -5,6 +5,8 @@ hide_table_of_contents: true
 
 # The Team
 
+:::tip Who are we?
+:::
 
 ### Jenna Deane
 

@@ -4,6 +4,9 @@ hide_table_of_contents: true
 
 # Food Security
 
+:::tip Why do we think GGC is important?
+:::
+
 Food security is the elephant in the room, and a major motivation for founding GeoGardenClub. Here is a brief introduction to the relationship between food security and home gardens.
 
 Food security, as defined by the [United Nations’ Committee on World Food Security](https://www.fao.org/home/en/), means that all people, at all times, have physical, social, and economic access to sufficient, safe, and nutritious food that meets their food preferences and dietary needs for an active and healthy life. In the coming decades, food security will become an increasingly critical issue due to population growth in combination with climate change, the latter of which which will negatively impact agricultural water availability, arable land availability, and the diversity and distribution of agricultural plant, insect, and animal species ([Kwasek, 2012](https://ageconsearch.umn.edu/record/143167/files/10%20EP%204%202012-11.pdf)).

@@ -4,6 +4,9 @@ hide_table_of_contents: true
 
 # "Serious" Gardeners
 
+:::tip Who might be interested in GGC?
+:::
+
 The founders of GeoGardenClub view food production as a vast continuum of activities and levels of commitment, as shown in the following diagram:
 
 <img src="/img/related/gardening-farming.png"/>

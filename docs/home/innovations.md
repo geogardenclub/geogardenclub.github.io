@@ -5,6 +5,9 @@ hide_table_of_contents: true
 
 # Design Innovations
 
+:::tip What makes GGC different?
+:::
+
 What should an app provide if it is intended to support the needs of "serious" gardeners? Here is GeoGardenClub's answer:
 
 1. Garden data is aggregated within local geographic regions called "Chapters". 
