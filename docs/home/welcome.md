@@ -12,7 +12,7 @@ GGC started in 2021 when a small group of gardeners in Bellingham, Washington re
 
 We realized that we didn't use existing home garden apps because they were typically (a) focused on the needs of beginner gardeners, and/or (b) made available by seed companies as a way to make it easier for gardeners to decide what seeds to buy.
 
-While we have nothing against beginners or seed companies, we realized that if we were going to actually use an app to support our home garden planning and management, it needed be really different. GeoGardenClub--the community and the technology--is the result of many discussions, mockups, and design iterations since 2021.
+While we have nothing against beginners or seed companies, we realized that if we were going to actually use an app to support our home garden planning and management, it needed to be really different. GeoGardenClub--the community and the technology--is the result of many discussions, mockups, and design iterations since 2021.
 
 Here are some of the most important distinguishing features of GeoGardenClub:  
 
