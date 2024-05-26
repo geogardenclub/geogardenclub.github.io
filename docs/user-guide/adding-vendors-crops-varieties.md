@@ -4,6 +4,9 @@ sidebar_position: 1
 
 # Adding Crops, Varieties, and Vendors
 
+:::tip How to add crops, varieties, and vendors to the database.
+:::
+
 The crops, varieties, and vendors in each chapter's database are crowdsourced from the chapter's members.  This ensures that the database is exclusive to what is grown in the area.  To add a crop, variety, or vendor navigate to the appropriate index screen from the side navigation menu.
 
 <video controls width="300">
