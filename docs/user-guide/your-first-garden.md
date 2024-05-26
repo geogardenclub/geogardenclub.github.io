@@ -32,11 +32,11 @@ Hit **Submit** and you are ready to start adding plantings.
 
 Now that you have a garden with beds you can add plantings.  You can add plantings to your garden by navigating into the **Details Screen** for that garden.
 
-<img width="600" src="/img/user-guide/select-details.png"/>
-
 Select +Planting to open the **Create Planting Screen.**
 
-<img width="600" src="/img/user-guide/select-planting.png"/>
+<video controls width="300">
+  <source src="/img/user-guide/create-planting.mp4"/>
+</video>
 
 ### Create Planting Screen
 
@@ -63,7 +63,9 @@ Fill out the form in the **Create Planting Screen**  Note that you don't need to
 
 Hit **Submit** and you have successfully added your first planting.  Continue adding plantings or add more later.
 
-<img width="600" src="/img/user-guide/planting-added.png"/>
+<video controls width="300">
+  <source src="/img/user-guide/create-planting2.mp4"/>
+</video>
 
 ## Explore your garden
 
@@ -71,24 +73,32 @@ At the bottom of the Garden Details Screen you have 4 options: Timeline, Filter,
 
 ### Timeline Screen
 
+<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/timeline-screen.png"/>
+
 The **Timeline Screen** shows you all the plantings in your garden for a section of time (one year, six months, three months, or one month).  You can change the timeframe using the Time Interval drop down menu.  Use the left and right arrows to move forward or back in time.  You can also add a planting from the **Timeline Screen** by tapping the **+Planting** button on the bottom right of the screen.
 
-<img width="600" src="/img/user-guide/timeline-screen.png"/>
+<div style={{clear:"both"}}></div>
 
 ### Filter Screen
 
+<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/filter-screen.png"/>
+
 The **Filter Screen** allows you to filter the plantings in your garden by crop, bed, family or variety.
 
-<img width="600" src="/img/user-guide/filter-screen.png"/>
+<div style={{clear:"both"}}></div>
 
 ### Outcomes Screen
 
+<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/outcomes-screen.png"/>
+
 The **Outcomes Screen** shows you the outcomes of all the plantings in your garden.  You can filter the outcomes by crop or variety.  Learn more about outcomes in the [Outcomes section](/user-guide/outcomes.md).
 
-<img width="600" src="/img/user-guide/outcomes-screen.png"/>
+<div style={{clear:"both"}}></div>
 
 ### Tasks Screen
 
+<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/tasks-screen.png"/>
+
 The **Tasks Screen** shows you all the tasks you have to do in your garden.  You can add a task from the **Tasks Screen** by tapping the **+Task** button on the bottom right of the screen.  Learn more about tasks in the [Tasks section](/user-guide/tasks.md).
 
-<img width="600" src="/img/user-guide/tasks-screen.png"/>
+<div style={{clear:"both"}}></div>
