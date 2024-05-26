@@ -4,6 +4,9 @@ hide_table_of_contents: false
 
 # Your First Garden
 
+:::tip How to create a garden and add a planting.
+:::
+
 ## Add a garden
 To add your first garden navigate to the **Home/Garden Screen.**  You can access all the **Home Screens** by tapping the menu icon   <img width="20" src="/img/user-guide/menu-icon.jpg"/> at the top left of your screen and then tapping on **Home.** 
 

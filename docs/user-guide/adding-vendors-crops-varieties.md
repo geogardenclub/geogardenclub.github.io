@@ -2,15 +2,13 @@
 sidebar_position: 1
 ---
 
-# Adding Vendors, Crops, and Varieties
+# Adding Crops, Varieties, and Vendors
 
-The plant varieties listed in each chapter's database are crowdsourced from the chapter's members.  This ensures that the varieties listed are varieties that have been grown in the chapter's area and are varieties that have been grown by the chapter's members.  To add a vendor, crop, or variety navigate to the appropriate index screen from the side navigation menu.
+The crops, varieties, and vendors in each chapter's database are crowdsourced from the chapter's members.  This ensures that the database is exclusive to what is grown in the area.  To add a crop, variety, or vendor navigate to the appropriate index screen from the side navigation menu.
 
-<img width="600" src="/img/user-guide/locate-home.png"/>
-
-## Adding a Vendor
-
-To add a vendor, navigate to the Vendors Index Screen from the side navigation menu.  Click the "+ Vendor" button in the lower right corner of the screen.  Enter the vendor's information and click the **Submit** button.
+<video controls width="300">
+  <source src="/img/user-guide/add-crop.mp4"/>
+</video>
 
 ## Adding a Crop
 
@@ -19,3 +17,7 @@ To add a crop, navigate to the Crops Index Screen from the side navigation menu.
 ## Adding a Variety
 
 To add a variety, navigate to the Varieties Index Screen from the side navigation menu.  Click the "+ Variety" button in the lower right corner of the screen.  Enter the variety's information and click the **Submit** button.
+
+## Adding a Vendor
+
+To add a vendor, navigate to the Vendors Index Screen from the side navigation menu.  Click the "+ Vendor" button in the lower right corner of the screen.  Enter the vendor's information and click the **Submit** button.

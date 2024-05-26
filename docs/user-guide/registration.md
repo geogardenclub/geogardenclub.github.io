@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Registration
 
-:::tip How to register and create your user profile
+:::tip How to register and create your user profile.
 :::
 
 <img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/register-screen.png"/>
