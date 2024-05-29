@@ -5,7 +5,7 @@ hide_table_of_contents: false
 
 # Planting Scenarios
 
-:::tip How GeoGardenClub accomodates various planting scenarios.
+:::tip How to accommodate diverse planting scenarios.
 :::
 
 ## Growing plants in a greenhouse or other climate controlled environment
