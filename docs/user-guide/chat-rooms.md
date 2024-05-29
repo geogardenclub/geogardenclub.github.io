@@ -4,6 +4,9 @@ hide_table_of_contents: false
 
 # Chat Rooms
 
+:::tip How to use chat rooms and where to find them.
+:::
+
 GGC allows gardeners to communicate with each other through chat rooms.  Chat rooms are a great way to ask questions, share knowledge, and build community.  Chat rooms are organized by chapter or garden.
 
 ## Where to find chat rooms
