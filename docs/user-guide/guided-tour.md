@@ -12,8 +12,6 @@ Look through the Crop Index for inspiration about what to grow.  Use it to jog y
 
 Navigate to the Crops Index by tapping the menu icon <img width="20" src="/img/user-guide/menu-icon.jpg"/> at the top left of your screen.  Select **Crops.**
 
-<img width="600" src="/img/user-guide/index-crops.png"/>
-
 For each crop, expand each section to see more details.
 - View which gardens have grown the crop, and tap those garden chips to be taken to the garden's **Garden Summary Screen,** and from there the **Garden Details** for timeline information.
 - See which gardeners have experience growing the crop
@@ -21,13 +19,13 @@ For each crop, expand each section to see more details.
 - Notice which varieties are being grown.
 - Look through the observations to see pictures of that crop and notes from local gardeners.
 
-<img width="600" src="/img/user-guide/crops.png"/>
-
 After you've chosen a crop to grow, you can see which varieties have been most successfully grown by chapter gardeners.  Expand the Varieties section for that crop, or use the Outcomes Variety filter to see which varieties have been grown and how well they've performed.  Gold variety chips indicate that the variety has been frequently grown by chapter members with great outcomes.
 
-<img width="600" src="/img/user-guide/gold-varieties.png"/>
-
 You can see which gardens have grown this crop and which gardeners have experience growing this crop by expanding those sections.
+
+<video controls width="300">
+  <source src="/img/user-guide/gold-varieties.mp4"/>
+</video>
 
 ## When should I plant beets?
 
@@ -37,9 +35,13 @@ _Chapter timeline data coming soon!_
 
 ## When I grew beets two years ago, how did that work out?
 
+<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/crops-outcomes.png"/>
+
 You can see the outcomes related to a specific planting by navigating to the **Garden Details Screen** and then selecting **Timeline** from the bottom navigation menu.  From there, scroll to the year you are looking for information for, and tap the relevant planting bar.  It will display the timing and outcomes data for that specific planting.
 
 Or, you can see the outcomes related to a specific planting by navigating to the **Garden Details Screen** and then selecting **Filter** from the bottom navigation menu.  Select **Filter By Crop** and select **Beets** to see all of your beet plantings listed by year.  Tap the appropriate planting bar to see timing specifics and outcomes, as well as any observations.
+
+<div style={{clear:"both"}}></div>
 
 ## I had a great crop of beets last year, how can I replicate that success?
 
@@ -49,7 +51,9 @@ Or, you can see the outcomes related to a specific planting by navigating to the
 
 Copy that planting to this year's timeline by selecting copy icon from the top menu.  Update fields as necessary.  For any dates, update the year to the current year. Once complete, select **Submit.**
 
-<img width="600" src="/img/user-guide/copy-planting.png"/>
+<video controls width="300">
+  <source src="/img/user-guide/copy-planting.mp4"/>
+</video>
 
 ## Who in my chapter is really good at growing tomatoes?
 
@@ -61,11 +65,17 @@ You can replicate the practices of another gardener by finding them in the **Gar
 
 A great garden planning feature is the ability to copy a planting from one year to the next, one bed to another, or from another garden to your own.  Navigate to the planting and tap the copy icon at the top menu.  Update bed if needed.  The dates will automatically update to the current year and can be adjusted as needed.  Then, select **Submit.**
 
-<img width="600" src="/img/user-guide/copy-planting.png"/>
+<video controls width="300">
+  <source src="/img/user-guide/copy-planting2.mp4"/>
+</video>
 
 ## I like to rotate my crops.  What did I grow in a specific garden bed over the last three years?
 
+<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/filter-screen.png"/>
+
 You can see the history of what was grown in a garden bed by first navigating to that garden's **Garden Details Screen.**  Then, select **Filter** from the bottom navigation menu and at select **Filter by Bed.**  Select the bed you are interested in to see the crops that have been grown in that bed for all seasons of data you have entered into the app.
+
+<div style={{clear:"both"}}></div>
 
 ## What if I know the crop but not the variety for seeds I'm planting?
 
