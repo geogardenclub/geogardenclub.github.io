@@ -7,7 +7,7 @@ sidebar_position: 1
 :::tip How to use GeoGardenClub to improve your gardening.
 :::
 
-GeoGardenClub was created to increase the performance of home, community, and school gardens and efficiency of the gardener by answering questions a gardener might have as they plan or work through the gardening season.  Here are some of the questions that Geo Garden Club can help answer:
+GeoGardenClub was created to increase the performance of home, community, and school gardens and efficiency of the gardener by answering questions a gardener might have as they plan or work through the gardening season.  Here are some of the questions that GeoGardenClub can help answer:
 
 ## I'm new to the area, what should I plant here?
 
