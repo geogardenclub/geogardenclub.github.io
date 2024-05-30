@@ -91,3 +91,64 @@ When a new tester is added for the first time, there are a few additional steps:
 6. Upload the re-built file to App Distribution. If everything works correctly, Google detects that a new device has been added to the provisioning profile and an alert message is displayed indicating that the new tester has been emailed to complete the download process.
 
 Once this initial installation process finishes for a user, subsequent updates occur in one step since they are now part of the provisioning profile.
+
+## Testing on a physical device without deployment
+
+Sometimes it is useful to try out the app on a physical device without having to go through deployment steps. Currently only Philip can do this due to iOS signing issues. 
+
+Here is what you need to do:
+
+First, delete the app from your physical device. 
+
+Second, connect the physical device to a laptop. 
+
+Third, run `flutter devices` to verify that the device shows up. You should see output like this:
+
+```
+ % flutter devices    
+Found 5 connected devices:
+  Philip's iPhone (mobile)        • 00008030-000364940A98802E            • ios            • iOS 17.5.1 21F90
+  iPhone 11 (mobile)              • 8E550E86-3173-4342-B197-A557B83E40A2 • ios            • com.apple.CoreSimulator.SimRuntime.iOS-17-5
+  (simulator)
+  macOS (desktop)                 • macos                                • darwin-arm64   • macOS 14.4.1 23E224 darwin-arm64
+  Mac Designed for iPad (desktop) • mac-designed-for-ipad                • darwin         • macOS 14.4.1 23E224 darwin-arm64
+  Chrome (web)                    • chrome                               • web-javascript • Google Chrome 125.0.6422.113
+```
+
+Notice that the first device is my physical device connected to my laptop.
+
+Now, to run the code in release mode on this physical device, you invoke `flutter run --release` and select the physical device like so.  (Make sure your device is unlocked while running this command.)
+
+```
+% flutter run --release
+Connected devices:
+Philip's iPhone (mobile)        • 00008030-000364940A98802E            • ios            • iOS 17.5.1 21F90
+iPhone 11 (mobile)              • 8E550E86-3173-4342-B197-A557B83E40A2 • ios            • com.apple.CoreSimulator.SimRuntime.iOS-17-5
+(simulator)
+macOS (desktop)                 • macos                                • darwin-arm64   • macOS 14.4.1 23E224 darwin-arm64
+Mac Designed for iPad (desktop) • mac-designed-for-ipad                • darwin         • macOS 14.4.1 23E224 darwin-arm64
+Chrome (web)                    • chrome                               • web-javascript • Google Chrome 125.0.6422.113
+
+Checking for wireless devices...
+
+No wireless devices were found.
+
+[1]: Philip's iPhone (00008030-000364940A98802E)
+[2]: iPhone 11 (8E550E86-3173-4342-B197-A557B83E40A2)
+[3]: macOS (macos)
+[4]: Mac Designed for iPad (mac-designed-for-ipad)
+[5]: Chrome (chrome)
+Please choose one (or "q" to quit): 1
+Launching lib/main.dart on Philip's iPhone in release mode...
+Automatically signing iOS for device deployment using specified development team in Xcode project: 8M69898HLM
+Running Xcode build...                                                  
+ └─Compiling, linking and signing...                         8.8s
+Xcode build done.                                           67.9s
+Installing and launching...                                         7.1s
+
+Flutter run key commands.
+h List all available interactive commands.
+c Clear the screen
+q Quit (terminate the application on the device).
+
+```
