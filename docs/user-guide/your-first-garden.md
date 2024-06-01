@@ -10,17 +10,15 @@ hide_table_of_contents: false
 ## Add a garden
 Anytime you log in you will automatically be in your **Home/Tasks Screen.**  To add your first garden tap **Gardens** in the bottom menu to get taken to the **Home/Garden Screen.**  Tap **+Garden** floating button in the bottom right corner to open the **Create Garden Screen.**
 
-:::info You can access all the **Home Screens** by tapping the menu icon   <img width="20" src="/img/user-guide/menu-icon.jpg"/> at the top left of your screen and then tapping on **Home.**
+:::info You can access the **Home Screens** anytime by tapping the menu icon   <img width="20" src="/img/user-guide/menu-icon.jpg"/> at the top left of your screen and then tapping on **Home.**
 :::
 
-
-
-Fill out the form in the **Create Garden Screen**  
+Fill out the form in the **Create Garden Screen:**  
  - **Name**: Give your garden a name.  This name is public to others.
  - **Picture** (optional) add a picture to be associated with your garden.  This could be a garden map or photo.
  - **Editors** (optional): If there are other people who help complete tasks in your garden you'll want to make them an editor.  Add their email and they'll get an invite.
  - **Bed Names**: Add the names of your garden beds.  Beds can represent literal garden beds, pots/containers, a greenhouse, or other locations where you grow food.  You can come back and add more beds at any time.  Bed names must be:
-   - 5 characters long or less
+   - 20 characters long or less
    - Made of letters, numbers, and spaces.  No special characters.
    - You don't need to include the word "bed", we've done that for you!  
  - **Community or school garden?**  Check this box if this is a community or school garden.  There are special badges for gardeners that participate in these group efforts!
@@ -30,9 +28,7 @@ Hit **Submit** and you are ready to start adding plantings.
 
 ## Add plantings
 
-Now that you have a garden with beds you can add plantings.  You can add plantings to your garden by navigating into the **Details Screen** for that garden.
-
-Select +Planting to open the **Create Planting Screen.**
+Now that you have a garden with beds you can add plantings.  You can add plantings to your garden by navigating into the **Details Screen** for that garden by tapping on the **+Planting** floating button to open the **Create Planting Screen.**
 
 <video controls width="300">
   <source src="/img/user-guide/create-planting.mp4"/>
@@ -42,11 +38,15 @@ Select +Planting to open the **Create Planting Screen.**
 
 Fill out the form in the **Create Planting Screen**  Note that you don't need to fill out every section, only the ones marked required with an *
 - **Garden**: This is autopopulated for the garden you chose **Details** for.  If you want to add a planting to a different garden, you can navigate back using the arrow on the top left of the screen and choosing a different garden's **Details** page.
-- **Bed**: Choose the bed you want to add this planting to.  If you don't see the bed you want, you can add it by navigating back one screen to the **My Garden Details Screen** and selecting the pencil icon at the top of the screen.
+- **Bed**: Choose the bed you want to add this planting to.  If you don't see the bed you want, you can add it by navigating back one screen to the **Garden Details Screen** and selecting the pencil icon at the top of the screen and adding a bed.
 - **Crop**:  Choose the crop you are planting.  If you don't see the crop you want, you can find instructions for adding crops in the [Add Vendors, Crops, and Varieties section](/user-guide/adding-vendors-crops-varieties.md).
 - **Variety**: Choose the variety you are planting.  If you don't see the variety you want, you can find instructions for adding varieties in the [Add Vendors, Crops, and Varieties section](/user-guide/adding-vendors-crops-varieties.md).
 - **Seed Supplier** (optional):  If you want to track where you got your seeds from, you can add a seed supplier.  If you don't see the supplier you want, you can find instructions for adding suppliers in the [Add Vendors, Crops, and Varieties section](/user-guide/adding-vendors-crops-varieties.md).
-- **Start Date**:  Add the date you expect to plant your seeds.  You can update this to the actual date the seeds were planted when you complete that task.
+- **Start Date**:  Add the date you expect to plant your seeds.  You can update this to the actual date the seeds were planted when you complete that task.  
+
+:::info The Start Date will be the same as the transplant date if you are planting store bought starts.
+:::
+
 - **Pull Date**:  Add the date you expect to pull your crop.  You can update this to the actual date the crop was pulled when you complete that task.
 - **Transplant Date** (optional): If you are starting your crop indoors, in a greenhouse, or using store bought starts, you can add the date you transplanted the crop into the garden here.  You can add your expected transplant date if you want a transplant task to populate in your **Tasks Screen.**  You can update this to the actual date the crop was transplanted when you complete that task.
 - **First Harvest Date** (optional): Once you have your first harvest, you can add the date here.  It is recommended to add an expected date of first harvest so that a harvest task populates in your **Tasks Screen.**  You can update the task if your estimate is off, and by completing the task you record the actual date of first harvest.
