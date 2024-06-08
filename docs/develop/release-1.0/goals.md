@@ -9,7 +9,7 @@ Here are a proposed set of goals for the 1.0 (Beta) release. Some of these goals
 
 ## 1. Provide a fast, reliable, robust app that satisfies the Core Value Propositions
 
-By the end of the 1.0 release period, we need to have an app that satisfies the [Core Value Propositions](/docs/develop/release-1.0/cvp#core-value-propositions) while being fast, easy to use, and not prone to crashing.
+By the end of the 1.0 release period, we need to have an app that satisfies the [Core Value Propositions](/docs/develop/release-1.0/cvp) while being fast, easy to use, and not prone to crashing.
 
 Evaluation:
 * Checklist of CVP functions satisfied.

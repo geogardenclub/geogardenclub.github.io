@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Adding Crops, Varieties, and Vendors
+# Add Crops, Varieties, Vendors
 
 :::tip How to add crops, varieties, and vendors to the database.
 :::

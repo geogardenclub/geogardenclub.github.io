@@ -39,4 +39,6 @@ The **Outcomes Screen** shows you the outcomes of all the plantings in a garden.
 
 The **Tasks Screen** shows you all the tasks currently remaining for that  garden.  If you have editing privileges, you can add a task from the **Tasks Screen** by tapping the **+Task** button on the bottom right of the screen.  Learn more about tasks in the [Tasks section](/user-guide/tasks.md).
 
+When you are the owner or editor of a garden, you can "complete" one of its tasks and specify the date it was completed. You can also update or delete a task.  If you are not the owner or editor of a garden, you can still see the tasks, but you cannot alter them.
+
 <div style={{clear:"both"}}></div>
