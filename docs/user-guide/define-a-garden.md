@@ -2,13 +2,20 @@
 hide_table_of_contents: false
 ---
 
-# Your First Garden
+# Define a garden
 
-:::tip How to create a garden and add a planting.
+:::tip How to create a garden and specify its beds and plantings.
 :::
 
+Defining a garden in GeoGardenClub requires you to create three kinds of entities: a "Garden", one or more "Beds", and one or more "Plantings".  (You can also define a fourth type of entity, "Outcomes", but we'll get to that later). 
+
+This section takes you through the steps involved with defining these basic parts of a garden. 
+
 ## Add a garden
-Anytime you log in you will automatically be in your **Home/Tasks Screen.**  To add your first garden tap **Gardens** in the bottom menu to get taken to the **Home/Garden Screen.**  Tap **+Garden** floating button in the bottom right corner to open the **Create Garden Screen.**
+
+Each time you log in, you will be in the **Home/Tasks Screen.**  
+
+To add a garden, tap **Gardens** in the bottom menu to get taken to the **Home/Garden Screen.**  Next, tap the **+Garden** floating button in the bottom right corner to open the **Create Garden Screen.**
 
 :::info You can access the **Home Screens** anytime by tapping the menu icon   <img width="20" src="/img/user-guide/menu-icon.jpg"/> at the top left of your screen and then tapping on **Home.**
 :::
@@ -31,7 +38,7 @@ Hit **Submit** and you are ready to start adding plantings.
 
 <div style={{clear:"both"}}></div>
 
-## Add new beds
+## Add additional beds
 
 If you have more than one bed in your garden, they can be added in the **Timeline Screen.**  To get to the **Timeline Screen** tap the **Details** button for the garden you want to add a bed to in the **Home/Gardens Screen.**  This will take you to the **Timeline Screen.**  Tap the + button in the bottom right corner and select **+ Bed** to open the **Create Bed Screen.**  Fill out the form and hit submit.
 
@@ -39,9 +46,9 @@ If you have more than one bed in your garden, they can be added in the **Timelin
   <source src="/img/user-guide/create-bed.mp4"/>
 </video>
 
-### Update or delete a bed
+## Update or delete a bed
 
-From the **Timeline Screen,** tap a bed chip to update or delete the bed.
+Sometimes you make a mistake: you either named the bed incorrectly, or you don't want it in your garden at all.  To fix either of these problems, go to the **Timeline Screen,** then tap a bed chip to go to a screen that lets you update or delete it.
 
 <video controls width="300">
   <source src="/img/user-guide/update-bed.mp4"/>
@@ -55,9 +62,8 @@ Now that you have a garden with at least one bed you can add plantings.  You can
   <source src="/img/user-guide/create-planting.mp4"/>
 </video>
 
-### Create Planting Screen
+Now that you're there, fill out the form in the **Create Planting Screen**  Note that you don't need to fill out every field. The required fields are marked with a red "*".
 
-Fill out the form in the **Create Planting Screen**  Note that you don't need to fill out every section, only the ones marked required with an *
 <img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/create-planting.png"/>
 
 - **Garden**: This is autopopulated for the garden you chose **Details** for.  If you want to add a planting to a different garden, you can navigate back using the arrow on the top left of the screen and choosing a different garden's **Details** page.
@@ -88,7 +94,7 @@ Fill out the form in the **Create Planting Screen**  Note that you don't need to
 
 Hit **Submit** and you have successfully added your first planting.  Continue adding plantings or add more later.
 
-:::warning Troubleshooting planting date errors
+## Troubleshoot planting date errors
 
 <img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/planting-error.png"/>
 
@@ -97,42 +103,5 @@ A planting timeline error can be created when a user completes tasks for a plant
 To fix this error, navigate to the Update Planting screen and edit the dates to follow this rule:
 
 Start date <span>&#8804;</span> Transplant date < First Harvest date < End Harvest date <span>&#8804;</span> Pull date
-
-<div style={{clear:"both"}}></div>
-:::
-
-## Explore your garden
-
-At the bottom of the Garden Details Screen you have 4 options: Timeline, Filter, Outcomes, and Tasks.
-
-### Timeline Screen
-
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/timeline-screen.png"/>
-
-The **Timeline Screen** shows you all the plantings in your garden for a section of time (one year, six months, three months, or one month).  You can change the timeframe using the Time Interval drop down menu.  Use the left and right arrows to move forward or back in time.  You can also add a planting from the **Timeline Screen** by tapping the **+Planting** button on the bottom right of the screen.
-
-<div style={{clear:"both"}}></div>
-
-### Filter Screen
-
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/filter-screen.png"/>
-
-The **Filter Screen** allows you to filter the plantings in your garden by crop, bed, family or variety.
-
-<div style={{clear:"both"}}></div>
-
-### Outcomes Screen
-
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/outcomes-screen.png"/>
-
-The **Outcomes Screen** shows you the outcomes of all the plantings in your garden.  You can filter the outcomes by crop or variety.  Learn more about outcomes in the [Outcomes section](/user-guide/outcomes.md).
-
-<div style={{clear:"both"}}></div>
-
-### Tasks Screen
-
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/tasks-screen.png"/>
-
-The **Tasks Screen** shows you all the tasks you have to do in your garden.  You can add a task from the **Tasks Screen** by tapping the **+Task** button on the bottom right of the screen.  Learn more about tasks in the [Tasks section](/user-guide/tasks.md).
 
 <div style={{clear:"both"}}></div>
