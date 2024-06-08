@@ -31,9 +31,21 @@ Hit **Submit** and you are ready to start adding plantings.
 
 <div style={{clear:"both"}}></div>
 
-## Add additional beds
+## Add new beds
 
-If you have more than one bed in your garden, they can be added in the **Timeline Screen.**  To get to the **Timeline Screen** tap the **Details** button for the garden you want to add a bed to in the **Home/Gardens Screen.**  This will take you to the **Timeline Screen.**  Tap the + button in the bottom right corner and select **+ Bed** to open the **Create Bed Screen.**
+If you have more than one bed in your garden, they can be added in the **Timeline Screen.**  To get to the **Timeline Screen** tap the **Details** button for the garden you want to add a bed to in the **Home/Gardens Screen.**  This will take you to the **Timeline Screen.**  Tap the + button in the bottom right corner and select **+ Bed** to open the **Create Bed Screen.**  Fill out the form and hit submit.
+
+<video controls width="300">
+  <source src="/img/user-guide/create-bed.mp4"/>
+</video>
+
+### Update or delete a bed
+
+From the **Timeline Screen,** tap a bed chip to update or delete the bed.
+
+<video controls width="300">
+  <source src="/img/user-guide/update-bed.mp4"/>
+</video>
 
 ## Add plantings
 
@@ -56,7 +68,7 @@ Fill out the form in the **Create Planting Screen**  Note that you don't need to
 - **Start Date**:  Add the date you expect to plant your seeds.  You can update this to the actual date the seeds were planted when you complete that task.  
 
 <div style={{clear:"both"}}></div>
-:::info The Start Date will be the same as the transplant date if you are planting store bought starts.
+:::info The Start Date will be the same as the transplant date if you are planting starts you didn't grow from seed yourself.  
 :::
 
 - **Pull Date**:  Add the date you expect to pull your crop.  You can update this to the actual date the crop was pulled when you complete that task.
@@ -75,6 +87,19 @@ Fill out the form in the **Create Planting Screen**  Note that you don't need to
   You can update this section at any time by navigating to the Timeline Screen, tapping the planting bar, and selecting the pencil icon at the top menu.  See [Outcomes](/user-guide/outcomes.md) for more information.
 
 Hit **Submit** and you have successfully added your first planting.  Continue adding plantings or add more later.
+
+:::warning Troubleshooting planting date errors
+
+<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/planting-error.png"/>
+
+A planting timeline error can be created when a user completes tasks for a planting out of order.  For example, if you complete the harvest task before "start" or "transplant" tasks, the system will throw an error.  The error will make the planting bar red and display an "Invalid dates" error message.
+
+To fix this error, navigate to the Update Planting screen and edit the dates to follow this rule:
+
+Start date <span>&#8804;</span> Transplant date < First Harvest date < End Harvest date <span>&#8804;</span> Pull date
+
+<div style={{clear:"both"}}></div>
+:::
 
 ## Explore your garden
 
