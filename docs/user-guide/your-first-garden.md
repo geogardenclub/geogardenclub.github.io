@@ -17,9 +17,10 @@ Fill out the form in the **Create Garden Screen:**
 <img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/create-garden.png"/>
 
  - **Name**: Give your garden a name.  This name is public to others.
- - **Picture** (optional) add a picture to be associated with your garden.  This could be a garden map or photo.
- - **Editors** (optional): If there are other people who help complete tasks in your garden you'll want to make them an editor.  Add their email and they'll get an invite.
- - **Bed Names**: Add the names of your garden beds.  Beds can represent literal garden beds, pots/containers, a greenhouse, or other locations where you grow food.  You can come back and add more beds at any time.  Bed names must be:
+ - **Picture**: (optional) Add a picture to be associated with your garden.  This could be a garden map or photo.
+ - **Plot Plant**: (optional)  Add a picture of your garden plot plan.  This is especially helpful to help you remember which bed is which.
+ - **Editors**: (optional)  If there are other people who help complete tasks in your garden you'll want to make them an editor.  By adding their username, they will be able to see and edit your garden.  You can add or subtract editors at any time in the **Update Garden Screen.**
+ - **Initial Bed Name**: Add the name of one garden bed.  Beds can represent literal garden beds, pots/containers, a greenhouse, or other locations where you grow food.  Additional beds can be added in the **Timeline Screen** (more instructions below)  Bed names must be:
    - 20 characters long or less
    - Made of letters, numbers, and spaces.  No special characters.
    - You don't need to include the word "bed", we've done that for you!  
@@ -30,9 +31,13 @@ Hit **Submit** and you are ready to start adding plantings.
 
 <div style={{clear:"both"}}></div>
 
+## Add additional beds
+
+If you have more than one bed in your garden, they can be added in the **Timeline Screen.**  To get to the **Timeline Screen** tap the **Details** button for the garden you want to add a bed to in the **Home/Gardens Screen.**  This will take you to the **Timeline Screen.**  Tap the + button in the bottom right corner and select **+ Bed** to open the **Create Bed Screen.**
+
 ## Add plantings
 
-Now that you have a garden with beds you can add plantings.  You can add plantings to your garden by navigating into the **Details Screen** for that garden by tapping on the **+Planting** floating button to open the **Create Planting Screen.**
+Now that you have a garden with at least one bed you can add plantings.  You can add plantings to your garden by navigating into the **Details Screen** for that garden by tapping on the **+Planting** floating button to open the **Create Planting Screen.**
 
 <video controls width="300">
   <source src="/img/user-guide/create-planting.mp4"/>
