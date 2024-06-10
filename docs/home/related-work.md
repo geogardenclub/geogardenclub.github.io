@@ -59,13 +59,21 @@ From the video, Planter seems like a somewhat more primitive version of Growing 
 
 ## Seed Time
 
-[SeedTime](https://seedtime.us/) bills itself as "the Fastest Way to Plan Your Garden or Small Farm Ever. Visualize exactly when to seed, transplant, or harvest crops in your garden all year round - based on your local area." It is the most expensive app we found, at $13/month or $109/year. Here is their [video library](https://www.youtube.com/@seedtimeplanner/videos).
+[SeedTime](https://seedtime.us/) bills itself as "the Fastest Way to Plan Your Garden or Small Farm Ever. Visualize exactly when to seed, transplant, or harvest crops in your garden all year round - based on your local area." While it has a free tier with reduced functionality, it is the most expensive app we found, at $13/month or $109/year for all of its features. Here is their [video library](https://www.youtube.com/@seedtimeplanner/videos).
 
 Here is an informative review by a user from [Circle City Seeds](https://circlecityseed.com/), a seed saving organization.
 
 <div className='wrapper'><ReactPlayer className='player' url="https://www.youtube.com/watch?v=P9DX7OcEEMY" width="100%" height="100%" ></ReactPlayer></div>
 
-From my experience signing up for the free trial, Seedtime is quite "aggressive" about marketing their affiliates to users. For example, there appear to be frequent time-limited promotions (i.e. "Get $5 off when you buy seeds from this vendor, this week only!").  This is not necessarily a bad thing, but it makes it clear that affiliate marketing is a revenue stream for them.
+Seedtime has a lot of useful features.  Here are a few of the ways in which Seedtime and GeoGardenClub differ:
+
+* The Seedtime app is implemented as a web application. To use it on your phone, you use the phone's browser to run the web app.  Thus, it is designed as a "web-first" application. This generally means the user experience is optimized for a large screen, and sacrifices are made for mobile devices. In contrast, Geo Garden Club is designed as a "mobile-first" application, which optimizes the user experience for mobile devices, but results in user experience sacrifices in the web version. 
+  
+* Seedtime's community building mechanism consists of a single, private Facebook Group combining users from all geographic regions. Geo Garden Club's community building mechanism involves separate communities (Chapters) for each geographic region. Within a Chapter, members of a Chapter can see details about each other's gardens, share Planting data, and allows others to become editors in order to co-manage gardens.
+
+* Seedtime's home page states: "We've already pre-installed over 2,670+ veggie and herb varieties to get you up and running out the gate. We'll be rapidly updating and expanding this database to include even more crops, berries, flowers, and more."  In contrast, Geo Garden Club intentionally avoids the use of a single global database of varieties for all gardeners.  Instead, each Chapter grows its own database of varieties to reflect the plants that are actually grown in their geographic region. For example, the Whatcom Washington Chapter has so far defined 90 Crops and 300 varieties. 
+
+* Finally, from our experience signing up for the free trial, Seedtime is quite aggressive about marketing their affiliates to users. For example, we experienced frequent time-limited promotions (i.e. "Get $5 off when you buy seeds from this vendor, this week only!").  This is not necessarily a bad thing, but it makes it clear that affiliate marketing is an important revenue stream for them. In contrast, Geo Garden Club derives all of its revenue from subscriptions and remains independent from seed vendors and other garden suppliers. 
 
 
 ## Obsolete applications
