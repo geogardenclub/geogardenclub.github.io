@@ -48,6 +48,7 @@ const sidebars = {
         'user-guide/chat-rooms',
         'user-guide/guided-tour',
         'user-guide/terms-and-conditions',
+        'user-guide/privacy',
         ]
     }],
   developSidebar: [
