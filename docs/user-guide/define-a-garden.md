@@ -34,7 +34,7 @@ Fill out the form in the **Create Garden Screen:**
  - **Community or school garden?**  Check this box if this is a community or school garden.  There are special badges for gardeners that participate in these group efforts!
  - **Pesticide free garden?**  Check this box if you are committed to not using pesticides in your garden.  There are special badges for gardeners who choose to be pesticide free.
 
-Hit **Submit** and you are ready to start adding plantings.
+Hit **Submit** and you are ready to start adding more beds or plantings.
 
 <div style={{clear:"both"}}></div>
 
@@ -48,7 +48,7 @@ If you have more than one bed in your garden, they can be added in the **Timelin
 
 ## Update or delete a bed
 
-Sometimes you make a mistake: you either named the bed incorrectly, or you don't want it in your garden at all.  To fix either of these problems, go to the **Timeline Screen,** then tap a bed chip to go to a screen that lets you update or delete it.
+Sometimes you make a mistake: you either named the bed incorrectly, or you don't want it in your garden at all.  To fix either of these problems, go to the **Timeline Screen,** then tap a bed chip to go to a screen that lets you update its name or delete it (by clicking on the trash icon in the top right area of the screen).
 
 <video controls width="300">
   <source src="/img/user-guide/update-bed.mp4"/>
@@ -56,7 +56,7 @@ Sometimes you make a mistake: you either named the bed incorrectly, or you don't
 
 ## Add plantings
 
-Now that you have a garden with at least one bed you can add plantings.  You can add plantings to your garden by navigating into the **Details Screen** for that garden by tapping on the **+Planting** floating button to open the **Create Planting Screen.**
+Now that you have a garden with at least one bed, you can add plantings.  You add plantings to your garden by navigating into the **Details Screen** for that garden by tapping on the **+Planting** floating button to open the **Create Planting Screen.**
 
 <video controls width="300">
   <source src="/img/user-guide/create-planting.mp4"/>
