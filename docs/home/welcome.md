@@ -16,13 +16,13 @@ While we have nothing against beginners or seed companies, we realized that if w
 
 Here are some of the most important distinguishing features of GeoGardenClub:  
 
-**We want local insights.**
-Unlike other gardening apps, GGC assigns you to a "chapter" based on your zip code. This allows you to explore chapter-wide data and discover local best practices and optimal planting times from your immediate area. It also means that the gardeners you interact with in the app are your neighbors. 
+**Local insights are best.**
+Unlike other gardening apps, GGC assigns you to a "chapter" based on your zip code when you register with the app. This allows you to explore gardening data from your immediate geographic area and discover local best practices and optimal planting times. It also means that the gardeners you interact with in the app are your neighbors. 
 
 **Gardening isn't a solitary endeavor.**
 Home gardening apps are almost always "single user". But even if you want to be the only one tending your garden, it's always useful and interesting to know what other gardeners in your area are doing.  When you join a GGC Chapter, you join a community of local gardeners and can easily discover what plants others are growing, when they are sowing, transplanting, or harvesting, and what observations they are making about their plants during the season. 
 
-On the other hand, if you want to "group garden", GGC allows you to provide "edit" access to one or more fellow GGC chapter members, which enables multiple people to coordinate garden planning and management through the app. 
+On the other hand, if you want to "group garden", GGC allows you to provide "editor" access to one or more fellow GGC chapter members, which enables multiple people to coordinate garden planning and management through the app. 
 
 **Historical data is important.**
 The home gardening apps we've seen focus on a single season. For us, gardening is a multi-year activity where we try to build upon our experiences from prior seasons to improve our gardens each year.  To facilitate this, GGC enables you to record and analyze garden data over multiple seasons, helping you to remember what you did in the past, and build upon your successes and failures.
