@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Growing better gardens, gardeners, and communities, one plant at a time.">
+      description="Improving community food production, one garden at a time.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

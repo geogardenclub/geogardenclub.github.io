@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Geo Garden Club',
-  tagline: 'Growing better gardens, gardeners, and communities, one plant at a time',
+  tagline: 'Improving community food production, one garden at a time.',
   favicon: 'img/favicon.ico',
   url: 'https://geogardenclub.github.io',
   baseUrl: '/',
