@@ -17,16 +17,16 @@ const FeatureList = [
     png: '/img/landing/chapters.png',
     description: (
       <>
-        GGC facilitates the creation and management of local "communities of practice" allowing members to come together and share best practices with each other.
+        GGC facilitates the creation and management of local "communities of practice" allowing neighbors to come together and share best practices with each other.
       </>
     ),
   },
   {
-    title: 'Improve local food production and practices',
+    title: 'Improve community food production and practices',
     png: '/img/landing/home.png',
     description: (
       <>
-        Home gardens are an important and underutilized resource for increasing community resilience, health, and emotional well-being. GGC provides new ways for gardeners to work together to improve local food production and practices.
+        Home and community gardens are an important and underutilized resource for increasing community resilience, health, and emotional well-being. GGC provides new ways for gardeners to work together to improve community food production and practices.
       </>
     ),
   },
