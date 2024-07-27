@@ -39,6 +39,7 @@ const sidebars = {
         'user-guide/define-a-garden',
         'user-guide/adding-plantings',
         'user-guide/explore-a-garden',
+        'user-guide/explore-a-chapter',
         'user-guide/adding-vendors-crops-varieties',
         'user-guide/scenarios',
         'user-guide/observations',
