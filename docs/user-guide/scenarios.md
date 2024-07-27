@@ -48,3 +48,11 @@ Sometimes you may buy or get gifted seedlings that you didn't start from seed yo
 
 If you want to add a planting to your garden plans, but aren't yet sure of the bed, you can create a MISC bed to hold these plantings.  Plantings can later be reassigned to a different bed.
 
+## Adding plantings for which the variety is unknown
+
+There are two scenarios in which you may not know the variety of the crop you are planting.
+
+1.  If you are planning for the upcoming season, you may choose to leave the "varieties" field blank, and it will be represented in the format Tomato(?). Once you've decided the variety, you can update the planting to include it.
+2. If you have "mystery seeds" you may never know the variety. In that case you can use the crop name as variety name, which will be represented in the format Tomato(Tomato).
+
+*Note that adding observations is only possible when the "variety" field is filled out.
