@@ -2,7 +2,7 @@
 hide_table_of_contents: false
 ---
 
-# Explore a garden
+# Explore a Garden
 
 :::tip Facilities for understanding the gardens in your Chapter.
 :::
