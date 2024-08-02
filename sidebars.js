@@ -43,6 +43,7 @@ const sidebars = {
         'user-guide/adding-vendors-crops-varieties',
         'user-guide/scenarios',
         'user-guide/observations',
+        'user-guide/geobot',
         'user-guide/badges',
         'user-guide/outcomes',
         'user-guide/tasks',
