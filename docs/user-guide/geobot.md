@@ -31,7 +31,7 @@ GeoBot is available from the drawer:
 
 <img width="300" src="/img/geobot/geobot-drawer.png"/>
 
-Once you select it, should see a screen that looks like this:
+Once you select it, you should see a screen that looks like this:
 
 <img width="300" src="/img/geobot/geobot-initial.png"/>
 
