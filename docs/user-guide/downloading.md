@@ -13,7 +13,13 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="ios" label="iOS" default>
 
+## Enroll as a GGC Beta Tester
+
+To obtain access to the GGC App, you must be enrolled as a beta tester. To do so, please contact the GGC team for details. 
+
 ## Download through TestFlight
+
+Once you have been notified by the team that you are enrolled as a beta tester:
 
 1.  Using your mobile device, open your inbox for your email account associated with your Apple ID.  Look for an email from App Store Connect inviting you to access App Store Connect (check Spam folder if you don't see it).  **Accept** the invitation.
 
@@ -34,7 +40,29 @@ You will receive emails from TestFlight everytime a new version is released.  Yo
 </TabItem>
 
 <TabItem value="android" label="Android">
-    Instructions forthcoming. If you have an Android device and are part of the beta test team, please contact geogardenclub@gmail.com for further instructions.
+
+## Enroll as a GGC Beta Tester
+
+To obtain access to the GGC App, you must be enrolled as a beta tester. To do so, please contact the GGC team for details.
+
+## Download through Google Play Store
+
+Once you have been notified by the team that you are enrolled as a beta tester:
+
+1.  Using your mobile device, open your inbox for the gmail account you have provided to the GGC team. You should see an email like this:
+
+<img width="500" src="/img/user-guide/android-1.png"/>
+
+Accept the invite. This will take you to a screen that looks like this:
+
+<img width="500" src="/img/user-guide/android-2.png"/>
+
+Click on the link "download it on Google Play". This should take you to a browser screen like this:
+
+<img width="500" src="/img/user-guide/android-3.png"/>
+
+Click the green "Install" link to install the app. (Note: this screen indicates that there are not any devices. In your case, you should see at least one device listed.)
+
 </TabItem>
 </Tabs>
 
