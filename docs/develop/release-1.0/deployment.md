@@ -7,13 +7,6 @@ hide_table_of_contents: false
 
 For the GeoGardenClub project, deployment refers to the process by which a version of the GeoGardenClub app is made available on a physical device such as an Apple or Android phone or tablet.
 
-## Firebase App Distribution
-
-For the Beta Release, we are using [Firebase App Distribution](https://firebase.google.com/docs/app-distribution) as the deployment mechanism. This has the following implications:
-
-1. We deploy to iOS, Android, and the web.
-2. We must obtain the email address for every user who wishes to have GGC on their device. 
-
 ## Documenting deployment versions
 
 We expect to make many deployments during the Beta release period as we fix bugs or implement enhancements. Each new deployment will require a new version number (specified in the pubspec.yml file), and we will document what has changed in each new version via [CHANGELOG.md](https://github.com/geogardenclub/ggc_app/blob/main/CHANGELOG.md).  To manage version numbers and the changelog file, we will use [Cider](https://pub.dev/packages/cider).
@@ -22,7 +15,7 @@ We also want to be able to access the ChangeLog inside the deployed app---this i
 
 We will adhere to two standards:
 1. For the changelog format, we will adhere to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
-2. For the version number format, we will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). For the beta release, since there is no public "API", the *major* version will always be "1". We will increment the *minor* version when there are new UI or business logic enhancements to the application, and we will increment the *patch* version in the event of deployments made only to fix bugs. We will not use the pre-release or build suffix notation.
+2. For the version number format, we will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). For the beta release, since there is no public "API", the *major* version will always be "1". The deploy script automatically increments the minor version and increments the build number.
 
 ## Deployment management
 
@@ -51,7 +44,7 @@ Invoke `./run_deploy.sh`.  This script does the following:
 * Commits the updated CHANGELOG.md and pubspec.yml files to GitHub.
 * Creates a "deploy directory" at `~/Desktop/ggc-deploy-<VERSION>`.
 * Builds the ggc_app.ipa file and copies it to the deploy directory.
-* Builds the app-release.apk file and copies it to the deploy directory.
+* Builds the app-release.aab file and copies it to the deploy directory.
 * Gets the release notes for the current release and copies them to the deploy directory.
 * Invokes `firebase deploy` to build and deploy the web version of the app.
 
@@ -65,32 +58,30 @@ Wait for a few minutes for the uploaded version to become available for distribu
 
 Once available, the "internal" testers will be automatically notified.  
 
-To submit the build for external testing, click on "External" on the left sidebar, then click the "+" button next to the "Builds" section, and add the most recent build. It will then be submitted for review. This review appears to take 3-7 days to complete. At that point, the public URL can be distributed and anyone who already installed the app via that link should be able to update to the new build. 
+Now submit the build for external testing. Click on "External" on the left sidebar, then click the "+" button next to the "Builds" section, and add the most recent build. It will then be submitted for review. This review appears to take 3-7 days to complete. At that point, the public URL can be distributed and anyone who already installed the app via that link should be able to update to the new build. 
 
 ## 3. Deploy the Android App
 
-Upload the .apk files to Firebase, select testers, add the release notes, and distribute.
+Open the [Google Play Console Internal Testing Page](https://play.google.com/console/u/0/developers/8896023390666377316/app/4974477500315919596/tracks/internal-testing) and click on "Create new release".
+
+Upload app-release.aab file from the folder containing the newly created release.
+
+Once uploaded, click "Next" to go to the Preview and Confirm page. Ensure that everything looks OK, then click "Save and Publish".
+
+Now go to the [Prelaunch Report Overview](https://play.google.com/console/u/0/developers/8896023390666377316/app/4974477500315919596/pre-launch-report/overview) page. After about an hour, you will be able to check the results of testing on the new version and see if there are any issues that need to be addressed.
+
+Finally, "promote" this version to the "Closed testing" track. This triggers an internal review by Google that takes a few days, but is useful as it results in additional quality assurance testing by Google.
 
 ## Adding new beta testers (iOS)
 
-We need the email address they use with their Apple ID in order to add them as a user in App Store Connect.
+Previously, we needed the email address they use with their Apple ID in order to add them as an internal tester in App Store Connect.
+
+We are now trying to use external testing so that we can simply distribute a URL to anyone who wants to test the app. 
 
 ## Adding new beta testers (Android)
 
-When a new tester is added for the first time, there are a few additional steps:
+Currently, we need the gmail address that the user has associated with their Android device so that we can add them as an internal tester. 
 
-1. Firebase App Distribution works reliably only with gmail accounts. We have not had good luck with hotmail accounts. This means that a new beta tester will need to have a gmail account in order to efficiently download and install the system. (They could then register in GGC using a different email account if they so choose.)
-2. When a new tester tries to install the system, the installation process will ask the user permission to send the device's UUID to GGC. 
-3. Philip will then get an email with the UIUD of the device and name of the person attempting to install.
-4. Following the prompts results in signing in to Apple to the "Certificates, Identifiers, and Profiles" page. There are several steps:
-  * Define that device as a new Device.
-  * Update the Profile named "GGC Beta Test" to include that device.
-  * Download that Profile to my laptop.
-  * Double click the downloaded Profile to add it to XCode. 
-5. Now re-build, re-archive, and re-upload the current version of the app. To rebuild the ipa without making any other changes and place the results in the Desktop directory, invoke `./run_rebuild_ipa.sh`.
-6. Upload the re-built file to App Distribution. If everything works correctly, Google detects that a new device has been added to the provisioning profile and an alert message is displayed indicating that the new tester has been emailed to complete the download process.
-
-Once this initial installation process finishes for a user, subsequent updates occur in one step since they are now part of the provisioning profile.
 
 ## Testing on a physical device without deployment
 
