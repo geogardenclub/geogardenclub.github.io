@@ -3,9 +3,9 @@ hide_table_of_contents: false
 # sidebar_label: "Welcome"
 ---
 
-# Goals
+# Technology Goals
 
-Here are a proposed set of goals for the 1.0 (Beta) release. Some of these goals are motivated by [Champion Building: How to successfully adopt a developer tool](https://www.gitpod.io/blog/champion-building). Although this blog post focuses on how to get developers in an organization to adopt a new tool, the recommendation seem very applicable to getting gardeners in a community to adopt GGC.
+Here are the goals for the 1.0 (Technology Evaluation) release. Some of these goals are motivated by [Champion Building: How to successfully adopt a developer tool](https://www.gitpod.io/blog/champion-building). Although this blog post focuses on how to get developers in an organization to adopt a new tool, the recommendation seem very applicable to getting gardeners in a community to adopt GGC.
 
 ## 1. Provide a fast, reliable, robust app that satisfies the Core Value Propositions
 

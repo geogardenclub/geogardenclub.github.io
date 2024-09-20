@@ -30,4 +30,4 @@ $ flutter test integration_test
 
 ### Test design
 
-For more details on the implementation of testing, see the [Test Design](design-components/test-design) page.
+For more details on the implementation of testing, see the [Test Design](design/test-design) page.

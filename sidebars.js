@@ -54,60 +54,64 @@ const sidebars = {
         'user-guide/privacy',
         ]
     }],
+  businessSidebar: [
+    'business/index',
+    'business/roadmap',
+    'business/milestones',
+  ],
   developSidebar: [
     'develop/index',
-    'develop/roadmap',
-    'develop/milestones',
     'develop/onboarding',
+    'develop/installation',
+    'develop/scripts',
+    'develop/coding-standards',
+    'develop/architecture',
+    'develop/deployment',
+    'develop/testing',
+    'develop/backups',
     {
       type: 'category',
       collapsed: true,
-      label: 'Mockup',
+      label: 'Design',
       items: [
-        'develop/mockup/design',
-        'develop/mockup/customer-feedback',
-        'develop/mockup/entrepreneur-feedback',
-        'develop/mockup/chatgpt-feedback',
+        'develop/design/data-model',
+        'develop/design/badges',
+        'develop/design/input-fields',
+        'develop/design/with-widgets',
+        'develop/design/data-mutation',
+        'develop/design/test-design',
       ],
     },
     {
       type: 'category',
-      label: 'Release 1.0 (Beta)',
+      label: 'Release 1.0 (Technology Evaluation)',
       collapsed: true,
       items: [
         'develop/release-1.0/goals',
-        'develop/release-1.0/installation',
-        'develop/release-1.0/scripts',
         'develop/release-1.0/cvp',
-        'develop/release-1.0/deployment',
-        'develop/release-1.0/testing',
-        'develop/release-1.0/backups',
-        'develop/release-1.0/architecture',
-        'develop/release-1.0/coding-standards',
-        'develop/release-1.0/beta-test-feedback',
-        {
-          type: 'category',
-          collapsed: true,
-          label: 'Design Components',
-          items: [
-            'develop/release-1.0/design-components/data-model',
-            'develop/release-1.0/design-components/badges',
-            'develop/release-1.0/design-components/input-fields',
-            'develop/release-1.0/design-components/with-widgets',
-            'develop/release-1.0/design-components/data-mutation',
-            'develop/release-1.0/design-components/test-design',
-          ],
-        },
+        'develop/release-1.0/onboarding-feedback',
+
       ],
     },
     {
       type: 'category',
-      label: 'Release 2.0 (Public)',
       collapsed: true,
+      label: 'Archive',
       items: [
-        'develop/release-2.0/chapterzipmap',
-      ],
+        {
+          type: 'category',
+          collapsed: true,
+          label: 'Mockup',
+          items: [
+            'develop/archive/mockup/design',
+            'develop/archive/mockup/customer-feedback',
+            'develop/archive/mockup/entrepreneur-feedback',
+            'develop/archive/mockup/chatgpt-feedback',
+          ],
+        },
+      ]
     },
+
   ],
 
   // But you can create a sidebar manually

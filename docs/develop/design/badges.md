@@ -7,7 +7,7 @@ hide_table_of_contents: false
 
 ## Goals
 
-The beta release implements a badge system for gardens and gardeners. This badge system is designed to accomplish the following goals:
+The 1.0 release implements a badge system for gardens and gardeners. This badge system is designed to accomplish the following goals:
 
 1. *Foster user engagement and enjoyment through a game mechanic that publicizes achievements by gardens and gardeners.*  Gardeners should find it fun to accumulate badges that are associated with their profile and their garden(s).
 2. *Foster a community of practice by helping gardeners connect with others with similar interests and/or greater expertise with respect to a specific gardening topic.* For example, if a user is interested in vermiculture, the badge system provides a mechanism for them to find other gardeners who already have experience in this area. 
@@ -15,8 +15,8 @@ The beta release implements a badge system for gardens and gardeners. This badge
 3. *Provide a mechanism that identifies ways to improve gardening practices.* The badge system makes visible the practices that are important to the GGC mission of food resiliency and sustainable gardening, such as seed saving, composting, and water conservation. This means that a simple heuristic for "getting better at gardening" is to simply "get more badges".
 
 :::info  What about Chapters?
-The beta release will not implement Chapter-level badges for two reasons:
-1. The primary goals for Chapter-level badges are: (a) encouraging members of a Chapter via "peer pressure" to conform to certain best practices, and (b) making possible Chapter "leaderboards" so that Chapters can assess their capabilities relative to other chapters.  Neither of these are important for the beta release where we will focus on a single Chapter with a relatively small number of members. 
+The 1.0 release will not implement Chapter-level badges for two reasons:
+1. The primary goals for Chapter-level badges are: (a) encouraging members of a Chapter via "peer pressure" to conform to certain best practices, and (b) making possible Chapter "leaderboards" so that Chapters can assess their capabilities relative to other chapters.  Neither of these are important for the 1.0 release where we will focus on a single Chapter with a relatively small number of members. 
 2. We will implement garden and gardener-based badge processing within each client, which is simple, scalable, and (hopefully) efficient.  Implementing a Chapter-level badge system at scale will require Firebase cloud functions. These functions require specialized knowledge to implement correctly.
 :::
 
@@ -25,7 +25,7 @@ The beta release will not implement Chapter-level badges for two reasons:
 
 ### Types
 
-The beta release will implement two types of badges: garden badges and gardener badges.  Garden badges reflect the characteristics of a garden across one or more years.  Gardener badges reflect characteristics of a gardener across all of the gardens with which they are associated. 
+The 1.0 release will implement two types of badges: garden badges and gardener badges.  Garden badges reflect the characteristics of a garden across one or more years.  Gardener badges reflect characteristics of a gardener across all of the gardens with which they are associated. 
 
 ### Levels
 
@@ -46,12 +46,12 @@ Verification of badges can be done in the following ways: "via attestation", "vi
 
 "Via Planting" requires the Gardener (owner) to have created Planting data in a single Garden that helps to satisfy the criteria for a badge.
 
-:::warning Beta release badge processing is client-side only
-As the above indicates, for the beta release, badge processing occurs on the client-side, and is triggered by updates to garden, gardener, observation, or planting documents.
+:::warning 1.0 release badge processing is client-side only
+As the above indicates, for the 1.0 release, badge processing occurs on the client-side, and is triggered by updates to garden, gardener, observation, or planting documents.
 
 The current criteria are designed so that they can be assessed via either WithCoreData or WithGardenData. See the Implementation Notes section associated with each badge for an indication of which "With" widget can be used.
 
-There are many ways we could define the criteria for a badge. The criteria we choose must align with the beta release design constraints. If a criteria turns out to be too expensive to verify via client-side processing, then we should change the criteria, not change the design.
+There are many ways we could define the criteria for a badge. The criteria we choose must align with the 1.0 release design constraints. If a criteria turns out to be too expensive to verify via client-side processing, then we should change the criteria, not change the design.
 :::
 
 ### Observation tags
@@ -73,7 +73,7 @@ Badge implementation will also require updates to the Garden and Gardener entiti
 
 ## Garden badges
 
-Here are proposals for the beta release garden badges.
+Here are proposals for the 1.0 release garden badges.
 
 ### Pesticide free
 
@@ -166,7 +166,7 @@ Requires WithGardenData.
 
 ## Gardener badges
 
-Here are proposals for the beta release Gardener badges.
+Here are proposals for the 1.0 release Gardener badges.
 
 ### Community Cultivator
 
@@ -334,9 +334,9 @@ Triggered as part of Observation mutations.
 Requires WithGardenData.
 
 
-## Post-Beta badges
+## Post-1.0 badges
 
-Here are some proposals for badges that we could add after the beta release. I have not edited these descriptions to conform to the latest design principles.
+Here are some proposals for badges that we could add after the 1.0 release. I have not edited these descriptions to conform to the latest design principles.
 
 ### Chapter Chair
 

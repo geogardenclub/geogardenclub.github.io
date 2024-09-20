@@ -85,8 +85,8 @@ If the new user supplies a non-US country code, then the ChapterZipMap is not co
 
 Note that [some countries do not have a postal code](https://tosbourn.com/list-of-countries-without-a-postcode/). In this case, we will create a default postal code (i.e. "000") for those countries and not request it from the user if they select one of those countries. This implies that for those countries, there will be only one chapter for the entire country. Since most of those countries are pretty small, that seems like a reasonable design decision.
 
-:::info The beta release works differently
-The Beta release will only be distributed to users in Whatcom Country, WA, and so the registration mechanism will be simplified. See below for details.
+:::info The 1.0 release works differently
+The 1.0 release will only be distributed to users in Whatcom Country, WA, and so the registration mechanism will be simplified. See below for details.
 :::
 
 
@@ -138,13 +138,13 @@ The form provides fields for the user's:
 
 In addition, the user can provide a picture at this time if they want.
 
-:::info Beta Release modifications
+:::info 1.0 Release modifications
 
-For the initial beta release: 
+For the initial 1.0 release: 
 * The country field will be a read-only drop-down and "United States" will be selected. It returns the alpha2 code for the United States (i.e. "US") 
 * The Postal (Zip) Code input field will be a pull-down list of postal codes associated with Whatcom, Washington. 
 
-These modifications to the Onboarding screen guarantee that beta test users will be associated with the Whatcom-WA Chapter, and allow us to avoid the need to design and implement the ChapterZipMap and associated processing.  
+These modifications to the Onboarding screen guarantee that 1.0 test users will be associated with the Whatcom-WA Chapter, and allow us to avoid the need to design and implement the ChapterZipMap and associated processing.  
 :::
 
 Once the form is successfully filled out, a User and Gardener document is created for that email address. If those documents are created successfully, then the application displays the Home screen for that User.
@@ -562,7 +562,7 @@ The Seed entity provides information about the Planting from which it was harves
 Finally, in order to safely delete a Seed instance, it must not have been used to sow any Plantings. So that we don't have to search through all the Plantings across an entire chapter, the Seed entity provides a field called sowSeedCount. This field is initialized to zero and incremented whenever a Seed instance is referenced in the sowSeedID field of a new Planting. A Seed instance can only be deleted when the sowSeedCount is zero. 
 
 :::warning SowSeedCount is never decremented
-In the beta release, sowSeedCount is incremented each time a Planting specifies it as their sowSeedID. It is not reliably decremented. Because of this, in the beta release, once a Seed is created and used once as the sowSeedID, it can not be deleted. The only time you can delete a Seed is before it has ever been used as a sowSeedID in a Planting.
+In the 1.0 release, sowSeedCount is incremented each time a Planting specifies it as their sowSeedID. It is not reliably decremented. Because of this, in the 1.0 release, once a Seed is created and used once as the sowSeedID, it can not be deleted. The only time you can delete a Seed is before it has ever been used as a sowSeedID in a Planting.
 :::
 
 :::info plantingID field is currently optional
@@ -817,9 +817,9 @@ On the one hand, we want to preserve certain types of privacy:
 
 On the other hand, we want to facilitate the creation of a community of practice. For this reason, all garden data (plantings, etc) are available, in at least a read-only format, to all members of a chapter. 
 
-A significant goal for the beta release is to test the hypothesis that it is not problematic for users to share these kinds garden details with others in the chapter. 
+A significant goal for the 1.0 release is to test the hypothesis that it is not problematic for users to share these kinds garden details with others in the chapter. 
 
-A broader question, that we will not explore in the beta release, is what kinds of data could be made available across Chapters. 
+A broader question, that we will not explore in the 1.0 release, is what kinds of data could be made available across Chapters. 
 
 ## IDs
 

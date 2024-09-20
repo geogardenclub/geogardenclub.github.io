@@ -28,35 +28,30 @@ Doctor summary (to see all details, run flutter doctor -v):
 • No issues found!
 ```
 
-## XCode 14.3 configuration
+## Tool versions
 
-To my great dismay, ggc_app does not build for the iOS simulator using XCode 14.3 without some additional configuration. The only way I have found to get the ggc_app to run on the iOS simulator is by installing the libarclite library manually into XCode.  Here are the steps:
+It turns out that getting Flutter Doctor to report no issues is not enough.  There are other tech stack components which must also be at an appropriate version in order for the app to run successfully during development.  In some cases, there might be multiple appropriate versions, but every developer must be using the same version of the tools; otherwise the app will run for some developers but not for others.
 
-1. *Open the Terminal app and go to the XCode library folder:*
+In order to help developers keep on the same page with respect to tech stack versions, we have implemented a script called `run_tool_versions.sh` that prints versions of the tech stack tools important to getting GGC to run correctly.  Our Discord server has a channel called "#tool-versions" where developers post the output from running this script. This helps all of us to stay on the same page, and when one person updates a component of the tech stack, they can post the new output from the script so that everyone else can update their tech stack as well.
+
+Here is an example of the output from `run_tool_versions.sh`:
+
 ```shell
-cd /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/
+% ./run_tool_versions.sh
+Computer Name: PMJ M2 2023
+Cocoapods 1.15.2
+Dart SDK version: 3.5.0 
+Flutter 3.24.0 
+MacOS 14.5
+Monarch version 2.2.7
+ruby 3.2.2 (202
+Xcode 15.4
 ```
+Be sure to run this script and check it against the output from the Discord channel. If there are differences, try to update your tech stack to match the versions in the Discord channel.
 
-2. *Allow the Terminal app to create directories in "protected" areas such Applications/.*  To do this, go to `System Preferences > Security & Privacy > Privacy > Full Disk Access`, and add the Terminal app to the list of apps that have full disk access by toggling the radio button next to the Terminal app.  You will need to enter your password to make this change. Afterwards, the Terminal app will need to restart for these changes to take effect.
+Note that GGC development is done using MacOS. We do not support Windows or Unix-based development at this time.
 
-3. *Add the libarclite files to the XCode library folder:*
-```shell
-sudo mkdir arc
-cd  arc
-sudo git clone https://github.com/kamyarelyasi/Libarclite-Files.git .
-sudo chmod +x *
-```
-
-:::info Additional shenanigans
-The above information should be enough for you to proceed. However, I want to document some additional details in case they become relevant in the future.
-
-First, after doing the above, when trying to deploy to the iOS Simulator, I got an XCode error that  CFBundleVersion was invalid.  I fixed this (and related errors) by editing the `ios/Runner/Info.plist` file manually, and setting both CFBundleVersion and CFBundleShortVersionString to "1". Since this file is version controlled, and does not appear to be affected by running `pod install` etc, I don't think you need to worry about it.
-
-Second, this approach to resolving XCode 14.3 problems was found [here](https://stackoverflow.com/a/75924853/2038293). What you see is that the above instructions only resolving building, but not "archiving".  Additional steps are provided to support archiving. Since I don't know anything about archiving, I didn't do this additional step, but I want to note it while I am thing about it. 
-
-Finally, in case we need to look at these changes more closely in the future, the commit is [here](https://github.com/geogardenclub/ggc_app/commit/ef53b52a217ca4eed1307235d8da84dad607c5db).
-:::
-## ggc_app
+## GGC App
 
 To install the app, first clone the sources from [https://github.com/geogardenclub/ggc_app](https://github.com/geogardenclub/ggc_app).
 
@@ -154,8 +149,6 @@ As before, consult with Philip for login credentials.
 ## Monarch
 
 According to their home page, [Monarch](https://monarchapp.io/) is a "tool for building Flutter widgets in isolation. It makes it easy to build, test and debug complex UIs." Monarch is basically a Flutter port of React Storybook, which is tremendously popular in React UI development.
-
-I have begun using Monarch and believe it will be very helpful for GGC UI development. 
 
 Follow the [Monarch installation instructions](https://monarchapp.io/docs/install) to install the tool.
 

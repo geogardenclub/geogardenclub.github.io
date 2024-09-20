@@ -5,7 +5,7 @@ hide_table_of_contents: false
 
 # Data Model
 
-This page documents the data model intended to satisfy the beta release requirements.
+This page documents the data model intended to satisfy the 1.0 release requirements.
 
 ## Entities
 
@@ -69,7 +69,7 @@ Currently all Users are also Gardeners, though the design does not require this.
 
 Every user is associated with a unique email address, which is their UserID.
 
-For the beta release, the data model does not include information about the subscriptions, payments, credit card, etc associated with a gardener.
+For the 1.0 release, the data model does not include information about the subscriptions, payments, credit card, etc associated with a gardener.
 
 Each User entity provides the following information:
 
@@ -175,7 +175,7 @@ Here is an example Garden document:
 
 ### Editor
 
-In the beta release, the access control capability enables a Gardener to allow another Chapter member to edit one of their gardens.  (There is no implementation of a "viewer", who can see more of someone else's garden than a normal Chapter member.)
+In the 1.0 release, the access control capability enables a Gardener to allow another Chapter member to edit one of their gardens.  (There is no implementation of a "viewer", who can see more of someone else's garden than a normal Chapter member.)
 
 This capability is implemented by the Editor entity, which implements a mapping between a Garden and a Gardener:
 
@@ -477,7 +477,7 @@ Here is an example Seed document:
   }
 ```
 
-In general, a Garden associated with a vendor will have a single Planting instance for each Variety that they offer. This Planting instance will have a single Seed instance, with `seedsAvailable` set to `true`.  In reality, a vendor may or may not have seeds in stock for a given Variety at any given time.  And, in reality, a vendor will produce their seeds from growing plants each year. But, we will not represent these "realities" about vendor gardens and seeds in our data model, at least for the beta release.
+In general, a Garden associated with a vendor will have a single Planting instance for each Variety that they offer. This Planting instance will have a single Seed instance, with `seedsAvailable` set to `true`.  In reality, a vendor may or may not have seeds in stock for a given Variety at any given time.  And, in reality, a vendor will produce their seeds from growing plants each year. But, we will not represent these "realities" about vendor gardens and seeds in our data model, at least for the 1.0 release.
 
 ### Observation
 
@@ -617,7 +617,7 @@ That said, not all Collections in the ggc_app are created equally!  Consider the
 
 *"What are the names of the crops that have been planted by johnson@hawaii.edu?"*
 
-The answer to this query involves finding all the Gardens owned by johnson@hawaii.edu, then retrieving all of the Plantings associated with those Gardens, then building a set of Crop entities from those Plantings, then mapping over that set of Crop entities to build a list of crop names, then sorting that list of names into betabetical order, and finally returning that list.
+The answer to this query involves finding all the Gardens owned by johnson@hawaii.edu, then retrieving all of the Plantings associated with those Gardens, then building a set of Crop entities from those Plantings, then mapping over that set of Crop entities to build a list of crop names, then sorting that list of names into alphabetical order, and finally returning that list.
 
 In this case, three different collections (Gardens, Plantings, and Crops) must be manipulated to satisfy the query. Other queries could require the manipulation of even more collections.
 
@@ -669,7 +669,7 @@ On the one hand, we want to preserve certain types of privacy:
 
 On the other hand, we want to facilitate the creation of a community of practice, which is accomplished by making many aspects of garden planning and management public to all members of a chapter.
 
-A significant goal for the beta release is to test the hypothesis that it is not problematic for users to share this kind of information with others.
+A significant goal for the 1.0 release is to test the hypothesis that it is not problematic for users to share this kind of information with others.
 
 A common approach to privacy is to make sharing "opt-in". In other words, your data is private unless you explicitly agree to share it. One concern with this approach is that if we allow some users to make their garden info private, it creates an "information asymmetry", where some users get to exploit the experiences of others while not offering up their experiences in return. That seems corrosive to the morale of the chapter and impedes the creation of a community of practice. It seems better to test the hypothesis that there is enough value from sharing to make it mandatory (outside the "privacy" mechanisms listed above.)
 
@@ -689,7 +689,7 @@ With FireBase, it is possible to create a [security rule to prevent documents wi
 
 We believe this "error due to pre-existing ID"  situation to be a very unlikely scenario, because the GGC unique IDs are crafted to be as "local as possible". For example, when creating a Planting, the unique ID includes the chapter and garden IDs. This means that a collision is only possible if two gardeners try to create a Planting for the same Garden in the same Chapter at "almost" the exact same time.  As a result of this design of GGC IDs, we expect collisions to rarely, if ever, occur in practice.  If they do, then the above Firebase security rule will prevent the document creation request from succeeding. In the UI, we will catch this failure and ask the user to retry.
 
-In addition, this Beta release data model implements a simple numbering convention to further improve the human readability of the unique IDs.  The idea is to begin numbering entity documents of a given type at a different number.  Here is the numbering system we are using:
+In addition, this 1.0 release data model implements a simple numbering convention to further improve the human readability of the unique IDs.  The idea is to begin numbering entity documents of a given type at a different number.  Here is the numbering system we are using:
 
 | Starting Number | Entities |
 | ---------------- | ------- |
@@ -705,9 +705,9 @@ So, for example, a plantingID looks like this: `planting-001-101-1034`, and (if 
 
 Note that there is no implementation problem with an Entity having so many documents that the IDs eventually cross over into the next category. For example, there is definitely the possibility of more than 100 Chapters, at which point there could be a chapterNum of 101, which would be the same as a gardenNum.  That doesn't create any conflicts or problems internally in the system: unique IDs do not depend upon entities "staying in" their starting range.
 
-The goal of this numbering convention is simply to make the beta release database documents slightly easier to understand while the relative numbers of Chapters, Gardens, Crops, etc are low. Once we have hundreds of Chapters and tens of thousands of Gardeners, we will have outgrown the use of this simple partitioning to understand the data.
+The goal of this numbering convention is simply to make the 1.0 release database documents slightly easier to understand while the relative numbers of Chapters, Gardens, Crops, etc are low. Once we have hundreds of Chapters and tens of thousands of Gardeners, we will have outgrown the use of this simple partitioning to understand the data.
 
-Note that [Firebase recommends against creating documentIDs with lexicographically close ranges](https://firebase.google.com/docs/firestore/best-practices#hotspots).  However, this recommendation applies only to situations with **high** levels of reads or writes.  Even at scale, GGC will not be experience "high" levels of reads or writes (from a database point of view), so I am hopeful we can implement this numbering scheme, at least for the Beta Release. (If necessary, we could easily migrate to a randomized string for IDs in future if this actually becomes an database bottleneck.)
+Note that [Firebase recommends against creating documentIDs with lexicographically close ranges](https://firebase.google.com/docs/firestore/best-practices#hotspots).  However, this recommendation applies only to situations with **high** levels of reads or writes.  Even at scale, GGC will not be experience "high" levels of reads or writes (from a database point of view), so I am hopeful we can implement this numbering scheme, at least for the 1.0 Release. (If necessary, we could easily migrate to a randomized string for IDs in future if this actually becomes an database bottleneck.)
 
 ### Normalization and caching
 
@@ -725,8 +725,8 @@ We also "denormalize" by occasionally providing "redundant" fields in a collecti
 
 ### Local-first, caching, and disconnected operation
 
-We intend to have a "local-first" approach to data. In other words, there will be a local cache of relevant collections on each user's device, so that Firebase queries will be minimized.  I am not sure yet whether the local cache will be automatically synced in the background with the global store, or whether we will need to implement a "pull down to refresh" mode.  I think either approach would be OK for the purposes of the beta release.
+We intend to have a "local-first" approach to data. In other words, there will be a local cache of relevant collections on each user's device, so that Firebase queries will be minimized.  I am not sure yet whether the local cache will be automatically synced in the background with the global store, or whether we will need to implement a "pull down to refresh" mode.  I think either approach would be OK for the purposes of the 1.0 release.
 
 On the other hand, our approach to IDs makes completely disconnected operation problematic.  Actually, it goes beyond that: imagine two gardeners working in the same garden in disconnected mode. The opportunities for problematic data entry are present even if we moved to more traditional forms of document IDs.
 
-For that reason, at least for the beta release, we will require an internet connection in order to make the app fully functional. It should be straightforward to allow the app to work based on the locally cached data when disconnected, but when that occurs, provide some indication that certain operations will not be available until an internet connection is re-established. 
+For that reason, at least for the 1.0 release, we will require an internet connection in order to make the app fully functional. It should be straightforward to allow the app to work based on the locally cached data when disconnected, but when that occurs, provide some indication that certain operations will not be available until an internet connection is re-established. 

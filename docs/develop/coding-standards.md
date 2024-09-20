@@ -175,7 +175,7 @@ class GardenTextField extends StatelessWidget {
           decoration: ggcInputDecoration(
             label: fieldName,
             required: true,
-            hintText: '4-20 chars, betanumeric/spaces, unique',
+            hintText: '4-20 chars, alphanumeric/spaces, unique',
           ),
           initialValue: currName,
           validator: FormBuilderValidators.compose([
@@ -216,7 +216,7 @@ As a heuristic, if indentation exceeds 5 or 6 levels, think about creating local
 
 ## Don't write media-adaptive code
 
-For the beta release, we are not going to optimize layout for different screen sizes. So, please do not (for example) use MediaQuery to adjust values for different screen sizes. For example:
+For the 1.0 release, we are not going to optimize layout for different screen sizes. So, please do not (for example) use MediaQuery to adjust values for different screen sizes. For example:
 
 ```dart
 double width = MediaQuery.of(context).size.width;

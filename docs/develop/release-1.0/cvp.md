@@ -5,7 +5,7 @@ hide_table_of_contents: false
 
 # Core Value Propositions
 
-The goal of the 1.0 (Beta) release is to provide an app to a small group that will use the app and provide us with feedback. The 1.0 release will partially test our business model by helping us evaluate its success at implementing the "core value propositions" (CVPs) for GGC.  
+The goal of the 1.0 (Technology Evaluation) release is to provide an app to a small group that will use the app and provide us with feedback. The 1.0 release will partially test our business model by helping us evaluate its success at implementing the "core value propositions" (CVPs) for GGC.  
 
 Core value propositions are the minimal set of capabilities that must be provided to users in order for them to find the application to be of acceptable value (i.e. they will want to use the app to support their gardening practices.)
 
@@ -26,8 +26,8 @@ Effective support means:
 * Users are comfortable sharing data only within the boundaries of their chapter.
 
 Design implications include:
-* Upon initial signin, the user must enter a zip code. This is used to identify their chapter. One cannot edit their zip code once entered in order to prevent users from "skipping around" to different chapters. For the beta release, the only valid zip codes are those associated with Whatcom-WA.
-* We will implement a Firebase collection that maps zip codes to chapter names. Zip codes are initially mapped to county names, so there will exist a chapter for every zip code. The beta release will not require this collection.
+* Upon initial signin, the user must enter a zip code. This is used to identify their chapter. One cannot edit their zip code once entered in order to prevent users from "skipping around" to different chapters. For the 1.0 release, the only valid zip codes are those associated with Whatcom-WA.
+* We will implement a Firebase collection that maps zip codes to chapter names. Zip codes are initially mapped to county names, so there will exist a chapter for every zip code. The 1.0 release will not require this collection.
 
 ### 2. Effective support for garden planning.
 
@@ -90,4 +90,4 @@ To clarify what will be in the 1.0 release, it is also useful to clarify what wi
 * Climate data.
 * Chapter Chairs, who can moderate, promote, and otherwise manage the chapter.
 * User-defined Hashtags, and the ability to filter gardens, plantings, observations, etc by the hashtag.
-* Disconnected operation. The beta release will require an internet connection to enable full capabilities. It might implement a local cache so it would be possible to provide read-only access to the garden plans and data when not connected to the internet.
+* Disconnected operation. The 1.0 release will require an internet connection to enable full capabilities. It might implement a local cache so it would be possible to provide read-only access to the garden plans and data when not connected to the internet.

@@ -3,9 +3,11 @@ hide_table_of_contents: true
 # sidebar_label: "Welcome"
 ---
 
-# Release 1.0 (Beta) Feedback
+# Onboarding Feedback
 
-## List of Beta Testers
+Jenna personally onboarded six users to Release 1.0 and gathered the following feedback from them either during the onboarding session or shortly thereafter. 
+
+## List of Users
 
 |     | Date      | Name           | Phone Type | Notes                             |
 |-----|-----------|----------------|------------|-----------------------------------|
@@ -18,7 +20,8 @@ hide_table_of_contents: true
 
 
 ## Documentation/Training Issues
-This category groups together the beta test feedback that results from a user having an inadequate understanding of the system to use it correctly or efficiently.
+
+This category groups together the onboarding feedback that results from a user having an inadequate understanding of the system to use it correctly or efficiently.
 
 | Feedback                                                                                                                                                                                                                                 | Related Screens         | Contact                  | Action                          |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|--------------------------|---------------------------------|
@@ -55,6 +58,7 @@ Feedback: _"Seeds started in seedling pots not under climate control: any cool w
 Feedback: _"I have been transplanting overwintering veg into the greenhouse in the fall, that I've started outdoors, but this may not be common. "_ 
 
 ## Business Logic Issues
+
 This category groups together problems that result from the system not processing data according to system requirements for the current implementation.  On the user side, this can result in unexpected behavior, including crashes.  On the developer side, this can result in Integrity Check violations.
 
 | Feedback                                                                                                                                                              | Related Screens            | Contact                  | Action |
@@ -62,6 +66,7 @@ This category groups together problems that result from the system not processin
 | Dates in planting timeline/details are not updated when a task is rescheduled. | Tasks, Add/Update Planting | Jess Meyer  | Created issue (#224) |
 
 ## Future Requirement Issues
+
 This category groups together issues raised by users that indicate a desire for additional functionality that is not currently available in the system. They could either be requirements that we foresee for a future release, or requirements that we have never thought of before.
 
 
@@ -102,6 +107,7 @@ This category groups together issues that result from users wanting a different 
 
 
 ## UI Layout/Platform Issues
+
 This category groups together problems that result from a user using a phone with different view screen dimensions than we have assumed in our UI design. Text clipping, weird overflow, etc. can result from this. Eventually, we can use Monarch to quickly test our layout on a variety of platforms to uncover these issues earlier.
 
 | Feedback                                                    | Related Screens                          | Contact       | Action   |

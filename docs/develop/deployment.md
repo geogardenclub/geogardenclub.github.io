@@ -9,13 +9,13 @@ For the GeoGardenClub project, deployment refers to the process by which a versi
 
 ## Documenting deployment versions
 
-We expect to make many deployments during the Beta release period as we fix bugs or implement enhancements. Each new deployment will require a new version number (specified in the pubspec.yml file), and we will document what has changed in each new version via [CHANGELOG.md](https://github.com/geogardenclub/ggc_app/blob/main/CHANGELOG.md).  To manage version numbers and the changelog file, we will use [Cider](https://pub.dev/packages/cider).
+Each new deployment requires a new version number (specified in the pubspec.yml file), and we document what has changed in each new version via [CHANGELOG.md](https://github.com/geogardenclub/ggc_app/blob/main/CHANGELOG.md).  To manage version numbers and the changelog file, we use [Cider](https://pub.dev/packages/cider).
 
 We also want to be able to access the ChangeLog inside the deployed app---this is a simple way for users to both know what version of the app they have installed, and what new features or changes they can expect to find in a new version.  So, when we do a deployment, the `run_deploy.sh` script will copy the top-level CHANGELOG.md file into the assets/ folder so that it gets included in the various apps.
 
-We will adhere to two standards:
-1. For the changelog format, we will adhere to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
-2. For the version number format, we will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). For the beta release, since there is no public "API", the *major* version will always be "1". The deploy script automatically increments the minor version and increments the build number.
+We adhere to two standards:
+1. For the changelog format, we adhere to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+2. For the version number format, we adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). For Release 1.0 (Technology Evaluation), the *major* version is "1". The deploy script automatically increments the minor version and increments the build number.
 
 ## Deployment management
 
@@ -25,7 +25,7 @@ The deployment process is handled by a single developer referred to as the "Depl
 
 Prior to a deployment, it is good practice to:
 
-* Do a [backup](backups).
+* Do a [backup](backups.md).
 * Run the integrity checker and resolve any violations.
 
 ## 1. Update the ChangeLog
@@ -40,7 +40,7 @@ cider log added "Terms and Conditions"
 
 Invoke `./run_deploy.sh`.  This script does the following:
 
-* Invokes `cider bump minor` and `cider release` so that all of the unreleased changes are moved to a new release number, and that release number is recorded in the pubspec.yml.
+* Invokes `cider bump minor` and `cider release` so that the unreleased changes are moved to a new release number, and that release number is recorded in the pubspec.yml.
 * Commits the updated CHANGELOG.md and pubspec.yml files to GitHub.
 * Creates a "deploy directory" at `~/Desktop/ggc-deploy-<VERSION>`.
 * Builds the ggc_app.ipa file and copies it to the deploy directory.
@@ -81,7 +81,6 @@ We are now trying to use external testing so that we can simply distribute a URL
 ## Adding new beta testers (Android)
 
 Currently, we need the gmail address that the user has associated with their Android device so that we can add them as an internal tester. 
-
 
 ## Testing on a physical device without deployment
 
