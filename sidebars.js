@@ -90,6 +90,7 @@ const sidebars = {
         'develop/release-1.0/goals',
         'develop/release-1.0/cvp',
         'develop/release-1.0/onboarding-feedback',
+        'develop/release-1.0/end-of-season-feedback',
 
       ],
     },
