@@ -58,6 +58,26 @@ const sidebars = {
     'business/index',
     'business/roadmap',
     'business/milestones',
+    {
+      type: 'link',
+      label: 'Lean Canvas',
+      href: 'https://docs.google.com/presentation/d/1oUzy1zeraTf6PgWlk2R3Ea7Iw2Ju24Dds5mffq2o5Wg/edit#slide=id.p1',
+    },
+    {
+      type: 'link',
+      label: 'Gardening vs. Farming',
+      href: 'https://docs.google.com/presentation/d/1rMu7DWJblHvVJt6CGmR8eyCN7uBMXPfBpc1rdhanxjQ/edit#slide=id.p',
+    },
+    {
+      type: 'link',
+      label: 'Home Gardening Pain Points',
+      href: 'https://docs.google.com/presentation/d/1TKDWQI60PxRhBpMGW0tvMyXX0nmgEBz71-DmoT2LxfU/edit#slide=id.g11d82564388_0_187',
+    },
+    {
+      type: 'link',
+      label: 'Business Documents Repo',
+      href: 'https://github.com/geogardenclub/documents',
+    },
   ],
   developSidebar: [
     'develop/index',
