@@ -76,6 +76,11 @@ const sidebars = {
     },
     {
       type: 'link',
+      label: 'BAI Pitch Deck',
+      href: 'https://www.canva.com/design/DAGRP0s8F_s/93cd6dWj_1ycGEMCVx1tjA/edit',
+    },
+    {
+      type: 'link',
       label: 'Business Documents Repo',
       href: 'https://github.com/geogardenclub/documents',
     },
