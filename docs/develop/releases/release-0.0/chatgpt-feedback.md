@@ -5,7 +5,7 @@ hide_table_of_contents: true
 
 # ChatGPT feedback
 
-Just for fun, I had a conversation with ChatGPT in April, 2023 about how to design a gardening app. Much of its responses were uninsightful, but it did come up with some banging ideas for badges. 
+Just for fun, I had a conversation with ChatGPT in April 2023 about how to design a gardening app. Much of its responses were uninsightful, but it did come up with some banging ideas for badges. 
 
 *Design a program to address food resiliency by support communities of practice among home gardeners.*
 

@@ -13,7 +13,6 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  // By default, Docusaurus generates a sidebar from the docs folder structure
   homeSidebar: [
     {
     type: 'category',
@@ -84,6 +83,11 @@ const sidebars = {
       label: 'Business Documents Repo',
       href: 'https://github.com/geogardenclub/documents',
     },
+    {
+      type: 'link',
+      label: 'Developer Guide',
+      href: '/docs/develop/',
+    },
   ],
   developSidebar: [
     'develop/index',
@@ -110,49 +114,40 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Release 1.0 (Technology Evaluation)',
       collapsed: true,
-      items: [
-        'develop/release-1.0/goals',
-        'develop/release-1.0/cvp',
-        'develop/release-1.0/onboarding-feedback',
-        'develop/release-1.0/end-of-season-feedback',
-
-      ],
-    },
-    {
-      type: 'category',
-      collapsed: true,
-      label: 'Archive',
+      label: 'Prior Releases',
       items: [
         {
           type: 'category',
+          label: 'Release 1.0 (Technology Evaluation)',
           collapsed: true,
-          label: 'Mockup',
           items: [
-            'develop/archive/mockup/design',
-            'develop/archive/mockup/customer-feedback',
-            'develop/archive/mockup/entrepreneur-feedback',
-            'develop/archive/mockup/chatgpt-feedback',
+            'develop/releases/release-1.0/goals',
+            'develop/releases/release-1.0/cvp',
+            'develop/releases/release-1.0/onboarding-feedback',
+            'develop/releases/release-1.0/end-of-season-feedback',
+
+          ],
+        },
+        {
+          type: 'category',
+          collapsed: true,
+          label: 'Release 0.0 (Mockup)',
+          items: [
+            'develop/releases/release-0.0/design',
+            'develop/releases/release-0.0/customer-feedback',
+            'develop/releases/release-0.0/entrepreneur-feedback',
+            'develop/releases/release-0.0/chatgpt-feedback',
           ],
         },
       ]
     },
-
-  ],
-
-  // But you can create a sidebar manually
-  /*
-  tutorialSidebar: [
-    'intro',
-    'hello',
     {
-      type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
+      type: 'link',
+      label: 'Business Development Guide',
+      href: '/docs/business/',
     },
   ],
-   */
 };
 
 module.exports = sidebars;
