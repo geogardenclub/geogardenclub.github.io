@@ -1,0 +1,25 @@
+{
+  "id": "develop/archive/mockup/design",
+  "title": "Design and implementation",
+  "description": "We built a simple single page web application using React. The goal of the system was to provide an \"executable mockup\" to show potential customers our vision of some of the features that would be made available in our production technology.",
+  "source": "@site/docs/develop/archive/mockup/design.md",
+  "sourceDirName": "develop/archive/mockup",
+  "slug": "/develop/archive/mockup/design",
+  "permalink": "/docs/develop/archive/mockup/design",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "End of Season Feedback",
+    "permalink": "/docs/develop/release-1.0/end-of-season-feedback"
+  },
+  "next": {
+    "title": "Customer feedback",
+    "permalink": "/docs/develop/archive/mockup/customer-feedback"
+  }
+}

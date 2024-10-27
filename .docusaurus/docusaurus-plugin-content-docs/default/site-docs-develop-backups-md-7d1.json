@@ -1,0 +1,25 @@
+{
+  "id": "develop/backups",
+  "title": "Backups",
+  "description": "Our current backup approach is to use Firefoo to create a JSON file containing all of the documents in the GGC Firestore database, compress this file, and upload it to the geogardenclub/backups repository.   The goal is to do this every week or two, so that in the event of catastrophe, we can restore the database to a state that doesn't lose too much work.",
+  "source": "@site/docs/develop/backups.md",
+  "sourceDirName": "develop",
+  "slug": "/develop/backups",
+  "permalink": "/docs/develop/backups",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": true
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Testing",
+    "permalink": "/docs/develop/testing"
+  },
+  "next": {
+    "title": "Data Model",
+    "permalink": "/docs/develop/design/data-model"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "home/serious-gardeners",
+  "title": "\"Serious\" Gardeners",
+  "description": "The founders of GeoGardenClub view food production as a vast continuum of activities and levels of commitment, as shown in the following diagram:",
+  "source": "@site/docs/home/serious-gardeners.md",
+  "sourceDirName": "home",
+  "slug": "/home/serious-gardeners",
+  "permalink": "/docs/home/serious-gardeners",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": true
+  },
+  "sidebar": "homeSidebar",
+  "previous": {
+    "title": "Welcome",
+    "permalink": "/docs/home/welcome"
+  },
+  "next": {
+    "title": "Design Innovations",
+    "permalink": "/docs/home/innovations"
+  }
+}

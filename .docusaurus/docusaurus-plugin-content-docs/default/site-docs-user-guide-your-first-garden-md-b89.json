@@ -1,0 +1,25 @@
+{
+  "unversionedId": "user-guide/your-first-garden",
+  "id": "user-guide/your-first-garden",
+  "title": "Your first garden",
+  "description": "Find your home screen",
+  "source": "@site/docs/user-guide/your-first-garden.md",
+  "sourceDirName": "user-guide",
+  "slug": "/user-guide/your-first-garden",
+  "permalink": "/docs/user-guide/your-first-garden",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "homeSidebar",
+  "previous": {
+    "title": "Guided Tour",
+    "permalink": "/docs/user-guide/guided-tour"
+  },
+  "next": {
+    "title": "Adding Vendors, Crops, and Varieties",
+    "permalink": "/docs/user-guide/adding-vendors-crops-varieties"
+  }
+}

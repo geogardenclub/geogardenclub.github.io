@@ -1,0 +1,25 @@
+{
+  "id": "develop/release-1.0/cvp",
+  "title": "Core Value Propositions",
+  "description": "The goal of the 1.0 (Technology Evaluation) release is to provide an app to a small group that will use the app and provide us with feedback. The 1.0 release will partially test our business model by helping us evaluate its success at implementing the \"core value propositions\" (CVPs) for GGC.",
+  "source": "@site/docs/develop/release-1.0/cvp.md",
+  "sourceDirName": "develop/release-1.0",
+  "slug": "/develop/release-1.0/cvp",
+  "permalink": "/docs/develop/release-1.0/cvp",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Technology Goals",
+    "permalink": "/docs/develop/release-1.0/goals"
+  },
+  "next": {
+    "title": "Onboarding Feedback",
+    "permalink": "/docs/develop/release-1.0/onboarding-feedback"
+  }
+}

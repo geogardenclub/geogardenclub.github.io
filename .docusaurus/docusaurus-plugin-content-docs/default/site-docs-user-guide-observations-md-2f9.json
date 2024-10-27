@@ -1,0 +1,25 @@
+{
+  "id": "user-guide/observations",
+  "title": "Observations",
+  "description": "GGC allows gardeners to make \"observations\" regarding a planting of a plant variety on a specific day.  Observations can include phenomena such as successful germination, first flower, first harvest, diseases, or pests, document outcomes like yields, or simply record the progress of a planting.",
+  "source": "@site/docs/user-guide/observations.md",
+  "sourceDirName": "user-guide",
+  "slug": "/user-guide/observations",
+  "permalink": "/docs/user-guide/observations",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "homeSidebar",
+  "previous": {
+    "title": "Planting Scenarios",
+    "permalink": "/docs/user-guide/scenarios"
+  },
+  "next": {
+    "title": "GeoBot",
+    "permalink": "/docs/user-guide/geobot"
+  }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://geogardenclub.github.io/blog</id>
+    <title>Geo Garden Club Blog</title>
+    <updated>2023-02-10T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://geogardenclub.github.io/blog"/>
+    <subtitle>Geo Garden Club Blog</subtitle>
+    <icon>https://geogardenclub.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Welcome, Geo Garden Club! Aloha, Agile Garden Club!]]></title>
+        <id>https://geogardenclub.github.io/blog/2023/02/10/welcome</id>
+        <link href="https://geogardenclub.github.io/blog/2023/02/10/welcome"/>
+        <updated>2023-02-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Welcome to the Geo Garden Club site!]]></summary>
+        <content type="html"><![CDATA[<p>Welcome to the Geo Garden Club site!</p>
+<p>We have decided to rebrand the "Agile Garden Club" project as "Geo Garden Club". We feel that "Geo" represents the spirit of the project better than "Agile", and besides, it's less characters to type.</p>]]></content>
+    </entry>
+</feed>

@@ -1,0 +1,25 @@
+{
+  "id": "develop/releases/release-0.0/entrepreneur-feedback",
+  "title": "Entrepreneur feedback",
+  "description": "The following sections document feedback received from entrepreneurs and high tech professionals (who are not necessarily gardeners, and thus not in our customer demographics).  Our request to these folks was to evaluate the viability of Agile/Geo Garden Club as a commercial technology venture, and to help us identify opportunities for improvement.  We got a lot of useful feedback.",
+  "source": "@site/docs/develop/releases/release-0.0/entrepreneur-feedback.md",
+  "sourceDirName": "develop/releases/release-0.0",
+  "slug": "/develop/releases/release-0.0/entrepreneur-feedback",
+  "permalink": "/docs/develop/releases/release-0.0/entrepreneur-feedback",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Customer feedback",
+    "permalink": "/docs/develop/releases/release-0.0/customer-feedback"
+  },
+  "next": {
+    "title": "ChatGPT feedback",
+    "permalink": "/docs/develop/releases/release-0.0/chatgpt-feedback"
+  }
+}

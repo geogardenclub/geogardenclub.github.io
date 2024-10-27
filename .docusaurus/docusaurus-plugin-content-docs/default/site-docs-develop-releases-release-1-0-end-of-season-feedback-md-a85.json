@@ -1,0 +1,25 @@
+{
+  "id": "develop/releases/release-1.0/end-of-season-feedback",
+  "title": "End of Season Feedback",
+  "description": "In September 2024, Jenna sent out an 8 question survey to users to request feedback. We received five responses. Here is a summary of the feedback:",
+  "source": "@site/docs/develop/releases/release-1.0/end-of-season-feedback.md",
+  "sourceDirName": "develop/releases/release-1.0",
+  "slug": "/develop/releases/release-1.0/end-of-season-feedback",
+  "permalink": "/docs/develop/releases/release-1.0/end-of-season-feedback",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": true
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Onboarding Feedback",
+    "permalink": "/docs/develop/releases/release-1.0/onboarding-feedback"
+  },
+  "next": {
+    "title": "Design and implementation",
+    "permalink": "/docs/develop/releases/release-0.0/design"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "develop/release-1.0/design-components/input-fields",
+  "title": "GGC Input Fields",
+  "description": "Motivation",
+  "source": "@site/docs/develop/release-1.0/design-components/input-fields.md",
+  "sourceDirName": "develop/release-1.0/design-components",
+  "slug": "/develop/release-1.0/design-components/input-fields",
+  "permalink": "/docs/develop/release-1.0/design-components/input-fields",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": true
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Badges",
+    "permalink": "/docs/develop/release-1.0/design-components/badges"
+  },
+  "next": {
+    "title": "\"With\" widgets",
+    "permalink": "/docs/develop/release-1.0/design-components/with-widgets"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "user-guide/explore-a-chapter",
+  "title": "Explore a Chapter",
+  "description": "Find the Chapter Index Screens",
+  "source": "@site/docs/user-guide/explore-a-chapter.md",
+  "sourceDirName": "user-guide",
+  "slug": "/user-guide/explore-a-chapter",
+  "permalink": "/docs/user-guide/explore-a-chapter",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "homeSidebar",
+  "previous": {
+    "title": "Explore a Garden",
+    "permalink": "/docs/user-guide/explore-a-garden"
+  },
+  "next": {
+    "title": "Add Crops, Varieties, Vendors to the Chapter Database",
+    "permalink": "/docs/user-guide/adding-vendors-crops-varieties"
+  }
+}

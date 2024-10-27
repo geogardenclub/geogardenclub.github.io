@@ -1,0 +1,21 @@
+{
+  "id": "develop/releases/release-0.0/chatgpt-feedback",
+  "title": "ChatGPT feedback",
+  "description": "Just for fun, I had a conversation with ChatGPT in April 2023 about how to design a gardening app. Much of its responses were uninsightful, but it did come up with some banging ideas for badges.",
+  "source": "@site/docs/develop/releases/release-0.0/chatgpt-feedback.md",
+  "sourceDirName": "develop/releases/release-0.0",
+  "slug": "/develop/releases/release-0.0/chatgpt-feedback",
+  "permalink": "/docs/develop/releases/release-0.0/chatgpt-feedback",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": true
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Entrepreneur feedback",
+    "permalink": "/docs/develop/releases/release-0.0/entrepreneur-feedback"
+  }
+}

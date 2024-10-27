@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Geo Garden Club Blog</title>
+        <link>https://geogardenclub.github.io/blog</link>
+        <description>Geo Garden Club Blog</description>
+        <lastBuildDate>Fri, 10 Feb 2023 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Welcome, Geo Garden Club! Aloha, Agile Garden Club!]]></title>
+            <link>https://geogardenclub.github.io/blog/2023/02/10/welcome</link>
+            <guid>https://geogardenclub.github.io/blog/2023/02/10/welcome</guid>
+            <pubDate>Fri, 10 Feb 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Welcome to the Geo Garden Club site!]]></description>
+            <content:encoded><![CDATA[<p>Welcome to the Geo Garden Club site!</p>
+<p>We have decided to rebrand the "Agile Garden Club" project as "Geo Garden Club". We feel that "Geo" represents the spirit of the project better than "Agile", and besides, it's less characters to type.</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>

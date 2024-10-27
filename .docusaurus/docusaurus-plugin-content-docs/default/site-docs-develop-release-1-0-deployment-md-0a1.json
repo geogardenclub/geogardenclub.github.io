@@ -1,0 +1,25 @@
+{
+  "id": "develop/release-1.0/deployment",
+  "title": "Deployment",
+  "description": "For the GeoGardenClub project, deployment refers to the process by which a version of the GeoGardenClub app is made available on a physical device such as an Apple or Android phone or tablet.",
+  "source": "@site/docs/develop/release-1.0/deployment.md",
+  "sourceDirName": "develop/release-1.0",
+  "slug": "/develop/release-1.0/deployment",
+  "permalink": "/docs/develop/release-1.0/deployment",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Core Value Propositions",
+    "permalink": "/docs/develop/release-1.0/cvp"
+  },
+  "next": {
+    "title": "Testing",
+    "permalink": "/docs/develop/release-1.0/testing"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "develop/installation",
+  "title": "Installation",
+  "description": "Flutter",
+  "source": "@site/docs/develop/installation.md",
+  "sourceDirName": "develop",
+  "slug": "/develop/installation",
+  "permalink": "/docs/develop/installation",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Onboarding",
+    "permalink": "/docs/develop/onboarding"
+  },
+  "next": {
+    "title": "Scripts",
+    "permalink": "/docs/develop/scripts"
+  }
+}

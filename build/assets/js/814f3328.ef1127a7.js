@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgeogardenclub_github_io=self.webpackChunkgeogardenclub_github_io||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome, Geo Garden Club! Aloha, Agile Garden Club!","permalink":"/blog/2023/02/10/welcome","unlisted":false}]}')}}]);

@@ -1,0 +1,25 @@
+{
+  "id": "develop/release-1.0/design-components/data-model",
+  "title": "Data Model",
+  "description": "This page explains the data model (i.e. the set of entities and their relationships) for GGC, along with a rationale for the design decisions that we've made along the way.",
+  "source": "@site/docs/develop/release-1.0/design-components/data-model.md",
+  "sourceDirName": "develop/release-1.0/design-components",
+  "slug": "/develop/release-1.0/design-components/data-model",
+  "permalink": "/docs/develop/release-1.0/design-components/data-model",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Release 1.0 (Beta) Feedback",
+    "permalink": "/docs/develop/release-1.0/beta-test-feedback"
+  },
+  "next": {
+    "title": "Badges",
+    "permalink": "/docs/develop/release-1.0/design-components/badges"
+  }
+}

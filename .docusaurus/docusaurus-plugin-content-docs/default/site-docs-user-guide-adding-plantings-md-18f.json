@@ -1,0 +1,26 @@
+{
+  "id": "user-guide/adding-plantings",
+  "title": "Add Plantings to Beds",
+  "description": "Add plantings",
+  "source": "@site/docs/user-guide/adding-plantings.md",
+  "sourceDirName": "user-guide",
+  "slug": "/user-guide/adding-plantings",
+  "permalink": "/docs/user-guide/adding-plantings",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "homeSidebar",
+  "previous": {
+    "title": "Define a Garden",
+    "permalink": "/docs/user-guide/define-a-garden"
+  },
+  "next": {
+    "title": "Explore a Garden",
+    "permalink": "/docs/user-guide/explore-a-garden"
+  }
+}

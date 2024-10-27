@@ -1,0 +1,22 @@
+{
+  "unversionedId": "home/motivation",
+  "id": "home/motivation",
+  "title": "Motivation",
+  "description": "Food insecurity is an important problem in the U.S. and globally.",
+  "source": "@site/docs/home/motivation.md",
+  "sourceDirName": "home",
+  "slug": "/home/motivation",
+  "permalink": "/docs/home/motivation",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "homeSidebar",
+  "next": {
+    "title": "Design Innovations",
+    "permalink": "/docs/home/innovations"
+  }
+}

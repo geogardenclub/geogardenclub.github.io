@@ -1,0 +1,25 @@
+{
+  "id": "develop/architecture",
+  "title": "Architecture",
+  "description": "The GeoGardenClub app (GGC) conforms (most of the time) to the architectural approach advocated by Andreas Bizzotto which he calls the \"Riverpod Architecture\".  If you are not familiar with this approach, it's worth spending a few minutes reading through his description, which is available as a set of readings in the architecture module in my mobile application development course.",
+  "source": "@site/docs/develop/architecture.md",
+  "sourceDirName": "develop",
+  "slug": "/develop/architecture",
+  "permalink": "/docs/develop/architecture",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Coding Standards",
+    "permalink": "/docs/develop/coding-standards"
+  },
+  "next": {
+    "title": "Deployment",
+    "permalink": "/docs/develop/deployment"
+  }
+}

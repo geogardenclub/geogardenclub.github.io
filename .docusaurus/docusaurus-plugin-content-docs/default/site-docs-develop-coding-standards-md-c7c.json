@@ -1,0 +1,25 @@
+{
+  "id": "develop/coding-standards",
+  "title": "Coding Standards",
+  "description": "In GGC, coding standards are similar to design patterns, but focus on practices that reduce or avoid \"technical debt\".",
+  "source": "@site/docs/develop/coding-standards.md",
+  "sourceDirName": "develop",
+  "slug": "/develop/coding-standards",
+  "permalink": "/docs/develop/coding-standards",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Scripts",
+    "permalink": "/docs/develop/scripts"
+  },
+  "next": {
+    "title": "Architecture",
+    "permalink": "/docs/develop/architecture"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "user-guide/tasks",
+  "title": "Tasks",
+  "description": "What are Tasks?",
+  "source": "@site/docs/user-guide/tasks.md",
+  "sourceDirName": "user-guide",
+  "slug": "/user-guide/tasks",
+  "permalink": "/docs/user-guide/tasks",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "homeSidebar",
+  "previous": {
+    "title": "outcomes",
+    "permalink": "/docs/user-guide/outcomes"
+  },
+  "next": {
+    "title": "Seeds",
+    "permalink": "/docs/user-guide/seeds"
+  }
+}

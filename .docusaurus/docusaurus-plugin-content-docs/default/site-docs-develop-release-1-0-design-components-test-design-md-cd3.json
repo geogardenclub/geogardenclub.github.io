@@ -1,0 +1,21 @@
+{
+  "id": "develop/release-1.0/design-components/test-design",
+  "title": "Test Design",
+  "description": "For the GeoGardenClub project, we are using JSON files to create the data for the application. The test files are located in one of (potentially many) directories named assets\\test\\fixtureN, when \"N\" is a number uniquely identifying the fixture. Currently, we only have one fixture directory.",
+  "source": "@site/docs/develop/release-1.0/design-components/test-design.md",
+  "sourceDirName": "develop/release-1.0/design-components",
+  "slug": "/develop/release-1.0/design-components/test-design",
+  "permalink": "/docs/develop/release-1.0/design-components/test-design",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Data Mutation",
+    "permalink": "/docs/develop/release-1.0/design-components/data-mutation"
+  }
+}

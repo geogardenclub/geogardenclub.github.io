@@ -1,0 +1,27 @@
+{
+  "id": "home/team",
+  "title": "The Team",
+  "description": "Jenna Deane",
+  "source": "@site/docs/home/team.md",
+  "sourceDirName": "home",
+  "slug": "/home/team",
+  "permalink": "/docs/home/team",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4,
+    "hide_table_of_contents": true
+  },
+  "sidebar": "homeSidebar",
+  "previous": {
+    "title": "Food Security",
+    "permalink": "/docs/home/food-security"
+  },
+  "next": {
+    "title": "Overview",
+    "permalink": "/docs/user-guide/overview"
+  }
+}

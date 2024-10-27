@@ -1,0 +1,25 @@
+{
+  "id": "home/food-security",
+  "title": "Food Security",
+  "description": "Food security is the elephant in the room, and a major motivation for founding GeoGardenClub. Here is a brief introduction to the relationship between food security and home gardens.",
+  "source": "@site/docs/home/food-security.md",
+  "sourceDirName": "home",
+  "slug": "/home/food-security",
+  "permalink": "/docs/home/food-security",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": true
+  },
+  "sidebar": "homeSidebar",
+  "previous": {
+    "title": "Garden Planning Tools",
+    "permalink": "/docs/home/related-work"
+  },
+  "next": {
+    "title": "The Team",
+    "permalink": "/docs/home/team"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "develop/archive/mockup/customer-feedback",
+  "title": "Customer feedback",
+  "description": "Following the Lean Startup principle of \"validated learning\", we performed an evaluation study of the technology innovations present in the mockup with 24 experienced gardeners during the summer and fall of 2022.  We report on the results of that study in the following 15 minute video (or 7 minutes, if you run the video at 2x speed):",
+  "source": "@site/docs/develop/archive/mockup/customer-feedback.md",
+  "sourceDirName": "develop/archive/mockup",
+  "slug": "/develop/archive/mockup/customer-feedback",
+  "permalink": "/docs/develop/archive/mockup/customer-feedback",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": true
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Design and implementation",
+    "permalink": "/docs/develop/archive/mockup/design"
+  },
+  "next": {
+    "title": "Entrepreneur feedback",
+    "permalink": "/docs/develop/archive/mockup/entrepreneur-feedback"
+  }
+}

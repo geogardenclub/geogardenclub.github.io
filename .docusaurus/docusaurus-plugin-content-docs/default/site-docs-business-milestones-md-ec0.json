@@ -1,0 +1,25 @@
+{
+  "id": "business/milestones",
+  "title": "Milestones",
+  "description": "| Year                                                                                                          | Date                                                                                                              | Milestone                                                                                                                      |",
+  "source": "@site/docs/business/milestones.md",
+  "sourceDirName": "business",
+  "slug": "/business/milestones",
+  "permalink": "/docs/business/milestones",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": true
+  },
+  "sidebar": "businessSidebar",
+  "previous": {
+    "title": "Roadmap",
+    "permalink": "/docs/business/roadmap"
+  },
+  "next": {
+    "title": "Market Size",
+    "permalink": "/docs/business/market-size"
+  }
+}

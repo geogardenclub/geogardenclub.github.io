@@ -1,0 +1,25 @@
+{
+  "id": "develop/release-1.0/onboarding-feedback",
+  "title": "Onboarding Feedback",
+  "description": "Jenna personally onboarded six users to Release 1.0 and gathered the following feedback from them either during the onboarding session or shortly thereafter.",
+  "source": "@site/docs/develop/release-1.0/onboarding-feedback.md",
+  "sourceDirName": "develop/release-1.0",
+  "slug": "/develop/release-1.0/onboarding-feedback",
+  "permalink": "/docs/develop/release-1.0/onboarding-feedback",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": true
+  },
+  "sidebar": "developSidebar",
+  "previous": {
+    "title": "Core Value Propositions",
+    "permalink": "/docs/develop/release-1.0/cvp"
+  },
+  "next": {
+    "title": "End of Season Feedback",
+    "permalink": "/docs/develop/release-1.0/end-of-season-feedback"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "user-guide/terms-and-conditions",
+  "title": "Terms and Conditions",
+  "description": "Last updated February 10, 2024",
+  "source": "@site/docs/user-guide/terms-and-conditions.md",
+  "sourceDirName": "user-guide",
+  "slug": "/user-guide/terms-and-conditions",
+  "permalink": "/docs/user-guide/terms-and-conditions",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "homeSidebar",
+  "previous": {
+    "title": "Frequently Asked (Gardening) Questions",
+    "permalink": "/docs/user-guide/guided-tour"
+  },
+  "next": {
+    "title": "Privacy Policy",
+    "permalink": "/docs/user-guide/privacy"
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "/blog-0c4": {
+    "__comp": "a6aa9e1f",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "items": [
+      {
+        "content": "11f6a8a1"
+      }
+    ],
+    "__props": "53a3e6dc"
+  },
+  "/blog/2023/02/10/welcome-229": {
+    "__comp": "ccc49370",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "content": "6741c1a9"
+  },
+  "/blog/archive-245": {
+    "__comp": "9e4087bc",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "__props": "25003e4f"
+  },
+  "/markdown-page-3d7": {
+    "__comp": "1f391b9e",
+    "__context": {
+      "plugin": "a7456010"
+    },
+    "content": "393be207"
+  },
+  "/docs-70b": {
+    "__comp": "5e95c892",
+    "__context": {
+      "plugin": "aba21aa0"
+    }
+  },
+  "/docs-31b": {
+    "__comp": "a7bd4aaa",
+    "__props": "7c110bd0"
+  },
+  "/docs-ad3": {
+    "__comp": "a94703ab"
+  },
+  "/docs/business-896": {
+    "__comp": "17896441",
+    "content": "3bea7cd1"
+  },
+  "/docs/business/market-size-3a5": {
+    "__comp": "17896441",
+    "content": "96083bb9"
+  },
+  "/docs/business/milestones-6b2": {
+    "__comp": "17896441",
+    "content": "ec0f34d7"
+  },
+  "/docs/business/roadmap-2c2": {
+    "__comp": "17896441",
+    "content": "3d832522"
+  },
+  "/docs/develop-48a": {
+    "__comp": "17896441",
+    "content": "95f4d37c"
+  },
+  "/docs/develop/architecture-0cc": {
+    "__comp": "17896441",
+    "content": "f3759001"
+  },
+  "/docs/develop/backups-e5f": {
+    "__comp": "17896441",
+    "content": "7d1225b6"
+  },
+  "/docs/develop/coding-standards-001": {
+    "__comp": "17896441",
+    "content": "c7c467a1"
+  },
+  "/docs/develop/deployment-87a": {
+    "__comp": "17896441",
+    "content": "31caa863"
+  },
+  "/docs/develop/design/badges-fc0": {
+    "__comp": "17896441",
+    "content": "3ad77611"
+  },
+  "/docs/develop/design/data-model-c3c": {
+    "__comp": "17896441",
+    "content": "a1e7621f"
+  },
+  "/docs/develop/design/data-model-old-1c8": {
+    "__comp": "17896441",
+    "content": "bc1f8660"
+  },
+  "/docs/develop/design/data-mutation-7ce": {
+    "__comp": "17896441",
+    "content": "a5b8d3e9"
+  },
+  "/docs/develop/design/input-fields-bde": {
+    "__comp": "17896441",
+    "content": "ed0568ab"
+  },
+  "/docs/develop/design/with-widgets-9f7": {
+    "__comp": "17896441",
+    "content": "10921c5b"
+  },
+  "/docs/develop/installation-7f5": {
+    "__comp": "17896441",
+    "content": "6b1fc3de"
+  },
+  "/docs/develop/onboarding-d33": {
+    "__comp": "17896441",
+    "content": "39838d4e"
+  },
+  "/docs/develop/releases/release-0.0/chatgpt-feedback-596": {
+    "__comp": "17896441",
+    "content": "ff0b8175"
+  },
+  "/docs/develop/releases/release-0.0/customer-feedback-fb7": {
+    "__comp": "17896441",
+    "content": "3e240fbf"
+  },
+  "/docs/develop/releases/release-0.0/design-35c": {
+    "__comp": "17896441",
+    "content": "e4eb6786"
+  },
+  "/docs/develop/releases/release-0.0/entrepreneur-feedback-c03": {
+    "__comp": "17896441",
+    "content": "2cd8ab24"
+  },
+  "/docs/develop/releases/release-1.0/cvp-391": {
+    "__comp": "17896441",
+    "content": "e2299c6d"
+  },
+  "/docs/develop/releases/release-1.0/end-of-season-feedback-a2f": {
+    "__comp": "17896441",
+    "content": "a8521eb9"
+  },
+  "/docs/develop/releases/release-1.0/goals-088": {
+    "__comp": "17896441",
+    "content": "505d7517"
+  },
+  "/docs/develop/releases/release-1.0/onboarding-feedback-e62": {
+    "__comp": "17896441",
+    "content": "968b4846"
+  },
+  "/docs/develop/scripts-c76": {
+    "__comp": "17896441",
+    "content": "7d56ced7"
+  },
+  "/docs/develop/testing-ed4": {
+    "__comp": "17896441",
+    "content": "1e5c498d"
+  },
+  "/docs/home/food-security-05f": {
+    "__comp": "17896441",
+    "content": "0bd3a280"
+  },
+  "/docs/home/innovations-4fa": {
+    "__comp": "17896441",
+    "content": "af21c641"
+  },
+  "/docs/home/related-work-3cc": {
+    "__comp": "17896441",
+    "content": "906ac375"
+  },
+  "/docs/home/serious-gardeners-e3e": {
+    "__comp": "17896441",
+    "content": "e27695c2"
+  },
+  "/docs/home/sneak-peek-e8b": {
+    "__comp": "17896441",
+    "content": "1506d638"
+  },
+  "/docs/home/team-322": {
+    "__comp": "17896441",
+    "content": "c03baef0"
+  },
+  "/docs/home/welcome-e24": {
+    "__comp": "17896441",
+    "content": "17d8eee1"
+  },
+  "/docs/user-guide/adding-plantings-36e": {
+    "__comp": "17896441",
+    "content": "18fc9463"
+  },
+  "/docs/user-guide/adding-vendors-crops-varieties-949": {
+    "__comp": "17896441",
+    "content": "3463d78f"
+  },
+  "/docs/user-guide/badges-e10": {
+    "__comp": "17896441",
+    "content": "0f1af657"
+  },
+  "/docs/user-guide/chat-rooms-655": {
+    "__comp": "17896441",
+    "content": "49882d99"
+  },
+  "/docs/user-guide/define-a-garden-e94": {
+    "__comp": "17896441",
+    "content": "c48bbb24"
+  },
+  "/docs/user-guide/downloading-791": {
+    "__comp": "17896441",
+    "content": "afc29949"
+  },
+  "/docs/user-guide/explore-a-chapter-271": {
+    "__comp": "17896441",
+    "content": "c401bc0d"
+  },
+  "/docs/user-guide/explore-a-garden-ed5": {
+    "__comp": "17896441",
+    "content": "38346c4b"
+  },
+  "/docs/user-guide/geobot-9e0": {
+    "__comp": "17896441",
+    "content": "bc03b1b7"
+  },
+  "/docs/user-guide/guided-tour-cc9": {
+    "__comp": "17896441",
+    "content": "1863cff0"
+  },
+  "/docs/user-guide/observations-dfc": {
+    "__comp": "17896441",
+    "content": "2f9db241"
+  },
+  "/docs/user-guide/outcomes-d0c": {
+    "__comp": "17896441",
+    "content": "772c3429"
+  },
+  "/docs/user-guide/overview-b62": {
+    "__comp": "17896441",
+    "content": "2450005c"
+  },
+  "/docs/user-guide/privacy-f6a": {
+    "__comp": "17896441",
+    "content": "bebdd554"
+  },
+  "/docs/user-guide/registration-0ae": {
+    "__comp": "17896441",
+    "content": "7be5f79d"
+  },
+  "/docs/user-guide/scenarios-5f9": {
+    "__comp": "17896441",
+    "content": "3b4579e8"
+  },
+  "/docs/user-guide/seeds-5ba": {
+    "__comp": "17896441",
+    "content": "59628a4d"
+  },
+  "/docs/user-guide/tasks-7c3": {
+    "__comp": "17896441",
+    "content": "ba771284"
+  },
+  "/docs/user-guide/terms-and-conditions-bed": {
+    "__comp": "17896441",
+    "content": "9ebba4ea"
+  },
+  "/-2e1": {
+    "__comp": "c4f5d8e4",
+    "__context": {
+      "plugin": "a7456010"
+    },
+    "config": "5e9f5e1a"
+  }
+}

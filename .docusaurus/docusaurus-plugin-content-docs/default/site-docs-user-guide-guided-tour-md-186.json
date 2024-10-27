@@ -1,0 +1,26 @@
+{
+  "id": "user-guide/guided-tour",
+  "title": "Frequently Asked (Gardening) Questions",
+  "description": "GeoGardenClub was created to increase the performance of home, community, and school gardens and efficiency of the gardener by answering questions a gardener might have as they plan or work through the gardening season.  Here are some of the questions that GeoGardenClub can help answer:",
+  "source": "@site/docs/user-guide/guided-tour.md",
+  "sourceDirName": "user-guide",
+  "slug": "/user-guide/guided-tour",
+  "permalink": "/docs/user-guide/guided-tour",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "homeSidebar",
+  "previous": {
+    "title": "Chat Rooms",
+    "permalink": "/docs/user-guide/chat-rooms"
+  },
+  "next": {
+    "title": "Terms and Conditions",
+    "permalink": "/docs/user-guide/terms-and-conditions"
+  }
+}

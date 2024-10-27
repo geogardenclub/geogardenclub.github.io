@@ -1,0 +1,25 @@
+{
+  "id": "user-guide/explore-a-garden",
+  "title": "Explore a Garden",
+  "description": "The summary card for every Garden in a Chapter contains a button labeled \"Details\". Pressing that button takes you to a screen with a bottom nav bar containing icons taking you to four screens: Timeline, Filter, Outcomes, and Tasks. Each view presents a useful perspective on that Garden.",
+  "source": "@site/docs/user-guide/explore-a-garden.md",
+  "sourceDirName": "user-guide",
+  "slug": "/user-guide/explore-a-garden",
+  "permalink": "/docs/user-guide/explore-a-garden",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "hide_table_of_contents": false
+  },
+  "sidebar": "homeSidebar",
+  "previous": {
+    "title": "Add Plantings to Beds",
+    "permalink": "/docs/user-guide/adding-plantings"
+  },
+  "next": {
+    "title": "Explore a Chapter",
+    "permalink": "/docs/user-guide/explore-a-chapter"
+  }
+}

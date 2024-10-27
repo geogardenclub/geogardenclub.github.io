@@ -1,0 +1,303 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "home/welcome",
+          "docs": [
+            {
+              "id": "business/index",
+              "path": "/docs/business/",
+              "sidebar": "businessSidebar"
+            },
+            {
+              "id": "business/market-size",
+              "path": "/docs/business/market-size",
+              "sidebar": "businessSidebar"
+            },
+            {
+              "id": "business/milestones",
+              "path": "/docs/business/milestones",
+              "sidebar": "businessSidebar"
+            },
+            {
+              "id": "business/roadmap",
+              "path": "/docs/business/roadmap",
+              "sidebar": "businessSidebar"
+            },
+            {
+              "id": "develop/architecture",
+              "path": "/docs/develop/architecture",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/backups",
+              "path": "/docs/develop/backups",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/coding-standards",
+              "path": "/docs/develop/coding-standards",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/deployment",
+              "path": "/docs/develop/deployment",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/design/badges",
+              "path": "/docs/develop/design/badges",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/design/data-model",
+              "path": "/docs/develop/design/data-model",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/design/data-model-old",
+              "path": "/docs/develop/design/data-model-old"
+            },
+            {
+              "id": "develop/design/data-mutation",
+              "path": "/docs/develop/design/data-mutation",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/design/input-fields",
+              "path": "/docs/develop/design/input-fields",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/design/with-widgets",
+              "path": "/docs/develop/design/with-widgets",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/index",
+              "path": "/docs/develop/",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/installation",
+              "path": "/docs/develop/installation",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/onboarding",
+              "path": "/docs/develop/onboarding",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/releases/release-0.0/chatgpt-feedback",
+              "path": "/docs/develop/releases/release-0.0/chatgpt-feedback",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/releases/release-0.0/customer-feedback",
+              "path": "/docs/develop/releases/release-0.0/customer-feedback",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/releases/release-0.0/design",
+              "path": "/docs/develop/releases/release-0.0/design",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/releases/release-0.0/entrepreneur-feedback",
+              "path": "/docs/develop/releases/release-0.0/entrepreneur-feedback",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/releases/release-1.0/cvp",
+              "path": "/docs/develop/releases/release-1.0/cvp",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/releases/release-1.0/end-of-season-feedback",
+              "path": "/docs/develop/releases/release-1.0/end-of-season-feedback",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/releases/release-1.0/goals",
+              "path": "/docs/develop/releases/release-1.0/goals",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/releases/release-1.0/onboarding-feedback",
+              "path": "/docs/develop/releases/release-1.0/onboarding-feedback",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/scripts",
+              "path": "/docs/develop/scripts",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "develop/testing",
+              "path": "/docs/develop/testing",
+              "sidebar": "developSidebar"
+            },
+            {
+              "id": "home/food-security",
+              "path": "/docs/home/food-security",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "home/innovations",
+              "path": "/docs/home/innovations",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "home/related-work",
+              "path": "/docs/home/related-work",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "home/serious-gardeners",
+              "path": "/docs/home/serious-gardeners",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "home/sneak-peek",
+              "path": "/docs/home/sneak-peek"
+            },
+            {
+              "id": "home/team",
+              "path": "/docs/home/team",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "home/welcome",
+              "path": "/docs/home/welcome",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/adding-plantings",
+              "path": "/docs/user-guide/adding-plantings",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/adding-vendors-crops-varieties",
+              "path": "/docs/user-guide/adding-vendors-crops-varieties",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/badges",
+              "path": "/docs/user-guide/badges",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/chat-rooms",
+              "path": "/docs/user-guide/chat-rooms",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/define-a-garden",
+              "path": "/docs/user-guide/define-a-garden",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/downloading",
+              "path": "/docs/user-guide/downloading",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/explore-a-chapter",
+              "path": "/docs/user-guide/explore-a-chapter",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/explore-a-garden",
+              "path": "/docs/user-guide/explore-a-garden",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/geobot",
+              "path": "/docs/user-guide/geobot",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/guided-tour",
+              "path": "/docs/user-guide/guided-tour",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/observations",
+              "path": "/docs/user-guide/observations",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/outcomes",
+              "path": "/docs/user-guide/outcomes",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/overview",
+              "path": "/docs/user-guide/overview",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/privacy",
+              "path": "/docs/user-guide/privacy",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/registration",
+              "path": "/docs/user-guide/registration",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/scenarios",
+              "path": "/docs/user-guide/scenarios",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/seeds",
+              "path": "/docs/user-guide/seeds",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/tasks",
+              "path": "/docs/user-guide/tasks",
+              "sidebar": "homeSidebar"
+            },
+            {
+              "id": "user-guide/terms-and-conditions",
+              "path": "/docs/user-guide/terms-and-conditions",
+              "sidebar": "homeSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "homeSidebar": {
+              "link": {
+                "path": "/docs/home/welcome",
+                "label": "home/welcome"
+              }
+            },
+            "businessSidebar": {
+              "link": {
+                "path": "/docs/business/",
+                "label": "business/index"
+              }
+            },
+            "developSidebar": {
+              "link": {
+                "path": "/docs/develop/",
+                "label": "develop/index"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}
