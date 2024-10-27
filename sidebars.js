@@ -109,7 +109,6 @@ const sidebars = {
         'develop/design/input-fields',
         'develop/design/with-widgets',
         'develop/design/data-mutation',
-        'develop/design/test-design',
       ],
     },
     {
