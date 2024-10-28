@@ -5,7 +5,12 @@ hide_table_of_contents: false
 
 # Testing
 
-This page documents our current approach to testing the GeoGardenClub app.
+The current goal of testing in GeoGardenClub is to prevent *catastrophic regression*. In other words, we want our tests to ensure that changes to the code do not result in an app where important features no longer work. This means that our test suite should ensure that:
+
+* All commonly accessed screens display without error. (The tests might not check screens that are displayed "rarely", such as those resulting from anomalous conditions like network instability.)
+* CRUD operations on entities can be performed successfully when available. 
+* Buttons on all commonly accessed screens, when tapped, do not generate an error, and the resulting screen is checked to see that at least some of the intended results are displayed.
+
 
 ## Run the tests
 
@@ -51,16 +56,16 @@ Here are some important takeaways:
 * Our test architecture is organized around features.
 * We compute coverage as a simple check on the quality of the test set. We do not strive for 100% coverage, but we can clearly do better than (say) 35%.  In addition, the coverage report provides an efficient way to find important areas of the code base that have not yet been tested.
 
-## Always watch the iOS simulator!
+## Always monitor the iOS simulator!
 :::warning 
 
 If testing with the iOS simulator, the testing process will occasionally (and unpredictably) pause waiting for you to click on a button to allow pasting:
 
 <img src="/img/develop/testing/core-simulator-bridge.png"/>
 
-For this reason, it's important to always watch the simulator at least until the tests start, because you might need to click a button to let the tests proceed.
+For this reason, it's important to always monitor the simulator at least until the tests start, because you might need to click a button to let the tests proceed. Otherwise the test process will hang indefinitely.
 
-This is a security feature in the iOS operating system. I do not know of a way to disable it.
+This is a security feature in the iOS operating system. There is apparently no way to disable it at the current time. 
 :::
 
 ## About app_test.dart
