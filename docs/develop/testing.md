@@ -51,10 +51,10 @@ Message summary:
 
 Here are some important takeaways:
 
-* We only write integration tests; no unit or widget tests. This is to maximize our "return on investment": we want to implement and maintain the least amount of testing code possible while still catching as many bugs that we introduce from writing new code as we can.
+* We only write integration tests; no unit or widget tests. This maximizes the ratio of application code exercised per line of test code.
 * Our tests run with a specific "test fixture" (currently we're using one called Test Fixture 1). This is a sample dataset containing test values for most or all of the entities in our system (i.e. chapters, beds, gardens, gardeners, etc.).  This sample dataset is stored in `assets/test/fixture1`.  In the future, we might write tests that require a different fixture. 
 * Our test architecture is organized around features.
-* We compute coverage as a simple check on the quality of the test set. We do not strive for 100% coverage, but we can clearly do better than (say) 35%.  In addition, the coverage report provides an efficient way to find important areas of the code base that have not yet been tested.
+* We compute coverage to provide an efficient way to find important areas of the code base that have not yet been tested.
 
 ## Always monitor the iOS simulator!
 :::warning 
