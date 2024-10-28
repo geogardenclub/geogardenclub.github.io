@@ -245,6 +245,12 @@ There are clickable links that you can use to drill down to see which statements
 
 Use coverage information wisely.
 
+## Run the simulator with test data
+
+During test design, it can be helpful to run the simulator with the test data loaded into it. That way you can "walk through" various interactions and see what the system will do before writing the test.
+
+To facilitate this, you can run `lib/main_test_fixture.dart` using your IDE of choice.  This file is very similar to `lib/main.dart`, except that it does the necessary Riverpod overrides so that the system will load the test fixture data and will login to the user jennacorindeane@gmail.com.
+
 ## Continuous integration
 
 It would be sweet to run the integration tests each time there is a commit to main. 
