@@ -5,7 +5,7 @@ hide_table_of_contents: false
 
 # Testing
 
-This page documents our approach to testing the GeoGardenClub application.
+This page documents our current approach to testing the GeoGardenClub app.
 
 ## Run the tests
 
