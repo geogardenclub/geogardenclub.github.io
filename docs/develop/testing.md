@@ -5,11 +5,16 @@ hide_table_of_contents: false
 
 # Testing
 
-The current goal of testing in GeoGardenClub is to prevent *catastrophic regression*. In other words, we want our tests to ensure that changes to the code do not result in an app where important features no longer work. This means that our test suite should ensure that:
+The current goal of testing in GeoGardenClub is to minimize the risk of *catastrophic regression* from changes to the UI or business logic. In other words, we want our tests to ensure that changes to non-low level code do not result in an app where important features no longer work. This means that our test suite should ensure that:
 
 * All commonly accessed screens display without error. (The tests might not check screens that are displayed "rarely", such as those resulting from anomalous conditions like network instability.)
 * CRUD operations on entities can be performed successfully when available. 
 * Buttons on all commonly accessed screens, when tapped, do not generate an error, and the resulting screen is checked to see that at least some of the intended results are displayed.
+
+This goal excludes several important functional and non-functional requirements from testing:
+
+* We do not test that the system performs well under "load", where load can mean a large number of users or a larger amount of data. 
+* We do not test low-level code, particularly Firebase-related code. This is because we mock the database connection in our test code. 
 
 
 ## Run the tests
@@ -172,31 +177,101 @@ Here are the important takeaways:
 * After testing each feature, the code runs the Check Integrity admin function to ensure that the test of the previous feature did not introduce a database inconsistency. 
 * You should rarely need to edit this `app_test.dart` file. Instead, you will usually edit one of the "test" feature files (i.e. testChapter.dart, testCrop.dart, etc.) You will normally need to edit this file only when you want to introduce the testing of a new feature.
 
-## About test_outcome.dart
+## Testing a feature
 
-Let's now look at one of the test functions for a specific feature:
+Let's now look at how the "Crop" feature is currently tested. Here is the "top-level" feature test for Crops:
 
 ```dart
-// integration_test/features/outcome/test_outcome.dart
-Future<void> testOutcome(PatrolTester $) async {
+// integration_test/features/outcome/test_crop.dart
+Future<void> testCrop(PatrolTester $) async {
   // ignore: avoid_print
-  print('Testing outcome feature');
-  await gotoDrawerScreen($, GardenIndexScreen, 'Gardens');
-  expect($(GardenIndexScreen).visible, equals(true));
-  await $('Details').tap();
-  expect($(GardenDetailsScreen).visible, equals(true));
-  await $(BottomNavigationBar).$('Outcomes').tap();
-  expect($(GardenDetailsOutcomesView).visible, equals(true));
-  await $(BackButton).tap();
+  print('Testing crop feature');
+  await testCropIndexScreen($);
+  await testCropCRUD($);
 }
 ```
 
 Here are some important takeaways:
 
-* Each test function starts by printing a line of output indicating that the test of this feature is starting. That makes it easier to see how far testing has gotten and helps pinpoint the location of problems when testing fails.
-* We use Patrol Finder syntax to locate widgets and manipulate them through searching for widgets of a particular type and/or containing a particular text string. *Please avoid creating Keys for testing.*  Patrol Finders make it possible to test the source code without introducing new lines of code purely for the purpose of test support. 
-* Currently, features are not tested very well at all, as this code shows. You will do most of your test development by editing these feature-level test files. You should feel free to refactor them and perhaps create new test files within the feature directory if useful.  
-* The final line of code is `await $(BackButton).tap();`. This is because each feature tests expects the system to be in a state where the Drawer menu icon is available to be tapped on. The feature tests do not require a specific screen to be displayed, any screen in which the Drawer menu icon is displayed is good enough.
+* Each top-level feature test function starts by printing a line of output indicating that the test of this feature is starting. That makes it easier to see how far testing has gotten and helps pinpoint the location of problems when testing fails.
+* A top-level feature test function can be implemented in terms of multiple functions, each of which tests a different aspect of the feature.
+
+Let's now look at testCropIndexScreen:
+
+```dart
+// integration_test/features/crop/test_crop_index_screen.dart
+Future<void> testCropIndexScreen(PatrolTester $) async {
+  await gotoDrawerScreen($, CropIndexScreen);
+  await $(CropDropdown).tap();
+  await $('Amaranth').tap();
+  expect($(CropDropdown).$('Amaranth').visible, equals(true));
+  expect($(CropView).$('Amaranth').visible, equals(true));
+  // Refresh CropIndexScreen so it displays all crops.
+  await gotoDrawerScreen($, ChapterIndexScreen);
+  await gotoDrawerScreen($, CropIndexScreen);
+}
+```
+
+Here are some important takeaways:
+
+* We use Patrol Finder syntax to locate widgets and manipulate them through searching for widgets of a particular type and/or containing a particular text string. Please avoid creating Keys for testing. Patrol Finders make it possible to test the source code without introducing new lines of code purely for the purpose of test support.
+
+
+Let's now look at the test for create, read, update, and delete of a Crop:
+
+
+```dart
+// integration_test/features/crop/test_crop_crud.dart
+Future<void> testCropCRUD(PatrolTester $) async {
+  String testCropName = 'AAATestCrop';
+  String updatedTestCropName = 'AAAATestCrop';
+  // Test Create.
+  await gotoDrawerScreen($, CropIndexScreen);
+  await $(GgcFAB).$('Crop').tap();
+  expect($(CreateCropScreen).visible, equals(true));
+  await $(CropNameField).enterText(testCropName);
+  await $(FamilyDropdown).tap();
+  await $('Allium').tap();
+  await $(FormButtons).$('Submit').tap();
+  expect($(CropIndexScreen).visible, equals(true));
+  // Verify Create.
+  await $(testCropName).waitUntilVisible();
+  await checkIntegrity($, reason: 'Create crop');
+  // Test Read and Update
+  await gotoDrawerScreen($, AdminScreen);
+  await $(SelectScreenTile).$('Entity Management').tap();
+  await $(SelectScreenTile).$('Manage Crops').tap();
+  await $(CropDropdown).tap();
+  await $(testCropName).tap();
+  await $('Update').tap();
+  await $(CropNameField).enterText(updatedTestCropName);
+  await $('Submit').tap();
+  await $(BackButton).tap();
+  await $(BackButton).tap();
+  await gotoDrawerScreen($, CropIndexScreen);
+  // Verify Update
+  await $(updatedTestCropName).waitUntilVisible();
+  await checkIntegrity($, reason: 'Update crop');
+  // Test Delete
+  await gotoDrawerScreen($, AdminScreen);
+  await $(SelectScreenTile).$('Entity Management').tap();
+  await $(SelectScreenTile).$('Manage Crops').tap();
+  await $(CropDropdown).tap();
+  await $(updatedTestCropName).tap();
+  await $('Update').tap();
+  await $(Icons.delete).tap();
+  await $('Delete').tap();
+  await gotoDrawerScreen($, CropIndexScreen);
+  await $(CropDropdown).tap();
+  // Verify delete
+  expect($(updatedTestCropName).exists, equals(false));
+  await checkIntegrity($, reason: 'Delete crop');
+}
+```
+Here are some important takeaways:
+
+* It's fine to test multiple behaviors in a single function. In this case, since we are creating an object, then manipulating it, it seems reasonable to group it all in one function.
+* The function performs a behavior (i.e. create, read, update, or delete), and then verifies that the behavior succeeded.  In the case of CRUD operations, it is helpful to run an integrity check after any mutation (create, update, delete) to ensure that the database was not corrupted and to immediately throw an error if it was corrupted by the mutation.
 
 ## About run_tests_single.sh and app_test_single.dart
 
@@ -229,7 +304,7 @@ void main() {
         child: const MyApp(),
       ));
       expect($(HomeScreen).visible, equals(true), reason: 'Login fails');
-      await testChat($);
+      await testCrop($);
     });
   });
 }
