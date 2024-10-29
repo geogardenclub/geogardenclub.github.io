@@ -182,7 +182,7 @@ Here are the important takeaways:
 Let's now look at how the "Crop" feature is currently tested. Here is the "top-level" feature test for Crops:
 
 ```dart
-// integration_test/features/outcome/test_crop.dart
+// integration_test/features/crop/test_crop.dart
 Future<void> testCrop(PatrolTester $) async {
   // ignore: avoid_print
   print('Testing crop feature');
