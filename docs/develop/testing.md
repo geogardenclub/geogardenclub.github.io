@@ -270,6 +270,7 @@ Future<void> testCropCRUD(PatrolTester $) async {
 ```
 Here are some important takeaways:
 
+* Testing a behavior can require a relatively long sequence of UI interactions. Getting the  sequence correct is way easier if you first step through the behavior manually. To make this easier, follow the instructions in the section below on "Run the simulator with test data".
 * It's fine to test multiple behaviors in a single function. In this case, since we are creating an object, then manipulating it, it seems reasonable to group it all in one function.
 * The function performs a behavior (i.e. create, read, update, or delete), and then verifies that the behavior succeeded.  In the case of CRUD operations, it is helpful to run an integrity check after any mutation (create, update, delete) to ensure that the database was not corrupted and to immediately throw an error if it was corrupted by the mutation.
 
