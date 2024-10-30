@@ -326,11 +326,22 @@ There are clickable links that you can use to drill down to see which statements
 
 Use coverage information wisely.
 
-## Run the simulator with test data
+## Test Design Hints
 
-During test design, it can be helpful to run the simulator with the test data loaded into it. That way you can "walk through" various interactions and see what the system will do before writing the test.
+**Set up a "Run Configuration" to simplify testing.**  In IntelliJ, make a Run configuration that invokes `lib/main_test_fixture.dart` so that you can push the green arrow to easily bring up the simulator with the test data loaded into it.
 
-To facilitate this, you can run `lib/main_test_fixture.dart` using your IDE of choice.  This file is very similar to `lib/main.dart`, except that it does the necessary Riverpod overrides so that the system will load the test fixture data and will login to the user jennacorindeane@gmail.com.
+**Use the Testing Run Configuration to guide the writing of test code steps.** To implement a new test, start by using the above Run Configuration to manually walk through the sequence of screens, button taps, and input controller interactions necessary for the test. You can even bring up the simulator and "translate" each of your interactions with the simulator into a line of test code as you single step through the behavior. In many cases, it's a one-to-one relationship.
+
+**Make sure that you include at least one "expect" statement to verify the results of a behavior.** So, for example, if you are creating an entity, include an expect statement that checks to see that the entity exists somehow.
+
+**Don't use an absolute "count" of items to do verification.**  For example, don't think that if the test fixture defines two gardens, your test case can assume it will see exactly two gardens. It could be that in the future, a test case gets added before yours that results in more gardens in the fixture by the time your test code runs.  Find some other way to do verification.
+
+**Don't delete or modify any entities in the test fixture.** If you want to test some sort of mutation, then please consider creating a new entity to mutate (or at the very least, make sure you restore the test fixture entity to its original condition). While other tests shouldn't assume there won't be *new* entities added, all tests can assume that the entities in the test fixture will be there exactly as defined.
+
+**Don't write too much test code.** Remember that the test code becomes code that needs to be maintained just like the app code. Also remember that time spent on writing test code is time you can't spend implementing new features in the app. So, try to design your tests with the goal of writing the minimal amount of test code required to exercise the maximum amount of app code. The prime directive is to reduce the risk of "catastrophic regression"---i.e. changes to the codebase that results in a runtime exception that crashes the app someplace in the UI. So, to start, if your test code exercises a feature's UI under "normal" conditions, and you verify that none of those interactions produces a runtime exception that crashes the app, then you've written a *very* helpful test. Of course, checking that the UI actually displays what it should display adds even more value, but if you only have time at the moment to invoke the behavior and ensure that things don't go haywire, that's still something.
+
+**After fixing a bug in the app, consider writing a test to verify the correct behavior.** Weirdly, bugs tend to congregate in certain areas, and even reappear after you thought you squashed them. It's a good idea after fixing a bug to see if you can quickly write a test that verifies the absence of that bug. It might feel like closing the barn door after the horse is gone, but it's a way of incrementally deepening the test quality. 
+
 
 ## Continuous integration
 
