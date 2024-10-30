@@ -201,11 +201,12 @@ Let's now look at testCropIndexScreen:
 ```dart
 // integration_test/features/crop/test_crop_index_screen.dart
 Future<void> testCropIndexScreen(PatrolTester $) async {
+  String testCrop = 'Amaranth';
   await gotoDrawerScreen($, CropIndexScreen);
   await $(CropDropdown).tap();
-  await $('Amaranth').tap();
-  expect($(CropDropdown).$('Amaranth').visible, equals(true));
-  expect($(CropView).$('Amaranth').visible, equals(true));
+  await $(testCrop).tap();
+  expect($(CropDropdown).$(testCrop).visible, equals(true));
+  expect($(CropView).$(testCrop).visible, equals(true));
   // Refresh CropIndexScreen so it displays all crops.
   await gotoDrawerScreen($, ChapterIndexScreen);
   await gotoDrawerScreen($, CropIndexScreen);
