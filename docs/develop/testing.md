@@ -14,7 +14,7 @@ The current goal of testing in GeoGardenClub is to minimize the risk of *catastr
 This goal excludes several important functional and non-functional requirements from testing:
 
 * We do not test that the system performs well under "load", where load can mean a large number of users or a larger amount of data. 
-* We do not test low-level code, particularly Firebase-related code. This is because we mock the database connection in our test code. 
+* We do not test low-level code, particularly Firebase-related (Database, Cloud Storage, and Authentication). This is because we mock that stuff in our test code.
 
 
 ## Run the tests
@@ -172,14 +172,14 @@ Here are the important takeaways:
 
 * We use the [Patrol Finders](https://patrol.leancode.co/finders/overview) package, which provides a very helpful syntactic sugar over the built-in Flutter testing package. We do not use the full Patrol package, just their Patrol Finder package. 
 * We use the Riverpod overrides feature so that during testing, our code manipulates the test fixture data rather than the data in the Firebase database. 
-* We simulate Firebase authentication and the app starts up with the user jennacorindeane@gmail.com already logged in. So, we don't currently test the registration or signin workflows. The app "starts" by displaying the Home screen for Jenna.
+* We simulate Firebase authentication (using firebase_auth_mocks) and the app starts up with the (admin) user jennacorindeane@gmail.com already logged in. So, we don't currently test the registration or signin workflows. The app "starts" by displaying the Home screen for Jenna.
 * We test each feature by calling a "test" function (i.e. testChapter, testCrop, etc.).
 * After testing each feature, the code runs the Check Integrity admin function to ensure that the test of the previous feature did not introduce a database inconsistency. 
-* You should rarely need to edit this `app_test.dart` file. Instead, you will usually edit one of the "test" feature files (i.e. testChapter.dart, testCrop.dart, etc.) You will normally need to edit this file only when you want to introduce the testing of a new feature.
+* You should rarely need to edit this `app_test.dart` file. Instead, you will usually edit one of the top-level "test" feature files (i.e. testChapter.dart, testCrop.dart, etc.) You will normally need to edit app_test.dart only when you want to introduce the testing of a new feature.
 
 ## Testing a feature
 
-Let's now look at how the "Crop" feature is currently tested. Here is the "top-level" feature test for Crops:
+Let's now look at how the "Crop" feature is currently tested. Here is the top-level feature test function for Crops:
 
 ```dart
 // integration_test/features/crop/test_crop.dart
@@ -194,7 +194,7 @@ Future<void> testCrop(PatrolTester $) async {
 Here are some important takeaways:
 
 * Each top-level feature test function starts by printing a line of output indicating that the test of this feature is starting. That makes it easier to see how far testing has gotten and helps pinpoint the location of problems when testing fails.
-* A top-level feature test function can be implemented in terms of multiple functions, each of which tests a different aspect of the feature.
+* A top-level feature test function is typically implemented by calling multiple functions, each of which tests a different aspect of the feature.
 
 Let's now look at testCropIndexScreen:
 
