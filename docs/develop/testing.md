@@ -11,10 +11,14 @@ The current goal of testing in GeoGardenClub is to minimize the risk of *catastr
 * CRUD operations on entities can be performed successfully when available. 
 * Buttons on all commonly accessed screens, when tapped, do not generate an error, and the resulting screen is checked to see that at least some of the intended results are displayed.
 
-This goal excludes several important functional and non-functional requirements from testing:
+Currently, our approach to testing excludes many important issues:
 
-* We do not test that the system performs well under "load", where load can mean a large number of users or a larger amount of data. 
-* We do not test low-level code, particularly Firebase-related (Database, Cloud Storage, and Authentication). This is because we mock that stuff in our test code.
+* *Load testing.* We do not test that the system performs well under "load", where load can mean a large number of concurrent users and/or a large amount of stored data. 
+* *External service testing.* We do not test "low-level" code, specifically external services such as database, photo storage, and authentication. This is because we mock external services in our test code.
+* *Matrix (platform/device) testing.* GGC is intended to be used on three platforms: iOS, Android, and Web. Each of these platforms supports many different devices. We only test on one platform (iOS) and one device (typically iPhone 17). 
+* *UX testing.* Our tests do not ensure that user needs are met and that they have a positive experiece using the app.
+
+Despite these limitations, our tests should help improve developer courage. In other words, the presence of a test suite that exercises most of the UI can give developers the confidence to attempt improvements to the code base because unintended ripple effects will often be caught by testing.  A decent test suite should enable us to incrementally improve the quality of the code over time. 
 
 
 ## Run the tests
@@ -59,7 +63,7 @@ Here are some important takeaways:
 * We only write integration tests; no unit or widget tests. This maximizes the ratio of application code exercised per line of test code.
 * Our tests run with a specific "test fixture" (currently we're using one called Test Fixture 1). This is a sample dataset containing test values for most or all of the entities in our system (i.e. chapters, beds, gardens, gardeners, etc.).  This sample dataset is stored in `assets/test/fixture1`.  In the future, we might write tests that require a different fixture. 
 * Our test architecture is organized around features.
-* We compute coverage to provide an efficient way to find important areas of the code base that have not yet been tested.
+* We compute coverage to provide an efficient way to find important areas of the app code that have not yet been tested.
 
 ## Always monitor the iOS simulator!
 :::warning 
@@ -68,7 +72,7 @@ If testing with the iOS simulator, the testing process will occasionally (and un
 
 <img src="/img/develop/testing/core-simulator-bridge.png"/>
 
-For this reason, it's important to always monitor the simulator at least until the tests start, because you might need to click a button to let the tests proceed. Otherwise the test process will hang indefinitely.
+For this reason, it's important to always monitor the simulator at least until the tests start, because you might need to click a button to let the tests proceed. Otherwise, the test process will hang indefinitely.
 
 This is a security feature in the iOS operating system. There is apparently no way to disable it at the current time. 
 :::
@@ -174,8 +178,8 @@ Here are the important takeaways:
 * We use the Riverpod overrides feature so that during testing, our code manipulates the test fixture data rather than the data in the Firebase database. 
 * We simulate Firebase authentication (using firebase_auth_mocks) and the app starts up with the (admin) user jennacorindeane@gmail.com already logged in. So, we don't currently test the registration or signin workflows. The app "starts" by displaying the Home screen for Jenna.
 * We test each feature by calling a "test" function (i.e. testChapter, testCrop, etc.).
-* After testing each feature, the code runs the Check Integrity admin function to ensure that the test of the previous feature did not introduce a database inconsistency. 
-* Our integration testing approach is "big bang": we run the entire integration test suite in a single function. This means tests are not independent of each other, which can make individual test case design more difficult. We chose this design for pragmatic reasons: setting up the environment for testing takes around 50 seconds (on my late model MacBook Pro). If we ran each of the 15 feature tests independently, that would add on an additional 12 minutes (15 features * 50 seconds) to run the test suite.  
+* After testing each feature, the test code runs the Check Integrity admin function to ensure that the test of the previous feature did not introduce a database inconsistency. 
+* Our integration testing approach is "big bang": we run the entire integration test suite in a single function. This means tests are not independent of each other, which can make individual test case design more difficult. We chose this design for pragmatic reasons: setting up the runtime environment for testing takes around 50 seconds (on my late model MacBook Pro). If we ran each of the 15 feature tests independently, that would add on an additional 12 minutes (15 features * 50 seconds) to test suite execution time. No bueno.  
 * You should rarely need to edit this `app_test.dart` file. Instead, you will usually edit one of the top-level "test" feature files (i.e. testChapter.dart, testCrop.dart, etc.) You will normally need to edit app_test.dart only when you want to introduce the testing of a new feature.
 
 ## Testing a feature
@@ -197,7 +201,7 @@ Here are some important takeaways:
 * Each top-level feature test function starts by printing a line of output indicating that the test of this feature is starting. That makes it easier to see how far testing has gotten and helps pinpoint the location of problems when testing fails.
 * A top-level feature test function is typically implemented by calling multiple functions, each of which tests a different aspect of the feature.
 
-Let's now look at testCropIndexScreen:
+Here is testCropIndexScreen:
 
 ```dart
 // integration_test/features/crop/test_crop_index_screen.dart
@@ -218,9 +222,7 @@ Here are some important takeaways:
 
 * We use Patrol Finder syntax to locate widgets and manipulate them through searching for widgets of a particular type and/or containing a particular text string. Please avoid creating Keys for testing. Patrol Finders make it possible to test the source code without introducing new lines of code purely for the purpose of test support.
 
-
 Let's now look at the test for create, read, update, and delete of a Crop:
-
 
 ```dart
 // integration_test/features/crop/test_crop_crud.dart
@@ -278,7 +280,7 @@ Here are some important takeaways:
 
 ## About run_tests_single.sh and app_test_single.dart
 
-While developing the test for a feature, it is humbug and time-consuming to have to run the entire test suite each time you want to run your newly developed test code. 
+While developing the test for a feature, it is humbug to have to run the entire test suite each time you want to run your newly developed test code. 
 
 To speed up testing, you can use the command `./run_tests_single.sh`.  This runs the `app_test_single.dart` file, which looks similar to this:
 
@@ -326,7 +328,7 @@ It can sometimes be interesting to look at the coverage of testing. After runnin
 
 There are clickable links that you can use to drill down to see which statements have been executed and which have not been.
 
-Use coverage information wisely.
+Use coverage information wisely. We are not trying to get to 100% coverage, because we do not have the resources to build or maintain the test code that would be required for this. That said, we don't want large "holes" in our test suite, such that significant aspects of the UI are never exercised. 
 
 ## Test Design Hints
 
@@ -347,9 +349,14 @@ Use coverage information wisely.
 
 ## Continuous integration
 
-It would be sweet to run the integration tests each time there is a commit to main. 
+It would be sweet to run the integration tests each time there is a commit to main. The simplest way to accomplish this would be via a GitHub Action that runs the integration tests.  You would think this would be straight forward. Unfortunately, it is not: 
 
-I'm working on it.
+* If you run the integration tests using a GitHub action that requires MacOS, there is a "minutes multiplier" of 10, which means we will quickly run out of free minutes each month. 
+* I have tried and failed to create a working GitHub action for integration testing under Linux. I have found that even running our integration tests locally under Android is unreliable: sometimes they will fail at the authentication step. 
+
+The Patrol documentation has a section on [Continuous Integration Platforms](https://patrol.leancode.co/ci/platforms) which provides interesting insights into the problems of Flutter integration testing under CI. This is a good place to start if you wish to look into it more.  
+
+You can look at the [.github/workflows directory](https://github.com/geogardenclub/ggc_app/tree/main/.github/workflows) for the current situation. Notice that the integration testing workflows are set up to run when a commit is made to a branch called "never", meaning they are never actually invoked. 
 
 ## Test fixture design
 
