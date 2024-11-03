@@ -54,13 +54,13 @@ Testing variety feature
 + genhtml -q coverage/lcov.info -o coverage/html
 Overall coverage rate:
   source files: 472
-  lines.......: 35.0% (4464 of 12740 lines)
+  lines.......: 61.8% (7922 of 12828 lines)
   functions...: no data found
 Message summary:
   no messages were reported
 ```
 
-If the tests do not run successfully, output will look similar to this:
+If the tests do not run successfully, the output will look similar to this:
 
 ```
 ./run_tests.sh
@@ -132,7 +132,7 @@ Here are some important takeaways from this test execution output:
 * We only write integration tests; no unit or widget tests. This maximizes the ratio of application code exercised per line of test code.
 * Our tests run with a specific "test fixture" (currently we're using one called Test Fixture 1). This is a sample dataset containing test values for most or all of the entities in our system (i.e. chapters, beds, gardens, gardeners, etc.).  This sample dataset is stored in `assets/test/fixture1`.  In the future, we might write tests that require a different fixture. 
 * Our test architecture is organized around features.
-* We compute coverage to provide an efficient way to find important areas of the app code that have not yet been tested.
+* We compute coverage to provide an efficient way to find important areas of the app code that have not yet been tested, not to verify that the tests achieve 100% coverage (more on this below). 
 
 ## Always monitor the iOS simulator!
 :::warning 
@@ -391,15 +391,16 @@ Here are some important takeaways:
 
 ## Coverage
 
-It can sometimes be interesting to look at the coverage of testing. After running the test suite, you can open the file `coverage/html/index.html`, which will look similar to this:
+It can be useful to see the coverage of our test cases. After running the test suite, you can open the file `coverage/html/index.html`, which will look similar to this:
 
 <img src="/img/develop/testing/coverage.png"/>
 
 There are clickable links that you can use to drill down to see which statements have been executed and which have not been.
 
-Use coverage information wisely. We are not trying to obtain 100% coverage of the app code, in fact that would be impossible, because the code that accesses external services (database, authentication, photos) will never be executed due to the mocking process. For example, the coverage report shows that code in the "data/" subdirectories typically has low coverage.
+The above report was generated when the test cases yielded around 60% coverage. From examining the coverage report, there are some low-hanging fruit that would improve the quality of the test suite significantly: the garden details "filter", timeline management, the help pages, bed management, and so forth.  
 
-Instead, use coverage to easily discover "holes" in our test suite, i.e. significant UI code that the test cases do not currently exercise.  
+We are not trying to obtain 100% coverage of the app code, in fact that would be impossible, because the code that accesses external services (database, authentication, photos) will never be executed due to the mocking process. For example, the coverage report shows that code in the "data/" subdirectories typically has low to zero coverage.
+
 
 ## Test Design Hints
 
