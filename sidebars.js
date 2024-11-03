@@ -76,7 +76,7 @@ const sidebars = {
     {
       type: 'link',
       label: 'BAI Pitch Deck',
-      href: 'https://www.canva.com/design/DAGRP0s8F_s/93cd6dWj_1ycGEMCVx1tjA/edit',
+      href: '/pdf/bai-pitch-2024.pdf',
     },
     {
       type: 'link',
