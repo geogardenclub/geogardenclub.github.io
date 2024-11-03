@@ -75,8 +75,8 @@ const sidebars = {
     },
     {
       type: 'link',
-      label: 'BAI Pitch Deck',
-      href: '/pdf/bai-pitch-2024.pdf',
+      label: 'BAI 2024 Pitch Deck',
+      href: 'https://geogardenclub.com/pdf/bai-pitch-2024.pdf',
     },
     {
       type: 'link',
