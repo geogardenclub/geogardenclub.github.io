@@ -16,12 +16,14 @@ Currently, our approach to testing excludes many important issues:
 * *Load testing.* We do not test that the system performs well under "load", where load can mean a large number of concurrent users and/or a large amount of stored data. 
 * *External service testing.* We do not test "low-level" code, specifically external services such as database, photo storage, and authentication. This is because we mock external services in our test code.
 * *Matrix (platform/device) testing.* GGC is intended to be used on three platforms: iOS, Android, and Web. Each of these platforms supports many different devices. We only test on one platform (iOS) and one device (typically iPhone 17). 
-* *UX testing.* Our tests do not ensure that user needs are met and that they have a positive experiece using the app.
+* *UX testing.* Our tests do not ensure that user needs are met and that they have a positive experience using the app.
 
 Despite these limitations, our tests should help improve developer courage. In other words, the presence of a test suite that exercises most of the UI can give developers the confidence to attempt improvements to the code base because unintended ripple effects will often be caught by testing.  A decent test suite should enable us to incrementally improve the quality of the code over time. 
 
 
 ## Run the tests
+
+Before you can run the test suite, bring up the iOS simulator and verify that you can run the GGC app on it. (The test suite assumes that the iOS simulator is available and that GGC can be loaded on it.)  Once you've verified that GGC runs on the iOS simulator, you can stop execution of GGC on it. (If you forget to do this, don't worry, invoking the test suite should stop execution of any running app on the simulator automatically.)  Don't quit the simulator, however.
 
 To run the test suite, invoke `./run_tests.sh`. It should take around 4 minutes to run, and should produce output similar to the following:
 
@@ -123,7 +125,7 @@ Message summary:
 
 You can see from this output that the failure occurred during the test of the planting feature. The stack trace indicates the failure occurred on line 24 of testPlantingCopyPlanting.dart. 
 
-If you cannot get the test code to execute successfully even though other developers can, it might be because the tests don't work on the device you've chosen. At the time of writing, the tests run successfullyusing the iPhone 15 simulator under iOS 17.5.
+If you cannot get the test code to execute successfully even though other developers can, it might be because the tests don't work on the device you've chosen. At the time of writing, the tests run successfully using the iPhone 15 simulator under iOS 17.5.
 
 Here are some important takeaways from this test execution output:
 
@@ -139,7 +141,7 @@ If testing with the iOS simulator, the testing process will occasionally (and un
 
 <img src="/img/develop/testing/core-simulator-bridge.png"/>
 
-For this reason, it's important to always monitor the simulator at least until the tests start, because you might need to click a button to let the tests proceed. Otherwise, the test process will hang indefinitely.
+For this reason, it's important to always monitor the simulator at least until the tests start, because you might need to click a button to allow pasting in order to let the tests proceed. Otherwise, the test process will hang indefinitely.
 
 This is a security feature in the iOS operating system. There is apparently no way to disable it at the current time. 
 :::
@@ -422,7 +424,7 @@ await $('02').tap();
 await $('Submit').scrollTo().tap();
 ```
 
-That code is hard to follow (and potentially harder to debug and maintain) because it does not ever indicate which screen the test code driver is manipulating. While this test does accomplish the goal of exercising the app code, a more understandable version inserts `expect` statements each time the test reaches a new page.  This makes it easier to understand the test process: 
+That code is hard to follow (and potentially harder to debug and maintain) because it does not  indicate which screen the test code driver is manipulating. While this test does accomplish the goal of exercising the app code, a more understandable version inserts `expect` statements each time the test reaches a new page.  This makes it easier to understand the test process: 
 
 ```dart
 String testPlanting = 'Raspberry (Golden)';
@@ -461,6 +463,8 @@ You don't need to put those comments (or the newlines) into your test code; I ad
 
 **Flutter DevTools can be helpful.** Sometimes I get confused about what widgets are actually displayed on screen, and as a result have problems writing the correct Patrol Finder code. It can be helpful to run  [Flutter DevTools](https://docs.flutter.dev/tools/devtools/android-studio), then run the simulator manually. This enables you to navigate to a page in the simulator and use a browser window to inspect the widget hierarchy to see what type of widgets are visible. 
 
+**Authentication state weirdness.** I have discovered that if you perform the logout action during testing, it leaves the simulator in a weird, persistent state where you are navigated to the SignIn page, but the signin form (with fields for email and password) are not displayed. I am not sure why this happens, but to fix it, you can run the simulator normally (i.e. running main.dart) which will display the signin form. Login as any user, quit, and now you can run the tests and mocked authentication will work correctly.
+
 **After fixing a bug in the app, consider writing a test to verify the correct behavior.** Weirdly, bugs tend to congregate in certain areas, and even reappear after you thought you squashed them. It's a good idea after fixing a bug to see if you can quickly write a test that verifies the absence of that bug. It might feel like closing the barn door after the horse is gone, but it's a way of incrementally deepening the test quality. 
 
 
@@ -468,7 +472,7 @@ You don't need to put those comments (or the newlines) into your test code; I ad
 
 It would be sweet to run the integration tests each time there is a commit to main. The simplest way to accomplish this would be via a GitHub Action that runs the integration tests.  You would think this would be straight forward. Unfortunately, it is not: 
 
-* If you run the integration tests using a GitHub action that requires MacOS, there is a "minutes multiplier" of 10, which means we will quickly run out of free minutes each month. 
+* If you run the integration tests using a GitHub action that requires macOS, there is a "minutes multiplier" of 10, which means we will quickly run out of free minutes each month. 
 * I have tried and failed to create a working GitHub action for integration testing under Linux. I have found that even running our integration tests locally under Android is unreliable: sometimes they will fail at the authentication step. 
 
 The Patrol documentation has a section on [Continuous Integration Platforms](https://patrol.leancode.co/ci/platforms) which provides interesting insights into the problems of Flutter integration testing under CI. This is a good place to start if you wish to look into it more.  
