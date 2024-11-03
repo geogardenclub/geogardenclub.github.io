@@ -127,6 +127,10 @@ If all goes well, you should see a window similar to the following appear:
 
 At this point, you can login as one of the existing users to make sure communication with Firebase is working correctly. Contact Philip for credentials.
 
+## Integration tests
+
+The next step is to ensure that you can run the integration tests.  Please follow the instructions on the [Testing](testing.md) page. If you cannot run the tests without encountering a test failure, please contact a developer for assistance. 
+
 
 ## Editor
 

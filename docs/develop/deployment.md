@@ -27,6 +27,7 @@ Prior to a deployment, it is good practice to:
 
 * Do a [backup](backups.md).
 * Run the integrity checker and resolve any violations.
+* Run the integration tests and make sure the main branch does not generate any errors.
 
 ## 1. Update the ChangeLog
 
