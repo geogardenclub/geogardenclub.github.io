@@ -23,7 +23,7 @@ Despite these limitations, our tests should help improve developer courage. In o
 
 ## Run the tests
 
-To run the test suite, invoke `./run_tests.sh`. It should produce output similar to the following:
+To run the test suite, invoke `./run_tests.sh`. It should take around 4 minutes to run, and should produce output similar to the following:
 
 ```shell
 ~/GitHub/geogardenclub/ggc_app git:[issue-235]
@@ -58,7 +58,74 @@ Message summary:
   no messages were reported
 ```
 
-Here are some important takeaways:
+If the tests do not run successfully, output will look similar to this:
+
+```
+./run_tests.sh
++ flutter test integration_test/app_test.dart --coverage
+00:04 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                               Ru00:33 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                                
+00:40 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                            6.8s
+Xcode build done.                                           35.9s
+00:46 +0: GGC Integration Test (All) Fixture 1 Tests                                                                              
+Testing admin feature
+Testing badge feature
+Testing chapter feature
+Testing chat feature
+Testing crop feature
+Testing garden feature
+Testing gardener feature
+Testing geobot feature
+Testing home feature
+Testing observation feature
+Testing outcome feature
+Testing planting feature
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <true>
+  Actual: <false>
+
+When the exception was thrown, this was the stack:
+#4      testPlantingCopyPlanting (file:///Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/features/planting/test_planting_copy_planting.dart:24:3)
+<asynchronous suspension>
+#5      testPlanting (file:///Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/features/planting/test_planting.dart:13:3)
+<asynchronous suspension>
+#6      main.<anonymous closure>.<anonymous closure> (file:///Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart:153:7)
+<asynchronous suspension>
+#7      patrolWidgetTest.<anonymous closure> (package:patrol_finders/src/common.dart:50:7)
+<asynchronous suspension>
+#8      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:189:15)
+<asynchronous suspension>
+#9      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1032:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/features/planting/test_planting_copy_planting.dart line 24
+The test description was:
+  Fixture 1 Tests
+════════════════════════════════════════════════════════════════════════════════════════════════════
+03:15 +0 -1: GGC Integration Test (All) Fixture 1 Tests [E]                                                                       
+  Test failed. See exception logs above.
+  The test description was: Fixture 1 Tests
+  
+
+To run this test again: /Users/philipjohnson/Flutter/bin/cache/dart-sdk/bin/dart test /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart -p vm --plain-name 'GGC Integration Test (All) Fixture 1 Tests'
+03:16 +0 -1: Some tests failed.                                                                                                   
++ genhtml -q coverage/lcov.info -o coverage/html
+Overall coverage rate:
+  source files: 472
+  lines.......: 54.8% (7029 of 12823 lines)
+  functions...: no data found
+Message summary:
+  no messages were reported
+```
+
+You can see from this output that the failure occurred during the test of the planting feature. The stack trace indicates the failure occurred on line 24 of testPlantingCopyPlanting.dart. 
+
+If you cannot get the test code to execute successfully even though other developers can, it might be because the tests don't work on the device you've chosen. At the time of writing, the tests run successfullyusing the iPhone 15 simulator under iOS 17.5.
+
+Here are some important takeaways from this test execution output:
 
 * We only write integration tests; no unit or widget tests. This maximizes the ratio of application code exercised per line of test code.
 * Our tests run with a specific "test fixture" (currently we're using one called Test Fixture 1). This is a sample dataset containing test values for most or all of the entities in our system (i.e. chapters, beds, gardens, gardeners, etc.).  This sample dataset is stored in `assets/test/fixture1`.  In the future, we might write tests that require a different fixture. 
@@ -338,11 +405,61 @@ Use coverage information wisely. We are not trying to get to 100% coverage, beca
 
 **Make sure that you include at least one "expect" statement to verify the results of a behavior.** So, for example, if you are creating an entity, include an expect statement that checks to see that the entity exists somehow.
 
+**Document the test's navigation path with  `expect ($(<screen>).visible, equals(true))`.** It is possible to write a test with mostly `await` statements such as the following:
+
+```dart
+String testPlanting = 'Raspberry (Golden)';
+await gotoDrawerScreen($, HomeScreen);
+await $(BottomNavigationBar).$('Gardens').tap();
+await $('Details').tap();
+expect($(testPlanting).visible, equals(true));
+await $(testPlanting).tap();
+await $(PlantingDetailsCopyButton).tap();
+await $(GardenDropdown).tap();
+await $('Alderwood').tap();
+await $(BedDropdown).tap();
+await $('02').tap();
+await $('Submit').scrollTo().tap();
+```
+
+That code is hard to follow (and potentially harder to debug and maintain) because it does not ever indicate which screen the test code driver is manipulating. While this test does accomplish the goal of exercising the app code, a more understandable version inserts `expect` statements each time the test reaches a new page.  This makes it easier to understand the test process: 
+
+```dart
+String testPlanting = 'Raspberry (Golden)';
+await gotoDrawerScreen($, HomeScreen);
+await $(BottomNavigationBar).$('Gardens').tap();
+
+// Now at HomeScreenGardensView
+expect($(HomeScreenGardensView).visible, equals(true));  
+await $('Details').tap();
+
+// Now at GardenDetailsScreen
+expect($(GardenDetailsScreen).visible, equals(true)); 
+expect($(testPlanting).visible, equals(true));
+await $(testPlanting).tap();
+await $(PlantingDetailsCopyButton).tap();
+
+// Now at CopyPlanting Screen
+expect($(CopyPlantingScreen).visible, equals(true)); 
+await $(GardenDropdown).tap();
+await $('Alderwood').tap();
+await $(BedDropdown).tap();
+await $('02').tap();
+await $('Submit').scrollTo().tap();
+
+// Now at GardenDetailsScreen
+expect($(GardenDetailsScreen).visible, equals(true)); 
+```
+
+You don't need to put those comments (or the newlines) into your test code; I add them here just to highlight the added lines. But hopefully you can see how these expect statements make the flow of the test easier to understand. It also means the test will fail with a more helpful error message if the test ends up on an unexpected screen. 
+
 **Don't use an absolute "count" of items to do verification.**  For example, don't think that if the test fixture defines two gardens, your test case can assume it will see exactly two gardens. It could be that in the future, a test case gets added before yours that results in more gardens in the fixture by the time your test code runs.  Find some other way to do verification.
 
 **Don't delete or modify any entities in the test fixture.** If you want to test some sort of mutation, then please consider creating a new entity to mutate (or at the very least, make sure you restore the test fixture entity to its original condition). While other tests shouldn't assume there won't be *new* entities added, all tests can assume that the entities in the test fixture will be there exactly as defined.
 
 **Don't write too much test code.** Remember that the test code becomes code that needs to be maintained just like the app code. Also remember that time spent on writing test code is time you can't spend implementing new features in the app. So, try to design your tests with the goal of writing the minimal amount of test code required to exercise the maximum amount of app code. The prime directive is to reduce the risk of "catastrophic regression"---i.e. changes to the codebase that results in a runtime exception that crashes the app someplace in the UI. So, to start, if your test code exercises a feature's UI under "normal" conditions, and you verify that none of those interactions produces a runtime exception that crashes the app, then you've written a *very* helpful test. Of course, checking that the UI actually displays what it should display adds even more value, but if you only have time at the moment to invoke the behavior and ensure that things don't go haywire, that's still something.
+
+**Flutter DevTools can be helpful.** Sometimes I get confused about what widgets are actually displayed on screen, and as a result have problems writing the correct Patrol Finder code. It can be helpful to run  [Flutter DevTools](https://docs.flutter.dev/tools/devtools/android-studio), then run the simulator manually. This enables you to navigate to a page in the simulator and use a browser window to inspect the widget hierarchy to see what type of widgets are visible. 
 
 **After fixing a bug in the app, consider writing a test to verify the correct behavior.** Weirdly, bugs tend to congregate in certain areas, and even reappear after you thought you squashed them. It's a good idea after fixing a bug to see if you can quickly write a test that verifies the absence of that bug. It might feel like closing the barn door after the horse is gone, but it's a way of incrementally deepening the test quality. 
 
