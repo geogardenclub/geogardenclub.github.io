@@ -397,7 +397,9 @@ It can sometimes be interesting to look at the coverage of testing. After runnin
 
 There are clickable links that you can use to drill down to see which statements have been executed and which have not been.
 
-Use coverage information wisely. We are not trying to get to 100% coverage, because we do not have the resources to build or maintain the test code that would be required for this. That said, we don't want large "holes" in our test suite, such that significant aspects of the UI are never exercised. 
+Use coverage information wisely. We are not trying to obtain 100% coverage of the app code, in fact that would be impossible, because the code that accesses external services (database, authentication, photos) will never be executed due to the mocking process. For example, the coverage report shows that code in the "data/" subdirectories typically has low coverage.
+
+Instead, use coverage to easily discover "holes" in our test suite, i.e. significant UI code that the test cases do not currently exercise.  
 
 ## Test Design Hints
 
