@@ -23,7 +23,7 @@ Despite these limitations, our tests should help improve developer courage. In o
 
 ## Run the tests
 
-Before you can run the test suite, bring up the iOS simulator and verify that you can run the GGC app on it. (The test suite assumes that the iOS simulator is available and that GGC can be loaded on it.)  Once you've verified that GGC runs on the iOS simulator, you can stop execution of GGC on it. (If you forget to do this, don't worry, invoking the test suite should stop execution of any running app on the simulator automatically.)  Don't quit the simulator, however.
+Before you can run the test suite, bring up the iOS simulator and verify that the GGC source code can run on it. (The test suite assumes that the iOS simulator is available and that the GGC source code can be loaded.)  Once you've verified that GGC loads on the iOS simulator, you can stop execution of GGC if you want. (If you forget to do this, don't worry, invoking the test suite should stop execution of any running app on the simulator automatically.)  Don't quit the simulator, however.
 
 To run the test suite, invoke `./run_tests.sh`. It should take around 4 minutes to run, and should produce output similar to the following:
 
