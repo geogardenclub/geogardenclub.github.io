@@ -18,25 +18,48 @@ Currently, our approach to testing excludes many important issues:
 * *Matrix (platform/device) testing.* GGC is intended to be used on three platforms: iOS, Android, and Web. Each of these platforms supports many different devices. We only test on one platform (iOS) and one device (typically iPhone 17). 
 * *UX testing.* Our tests do not ensure that user needs are met and that they have a positive experience using the app.
 
-Despite these limitations, our tests should help improve developer courage. In other words, the presence of a test suite that exercises most of the UI can give developers the confidence to attempt improvements to the code base because unintended ripple effects will often be caught by testing.  A decent test suite should enable us to incrementally improve the quality of the code over time. 
+Despite these limitations, our tests should help improve developer courage. In other words, the presence of a test suite that exercises most of the UI can give developers the confidence to attempt improvements to the code base because unintended ripple effects will often be caught by running the tests.  A decent test suite should enable us to incrementally improve the quality of the code over time as well as the feature set. 
 
+
+## Installation
+
+There are a few things you need to do to set up your machine to run the test suite locally.
+
+Note that at the current time, we only support testing on macOS. 
+
+First, bring up the iOS simulator and verify that you can bring up GGC on it. (The test suite assumes that the iOS simulator is available and that the GGC source code can be loaded.)  
+
+Second, install lcov on your machine by invoking:
+
+```shell
+brew install lcov
+```
+
+Third, activate the `remove_from_coverage` Dart package so that the coverage report can be customized. Do this by invoking:
+
+```agsl
+dart pub global activate remove_from_coverage
+```
 
 ## Run the tests
 
-Before you can run the test suite, bring up the iOS simulator and verify that the GGC source code can run on it. (The test suite assumes that the iOS simulator is available and that the GGC source code can be loaded.)  Once you've verified that GGC loads on the iOS simulator, you can stop execution of GGC if you want. (If you forget to do this, don't worry, invoking the test suite should stop execution of any running app on the simulator automatically.)  Don't quit the simulator, however.
-
-To run the test suite, invoke `./run_tests.sh`. It should take around 4 minutes to run, and should produce output similar to the following:
+To run the test suite, invoke `./run_tests.sh`. It should take around 5 minutes to run, and should produce output similar to the following:
 
 ```shell
-~/GitHub/geogardenclub/ggc_app git:[issue-235]
+~/GitHub/geogardenclub/ggc_app git:[main]
 ./run_tests.sh
 + flutter test integration_test/app_test.dart --coverage
-00:15 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                              Ru00:41 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                               
-00:48 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                           6.6s
-Xcode build done.                                           33.2s
-00:54 +0: GGC Integration Test (All) Fixture 1 Tests                                                                             
+00:04 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                               Ru00:30 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                                
+00:37 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                            6.8s
+Xcode build done.                                           32.5s
+00:44 +0: GGC Integration Test (All) Fixture 1 Tests                                                                              
 Testing admin feature
 Testing badge feature
+Testing bed feature
+#0   WriteRateLimiter.rateLimit (package:ggc_app/features/common/rate-limit/write_rate_limiter.dart:36:16)
+Rate limiting enabled.
+#0   WriteRateLimiter.rateLimit (package:ggc_app/features/common/rate-limit/write_rate_limiter.dart:36:16)
+Rate limiting enabled.
 Testing chapter feature
 Testing chat feature
 Testing crop feature
@@ -49,18 +72,26 @@ Testing outcome feature
 Testing planting feature
 Testing settings feature
 Testing task feature
+Testing user feature
 Testing variety feature
-02:00 +1: All tests passed!                                                                                                      
+04:46 +1: All tests passed!                                                                                                       
++ flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'repositories\/.*$'
++ flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'data\/.*$'
++ flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'domain\/.*$'
++ flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'authentication\/.*$'
 + genhtml -q coverage/lcov.info -o coverage/html
 Overall coverage rate:
-  source files: 472
-  lines.......: 61.8% (7922 of 12828 lines)
+  source files: 320
+  lines.......: 72.9% (6028 of 8264 lines)
   functions...: no data found
 Message summary:
   no messages were reported
 ```
 
-If the tests do not run successfully, the output will look similar to this:
+Note the line "All tests passed" after the sequence of lines documenting the feature under test.
+
+:::info Uh oh... 
+If the tests do not run successfully, there won't be the line "All tests passed", and the output will instead look similar to this:
 
 ```
 ./run_tests.sh
@@ -126,18 +157,20 @@ Message summary:
 You can see from this output that the failure occurred during the test of the planting feature. The stack trace indicates the failure occurred on line 24 of testPlantingCopyPlanting.dart. 
 
 If you cannot get the test code to execute successfully even though other developers can, it might be because the tests don't work on the device you've chosen. At the time of writing, the tests run successfully using the iPhone 15 simulator under iOS 17.5.
+:::
 
 Here are some important takeaways from this test execution output:
 
-* We only write integration tests; no unit or widget tests. This maximizes the ratio of application code exercised per line of test code.
+* We only write integration tests; no unit or widget tests. This maximizes the ratio of application code exercised per line of test code. Currently, the lib/ directory contains around 44K lines of code, and the integration_test/ directory contains around 1200 lines of code. So, the test code only accounts for around 2% of the total code base.   
 * Our tests run with a specific "test fixture" (currently we're using one called Test Fixture 1). This is a sample dataset containing test values for most or all of the entities in our system (i.e. chapters, beds, gardens, gardeners, etc.).  This sample dataset is stored in `assets/test/fixture1`.  In the future, we might write tests that require a different fixture. 
 * Our test architecture is organized around features.
-* We compute coverage to provide an efficient way to find important areas of the app code that have not yet been tested, not to verify that the tests achieve 100% coverage (more on this below). 
+* The "Rate Limiter" might be triggered. You can ignore this warning.
+* We compute coverage to provide an efficient way to find important areas of the app code that have not yet been tested, not to verify that the tests achieve 100% coverage (more on this below). We also remove several directories from the coverage report (i.e. data/, domain/, and repositories/) so that the coverage report does not report on code that is never executed due to mocking (i.e. code in the data/ and repositories/ directories) and also focuses more specifically on UI code.
 
 ## Always monitor the iOS simulator!
 :::warning 
 
-If testing with the iOS simulator, the testing process will occasionally (and unpredictably) pause waiting for you to click on a button to allow pasting:
+While testing with the iOS simulator, the testing process will occasionally (and unpredictably) pause waiting for you to click on a button to allow pasting:
 
 <img src="/img/develop/testing/core-simulator-bridge.png"/>
 
@@ -210,6 +243,8 @@ void main() {
       await checkIntegrity($, reason: 'admin feature');
       await testBadge($);
       await checkIntegrity($, reason: 'badge feature');
+      await testBed($);
+      await checkIntegrity($, reason: 'bed feature');
       await testChapter($);
       await checkIntegrity($, reason: 'chapter feature');
       await testChat($);
@@ -391,16 +426,19 @@ Here are some important takeaways:
 
 ## Coverage
 
-It can be useful to see the coverage of our test cases. After running the test suite, you can open the file `coverage/html/index.html`, which will look similar to this:
+It can be useful to see the coverage of our test cases. After running the test suite, you can open the file `coverage/html/index.html`. Here's what it looks like after clicking the button to sort the rows in order of increasing coverage.
 
 <img src="/img/develop/testing/coverage.png"/>
 
+Note that this report elides the data/, domain/, and repositories/ directories so that the focus is on UI code. Also, the use of mocks means that the code in the data/ and repositories/ directories will never be executed by testing, so reporting coverage for that code is not useful.
+
 There are clickable links that you can use to drill down to see which statements have been executed and which have not been.
 
-The above report was generated when the test cases yielded around 60% coverage. From examining the coverage report, there are some low-hanging fruit that would improve the quality of the test suite significantly: the garden details "filter", timeline management, the help pages, bed management, and so forth.  
+The goal of the coverage report is to simplify identification of "forgotten" areas of the UI for which we have not created any test cases. 
 
-We are not trying to obtain 100% coverage of the app code, in fact that would be impossible, because the code that accesses external services (database, authentication, photos) will never be executed due to the mocking process. For example, the coverage report shows that code in the "data/" subdirectories typically has low to zero coverage.
-
+:::warning forewarned is forarmed
+Beware that a high level of coverage does not, by itself, indicate that the test suite is high quality. This is because the app code might work correctly for the given test fixture in use, but fail under other circumstances. We must remain vigilent as we develop the app to identify areas of brittleness in the code base, and respond in an appropriate way.
+:::
 
 ## Test Design Hints
 
