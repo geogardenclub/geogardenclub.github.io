@@ -20,6 +20,17 @@ Currently, our approach to testing excludes many important issues:
 
 Despite these limitations, our tests should help improve developer courage. In other words, the presence of a test suite that exercises most of the UI can give developers the confidence to attempt improvements to the code base because unintended ripple effects will often be caught by running the tests.  A decent test suite should enable us to incrementally improve the quality of the code over time as well as the feature set. 
 
+:::info When should you run the tests?
+Ideally, we want the main branch to always be able to run the tests without error.
+
+To achieve that, the best times to run the tests are:
+
+1. **Whenever you update the code you're working on from the main branch.** This ensures that the update from main has not introduced code that breaks the tests in your branch. If the tests fail, address that problem before proceeding.
+2. **Before updating the main branch with your code.** This ensures that you are not introducing code into the main branch that breaks the tests.
+
+As you will learn below, we have not figured out a reasonable way to perform continuous integration (i.e. run the tests automatically in the cloud upon any commit to the main branch.) As a result, it is up to us to manually verify that the main branch can execute the test suite without error.
+:::
+
 
 ## Installation
 
