@@ -72,13 +72,6 @@ One good heuristic to avoid deeply indented code is to not inline multi-line cal
                                   'gardenID': widget.task.gardenID
                                 });
                             break;
-                          // case SampleItem.editPlanting:
-                          //   context.pushNamed(AppRoute.planting.name,
-                          //       pathParameters: {
-                          //         'gardenID': widget.task.gardenID,
-                          //         'plantingID': widget.task.plantingID
-                          //       });
-                          //   break;
                         }
                       },
                       itemBuilder: (BuildContext context) => popupMenuItems),

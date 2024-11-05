@@ -15,7 +15,7 @@ To begin, GGC can be viewed as a simple client-server application: there is a ce
 
 ## Layered application architecture perspective
 
-In the above diagram, the client app is structured as four layers. This layering is strict, in that each layer communicates only with the layer above and below it.
+In the above diagram, the ggc_app is represented as four layers. This layering is strict, in that each layer communicates only with the layer above and below it. Let's introduce each layer, moving from bottom to top:
 
 **Repository Layer**. This bottom-most layer implements generic code for communication with Firebase: querying collections for documents; adding, deleting, and modifying documents, and so forth. In this layer, data is represented in JSON format (for entities) or binary format (for images).  
 
@@ -23,30 +23,28 @@ In the above diagram, the client app is structured as four layers. This layering
 
 **Domain Layer**. The domain layer implements code to translate between the data representations used at the data layer (i.e. JSON and Binary) and the data representations used at the Presentation Layer (i.e. Dart classes for entities and collections). The domain layer also implements the "business logic" of the application as discussed in the [Collections and business logic](/docs/develop/design/data-model#collections-and-business-logic) section.
 
-**Presentation Layer**. The presentation layer implements the Flutter-based user interface.  All of the classes at the presentation layer are Widgets. GGC divides UI classes into two types: "Screens" and "Views".  Screens implement a "top-level" page: they return a Scaffold Widget and can be routed to.  Views are "components": they are the building blocks for Screens and can potentially appear in multiple Screens.
+**Presentation Layer**. The presentation layer implements the Flutter-based user interface.  All the classes at the presentation layer are Widgets. GGC implements many kinds of UI objects; for example, "Screens" and "Views".  Screens implement a "top-level" page: they return a Scaffold Widget and they can be routed to.  Views are "components": they are the building blocks for Screens and can potentially appear in multiple Screens.
 
 ## Directory structure perspective
 
-There is a relatively straightforward correspondence between the above layers and the directory structure in the ggc_app repository. The top-level of the repo is more or less like any Flutter app.  Here is a semi-annotated version of most of the top-level files and directories: 
+There is a relatively straightforward correspondence between the above layers and the directory structure in the ggc_app repository. The top-level of the repo is more or less like any Flutter app.  Here is a semi-annotated version of some of the top-level files and directories to give you an idea of the organization:
 
 ```
 ggc_app/
-  .github/                  # CI GitHub Actions
-  android/
-  assets/
-  ios/
-  lib/                      # Source code here
-  linux/
-  macos/
-  stories/                  # Monarch stories here.
-  test/
-  web/
-  windows/
+  .github/                  # GitHub Actions
+  android/                  # (Managed by Flutter)
+  assets/                   # Static data resources
+  ios/                      # (Managed by Flutter)
+  integration_test          # Test code 
+  lib/                      # Source code 
+  linux/                    # (Managed by Flutter)
+  macos/                    # (Managed by Flutter)
+  stories/                  # Monarch code
+  web/                      # (Managed by Flutter)
+  windows/                  # (Managed by Flutter)
   analysis_options.yaml
-  build_runner.sh           # Useful if you change data model.
-  lakos.sh                  # Build a diagram of the architecture
   pubspec.yaml
-  run_monarch.sh            # Run the Monarch UI Story system
+  run_build_runner.sh       # Example of a GGC script           
 ```
 
 The lib/ directory is where most of the action is. Here's a semi-annotated perspective of some the top-level of the lib/ directory:
@@ -55,25 +53,24 @@ The lib/ directory is where most of the action is. Here's a semi-annotated persp
 lib/
   features/        #  Feature-based organization for Data, Domain, and Presentation layers
   repositories/    #  Implements the "Repository" layer
+  theme/           #  UI Theme (fonts, colors, etc.
   main.dart        #  Main entry point
+  main_test_fixture.dart # An entry point that uses the test fixture data.
   router.dart      #  Implements routes using go_router 
-  theme_data.dart  #  Implements a theme using FlexColorScheme
 ```
 
 Finally, here's a look inside the features/ directory:
 
 ```
 features/
+  admin/
   authentication/        # Authentication using firebase_ui_auth.
     /presentation        # Implementation only requires UI widgets.
-    
   common/                # Cross-cutting code
-  
   chapter/               # Implementation of Chapter feature
     data/                # Firebase interface
     domain/              # Chapter, ChapterCollection, etc.
-    presentation/        # ChapterIndexScreen, ChapterView, etc.
-    
+    presentation/        # ChapterIndexScreen, ChapterView, etc.    
   crop/
   garden/
   gardener/
@@ -84,3 +81,33 @@ features/
 ```
 
 Each feature can have one or more of the following subdirectories: domain/, data/, and presentation/.  The authentication feature only requires a presentation/ subdirectory, while the chapter feature requires all three.
+
+## Data flow perspective
+
+A final architectural perspective illustrates the way data flows between external sources (i.e. Firestore) and the app. Here is a diagram that illustrates some of the key components:
+
+<img src="/img/develop/release-1.0/ggc-dataflow-diagram.png"/>
+
+Note that at the Firestore level, data is stored in a set of "flat" collections corresponding in many cases to "features" (i.e. Beds, Chapters, Crops, etc.). For the most part, the data model is similar to the table structure favored by SQL databases, even though Firestore is a document-oriented (NoSQL) database. 
+
+This diagram also illustrates the way GGC addresses the issue of communication with external services, which is intrinsically asynchronous. In asynchronous communications, there will be an unpredictable delay between the "request" (i.e. to retrieve or to store data) and the "response" (i.e. the request succeeded or failed). During this time, the UI should show some sort of "loading" indicator rather than freezing, or potentially just as bad, allowing the user to interact further with the UI. Finally, if the request fails (network or service is down), the UI should indicate the failure.
+
+Managing asynchronous communication in code is complex. In GGC, we have encapsulated the complexities of asynchronous communication into two mechanisms: the "With" widgets (for retrieval of data asynchronously), and the MutateController (for persisting data asynchronously).  What this provides is the ability to write app code with clearly defined boundaries between asynchronous and synchronous actions, which simplifies the code and reduces the chances for bugs in data storage and retrieval.
+
+The "With" widgets (such as WithCoreData, WithObservationData, WithUserGardenData, WithAllData) are responsible for setting up Riverpod providers that watch the various Firestore collections in various ways, and the populating an instance of each of three classes (ChapterCollection, GardenCollection, and UserCollection) with the data retrieved. Each With widget is responsible for displaying a "loading" icon while it waits for the required data from Firestore to arrive (or display an error if one occurs). Once the data arrives, it invokes a callback function supplied to it, passing the populated ChapterCollection, GardenCollection, and UserCollection instances. As a bonus, if any of the Firestore collections are updated by some other client, the use of Riverpod means that the widget will be automatically rebuilt, refreshing the UI with the changed data automatically. Consult the ["With" Widgets Design Pattern](design/with-widgets.md) documentation for more details.
+
+While the With widgets address the issue of asynchronous data retrieval, we must also address the issue of asynchronous data persistence.  It's the same problem, in reverse: when the app wants to persist data back to Firestore, the storage request will take an unpredictable amount of time, we'll want the UI to display a loading indicator during that time, and if an unforeseen error occurs, we'll want to show that to the user. 
+
+GGC addresses the persistence problem with a single class called MutateController.  Whenever UI code wants to update the database, it invokes this controller which takes a large number of optional arguments to support any combination of updates to the underlying entities. Consult the [Data Mutation Design Pattern](design/data-mutation.md) documentation for more details.
+
+
+
+
+
+
+
+
+
+
+
+

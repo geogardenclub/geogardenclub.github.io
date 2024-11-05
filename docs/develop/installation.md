@@ -30,9 +30,9 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 ## Tool versions
 
-It turns out that getting Flutter Doctor to report no issues is not enough.  There are other tech stack components which must also be at an appropriate version in order for the app to run successfully during development.  In some cases, there might be multiple appropriate versions, but every developer must be using the same version of the tools; otherwise the app will run for some developers but not for others.
+It turns out that getting Flutter Doctor to report no issues is not enough.  There are other tech stack components which must also be at an appropriate version in order for the app to run successfully during development.  In some cases, there might be multiple possible versions, but every developer must be using the same version of the tools; otherwise the app will run for some developers but not for others.
 
-In order to help developers keep on the same page with respect to tech stack versions, we have implemented a script called `run_tool_versions.sh` that prints versions of the tech stack tools important to getting GGC to run correctly.  Our Discord server has a channel called "#tool-versions" where developers post the output from running this script. This helps all of us to stay on the same page, and when one person updates a component of the tech stack, they can post the new output from the script so that everyone else can update their tech stack as well.
+In order to help developers keep on the same page with respect to tech stack versions, we have implemented a script called `run_tool_versions.sh` that prints versions of the tech stack tools important to getting GGC to run correctly.  Our Discord server has a channel called `#tool-versions` where developers post the output from running this script. This helps all of us to stay on the same page, and when one person updates a component of the tech stack, they can post the new output from the script so that everyone else can update their tech stack as well.
 
 Here is an example of the output from `run_tool_versions.sh`:
 
@@ -40,16 +40,16 @@ Here is an example of the output from `run_tool_versions.sh`:
 % ./run_tool_versions.sh
 Computer Name: PMJ M2 2023
 Cocoapods 1.15.2
-Dart SDK version: 3.5.0 
-Flutter 3.24.0 
-MacOS 14.5
+Dart SDK version: 3.5.4 
+Flutter 3.24.4 
+MacOS 14.6.1
 Monarch version 2.2.7
 ruby 3.2.2 (202
-Xcode 15.4
+Xcode 16.0
 ```
-Be sure to run this script and check it against the output from the Discord channel. If there are differences, try to update your tech stack to match the versions in the Discord channel.
+Be sure to run this script locally and check it against the output from the Discord channel. If there are differences, try to update your tech stack to match the versions in the Discord channel.
 
-Note that GGC development is done using MacOS. We do not support Windows or Unix-based development at this time.
+Note that all GGC development is done using macOS. We do not support Windows or Unix-based development at this time.
 
 ## GGC App
 
