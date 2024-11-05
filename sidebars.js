@@ -97,7 +97,6 @@ const sidebars = {
     'develop/coding-standards',
     'develop/architecture',
     'develop/deployment',
-    'develop/testing',
     'develop/backups',
     {
       type: 'category',
@@ -109,6 +108,15 @@ const sidebars = {
         'develop/design/input-fields',
         'develop/design/with-widgets',
         'develop/design/data-mutation',
+      ],
+    },
+    {
+      type: 'category',
+      collapsed: false,
+      label: 'Quality Assurance',
+      items: [
+        'develop/dart-analyze',
+        'develop/testing',
       ],
     },
     {

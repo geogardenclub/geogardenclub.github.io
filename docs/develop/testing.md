@@ -5,6 +5,10 @@ hide_table_of_contents: false
 
 # Testing
 
+Another form of quality assurance in GGC is testing. 
+
+In GGC, we want the main branch to always be free of any errors raised by our tests.
+
 The current goal of testing in GeoGardenClub is to minimize the risk of *catastrophic regression* from changes to the UI or business logic. In other words, we want our tests to ensure that changes to non-low level code do not result in an app where important features no longer work. This means that our test suite should ensure that:
 
 * All commonly accessed screens display without error. (The tests might not check screens that are displayed "rarely", such as those resulting from anomalous conditions like network instability.)
