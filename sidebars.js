@@ -96,6 +96,7 @@ const sidebars = {
     'develop/scripts',
     'develop/coding-standards',
     'develop/architecture',
+    'develop/managing-firebase-data',
     'develop/deployment',
     'develop/backups',
     {
