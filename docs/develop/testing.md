@@ -445,14 +445,18 @@ It can be useful to see the coverage of our test cases. After running the test s
 
 <img src="/img/develop/testing/coverage.png"/>
 
-Note that this report elides the data/, domain/, and repositories/ directories so that the focus is on UI code. Also, the use of mocks means that the code in the data/ and repositories/ directories will never be executed by testing, so reporting coverage for that code is not useful.
+Note that our coverage report excludes the data/, domain/, and repositories/ directories. One reason is because the use of mocks means that the code in the data/ and repositories/ directories will never be executed by testing, so reporting (the necessarily low) coverage for that code is not useful; we can't fix that. We also exclude the domain/ directory so that the coverage information focuses more directly on UI code, which will hopefully make the report more useful in determining certain types of gaps in testing. 
 
 There are clickable links that you can use to drill down to see which statements have been executed and which have not been.
 
-The goal of the coverage report is to simplify identification of "forgotten" areas of the UI for which we have not created any test cases. 
+The primary goal of the coverage report is to simplify identification of "forgotten" areas of the UI for which we have not created any test cases. 
 
-:::warning forewarned is forarmed
-Beware that a high level of coverage does not, by itself, indicate that the test suite is high quality. This is because the app code might work correctly for the given test fixture in use, but fail under other circumstances. We must remain vigilent as we develop the app to identify areas of brittleness in the code base, and respond in an appropriate way.
+:::warning High coverage does not imply high test quality
+Beware that a high level of coverage does not, by itself, indicate that the test suite is high quality--i.e reliably able to indicate the absence of important errors in the code. 
+
+To understand why, consider one important limitation of our test suite--the use of a test data fixture. Even if we got to 100% coverage with no errors with this (or any other) test data fixture, it would not guarantee that the code would execute correctly if the data was in some other state. 
+
+That said, low coverage definitely implies low test quality: if you're not even executing code while testing, there's no way to know if it's correct or not. So, it's in our best interest to get relatively decent coverage, even if it doesn't guarantee that our tests will expose important bugs in the code. 
 :::
 
 ## Test Design Hints
