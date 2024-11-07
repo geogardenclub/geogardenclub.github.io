@@ -118,6 +118,7 @@ const sidebars = {
       items: [
         'develop/dart-analyze',
         'develop/testing',
+        'develop/integrity-check',
       ],
     },
     {
