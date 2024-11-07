@@ -5,16 +5,16 @@ hide_table_of_contents: true
 
 # Database Integrity Checking
 
-We use a Firebase database to store the data associated with GGC.  There are a couple of important issues associated with managing Firebase data. 
+We use a Firebase database to store the data associated with GGC.  One of the many important quality assurance issues associated with managing Firebase data is to ascertain whether or not the database contents are in a consistent state. In other words, does the database exhibit database integrity?
 
-1. Is the database in a "consistent" state? In other words, does it exhibit database integrity?
-2. If the database is inconsistent, how do we restore the database to a consistent state?
 
-## About database consistency 
+## Why is database integrity even a problem?
 
 For a variety of reasons (mostly performance related), the data in the Firebase database is not  normalized. For example, certain documents will have a field starting with "cached" that indicates the document is holding data that was "derived" from other entities in the database. This is done to reduce the amount of data downloaded to each client app, and thus improve scalability of the system. Unfortunately, it is up to the app code to make sure these cached fields contain valid data. 
 
 In addition, our database structure includes many "foreign keys". For example, each Variety document has a field called "cropID", which holds a string that should contain the ID of the Crop entity associated with this Variety document.  In a SQL database, foreign keys can be managed automatically and the database can ensure that (a) any field that should contain a foreign key contains a valid foreign key, and (b) if you delete an entity, then any references to that entity's key (as a foreign key in some other record) will be deleted or dealt with appropriately. Unfortunately, in our NoSQL database, it is up to the app code to make sure that foreign keys are managed appropriately.
+
+## How we detect integrity or the lack thereof
 
 The presence of foreign keys and cached values that must be managed manually means, of course, that sometimes they aren't managed correctly because the code wasn't written right. To address this problem, we implemented an admin operation called "Integrity Check".  Associated with each entity in the system is an method that checks, to the best of our ability, the "integrity" of all documents of that type. The Integrity Check admin operation calls all of these individual integrity checks and reports if any violations are found. Here's the UI:
 
