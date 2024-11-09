@@ -9,13 +9,19 @@ We use a Firebase database to store the data associated with GGC.  There are sev
 
 1. Is the database in a "consistent" state?
 2. If the database is inconsistent, how do we update the database to get it to a consistent state?
-3. Does the current database representation satisfy the needs of the customer? 
+3. Is the database "appropriate"? Does the current database representation satisfy the needs of the customer?
 
-The first question can be answered through the use of the [Database Integrity Check](integrity-check.md). 
+## 1. Is the database consistent?
 
-There are basically two approaches to answering the second question: either via the Firebase console or by using our Database Operation feature.
+"Consistent" means that the data does not contain missing or incorrect values.
 
-## Updating Firebase: via the Console
+This is a "quality assurance issue", which we address through the use of the [Database Integrity Check](integrity-check.md). 
+
+## 2. How do we make it consistent?
+
+There are basically two approaches to answering this question: either via the Firebase console or by using our Database Operation feature.
+
+### 2a. Updating Firebase: via the Console
 
 If the inconsistency is minor and affects only a few documents, then a reasonable approach is to use the Firebase console:
 
@@ -23,7 +29,7 @@ If the inconsistency is minor and affects only a few documents, then a reasonabl
 
 The Firebase console enables you to edit, create, or delete any document, as well as search for documents satisfying a criteria. 
 
-## Updating Firebase: via Database Operation
+### 2b. Updating Firebase: via Database Operation
 
 Sometimes the inconsistency is not minor, and requires manipulation of dozens or hundreds of documents. This would be super painful to fix using the console.  For these situations, we've developed an Admin command called "Database Operation". It allows you to programmatically inspect all documents in the database, decide what to create, modify, or delete, and then invoke the appropriate mutation. 
 
@@ -67,6 +73,10 @@ When the simulator is run with this operation specified as the one to invoke in 
 What's cool about the implementation of Database Operation is that when you navigate to the screen, it will tell you what it's going to do if you hit the "Invoke Operation" button. In this example, it will update 145 Observation documents.  
 
 To do this, the setup() method is called when you visit the page, and its task is to figure out all the documents that need to be updated and then update the appropriate field in the "data" instance. This enables the page to provide feedback on how many entities of what type are going to be changed if you actually invoke the operation. (You can also use logger statements to get additional info on what the operation will do.)
+
+## 3. Is the database appropriate? 
+
+The answer is, more often than not, no.  Database evolution is a continuing part of system development and enhancement. So, we must often: (a) update our entity representations, (b) update our UI, (c) update our tests, and (d) use the Database Operation command to migrate the existing data to the new representation.
 
 
 

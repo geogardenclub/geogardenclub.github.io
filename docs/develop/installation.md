@@ -51,7 +51,7 @@ Be sure to run this script locally and check it against the output from the Disc
 
 Note that all GGC development is done using macOS. We do not support Windows or Unix-based development at this time.
 
-## GGC App
+## Install the app
 
 To install the app, first clone the sources from [https://github.com/geogardenclub/ggc_app](https://github.com/geogardenclub/ggc_app).
 
@@ -94,7 +94,11 @@ Resolving dependencies... (1.4s)
 Got dependencies!
 ```
 
-Next, to check that the ggc_app actually runs in your environment, the simplest thing to do is to invoke `flutter run` and select Chrome:
+## Run the app
+
+### ...with the production database
+
+To check that the ggc_app runs in your development environment, the simplest thing to do is to invoke `flutter run` and select Chrome:
 
 ```
 % flutter run
@@ -125,7 +129,37 @@ If all goes well, you should see a window similar to the following appear:
 
 <img src="/img/develop/getting-started/installation-ggc-chrome.png"/>
 
-At this point, you can login as one of the existing users to make sure communication with Firebase is working correctly. Contact Philip for credentials.
+This means the app is up and is connected to the production Firebase database. At this point, you can login as one of the existing users to make sure communication with Firebase is working correctly. Contact Philip for credentials.
+
+### ...with test data
+
+During development, it is often safer and more appropriate to not manipulate the production database. As an alternative, instead of invoking `flutter run`, you can invoke `flutter run lib/main_test_fixture.dart`:
+
+```shell
+~/GitHub/geogardenclub/ggc_app $ flutter run lib/main_test_fixture.dart
+Launching lib/main_test_fixture.dart on iPhone 15 Pro in debug mode...
+Running Xcode build...                                                  
+ └─Compiling, linking and signing...                         7.2s
+Xcode build done.                                           45.7s
+Syncing files to device iPhone 15 Pro...                           149ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on iPhone 15 Pro is available at: http://127.0.0.1:64617/Tfq60_DovMo=/
+The Flutter DevTools debugger and profiler on iPhone 15 Pro is available at:
+http://127.0.0.1:9102?uri=http://127.0.0.1:64617/Tfq60_DovMo=/
+```
+:::info 
+In IntelliJ, you can create a "Run Configuration" that enables you to run with the test database by clicking the green arrow at the top of the IntelliJ window. 
+:::
+
+This command overrides the Riverpod providers so that they load the test fixture data in `assets/test/fixture1`.  Note that changes you make with the UI are never written to these files, so if you reload the system during development, the app state will be restored to the test fixture state. However, as long as you do not reload, changes to the data are reflected in the UI, making this a good way to test out changes to the system without fear of affecting the production database in a negative manner.
 
 ## Integration tests
 
@@ -152,16 +186,34 @@ As before, consult with Philip for login credentials.
 
 ## Monarch
 
-According to their home page, [Monarch](https://monarchapp.io/) is a "tool for building Flutter widgets in isolation. It makes it easy to build, test and debug complex UIs." Monarch is basically a Flutter port of React Storybook, which is tremendously popular in React UI development.
+According to their home page, [Monarch](https://monarchapp.io/) is a "tool for building Flutter widgets in isolation. It makes it easy to build, test and debug complex UIs." Monarch is basically a Flutter port of React Storybook, which is popular in React UI development.
 
 Follow the [Monarch installation instructions](https://monarchapp.io/docs/install) to install the tool.
 
-Then, invoke `monarch run --reload hot-restart` (or, for less typing, the `./run_monarch.sh` shell script). 
+Then, invoke `./run_monarch.sh`:
 
-You will see the Monarch UI appear, which enables you to view all of the GGC UI elements individually, and (where useful) in different states:
+You will see the Monarch UI appear:
 
 <img src="/img/develop/getting-started/monarch.png"/>
 
-Note that you need to manually select our theme (currently, "Green Theme: Light"). Monarch defaults to the Material Light theme when it is first invoked. 
+Select one of our themes (currently, "Green Theme: Light"). Then select a story, such as "showHomeScreenTasks", and Monarch will show the story:
 
-For the design and development of basic UI elements, Monarch appears to be faster, easier, and more efficient than running the iOS simulator.  Creating Monarch stories also creates an easy to browse "catalog" of UI elements which are far easier to review than paging through the emulated system to get to the correct state. 
+<img src="/img/develop/getting-started/monarch-2.png"/>
+
+Monarch loads the data in the `test/fixture1` files to populate screens.
+
+At present, Monarch seems most useful when experimenting with different themes. Monarch allows you to switch themes and see the results on your widget(s) of interest by simply selecting from the Theme menu.  In contrast, in the simulator, you would need to navigate from the screen displaying the widget(s) of interest to the Settings page (in order to select the new theme), and then navigate back to the screen displaying the widget(s) of interest.  
+
+:::info Ignore Firebase exceptions
+Unfortunately, the console window will print out error messages similar to the following when using Monarch:
+
+```shell
+══╡ EXCEPTION CAUGHT BY MONARCH ╞═══════════════════════════════════════════════════════════════════
+The following message was thrown while a story was selected:
+[core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
+```
+
+You can ignore these messages as Monarch does not actually invoke Firebase. 
+:::
+
+

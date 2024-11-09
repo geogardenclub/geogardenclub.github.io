@@ -102,8 +102,9 @@ const sidebars = {
     {
       type: 'category',
       collapsed: true,
-      label: 'Design',
+      label: 'Design Details',
       items: [
+        'develop/design/features',
         'develop/design/data-model',
         'develop/design/badges',
         'develop/design/input-fields',
