@@ -60,17 +60,17 @@ dart pub global activate remove_from_coverage
 
 To run the test suite, invoke `./run_tests.sh`. It should take around 5 minutes to run, and should produce output similar to the following:
 
-```shell
-~/GitHub/geogardenclub/ggc_app git:[main]
-./run_tests.sh
+```
+$ ./run_tests.sh
 + flutter test integration_test/app_test.dart --coverage
-00:04 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                               Ru00:30 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                                
-00:37 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                            6.8s
-Xcode build done.                                           32.5s
-00:44 +0: GGC Integration Test (All) Fixture 1 Tests                                                                              
+00:05 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                        Ru00:28 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                         
+00:35 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                     7.0s
+Xcode build done.                                           30.1s
+00:42 +0: GGC Integration Test (All) Fixture 1 Tests                                                                       
 Testing admin feature
 Testing badge feature
 Testing bed feature
+... test Bed CRUD
 #0   WriteRateLimiter.rateLimit (package:ggc_app/features/common/rate-limit/write_rate_limiter.dart:36:16)
 Rate limiting enabled.
 #0   WriteRateLimiter.rateLimit (package:ggc_app/features/common/rate-limit/write_rate_limiter.dart:36:16)
@@ -78,26 +78,45 @@ Rate limiting enabled.
 Testing chapter feature
 Testing chat feature
 Testing crop feature
+... test Crop Index Screen
+... test Crop CRUD
 Testing garden feature
+... test Garden Index Screen
+... test Garden Details Screen
+... test Garden CRUD
 Testing gardener feature
+... test Gardener Index Screen
 Testing geobot feature
 Testing home feature
 Testing observation feature
+... test Observation Feed
+... test Observation CRUD
 Testing outcome feature
+... test Outcome Garden Details View
+... test Outcome CRUD
 Testing planting feature
+... test Planting Index Screen
+... test Planting CRUD
+... test Planting Copy Planting
 Testing settings feature
 Testing task feature
+... test Task View
+... test Task CRUD
 Testing user feature
+... test User Profile Update
 Testing variety feature
-04:46 +1: All tests passed!                                                                                                       
+... test Variety Index Screen
+... test Variety CRUD
+... test Variety Gold Varieties
+04:52 +1: All tests passed!                                                                                                
 + flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'repositories\/.*$'
 + flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'data\/.*$'
 + flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'domain\/.*$'
 + flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'authentication\/.*$'
 + genhtml -q coverage/lcov.info -o coverage/html
 Overall coverage rate:
-  source files: 320
-  lines.......: 72.9% (6028 of 8264 lines)
+  source files: 322
+  lines.......: 73.0% (6079 of 8329 lines)
   functions...: no data found
 Message summary:
   no messages were reported
@@ -109,24 +128,43 @@ Note the line "All tests passed" after the sequence of lines documenting the fea
 If the tests do not run successfully, there won't be the line "All tests passed", and the output will instead look similar to this:
 
 ```
-./run_tests.sh
+$ ./run_tests.sh
 + flutter test integration_test/app_test.dart --coverage
-00:04 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                               Ru00:33 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                                
-00:40 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                            6.8s
-Xcode build done.                                           35.9s
-00:46 +0: GGC Integration Test (All) Fixture 1 Tests                                                                              
+00:05 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                        Ru00:28 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                         
+00:35 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                     7.0s
+Xcode build done.                                           30.1s
+00:42 +0: GGC Integration Test (All) Fixture 1 Tests                                                                       
 Testing admin feature
 Testing badge feature
+Testing bed feature
+... test Bed CRUD
+#0   WriteRateLimiter.rateLimit (package:ggc_app/features/common/rate-limit/write_rate_limiter.dart:36:16)
+Rate limiting enabled.
+#0   WriteRateLimiter.rateLimit (package:ggc_app/features/common/rate-limit/write_rate_limiter.dart:36:16)
+Rate limiting enabled.
 Testing chapter feature
 Testing chat feature
 Testing crop feature
+... test Crop Index Screen
+... test Crop CRUD
 Testing garden feature
+... test Garden Index Screen
+... test Garden Details Screen
+... test Garden CRUD
 Testing gardener feature
+... test Gardener Index Screen
 Testing geobot feature
 Testing home feature
 Testing observation feature
+... test Observation Feed
+... test Observation CRUD
 Testing outcome feature
+... test Outcome Garden Details View
+... test Outcome CRUD
 Testing planting feature
+... test Planting Index Screen
+... test Planting CRUD
+... test Planting Copy Planting
 ══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
 The following TestFailure was thrown running a test:
 Expected: <true>
@@ -325,6 +363,8 @@ Here is testCropIndexScreen:
 ```dart
 // integration_test/features/crop/test_crop_index_screen.dart
 Future<void> testCropIndexScreen(PatrolTester $) async {
+  // ignore: avoid_print
+  print('... test Crop Index Screen');
   String testCrop = 'Amaranth';
   await gotoDrawerScreen($, CropIndexScreen);
   await $(CropDropdown).tap();
@@ -346,6 +386,8 @@ Let's now look at the test for create, read, update, and delete of a Crop:
 ```dart
 // integration_test/features/crop/test_crop_crud.dart
 Future<void> testCropCRUD(PatrolTester $) async {
+  // ignore: avoid_print
+  print('... test Crop CRUD');
   String testCropName = 'AAATestCrop';
   String updatedTestCropName = 'AAAATestCrop';
   // Test Create.
