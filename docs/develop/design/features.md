@@ -36,15 +36,15 @@ crop/
     crop_collection.dart
   presentation/
     create_crop_screen.dart         
-    crop_form.dart                  
-    crop_view.dart                  
-    update_crop_screen.dart
     crop_chip.dart                  
-    crop_index_screen.dart          
-    crop_view_screen.dart
     crop_delete_button.dart         
+    crop_form.dart                  
+    crop_index_screen.dart          
     crop_toggle_section.dart        
+    crop_view.dart                  
+    crop_view_screen.dart
     delete_crop_screen.dart
+    update_crop_screen.dart
 ```
 
 The `data/` directory contains code that provides the mechanisms for persisting data associated with this feature to Firebase. It also includes the Riverpod Providers for accessing this data from elsewhere in the app. Finally, it includes the code for overriding the normal Firebase connection and replacing it with a connection to test fixture data. Note that at the `data/` level, data is represented as JSON. 
