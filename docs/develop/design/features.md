@@ -3,7 +3,7 @@ hide_table_of_contents: false
 # sidebar_label: "Welcome"
 ---
 
-# Anatomy of a feature
+# Features
 
 The GGC app loosely follows the "feature first" design philosophy expressed in Andrea Bizzotto's article [Flutter Project Structure: Feature-first or Layer-first?](https://codewithandrea.com/articles/flutter-project-structure/). As noted in [Architecture](../architecture.md), the top-level `lib/` directory contains a `features` subdirectory. Let's look at a snapshot of its contents:
 

@@ -19,15 +19,15 @@ The GGC app implements a set of Dart "domain" classes that mirror these Firebase
 
 #### Entity Hierarchy
 
-The following diagram provides a high-level overview of the entities in the data model organized into a three level hierarchy:
+The following diagram provides an overview of the major entities in the data model organized into a three level hierarchy:
 
-<img style={{borderStyle: "solid"}} src="/img/develop/release-1.0/data-model/entity-overview.png"/>
+<img style={{borderStyle: "solid"}} src="/img/develop/data-entity-overview.png"/>
 
 The diagram separates the entities into three categories:
 
-1. "Global-level" entities.  These entities are defined at the "system-level". In other words, they can only be changed by GGC developers, and changes to these entities might involve changes to the source code, the database, and possibly redeployment of the app. 
-2. "Chapter-level" entities. These are "top-level" entities for any given chapter. These entities all include a chapterID field. Each user is always associated with a single Chapter, and thus can only "see" the entities with a matching chapterID. The Chapter-level entities are visible only to the entities in their Chapter. They are normally downloaded and cached in the client application upon login.
-3. "Garden-level" entities. These entities are all specific to a single Garden, and include both a chapterID and a gardenID. Garden-level entities are only visible to entities within their Chapter. In addition, Garden-level entities are only downloaded and cached in the client application when the user explicitly navigates to a Garden's details page. 
+1. "Global-level" entities.  These entities are globally accessible to all Chapters. 
+2. "Chapter-level" entities. These are "top-level" entities for any given chapter. These entities all include a chapterID field. Each user is always associated with a single Chapter, and thus can only "see" the chapter-level entities with a matching chapterID. They are normally downloaded and cached in the client application upon login.
+3. "Garden-level" entities. These entities are all specific to a single Garden, and include both a chapterID and a gardenID. Garden-level entities are only visible within their Chapter. In addition, Garden-level entities might only be downloaded on-demand. 
 
 This diagram can also be used to understand the relative numbers of entities that a given client must manipulate. Each of the "Global-level" entity will have dozens to hundreds of instances, and so it is practical for the client application to cache them locally without a large performance impact. 
 
@@ -35,7 +35,11 @@ Since each User is associated with a single Chapter, the number of "Chapter-leve
 
 We expect each User to be associated with one to a dozen Gardens. Each Garden might have hundreds to thousands of Plantings. This means it is practical for the client application to cache the "Garden-level" entities that they are associated with.
 
-The goal of this design is to create "chapter-level" and "garden-level" namespaces, such that GeoGardenClub can scale to hundreds of Chapters, where each Chapter contains hundreds of gardens, and where each Garden contains hundreds of Plantings (and other Garden-specific entities), all while providing a fast, intuitive, and responsive application for each user. Our design means that the GGC database can grow to millions of documents while individual client apps require access to only thousands of documents.  
+We do not think it is practical for the User to cache all the Plantings associated with all the Gardens in the Chapter. Our design is intended to avoid this, so that Plantings are only downloaded on an as-needed basis.
+
+The goal of this design is to create "chapter-level" and "garden-level" namespaces, such that GeoGardenClub can scale to hundreds of Chapters, where each Chapter contains hundreds of gardens, and where each Garden contains hundreds of Plantings (and other Garden-specific entities), all while providing a fast, intuitive, and responsive application for each user. Our design is intended to allow the GGC database to grow to millions of documents while enabling individual clients to require access to only thousands of documents.  
+
+:::warning What about huge chapters?
 This design does have a potential problem: what if a Chapter becomes wildly popular and grows to many hundreds of members? It is possible that the performance of the client application can degrade if the number of members (and thus gardens) in a single Chapter becomes too large. 
 
 To address this potential problem, the data model is designed to facilitate partitioning of large Chapters into multiple smaller Chapters in the event that the number of members becomes too large. For example, the initial definition of a Chapter may comprise 8 postal (zip) codes, corresponding to all the postal codes in that country. But if that Chapter becomes too large, we could split it into two Chapters, each defined with 4 postal codes (or one with 3 postal codes and one with 5 postal codes, depending upon the concentration of members in each postal code).  Our data model does not currently allow Chapter definition "below" the level of a postal code, so the smallest possible Chapter in GeoGardenClub would be one defined by a single postal code.
@@ -43,18 +47,19 @@ To address this potential problem, the data model is designed to facilitate part
 We foresee an annual end-of-year review, where we see if any Chapters are reaching a size where it would be appropriate to split them up into smaller Chapters. By doing it in Winter (at least for the Northern Hemisphere), such Chapter reorganization should have less impact on the Gardeners. 
 
 To facilitate Chapter splitting, the IDs associated with Garden-level entities do not encode the chapterID, but instead the two character (alpha2) country code and the postal code. This allows Garden-level data to more easily migrate to new Chapters without needing to change their entity IDs.
+:::
 
 #### Entity dependencies
 
 The following diagram presents an alternative perspective on the entities. In this case, there is a line between two entities when there is a relationship between them; in other words, one of the entities refers to the other with a foreign key (i.e. ID) field.
 
-<img style={{borderStyle: "solid"}} src="/img/develop/release-1.0/data-model/entity-dependencies.png"/>
+<img style={{borderStyle: "solid"}} src="/img/develop/data-model-dependencies.png"/>
 
 The primary goal of this diagram is to make it clear that there is a fairly rich set of dependencies among the entities in this data model. 
 
 This is a positive thing, because it means that there are many different and interesting ways to "slice and dice" the data. 
 
-It also illustrates why we have chosen to implement the data model as a set of top-level collections. The many different relationships argue against the use of subcollections. 
+It also illustrates why we have chosen to implement the data model as a set of top-level collections with no subcollections. The many different relationships argue against the use of subcollections. The Firestore documentation indicates that there is no performance penalty to using all top-level collections.
 
 Let's now turn to a more detailed description of the entities in the data model. 
 
@@ -63,15 +68,18 @@ Let's now turn to a more detailed description of the entities in the data model.
 
 The Chapter entity defines a geographic region based on a country (represented as a two character (alpha-2) country code), and a set of one or more postal (zip) codes.  GGC ensures that Chapter instances partition the world: every pair of (country code, postal code) is mapped to exactly one Chapter.
 
-#### ChapterID management
 
+
+:::warning The following design for ChapterID management is not yet implemented
+
+#### ChapterID management
 A Firebase collection called ChapterZipMap will provide a default mapping of US postal (i.e. zip) codes to chapterIDs.  This mapping initially defines a one-to-one correspondence between US counties and GGC Chapters.   
 
 Outside of the US, each (country code, postal code) pair will be its own Chapter. This is not optimal but it provides a way to make GGC immediately available to users outside the US without constructing a world-wide ChapterPostalCodeMap. We can add this later without any change to the data model.
 
 Unlike most other entity IDs, the complete set of chapterIDs is defined in advance in GGC. In other words, we can compute all of the chapterIDs on earth, and they do not depend upon the number of users or their behavior. In contrast, there is no *a priori* limit to the number of (say) Planting IDs. 
 
-While chapterIDs are finite, they are not necessarily *fixed* in terms of their numbers and the geographic regions that they encompass. For US Chapters, we can change the set of chapters by changing the entries in the ChapterZipMap. For example, while our initial approach is to implement a one-to-one correspondence between US chapters and US counties, we could in future change the ChapterZipMap so that a single US county could have multiple Chapters, or multiple counties could be combined into a single Chapter, or some other approach. (Changing chapter geographic boundaries requires more than just changing the ChapterZipMap; the point here is that our representation does not lock us in to our initial definition for Chapters.) The only hard constraint is that each postal code is assigned to one and only one Chapter.  
+While chapterIDs are finite, they are not necessarily *fixed* in terms of their numbers and the geographic regions that they encompass. For US Chapters, we can change the set of chapters by changing the entries in the ChapterZipMap. For example, while our initial approach is to implement a one-to-one correspondence between US chapters and US counties, we could in future change the ChapterZipMap so that a single US county could have multiple Chapters, or multiple counties could be combined into a single Chapter, or some other approach. (Changing chapter geographic boundaries requires more than just changing the ChapterZipMap; the point here is that our representation does not lock us in to our initial definition for Chapters.) The only hard constraint is that each postal code is assigned to one and only one Chapter.
 
 ChapterIDs have the format `chapter-<country>-<chapterCode>`.  In the case of a US Chapter, an example Chapter ID is: "chapter-US-001".  In the case of a non-US Chapter, an example Chapter ID is "chapter-CA-V6K1G8".
 
@@ -84,9 +92,6 @@ New user registration works as follows. If they supply "US" as their country cod
 If the new user supplies a non-US country code, then the ChapterZipMap is not consulted. Instead, the chapterID is defined as `chapter-<country code>-<postal code>`. If no Chapter entity exists yet corresponding to that ChapterID, then it will be created.
 
 Note that [some countries do not have a postal code](https://tosbourn.com/list-of-countries-without-a-postcode/). In this case, we will create a default postal code (i.e. "000") for those countries and not request it from the user if they select one of those countries. This implies that for those countries, there will be only one chapter for the entire country. Since most of those countries are pretty small, that seems like a reasonable design decision.
-
-:::info The 1.0 release works differently
-The 1.0 release will only be distributed to users in Whatcom Country, WA, and so the registration mechanism will be simplified. See below for details.
 :::
 
 
@@ -106,13 +111,9 @@ const factory Chapter(
 )
 ```
 
-#### Projected Release 2.0 changes 
-
-In Release 2.0, users will be able to see information about Chapters other than their own. To implement this, we will expand the representation of the Chapter entity with "cached" information, perhaps the number of gardeners, the Chapter badges awarded to that chapter, and so forth. Release 2.0 might also include climate-related features, which might result in associating a list of hardiness zones with each Chapter entity.
-
 ### User
 
-A User entity is created for all of the people who have created an account with the system.
+A User entity is created for all the people who have created an account with the system.
 
 #### Users vs Gardeners
 

@@ -3,7 +3,7 @@ hide_table_of_contents: true
 # sidebar_label: "Welcome"
 ---
 
-# GGC Input Fields 
+# Input Fields 
 
 ## Motivation
 

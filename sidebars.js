@@ -96,16 +96,16 @@ const sidebars = {
     'develop/scripts',
     'develop/coding-standards',
     'develop/architecture',
+    'develop/data-model',
     'develop/managing-firebase-data',
     'develop/deployment',
     'develop/backups',
     {
       type: 'category',
       collapsed: true,
-      label: 'Design Details',
+      label: 'Design Patterns',
       items: [
         'develop/design/features',
-        'develop/design/data-model',
         'develop/design/badges',
         'develop/design/input-fields',
         'develop/design/with-widgets',
