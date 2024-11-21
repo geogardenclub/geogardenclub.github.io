@@ -1,5 +1,6 @@
 ---
 hide_table_of_contents: false
+toc_max_heading_level: 2
 # sidebar_label: "Welcome"
 ---
 
@@ -7,17 +8,17 @@ hide_table_of_contents: false
 
 This page explains the data model (i.e. the set of entities and their relationships) for GGC, along with a rationale for the design decisions that we've made along the way. 
 
-## Entities
+## Overview
 
 In GGC, "entity" refers to the fundamental forms of persistent data objects. Examples of entities are: "Chapter", "Garden", "Gardener", "Observation", etc.  
 
 Each entity is defined as a set of typed fields.
 
-Entities are persisted through a set of Firebase collections. In general, each entity is a document that is stored in a corresponding collection: all of the Chapter entity documents are stored in a Firebase collection called Chapters, all of the Gardener entity documents are stored in a Firebase collection called Gardeners.  
+Entities are persisted through a set of Firebase collections. In general, each entity is a document that is stored in a corresponding collection: all the Chapter entity documents are stored in a Firebase collection called Chapters, all the Gardener entity documents are stored in a Firebase collection called Gardeners.  
 
 The GGC app implements a set of Dart "domain" classes that mirror these Firebase collections, so (for example) there is a Dart class called "Chapter" (that defines the structure of a Chapter entity), and a Dart class called "ChapterCollection" (which holds a list of Chapter entity instances and provides operations upon them).
 
-#### Entity Hierarchy
+### Entity Hierarchy
 
 The following diagram provides an overview of the major entities in the data model organized into a three level hierarchy:
 
@@ -49,7 +50,7 @@ We foresee an annual end-of-year review, where we see if any Chapters are reachi
 To facilitate Chapter splitting, the IDs associated with Garden-level entities do not encode the chapterID, but instead the two character (alpha2) country code and the postal code. This allows Garden-level data to more easily migrate to new Chapters without needing to change their entity IDs.
 :::
 
-#### Entity dependencies
+### Entity dependencies
 
 The following diagram presents an alternative perspective on the entities. In this case, there is a line between two entities when there is a relationship between them; in other words, one of the entities refers to the other with a foreign key (i.e. ID) field.
 
@@ -59,12 +60,12 @@ The primary goal of this diagram is to make it clear that there is a fairly rich
 
 This is a positive thing, because it means that there are many different and interesting ways to "slice and dice" the data. 
 
-It also illustrates why we have chosen to implement the data model as a set of top-level collections with no subcollections. The many different relationships argue against the use of subcollections. The Firestore documentation indicates that there is no performance penalty to using all top-level collections.
+It also illustrates why we have chosen to implement the data model as a set of top-level collections with no subcollections. The many different relationships argue against the use of subcollections. The Firestore documentation indicates that there is no performance penalty to using all top-level collections. More details are available in [Choose a data structure](https://firebase.google.com/docs/firestore/manage-data/structure-data).
 
 Let's now turn to a more detailed description of the entities in the data model. 
 
 
-### Chapter
+## Chapter
 
 The Chapter entity defines a geographic region based on a country (represented as a two character (alpha-2) country code), and a set of one or more postal (zip) codes.  GGC ensures that Chapter instances partition the world: every pair of (country code, postal code) is mapped to exactly one Chapter.
 
@@ -72,7 +73,7 @@ The Chapter entity defines a geographic region based on a country (represented a
 
 :::warning The following design for ChapterID management is not yet implemented
 
-#### ChapterID management
+### ChapterID management
 A Firebase collection called ChapterZipMap will provide a default mapping of US postal (i.e. zip) codes to chapterIDs.  This mapping initially defines a one-to-one correspondence between US counties and GGC Chapters.   
 
 Outside of the US, each (country code, postal code) pair will be its own Chapter. This is not optimal but it provides a way to make GGC immediately available to users outside the US without constructing a world-wide ChapterPostalCodeMap. We can add this later without any change to the data model.
@@ -85,7 +86,7 @@ ChapterIDs have the format `chapter-<country>-<chapterCode>`.  In the case of a 
 
 To support readability in this document, we will use US chapters and the chapterCodes will be numeric.
 
-#### User registration and chapter assignment
+### User registration and chapter assignment
 
 New user registration works as follows. If they supply "US" as their country code, then the system will query the ChapterZipMap collection to determine their chapterID based on the postal (zip) code that they also supply.  If no Chapter entity exists yet with that chapterID, it will be created with the chapterID provided by the ChapterZipMap collection. 
 
@@ -95,11 +96,11 @@ Note that [some countries do not have a postal code](https://tosbourn.com/list-o
 :::
 
 
-#### ChapterID as Firebase index
+### ChapterID as Firebase index
 
 As will be seen, many entities contain a chapterID field.  When a client retrieves data from Firebase, it will normally request all of the documents where the chapterID field is the one associated with their chapter. This is the primary way in which GGC can scale. For this to work effectively, we must define an index on the chapterID field for all collections in which the entities have that field.
 
-#### Chapter entity representation
+### Chapter entity representation
 
 
 ```dart
@@ -111,21 +112,21 @@ const factory Chapter(
 )
 ```
 
-### User
+## User
 
 A User entity is created for all the people who have created an account with the system.
 
-#### Users vs Gardeners
+### Users vs Gardeners
 
 Note that all User entities will also have a Gardener entity, but not vice-versa: not all Gardener entities have a corresponding User entity. This is because commercial seed vendors won't generally have an account on the system, but they are represented within the system as Gardener entities.
 
 Every User is associated with a unique email address, which is their UserID. (Their email is also used for their gardenerID.)
 
-#### UserID management
+### UserID management
 
 UserIDs are the email addresses of the user. We obtain the email as part of registration.
 
-#### User onboarding
+### User onboarding
 
 After a user successfully registers with the system using the Firebase authentication procedures, they are logged in.  Whenever a user logs in, the system checks to see if there is a User document associated with the email address of the currently logged in user. If there is no User document for that email, then the system displays an Onboarding screen. 
 
@@ -150,7 +151,7 @@ These modifications to the Onboarding screen guarantee that 1.0 test users will 
 
 Once the form is successfully filled out, a User and Gardener document is created for that email address. If those documents are created successfully, then the application displays the Home screen for that User.
 
-#### User entity representation
+### User entity representation
 
 ```dart
 const factory User(
@@ -165,11 +166,11 @@ const factory User(
 )
 ```
 
-### Gardener
+## Gardener
 
 There is one Gardener entity for each Chapter member and vendor in GGC.  This entity is designed to represent two distinct classes of gardeners:  (1) "normal" home gardeners (who are Chapter members) and (2) commercial seed vendors (who are not (normally) Chapter members).
 
-#### Chapter members vs Vendors
+### Chapter members vs Vendors
 
 The benefit of having the Gardener entity represent both Chapter members as well as commercial seed vendors is that it results in a uniform mechanism in the app to support "seed providers". Any Gardener (which can either be a normal home gardener or a commercial seed vendor) owns a Garden which contains Plantings which (may or may not) produce seeds that are available within the Chapter.  
 
@@ -179,21 +180,21 @@ The Gardener entity indicates that it is representing a Vendor by setting the is
 
 The Vendors in a Chapter are crowd-sourced, which means any Chapter member can create a new Vendor. When a Vendor is created, they are given the country and postal code of the member who defined them. This is necessary so that their implicitly defined Garden and Plantings can have Chapter-appropriate ID strings.  
 
-#### Cached values
+### Cached values
 
 We want to provide information about Gardeners such as the crops and varieties that they are growing in the Index screens, and for performance reasons, we want to provide this information without having to retrieve all of the Planting instances associated with their gardens. To do this, we "cache" the cropIDs and varietyIDs associated with this gardener in this entity.
 
 By "associated", we mean the crops and varieties in the garden(s) for which this gardener is an owner.
 
-#### Badge attestations
+### Badge attestations
 
 Certain badges require Gardeners to "attest" to having performed activities. The Gardener entity contains an attestations field that holds strings indicating what has been attested to.
 
-#### GardenerID management
+### GardenerID management
 
 GardenerIDs are the email addresses of the gardener. In the case of registered users, the UserID is the same as the GardenerID.  In the case of Vendors, the GardenerID is the contact email for the vendor company (for example, info@johnnyseeds.com).
 
-#### Gardener entity representation
+### Gardener entity representation
 
 ```dart
 const factory Gardener(
@@ -212,11 +213,11 @@ const factory Gardener(
 ```
 
 
-### Garden
+## Garden
 
 The Garden entity represents a plot of land (or maybe even just some pots) that can hold Plantings over one or more years.
 
-#### GardenID management
+### GardenID management
 
 GardenIDs are generated dynamically when a Chapter member defines a new Garden or when a Chapter member defines a new Vendor (which implicitly results in the creation of a new Garden). 
 
@@ -226,7 +227,7 @@ The GardenID embeds the country code and postal code associated with the ownerID
 
 To support readability in this document and initial development, the gardenNum starts at "101" for each chapter.
 
-#### Field Notes
+### Field Notes
 
 The form field for vendor name entry imposes validation criteria. See [validators.dart](https://github.com/geogardenclub/ggc_app/blob/main/lib/features/common/input-fields/validators.dart) for details.
 
@@ -234,17 +235,17 @@ The Garden name must be unique within a Chapter.
 
 The cachedYears value is based on the StartDate for the Plantings associated with the Garden.
 
-#### Cached values
+### Cached values
 
 Each Garden entity caches the CropIDs, VarietyIDs, years, and the number of Plantings. This allows the Index screens to show this information about Gardens without needing to retrieve and process Plantings. 
 
 In addition, whenever there is a change to the Plantings associated with this Garden, the lastUpdated field is set to the current time.  This allows the community to see which Gardens in their Chapter are active.
 
-#### Badge attestations
+### Badge attestations
 
 Certain badges require Gardeners to "attest" to their Garden having certain properties. The Garden entity contains an attestations field with strings indicating the properties that they have attested to.
 
-#### Garden entity representation
+### Garden entity representation
 
 ```dart
 const factory Garden(
@@ -264,7 +265,7 @@ const factory Garden(
 )
 ```
 
-### Editor
+## Editor
 
 The owner of a Garden can add other Chapter members as "editors", which enables those users to edit the Plantings and other information associated with a Garden.
 
@@ -274,7 +275,7 @@ To earn a Gardener Badge, only the data associated with Gardens that you own is 
 
 In addition, when displaying the Crops and Varieties associated with a Gardener, only those Crops and Varieties for the Gardens that you own are displayed.  The Crops and Varieties for Gardens for which you are an Editor are not included.  
 
-#### EditorID management
+### EditorID management
 
 Editor entities are created or deleted when the owner of a Garden edits the Editor field of the Garden Details form.
 
@@ -282,7 +283,7 @@ EditorIDs have the format `editor-<country>-<postalCode>-<gardenNum>-<editorNum>
 
 EditorNums start at 001 for each garden.
 
-#### Editor entity representation
+### Editor entity representation
 
 ```dart
 const factory Editor(
@@ -293,17 +294,17 @@ const factory Editor(
 )
 ```
 
-### Bed
+## Bed
 
 Each Garden consists of a number of Beds. An owner can edit the name of an existing Bed, and can add a new Bed to a Garden, but cannot delete a Bed if there are any Plantings associated with it. 
 
-#### BedID management
+### BedID management
 
 BedIDs have the format `bed-<country>-<postalCode>-<gardenNum>-<bedNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 BedNums start at 001 for each garden.
 
-#### Bed entity representation
+### Bed entity representation
 
 ```dart
  const factory Bed(
@@ -316,7 +317,7 @@ BedNums start at 001 for each garden.
 )
 ```
 
-### Family
+## Family
 
 The Family entity specifies the botanical family associated with one or more Crops (and implicitly, Varieties). For example, the "Nightshade" family groups together Tomatoes, Potatoes, and Peppers. Each Crop is associated with exactly one Family. 
 
@@ -325,13 +326,13 @@ Family data is useful to facilitate planning issues including crop rotation and 
 The Family entity is a "global" collection in GGC. In other words, it does not include a ChapterID; every Chapter will download this collection, and it cannot be edited except by developers. 
 
 
-#### FamilyID management
+### FamilyID management
 
 FamilyIDs have the format `family-<familyNum>`. The set of Family entity documents is defined in advance by GGC developers, and editing this collection requires direct interaction with the database.
 
 FamilyNums start at 001. 
 
-#### Family entity representation
+### Family entity representation
 
 ```dart
 const factory Family(
@@ -342,7 +343,7 @@ const factory Family(
 )
 ```
 
-### Crop
+## Crop
 
 The Crop entity specifies a type of plant independent of its Variety. For example, "Tomato" is a Crop, while "Big Boy Tomato" is a specific Variety of Tomato.
 
@@ -352,7 +353,7 @@ Each Chapter is responsible for "crowd-sourcing" the set of Crop entities.  This
 
 The reason we do not provide a global collection of Crops is because a single collection containing all the crops grown world-wide would have several hundred entities, many of which would not be relevant to the Chapter. We want each Chapter's UI to show only the Crops (and Varieties, and Seeds) that are *actually being grown* in that Chapter.  We hypothesize that the benefits of focusing on what is actually being grown outweigh the cost of crowd-sourced management. 
 
-#### CropID management
+### CropID management
 
 CropIDs have the format `crop-<country>-<chapterCode>-<cropNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
@@ -362,7 +363,7 @@ In the event that a Chapter is divided into two or more smaller chapters, each o
 
 CropNums start at 201 for each chapter.
 
-#### Crop entity representation
+### Crop entity representation
 
 ```dart
 const factory Crop(
@@ -372,7 +373,7 @@ const factory Crop(
   required String name}           // 'Tomato'
 )
 ```
-### Variety
+## Variety
 
 Variety is a specific kind of Crop which can actually be grown, i.e. it has seeds. For example, a seed packet such as "Tomato (Sun Gold)" specifies the crop ("Tomato") and the Variety ("Sun Gold"). 
 
@@ -380,7 +381,7 @@ In some cases, the Variety associated with a given seed might not be known. In t
 
 Note that it is possible (and common) for multiple gardeners (either home or commercial vendors) to produce seeds of the same Variety.
 
-#### VarietyID management
+### VarietyID management
 
 VarietyIDs have the format `variety-<country>-<chapterCode>-<varietyNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
@@ -390,13 +391,13 @@ In the event that a Chapter is divided into two or more smaller chapters, each o
 
 VarietyNums start at 301 for each chapter.
 
-#### Field notes
+### Field notes
 
 Note that we cache the Crop Name because it will rarely, if ever, change and it is useful to have it in the Variety document so that we can return the full name without needing the Crop collection.
 
 That implies, however, that if the name of a Crop is ever changed, then we must find all of the Variety documents associated with that cropID and update the cachedCropName field. This is an acceptable trade-off. 
 
-#### Variety entity representation
+### Variety entity representation
 
 ```dart
 const factory Variety(
@@ -409,7 +410,7 @@ const factory Variety(
 )
 ```
 
-### Planting
+## Planting
 
 A Planting represents a set of plants of the same variety (or crop), planted in a single bed, all with the same approximate timings (i.e. sow date, transplant date, first harvest date, etc.).   
 
@@ -417,7 +418,7 @@ If the same variety (or crop) is planted in two different beds, then this must b
 
 It is common during the garden planning process to first design the garden at the "crop" level, and then later refine the plan by specifying the specific variety to be planted. To support this incremental planning process, you can create a Planting instance and specify only the Crop, not the Variety.
 
-#### Plantings and seeds
+### Plantings and seeds
 
 One innovative feature of GGC is that we provide an explicit representation of the seeds grown by a Planting.  Here is how it manifests in the Planting entity.
 
@@ -425,7 +426,7 @@ In each Planting document, we two optional fields called sowSeedID and harvestSe
 
 Finally, there is a boolean field called seedsAvailable. If true, this means not only that the Planting grew seeds (and thus there is a harvestSeedID), but that this gardener is willing to share these seeds with others in the Chapter.  When seedsAvailable is true, then other Gardeners looking at the Variety associated with this planting will see that they can contact the owner of this Garden to request seeds from this Planting. They might also be able to see the Outcome data for this Planting, which provides some evidence for the future success of these seeds when grown.  
 
-#### PlantingID management
+### PlantingID management
 
 PlantingIDs have the format `planting-<country>-<postalCode>-<gardenNum>-<plantingNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
@@ -435,7 +436,7 @@ Since, over a period of years, a single garden can result in over a thousand pla
 
 PlantingNums start at 1001 for each garden.
 
-#### Field notes
+### Field notes
 
 Validators should guarantee that startDate < transplantDate < firstHarvestDate < endHarvestDate < pullDate. 
 
@@ -447,7 +448,7 @@ If the gardener sets usedGreenhouse to true, then they should (eventually) recor
 
 Note that if both a cropID and varietyID is provided, then the varietyID must "match" the cropID. Put another way, the associated Variety's cropID field should match the Planting's cropID field. (Put yet another way, this would be illegal: a Planting in which the Crop is "Corn" but the Variety is "Big Boy (Tomato)").  The UI for defining and managing Planting entities will enforce this by only showing the Varieties associated with the currently selected Crop. 
 
-#### Planting entity representation
+### Planting entity representation
 
 ```dart
 factory Planting(
@@ -474,7 +475,7 @@ factory Planting(
 )
 ```
 
-### Outcome
+## Outcome
 
 Outcome data is gardener-supplied information about the result of a single Planting.  We want to specify planting results in a way that:
 
@@ -495,19 +496,19 @@ To support these requirements, we define five outcome types: germination, yield,
 
 In addition, an Outcome type can have a value of "0", which means there is no data regarding that type of outcome.
 
-#### OutcomeID management
+### OutcomeID management
 
 OutcomeIDs have the format `outcome-<country>-<postalCode>-<gardenNum>-<outcomeNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 Each Outcome entity is associated with exactly one Planting entity.  (Note that the converse is not true: a Planting entity need not be associated with an Outcome entity, since the Gardener might not choose to record any Outcome data.)
 
-#### Field notes
+### Field notes
 
 Outcomes cache the cropID and varietyID associated with their Planting. This is to allow Index and View widgets to display Outcome data without having to retrieve Plantings from the database. 
 
 Outcome value must be integers between 0 (indicating no data) and 5 (indicating Excellent).
 
-#### Outcome entity representation
+### Outcome entity representation
 
 ```dart
 const factory Outcome(
@@ -525,7 +526,7 @@ const factory Outcome(
 )
 ```
 
-### Seed
+## Seed
 
 The ability to save and share seeds within a Chapter is a significant core value proposition for GGC.
 
@@ -536,7 +537,7 @@ Our data model enables us to represent both seeds that are locally produced by g
 <img style={{borderStyle: "solid"}} src="/img/develop/release-1.0/data-model/seed-provenance.png"/>
 
 
-#### SeedID management
+### SeedID management
 
 SeedIDs have the format `seed-<country>-<postalCode>-<gardenNum>-<seedNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
@@ -549,7 +550,7 @@ The country and postal code fields are taken from the Planting that this seed wa
 Note that Seeds harvested from one postal code in a Chapter can be sowed in another postal code in a Chapter. This means that if a Chapter is split up into two sub-Chapters, there is the possibility that the original Seed will need to be "cloned" into the two sub-Chapters.
 :::
 
-#### Field notes
+### Field notes
 
 Seed instances cache the gardenerID, cropID, varietyID, cropName, and seedsAvailable field values from the Planting from which they were harvested.
 
@@ -570,7 +571,7 @@ In the 1.0 release, sowSeedCount is incremented each time a Planting specifies i
 In a future version, plantingID will be made required.
 :::
 
-#### Seed entity representation
+### Seed entity representation
 
 ```dart
 const factory Seed(
@@ -588,13 +589,13 @@ const factory Seed(
 )
 ```
 
-#### Seed caveats
+### Seed caveats
 
 In GGC, the Garden associated with a Vendor has a single Planting instance for each Variety for which they offer Seeds. This single Planting instance will have a SeedID in the harvestSeedID field, with `seedsAvailable` set to `true`.  
 
 In reality, a vendor may or may not have seeds in stock for a given Variety at any given time.  And, in reality, a vendor will produce their seeds from new Plantings each year. But, GGC will not attempt to keep track of real-time inventory.
 
-### Observation
+## Observation
 
 An Observation is a textual comment (and, typically, a picture) provided by a Gardener regarding a specific Planting at a specific point in time.
 
@@ -602,7 +603,7 @@ If a Gardener wishes to make a comment about a non-Planting issue (i.e. their Ga
 
 The essential difference is that an Observation will be "carried along" with a Planting---in other words, when the Gardener retrieves a View of a specific Planting, they will also see all of the Observations associated with that Planting. We hope that this will help create a useful historical record of a Planting. 
 
-#### ObservationID management
+### ObservationID management
 
 ObservationIDs have the format `observation-<country>-<postalCode>-<gardenNum>-<observationNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
@@ -610,13 +611,13 @@ ObservationNums start at 4001 and are incremented chapter-wide.
 
 The country and postal code fields are taken from the Planting associated with this Observation.
 
-#### Field notes
+### Field notes
 
 Observations cache several values in order to allow the Observation card to present information without having to retrieve the Planting.
 
 Observations are presented in reverse chronological order by lastUpdate. When someone adds a comment, that sets the lastUpdate field.
 
-#### Observation entity representation
+### Observation entity representation
 
 ```dart
 const factory Observation(
@@ -642,7 +643,7 @@ const factory Observation(
 )
 ```
 
-#### Observation Comments
+### Observation Comments
 
 As shown above, each Observation entity includes an embedded (potentially empty) list of ObservationComments, which have this structure:
 
@@ -657,7 +658,7 @@ const factory ObservationComment(
 
 The lastUpdate field indicates when the comment was made or updated.
 
-### Tag
+## Tag
 
 The Tag entity provides "meta-data" that a gardener can use to provide information about the nature of an Observation.  Tags serve two basic purposes:
 
@@ -667,13 +668,13 @@ The Tag entity provides "meta-data" that a gardener can use to provide informati
 
 Tags, like Badges, Families, and Chapters, are "global" entities that are not Chapter-specific. Therefore, they can only be managed by system admins.
 
-#### TagID management
+### TagID management
 
 TagIDs have the format `tag-<tagNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
 TagIDs start at 001.
 
-#### Tag entity representation
+### Tag entity representation
 
 ```dart
 const factory Tag(
@@ -683,7 +684,7 @@ const factory Tag(
 )
 ```
 
-### Task
+## Task
 
 A Task specifies an activity to perform for a specific Planting in a specific Garden. There are two  types of tasks:
 
@@ -699,7 +700,7 @@ Currently, all tasks are ephemeral. It would be potentially useful for a Gardene
 We will leave this as a feature for a future release.
 :::
 
-#### TaskID management
+### TaskID management
 
 TaskIDs have the format `task-<country>-<postalCode>-<gardenNum>-<plantingNum>-<taskNum>-<millis>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
@@ -707,7 +708,7 @@ TaskIDs start at 001.
 
 The country, postal code, gardenNum, and plantingNum fields are taken from the Planting associated with this Task.
 
-#### Task Types
+### Task Types
 
 Each Task has a TaskType:
 
@@ -717,13 +718,13 @@ enum TaskType { start, transplant, firstHarvest, endHarvest, pull, other }
 
 The first five correspond to the Planting dates. "Other" is used for manually created Tasks.
 
-#### Task titles and descriptions
+### Task titles and descriptions
 
 For automatically generated tasks, the title is automatically generated using the task type plus the variety, for example "Start Tomato (Big Boy)".  Automatically generated tasks are not created with a description.
 
 For manually generated tasks, the Gardener must specify the title and can also supply a description if desired.
 
-#### Task entity representation
+### Task entity representation
 
 ```dart
 factory Task(
@@ -745,13 +746,13 @@ factory Task(
 )
 ```
 
-### Badge
+## Badge
 
 GGC provides a game mechanic called "Badges". These are designations for Gardens, Gardeners, and (in future) Chapters that recognize the use of best practices for gardening (such as composting), or significant experience with a specific crop, or other behaviors that we wish to encourage. 
 
 The Badge game mechanic is implemented through two entities: "Badge" and "BadgeInstance". The Badge entity is a global entity (i.e. independent of any Chapter and defined by the system), and defines the game mechanic.  The BadgeInstance entity represents the achievement of a Badge by a Garden, Gardener, or (in future) Chapter.
 
-#### BadgeID and BadgeInstanceID management
+### BadgeID and BadgeInstanceID management
 
 BadgeIDs have the format `badge-<badgeNum>`. Please see the [ID Section](#ids) for details regarding our approach to ID management.
 
@@ -769,7 +770,7 @@ There is a BadgeType enum represented as follows:
 enum BadgeType { garden, gardener, chapter }
 ```
 
-#### Badge entity representation
+### Badge entity representation
 
 Badges:
 ```dart
@@ -800,77 +801,10 @@ const factory BadgeInstance(
   String? data3}                     // null, 'supplementary data3'
 )
 ```
-## Collections and business logic
 
-As noted above, each entity is represented as a Dart class, and made persistent as a document in Firebase. 
-
-Groups of entity instances of the same type are also represented as a Dart class, and made persistent as a collection in Firebase.   So, for example, there is a Dart class called "Chapter" (to represent individual instances of that entity) and a Dart class called "ChapterCollection" (to manage a set of Chapter instances). On the Firebase side, there is a collection called Chapters, and each document in that collection has the same structure as the corresponding Dart class. We use [freezed](https://pub.dev/packages/freezed) to support the translation between the Dart class instance for an entity and its persistent representation as a Firebase document in JSON format.
-
-The client-side collection classes (ChapterCollection, GardenCollection, etc) are intended to encapsulate the "business logic" for the application. 
-
-## Privacy
-
-On the one hand, we want to preserve certain types of privacy:
-
-* Users pick a unique "username" which is used in postings so that they do not have to reveal their true name.
-* The application does not reveal (and does not know) the precise location of gardens, only their country and postal code.
-* Users can tag an Observation as "private", and in that case it will not be visible to users outside of the garden's owner and editors.  This allows users to take photos regarding the garden for their personal data collection without feeling inhibited about it becoming "public". For example, the photo might reveal faces or locations.
-
-On the other hand, we want to facilitate the creation of a community of practice. For this reason, all garden data (plantings, etc) are available, in at least a read-only format, to all members of a chapter. 
-
-A significant goal for the 1.0 release is to test the hypothesis that it is not problematic for users to share these kinds garden details with others in the chapter. 
-
-A broader question, that we will not explore in the 1.0 release, is what kinds of data could be made available across Chapters. 
-
-## IDs
-
-In NoSQL databases, it is common for each document to be automatically provided upon creation with a unique string called a "docID" which looks something like this: `tghHU4CVfxHGB`. The docID is generated by the server and is guaranteed to be unique. It serves as the primary key for entities in that collection.
-
-In GGC, we use a different approach. There is no "docID" field. Instead, the Crop collection has a unique ID called "cropID", the Chapter collection has a unique ID called "chapterID", and so forth. We tell the NoSQL database (in our case, Firebase) that these various ID fields should be used as the primary key (i.e. the docID) for each of the collections. 
-
-Importantly, non-global entities are generally created by clients, and in GGC, clients (not the server) are responsible for generating the primary keys for non-global entities.  (The global entities, such as Chapter, Family, Badge, etc. are constructed by the system, not clients.)
-
-We have clients generate the primary keys for non-global entities for the following reasons:
-* Rather than a server-generated random string, our client-generated primary keys are "human-readable". You can look at an ID string and know what kind of entity it is associated with (all GGC IDs have a prefix like "chapter-", "crop-", etc). Since many entities have fields containing the IDs of other entities, human-readable IDs help in development and system understanding.
-* In many cases, an update to the database can involve the creation of a new entity (or entities) as well as updates to other entities to include the primary key of the newly created entity (or entities). If primary keys are generated by the server, such updates would become a complex, multi-step process. Since primary keys are generated by the client, these updates are much more simple to accomplish.
-
-However, client-generated primary keys have one significant drawback:
-* It becomes technically possible for two clients to generate a "primary key collision", i.e. an attempt by different clients to create two entities with the same primary key value at the same time. 
-
-To deal with this drawback, we have carefully designed the primary keys in GGC to make it extremely unlikely for primary key collisions to occur.
-
-First, primary keys are constructed to include one or more of the chapterID, the country code, the postal code, or the gardenID. This means, for example, that rather than it being possible for a primary key collision to occur by any two GGC users anywhere in the world, it is becomes only possible for it to occur between the owner and editors of a single garden. 
-
-Second, client-generated primary keys are constructed with a "millis" field. This is a four digit number representing the millisecond value at the time the client created the primary key. 
-
-We believe that these two properties of primary keys mean that collisions will not occur in practice, even when clients are operating in disconnected mode.
-
-Finally, let's say that this exceedingly unlikely event actually occurs.  In that case, because we have told Firebase that the plantingID (for example) is the primary key, Firebase will reject the second plantingID creation. In this case, the application can simply report the error and instruct the user to try again in a few seconds. By this time, the local cache should be updated and the request to create the new entity should succeed.
-
-Note that [Firebase recommends against creating documentIDs with lexicographically close ranges](https://firebase.google.com/docs/firestore/best-practices#hotspots). We expect that the inclusion of the millis field mitigates this potential performance issue.
-
-## Normalization and caching
-
-A best practice for relational database design is "[normalization](https://en.wikipedia.org/wiki/Database_normalization)", which means that a value should only occur in one place at a time.  Normalization has a number of virtues, such as making updates and deletions more efficient and less error prone.  But normalization also has a cost: queries can become very complicated, involving complex "joins" from a variety of data sources.
-
-The GGC app has the following design considerations that impact on the issue of normalization:
-
-* Updates and deletions are (relatively) rare.  GGC is mostly an "additive" database. While deletions and updates can occur, it's OK if they are "expensive".
-* Reads are common, and to make these reads fast, GGC implements client-side caches (using Riverpod) for many of the entities.
-* Gardeners do not access to data outside their Chapter, so client-side caches are not impacted if the number of Chapters in GGC becomes large. 
-
-To simplify retrieval and caching of the appropriate chapter or garden-level "slice" of the database by a client, almost all GGC entities include a chapterID and gardenID field.
-
-We also "denormalize" by providing "redundant" fields in certain entities. For example, in some cases a document will include a cropName field even though it already has a cropID field.  We do this avoid having to download large numbers of documents  (i.e. Plantings for all Gardens in the Chapter) in order to perform a calculation. These redundant field names have the prefix "cached" in order to make this denormalization explicit in the data model.
-
-## Root collections vs subcollections
-
-In Firebase, you can organize the data into root collections or subcollections, as explained in [Choose a data structure](https://firebase.google.com/docs/firestore/manage-data/structure-data).
-
-Since GGC involves many many-to-many relationships, we choose to organize all of our data as root collections. 
-
-In Firebase, there are no performance differences between root collections and subcollections, so we do not gain or lose anything by making this choice.
-
-## Chat rooms
+## ChatRooms and ChatUsers
 
 We use the [Flutter Chat UI](https://pub.dev/packages/flutter_chat_ui) package to implement Chat rooms and users. This results in the addition of some collections to Firebase. We do not document this here.
+
+
+

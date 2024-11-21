@@ -5,7 +5,9 @@ hide_table_of_contents: false
 
 # Architecture
 
-The GeoGardenClub app (GGC) conforms (most of the time) to the architectural approach advocated by Andreas Bizzotto which he calls the "Riverpod Architecture".  If you are not familiar with this approach, it's worth spending a few minutes reading through his description, which is available as a set of readings in the [architecture module](https://courses.ics.hawaii.edu/mobile-application-development/modules/architecture/) in my mobile application development course.
+The GeoGardenClub app (GGC) conforms (almost all the time) to the architectural approach advocated by Andreas Bizzotto which he calls the "Riverpod Architecture".  If you are not familiar with this approach, it's worth spending a few minutes reading his article [Flutter App Architecture with Riverpod: An Introduction](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/).
+
+Another good introduction to software architecture principles as applied to Flutter development comes from the official Flutter documentation: [Architecting Flutter apps](https://docs.flutter.dev/app-architecture).  We believe that GGC's architecture conforms to all the architectural principles in this guide as well as all the recommendations with one exception: we do not "write unit tests for every service, repository and ViewModel class.". Instead, we write integration tests, because that  lowers the amount of test code by (probably) 10x. Our approach has the potential to let some bugs slip through that might be caught by a comprehensive widget test suite, but we're willing to take that trade-off at this point in the development of the business.
 
 ## Client-server architecture perspective
 
