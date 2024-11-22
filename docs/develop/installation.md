@@ -133,7 +133,7 @@ This means the app is up and is connected to the production Firebase database. A
 
 ### ...with test data
 
-During development, it is often safer and more appropriate to not manipulate the production database. As an alternative, instead of invoking `flutter run`, you can invoke `flutter run lib/main_test_fixture.dart`:
+During development, it is usually safer and more appropriate to not manipulate the production database. As an alternative, instead of invoking `flutter run`, you invoke `flutter run lib/main_test_fixture.dart`:
 
 ```shell
 ~/GitHub/geogardenclub/ggc_app $ flutter run lib/main_test_fixture.dart
