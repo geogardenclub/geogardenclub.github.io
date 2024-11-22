@@ -9,8 +9,6 @@ hide_table_of_contents: false
 
 Follow the [Flutter Installation](https://docs.flutter.dev/get-started/install) instructions.
 
-The [Flutterpalooza](https://courses.ics.hawaii.edu/mobile-application-development/modules/flutterpalooza/) module has some additional documentation. 
-
 It is important that you are able to run `flutter doctor` without error:
 
 ```shell
@@ -32,7 +30,9 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 It turns out that getting Flutter Doctor to report no issues is not enough.  There are other tech stack components which must also be at an appropriate version in order for the app to run successfully during development.  In some cases, there might be multiple possible versions, but every developer must be using the same version of the tools; otherwise the app will run for some developers but not for others.
 
-In order to help developers keep on the same page with respect to tech stack versions, we have implemented a script called `run_tool_versions.sh` that prints versions of the tech stack tools important to getting GGC to run correctly.  Our Discord server has a channel called `#tool-versions` where developers post the output from running this script. This helps all of us to stay on the same page, and when one person updates a component of the tech stack, they can post the new output from the script so that everyone else can update their tech stack as well.
+In order to help developers ensure that they have the same tech stack environment, we have implemented a script called `run_tool_versions.sh` that prints versions of the tech stack tools important to getting GGC to run correctly.  
+
+Our Discord server has a channel called `#tool-versions` where developers post the output from running this script. This helps all of us to stay on the same page, and when one person updates a component of the tech stack, they can post the new output from the script so that everyone else can update their tech stack to match the new version(s) of components.
 
 Here is an example of the output from `run_tool_versions.sh`:
 
