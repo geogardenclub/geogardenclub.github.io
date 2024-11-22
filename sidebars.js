@@ -112,6 +112,7 @@ const sidebars = {
     'develop/deployment',
     'develop/backups',
     'develop/privacy',
+    'develop/adaptive-design',
     {
       type: 'category',
       collapsed: true,
