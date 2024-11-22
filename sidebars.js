@@ -68,7 +68,6 @@ const sidebars = {
       label: 'Gardening vs. Farming',
       href: 'https://docs.google.com/presentation/d/1rMu7DWJblHvVJt6CGmR8eyCN7uBMXPfBpc1rdhanxjQ/edit#slide=id.p',
     },
-      
     {
       type: 'link',
       label: 'Home Gardening Pain Points',
