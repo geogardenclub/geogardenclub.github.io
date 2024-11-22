@@ -15,9 +15,14 @@ We also want to be able to access the ChangeLog inside the deployed app---this i
 
 We adhere to two standards:
 1. For the changelog format, we adhere to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
-2. For the version number format, we adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). For Release 1.0 (Technology Evaluation), the *major* version is "1". The deploy script automatically increments the minor version and increments the build number.
+2. For the version number format, we adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). For example, for Release 1.0 (Technology Evaluation), the *major* version is "1". The deploy script automatically increments the minor version and increments the build number.
 
 ## Deployment management
+
+:::warning Changes ahead
+
+The following instructions document how to create beta (test) releases. We plan to transition to production releases (i.e. App Store and Play Store) in January 2025.
+:::
 
 The deployment process is handled by a single developer referred to as the "Deployment Manager" (DM). Initially, Philip will be the DM.
 

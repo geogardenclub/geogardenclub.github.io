@@ -34,13 +34,9 @@ This diagram can also be used to understand the relative numbers of entities tha
 
 Since each User is associated with a single Chapter, the number of "Chapter-level" entity instances visible to a User is not expected to exceed several hundred to a thousand. This means it is also practical for the client application to cache all "visible" Chapter-level entities locally.
 
-However, we expect each User to be associated with one to a dozen Gardens. Each Garden might have hundreds to thousands of Plantings. This means it is practical for the client application to cache the "Garden-level" entities that they are associated with.
+However, we expect each of the several hundred Users in a Chapter to be associated with one to a dozen Gardens. Each Garden might have hundreds to thousands of Plantings. This means it is impractical for the client application to simply cache all the "Garden-level" entities: hundreds of entities times dozens of entities times thousands of entities equals millions of entities at the Garden level. At the Garden level, GGC must be "smart" about what it downloads from the database so that the client app remains responsive as the number of Users, Gardens, and Plantings in their Chapter grows.
 
-However, since each Garden can be associated with hundreds to thousands of Plantings, we do not think it is practical for the User to cache all the Plantings associated with all the Gardens in the Chapter. Our design is intended to avoid this, so that Plantings are only downloaded on an as-needed basis.
-
-Thus the goal of this design is to create "chapter-level" and "garden-level" namespaces, such that GeoGardenClub can scale to hundreds of Chapters, where each Chapter contains hundreds of gardens, and where each Garden contains hundreds of Plantings (and other Garden-specific entities), all while providing a fast, intuitive, and responsive application for each user. Our design is intended to allow the GGC database to grow to millions of documents while enabling individual clients to require access to only thousands of documents.  
-
-:::warning What about huge chapters?
+:::warning But what about huge chapter membership?
 This design does appear to have a potential problem: what if a Chapter becomes wildly popular and grows to many thousands of members? It is possible that the performance of the client application can degrade if the number of members in a single Chapter becomes too large. 
 
 To address this potential problem, the data model is also designed to facilitate partitioning of large Chapters into multiple smaller Chapters. For example, the initial definition of a Chapter may comprise 8 postal (zip) codes, corresponding to all the postal codes in that country. But if that Chapter becomes too large, we could split it into two Chapters, each defined with 4 postal codes (or one with 3 postal codes and one with 5 postal codes, depending upon the concentration of members in each postal code).  Our data model does not currently allow Chapter definition "below" the level of a postal code, so the smallest possible Chapter in GeoGardenClub would be one defined by a single postal code.

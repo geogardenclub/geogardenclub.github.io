@@ -11,9 +11,9 @@ Another good introduction to software architecture principles as applied to Flut
 
 ## Client-server architecture perspective
 
-To begin, GGC can be viewed as a simple client-server application: there is a central back-end server (in our case, [Firestore](https://firebase.google.com/docs/firestore)) that communicates with front-end clients (in our case, the Flutter ggc_app application):
+To begin, GGC can be viewed as a simple client-server application: there are two back-end servers ([Firebase Firestore](https://firebase.google.com/docs/firestore) and [Firebase Cloud Storage](https://firebase.google.com/docs/storage)) that communicate with a single front-end client (the Flutter ggc_app application) via the Internet:
 
-<img src="/img/develop/release-1.0/ggc-architecture.png"/>
+<img src="/img/develop/ggc-architecture.png"/>
 
 ## Layered application architecture perspective
 
@@ -50,6 +50,8 @@ ggc_app/
   :      
 ```
 
+The one way that the top-level directory differs from vanilla Flutter apps is the presence of a dozen shell scripts (the files whose names begin with "run" and have a .sh suffix). We created these scripts to simplify certain development actions. For more details, see the [Scripts documentation page](scripts.md).
+
 The lib/ directory is where most of the action is. Here's a semi-annotated perspective of some the files and directories at the top-level of the lib/ directory:
 
 ```
@@ -83,7 +85,7 @@ features/
   :
 ```
 
-Each feature can have one or more of the following subdirectories: domain/, data/, and presentation/.  The authentication feature only requires a presentation/ subdirectory, while the chapter feature requires all three.
+Each feature can have one or more of the following subdirectories: domain/, data/, and presentation/.  The authentication feature only requires a presentation/ subdirectory, while the chapter feature requires all three. For more details, see the [Features Design Pattern documentation](design/features.md).
 
 As you can see, there is a direct correspondence between the "layered" architecture diagram and the layout of files and directories. 
 
@@ -91,19 +93,17 @@ As you can see, there is a direct correspondence between the "layered" architect
 
 A final architectural perspective illustrates the way data flows between external sources (i.e. Firestore) and the app. Here is a diagram that illustrates some of the key components:
 
-<img src="/img/develop/release-1.0/ggc-dataflow-diagram.png"/>
+<img src="/img/develop/ggc-dataflow-diagram.png"/>
 
-Note that at the Firestore level, data is stored in a set of "flat" collections corresponding in many cases to "features" (i.e. Beds, Chapters, Crops, etc.). For the most part, the data model is similar to the table structure favored by SQL databases, even though Firestore is a document-oriented (NoSQL) database. 
+Note that at the Firestore level, data is stored in a set of "flat" collections corresponding in many cases to "features" (i.e. Beds, Chapters, Crops, etc.). For the most part, the data model is similar to the table structure associated with SQL databases, even though Firestore is a document-oriented (NoSQL) database. For more details, see the [Data Model documentation](data-model.md).
 
-This diagram also illustrates the way GGC addresses the issue of communication with external services, which is intrinsically asynchronous. In asynchronous communications, there will be an unpredictable delay between the "request" (i.e. to retrieve or to store data) and the "response" (i.e. the request succeeded or failed). During this time, the UI should show some sort of "loading" indicator rather than freezing, or potentially just as bad, allowing the user to interact further with the UI. Finally, if the request fails (network or service is down), the UI should indicate the failure.
+This diagram also illustrates the way GGC addresses the issue of asynchronous communication with Firebase Firestore. In asynchronous communication, there will be an unpredictable delay between the "request" (i.e. to retrieve or to store data) and the "response" (i.e. the request succeeded or failed). During this time, the UI should show some sort of "loading" indicator rather than freezing (or potentially just as bad, allowing the user to interact further with the UI). Finally, if the request fails (network or service is down), the UI should indicate the failure.
 
-Managing asynchronous communication in code is complex. In GGC, we have encapsulated the complexities of asynchronous communication into two mechanisms: the "With" widgets (for retrieval of data asynchronously), and the MutateController (for persisting data asynchronously).  What this provides is the ability to write app code with clearly defined boundaries between asynchronous and synchronous actions, which simplifies the code and reduces the chances for bugs in data storage and retrieval.
+Managing asynchronous communication is complex. In GGC, we have encapsulated the complexities of asynchronous communication into two mechanisms: the "With" widgets (for retrieval of data asynchronously), and the MutateController (for persisting data asynchronously).  What this provides is the ability to write app code with clearly defined boundaries between asynchronous and synchronous actions, which simplifies the code and reduces the chances for bugs in data storage and retrieval. 
 
-The "With" widgets (such as WithCoreData, WithObservationData, WithUserGardenData, WithAllData) are responsible for setting up Riverpod providers that watch the various Firestore collections in various ways, and the populating an instance of each of three classes (ChapterCollection, GardenCollection, and UserCollection) with the data retrieved. Each With widget is responsible for displaying a "loading" icon while it waits for the required data from Firestore to arrive (or display an error if one occurs). Once the data arrives, it invokes a callback function supplied to it, passing the populated ChapterCollection, GardenCollection, and UserCollection instances. As a bonus, if any of the Firestore collections are updated by some other client, the use of Riverpod means that the widget will be automatically rebuilt, refreshing the UI with the changed data automatically. Consult the ["With" Widgets Design Pattern](design/with-widgets.md) documentation for more details.
+For details on our approach to asynchronous data retrieval, see the [With Widgets Design Pattern documentation](design/with-widgets.md).
 
-While the With widgets address the issue of asynchronous data retrieval, we must also address the issue of asynchronous data persistence.  It's the same problem, in reverse: when the app wants to persist data back to Firestore, the storage request will take an unpredictable amount of time, we'll want the UI to display a loading indicator during that time, and if an unforeseen error occurs, we'll want to show that to the user. 
-
-GGC addresses the persistence problem with a single class called MutateController.  Whenever UI code wants to update the database, it invokes this controller which takes a large number of optional arguments to support any combination of updates to the underlying entities. Consult the [Data Mutation Design Pattern](design/data-mutation.md) documentation for more details.
+For details on our approach to asynchronous data persistence, see the [Data Mutation Design Pattern documentation](design/data-mutation.md).
 
 
 

@@ -17,7 +17,7 @@ There are three fundamental issues associated with the management of Firebase da
 
 "Consistent" means that the data does not contain missing or incorrect values. This is not guaranteed by Firestore. For example, Firestore does not guarantee that a field that is supposed to contain a string representing a cropID actually contains a string that can be used to retrieve an existing Crop entity. 
 
-Determination of database consistency (also known as "database integrity") is a quality assurance issue, which we address through the use of the [Database Integrity Check](integrity-check.md) mechanism.
+Determination of database consistency (also known as "database integrity") is a quality assurance issue, which we address through the use of the [Database Integrity Check](quality-assurance/integrity-check.md) mechanism.
 
 ## 2. How do we make the database consistent?
 

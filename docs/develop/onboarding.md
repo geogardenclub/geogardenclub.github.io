@@ -17,7 +17,9 @@ You will need access to the following:
 
 ## Proficiency in Dart and Flutter
 
-We assume that you already have basic proficiency in Dart and Flutter.  If you are not sure of your proficiency, then we recommend that you work through the [Dartapalooza](https://courses.ics.hawaii.edu/mobile-application-development/modules/dartapalooza/) and [Flutterpalooza](https://courses.ics.hawaii.edu/mobile-application-development/modules/flutterpalooza/) modules of Philip's mobile application development course. 
+We assume that you already have basic proficiency in Dart and Flutter.  If you are not sure of your proficiency, then we recommend that you work through the [Official Flutter Getting Started Documentation](https://docs.flutter.dev/get-started/install).
+
+Our approach to Flutter development is heavily influenced by Andrea Bizzotto.  See the [Code with Andrea tutorials](https://codewithandrea.com/tutorials/) for a wealth of useful free information. In addition, we have purchased his [Flutter Foundations](https://codewithandrea.com/courses/flutter-foundations/), [Flutter and Firebase Masterclass](https://codewithandrea.com/courses/flutter-firebase-masterclass/), and [Flutter in Production](https://codewithandrea.com/courses/flutter-in-production/) courses and found them to be very helpful. 
 
 ## Assignment of rights
 

@@ -163,7 +163,7 @@ This command overrides the Riverpod providers so that they load the test fixture
 
 ## Integration tests
 
-The next step is to ensure that you can run the integration tests.  Please follow the instructions on the [Testing](testing.md) page. If you cannot run the tests without encountering a test failure, please contact a developer for assistance. 
+The next step is to ensure that you can run the integration tests.  Please follow the instructions on the [Testing](quality-assurance/testing.md) page. If you cannot run the tests without encountering a test failure, please contact a developer for assistance. 
 
 
 ## Editor

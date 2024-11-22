@@ -123,10 +123,10 @@ const sidebars = {
       collapsed: true,
       label: 'Quality Assurance',
       items: [
-        'develop/coding-standards',
-        'develop/dart-analyze',
-        'develop/testing',
-        'develop/integrity-check',
+        'develop/quality-assurance/coding-standards',
+        'develop/quality-assurance/dart-analyze',
+        'develop/quality-assurance/testing',
+        'develop/quality-assurance/integrity-check',
       ],
     },
     {

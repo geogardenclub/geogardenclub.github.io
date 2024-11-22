@@ -5,19 +5,22 @@ hide_table_of_contents: false
 
 # Privacy and security
 
-:::warning rewrite
+In GGC, privacy refers to protection of user-related identity. Security refers to protection of data from unauthorized access.
 
-On the one hand, we want to preserve certain types of privacy:
+## Privacy measures
 
-* Users pick a unique "username" which is used in postings so that they do not have to reveal their true name.
-* The application does not reveal (and does not know) the precise location of gardens, only their country and postal code.
-* Users can tag an Observation as "private", and in that case it will not be visible to users outside of the garden's owner and editors.  This allows users to take photos regarding the garden for their personal data collection without feeling inhibited about it becoming "public". For example, the photo might reveal faces or locations.
+There are several forms of user-related identity that we want to protect in GGC, including each user's name, address, email, garden location, and payment information.
 
-On the other hand, we want to facilitate the creation of a community of practice. For this reason, all garden data (plantings, etc) are available, in at least a read-only format, to all members of a chapter.
+We protect the user's address and precise garden location by only requesting a postal code.
 
-A significant goal for the 1.0 release is to test the hypothesis that it is not problematic for users to share these kinds garden details with others in the chapter.
+We protect payment information by not having access to it. Instead, we use Apple's App Store and Google's Play Store for payment processing.
 
-A broader question, that we will not explore in the 1.0 release, is what kinds of data could be made available across Chapters.
-:::
+We do collect the user's email, but do not display it in the user interface. Instead, the user creates a unique "username" which is used to identify them. 
 
+## Security measures
 
+To prevent unauthorized access to the data, we have several mechanisms:
+
+1. We use [Firebase Authentication](https://firebase.google.com/docs/auth) to provide password and email based authorization and authentication. 
+2. We intend to implement [Firebase App Check](https://firebase.google.com/docs/app-check) to ensure that only GGC apps can access our Firestore services. 
+3. We also intend to implement [Cloud Firestore Security Rules](https://firebase.google.com/docs/firestore/security/get-started) so that errors in our code do not lead to inappropriate access or manipulation of database data. 

@@ -7,7 +7,13 @@ hide_table_of_contents: true
 
 Our current backup approach is to use Firefoo to create a JSON file containing all of the documents in the GGC Firestore database, compress this file, and upload it to the geogardenclub/backups repository.   The goal is to do this every week or two, so that in the event of catastrophe, we can restore the database to a state that doesn't lose too much work.
 
-Here are the steps.
+:::info Firestore now includes "Disaster Recovery"
+
+Firestore now includes mechanisms for disaster recovery, including [Scheduled Backups](https://firebase.google.com/docs/firestore/backups), [Point in time recovery](https://firebase.google.com/docs/firestore/pitr), and [Data import and export](https://firebase.google.com/docs/firestore/manage-data/export-import). 
+
+In future, we may want to migrate our backup process to these mechanisms.
+:::
+
 
 ## 1. Download and install Firefoo
 
@@ -15,17 +21,17 @@ Firefoo is located [here](https://www.firefoo.app/).
 
 Once installed, you need to load the GGC Firestore database.  When successful, the Firefoo screen should look something like this:
 
-<img src="/img/develop/release-1.0/backup-0.png"/>
+<img src="/img/develop/backup-0.png"/>
 
 ## 2. Export a JSON file containing all collections
 
 Right click on "ggc-app" in the left side-bar, and then select "Export All Collections..." 
 
-<img src="/img/develop/release-1.0/backup-1.png"/>
+<img src="/img/develop/backup-1.png"/>
 
 Select "Newline-delimited JSON" as the format, then click "Export" to export a file containing a separate line for each document in the database.
 
-<img src="/img/develop/release-1.0/backup-2.png"/>
+<img src="/img/develop/backup-2.png"/>
 
 This will create a file named something like "ggc-app-2de7b-1711139889.jsonl".
 
@@ -37,7 +43,7 @@ Next, compress the file. The compressed file will have the name "ggc-backup-YYYY
 
 Finally, upload the file to the geogardenclub "backups" repo. When done, the repo will look something like this:
 
-<img src="/img/develop/release-1.0/backup-3.png"/>
+<img src="/img/develop/backup-3.png"/>
 
 ## 4. Restoring from backup
 
