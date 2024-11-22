@@ -47,7 +47,11 @@ Monarch version 2.2.7
 ruby 3.2.2 (202
 Xcode 16.0
 ```
-Be sure to run this script locally and check it against the output from the Discord channel. If there are differences, try to update your tech stack to match the versions in the Discord channel.
+Be sure to run this script locally and check it against the output from the Discord channel. 
+
+Different components have different "tolerances" for version matching. In general, you should make sure that your version of Cocoapods, Dart, Flutter, Monarch, and XCode matches the Discord channel's latest versions exactly. 
+
+For Ruby, it appears that any 3.x version is good enough. Similarly, getting "close" with respect to MacOS version is generally close enough.
 
 Note that all GGC development is done using macOS. We do not support Windows or Unix-based development at this time.
 
