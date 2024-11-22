@@ -3,23 +3,25 @@ hide_table_of_contents: true
 # sidebar_label: "Welcome"
 ---
 
-# Managing Firebase data
+# Database management
 
-We use a Firebase database to store the data associated with GGC.  There are several important issues associated with managing Firebase data. 
+We use a Firebase database to store the entity data associated with GGC. (We use Google Cloud Storage to store the photos associated with GGC.)  
 
-1. Is the database in a "consistent" state?
-2. If the database is inconsistent, how do we update the database to get it to a consistent state?
-3. Is the database "appropriate"? Does the current database representation satisfy the needs of the customer?
+There are three fundamental issues associated with the management of Firebase data: 
+
+1. How do we determine if the database is in a "consistent" state?
+2. If the database is in an inconsistent state, how do we update the database to get it back to a consistent state?
+3. Is the database "appropriate", in that it supports storage and retrieval of information such that the needs of the customer are satisfied? 
 
 ## 1. Is the database consistent?
 
-"Consistent" means that the data does not contain missing or incorrect values.
+"Consistent" means that the data does not contain missing or incorrect values. This is not guaranteed by Firestore. For example, Firestore does not guarantee that a field that is supposed to contain a string representing a cropID actually contains a string that can be used to retrieve an existing Crop entity. 
 
-This is a "quality assurance issue", which we address through the use of the [Database Integrity Check](integrity-check.md). 
+Determination of database consistency (also known as "database integrity") is a quality assurance issue, which we address through the use of the [Database Integrity Check](integrity-check.md) mechanism.
 
-## 2. How do we make it consistent?
+## 2. How do we make the database consistent?
 
-There are basically two approaches to answering this question: either via the Firebase console or by using our Database Operation feature.
+If the database is found to be inconsistent, then we need to update it to return it to a state of consistency.  We generally pick one of two approaches: (1) the Firebase console or (2) the Database Operation feature.
 
 ### 2a. Updating Firebase: via the Console
 

@@ -7,7 +7,7 @@ hide_table_of_contents: false
 
 The GeoGardenClub app (GGC) conforms (almost all the time) to the architectural approach advocated by Andreas Bizzotto which he calls the "Riverpod Architecture".  If you are not familiar with this approach, it's worth spending a few minutes reading his article [Flutter App Architecture with Riverpod: An Introduction](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/).
 
-Another good introduction to software architecture principles as applied to Flutter development comes from the official Flutter documentation: [Architecting Flutter apps](https://docs.flutter.dev/app-architecture).  We believe that GGC's architecture conforms to all the architectural principles in this guide as well as all the recommendations with one exception: we do not "write unit tests for every service, repository and ViewModel class.". Instead, we write integration tests, because that  lowers the amount of test code by (probably) 10x. Our approach has the potential to let some bugs slip through that might be caught by a comprehensive widget test suite, but we're willing to take that trade-off at this point in the development of the business.
+Another good introduction to software architecture principles as applied to Flutter development comes from the official Flutter documentation: [Architecting Flutter apps](https://docs.flutter.dev/app-architecture).  We believe that GGC's architecture conforms to all the architectural principles in this guide as well as all the recommendations with one exception: we do not "write unit tests for every service, repository and ViewModel class.". Instead, we write integration tests, because that  lowers the amount of test code by (probably) 10x. Our approach has the potential to let some bugs slip through that might be caught by a comprehensive widget test suite. On the other hand, our integration tests do check that (almost) every screen behaves appropriately under "normal" conditions, and tests (certain) interactions between widgets, which provides reasonable protection against regression during development at a fraction of the cost of comprehensive widget tests.
 
 ## Client-server architecture perspective
 
@@ -46,10 +46,11 @@ ggc_app/
   windows/                  # (Managed by Flutter)
   analysis_options.yaml
   pubspec.yaml
-  run_build_runner.sh       # Example of a GGC script           
+  run_build_runner.sh       # Example of a GGC script     
+  :      
 ```
 
-The lib/ directory is where most of the action is. Here's a semi-annotated perspective of some the top-level of the lib/ directory:
+The lib/ directory is where most of the action is. Here's a semi-annotated perspective of some the files and directories at the top-level of the lib/ directory:
 
 ```
 lib/
@@ -59,9 +60,10 @@ lib/
   main.dart        #  Main entry point
   main_test_fixture.dart # An entry point that uses the test fixture data.
   router.dart      #  Implements routes using go_router 
+  :
 ```
 
-Finally, here's a look inside the features/ directory:
+Finally, here's a look inside some of the files and directories in the features/ directory:
 
 ```
 features/
@@ -79,10 +81,11 @@ features/
   home/
   observation/
   :
-  :
 ```
 
 Each feature can have one or more of the following subdirectories: domain/, data/, and presentation/.  The authentication feature only requires a presentation/ subdirectory, while the chapter feature requires all three.
+
+As you can see, there is a direct correspondence between the "layered" architecture diagram and the layout of files and directories. 
 
 ## Data flow perspective
 
