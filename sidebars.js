@@ -80,6 +80,11 @@ const sidebars = {
     },
     {
       type: 'link',
+      label: 'BAI 2024 Pitch (Video)',
+      href: 'https://www.youtube.com/watch?v=fo2fP-915VQ',
+    },
+    {
+      type: 'link',
       label: 'Business Documents Repo',
       href: 'https://github.com/geogardenclub/documents',
     },
