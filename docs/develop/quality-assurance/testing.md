@@ -15,12 +15,12 @@ The current goal of testing in GeoGardenClub is to minimize the risk of *catastr
 * CRUD operations on entities can be performed successfully when available. 
 * Buttons on all commonly accessed screens, when tapped, do not generate an error, and the resulting screen is checked to see that at least some of the intended results are displayed.
 
-Currently, our approach to testing excludes many important issues:
+Currently, our approach to testing does not address many important quality issues:
 
-* *Load testing.* We do not test that the system performs well under "load", where load can mean a large number of concurrent users and/or a large amount of stored data. 
-* *External service testing.* We do not test "low-level" code, specifically external services such as database, photo storage, and authentication. This is because we mock external services in our test code.
-* *Matrix (platform/device) testing.* GGC is intended to be used on three platforms: iOS, Android, and Web. Each of these platforms supports many different devices. We only test on one platform (iOS) and one device (typically iPhone 17). 
-* *UX testing.* Our tests do not ensure that user needs are met and that they have a positive experience using the app.
+* *No load testing.* We do not test that the system performs well under "load", where load can mean a large number of concurrent users and/or a large amount of stored data. 
+* *No external service testing.* We do not test "low-level" code, specifically external services such as database, photo storage, and authentication. This is because we mock external services in our test code.
+* *No matrix (platform/device) testing.* GGC is intended to be used on three platforms: iOS, Android, and Web. Each of these platforms supports many different devices. We only test on one platform (iOS) and one device (typically iPhone 17). 
+* *No UX testing.* Our tests do not ensure that user needs are met and that they have a positive experience using the app.
 
 Despite these limitations, our tests should help improve developer courage. In other words, the presence of a test suite that exercises most of the UI can give developers the confidence to attempt improvements to the code base because unintended ripple effects will often be caught by running the tests.  A decent test suite should enable us to incrementally improve the quality of the code over time as well as the feature set. 
 
