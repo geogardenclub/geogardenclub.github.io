@@ -74,14 +74,21 @@ const sidebars = {
       href: 'https://docs.google.com/presentation/d/1TKDWQI60PxRhBpMGW0tvMyXX0nmgEBz71-DmoT2LxfU/edit#slide=id.g11d82564388_0_187',
     },
     {
-      type: 'link',
-      label: 'BAI 2024 Pitch Deck',
-      href: 'https://geogardenclub.com/pdf/bai-pitch-2024.pdf',
-    },
-    {
-      type: 'link',
-      label: 'BAI 2024 Pitch (Video)',
-      href: 'https://www.youtube.com/watch?v=fo2fP-915VQ',
+      type: 'category',
+      collapsed: true,
+      label: 'BAI 2024',
+      items: [
+        {
+          type: 'link',
+          label: 'BAI 2024 Pitch Deck',
+          href: 'https://geogardenclub.com/pdf/bai-pitch-2024.pdf',
+        },
+        {
+          type: 'link',
+          label: 'BAI 2024 Pitch (Video)',
+          href: 'https://www.youtube.com/watch?v=fo2fP-915VQ',
+        },
+      ],
     },
     {
       type: 'link',
