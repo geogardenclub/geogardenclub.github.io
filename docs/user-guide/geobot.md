@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # GeoBot
 
-:::tip How to use GeoGardenClub's AI assistant.
+:::tip GeoBot is still in development.  Here is sneak peek for this upcoming feature.
 :::
 
 ## Why GeoBot?

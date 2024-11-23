@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Explore a Chapter
 
-:::tip Browse the chapter's database of crops, varieties, plantings, gardens, gardeners, and vendors.
+:::tip Browse the chapter's database of crops, varieties, plantings, gardens, and gardeners.
 :::
 
 ## Find the Chapter Index Screens
@@ -52,14 +52,6 @@ The Varieties Index Screen lists summary cards for all chapter varieties.  You c
 <img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/crops-index.png"/>
 
 The Crops Index Screen lists summary cards for all chapter crops.  You can filter by crop.  Show or hide sections to see which gardens, gardeners, observations, outcomes and varieties are associated with each crop.
-
-<div style={{clear:"both"}}></div>
-
-## Vendor Index Screen
-
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/vendors-index.png"/>
-
-The Vendors Index Screen lists summary cards for all vendors associated with chapter plantings.  You can filter by vendor.  Show or hide sections to learn more about the vendor and see which seeds are being used by chapter members.
 
 <div style={{clear:"both"}}></div>
 
