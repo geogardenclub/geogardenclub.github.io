@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # GeoBot
 
-:::tip GeoBot is still in development.  Here is sneak peek for this upcoming feature.
+:::warning GeoBot is still in development.  Here is sneak peek for this upcoming feature.
 :::
 
 ## Why GeoBot?

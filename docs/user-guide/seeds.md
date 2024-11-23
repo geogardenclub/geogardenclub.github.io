@@ -19,29 +19,23 @@ In Timeline and Filter Screens, this period of time is noted in blue.
 
 <img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/update-planting.png"/>
 
-If you are planning on collecting seeds from one of your crops, that could likely mean that the planting will need to remain in the garden for an extended period of time.  You can denote an "End Harvest Time" in the planting's details screen to indicate the period of time between harvesting and when the plant is ultimately pulled from the bed and therefore no longer requiring bed space.  
+If you are planning on collecting seeds from one of your crops, that could likely mean that the planting will need to remain in the garden for an extended period of time.  You can denote a "Last Harvest Date" in the planting's details screen to indicate the period of time between harvesting and when the plant is ultimately pulled from the bed and therefore no longer requiring bed space.  
 
 <div style={{clear:"both"}}></div>
 
 ## Offering seeds to other chapter gardeners
 
-If you have seeds that you would like to offer to other chapter gardeners, you can add them to the chapter's seed database.  To do this, tap the planting bar for the planting the seeds came from and tap the pencil icon to update the planting's details.
+:::warning Resource Sharing index is still in development!  This feature will be available soon.
+:::
 
-Then, in the planting's details, check the box in the Seeds Available field.  Hit **Submit** to save your changes.
-
-<video controls width="300">
-  <source src="/img/user-guide/seeds-available.mp4"/>
-</video>
+If you have seeds that you would like to offer to other chapter gardeners, you can add them to the chapter's **Resource Index.**  Navigate to the Sharing Index Screen and tap **+ Resource.**  Select the type of resource you are sharing, and then add the details of the resource.  You can then navigate to the chapter's chat room to let others know that you have seeds available.
 
 ## Receiving seeds from other chapter gardeners
 
-To see a list of seeds chapter gardeners are sharing, navigate to the Chapters Index page through the side navigation menu.  Expand the Seeds section and review the list of available seeds.  
+:::warning Resource Sharing index is still in development!  This feature will be available soon.
+:::
 
-<img width="300" src="/img/user-guide/chapter-seeds.png"/>
-
-Seeds are named with the convention "Crop (Variety), Garden name."  You can then navigate to that garden's chat room to inquire about the possibility of receiving seeds.
-
-<img width="600" src="/img/user-guide/seed-chip.png"/>
+To see a list of seeds chapter gardeners are sharing, navigate to the **Resource Index Screen** through the side navigation menu.  Expand the Seeds section and review the list of available seeds.  
 
 ## Seed saving resources
 
