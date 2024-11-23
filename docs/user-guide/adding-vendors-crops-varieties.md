@@ -7,7 +7,7 @@ sidebar_position: 1
 :::tip How to add crops and varieties to the database.
 :::
 
-The crops and varieties in each chapter's database are crowdsourced from the chapter's members.  This ensures that the database is exclusive to what is grown in the area.  A crop or variety can be added when making a new planting, or to add a crop or variety navigate to the appropriate index screen from the side navigation menu.
+The crops and varieties in each chapter's database are crowdsourced from the chapter's members.  This ensures that the database is exclusive to what is grown in the area.  A crop or variety can be added when making a new planting, or in the **Crops and Varieties Index Screen** located in the side navigation menu.
 
 <video controls width="300">
   <source src="/img/user-guide/add-crop.mp4"/>
