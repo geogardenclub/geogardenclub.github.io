@@ -58,7 +58,7 @@ dart pub global activate remove_from_coverage
 
 ## Run the tests
 
-To run the test suite, invoke `./run_tests.sh`. It should take around 5 minutes to run, and should produce output similar to the following:
+To run the test suite, open the iOS simulator, make sure it is visible on your desktop, and then invoke `./run_tests.sh` in a terminal window. It should take around 5 minutes to run, and should produce output similar to the following:
 
 ```
 $ ./run_tests.sh
@@ -220,14 +220,18 @@ Here are some important takeaways from this test execution output:
 * The "Rate Limiter" might be triggered. You can ignore this warning.
 * We compute coverage to provide an efficient way to find important areas of the app code that have not yet been tested, not to verify that the tests achieve 100% coverage (more on this below). We also remove several directories from the coverage report (i.e. data/, domain/, and repositories/) so that the coverage report does not report on code that is never executed due to mocking (i.e. code in the data/ and repositories/ directories) and also focuses more specifically on UI code.
 
-## Always monitor the iOS simulator!
-:::warning 
 
-While testing with the iOS simulator, the testing process will occasionally (and unpredictably) pause waiting for you to click on a button to allow pasting:
+:::warning Keep the iOS simulator open and visible!
+
+When running the tests, be sure to keep the iOS simulator visible on your desktop for two reasons. 
+
+First, we have discovered that if the iOS simulator is not visible, the tests may fail unpredictably. 
+
+Second, the testing process will occasionally (and unpredictably) pause in the iOS simulator, waiting for you to click on a button to allow pasting:
 
 <img src="/img/develop/testing/core-simulator-bridge.png"/>
 
-For this reason, it's important to always monitor the simulator at least until the tests start, because you might need to click a button to allow pasting in order to let the tests proceed. Otherwise, the test process will hang indefinitely.
+If you don't click the button to allow pasting, the test process will hang indefinitely.
 
 This is a security feature in the iOS operating system. There is apparently no way to disable it at the current time. 
 :::

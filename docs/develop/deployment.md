@@ -7,7 +7,7 @@ hide_table_of_contents: false
 
 For the GeoGardenClub project, deployment refers to the process by which a version of the GeoGardenClub app is made available on a physical device such as an Apple or Android phone or tablet.
 
-## Documenting deployment versions
+## Document deployment versions
 
 Each new deployment requires a new version number (specified in the pubspec.yml file), and we document what has changed in each new version via [CHANGELOG.md](https://github.com/geogardenclub/ggc_app/blob/main/CHANGELOG.md).  To manage version numbers and the changelog file, we use [Cider](https://pub.dev/packages/cider).
 
@@ -26,7 +26,7 @@ The following instructions document how to create beta (test) releases. We plan 
 
 The deployment process is handled by a single developer referred to as the "Deployment Manager" (DM). Initially, Philip will be the DM.
 
-## 0. Prerequisites
+### Prerequisites
 
 Prior to a deployment, it is good practice to:
 
@@ -34,7 +34,7 @@ Prior to a deployment, it is good practice to:
 * Run the integrity checker and resolve any violations.
 * Run the integration tests and make sure the main branch does not generate any errors.
 
-## 1. Update the ChangeLog
+### Update ChangeLog
 
 Invoke `cider log added <message>` to document new additions (or use `changed` or `fixed`) since the last release. Enclose the message in quotes. For example:
 
@@ -42,7 +42,7 @@ Invoke `cider log added <message>` to document new additions (or use `changed` o
 cider log added "Terms and Conditions"
 ```
 
-## 2. Build the deployment files
+### Build the deployment files
 
 Invoke `./run_deploy.sh`.  This script does the following:
 
@@ -54,7 +54,7 @@ Invoke `./run_deploy.sh`.  This script does the following:
 * Gets the release notes for the current release and copies them to the deploy directory.
 * Invokes `firebase deploy` to build and deploy the web version of the app.
 
-## 3. Deploy the iOS app
+### Deploy iOS app
 
 First, open the Transporter app and drag the ggc_app.ipa file from the Desktop folder onto the App. 
 
@@ -66,7 +66,7 @@ Once available, the "internal" testers will be automatically notified.
 
 Now submit the build for external testing. Click on "External" on the left sidebar, then click the "+" button next to the "Builds" section, and add the most recent build. It will then be submitted for review. This review appears to take 3-7 days to complete. At that point, the public URL can be distributed and anyone who already installed the app via that link should be able to update to the new build. 
 
-## 3. Deploy the Android App
+### Deploy Android App
 
 Open the [Google Play Console Internal Testing Page](https://play.google.com/console/u/0/developers/8896023390666377316/app/4974477500315919596/tracks/internal-testing) and click on "Create new release".
 
@@ -78,17 +78,22 @@ Now go to the [Prelaunch Report Overview](https://play.google.com/console/u/0/de
 
 Finally, "promote" this version to the "Closed testing" track. This triggers an internal review by Google that takes a few days, but is useful as it results in additional quality assurance testing by Google.
 
-## Adding new beta testers (iOS)
+## Add new beta testers
 
-Previously, we needed the email address they use with their Apple ID in order to add them as an internal tester in App Store Connect.
+### iOS
 
-We are now trying to use external testing so that we can simply distribute a URL to anyone who wants to test the app. 
+For iOS, we use "external" testing. This means that a new beta tester will need to download the TestFlight app, and then we can simply supply them with a URL which will enable them to install (and/or update) the GGC app from within the TestFlight app.
 
-## Adding new beta testers (Android)
+### Android
 
-Currently, we need the gmail address that the user has associated with their Android device so that we can add them as an internal tester. 
+For Android, we use the "internal testing" track in Google Play Store. This means that we must:
 
-## Testing on a physical device without deployment
+1. Obtain the gmail address of the new beta tester
+2. Go to the "Internal Testing" page, click on "Testers", and click the right arrow on the line associated with the "GGC Beta Testers" group.
+3. Enter their email address in the "Add email address" text field.
+4. Back on the Tests page, click on the "Copy link" button to obtain the URL to distribute to the new beta tester. They use this URL to download and install the GGC app on their device.
+
+## Test on physical device
 
 Sometimes it is useful to try out the app on a physical device without having to go through deployment steps. Currently only Philip can do this due to iOS signing issues. 
 

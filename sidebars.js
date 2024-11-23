@@ -110,12 +110,12 @@ const sidebars = {
     'develop/index',
     'develop/onboarding',
     'develop/installation',
-    'develop/scripts',
     'develop/architecture',
     'develop/data-model',
     'develop/database-management',
     'develop/deployment',
     'develop/backups',
+    'develop/scripts',
     'develop/privacy',
     'develop/adaptive-design',
     {

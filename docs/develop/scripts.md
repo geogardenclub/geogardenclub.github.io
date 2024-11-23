@@ -5,7 +5,7 @@ hide_table_of_contents: false
 
 # Scripts
 
-GGC development is supported by a number of Unix shell scripts. All scripts are named starting with "run" and use snake case to separate words in the script name.  
+GGC development is supported by a number of Unix shell scripts. All scripts are located in the top-level directory, are named starting with "run", and use snake case to separate words in the script name.  
 
 | Name                 | Action                                                                                                                                                                                                                                                            |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -18,5 +18,5 @@ GGC development is supported by a number of Unix shell scripts. All scripts are 
 | run_pub_add.sh       | If you are rebuilding the ggc_app with a fresh install of Flutter, this script installs all of the packages in one command. Before running it, make sure the list of packages is up to date!                                                                      |
 | run_rebuild_podfile.sh | If the build fails due to a podfile problem, this script rebuilds it appropriately.                                                                                                                                                                               |
 | run_tests.sh | Runs the entire integration test suite.                                                                                                                                                                                                                           |
-| run_tests_single.sh | Runs a single integration test. |
-| run_tool_versions.sh | Prints out the names and versions of important tech stack components. Useful when trying to diagnose why the system builds and runs for one developer but produces errors for another.                                                                            |                                                 |
+| run_tests_single.sh | Runs a single integration test.                                                                                                                                                                                                                                   |
+| run_tool_versions.sh | Prints out the names and versions of important tech stack components. Used to ensure that all developers are running the same tech stack. Also useful when trying to diagnose why the system builds and runs for one developer but produces errors for another.   |                                                 |
