@@ -13,29 +13,15 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="ios" label="iOS" default>
 
-## Enroll as a GGC Beta Tester
-
-To obtain access to the GGC App, you must be enrolled as a beta tester. To do so, please contact the GGC team for details. 
-
 ## Download through TestFlight
 
-Once you have been notified by the team that you are enrolled as a beta tester:
+Using your mobile device, use this link to access the [Geo Garden Club app on TestFlight](https://testflight.apple.com/join/wwL5P5de). Follow the instructions to download TestFlight from the App Store.  Then click the link to **View in TestFlight.**  Download the Geo Garden Club app from there.
 
-1.  Using your mobile device, open your inbox for your email account associated with your Apple ID.  Look for an email from App Store Connect inviting you to access App Store Connect (check Spam folder if you don't see it).  **Accept** the invitation.
-
-<img width="300" src="/img/user-guide/app-store-connect.png"/>
-
-2. After this invitation has been accepted, look for an email invitation from TestFlight inviting you to test GeoGardenClub (check Spam folder if you don't see it).  The subject line will read: "Philip Johnson has invited to test GeoGardenClub."  It will also include a redeem code that you'll enter once you open TestFlight.  Tap **View in TestFlight.**
-
-<img width="300" src="/img/user-guide/testflight.png"/>
-
-3. That will open TestFlight. Tap **Accept** to begin downloading the app.  Switch to your home screen to see progress on downloading the app.
-
-4. The Geo Garden Club app will soon be available on your home screen.  If you can't find it, use the App Library search function.
+The Geo Garden Club app will soon be available on your home screen.  If you can't find it, use the App Library search function.
 
 ## Update through TestFlight
 
-You will receive emails from TestFlight everytime a new version is released.  You can open Testflight through the email link to get taken directly to TestFlight to update to the latest version.
+You will receive emails from TestFlight everytime a new version is released.  You can open Testflight through the email link to get taken directly to TestFlight to update to the latest version, if it doesn't update automatically
 
 </TabItem>
 

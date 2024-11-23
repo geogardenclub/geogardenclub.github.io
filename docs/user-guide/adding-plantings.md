@@ -20,19 +20,16 @@ Next, fill out the form in the **Create Planting Screen**  Note that you don't n
 <img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/create-planting.png"/>
 
 - **Garden**: This is autopopulated for the garden you chose **Details** for.  If you want to add a planting to a different garden, you can navigate back using the arrow on the top left of the screen and choosing a different garden's **Details** page.
-- **Bed**: Choose the bed you want to add this planting to.  If you don't see the bed you want, you can add it by navigating back one screen to the **Garden Details Screen** and selecting the pencil icon at the top of the screen and adding a bed.
-- **Crop**:  Choose the crop you are planting.  If you don't see the crop you want, you can find instructions for adding crops in the [Add Vendors, Crops, and Varieties section](/user-guide/adding-vendors-crops-varieties.md).
-- **Variety**: Choose the variety you are planting.  If you don't see the variety you want, you can find instructions for adding new varieties to the chapter database in the [Add Vendors, Crops, and Varieties section](/user-guide/adding-vendors-crops-varieties.md).
+- - **Crop**:  Choose the crop you are planting.  If you don't see the crop you want, hit the **+ icon** to add a crop to the database.
+- - **Variety**: Choose the variety you are planting.  If you don't see the variety you want, hit the **+ icon** to add a variety to the database.
+- **Bed**: Choose the bed you want to add this planting to.  If you don't see the bed you want, navigate back to **Garden Details** screen by tapping **< icon** to go back.  Then add a bed using the floating **+ icon** at bottom of the screen.
 
 <div style={{clear:"both"}}></div>
-:::info There are two scenarios in which you may not know the variety of the crop you are planting.   
+:::info Unknown or "still to be determined" variety?   
 
-1.  If you are planning for the upcoming season, you may choose to leave the "varieties" field blank and it will be represented in the format Tomato(?). Once you've decided the variety, you can update the planting to include it.  
-2. If you have "mystery seeds" you may never know the variety. In that case you can use the crop name as variety name, which will be represented in the format Tomato(Tomato).  
+1.  If you leave the varieties field bank, it will automatically be labelled as "unknown."  This can be changed to specify a variety later, or left as unknown if the variety is actually unknown.  
 
-*Note that adding observations is only possible when the "variety" field is filled out.
 :::
-- **Seed Supplier** (optional):  If you want to track where you got your seeds from, you can add a seed supplier.  If you don't see the supplier you want, you can find instructions for adding suppliers in the [Add Vendors, Crops, and Varieties section](/user-guide/adding-vendors-crops-varieties.md).
 - **Start Date**:  Add the date you expect to plant your seeds.  You can update this to the actual date the seeds were planted when you complete that task.
 
 <div style={{clear:"both"}}></div>
@@ -42,10 +39,8 @@ Next, fill out the form in the **Create Planting Screen**  Note that you don't n
 - **Pull Date**:  Add the date you expect to pull your crop.  You can update this to the actual date the crop was pulled when you complete that task.
 - **Transplant Date** (optional): If you are starting your crop indoors, in a greenhouse, or using store bought starts, you can add the date you transplanted the crop into the garden here.  You can add your expected transplant date if you want a transplant task to populate in your **Tasks Screen.**  You can update this to the actual date the crop was transplanted when you complete that task.
 - **First Harvest Date** (optional): Once you have your first harvest, you can add the date here.  It is recommended to add an expected date of first harvest so that a harvest task populates in your **Tasks Screen.**  You can update the task if your estimate is off, and by completing the task you record the actual date of first harvest.
-- **End Harvest Date** (optional): If you have a crop that you expect to save seeds from and has some time between the final harvest and seed collection time, you can add the date you expect to stop harvesting here.  You can update this to the actual date the crop finished harvested when you complete that task.  Otherwise, the Pull Date is assumed to be the End Harvest Date.
-- **Used Greenhouse**:  If the seeds were started in a greenhouse **or other climate controlled scenario, like inside with grow lights,** check this box.
-- **Has Seeds**: If you saved seeds from this crop, check this box.
-- **Are Seeds Available**: If seeds are available for others in the chapter, check this box.
+- **Last Harvest Date** (optional): If you have a crop that you expect to save seeds from and has some time between the final harvest and seed collection time, you can add the date you expect to stop harvesting here.  You can update this to the actual date the crop finished harvested when you complete that task.  Otherwise, the Pull Date is assumed to be the End Harvest Date.
+- **Notes**: Add any notes you want to remember about this planting.  This could be the source of the seeds, the variety, or any other information you want to remember.
 - **Outcomes**:  Complete this section as the crop grows.  You can update this section at any time.
     - **Germination**:  How well the crop germinated.
     - **Resistance**: How well the crop resisted pests and diseases.
