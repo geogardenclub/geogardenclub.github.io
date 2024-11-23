@@ -61,8 +61,13 @@ const sidebars = {
     {
       type: 'link',
       label: 'Lean Canvas',
-      href: 'https://docs.google.com/presentation/d/1oUzy1zeraTf6PgWlk2R3Ea7Iw2Ju24Dds5mffq2o5Wg/edit#slide=id.p1',
+      href: 'https://www.canva.com/design/DAGXUaJ5nBg/gH6EnJ74rFjfqZYjJ2n50w/view?utm_content=DAGXUaJ5nBg&utm_campaign=designshare&utm_medium=link&utm_source=editor',
     },
+    {
+          type: 'link',
+          label: 'Executive Summary',
+          href: 'https://geogardenclub.com/pdf/executive-summary-2024.pdf',
+        },
     {
       type: 'link',
       label: 'Gardening vs. Farming',
