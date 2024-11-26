@@ -125,7 +125,7 @@ const sidebars = {
       items: [
         'develop/design/features',
         'develop/design/ids',
-        'develop/design/input-fields',
+        'develop/design/input-management',
         'develop/design/with-widgets',
         'develop/design/data-mutation',
         'develop/design/badges',

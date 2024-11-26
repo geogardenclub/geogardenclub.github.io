@@ -1,22 +1,25 @@
 ---
-hide_table_of_contents: true
+hide_table_of_contents: false
 # sidebar_label: "Welcome"
 ---
 
-# Input Fields 
+# Input Management 
 
 ## Motivation
 
-GGC uses the [Flutter Form Builder](https://pub.dev/packages/flutter_form_builder) package to support data collection from gardeners. Flutter Form Builder simplifies form-based data collection by reducing the code needed to: (a) build a form, (b) validate fields, (c) react to changes, and (d) collect final user input.
+Flutter comes with basic input management facilities that are referred to as "forms" and are documented in the [Flutter Forms Cookbook](https://docs.flutter.dev/cookbook/forms).
 
-While this is great, Flutter Form Builder does not, by itself, accomplish two additional important design goals for GGC: 
-* Provide specialized widgets for commonly used GGC data input fields. For example, a dropdown displaying the names of all gardens associated with this user; and 
-* Provide a single location for specifying the look-and-feel for input fields.  We want to minimize the amount of duplicated code (and hopefully eliminate look-and-feel code) when creating a form to collect data in a screen. 
+These facilities can get the job done, but the [Flutter Form Builder](https://pub.dev/packages/flutter_form_builder) package provides additional infrastructure for form processing by reducing the code needed to: (a) build a form, (b) validate fields, (c) react to changes, and (d) collect final user input.
 
-There is a third design goal as well.  GGC sometimes wants to use input fields outside the context of a "form"---i.e. a context in which data is gathered but not made available to the system until a "Submit" button is pressed. For example, the Outcome screen has input fields to select a garden, crop, and/or variety, and as these fields are manipulated by the user, the screen immediately refreshes to show Outcome data filtered by the values of the input fields. There is no "Submit" button in this screen, and so some of the Flutter Form Builder mechanisms are not used. The third design goal is:
-* Support both in-form and outside-form contexts without having to create two separate Garden dropdown widgets (for example).
+GGC builds on both the basic Flutter form processing and Flutter Form Builder with additional mechanisms to provide three additional simplifications for developers who need to build forms in GGC:
 
-To support these three design goals, GGC provides a set of custom input fields (in the `lib/features/common/input-fields directory`). We call these "GGC Input Fields" to distinguish them from "Form Builder Input Fields".
+(1) Specialized widgets for commonly used GGC data input fields. For example, a dropdown displaying the names of all gardens associated with this user. 
+
+(2) A single location for specifying the look-and-feel for input fields.  We want to minimize the amount of duplicated code (and hopefully eliminate look-and-feel code) when creating a form to collect data in a screen.
+
+(3) Support for using form fields both within a form and outside of a form without having to create two separate input field widgets.
+
+To support these capabilities, GGC provides a set of custom input fields (in the `lib/features/common/input-fields directory`). We call these "GGC Input Fields" to distinguish them from "Form Builder Input Fields".
 
 The goal of this page is to document how GGC Input Fields are created and used in order to facilitate their future evolution.
 
@@ -121,32 +124,56 @@ The above example has the required fields plus two fields to implement validatio
 
 ## GGC Input Fields
 
-The above section provides a brief introduction to generic Form Builder and Input Fields. Here is how we are building GGC-specific abstractions to address the three design requirements.
+The above section provided an introduction to generic Form Builder and Input Fields. This section shows how we are building GGC-specific abstractions to address the three design requirements.
 
-### Predefined Field Keys
+### Global Field Keys
 
-One assumption we can make in GGC is that a given GGC form (i.e. GardenDropdown, CropDropdown, TitleField, etc) appears only once in any given form. That means we can reduce the amount of code required to build a form by predefining field keys.  We do this in the FieldKey class, which contains a set of static fields that are initialized to a field key:
+One assumption we make in the GGC Input Management design pattern is that a given GGC input controller (i.e. GardenDropdown, CropDropdown, TitleField, etc) appears only once in any given form. This creates an opportunity for simplification by creating a set of "global" field keys, one per input controller. We implement global field keys via the FieldKey class, which contains a set of static fields that are initialized to a GlobalKey instance:
 
 ```dart
-/// The FieldKey associated with each GGC Input Field type.
-/// This assumes each GGC Input Field type can occur only once in a form.
 class FieldKey {
-  static GlobalKey<FormBuilderFieldState<FormBuilderField<dynamic>, dynamic>>
-      gardenDropdown = GlobalKey<FormBuilderFieldState>();
-  static GlobalKey<FormBuilderFieldState<FormBuilderField<dynamic>, dynamic>>
-      gardenTextField = GlobalKey<FormBuilderFieldState>();
+  static GlobalKey<FormBuilderFieldState<FormBuilderField<dynamic>, dynamic>> appearanceOutcome = GlobalKey<FormBuilderFieldState>();
+  static GlobalKey<FormBuilderFieldState<FormBuilderField<dynamic>, dynamic>> badgeDropdown = GlobalKey<FormBuilderFieldState>();
+   :
+   :
 }
 ```
 
-This means that when you build a form using the GGC Input Fields, you do not have to create or pass a field key to an input field, as the input field will use one of these values according to the input field type.  Then, in the submit callback, you can retrieve the input field value  this way:
+This class includes a static `clear()` method, which re-initializes the global key values associated with each of the GGC input fields:
+
+```dart
+static clear() {
+    appearanceOutcome = GlobalKey<FormBuilderFieldState>(debugLabel: 'appearanceOutcome');
+    badgeDropdown = GlobalKey<FormBuilderFieldState>(debugLabel: 'badgeDropdown');
+    :
+    :
+```
+
+Now, in any screen containing a form, you need to create an instance of a FormKey. In our design pattern, you obtain the formKey by calling ggcFormKey:
+
+```dart
+ final formKey = ggcFormKey();
+```
+
+The ggcFormKey() method not only returns a new instance of a FormKey, but it also calls the FieldKey.clear() method, thus creating new instances of all the existing FieldKeys.
+
+The use of global field keys means that when you build a form using the GGC Input Fields, you do not need to create and manage field key instances. Instead, when you want to retrieve the value associated with a particular GGC input field (such as in a submit method), you can just reference its associated global field key like this:
 
 ```dart
 String gardenID = FieldKey.gardenDropdown.currentState?.value;
 ```
 
-## GGC Input fields in forms
+:::warning Limitations of global field keys
+Global field keys simplify form creation and processing. But, they come with two important limitations:
 
-Using a GGC Input Field in a form is really easy. For example, here is how to add a required dropdown where the user must specify a Garden:
+1. You can't use global keys if you need a form containing two instances of the same field. Say you wanted a form that contains two Garden dropdowns. You can't simply include two `GardenDropdown` widgets in your form, because they would share the same global GardenDropdown field key, and thus it would not be possible to select different gardens in the two fields. If you want a form with two Garden dropdowns, you'll need to create a new GGC input controller (say, "MultiGardenDropdown") that manages the multiple instances of Garden dropdowns and their associated field keys internally. 
+
+2. You can't "push" into a new Form from a Form, and retain the original field key values.  This is because ggcFormKey() is called each time a new Form is created, and ggcFormKey() reinitializes all of the global field keys.  This is a problem for the Planting form, where we specify a Crop and Variety in the form but also want to "push" into a new Form to create either a new Crop or a new Variety. The UX downside is that after you create the new Crop or Variety and return to the original Planting form, you currently need to re-select the Crop or Variety you intend to use.
+:::
+
+### GGC Input fields in forms
+
+This design pattern makes it quite simple to include a GGC Input Field in a form. For example, here is how to add a required dropdown where the user must specify a Garden:
 
 ```dart
 GardenDropdown(gardens: widget.gardens, chapters: widget.chapters, required: true);
@@ -158,7 +185,7 @@ String gardenID = FieldKey.gardenDropdown.currentState?.value;
 String gardenName = widget.gardens.getGarden(gardenID).name;
 ```
 
-## GGC Input field outside of forms
+### GGC Input field outside of forms
 
 We can also use the GardenDropdown Input Field in a non-form context. For example, in the Outcomes screen accessible from the Drawer, there is a Garden dropdown such that the displayed outcomes update immediately each time a new garden is selected. 
 
@@ -187,5 +214,3 @@ This example illustrates how GardenDropdown achieves the three design goals:
 * It is specialized for a given GGC entity. The client just passes in the gardens and chapters collection instances and GardenDropdown does the work of extracting garden names and IDs and building the dropdown object.
 * The invocation of the GardenDropdown has no "look-and-feel" code associated with it. All of the decoration and theme data is internal.
 * The GardenDropdown can be used both within a form (where the data is extracted using a FormKey) or outside a form (where the data is extracted using an onTap callback).
-
-(More documentation to come)

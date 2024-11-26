@@ -110,7 +110,7 @@ Widget build(BuildContext context, WidgetRef ref) {
 
 The submit method has three basic parts:
 
-1. Validate the form values. If the form is invalid, don't do anything (i.e. `return`). For more details on form processing, see the [Input Fields Design Pattern documentation](input-fields.md).
+1. Validate the form values. If the form is invalid, don't do anything (i.e. `return`). For more details on form processing, see the [Input Fields Design Pattern documentation](input-management.md).
 2. If the form is valid, then retrieve its contents and create and/or modify various entities in response. Note that this can involve the creation of primary keys (i.e. IDs). For more details about IDs, see the [ID Management design pattern documentation](ids.md).
 3. Finally, invoke the `mutate` method of the MutateController, passing it the entities to be set or deleted. We pass an onSuccess callback to indicate which screen to display if the update completes successfully. 
 
