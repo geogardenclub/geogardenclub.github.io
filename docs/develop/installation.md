@@ -100,7 +100,7 @@ Got dependencies!
 
 ## Run the app
 
-### ...with the production database
+### ...with live data
 
 To check that the ggc_app runs in your development environment, the simplest thing to do is to invoke `flutter run` and select Chrome:
 
@@ -164,6 +164,68 @@ In IntelliJ, you can create a "Run Configuration" that enables you to run with t
 :::
 
 This command overrides the Riverpod providers so that they load the test fixture data in `assets/test/fixture1`.  Note that changes you make with the UI are never written to these files, so if you reload the system during development, the app state will be restored to the test fixture state. However, as long as you do not reload, changes to the data are reflected in the UI, making this a good way to test out changes to the system without fear of affecting the production database in a negative manner.
+
+### ... with a physical device
+
+Sometimes it is useful to run the app on a physical device rather than the simulator. Currently only Philip can do this due to iOS signing issues.
+
+Here is how to do it:
+
+First, delete the app from your physical device.
+
+Second, connect the physical device to a laptop.
+
+Third, run `flutter devices` to verify that the device shows up. You should see output like this:
+
+```
+ % flutter devices    
+Found 5 connected devices:
+  Philip's iPhone (mobile)        • 00008030-000364940A98802E            • ios            • iOS 17.5.1 21F90
+  iPhone 11 (mobile)              • 8E550E86-3173-4342-B197-A557B83E40A2 • ios            • com.apple.CoreSimulator.SimRuntime.iOS-17-5
+  (simulator)
+  macOS (desktop)                 • macos                                • darwin-arm64   • macOS 14.4.1 23E224 darwin-arm64
+  Mac Designed for iPad (desktop) • mac-designed-for-ipad                • darwin         • macOS 14.4.1 23E224 darwin-arm64
+  Chrome (web)                    • chrome                               • web-javascript • Google Chrome 125.0.6422.113
+```
+
+Notice that the first device is my phone connected to my laptop.
+
+Now, to run the code in release mode on this physical device, you invoke `flutter run --release` and select the physical device as shown below.  (Make sure your device is unlocked while running this command.)
+
+```
+% flutter run --release
+Connected devices:
+Philip's iPhone (mobile)        • 00008030-000364940A98802E            • ios            • iOS 17.5.1 21F90
+iPhone 11 (mobile)              • 8E550E86-3173-4342-B197-A557B83E40A2 • ios            • com.apple.CoreSimulator.SimRuntime.iOS-17-5
+(simulator)
+macOS (desktop)                 • macos                                • darwin-arm64   • macOS 14.4.1 23E224 darwin-arm64
+Mac Designed for iPad (desktop) • mac-designed-for-ipad                • darwin         • macOS 14.4.1 23E224 darwin-arm64
+Chrome (web)                    • chrome                               • web-javascript • Google Chrome 125.0.6422.113
+
+Checking for wireless devices...
+
+No wireless devices were found.
+
+[1]: Philip's iPhone (00008030-000364940A98802E)
+[2]: iPhone 11 (8E550E86-3173-4342-B197-A557B83E40A2)
+[3]: macOS (macos)
+[4]: Mac Designed for iPad (mac-designed-for-ipad)
+[5]: Chrome (chrome)
+Please choose one (or "q" to quit): 1
+Launching lib/main.dart on Philip's iPhone in release mode...
+Automatically signing iOS for device deployment using specified development team in Xcode project: 8M69898HLM
+Running Xcode build...                                                  
+ └─Compiling, linking and signing...                         8.8s
+Xcode build done.                                           67.9s
+Installing and launching...                                         7.1s
+
+Flutter run key commands.
+h List all available interactive commands.
+c Clear the screen
+q Quit (terminate the application on the device).
+
+```
+
 
 ## Integration tests
 

@@ -56,7 +56,7 @@ Third, activate the `remove_from_coverage` Dart package so that the coverage rep
 dart pub global activate remove_from_coverage
 ```
 
-## Run the tests
+## run_tests.sh
 
 To run the test suite, open the iOS simulator, make sure it is visible on your desktop, and then invoke `./run_tests.sh` in a terminal window. It should take around 5 minutes to run, and should produce output similar to the following:
 
@@ -236,7 +236,7 @@ If you don't click the button to allow pasting, the test process will hang indef
 This is a security feature in the iOS operating system. There is apparently no way to disable it at the current time. 
 :::
 
-## About app_test.dart
+## app_test.dart
 
 To further understand the test process, it's helpful to review the code that is run by the `./run_tests.sh` command:
 
@@ -443,7 +443,7 @@ Here are some important takeaways:
 * It's fine to test multiple behaviors in a single function. In this case, since we are creating an object, then manipulating it, it seems reasonable to group it all in one function.
 * The function performs a behavior (i.e. create, read, update, or delete), and then verifies that the behavior succeeded.  In the case of CRUD operations, it is helpful to run an integrity check after any mutation (create, update, delete) to ensure that the database was not corrupted and to immediately throw an error if it was corrupted by the mutation.
 
-## About run_tests_single.sh and app_test_single.dart
+## run_tests_single.sh
 
 While developing the test for a feature, it is humbug to have to run the entire test suite each time you want to run your newly developed test code. 
 

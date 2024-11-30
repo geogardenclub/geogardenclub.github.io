@@ -102,6 +102,11 @@ const sidebars = {
     },
     {
       type: 'link',
+      label: 'Consultant Agreement Template',
+      href: 'https://docs.google.com/document/d/1UIgKYQrcIaY7wj515ehPrFTm1sqXfiYSNWUZvoTEWBY/edit?tab=t.0',
+    },
+    {
+      type: 'link',
       label: 'Developer Guide',
       href: '/docs/develop/',
     },
