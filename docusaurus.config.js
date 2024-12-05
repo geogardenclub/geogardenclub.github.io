@@ -9,7 +9,7 @@ const config = {
   title: 'Geo Garden Club',
   tagline: 'Improving community food resilience, one garden at a time.',
   favicon: 'img/favicon.ico',
-  url: 'https://geogardenclub.github.io',
+  url: 'https://geogardenclub.com',
   baseUrl: '/',
   deploymentBranch: 'main',
   trailingSlash: false,

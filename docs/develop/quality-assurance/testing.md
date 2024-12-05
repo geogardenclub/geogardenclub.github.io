@@ -42,7 +42,7 @@ There are a few things you need to do to set up your machine to run the test sui
 
 Note that at the current time, we only support testing on macOS. 
 
-First, bring up the iOS simulator and verify that you can bring up GGC on it. (The test suite assumes that the iOS simulator is available and that the GGC source code can be loaded.)  
+First, bring up the iOS simulator and verify that you can login to GGC on it. (The test suite assumes that the iOS simulator is available, that the GGC source code can be loaded, and that you have logged in as some user.)  
 
 Second, install lcov on your machine by invoking:
 
@@ -58,7 +58,13 @@ dart pub global activate remove_from_coverage
 
 ## run_tests.sh
 
-To run the test suite, open the iOS simulator, make sure it is visible on your desktop, and then invoke `./run_tests.sh` in a terminal window. It should take around 5 minutes to run, and should produce output similar to the following:
+To run the test suite, open the iOS simulator, make sure it is visible on your desktop, and then invoke `./run_tests.sh` in a terminal window. 
+
+:::warning Make sure you have logged in to the simulator
+For the test suite authentication mock to work correctly, you must have previously logged in to GGC on the iOS simulator. If you have never logged in to GGC, or if you have logged out of GGC on the simulator, then the test cases will fail and the simulator will display a login screen without any fields. 
+:::
+
+The test suite takes around 5 minutes to run, and should produce output similar to the following:
 
 ```
 $ ./run_tests.sh
@@ -66,7 +72,8 @@ $ ./run_tests.sh
 00:05 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                        Ru00:28 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                         
 00:35 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                     7.0s
 Xcode build done.                                           30.1s
-00:42 +0: GGC Integration Test (All) Fixture 1 Tests                                                                       
+00:42 +0: GGC Integration Test (All) Fixture 1 Tests 
+PATROL_LOG {"timestamp":"2024-12-04T15:07:23.352524","type":"config","config":{}}          
 Testing admin feature
 Testing badge feature
 Testing bed feature
@@ -104,6 +111,20 @@ Testing task feature
 ... test Task CRUD
 Testing user feature
 ... test User Profile Update
+Warning! Replacing duplicate Field for Chapter -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Ignoring Field unregistration for Chapter -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Replacing duplicate Field for UserID -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Replacing duplicate Field for Chapter -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Replacing duplicate Field for Picture -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Replacing duplicate Field for Username -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Replacing duplicate Field for Full Name -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Replacing duplicate Field for Completed Permaculture Workshop -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Ignoring Field unregistration for Completed Permaculture Workshop -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Ignoring Field unregistration for Chapter -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Ignoring Field unregistration for UserID -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Ignoring Field unregistration for Full Name -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Ignoring Field unregistration for Username -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Ignoring Field unregistration for Picture -- this is OK to ignore as long as the field was intentionally replaced
 Testing variety feature
 ... test Variety Index Screen
 ... test Variety CRUD
@@ -116,7 +137,7 @@ Testing variety feature
 + genhtml -q coverage/lcov.info -o coverage/html
 Overall coverage rate:
   source files: 322
-  lines.......: 73.0% (6079 of 8329 lines)
+  lines.......: 70.0% (6390 of 9059 lines)
   functions...: no data found
 Message summary:
   no messages were reported
