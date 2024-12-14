@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated June 20, 2024**
+**Last updated December 14, 2024**
 
 This privacy notice for Geo Garden Club, LLC ("we," "us," or "our"), describes how and why we might collect, store, use, and/or share ("process") your information when you use our services ("Services"), such as when you:
 
@@ -41,15 +41,14 @@ Personal Information Provided by You. The personal information that we collect d
 * names
 * email addresses
 * usernames
-* passwords
-* billing addresses
-* debit/credit card numbers
+* (encrypted) passwords
+* general geographic location (postal code)
 
 Sensitive Information. We do not process sensitive information.
 
 Application Data. If you use our application(s), we also may collect the following information if you choose to provide us with access or permission:
 
-* Push Notifications. We may request to send you push notifications regarding your account or certain features of the application(s). If you wish to opt out from receiving these types of communications, you may turn them off in your device's settings.
+* None at present.
 
 This information is primarily needed to maintain the security and operation of our application(s), for troubleshooting, and for our internal analytics and reporting purposes.
 
@@ -68,7 +67,7 @@ We process your personal information for a variety of reasons, depending on how 
 
 ## 3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR INFORMATION?
 
-In Short: We only process your personal information when we believe it is necessary and we have a valid legal reason (i.e., legal basis) to do so under applicable law, like with your consent, to comply with laws, to provide you with services to enter into or fulfill our contractual obligations, to protect your rights, or to fulfill our legitimate business interests.
+In Short: We only process your personal information when we believe it is necessary, and we have a valid legal reason (i.e., legal basis) to do so under applicable law, like with your consent, to comply with laws, to provide you with services to enter into or fulfill our contractual obligations, to protect your rights, or to fulfill our legitimate business interests.
 
 If you are located in the EU or UK, this section applies to you.
 
@@ -163,39 +162,40 @@ Categories of Personal Information We Collect
 
 We have collected the following categories of personal information in the past twelve (12) months:
 
-A. Identifiers
+A. Identifiers. 
 Contact details, such as real name, alias, postal address, telephone or mobile contact number, unique personal identifier, online identifier, Internet Protocol address, email address, and account name
 
-B. Personal information as defined in the California Customer Records statute
+B. Personal information as defined in the California Customer Records statute.
 Name, contact information, education, employment, employment history, and financial information
 
-C. Protected classification characteristics under state or federal law
+C. Protected classification characteristics under state or federal law. 
 We have not collected Gender, age, date of birth, race and ethnicity, national origin, marital status, and other demographic data
 
-D. Commercial information
+D. Commercial information. 
 We have not collected Transaction information, purchase history, financial details, and payment information
-E. Biometric information
+
+E. Biometric information. 
 We have not collected Fingerprints and voiceprints
 
-F. Internet or other similar network activity
+F. Internet or other similar network activity. 
 We have not collected Browsing history, search history, online behavior, interest data, and interactions with our and other websites, applications, systems, and advertisements
 
-G. Geolocation data
-We have not collected Device location
+G. Geolocation data. 
+We have not collected Device location. 
 
-H. Audio, electronic, sensory, or similar information
+H. Audio, electronic, sensory, or similar information.
 We have collected Images and audio, video or call recordings created in connection with our business activities
 
-I. Professional or employment-related information
+I. Professional or employment-related information. 
 We have not collected Business contact details in order to provide you our Services at a business level or job title, work history, and professional qualifications if you apply for a job with us
 
-J. Education Information
+J. Education Information. 
 We have not collected Student records and directory information
 
-K. Inferences drawn from collected personal information
+K. Inferences drawn from collected personal information. 
 We have not made Inferences drawn from any of the collected personal information listed above to create a profile or summary about, for example, an individual’s preferences and characteristics
 
-L. Sensitive personal Information
+L. Sensitive personal Information. 
 We have not collected sensitive personal information.
 
 We may also collect other personal information outside of these categories through instances where you interact with us in person, online, or by phone or mail in the context of:
