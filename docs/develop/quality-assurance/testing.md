@@ -67,22 +67,23 @@ For the test suite authentication mock to work correctly, you must have previous
 The test suite takes around 5 minutes to run, and should produce output similar to the following:
 
 ```
-$ ./run_tests.sh
+./run_tests.sh
 + flutter test integration_test/app_test.dart --coverage
-00:05 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                        Ru00:28 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                         
-00:35 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                     7.0s
-Xcode build done.                                           30.1s
-00:42 +0: GGC Integration Test (All) Fixture 1 Tests 
-PATROL_LOG {"timestamp":"2024-12-04T15:07:23.352524","type":"config","config":{}}          
+00:05 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                              Ru00:34 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                               
+00:44 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                           9.8s
+Xcode build done.                                           39.3s
+00:51 +0: GGC Integration Test (All) Fixture 1 Tests                                                                             
+PATROL_LOG {"timestamp":"2024-12-17T10:26:49.557301","type":"config","config":{}}
 Testing admin feature
 Testing badge feature
+... test Badge Index Screen
 Testing bed feature
 ... test Bed CRUD
-#0   WriteRateLimiter.rateLimit (package:ggc_app/features/common/rate-limit/write_rate_limiter.dart:36:16)
-Rate limiting enabled.
-#0   WriteRateLimiter.rateLimit (package:ggc_app/features/common/rate-limit/write_rate_limiter.dart:36:16)
-Rate limiting enabled.
+<<GGC Rate Limiting Enabled>>
+<<GGC Rate Limiting Enabled>>
 Testing chapter feature
+... test Chapter Index Screen
+... test Chapter Lurk Mode
 Testing chat feature
 Testing crop feature
 ... test Crop Index Screen
@@ -98,6 +99,7 @@ Testing home feature
 Testing observation feature
 ... test Observation Feed
 ... test Observation CRUD
+... test Observation Types
 Testing outcome feature
 ... test Outcome Garden Details View
 ... test Outcome CRUD
@@ -109,6 +111,7 @@ Testing settings feature
 Testing task feature
 ... test Task View
 ... test Task CRUD
+... test Task Completion
 Testing user feature
 ... test User Profile Update
 Warning! Replacing duplicate Field for Chapter -- this is OK to ignore as long as the field was intentionally replaced
@@ -120,24 +123,28 @@ Warning! Replacing duplicate Field for Username -- this is OK to ignore as long 
 Warning! Replacing duplicate Field for Full Name -- this is OK to ignore as long as the field was intentionally replaced
 Warning! Replacing duplicate Field for Completed Permaculture Workshop -- this is OK to ignore as long as the field was intentionally replaced
 Warning! Ignoring Field unregistration for Completed Permaculture Workshop -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Ignoring Field unregistration for Chapter -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Ignoring Field unregistration for UserID -- this is OK to ignore as long as the field was intentionally replaced
 Warning! Ignoring Field unregistration for Full Name -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Ignoring Field unregistration for UserID -- this is OK to ignore as long as the field was intentionally replaced
+Warning! Ignoring Field unregistration for Chapter -- this is OK to ignore as long as the field was intentionally replaced
 Warning! Ignoring Field unregistration for Username -- this is OK to ignore as long as the field was intentionally replaced
 Warning! Ignoring Field unregistration for Picture -- this is OK to ignore as long as the field was intentionally replaced
+Testing value/unit feature
+... test Value/Unit CRUD
+<<GGC Rate Limiting Enabled>>
+<<GGC Rate Limiting Enabled>>
 Testing variety feature
 ... test Variety Index Screen
 ... test Variety CRUD
 ... test Variety Gold Varieties
-04:52 +1: All tests passed!                                                                                                
+08:48 +1: All tests passed!                                                                                                      
 + flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'repositories\/.*$'
 + flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'data\/.*$'
 + flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'domain\/.*$'
 + flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'authentication\/.*$'
 + genhtml -q coverage/lcov.info -o coverage/html
 Overall coverage rate:
-  source files: 322
-  lines.......: 70.0% (6390 of 9059 lines)
+  source files: 349
+  lines.......: 77.2% (7427 of 9624 lines)
   functions...: no data found
 Message summary:
   no messages were reported
