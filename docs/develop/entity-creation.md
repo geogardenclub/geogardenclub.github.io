@@ -111,4 +111,12 @@ In the `lib/main_test_fixture.dart` file override the `entityDatabaseProvider` a
       .overrideWith((_) => testFixture.getEntityDatabase()),
 ```
 
+In `integration_tests` update `app_test.dart` and `app_test_single.dart` to override the `entityDatabaseProvider` and `entitiesProvider` with code similar to:
+```dart
+  entityDatabaseProvider.overrideWithProvider(
+      Provider((ref) => ref.watch(entityDatabaseProvider)));
+  entitiesProvider.overrideWithProvider(
+      Provider((ref) => ref.watch(entitiesProvider)));
+```
+
 ## 7. Create the Entity UI in the `presentation` directory
