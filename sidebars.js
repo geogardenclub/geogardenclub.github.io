@@ -118,6 +118,7 @@ const sidebars = {
     'develop/architecture',
     'develop/data-model',
     'develop/database-management',
+    'develop/entity-creation',
     'develop/deployment',
     'develop/backups',
     'develop/scripts',
