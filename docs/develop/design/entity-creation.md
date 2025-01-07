@@ -78,7 +78,7 @@ Collections typically have the following methods:
 * Any other methods that are needed.
 
 ## 6. Update the `With` classes.
-Think about where this new collection fits in the [Data Model](data-model.md). In the `feature/common/with` directory update the following files:
+Think about where this new collection fits in the [Data Model](../data-model.md). In the `feature/common/with` directory update the following files:
  * `test_fixture.dart` Add the FixtureEntityDatabase and the two
    methods `getEntityDatabase` and `getEntityStream` 
  * `with_all_data.dart` 
