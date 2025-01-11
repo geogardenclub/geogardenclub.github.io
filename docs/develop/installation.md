@@ -133,7 +133,9 @@ If all goes well, you should see a window similar to the following appear:
 
 <img src="/img/develop/getting-started/installation-ggc-chrome.png"/>
 
-This means the app is up and is connected to the production Firebase database. At this point, you can login as one of the existing users to make sure communication with Firebase is working correctly. Contact Philip for credentials.
+This means the app is up and is connected to the production Firebase database. At this point, you can login as one of the existing (admin) users to make sure communication with Firebase is working correctly. You need to login as an admin user in order to avoid the Paywall workflow (on iOS).   
+
+Contact Philip or Cam for credentials of an admin user. In general, we login with the admin user geogardenclub@gmail.com if we want to inspect the live database. 
 
 ### ...with test data
 
@@ -165,6 +167,8 @@ In IntelliJ, you can create a "Run Configuration" that enables you to run with t
 
 This command overrides the Riverpod providers so that they load the test fixture data in `assets/test/fixture1`.  Note that changes you make with the UI are never written to these files, so if you reload the system during development, the app state will be restored to the test fixture state. However, as long as you do not reload, changes to the data are reflected in the UI, making this a good way to test out changes to the system without fear of affecting the production database in a negative manner.
 
+Note that when running with test data, the paywall processing is disabled and so you can login as any user. 
+
 ### ... with a physical device
 
 Sometimes it is useful to run the app on a physical device rather than the simulator. Currently only Philip can do this due to iOS signing issues.
@@ -189,6 +193,15 @@ Found 5 connected devices:
 ```
 
 Notice that the first device is my phone connected to my laptop.
+
+If you see a message like this:
+
+```
+Error: iPhone is not available because it is unpaired. Pair with the device in the Xcode Devices Window, and respond to any
+pairing prompts on the device. (code -29)
+```
+
+Then open XCode, go to Window -> Devices and Simulators, and follow the instructions to complete the pairing of your device. XCode will extract some stuff from your device, which can take a few minutes to complete. 
 
 Now, to run the code in release mode on this physical device, you invoke `flutter run --release` and select the physical device as shown below.  (Make sure your device is unlocked while running this command.)
 
