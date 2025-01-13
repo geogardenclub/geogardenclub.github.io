@@ -49,7 +49,6 @@ const sidebars = {
         'user-guide/seeds',
         'user-guide/chat-rooms',
         'user-guide/guided-tour',
-        'user-guide/terms-and-conditions',
         'user-guide/privacy',
         ]
     }],
