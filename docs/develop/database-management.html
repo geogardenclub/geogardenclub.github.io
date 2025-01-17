@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMYL9625P3"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-WMYL9625P3",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.c9d3ca1f.css">
-<script src="/assets/js/runtime~main.2cc8a812.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.c063955e.js" defer="defer"></script>
 <script src="/assets/js/main.312d5ce1.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -29,7 +29,7 @@
 <p>If the database is found to be inconsistent, then we need to update it to return it to a state of consistency.  We generally pick one of two approaches: (1) the Firebase console or (2) the Database Operation feature.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="2a-updating-firebase-via-the-console">2a. Updating Firebase: via the Console<a href="#2a-updating-firebase-via-the-console" class="hash-link" aria-label="Direct link to 2a. Updating Firebase: via the Console" title="Direct link to 2a. Updating Firebase: via the Console">​</a></h3>
 <p>If the inconsistency is minor and affects only a few documents, then a reasonable approach is to use the Firebase console:</p>
-<img src="/img/develop/firestore/firebase-console.png">
+<img src="/img/develop/firestore/firestore-console.png">
 <p>The Firebase console enables you to edit, create, or delete any document, as well as search for documents satisfying a criteria.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="2b-updating-firebase-via-database-operation">2b. Updating Firebase: via Database Operation<a href="#2b-updating-firebase-via-database-operation" class="hash-link" aria-label="Direct link to 2b. Updating Firebase: via Database Operation" title="Direct link to 2b. Updating Firebase: via Database Operation">​</a></h3>
 <p>Sometimes the inconsistency is not minor, and requires manipulation of dozens or hundreds of documents. This would be super painful to fix using the console.  For these situations, we&#x27;ve developed an Admin command called &quot;Database Operation&quot;. It allows you to programmatically inspect all documents in the database, decide what to create, modify, or delete, and then invoke the appropriate mutation.</p>
