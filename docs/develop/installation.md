@@ -34,18 +34,18 @@ In order to help developers ensure that they have the same tech stack environmen
 
 Our Discord server has a channel called `#tool-versions` where developers post the output from running this script. This helps all of us to stay on the same page, and when one person updates a component of the tech stack, they can post the new output from the script so that everyone else can update their tech stack to match the new version(s) of components.
 
-Here is an example of the output from `run_tool_versions.sh`:
+Here is an example of the output from `run_tool_versions.sh` (as of Jan 17, 2025):
 
 ```shell
-% ./run_tool_versions.sh
+./run_tool_versions.sh
 Computer Name: PMJ M2 2023
-Cocoapods 1.15.2
-Dart SDK version: 3.5.4 
-Flutter 3.24.4 
-MacOS 14.6.1
+Cocoapods 1.16.2
+Dart SDK version: 3.6.0 
+Flutter 3.27.1 
+MacOS 15.2
 Monarch version 2.2.7
 ruby 3.2.2 (202
-Xcode 16.0
+Xcode 16.2
 ```
 Be sure to run this script locally and check it against the output from the Discord channel. 
 
