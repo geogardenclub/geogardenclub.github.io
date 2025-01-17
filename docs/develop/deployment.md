@@ -19,11 +19,6 @@ We adhere to two standards:
 
 ## Deployment management
 
-:::warning Changes ahead
-
-The following instructions document how to create beta (test) releases. We plan to transition to production releases (i.e. App Store and Play Store) in January 2025.
-:::
-
 The deployment process is handled by a single developer referred to as the "Deployment Manager" (DM). Initially, Philip will be the DM.
 
 ### Prerequisites
@@ -62,9 +57,9 @@ Second, login to [App Store Connect](https://appstoreconnect.apple.com/login). C
 
 Wait for a few minutes for the uploaded version to become available for distribution via TestFlight.
 
-Once available, the "internal" testers will be automatically notified.  
+If desired, submit the build for external testing. Click on "External" on the left sidebar, then click the "+" button next to the "Builds" section, and add the most recent build. It will then be submitted for review. This review appears to take 3-7 days to complete. At that point, the public URL can be distributed and anyone who already installed the app via that link should be able to update to the new build.
 
-Now submit the build for external testing. Click on "External" on the left sidebar, then click the "+" button next to the "Builds" section, and add the most recent build. It will then be submitted for review. This review appears to take 3-7 days to complete. At that point, the public URL can be distributed and anyone who already installed the app via that link should be able to update to the new build. 
+Otherwise, submit the build for release on the App Store.
 
 ### Deploy Android App
 

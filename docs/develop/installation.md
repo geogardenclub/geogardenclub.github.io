@@ -169,9 +169,9 @@ This command overrides the Riverpod providers so that they load the test fixture
 
 Note that when running with test data, the paywall processing is disabled and so you can login as any user. 
 
-### ... with a physical device
+### ... with a connected device
 
-Sometimes it is useful to run the app on a physical device rather than the simulator. Currently only Philip can do this due to iOS signing issues.
+Sometimes it is useful to run the app on a physical device connected to your laptop rather than the simulator. Currently only Philip can do this due to iOS signing issues.
 
 Here is how to do it:
 
@@ -239,6 +239,9 @@ q Quit (terminate the application on the device).
 
 ```
 
+### ... from the App Store
+
+Of course, you can always install the latest release of GeoGardenClub from the App Store. 
 
 ## Integration tests
 
