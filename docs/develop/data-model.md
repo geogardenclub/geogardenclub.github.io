@@ -379,6 +379,10 @@ Every Crop is initially defined with a Variety named "Unknown".  The Unknown Var
 In a previous version of GGC, we provided representational mechanisms to distinguish between these two situations, but the increase in complexity did not seem to add value, so we now use this more simple representation.
 :::
 
+Here is an example of a Variety document:
+
+<img src="/img/develop/firestore/firestore-console-varieties.png"/>
+
 ### Variety entity representation
 
 ```dart
@@ -401,6 +405,10 @@ VarietyIDs have the format `variety-<country>-<chapterCode>-<varietyNum>-<millis
 A Planting represents a set of plants of the same Variety, planted in a single Bed, all with the same approximate timings (i.e. sow date, transplant date, first harvest date, etc.).   
 
 If the same Variety is planted in two different beds, then this should be represented by two Planting instances. 
+
+Here is an example of a Planting document:
+
+<img src="/img/develop/firestore/firestore-console-plantings.png"/>
 
 ### Planting entity representation
 
@@ -454,6 +462,10 @@ To support these requirements, we define five outcome types: germination, yield,
 
 In addition, an Outcome type can have a value of "0", which means there is no data regarding that type of outcome.
 
+Here is an example of an Outcome document:
+
+<img src="/img/develop/firestore/firestore-console-outcomes.png"/>
+
 ### Outcome entity representation
 
 ```dart
@@ -484,6 +496,10 @@ Each Outcome entity is associated with exactly one Planting entity.  (Note that 
 An Observation is a comment (and, typically, a picture) provided by a Gardener regarding a Garden, Bed, Crop, Variety, or Planting.
 
 The observationType field indicates the type of Observation (Garden, Bed, Crop, Variety, or Planting).  There are a number of optional fields that have values depending upon the type of Observation. So, for example, a Garden Observation will not have a bedID, cropID, varietyID, or plantingID associated with it, while a Planting Observation will have all of those entities associated with it.
+
+Here is an example of an Observation document (the tagIDs and varietyID fields are not shown):
+
+<img src="/img/develop/firestore/firestore-console-observations.png"/>
 
 ### Observation entity representation
 
@@ -547,6 +563,10 @@ The Tag entity provides "meta-data" that a gardener can use to provide informati
 
 Tags, like Badges, Families, and Chapters, are "global" entities that are not Chapter-specific. Therefore, they can only be managed by system admins.
 
+Here is an example of a Tag document:
+
+<img src="/img/develop/firestore/firestore-console-tags.png"/>
+
 ### Tag entity representation
 
 ```dart
@@ -574,8 +594,12 @@ Tasks are ephemeral.  When a Gardener indicates that a task has been completed, 
 :::info Non-ephemeral (manually generated) tasks would be cool
 Currently, all tasks are ephemeral. It would be potentially useful for a Gardener to be able to mark a manually generated Task as "non-ephemeral". This would mean that if the Gardener plans a future Garden, that task could be retrieved and associated with a new Planting. 
 
-We will leave this as a feature for a future release.
+We will leave this as a possible feature for a future release.
 :::
+
+Here is an example of a Task document:
+
+<img src="/img/develop/firestore/firestore-console-tasks.png"/>
 
 ### Task entity representation
 
@@ -627,6 +651,14 @@ GGC provides a game mechanic called "Badges". These are designations for Gardens
 
 The Badge game mechanic is implemented through two entities: "Badge" and "BadgeInstance". The Badge entity is a global entity (i.e. independent of any Chapter and defined by the system), and defines the game mechanic.  The BadgeInstance entity represents the achievement of a Badge by a Garden, Gardener, or (in future) Chapter.
 
+Here is an example of a Badge document:
+
+<img src="/img/develop/firestore/firestore-console-badges.png"/>
+
+Here is an example of a BadgeInstance document:
+
+<img src="/img/develop/firestore/firestore-console-badgeinstances.png"/>
+
 ### Badge entity representation
 
 Badges:
@@ -667,7 +699,7 @@ BadgeInstanceIDs have the format `badgeinstance-<country>-<chapterCode>-<badgein
 
 ## ChatRooms/ChatUsers
 
-We use the [Flutter Chat UI](https://pub.dev/packages/flutter_chat_ui) package to implement Chat rooms and users. This results in the addition of some collections to Firebase. Please refer to that documentation for details. 
+We use the [Flutter Chat UI](https://pub.dev/packages/flutter_chat_ui) package to implement Chat rooms and users. This results in the addition of some collections to Firebase. Please refer to the Flutter Chat UI documentation for details. (We are currently using Version 1) 
 
 
 
