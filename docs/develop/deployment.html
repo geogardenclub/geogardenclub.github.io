@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMYL9625P3"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-WMYL9625P3",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.c9d3ca1f.css">
-<script src="/assets/js/runtime~main.df781907.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.52ea789a.js" defer="defer"></script>
 <script src="/assets/js/main.312d5ce1.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -25,7 +25,6 @@
 <li>For the version number format, we adhere to <a href="https://semver.org/spec/v2.0.0.html" target="_blank" rel="noopener noreferrer">Semantic Versioning</a>. For example, for Release 1.0 (Technology Evaluation), the <em>major</em> version is &quot;1&quot;. The deploy script automatically increments the minor version and increments the build number.</li>
 </ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="deployment-management">Deployment management<a href="#deployment-management" class="hash-link" aria-label="Direct link to Deployment management" title="Direct link to Deployment management">​</a></h2>
-<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Changes ahead</div><div class="admonitionContent_BuS1"><p>The following instructions document how to create beta (test) releases. We plan to transition to production releases (i.e. App Store and Play Store) in January 2025.</p></div></div>
 <p>The deployment process is handled by a single developer referred to as the &quot;Deployment Manager&quot; (DM). Initially, Philip will be the DM.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="prerequisites">Prerequisites<a href="#prerequisites" class="hash-link" aria-label="Direct link to Prerequisites" title="Direct link to Prerequisites">​</a></h3>
 <p>Prior to a deployment, it is good practice to:</p>
@@ -52,8 +51,8 @@
 <p>First, open the Transporter app and drag the ggc_app.ipa file from the Desktop folder onto the App.</p>
 <p>Second, login to <a href="https://appstoreconnect.apple.com/login" target="_blank" rel="noopener noreferrer">App Store Connect</a>. Click on &quot;Apps&quot;, then &quot;GeoGardenClub&quot;, then &quot;TestFlight&quot;.</p>
 <p>Wait for a few minutes for the uploaded version to become available for distribution via TestFlight.</p>
-<p>Once available, the &quot;internal&quot; testers will be automatically notified.</p>
-<p>Now submit the build for external testing. Click on &quot;External&quot; on the left sidebar, then click the &quot;+&quot; button next to the &quot;Builds&quot; section, and add the most recent build. It will then be submitted for review. This review appears to take 3-7 days to complete. At that point, the public URL can be distributed and anyone who already installed the app via that link should be able to update to the new build.</p>
+<p>If desired, submit the build for external testing. Click on &quot;External&quot; on the left sidebar, then click the &quot;+&quot; button next to the &quot;Builds&quot; section, and add the most recent build. It will then be submitted for review. This review appears to take 3-7 days to complete. At that point, the public URL can be distributed and anyone who already installed the app via that link should be able to update to the new build.</p>
+<p>Otherwise, submit the build for release on the App Store.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="deploy-android-app">Deploy Android App<a href="#deploy-android-app" class="hash-link" aria-label="Direct link to Deploy Android App" title="Direct link to Deploy Android App">​</a></h3>
 <p>Open the <a href="https://play.google.com/console/u/0/developers/8896023390666377316/app/4974477500315919596/tracks/internal-testing" target="_blank" rel="noopener noreferrer">Google Play Console Internal Testing Page</a> and click on &quot;Create new release&quot;.</p>
 <p>Upload app-release.aab file from the folder containing the newly created release.</p>
