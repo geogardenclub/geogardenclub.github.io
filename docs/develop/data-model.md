@@ -194,6 +194,12 @@ GardenerIDs are the email addresses of the gardener. In the case of registered u
 
 The Garden entity represents a plot of land (or maybe even just some pots) that can hold Plantings over one or more years.
 
+Here is an example of a Garden document:
+
+<img src="/img/develop/firestore/firestore-console-gardens.png"/>
+
+
+
 ### Garden entity representation
 
 ```dart
@@ -239,7 +245,11 @@ There are some things Editors cannot do. For example, they cannot delete the gar
 
 To earn a Gardener Badge, only the data associated with Gardens that you own is used. Being an Editor on a Garden does not support Badge processing.
 
-In addition, when displaying the Crops and Varieties associated with a Gardener, only those Crops and Varieties for the Gardens that you own are displayed.  The Crops and Varieties for Gardens for which you are an Editor are not included.  
+In addition, when displaying the Crops and Varieties associated with a Gardener, only those Crops and Varieties for the Gardens that you own are displayed.  The Crops and Varieties for Gardens for which you are an Editor are not included.
+
+Here is an example of an Editor document:
+
+<img src="/img/develop/firestore/firestore-console-editors.png"/>
 
 ### Editor entity representation
 
@@ -263,6 +273,11 @@ EditorIDs have the format `editor-<country>-<postalCode>-<gardenNum>-<editorNum>
 ## Bed
 
 Each Garden consists of one or more Beds. Creating a new Garden requires that a Bed for that Garden be defined as well. An owner can edit the name of an existing Bed, and can add a new Bed to a Garden, but cannot delete a Bed if there are any Plantings associated with it. 
+
+Here is an example of a Bed document:
+
+<img src="/img/develop/firestore/firestore-console-beds.png"/>
+
 
 ### Bed entity representation
 
@@ -288,6 +303,10 @@ The Family entity specifies the botanical family associated with one or more Cro
 Family data is useful to facilitate planning issues including crop rotation and companion planting. However, in Release 1.0, we do not provide any explicit support for rotation or companion planning.
 
 The Family entity is a "global" collection in GGC. In other words, it does not include a ChapterID; every Chapter will download this collection, and it cannot be edited except by developers. 
+
+Here is an example of a Family document:
+
+<img src="/img/develop/firestore/firestore-console-families.png"/>
 
 ### Family entity representation
 
@@ -316,14 +335,17 @@ Each Crop is associated with exactly one Family entity.  A Crop can be associate
 Crop instances can currently be defined by any User. 
 
 :::warning Crops and Varieties are global
-Crops (and Varieties) are currently global entities. This has both positive and negative implications for the user experience.
+Even though there is a chapterID associated with them, this is vestigial: Crops (and Varieties) are now global entities. This has both positive and negative implications for the user experience.
 
 The positive implication is that new Chapter startup is much easier, since each Chapter has access to all the Crops and Varieties defined by all other Chapters. It also means that the overhead of Crop (and Variety) definition is distributed across all chapters. 
 
 However, the negative implication is "noise": there can be a non-trivial number of Crops and Varieties that (perhaps due to environmental reasons) might never be grown in a Chapter. This goes against the "hyper-local" philosophy of GGC.  
 
-For 2025, we are punting on this issue, since we are only supporting two Chapters that are geographically adjacent.  However, we view this as an important design issue to be resolved if GGC is successful and scales to many Chapters, some of whom are geographically distant from each other. 
 :::
+
+Here is an example of a Crop document: 
+
+<img src="/img/develop/firestore/firestore-console-crops.png"/>
 
 ### Crop entity representation
 
