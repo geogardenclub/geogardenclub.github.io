@@ -27,7 +27,7 @@ If the database is found to be inconsistent, then we need to update it to return
 
 If the inconsistency is minor and affects only a few documents, then a reasonable approach is to use the Firebase console:
 
-<img  src="/img/develop/firestore/firebase-console.png"/>
+<img  src="/img/develop/firestore/firestore-console.png"/>
 
 The Firebase console enables you to edit, create, or delete any document, as well as search for documents satisfying a criteria. 
 

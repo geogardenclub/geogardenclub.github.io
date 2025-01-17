@@ -8,11 +8,24 @@ toc_max_heading_level: 2
 
 This page explains the data model (i.e. the set of entities and their relationships) for GGC, along with a rationale for the design decisions that we've made along the way. 
 
+:::warning This page is not authoritative
+Note that our data model is continually evolving, and so this page will usually be
+only an approximation of the actual data model.
+
+Consult the source code and the Firebase console for an exact understanding
+of the current data model in use. 
+:::
+
 ## Overview
 
 In GGC, "entity" refers to the fundamental forms of persistent data objects. Examples of entities are: "Chapter", "Garden", "Gardener", "Observation", etc.  There are about 16 major entities in the system (see the right side menu for a listing).
 
 Entity instances are persisted as documents in a Firebase collection. In general, each entity has a corresponding collection: for example, all the Chapter entity documents are stored in a Firebase collection called Chapters, all the Gardener entity documents are stored in a Firebase collection called Gardeners, and so forth.  
+
+Here is a snapshot of the Firestore console showing the collections (excluding those used for authentication):
+
+<img src="/img/develop/firestore/firestore-console.png"/>
+
 
 The GGC app implements a pair of Dart "domain" classes that mirror these Firebase collections. First, for an entity named "Foo", there would be a Dart class called "Foo" that represents a single instance of a Foo. Second, there would also be a Dart class called "FooCollection", which provides access to a set of Foo instances.  Note than an instance of the FooCollection is not guaranteed to contain all the Foo instances in the Firebase Foo collection; but it should always contain all the Foo instances *needed* by the app at that particular point in time.  
 
@@ -58,55 +71,50 @@ Let's now turn to a more detailed description of the entities in the data model.
 
 ## Chapter
 
-The Chapter entity defines a geographic region based on a country (represented as a two character (alpha-2) country code), and a set of one or more postal (zip) codes.  GGC ensures that Chapter instances partition the world: every pair of (country code, postal code) is mapped to exactly one Chapter.
+The Chapter entity defines a geographic region based on a country (represented as a two character (alpha-2) country code), a region, and a set of one or more postal (zip) codes.  GGC needs to ensure that Chapter instances partition the world: every tuple of (country code, region, postal code) is mapped to exactly one Chapter.
 
-Currently, the set of Chapters in GGC are manually maintained. For 2025, we plan to support only two Chapters: Whatcom County, WA and Skagit County, WA. These will be the only choices available when a user signs up with GGC in 2025.
+The set of Chapters in GGC are manually maintained through admin commands. Here is an example Chapter document:
+
+<img src="/img/develop/firestore/firestore-console-chapters.png"/>
 
 
-:::warning What about 2026 and beyond?
-
-### ChapterID management
-A Firebase collection called ChapterZipMap will provide a default mapping of US postal (i.e. zip) codes to chapterIDs.  This mapping initially defines a one-to-one correspondence between US counties and GGC Chapters.   
-
-Outside of the US, each (country code, postal code) pair will be its own Chapter. This is not optimal but it provides a way to make GGC immediately available to users outside the US without constructing a world-wide ChapterPostalCodeMap. We can add this later without any change to the data model.
-
-Unlike most other entity IDs, the complete set of chapterIDs is defined in advance in GGC. In other words, we can compute all of the chapterIDs on earth, and they do not depend upon the number of users or their behavior. In contrast, there is no *a priori* limit to the number of (say) Planting IDs. 
-
-While chapterIDs are finite, they are not necessarily *fixed* in terms of their numbers and the geographic regions that they encompass. For US Chapters, we can change the set of chapters by changing the entries in the ChapterZipMap. For example, while our initial approach is to implement a one-to-one correspondence between US chapters and US counties, we could in future change the ChapterZipMap so that a single US county could have multiple Chapters, or multiple counties could be combined into a single Chapter, or some other approach. (Changing chapter geographic boundaries requires more than just changing the ChapterZipMap; the point here is that our representation does not lock us in to our initial definition for Chapters.) The only hard constraint is that each postal code is assigned to one and only one Chapter.
-
-ChapterIDs have the format `chapter-<country>-<chapterCode>`.  In the case of a US Chapter, an example Chapter ID is: "chapter-US-001".  In the case of a non-US Chapter, an example Chapter ID is "chapter-CA-V6K1G8".
-
-To support readability in this document, we will use US chapters and the chapterCodes will be numeric.
-
-### User registration and chapter assignment
-
-New user registration works as follows. If they supply "US" as their country code, then the system will query the ChapterZipMap collection to determine their chapterID based on the postal (zip) code that they also supply.  If no Chapter entity exists yet with that chapterID, it will be created with the chapterID provided by the ChapterZipMap collection. 
-
-If the new user supplies a non-US country code, then the ChapterZipMap is not consulted. Instead, the chapterID is defined as `chapter-<country code>-<postal code>`. If no Chapter entity exists yet corresponding to that ChapterID, then it will be created.
-
-Note that [some countries do not have a postal code](https://tosbourn.com/list-of-countries-without-a-postcode/). In this case, we will create a default postal code (i.e. "000") for those countries and not request it from the user if they select one of those countries. This implies that for those countries, there will be only one chapter for the entire country. Since most of those countries are pretty small, that seems like a reasonable design decision.
-:::
 
 
 ### ChapterID as Firebase index
 
-As will be seen, many entities contain a chapterID field.  When a client retrieves data from Firebase, it will normally request all of the documents where the chapterID field is the one associated with their chapter. This is the primary way in which GGC can scale. For this to work effectively, we must define an index on the chapterID field for all collections in which the entities have that field.
+As will be seen, many entities contain a chapterID field.  When a client retrieves data from Firebase, it should typically request the documents where the chapterID field is the one associated with their chapter. This is the primary way in which GGC can scale. For this to work effectively, we must define an index on the chapterID field for all collections in which the entities have that field.
 
 ### Chapter entity representation
 
-
 ```dart
-const factory Chapter(
-  {required String chapterID,        // 'chapter-US-001', or 'chapter-CA-V6K1G8'
-  required String name,              // 'Whatcom-WA', or 'CA-V6K1G8'
-  required String countryCode,       // 'US', 'CA'
-  required List<String> postalCodes}  // ['98225', '98226'], or ['V6K1GB']
-)
+ const factory Chapter(
+{required String chapterID, // 'chapter-US-001', or 'chapter-CA-V6K1G8'
+required String name, // 'Whatcom-WA', or 'CA-V6K1G8'
+required String countryCode, // 'US', 'CA'
+String? state,
+String? region,
+String? currency,
+List<String>? cachedGardenNames,
+List<String>? cachedCropNames,
+List<String>? cachedUsernames,
+List<String>? cachedBadgeNames,
+List<String>? cachedVarietyNames,
+String? pictureURL, // null, 'https://firebasestorage...'
+RetailValueMap?
+cachedRetailValue, // {2023: {'crop-US-001-201-9876': 1234}}
+required List<String> postalCodes} // ['98225', '98226'], or ['V6K1GB']
+) 
 ```
+Note that some of these fields are marked as optional (state, region) for backward compatibility with previous app releases, even though they are currently required. They will be migrated to required in future.
 
 ## User
 
 A User entity is created for all the people who have created an account with the system.
+
+Here is an example of a user document:
+
+<img src="/img/develop/firestore/firestore-console-users.png"/>
+
 
 ### User entity representation
 
@@ -142,13 +150,16 @@ Once the form is successfully filled out, a User and Gardener document is create
 
 Every Gardener instance has a corresponding User instance, and vice-versa.
 
-:::info What? So why have a Gardener entity in addition to a User entity?
+:::info What? Why have a Gardener entity in addition to a User entity?
 
 In the original design of GGC, we distinguished between "Users" (who are gardeners who created gardens in the Chapter) and "Gardeners" (who could be users or "vendors" who produce seeds used by Users in the Chapter, but don't necessarily have a gardener in the chapter, and who would not be a User in the sense of having downloaded the app.).
 
 We have discovered that the explicit representation of vendors and their associated seeds created too much UI complexity.  The current version of the system has eliminated the representation of vendors. However, for the time being, we are retaining the Gardener entity, even though there is now a one-to-one correspondence between Users and Gardeners and it would be possible to represent the information within a single entity.  
 :::
 
+Here is an example of a Gardener document:
+
+<img src="/img/develop/firestore/firestore-console-gardeners.png"/>
 
 
 ### Gardener entity representation
