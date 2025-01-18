@@ -1,6 +1,15 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+//
+// <a href="https://apps.apple.com/us/app/geogardenclub/id6478464910?itscg=30200&itsct=apps_box_badge&mttnsubad=6478464910"
+//    style="display: inline-block;">
+//   <img
+//       src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/white/en-us?releaseDate=1736899200"
+//       alt="Download on the App Store" style="width: 246px; height: 82px; vertical-align: middle; object-fit: contain;"/>
+// </a>
+
+
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -45,46 +54,52 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      // Replace with your project's social card
-      image: 'img/logos/png/wordmark.png',
-      navbar: {
-        title: 'Geo Garden Club',
-        logo: { alt: 'Geo Garden Club', src: 'img/logos/png/icon2.png' },
-        items: [
-          {label: 'About', to: 'docs/home/welcome'},
-          {label: 'User Guide', to: 'docs/user-guide/overview'},
-        ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            label: 'Facebook',
-            href: 'https://www.facebook.com/geogardenclub',
-          },
-          {
-            label: 'Instagram',
-            href: 'https://www.instagram.com/geogardenclub/',
-          },
-          {
-            label: 'Join the GGC mailing list',
-            href: 'https://geogardenclub.us10.list-manage.com/subscribe?u=2c9db5ab59b4602f6c71e2091&id=c75bee0e1e',
-          },
-          {
-            label: 'News Archive',
-            href: 'https://us10.campaign-archive.com/home/?u=2c9db5ab59b4602f6c71e2091&id=c75bee0e1e',
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Geo Garden Club, LLC`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-        additionalLanguages: ['dart'],
-      },
-    }),
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+      ({
+        // Replace with your project's social card
+        image: 'img/logos/png/wordmark.png',
+        navbar: {
+          title: 'Geo Garden Club',
+          logo: {alt: 'Geo Garden Club', src: 'img/logos/png/icon2.png'},
+          items: [
+            {label: 'About', to: 'docs/home/welcome'},
+            {label: 'User Guide', to: 'docs/user-guide/overview'},
+            {
+              href: "https://apps.apple.com/us/app/geogardenclub/id6478464910?itscg=30200&itsct=apps_box_badge&mttnsubad=6478464910",
+              position: "left",
+              className: "header-apple-link",
+              "aria-label": "App Store link",
+            },
+          ],
+        },
+        footer: {
+          style: 'dark',
+          links: [
+            {
+              label: 'Facebook',
+              href: 'https://www.facebook.com/geogardenclub',
+            },
+            {
+              label: 'Instagram',
+              href: 'https://www.instagram.com/geogardenclub/',
+            },
+            {
+              label: 'Join the GGC mailing list',
+              href: 'https://geogardenclub.us10.list-manage.com/subscribe?u=2c9db5ab59b4602f6c71e2091&id=c75bee0e1e',
+            },
+            {
+              label: 'News Archive',
+              href: 'https://us10.campaign-archive.com/home/?u=2c9db5ab59b4602f6c71e2091&id=c75bee0e1e',
+            },
+          ],
+          copyright: `Copyright © ${new Date().getFullYear()} Geo Garden Club, LLC`,
+        },
+        prism: {
+          theme: lightCodeTheme,
+          darkTheme: darkCodeTheme,
+          additionalLanguages: ['dart'],
+        },
+      }),
 };
 
 module.exports = config;
