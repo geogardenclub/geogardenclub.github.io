@@ -67,11 +67,39 @@ First, open the Transporter app and drag the ggc_app.ipa file from the Desktop f
 
 Second, login to [App Store Connect](https://appstoreconnect.apple.com/login). Click on "Apps", then "GeoGardenClub", then "TestFlight".
 
-Wait for a few minutes for the uploaded version to become available for distribution via TestFlight.
+Wait for a few minutes for the uploaded version to become available for distribution.
 
-If desired, submit the build for external testing. Click on "External" on the left sidebar, then click the "+" button next to the "Builds" section, and add the most recent build. It will then be submitted for review. This review appears to take 3-7 days to complete. At that point, the public URL can be distributed and anyone who already installed the app via that link should be able to update to the new build.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Otherwise, submit the build for release on the App Store.
+<Tabs>
+
+<TabItem value="app-store" label="Release to iOS App Store" default>
+
+To submit for review and release to App Store:
+
+* Update the App Review Guidelines google doc and save as PDF.
+* On the Distribution page, click the "+" next to "iOS App" in the left sidebar to create a new version.
+* Enter the new version number.
+* Add the recently uploaded build.
+* Add the App Review Guidelines PDF document.
+* Add text to the "What's New in This Version" field.
+* Click "Save", then "Add for Review", then "Submit to App Review".
+
+</TabItem>
+
+<TabItem value="testing" label="Release for iOS testing">
+
+To submit the build for external testing: 
+
+Click on "External" on the left sidebar, then click the "+" button next to the "Builds" section, and add the most recent build. It will then be submitted for review. This review appears to take 1-7 days to complete. 
+
+Once review completes successfully, the public URL can be distributed and anyone who already installed the app via that link should be able to update to the new build.
+
+</TabItem>
+
+
+</Tabs>
 
 ### Deploy Android App
 
@@ -85,18 +113,28 @@ Now go to the [Prelaunch Report Overview](https://play.google.com/console/u/0/de
 
 Finally, "promote" this version to the "Closed testing" track. This triggers an internal review by Google that takes a few days, but is useful as it results in additional quality assurance testing by Google.
 
-## Add new beta testers
+## How to add beta testers
 
-### iOS
+<Tabs>
 
-For iOS, we use "external" testing. This means that a new beta tester will need to download the TestFlight app, and then we can simply supply them with a URL which will enable them to install (and/or update) the GGC app from within the TestFlight app.
+<TabItem value="ios-testers" label="iOS" default>
 
-### Android
+For iOS, we use "external" testing:
 
-For Android, we use the "internal testing" track in Google Play Store. This means that we must:
+1. The new tester must download the TestFlight app.
+2. We supply them with external beta tester URL which will enable them to install (and/or update) the GGC app from within the TestFlight app.
+
+</TabItem>
+
+<TabItem value="android-testers" label="Android">
+
+For Android, we use the "internal testing" track in Google Play Store:
 
 1. Obtain the gmail address of the new beta tester
 2. Go to the "Internal Testing" page, click on "Testers", and click the right arrow on the line associated with the "GGC Beta Testers" group.
 3. Enter their email address in the "Add email address" text field.
 4. Back on the Tests page, click on the "Copy link" button to obtain the URL to distribute to the new beta tester. They use this URL to download and install the GGC app on their device.
+
+</TabItem>
+</Tabs>
 
