@@ -49,6 +49,18 @@ Invoke `./run_deploy.sh`.  This script does the following:
 * Gets the release notes for the current release and copies them to the deploy directory.
 * Invokes `firebase deploy` to build and deploy the web version of the app.
 
+:::info Don't panic if XCode fails
+I recently encountered the following error message when attempting to build the ggc_app.ipa file:
+
+```
+Error (Xcode): No signing certificate "iOS Development" found: 
+No "iOS Development" signing certificate matching team ID
+"8M69898HLM" with a private key was found.
+```
+
+The fix was to open XCode, go to the Signing and Capabilities page, and login again. 
+:::
+
 ### Deploy iOS app
 
 First, open the Transporter app and drag the ggc_app.ipa file from the Desktop folder onto the App. 
