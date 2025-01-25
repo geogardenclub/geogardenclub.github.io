@@ -4,7 +4,7 @@ hide_table_of_contents: true
 
 # Downloading
 
-:::tip How to download the app as a beta tester.
+:::tip How to download the app.
 :::
 
 import Tabs from '@theme/Tabs';
@@ -13,15 +13,11 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="ios" label="iOS" default>
 
-## Download through TestFlight
+## Download through the App Store
 
-Using your mobile device, use this link to access the [Geo Garden Club app on TestFlight](https://testflight.apple.com/join/wwL5P5de). Follow the instructions to download TestFlight from the App Store.  Then click the link to **View in TestFlight.**  Download the Geo Garden Club app from there.
+Using your mobile device, use this link to access the [Geo Garden Club app in the App Store](https://apps.apple.com/us/app/geogardenclub/id6478464910). Follow the instructions to download.
 
 The Geo Garden Club app will soon be available on your home screen.  If you can't find it, use the App Library search function.
-
-## Update through TestFlight
-
-You will receive emails from TestFlight everytime a new version is released.  You can open Testflight through the email link to get taken directly to TestFlight to update to the latest version, if it doesn't update automatically
 
 </TabItem>
 
@@ -29,7 +25,7 @@ You will receive emails from TestFlight everytime a new version is released.  Yo
 
 ## Enroll as a GGC Beta Tester
 
-To obtain access to the GGC App, you must be enrolled as a beta tester. To do so, please contact the GGC team for details.
+Geo Garden Club is currently in beta test for Android.  Android users, please contact the GGC team to get enrolled in the beta test program. info@geogardenclub.com
 
 ## Download through Google Play Store
 
