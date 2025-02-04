@@ -13,10 +13,9 @@ What should an app provide if it is intended to support the needs of "serious" g
 1. Garden data is aggregated within local geographic regions called "Chapters". 
 2. Access control enables collaborative garden planning and management. 
 3. Multi-year garden timelines facilitate experience-based improvement.
-4. Chapter timelines facilitate discovery of local "best practices".
-5. Observations complement timeline data with visual data.
-6. Outcome data supports improvement within a single garden and across the chapter.
-7. Support for seed saving and seed sharing.
+4. Observations complement timeline data with visual data.
+5. Outcome data supports improvement within a single garden and across the chapter.
+6. Support for sharing seeds, plants, harvests, and more.
 
 
 
@@ -114,44 +113,12 @@ The adjacent screenshot provides an example for all the tomato plant varieties. 
 
 <div style={{clear:"both"}}></div>
 
-## Support for seed saving and sharing
+## Support for sharing seeds, plants, harvests, and more
 
-We believe that an important step toward food resiliency is to develop local networks for seed production and sharing.
+We believe that an important step toward community food resiliency is to develop robust local networks for sharing "inputs", such as seeds, all the way to "outputs", such as excess food. 
 
-<img style={{float: "left", padding: "20px"}} width="300"  src="/img/innovations/seed-saving.png"/>
+An upcoming release of the GeoGardenClub app will provide a "share" screen that allows gardeners within a chapter to both offer garden materials to others (at no charge), or post requests for materials that they need. 
 
-To that end, GGC enables gardeners to indicate whether they are saving seeds from a particular planting, and if so, whether they have enough seeds that they are willing to share them with the local chapter. 
-
-The garden summary card at left indicates that this gardener has saved seeds from Dragon Langerie beans and Pokey Joe cilantro, and they have enough seeds to share some with other Chapter members.
-
-<div style={{clear:"both"}}></div>
-
-Seed saving and sharing has another implication: when growing a plant for seeds, you will sometimes need to leave it in the garden after there is nothing more to harvest.  So, in GGC, there is the ability to indicate and "End Harvest" date as well as an "End" (i.e. Pull) date. 
-
-We can see this in the timeline view for these bean plantings:
-
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/innovations/seed-saving-2.png"/>
-
-The timeline bar is green from mid-July to mid-August, indicating that this gardener was actively harvesting beans for that entire period. But from mid-August to miud-September, the timeline bar switches to blue, indicating that there is no longer any harvest but the plant is still growing (in this case, to produce seed). Reference to the planting card reveals that the harvest ended on 8/15/23 and the beans was pulled on 9/17/23.
-
-Another example of seed saving is the cilantro planting.  The gardener harvested cilantro from mid-May to mid-July, then let the plant go to seed.  The plant was pulled on 8/15/23.
-
-GGC can thus provide a new insight to gardeners: how long does it take not just to grow a seed to first harvest (which is typically provided on the seed packet) but also how long that plant yields harvest and, significantly, *how long is required to yield seeds*?
-
-<div style={{clear:"both"}}></div>
-
-## Chapter timelines facilitate fine tuning of plans.
-
-:::warning Still in development
-Below represents a mockup of the Chapter Timelines feature.  This feature is still in development and is not yet available in the application.
-:::
-
-<img style={{borderStyle: "solid"}} src="/img/innovations/chapter-timelines.png"/>
-
-One way to improve garden productivity is by learning best practices in your local geographic region for the timing of planting.  GGC Chapter Timelines provide a simple way to view timing data for your own garden, then compare it to timing data across the entire chapter.
-
-While this feature is still in development, we can see in the example image above that this gardener has planted broccoli only during Week 16 (i.e. between April 15-21) and the latest they left their broccoli was Week 29 (July 22-30).  The Chapter Timeline shows that there are gardeners in the Chapter who have planted broccoli as early as Week 7 and left the broccoli in the ground until the end of the year.
-
-This chart by itself is not enough information for the gardener to decide what to do, but it is enough information to start a conversation within the Chapter about the timing of broccoli if the gardener wants to change their practices. 
+More details coming shortly!
 
 In the next section, we describe some other gardening technologies and how they relate to GeoGardenClub.

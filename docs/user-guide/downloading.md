@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 Using your mobile device, use this link to access the [Geo Garden Club app in the App Store](https://apps.apple.com/us/app/geogardenclub/id6478464910). Follow the instructions to download.
 
-The Geo Garden Club app will soon be available on your home screen.  If you can't find it, use the App Library search function.
+After a successful download, the Geo Garden Club app will be available on your home screen.  If you can't find it, use the App Library search function.
 
 </TabItem>
 
@@ -25,7 +25,9 @@ The Geo Garden Club app will soon be available on your home screen.  If you can'
 
 ## Enroll as a GGC Beta Tester
 
-Geo Garden Club is currently in beta test for Android.  Android users, please contact the GGC team to get enrolled in the beta test program. info@geogardenclub.com
+Geo Garden Club is currently in beta test for Android.  Android users, please contact the GGC team to get enrolled in the beta test program. info@geogardenclub.com.
+
+You will need to have connected your Android phone to a GMail account, and provide that GMail address to the GGC team.  This is because the beta test program using the Google Play Store which requires the phone to be connected to a GMail account.
 
 ## Download through Google Play Store
 
