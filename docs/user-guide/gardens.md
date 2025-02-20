@@ -102,7 +102,62 @@ Tap "Delete" to delete the garden, or "Cancel" if you change your mind.
 
 The Garden Details screen is where most of the heavy lifting for garden management occurs.  To get to the Garden Details screen for a garden, first go to the Gardens view of your Home screen, which in the case of an active GGC member might look like this:
 
+<img width="300" src="/img/user-guide/garden-view-alderwood.png"/>
+
+Tap the "Details" button to go the Timeline View of the Garden Details screen.
+
+### Timeline view
+
+The Timeline view of the Garden Details screen looks something like this:
+
 <img width="300" src="/img/user-guide/garden-details-alderwood.png"/>
+
+The Timeline view provides several features:
+
+**Time Interval:**  Use the Time Interval dropdown to adjust the interval of time shown in the screen, from one month to one year. Use the forward and back arrows to slide back and forth in time.
+
+**Planting details:** Tap on a Planting to go to its Planting Details Screen. For more details, see the Planting documentation.
+
+**Update bed:** Click on a Bed chip to go to its Update Bed screen. For more details, see the Bed documentation.
+
+**Add Bed, Add Planting:** Click on the "+" button to display buttons to enable you to add a new Bed or a new Planting.  For more details, see the [Bed documentation](beds.md) or [Planting documentation](plantings.md).
+
+### Filter view
+
+Click on the "Filter" icon in the bottom navigation bar of the Garden Details screen to display the Filter view. 
+
+The Filter view allows you to see how aspects of your Garden have changed over time. For example, the following screen shows what plantings have been in Bed 01 over the three years. This type of information is helpful for implementing crop rotation strategies, for example.
+
+<img width="300" src="/img/user-guide/garden-details-filter-view.png"/>
+
+**Filter by:** Use the "Filter By" dropdown to select whether you want to filter by Bed, Crop, Family, or Variety.
+
+### Outcomes view
+
+Click on the "Outcomes" icon in the bottom navigation bar of the Garden Details screen to display the Outcomes view.
+
+The Outcomes view allows you to explore the Outcome data you have recorded for this garden. For example:
+
+<img width="300" src="/img/user-guide/garden-details-outcomes-view.png"/>
+
+**Crop:** Select outcomes for a specific crop.
+
+**Variety:** Select outcomes for a specific variety associated with the selected crop.
+
+For more information on outcomes, see the [Outcomes documentation](outcomes.md).
+
+### Task view
+
+Click on the "Tasks" icon in the bottom navigation bar of the Garden Details screen to display the Tasks view.
+
+Tasks are automatically created when you define timings for a planting, such as its start date, transplant date, pull date, and so forth. For example:
+
+<img width="300" src="/img/user-guide/garden-details-tasks-view.png"/>
+
+For more information on Tasks, see the [Tasks documentation](tasks.md).
+
+
+
 
 
 
