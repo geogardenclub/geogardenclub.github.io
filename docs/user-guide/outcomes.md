@@ -23,19 +23,19 @@ Plantings can be rated on a five point scale: 1 is the worst, and five is the be
 
 ## Where to find Outcomes
 
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/crops-outcomes.png"/>
+<img width="300" src="/img/user-guide/crops-outcomes.png"/>
 
 Outcomes are embedded into **Garden Details,** and the index screens for **Gardens, Crops, Varieties Index Screens.**  Find these index screens by opening the side navigation menu.
 
 Let's look at outcomes by crop.  Tap **Crops** in the side navigation menu to open the **Crops Index Screen.**  In the Show/Hide Sections box, check Outcomes to have all of the outcomes displayed for each crop, or scroll to the crop and unhide the outcomes section.
 
-<div style={{clear:"both"}}></div>
 
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/garden-outcomes.png"/>
+
+<img width="300" src="/img/user-guide/garden-outcomes.png"/>
 
 You can find Outcomes specific to your gardens by navigating to the **Garden Details Screen** and selecting **Outcomes** from the bottom navigation menu.
 
-<div style={{clear:"both"}}></div>
+
 
 ## How to use Outcomes
 

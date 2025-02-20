@@ -38,13 +38,13 @@ _Chapter timeline data coming soon!_
 
 ## When I grew beets two years ago, how did that work out?
 
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/crops-outcomes.png"/>
+<img width="300" src="/img/user-guide/crops-outcomes.png"/>
 
 You can see the outcomes related to a specific planting by navigating to the **Garden Details Screen** and then selecting **Timeline** from the bottom navigation menu.  From there, scroll to the year you are looking for information for, and tap the relevant planting bar.  It will display the timing and outcomes data for that specific planting.
 
 Or, you can see the outcomes related to a specific planting by navigating to the **Garden Details Screen** and then selecting **Filter** from the bottom navigation menu.  Select **Filter By Crop** and select **Beets** to see all of your beet plantings listed by year.  Tap the appropriate planting bar to see timing specifics and outcomes, as well as any observations.
 
-<div style={{clear:"both"}}></div>
+
 
 ## I had a great crop of beets last year, how can I replicate that success?
 
@@ -74,11 +74,11 @@ A great garden planning feature is the ability to copy a planting from one year 
 
 ## I like to rotate my crops.  What did I grow in a specific garden bed over the last three years?
 
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/filter-screen.png"/>
+<img width="300" src="/img/user-guide/filter-screen.png"/>
 
 You can see the history of what was grown in a garden bed by first navigating to that garden's **Garden Details Screen.**  Then, select **Filter** from the bottom navigation menu and at select **Filter by Bed.**  Select the bed you are interested in to see the crops that have been grown in that bed for all seasons of data you have entered into the app.
 
-<div style={{clear:"both"}}></div>
+
 
 ## What if I know the crop but not the variety for seeds I'm planting?
 

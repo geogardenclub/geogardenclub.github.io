@@ -38,6 +38,7 @@ const sidebars = {
         'user-guide/user-profile',
         'user-guide/subscription',
         'user-guide/gardens',
+        'user-guide/beds',
         'user-guide/plantings',
         'user-guide/tasks',
         'user-guide/observations',

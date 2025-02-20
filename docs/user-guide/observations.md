@@ -37,9 +37,9 @@ Add an observation of a Garden, Bed, Crop, or Variety directly from the **Observ
 
 Add an observation of a Planting by navigating to the related Planting Details Screen.  Tap the **+ icon** at the bottom to expand to reveal a **+ Observation** button.
 
-<div style={{clear:"both"}}></div>
 
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/create-observation.png"/>
+
+<img width="300" src="/img/user-guide/create-observation.png"/>
 
 - **Observation Type:** Select the observation type.  If the observation is for a Planting, navigate to the planting details card to create an observation (instructions above).
 - **Garden:** Select the garden the observation is for.
@@ -51,7 +51,7 @@ Add an observation of a Planting by navigating to the related Planting Details S
 
 Tap **Submit** to add the observation to the planting or **Cancel** to return to the **Planting Details Screen.**
 
-<div style={{clear:"both"}}></div>
+
 
 ## Editing an Observation
 
@@ -67,13 +67,13 @@ Edit the title, description, tags, observation date, or privacy settings and the
 
 ## Deleting an Observation
 
-<div style={{clear:"both"}}></div>
 
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/delete-observation.png"/>
+
+<img width="300" src="/img/user-guide/delete-observation.png"/>
 
 If you'd like to delete an observation that has already been created, tap the three dots on the upper right of the **Observation Card** and select **Delete Observation.**
 
 A confirmation box will appear.  Tap **Delete** to delete the observation or **Cancel** to return to the **Planting Details Screen.**
 
-<div style={{clear:"both"}}></div>
+
 

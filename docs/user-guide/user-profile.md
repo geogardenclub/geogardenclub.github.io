@@ -4,10 +4,10 @@ sidebar_position: 1
 
 # User Profile
 
-:::tip How to specify your chapter, username, and other information. 
+:::tip How (and why!) to specify your chapter, username, and other information. 
 :::
 
-The User Profile screen allows you to provide important information regarding your membership in GeoGardenClub.
+The User Profile screen allows you to provide important information regarding your membership in GeoGardenClub. It is where you indicate your geographic region, which enables us to group you with your neighbors and thus provide relevant gardening information and insights. 
 
 ## Create User Profile
 
@@ -45,6 +45,8 @@ After your profile has been created, you can make changes to certain parts of it
 <img width="300" src="/img/user-guide/update-user-profile.png"/>
 
 You cannot change your userID or your Chapter. (If you want to be moved to a different Chapter, please email info@geogardenclub.com.)
+
+Fill out the form as follows:
 
 **Picture:** You can (optionally) define a profile picture by clicking on the Camera icon.  You can select a picture from your photos collection. Upon submission of this form, you will be prompted to crop it to a square image.
 

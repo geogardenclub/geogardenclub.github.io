@@ -18,27 +18,27 @@ Planting with a transplant date will assume the time prior the plant was kept "i
 
 ### Plantings that are grown in a climate controlled environment for their entire lifecycle
 
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/greenhouse-bed.png"/>
+<img width="300" src="/img/user-guide/greenhouse-bed.png"/>
 
 One option is to designate a garden bed for these plantings.  In this example, the gardener calls this bed "GH."
 
-<div style={{clear:"both"}}></div>
 
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/greenhouse-garden.png"/>
+
+<img width="300" src="/img/user-guide/greenhouse-garden.png"/>
 
 Another option is to create a separate garden for these plantings.  In the example below, the gardener designated a "Greenhouse" garden.
 
-<div style={{clear:"both"}}></div>
+
 
 ## Adding perennials as a planting
 
-<img style={{float: "left", padding: "20px"}} width="300" src="/img/user-guide/raspberry-filter.png"/>
+<img width="300" src="/img/user-guide/raspberry-filter.png"/>
 
 Perennials can be added as plantings to track harvest periods.  To add a perennial plant as a Planting, add a new planting for the perennial with the Start Date equal to the First Harvest Date and the Pull Date equal to the End Harvest Date.
 
 Filtering by that perennial crop lets you see how harvest periods compared year to year.
 
-<div style={{clear:"both"}}></div>
+
 
 ## Adding transplants to your garden that you didn't grow yourself
 
