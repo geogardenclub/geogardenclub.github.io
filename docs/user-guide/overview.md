@@ -7,5 +7,10 @@ sidebar_position: 1
 Welcome to the User Guide for the GeoGardenClub app. 
 
 :::info
-The GGC app is currently in closed beta test. If you are a gardener in the Bellingham, Washington area, and are interested in participating in our beta test program, please contact geogardenclub@gmail.com.
+The GGC app is currently available on both iOS and Android platforms. 
+
+iOS users can download the app from the [App Store](https://apps.apple.com/us/app/geogardenclub/id6478464910).
+
+Android users can download the app by joining our Android beta test program. Please
+contact info@geogardenclub.com for details on how to join it.
 :::
