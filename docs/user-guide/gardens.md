@@ -4,7 +4,7 @@ hide_table_of_contents: false
 
 # Gardens
 
-:::tip How (and why!) to define a garden
+:::tip How (and why!) to define gardens.
 :::
 
 You can define any number of gardens as a member of GeoGardenClub. Many members will define just one garden.  But you could also define more than one, say a "front yard garden" and a "back yard garden", or maybe a "herb garden" and a "produce garden".

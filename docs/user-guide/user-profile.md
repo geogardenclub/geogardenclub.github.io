@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # User Profile
 
-:::tip How (and why!) to specify your chapter, username, and other information. 
+:::tip How (and why!) to fill out your user profile.
 :::
 
 The User Profile screen allows you to provide important information regarding your membership in GeoGardenClub. It is where you indicate your geographic region, which enables us to group you with your neighbors and thus provide relevant gardening information and insights. 
@@ -14,6 +14,8 @@ The User Profile screen allows you to provide important information regarding yo
 When you first sign in to GeoGardenClub, you will be taken to the Create User Profile screen where you can provide required information:
 
 <img width="300" src="/img/user-guide/create-user-profile.png"/>
+
+Fill out the form as follows:
 
 **UserID:** This is a read-only field that displays the email address you used when you registered in the previous screen.
 

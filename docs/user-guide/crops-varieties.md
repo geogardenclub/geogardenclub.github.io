@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Add Crops and Varieties to the Chapter Database
+# Crops and Varieties
 
 :::tip How to add crops and varieties to the database.
 :::

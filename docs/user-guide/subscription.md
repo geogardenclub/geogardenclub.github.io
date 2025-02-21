@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Subscription
 
-:::tip How (and why!) to become a member of GeoGardenClub.
+:::tip How (and why!) to subscribe to GeoGardenClub.
 :::
 
 Before you can start to use the services provided by GeoGardenClub, you must subscribe.  The first time you sign in to GeoGardenClub, after completing your profile, you will be taken to a screen similar to the following in order to accept the terms of a subscription: 

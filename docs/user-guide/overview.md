@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Welcome to the User Guide for the GeoGardenClub app. 
 
-:::info
+:::info Where can I get the app?
 The GGC app is currently available on both iOS and Android platforms. 
 
 iOS users can download the app from the [App Store](https://apps.apple.com/us/app/geogardenclub/id6478464910).
