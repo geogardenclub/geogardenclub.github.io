@@ -143,6 +143,7 @@ const sidebars = {
         'develop/quality-assurance/coding-standards',
         'develop/quality-assurance/dart-analyze',
         'develop/quality-assurance/testing',
+        'develop/quality-assurance/firebase-local-emulation',
         'develop/quality-assurance/integrity-check',
       ],
     },
