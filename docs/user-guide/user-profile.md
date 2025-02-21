@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # User Profile
 
-:::tip How (and why!) to fill out your user profile.
+:::tip How (and why) to fill out your user profile.
 :::
 
 The User Profile screen allows you to provide important information regarding your membership in GeoGardenClub. It is where you indicate your geographic region, which enables us to group you with your neighbors and thus provide relevant gardening information and insights. 

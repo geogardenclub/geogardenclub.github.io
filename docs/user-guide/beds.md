@@ -4,7 +4,7 @@ hide_table_of_contents: false
 
 # Beds
 
-:::tip How (and why!) to define beds. 
+:::tip How (and why) to define beds. 
 :::
 
 For some gardens, it makes sense to have only a single bed. For example, a garden that consists of a single 4x8 raised bed can be represented just fine by a Garden with a single Bed. 

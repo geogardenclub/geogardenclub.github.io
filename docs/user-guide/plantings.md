@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Plantings
 
-:::tip How (and why!) to define plantings.
+:::tip How (and why) to define plantings.
 :::
 
 In GeoGardenClub, a "Planting" defines one or more plants of the same Crop and Variety that are growing in a single Bed and have (approximately) the same timing data (i.e. start date, transplant date, pull date, etc.). So, for example, if you have a Bed containing six Big Boy tomato plants, all planted on the same date, you would represent them in GGC as a single Planting. 
@@ -54,11 +54,17 @@ Specify the same date for Start Date and Transplant Date if you are planting sta
 
 **Pull Date**:  Add the date you expect to pull your Planting from the ground.  You can update this to the actual date the Planting was pulled when you complete that task. A Pull Date is required so that the Planting can be shown in the Timeline View.
 
+
+
 **Transplant Date** (optional): If you are starting your Planting indoors, in a greenhouse, or using store bought starts, you can add the date you transplanted the Planting into your Garden here.  You can add your expected transplant date if you want a transplant task to populate in your **Tasks Screen.**  You can update this to the actual date the Planting was transplanted when you complete that task.
 
 **First Harvest Date** (optional): Once you have your first harvest, you can add the date here.  It is recommended to add an expected date of first harvest so that a harvest task populates in your **Tasks Screen.**  You can update the task if your estimate is off, and by completing the task you record the actual date of first harvest.
 
 **Last Harvest Date** (optional): If you have a Planting that you expect to save seeds from and has some time between the final harvest and seed collection time, you can add the date you expect to stop harvesting here.  You can update this to the actual date you finished harvesting the Planting when you complete that task.  Otherwise, the Pull Date is assumed to be the End Harvest Date.
+
+:::info Is it OK to guess a date?
+Absolutely!  In fact, it's better to guess a date than to leave it empty. That's because when you supply a date, GGC will auto-generate a task that will become due on that date.  That becomes a kind of "reminder" so that when the task becomes due, you can change your guesstimate to the actual date. 
+:::
 
 **Notes** (optional): Add any notes you want to remember about this planting.  This could be the source of the seeds, the variety, or any other information you want to remember.
 
@@ -81,21 +87,59 @@ Next, tap on a Planting. For example, here is the Planting Details screen after 
 
 <img width="300" src="/img/user-guide/planting-details.png"/>
 
+The Planting Details screen displays a summary of the Planting data plus an Observation that has been made about this Planting.
+
+## Update a Planting
+
+You can update the data associated with a Planting by navigating to the Timeline Screen, then tapping on a Planting to show its Planting Details screen (see the screenshot just above this paragraph for an example of the Planting Details screen).
+
+Once you are displaying the Planting Details screen, tap on the pencil icon to display Update Planting Screen:
+
+<img width="300" src="/img/user-guide/update-planting.png"/>
 
 
-## Update Planting
+## Copy a Planting
 
-You can update this section at any time by navigating to the Timeline Screen, tapping the planting bar, and selecting the pencil icon at the top menu.  See [Outcomes](/user-guide/outcomes.md) for more information.
+An important goal of GeoGardenClub is to enable gardeners to easily leverage prior experience---either from your own garden or from someone else's garden. To that end, we have implemented a feature called "Copy Planting".  
 
-## Troubleshoot planting date errors
+Let's say you (or another) gardener has previously planted Basil and has recorded excellent outcomes for this Planting:
 
-<img width="300" src="/img/user-guide/planting-error.png"/>
+<img width="300" src="/img/user-guide/copy-planting-nice-planting.png"/>
 
-A planting timeline error can be created when a user completes tasks for a planting out of order.  For example, if you complete the harvest task before "start" or "transplant" tasks, the system will throw an error.  The error will make the planting bar red and display an "Invalid dates" error message.
+So, you'd like to repeat this success by using the same Variety and same dates. In that Planting's Details screen, click on the "Copy" icon in the nav bar to bring up the Copy Planting screen:
 
-To fix this error, navigate to the Update Planting screen and edit the dates to follow this rule:
+<img width="300" src="/img/user-guide/copy-planting.png"/>
 
-Start date <span>&#8804;</span> Transplant date < First Harvest date < End Harvest date <span>&#8804;</span> Pull date
+The Copy Planting screen provides a form that is pre-filled with the Crop, Variety, and dates associated with the original Planting. However, the dates are updated to the current year (you can see from the screenshots that the original Planting was from 2021, but the dates in the Copy Planting form are now 2025.)
 
+You must select the Garden and Bed you want to create this new Planting in, then click "Submit" to create it.
+
+## Delete a Planting
+
+If you create a Planting by mistake and want to delete it, navigate to its Planting Details page (see above for instructions) and click the Trash icon in the navbar.  That will bring up the Delete Planting dialog:
+
+<img width="300" src="/img/user-guide/delete-planting.png"/>
+
+As you can see, deleting a Planting also deletes all Observations, Tasks, and Outcomes associated with that Planting.
+
+## Planting date constraints
+
+The dates associated with a Planting must observe the following constraints:
+
+**Start date <span>&#8804;</span> Transplant date < First Harvest date < End Harvest date <span>&#8804;</span> Pull date**
+
+When you define or update a Planting, the associated screens will check to ensure that these constraints are satisfied.
+
+However, when you complete a Task, it is possible to update the date associated with that Task in a way that violates these constraints.  For example, you might update the Transplant Date to be accurate, but now it is actually after the First Harvest Date associated with that Planting. 
+
+In situations where a Planting's dates no longer conform to the above constraints, the Planting bar will turn red and display an "Invalid dates" error message, and there will be a red exclamation icon in the lower nav bar:
+
+<img width="300" src="/img/user-guide/planting-date-violation.png"/>
+
+To fix this error, simply tap on the red Planting bar to bring up its Planting Details page, then click on the Pencil icon to bring up the Update Planting screen, and edit the dates to conform to the constraints. The Planting Details screen will provide a help message: 
+
+<img width="300" src="/img/user-guide/planting-details-error.png"/>
+
+As you can see, the Transplant date occurs after the First Harvest date in this Planting, which is a violation of the date constraints. 
 
 
