@@ -44,10 +44,9 @@ const sidebars = {
         'user-guide/observations',
         'user-guide/outcomes',
         'user-guide/chat-rooms',
+        'user-guide/sharing',
         'user-guide/crops-varieties',
-        'user-guide/scenarios',
-        'user-guide/badges',
-        'user-guide/guided-tour',
+        'user-guide/faq',
         'user-guide/privacy',
         ]
     }],

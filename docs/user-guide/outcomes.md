@@ -2,59 +2,51 @@
 hide_table_of_contents: false
 ---
 
-
 # Outcomes
 
-:::tip How and why to record outcomes for your plantings.
+:::tip How (and why) to record outcomes
 :::
 
-## Why Outcomes?
+If you want to get better at gardening (or anything else), one of the most important things you can do is keep track of what worked and what didn't work.
 
-Outcomes are a way to track the success of your gardening practices for each planting.  They are a way to build a local database of what varieties grow successfully with other users and a requirement for some badges like Crop Whisperer.  Outcome categories are Germination, Yield, Flavor, Pest and Disease Resistance, and Appearance.
+In the case of gardening, it's helpful to keep track of whether a Planting "worked" or "didn't work". If the Planting worked, you'd like to remember that and repeat your success in the next season. If it didn't work, then you might want to make changes: maybe change the Variety, maybe plant it earlier or later, or something else.  
 
-Plantings can be rated on a five point scale: 1 is the worst, and five is the best.  Leaving a score of 0 means that you did not observe that quality.  For example, if you had poor germination you may not have a rating for Flavor.
+Recording whether a Planting worked or didn't work is not only helpful for your own garden, it can also be helpful to others in your Chapter. For example, say you want to plant Corn, and you've never done it before. Rather than start from scratch and guess at the Variety and planting dates, you can search the Chapter data for a Corn Planting that "worked" for someone else in your Chapter, and [copy that Planting](plantings.md#copy-a-planting) into your own Garden.  
 
-<img width="600" src="/img/user-guide/outcome-table.png"/>
+GeoGardenClub provides Outcomes as a systematic (and optional) way for gardeners to record what worked and what didn't work for a given Planting. There are five types of outcomes: germination, yield, flavor, pest/disease resilience, and appearance. 
 
-## How is Outcome data used?
+You can grade each Planting on a scale of 1 (worst) to 5 (best) for any of these Outcome types. A score of 0 means there is no rating for that outcome type.  For example, if you had poor Germination you may not have a rating for Flavor.
 
- By recording outcome data for your plantings, you are contributing to a local database of what varieties grow successfully in your area.  Gardeners can reflect on the outcomes data for their garden(s) and chapter-wide to make more informed decisions on what varieties to grow and when to grow them.
- What insights can be gained from aggregating outcome data from multiple plantings during a single season, or multiple plantings over multiple seasons, or multiple plantings across the entire chapter?
+The following table provides definitions for each of the values for each of the Outcome types.  We provide this so that different gardener's outcome ratings will be consistent with each other, which enables us to aggregate Outcome data together.
 
-## Where to find Outcomes
+<img src="/img/user-guide/outcome-table.png"/>
 
-<img width="300" src="/img/user-guide/crops-outcomes.png"/>
+## View outcomes
 
-Outcomes are embedded into **Garden Details,** and the index screens for **Gardens, Crops, Varieties Index Screens.**  Find these index screens by opening the side navigation menu.
+There are two ways to see Outcome data.
 
-Let's look at outcomes by crop.  Tap **Crops** in the side navigation menu to open the **Crops Index Screen.**  In the Show/Hide Sections box, check Outcomes to have all of the outcomes displayed for each crop, or scroll to the crop and unhide the outcomes section.
+### ... for a single Garden
 
+The Garden Details view for a Garden provides an Outcomes view in the bottom nav bar. This displays an Outcomes pane that enables you to see the Outcomes recorded for any Planting in that Garden:
 
+<img width="300" src="/img/user-guide/outcomes-garden-details.png"/>
 
-<img width="300" src="/img/user-guide/garden-outcomes.png"/>
+In this case, you can see that the Gardener recorded Outcomes for two plantings of Italian Basil, and both worked out pretty well. 
 
-You can find Outcomes specific to your gardens by navigating to the **Garden Details Screen** and selecting **Outcomes** from the bottom navigation menu.
+### ... for the entire Chapter
 
+Another way to view Outcomes is by going to the Crops or Varieties screens from the Drawer.  This enables you to view Outcome data aggregated from all the Gardeners in the Chapter. For example, this screen shows nine outcomes for Kale collected from two gardeners in the Chapter:
 
+<img width="300" src="/img/user-guide/outcomes-crops-index-screen.png"/>
 
-## How to use Outcomes
+## Manage Outcomes
 
-Let's look at the above Amaranth example.  It shows a rating of "good" for germination, one "good" and one rating of "excellent" for yield, and flavor, resistance, and appearance all have "excellent" ratings.  A gardener could infer that is a good crop to grow in this area.
+To record or change one or more Outcomes for a given Planting, you must bring up the Update Planting screen. To do that, follow the instructions for [Updating a Planting](plantings.md#update-a-planting). 
 
-## How to record Outcomes
+Once the Update Planting screen is displayed, you can scroll down to find sliders that enable you to record (and change) the rating associated with any of the five outcomes:
 
-Navigate to the Home/Gardens screen by selecting Home in the side navigation menu.  You will be taken to your **Home/Tasks Screen.**
+<img width="300" src="/img/user-guide/outcomes-update-planting.png"/>
 
-In the bottom navigation menu select **Gardens.**
+In this case, the Gardener provided a rating of 5 for Germination, 4 for Resistance, 3 for Flavor, 2 for Yield, and no rating for Appearance.
 
-Then find the garden in which the planting is located and tap **Details.**  You will be taken to that garden's timeline screen.  Select the planting bar to open the **Planting Details Screen.**
-
-Select the pencil icon in the top right corner to open the **Update Planting Screen.**
-
-Scroll down to the **Outcomes** section and update the Outcomes sliders based on the success of the planting.  You can update some or all of the outcomes.  If you did not observe a quality, leave the slider at 0.
-
-When you are finished, select the **Submit** button at the bottom of the form to save your changes.
-
-<video controls width="300">
-  <source src="/img/user-guide/update-outcomes.mp4"/>
-</video>
+To "delete" an Outcome, just change its rating to 0.

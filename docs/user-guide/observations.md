@@ -88,27 +88,29 @@ Fill out the form as follows:
 
 Tap "Submit" to define the Observation.
 
-## Editing an Observation
+## Update an Observation
 
-If you'd like to edit an observation that has already been created, tap the three dots on the upper right of the **Observation Card** and select **Update Observation.**
+To update an existing Observation, tap the "three dot" menu associated with the Observation to display "Update Observation" or "Delete Observation":
 
-_Note that if you need to change the garden, bed, crop, or variety of the observation, you will need to delete the observation and create a new one._
+<img width="300" src="/img/user-guide/observations-update-menu.png"/>
 
-Edit the title, description, tags, observation date, or privacy settings and then hit **Submit** to save your changes or **Cancel** to return to the **Planting Details Screen.**
+Selecting "Update Observation" brings up the Update Observation screen:
 
-<video controls width="300">
-  <source src="/img/user-guide/update-observation.mp4"/>
-</video>
+<img width="300" src="/img/user-guide/observations-update-observation.png"/>
 
-## Deleting an Observation
+The fields that you can edit will vary depending upon the Observation type.
 
+When you are done, click "Submit" (not shown above, you would need to scroll to see it) to update the Observation.
 
+## Delete an Observation
 
-<img width="300" src="/img/user-guide/delete-observation.png"/>
+To delete an Observation, tap the "three dot" menu associated with the Observation to display "Update Observation" or "Delete Observation":
 
-If you'd like to delete an observation that has already been created, tap the three dots on the upper right of the **Observation Card** and select **Delete Observation.**
+<img width="300" src="/img/user-guide/observations-update-menu.png"/>
 
-A confirmation box will appear.  Tap **Delete** to delete the observation or **Cancel** to return to the **Planting Details Screen.**
+Selecting "Delete Observation" brings up the Delete Observation screen:
 
+<img width="300" src="/img/user-guide/observations-delete.png"/>
 
+Tap "Delete" to delete the Observation.
 
