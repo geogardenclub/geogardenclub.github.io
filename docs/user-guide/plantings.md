@@ -87,7 +87,7 @@ Next, tap on a Planting. For example, here is the Planting Details screen after 
 
 <img width="300" src="/img/user-guide/planting-details.png"/>
 
-The Planting Details screen displays a summary of the Planting data plus an Observation that has been made about this Planting.
+This Planting Details screen displays a summary of the Planting data plus an Observation that has been made about this Planting.
 
 ## Update a Planting
 

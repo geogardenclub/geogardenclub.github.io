@@ -4,54 +4,89 @@ hide_table_of_contents: false
 
 # Observations
 
-:::tip How to view, create, edit, or delete an observation.
+:::tip How (and why) to define Observations
 :::
 
-GGC allows gardeners to make "observations" connected to a garden, bed, crop, variety, or planting.  Observations can include phenomena such as successful germination, first flower, first harvest, diseases, or pests, document outcomes like yields, or simply record the progress of a planting.
+Gaining insight into your gardening practice usually requires more than just recording what crops and varieties you grew and the dates you planted or harvested them. 
 
-## Viewing all Chapter Observations
+You might want to record what the plant looked like when it germinated, or the appearance of the harvest, or a particular pest that appeared at some point in the season.  You might simply want to capture a particularly beautiful moment in your garden.  Observations provide a mechanism to collect data about all of these things and more.  
 
-From the side navigation menu, tap **Home** then tap **Observations** in the bottom navigation menu.  A scrollable display of all observations from all chapter gardens will be displayed.  The garden, gardener, and tag chips are all tapable.
-
-<video controls width="300">
-  <source src="/img/user-guide/locate-observations.mp4"/>
-</video>
-
- - **Garden chip:** Tap the garden chip to go that garden's **Garden Summary Screen.**
- - **Gardener chip:** Tap the gardener chip to go to that gardener's **Gardener Summary Screen.**
- - **Tag chip:** Tap the tag chip to see other observations that include that tag.
-
-## Viewing Observations for a specific planting
-
-All observations connected to a planting will be displayed in the **Planting Details Screen.**  To view the **Planting Details Screen,** navigate to the garden in which the planting is located.  Tap the planting bar for the planting you are interested in.
-
-The **Planting Details Screen** will be displayed, first showing info about that planting, followed by a scrollable list of the planting observations.
-
-<video controls width="300">
-  <source src="/img/user-guide/locate-observations.mp4"/>
-</video>
-
-## Creating an Observation
-
-Add an observation of a Garden, Bed, Crop, or Variety directly from the **Observations Screen** by tapping the **+ Observation** button at the bottom of the screen.
-
-Add an observation of a Planting by navigating to the related Planting Details Screen.  Tap the **+ icon** at the bottom to expand to reveal a **+ Observation** button.
+Observations can be public or private. A public Observation can be seen by anyone in your Chapter. A private Observation can only be seen by you. 
 
 
+## Viewing observations
+
+### ... for the Chapter
+
+To see all of your Observations, as well as the public Observations by everyone else in your Chapter, tap the "Observations" icon in the bottom nav bar of your Home screen:
+
+<img width="300" src="/img/user-guide/observations-view.png"/>
+
+Observation are listed in reverse chronological order, so the most recent Observation is at the top. There are "chips" for the Garden, Gardener, Crop, and Variety associated with the Observation. You can tap these to go to the screens associated with these entities. 
+
+### ... for a Planting
+
+You can see the Observations associated with a Planting by going to its Planting Details screen. For example:
+
+<img width="300" src="/img/user-guide/planting-details.png"/>
+
+## Create an Observation
+
+Observations can be made about Gardens, Beds, Crops, Varieties, or Plantings. 
+
+### ... for a Garden, Bed, Crop, or Variety
+
+To create an Observation for anything other than a Planting, go to the Observations view of your Home Screen:
+
+<img width="300" src="/img/user-guide/observations-view.png"/>
+
+Now tap the "+ Observation" button to go to the Create Observation screen:
 
 <img width="300" src="/img/user-guide/create-observation.png"/>
 
-- **Observation Type:** Select the observation type.  If the observation is for a Planting, navigate to the planting details card to create an observation (instructions above).
-- **Garden:** Select the garden the observation is for.
-- **Picture:** Tap the camera icon to take a picture of the planting or tap the gallery icon to select a picture from your device's gallery.
-- **Description:**  Describe the observation.  What is happening?  Do you have theories or questions other gardeners might be able to help with?
-- **Observation Date:** If you are adding an observation for a date other than today, tap the date to select a different date.
-- **Tags:** Add tags to make your observation easily filterable.  Tags are also important if you want that observation to satisfy a requirement of a badge.  For more on badges, see the [Badges](/docs/user-guide/badges) section.
-- **Is this a private observation?** If you don't want other chapter gardeners to see your observation, select this box.
+Fill out the form as follows:
 
-Tap **Submit** to add the observation to the planting or **Cancel** to return to the **Planting Details Screen.**
+**Observation Type:** Select the observation type: Garden, Bed, Crop, or Variety .  If the observation is for a Planting, navigate to the planting details card to create an observation (instructions below).
 
+**Garden:** Select the garden the observation is for.
 
+**Picture:** Tap the camera icon to take a picture of the planting or tap the gallery icon to select a picture from your device's gallery.
+
+**Description:**  Describe the observation.  What is happening?  Do you have theories or questions other gardeners might be able to help with?
+
+**Observation Date:** If you are adding an observation for a date other than today, tap the date to select a different date.
+
+**Tags:** Add tags to make your observation easily filterable.  Tags are also important if you want that observation to satisfy a requirement of a badge.  For more on badges, see the [Badges](/docs/user-guide/badges) section.
+
+**Is this a private observation?** If you don't want other Gardeners to see your observation, check this box.
+
+Tap "Submit" to define the Observation.
+
+### ... for a Planting
+
+To create an Observation for a Planting, go to its Planting Details screen and click the "+" button to reveal the "+ Observation" button:
+
+<img width="300" src="/img/user-guide/observations-create-planting-1.png"/>
+
+Now click the "+ Observation" button to bring up the Create Observation screen for a Planting:
+
+<img width="300" src="/img/user-guide/observations-create-planting-2.png"/>
+
+Note that when creating an Observation for a Planting, the Observation Type, Garden, Bed, Crop, and Variety are filled in for you and cannot be changed.
+
+Fill out the form as follows:
+
+**Picture:** Tap the camera icon to take a picture of the planting or tap the gallery icon to select a picture from your device's gallery.
+
+**Description:**  Describe the observation.  What is happening?  Do you have theories or questions other gardeners might be able to help with?
+
+**Observation Date:** If you are adding an observation for a date other than today, tap the date to select a different date.
+
+**Tags:** Add tags to make your observation easily filterable.  Tags are also important if you want that observation to satisfy a requirement of a badge.  For more on badges, see the [Badges](/docs/user-guide/badges) section.
+
+**Is this a private observation?** If you don't want other Gardeners to see your observation, check this box.
+
+Tap "Submit" to define the Observation.
 
 ## Editing an Observation
 
