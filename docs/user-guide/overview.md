@@ -6,11 +6,12 @@ sidebar_position: 1
 
 Welcome to the User Guide for the GeoGardenClub app. 
 
-:::info Where can I get the app?
-The GGC app is currently available on both iOS and Android platforms. 
+The GeoGardenClub app is designed to support two primary goals:
 
-iOS users can download the app from the [App Store](https://apps.apple.com/us/app/geogardenclub/id6478464910).
+1. *Provide a sophisticated, but easy to use garden planning app.*  The GGC App is designed to allow users to create and manage multiple gardens over multiple years, and to easily collect Observations and Outcome data that enable them to gain insight and improve the garden practices and productivity. 
 
-Android users can download the app by joining our Android beta test program. Please
-contact info@geogardenclub.com for details on how to join it.
-:::
+2. *Provide a mechanism for community building for gardeners in a local area.* The GGC App provides a variety of mechanisms to help gardeners connect with each other. At the simplest level, gardeners can see each other's garden plans and what they are planting. At higher levels, they can chat with each other and share seeds, plantings, food, and other resources. 
+
+As you go through this guide, keep in mind these two goals which underly the design and implementation. 
+
+Enjoy!
