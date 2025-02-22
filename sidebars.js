@@ -46,6 +46,7 @@ const sidebars = {
         'user-guide/chat-rooms',
         'user-guide/sharing',
         'user-guide/crops-varieties',
+        'user-guide/chapters',
         'user-guide/faq',
         'user-guide/settings',
         'user-guide/privacy',

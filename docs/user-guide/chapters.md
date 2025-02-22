@@ -2,58 +2,43 @@
 sidebar_position: 1
 ---
 
-# Explore a Chapter
+# Chapters
 
-:::tip Browse the chapter's database of crops, varieties, plantings, gardens, and gardeners.
+:::tip How (and why) to look at Chapters
 :::
 
-## Find the Chapter Index Screens
+The Chapters Index screen, which can be accessed from the Drawer, provides access to overviews of your Chapter and all of the other Chapters in GGC.
 
-Open the side navigation menu by selecting the three horizontal lines in the upper left corner of the screen.  Each of the options represents chapter wide data.
+## View your Chapter
 
-## Chapter Index Screen
+<img width="300" src="/img/user-guide/chapter-screen.png"/>
 
-View the Chapter Index Screen to see your chapter's summary of crops, gardens, gardeners, postal codes, seeds, and varieties.  GGC currently has only one chapter.  When new chapters are created, information about other chapters will also be located here.
+By default, this screen shows the "My Chapter" tab, which provides a summary of information about the chapter: the crops used, the gardens defined, the number of gardeners, and so forth.
 
-## Gardens Index Screen
+Note that each section can be expanded to show more details:
 
-<img width="300" src="/img/user-guide/gardens-index.png"/>
+<img width="300" src="/img/user-guide/chapter-screen-2.png"/>
 
-View the **Garden Index Screen** to see a list of garden summary cards for chapter gardens.  Show or hide sections to see more information.  Tap on **Details** to view the garden's details.
-
-
-
-## Gardeners Index Screen
-
-<img width="300" src="/img/user-guide/gardens-index.png"/>
-
-The Gardener Index Screen lists chapter gardeners alphabetically by username.  Show or hide sections to see more information such as badges, crops, gardens, and varieties that gardener is associated with.  You can not message gardeners directly, if you'd like to connect with a gardener, contact them through their garden's chat room.
+If a Chip is displayed, you can tap it to go to details about it.
 
 
+## View other Chapters
 
-## Plantings Index Screen
+Clicking the "Other Chapters" tab enables you to see information about other GGC Chapters:
 
-<img width="300" src="/img/user-guide/plantings-index.png"/>
+<img width="300" src="/img/user-guide/chapter-other-chapters.png"/>
 
-The Plantings Index Screen lists all chapter plantings for various time segments.  Choose from a year, six months, three months, or one month.  You can also filter the plantings by crop or variety and sort by name or start date.
+## Lurk mode
 
+When viewing other Chapters, a feature called "Lurk Mode" is available. By clicking the "Lurk Mode" button associated with another Chapter, you can "transport" yourself into the other Chapter and view its Gardens and certain other kinds of information:
 
+<img width="300" src="/img/user-guide/chapter-lurk-mode-1.png"/>
 
-## Varieties Index Screen
+Lurk Mode is read-only: you can't actually do anything in the other Chapter, you can just look: 
 
-<img width="300" src="/img/user-guide/varieties-index.png"/>
+<img width="300" src="/img/user-guide/chapter-lurk-mode-2.png"/>
 
-The Varieties Index Screen lists summary cards for all chapter varieties.  You can filter the list by crop or variety.  Show or hide sections to see which gardens, gardeners, observations, and outcomes associated with this variety.  If there are any seeds available for chapter members, this will also be listed here.
+When in Lurk Mode, a red banner indicates where you are and provides an exit button that you can use to return to your home Chapter. 
 
 
 
-## Crops Index Screen
-
-<img width="300" src="/img/user-guide/crops-index.png"/>
-
-The Crops Index Screen lists summary cards for all chapter crops.  You can filter by crop.  Show or hide sections to see which gardens, gardeners, observations, outcomes and varieties are associated with each crop.
-
-
-
-## Badges Index Screen
-View the Badge Index Screen. Learn more about badges [here](/docs/user-guide/badges).
