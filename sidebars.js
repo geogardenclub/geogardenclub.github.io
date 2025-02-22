@@ -47,6 +47,7 @@ const sidebars = {
         'user-guide/sharing',
         'user-guide/crops-varieties',
         'user-guide/faq',
+        'user-guide/settings',
         'user-guide/privacy',
         ]
     }],
