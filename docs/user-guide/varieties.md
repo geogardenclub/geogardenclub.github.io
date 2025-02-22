@@ -31,6 +31,18 @@ The second way is from the Variety Index screen. Click the "+ Variety" button to
 
 <img width="300" src="/img/user-guide/variety-create.png"/>
 
+## Gold status
+
+If a Variety has been planted several times and excellent outcomes have been recorded, then it can be accorded "Gold" status. For example:
+
+<img width="300" src="/img/user-guide/variety-gold-1.png"/>
+
+Once a Variety has achieved Gold status, its Chip will be displayed with a gold background color:
+
+<img width="300" src="/img/user-guide/variety-gold-2.png"/>
+
+
+
 ## Update/Delete Varieties
 
 :::warning Gardeners can't update or delete Varieties

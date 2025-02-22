@@ -49,6 +49,7 @@ const sidebars = {
         'user-guide/crops',
         'user-guide/varieties',
         'user-guide/chapters',
+        'user-guide/retail-value',
         'user-guide/faq',
         'user-guide/settings',
         'user-guide/privacy',
