@@ -7,11 +7,13 @@ sidebar_position: 1
 :::tip How (and why) to define plantings.
 :::
 
-In GeoGardenClub, a "Planting" defines one or more plants of the same Crop and Variety that are growing in a single Bed and have (approximately) the same timing data (i.e. start date, transplant date, pull date, etc.). So, for example, if you have a Bed containing six Big Boy tomato plants, all planted on the same date, you would represent them in GGC as a single Planting. 
+In GeoGardenClub, a "Planting" defines one or more plants of the same Crop and Variety that are growing in a single Bed and have (approximately) the same timing data (i.e. start date, transplant date, pull date, etc.). So, for example, let's say you planted six Big Boy tomato plants, and you planted all of them in the same Bed on the same date. You would define a single Planting for all six tomato plants. 
 
-On the other hand, if you had three Big Boy tomato plants and three Yellow Sun tomato plants in the same bed, you would represent these six plants with two Plantings, one for each Variety.  Or, if you had six Big Boy tomato plants, but three are planted in Bed 01 and three are planted in Bed 02, then you represent these with two Plantings, one for each Bed.
+On the other hand, if you planted three Big Boy tomato plants and three Yellow Sun tomato plants in the same Bed, you would define two Plantings, one for the three Big Boy varieties and one for the three Yellow Sun varieties. 
 
-Finally, if you had six Big Boy tomato plants, but three were planted on April 10 and the other three were planted on May 20, then you would define two Plantings, one for each start date.  
+On the third hand, if you planted six Big Boy tomato plants, but planted three in Bed 01 and three in Bed 02, then you would define two Plantings, one for each Bed.
+
+A final example: you've still got those same silly Big Boy tomato plants, but you planted three on April 10 and three on May 20. As you might expect by now, you would define two Plantings, one for each start date.  
 
 ## Create a planting
 
@@ -141,5 +143,15 @@ To fix this error, simply tap on the red Planting bar to bring up its Planting D
 <img width="300" src="/img/user-guide/planting-details-error.png"/>
 
 As you can see, the Transplant date occurs after the First Harvest date in this Planting, which is a violation of the date constraints. 
+
+## Planting Index
+
+Navigate to the Planting Index screen by tapping on "Plantings" in the Drawer. The Planting Index screen provides access to all the Plantings in all the Gardens in the Chapter.
+
+Here is an example Planting Index screen:
+
+<img width="300" src="/img/user-guide/planting-index.png"/>
+
+Note that the number of Plantings listed in the NavBar indicates only the number of Plantings in the currently selected time interval, not the total number of Plantings in the Chapter.
 
 

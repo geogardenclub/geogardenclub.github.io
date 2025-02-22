@@ -12,7 +12,7 @@ One of the goals of GeoGardenClub is to support garden-related resource sharing 
 Sharing is simple: a gardener can create a "Post" describing something that they'd like to offer or are seeking. Other gardeners can create a "Reply" if they can help out. 
 
 :::info GGC Sharing is free
-The GGC Sharing service is intended for no-cost offering of goods and services to others. Of course, exchange of food items is encouraged! 
+The GGC Sharing service is intended for no-cost offering of goods and services to others. (Of course, exchanging harvest items is welcomed!) 
 
 If you want to sell something, please use other services such as Craigslist or Facebook marketplace.
 :::

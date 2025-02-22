@@ -11,9 +11,9 @@ If you want to get better at gardening (or anything else), one of the most impor
 
 In the case of gardening, it's helpful to keep track of whether a Planting "worked" or "didn't work". If the Planting worked, you'd like to remember that and repeat your success in the next season. If it didn't work, then you might want to make changes: maybe change the Variety, maybe plant it earlier or later, or something else.  
 
-Recording whether a Planting worked or didn't work is not only helpful for your own garden, it can also be helpful to others in your Chapter. For example, say you want to plant Corn, and you've never done it before. Rather than start from scratch and guess at the Variety and planting dates, you can search the Chapter data for a Corn Planting that "worked" for someone else in your Chapter, and [copy that Planting](plantings.md#copy-a-planting) into your own Garden.  
+Recording whether a Planting worked or didn't work is not only helpful for improving your own garden, it is also helpful to other gardeners in your Chapter. For example, say you want to plant Corn, and you've never done it before. Rather than start from scratch and guess at the Variety and planting dates, you can search the Chapter data for a Corn Planting that "worked" for another Gardener in your Chapter, and then [copy that Planting](plantings.md#copy-a-planting) into your own Garden.  
 
-GeoGardenClub provides Outcomes as a systematic (and optional) way for gardeners to record what worked and what didn't work for a given Planting. There are five types of outcomes: germination, yield, flavor, pest/disease resilience, and appearance. 
+GeoGardenClub provides Outcomes as a systematic way for gardeners to record what worked and what didn't work for a given Planting. There are five types of outcomes: germination, yield, flavor, pest/disease resilience, and appearance. 
 
 You can grade each Planting on a scale of 1 (worst) to 5 (best) for any of these Outcome types. A score of 0 means there is no rating for that outcome type.  For example, if you had poor Germination you may not have a rating for Flavor.
 

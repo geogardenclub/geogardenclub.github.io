@@ -8,11 +8,11 @@ hide_table_of_contents: true
 :::tip How (and why) to fill out your user profile.
 :::
 
-The User Profile screen allows you to provide important information regarding your membership in GeoGardenClub. It is where you indicate your geographic region, which enables us to group you with your neighbors and thus provide relevant gardening information and insights. 
+The User Profile screen allows you to provide important information regarding your membership in GeoGardenClub. It is where you indicate your geographic region, which enables us to group you with your neighbors and thus provide you with relevant gardening information and insights. 
 
 ## Create User Profile
 
-When you first sign in to GeoGardenClub, you will be taken to the Create User Profile screen where you can provide required information:
+When you first sign in to GeoGardenClub, you will be taken to the Create User Profile screen where you can provide useful information:
 
 <img width="300" src="/img/user-guide/create-user-profile.png"/>
 
@@ -47,8 +47,6 @@ After your profile has been created, you can make changes to certain parts of it
 
 <img width="300" src="/img/user-guide/update-user-profile.png"/>
 
-You cannot change your userID or your Chapter. (If you want to be moved to a different Chapter, please email info@geogardenclub.com.)
-
 Fill out the form as follows:
 
 **Picture:** You can (optionally) define a profile picture by clicking on the Camera icon.  You can select a picture from your photos collection. Upon submission of this form, you will be prompted to crop it to a square image.
@@ -60,3 +58,8 @@ Fill out the form as follows:
 **Permaculture Workshop:** If you have completed formal education in permaculture, select this box.  Completion of a permaculture workshop is required for those wanting the Permaculture Pro badge.  For more on badges, see the [Badges](/docs/user-guide/badges) section.
 
 Tap the **Submit** button to update your user profile.
+
+:::info UserID and Chapter membership  
+
+Once you've submitted your user profile, you cannot change your userID or your Chapter by yourself. (If you need to change these items, please email info@geogardenclub.com.)
+:::

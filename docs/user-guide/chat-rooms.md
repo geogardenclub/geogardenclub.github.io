@@ -25,6 +25,8 @@ To see the Chat Rooms, go to your Home screen and tap the "Chat" icon in the bot
 
 Note that this view has two tabs. The "My Chats" tab is displayed by default and shows the Chapter Chat Room and the Chat Room(s) for your Gardens. 
 
+If there is a new Chat message since the last time you visited the room, there will be a red notification dot displayed by the room icon.
+
 Tap the "All Chats" tab to show all the Chat Rooms in this Chapter, including the Chat Rooms for all Gardens. 
 
 ## Chat room etiquette

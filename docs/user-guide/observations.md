@@ -7,9 +7,9 @@ hide_table_of_contents: false
 :::tip How (and why) to define Observations
 :::
 
-Gaining insight into your gardening practice usually requires more than just recording what crops and varieties you grew and the dates you planted or harvested them. 
+Gaining insight into your gardening practice usually requires more than just recording what crops and varieties you grew and the dates you planted or harvested them. Observations let you augment this textual data with pictures. 
 
-You might want to record what the plant looked like when it germinated, or the appearance of the harvest, or a particular pest that appeared at some point in the season.  You might simply want to capture a particularly beautiful moment in your garden.  Observations provide a mechanism to collect data about all of these things and more.  
+You might want to record what the plant looked like when it germinated, or the appearance of the harvest, or a particular pest that appeared at some point in the season.  Or you might simply want to capture a picture of a particularly beautiful moment in your garden.  Observations let you collect data about all of these things and more.  
 
 Observations can be public or private. A public Observation can be seen by anyone in your Chapter. A private Observation can only be seen by you. 
 

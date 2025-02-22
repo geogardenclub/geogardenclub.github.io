@@ -20,4 +20,4 @@ Our mission is to improve your gardening productivity so much that you actually 
 All GGC subscriptions come with a free introductory period so that you can experience membership and decide if GGC is for you. If it isn't, then you can cancel your subscription any time before the end of the introductory period and not be charged.
 :::
 
-Once you have accepted the subscription, you will be taken to your Home page where you can define your first garden!
+Once you have accepted the subscription, after clicking through a short sequence of onboarding screens, you will arrive at your Home screen where you can define your first garden!

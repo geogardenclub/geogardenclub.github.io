@@ -9,9 +9,9 @@ hide_table_of_contents: false
 
 In GeoGardenClub, Tasks support two important goals:
 
-1. Tasks provide a "To Do" list to help remind you of activities (planting, transplanting, etc).  If you co-manage a Garden with others (i.e. you have defined Editors for your Garden), then Tasks can help organize who does what and indicate what hasn't been accomplished.
+*Tasks provide a "To Do" list to help remind you of activities (planting, transplanting, etc).*  If you co-manage a Garden with others (i.e. you have defined Editors for your Garden), then Tasks can help organize who does what and indicate what hasn't been accomplished.
 
-2. Tasks help you to create accurate records of planting dates. Whenever you complete a Task associated with a Planting date, you have the opportunity to update that date. This makes it appropriate for you to "guesstimate" dates (such as First Harvest date) early in the year when you are planning your garden, and then replace that guesstimate with the actual First Harvest date when it actually happens.  
+*Tasks help you to create accurate records of planting dates.* Whenever you complete a Task associated with a Planting date, you have the opportunity to update that date. This makes it appropriate for you to "guesstimate" dates (such as First Harvest date) early in the year when you are planning your garden, and then replace that guesstimate with the actual First Harvest date when it actually happens.  
 
 ## Viewing Tasks
 

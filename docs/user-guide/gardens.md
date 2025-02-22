@@ -156,6 +156,18 @@ Tasks are automatically created when you define timings for a planting, such as 
 
 For more information on Tasks, see the [Tasks documentation](tasks.md).
 
+## Garden Index
+
+Navigate to the Garden Index screen by tapping on "Gardens" in the Drawer. The Garden Index screen provides access to all Gardens in the Chapter. 
+
+Here is an example Garden Index screen:
+
+<img width="300" src="/img/user-guide/garden-index.png"/>
+
+Use the pulldown menu to quickly access a specific Garden rather than scrolling. The Show/Hide Sections allows you to see only certain sections of each Garden.
+
+
+
 
 
 
