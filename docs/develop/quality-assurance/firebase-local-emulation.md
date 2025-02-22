@@ -5,6 +5,9 @@ hide_table_of_contents: false
 
 # Firebase Local Emulation
 
+Firebase provides a set of local emulators that allow you to test your app locally without interacting with the production environment. This is useful for testing and debugging your app before deploying it to production.
+You'll need to install the Firebase CLI and the FlutterFire CLI to use the local emulators. If you haven't already installed these tools, you can do so by following the instructions below.
+
 ## Tool Installation
 
 ### Install the Firebase CLI
@@ -27,6 +30,8 @@ $ dart pub global activate flutterfire_cli
 
 ## Initialize Firebase
 
+We need to initialize Firebase in our project before we can use the local emulators. (We have already initialized Firebase in `ggc_app`, so you can skip this step.)
+
 If you haven't already initialized Firebase in your project, you can do so by running the following command:
 
 ```bash
@@ -38,7 +43,7 @@ $ firebase init
 * Create the Firestore indexes file in the `firestore.indexes.json` file. Just choose the default values when prompted.
 * For the Emulators, select **Authentication**, **Firestore** and **Storage**. Just choose the default values when prompted.
 
-## Start the Emulators
+# Start the Emulators
 
 To start the Firebase Emulators, run the following command:
 
