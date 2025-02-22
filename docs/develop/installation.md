@@ -26,6 +26,28 @@ Doctor summary (to see all details, run flutter doctor -v):
 • No issues found!
 ```
 
+## Firebase CLI and FlutterFire CLI
+
+To run the integration tests, you will need to install the Firebase CLI and the FlutterFire CLI.  Here are the instructions:
+
+### Install the Firebase CLI
+
+```shell
+$ npm install -g firebase-tools
+```
+
+Then login to Firebase:
+
+```shell
+$ firebase login
+```
+
+### Activate the FlutterFire CLI
+
+```shell
+$ dart pub global activate flutterfire_cli
+```
+
 ## Tool versions
 
 It turns out that getting Flutter Doctor to report no issues is not enough.  There are other tech stack components which must also be at an appropriate version in order for the app to run successfully during development.  In some cases, there might be multiple possible versions, but every developer must be using the same version of the tools; otherwise the app will run for some developers but not for others.
@@ -34,20 +56,21 @@ In order to help developers ensure that they have the same tech stack environmen
 
 Our Discord server has a channel called `#tool-versions` where developers post the output from running this script. This helps all of us to stay on the same page, and when one person updates a component of the tech stack, they can post the new output from the script so that everyone else can update their tech stack to match the new version(s) of components.
 
-Here is an example of the output from `run_tool_versions.sh` (as of Jan 17, 2025):
+Here is an example of the output from `run_tool_versions.sh` (as of Feb 22, 2025):
 
 ```shell
 ./run_tool_versions.sh
 Computer Name: PMJ M2 2023
 Cocoapods 1.16.2
-Dart SDK version: 3.6.0 
-Flutter 3.27.1 
-MacOS 15.2
+Dart SDK version: 3.6.2 
+Flutter 3.27.4 
+MacOS 15.3.1
 Monarch version 2.2.7
-ruby 3.2.2 (202
+ruby 3.2.6 (202
 Xcode 16.2
+iOS Simulator <version>
 ```
-Be sure to run this script locally and check it against the output from the Discord channel. 
+Be sure to run this script locally and check it against the output from the Discord channel. Edit the last line to reflect the version of the iOS running in the Simulator.
 
 Different components have different "tolerances" for version matching. In general, you should make sure that your version of Cocoapods, Dart, Flutter, Monarch, and XCode matches the Discord channel's latest versions exactly. 
 
