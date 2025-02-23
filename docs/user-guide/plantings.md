@@ -33,19 +33,13 @@ The Create Planting form does not fit on a single screen. Here is the rest of it
 
 <img width="300" src="/img/user-guide/create-planting-2.png"/>
 
-Fill out the form as follows. Note that only the fields marked with a red asterisk are required. 
+#### Required Planting Fields
 
-**Garden:** This is automatically specified based upon the Garden Details page you came from. If you want to add a Planting to a different garden, you must navigate to that garden's Garden Details page.
+Although the Planting form has a lot of fields, there are only a four fields you need to fill out when planning your garden.
 
 **Crop:** A pull-down list of all currently defined Crops.  If you are planting a Crop that does not appear in the dropdown menu, you can click the "+" button to the right of the Crop menu to define a new Crop.
 
-**Variety:** A pull-down list of all currently defined Varieties for the selected Crop.  If you are planting a Variety of a Crop that does not appear in the dropdown menu, you can click the "+" button to the right of the Variety menu to define a new Variety. 
-
-:::info What if I don't know the Variety?
-Sometimes you don't know the Variety at the time you want to define the Planting. For example, it's winter, you're planning next year's garden, and you know you want to plant some cucumbers but haven't decided on the Variety yet. Or, perhaps someone has given you some basil seeds but you don't know the Variety. In either case, just leave the Variety field blank and the Variety will be represented as "Unknown" (you can come back later and edit the field if you find out what the Variety is).
-:::
-
-**Bed:** Choose the Bed into which you will plant this Planting. If you haven't defined the right Bed yet, then press the back button to navigate back to the Garden Details page. Then press the "+" button and select "+ Bed" to define the bed you need.
+**Bed:** Choose the Bed into which you will plant this Planting. If you haven't defined the Bed yet, then press the back button to navigate back to the Garden Details page. Then press the "+" button and select "+ Bed" to define the bed you need.
 
 **Start date:** Specify the date you planted (or plant to plant) your Planting.  You can update this to the actual date the Planting was planted when you complete that task. A Start Date is required so that the Planting can be shown in the Timeline View.
 
@@ -55,6 +49,19 @@ Specify the same date for Start Date and Transplant Date if you are planting sta
 :::
 
 **Pull Date**:  Add the date you expect to pull your Planting from the ground.  You can update this to the actual date the Planting was pulled when you complete that task. A Pull Date is required so that the Planting can be shown in the Timeline View.
+
+#### Optional Planting fields
+
+The remaining fields enable you to provide more details about timing, or (in the case of Outcomes) enable you to record data about the results of this Planting at the end of the season.
+
+**Variety** (optional). A pull-down list of all currently defined Varieties for.. the selected Crop.  If you are planting a Variety of a Crop that does not appear in the dropdown menu, you can click the "+" button to the right of the Variety menu to define a new Variety. 
+
+:::info What if I don't know the Variety?
+Sometimes you don't know the Variety at the time you want to define the Planting. For example, it's winter, you're planning next year's garden, and you know you want to plant some cucumbers but haven't decided on the Variety yet. Or, perhaps someone has given you some basil seeds but you don't know the Variety. In either case, just leave the Variety field blank and the Variety will be represented as "Unknown" (you can come back later and edit the field if you find out what the Variety is).
+:::
+
+
+
 
 
 
