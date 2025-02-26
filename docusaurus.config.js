@@ -70,6 +70,12 @@ const config = {
               className: "header-apple-link",
               "aria-label": "App Store link",
             },
+            {
+              href: "https://play.google.com/store/apps/details?id=com.geogardenclub.ggc_app",
+              position: "left",
+              className: "header-google-link",
+              "aria-label": "Play Store link",
+            },
           ],
         },
         footer: {

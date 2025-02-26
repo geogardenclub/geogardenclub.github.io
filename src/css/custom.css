@@ -49,17 +49,17 @@
   display: inline-flex;
   vertical-align: middle;
   /* padding-right: 0.5em; */
-  background: url("https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/white/en-us?releaseDate=1736899200")
+  background: url("https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1736899200")
   no-repeat;
 }
 
-[data-theme='dark'] .header-apple-link::before {
+.header-google-link {
   content: '';
-  width: 120px;
   height: 40px;
+  width: 150px;
   display: inline-flex;
   vertical-align: middle;
   /* padding-right: 0.5em; */
-  background: url("https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1736899200")
+  background: url("/google/GetItOnGooglePlay_Badge_Web_color_English.png")
   no-repeat;
 }
