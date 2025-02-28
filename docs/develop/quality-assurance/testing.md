@@ -61,7 +61,7 @@ dart pub global activate remove_from_coverage
 To run the test suite, open the iOS simulator, make sure it is visible on your desktop, and then invoke `./run_tests.sh` in a terminal window. 
 
 :::warning Make sure you have logged in to the simulator
-For the test suite authentication mock to work correctly, you must have previously logged in to GGC on the iOS simulator. If you have never logged in to GGC, or if you have logged out of GGC on the simulator, then the test cases will fail and the simulator will display a login screen without any fields. 
+For the test suite authentication mock to work correctly, you must have previously logged in to GGC on the iOS simulator. If you have never logged in to GGC, or if you have logged out of GGC on the simulator, then the test cases will fail and the simulator will display a login screen without any fields. You should also use a large iPhone simulator (e.g. iPhone 15 or 16) to run the tests.
 :::
 
 The test suite takes around 5 minutes to run, and should produce output similar to the following:
