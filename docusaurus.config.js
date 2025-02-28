@@ -42,6 +42,9 @@ const config = {
         blog: {
           showReadingTime: true,
         },
+        sitemap: {
+          ignorePatterns: ['/docs/business/**', '/docs/develop/**'],
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -58,6 +61,10 @@ const config = {
       ({
         // Replace with your project's social card
         image: 'img/logos/png/wordmark.png',
+        metadata: [
+          {name: 'keywords', content: 'Garden planning app, Garden design software, Vegetable garden planner, Online garden planner, Backyard garden planner, Organic garden planning, Community garden planner, Sustainable gardening app, Community food resiliency, Local planting guide app, Smart garden planner, Vegetable garden design tool, Interactive garden planner, Garden journal and tracker, Small garden design app'},
+          {name: 'description', content: 'GeoGardenClub is an easy to use garden planning tool that allows local communities of gardeners to share information and improve their gardening skill.'},
+        ],
         navbar: {
           title: 'Geo Garden Club',
           logo: {alt: 'Geo Garden Club', src: 'img/logos/png/icon2.png'},
