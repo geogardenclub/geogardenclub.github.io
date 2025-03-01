@@ -56,23 +56,6 @@ Third, activate the `remove_from_coverage` Dart package so that the coverage rep
 dart pub global activate remove_from_coverage
 ```
 
-Fourth, install Firebase CLI and the FlutterFire CLI by invoking:
-
-```shell
-$ npm install -g firebase-tools
-```
-
-Then login to Firebase:
-
-```shell
-$ firebase login
-```
-Activate the FlutterFire CLI by invoking:
-
-```shell
-$ dart pub global activate flutterfire_cli
-```
-
 ## run_tests.sh
 
 To run the test suite, open the iOS simulator, make sure it is visible on your desktop, and then invoke `./run_tests.sh` in a terminal window. 
