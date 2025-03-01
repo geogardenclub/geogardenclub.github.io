@@ -192,6 +192,67 @@ This command overrides the Riverpod providers so that they load the test fixture
 
 Note that when running with test data, the paywall processing is disabled and so you can login as any user. 
 
+### ... with local emulators
+
+This is an alternative to the test data approach.  You can run the Firebase local emulators to test the app with a local database. First start the emulators:
+
+```shell
+firebase emulators:start
+[...]
+Compiling lib/main.dart for the Web...                           2,354ms
+✓ Built build/web
+⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, database, pubsub, storage, dataconnect
+i  firestore: Firestore Emulator logging to firestore-debug.log
+✔  firestore: Firestore Emulator UI websocket is running on 9150.
+i  hosting[ggc-app-2de7b]: Serving hosting files from: .firebase/ggc-app-2de7b/hosting
+✔  hosting[ggc-app-2de7b]: Local server: http://127.0.0.1:5002
+i  functions: Watching "/Users/carletonmoore/GitHub/GGC/ggc_app/functions" for Cloud Functions...
+⚠  functions: Couldn't find firebase-functions package in your source code. Have you run 'npm install'?
+⬢  functions: Failed to load function definition from source: FirebaseError: There was an error reading functions/package.json:
+
+ functions/lib/index.js does not exist, can't deploy Cloud Functions
+
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬──────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI              │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth       │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions  │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore  │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Hosting        │ 127.0.0.1:5002 │ n/a                              │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Extensions     │ 127.0.0.1:5001 │ http://127.0.0.1:4000/extensions │
+└────────────────┴────────────────┴──────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500, 9150
+┌─────────────────────────┬───────────────┬─────────────────────┐
+│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
+└─────────────────────────┴───────────────┴─────────────────────┘
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+```
+
+Then run the app with the `main_local_emulators.dart`. The app will load the test data into the local emulators. You may get an error the first time you run the app with the local emulators. 
+<img src="/img/develop/installation/local-emulator-error.png" width="200px"/>
+If you do, just stop the app and restart it.
+<img src="/img/develop/installation/ggc-app-local-emulators.png" width="200px"/>
+
+You can view the local emulators at [http://127.0.0.1:4000](http://127.0.0.1:4000).
+
+<img src="/img/develop/installation/firebase-emulator-suite.png" width="600px"/>
+
+Check the Firestore emulator to see the data in the local database.
+
+<img src="/img/develop/installation/firestore-emulator.png" width="600px"/>
+
+You can manipulate the data in the Firestore emulator to test the app with different data. The data in the Firestore emulator is not persistent. When you stop the emulators, the changed or added data is lost. Restarting the emulators and running `main_local_emulators.dart` will reload the test data from the `assets/test/fixture1` files.
+
 ### ... with a connected device
 
 Sometimes it is useful to run the app on a physical device connected to your laptop rather than the simulator. Currently only Philip can do this due to iOS signing issues.
