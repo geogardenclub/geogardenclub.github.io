@@ -139,23 +139,59 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
 
 ## run_tests_emulator.sh
 
-To run the tests with the Firebase Emulators, you can use the `run_tests_emulator.sh` script. First start the emulators in a terminal window. Then run the script in another terminal window.
-
-```bash
-$ firebase emulators:start
-```
-Then run the tests in a different terminal with the following command:
+To run the tests with the Firebase Emulators, invoke:
 
 ```bash
 $ ./run_tests_emulators.sh
 ```
 
-This script will connect to the Firebase Emulators, initialize the database, and run the tests.
+This script starts up the Firebase Emulators, connects to them, runs the tests, and shuts down the emulators after.
 
 You should see something like:
 
 ```bash
 $ ./run_tests_emulator.sh                                                                                                                                     09:58:10
+
+firebase emulators:start
+[...]
+Compiling lib/main.dart for the Web...                           2,354ms
+✓ Built build/web
+⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, database, pubsub, storage, dataconnect
+i  firestore: Firestore Emulator logging to firestore-debug.log
+✔  firestore: Firestore Emulator UI websocket is running on 9150.
+i  hosting[ggc-app-2de7b]: Serving hosting files from: .firebase/ggc-app-2de7b/hosting
+✔  hosting[ggc-app-2de7b]: Local server: http://127.0.0.1:5002
+i  functions: Watching "/Users/carletonmoore/GitHub/GGC/ggc_app/functions" for Cloud Functions...
+⚠  functions: Couldn't find firebase-functions package in your source code. Have you run 'npm install'?
+⬢  functions: Failed to load function definition from source: FirebaseError: There was an error reading functions/package.json:
+
+ functions/lib/index.js does not exist, can't deploy Cloud Functions
+
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬──────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI              │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth       │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions  │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore  │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Hosting        │ 127.0.0.1:5002 │ n/a                              │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Extensions     │ 127.0.0.1:5001 │ http://127.0.0.1:4000/extensions │
+└────────────────┴────────────────┴──────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500, 9150
+┌─────────────────────────┬───────────────┬─────────────────────┐
+│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
+└─────────────────────────┴───────────────┴─────────────────────┘
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+
 + flutter test integration_test/app_test_emulator.dart --coverage
 00:03 +0: loading /Users/carletonmoore/GitHub/GGC/ggc_app/integration_test/app_test_emulator.dart                                                                                                 Ru00:22 +0: loading /Users/carletonmoore/GitHub/GGC/ggc_app/integration_test/app_test_emulator.dart                                                                                                  
 00:31 +0: loading /Users/carletonmoore/GitHub/GGC/ggc_app/integration_test/app_test_emulator.dart                                                                                              9.1s
