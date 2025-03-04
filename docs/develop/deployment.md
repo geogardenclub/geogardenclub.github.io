@@ -74,7 +74,7 @@ import TabItem from '@theme/TabItem';
 
 <Tabs>
 
-<TabItem value="app-store" label="Release to iOS App Store" default>
+<TabItem value="app-store" label="Deploy to App Store" default>
 
 To submit for review and release to App Store:
 
@@ -88,7 +88,7 @@ To submit for review and release to App Store:
 
 </TabItem>
 
-<TabItem value="testing" label="Release for iOS testing">
+<TabItem value="testing" label="Deploy for beta testing">
 
 To submit the build for external testing: 
 
@@ -103,6 +103,28 @@ Once review completes successfully, the public URL can be distributed and anyone
 
 ### Deploy Android App
 
+<Tabs>
+
+<TabItem value="android-deploy-play-store" label="Deploy to Play Store" default>
+
+Open the [Google Play Console Production page](https://play.google.com/console/u/0/developers/8896023390666377316/app/4974477500315919596/tracks/production) and click on "Create New Release".
+
+Drag the app-release.aab file from the Desktop folder containing the release into the "App Bundle" area to upload it to Google.
+
+Wait until the file is uploaded and "optimized for distribution", then click "Next".
+
+Check for Warnings and fix if necessary.
+
+Click "Save". When the dialog box comes up for "Go to publishing overview", click "Go to Overview".
+
+Click "Send 1 change for review", then "Send changes for review" when that dialog box appears.
+
+You can check the status of publishing in the [Activity Log page](https://play.google.com/console/u/0/developers/8896023390666377316/activity-log). Philip should also get an email. 
+
+</TabItem>
+
+<TabItem value="android-deploy-testing" label="Deploy for beta testing" >
+
 Open the [Google Play Console Internal Testing Page](https://play.google.com/console/u/0/developers/8896023390666377316/app/4974477500315919596/tracks/internal-testing) and click on "Create new release".
 
 Upload app-release.aab file from the folder containing the newly created release.
@@ -113,7 +135,11 @@ Now go to the [Prelaunch Report Overview](https://play.google.com/console/u/0/de
 
 Finally, "promote" this version to the "Closed testing" track. This triggers an internal review by Google that takes a few days, but is useful as it results in additional quality assurance testing by Google.
 
-## How to add beta testers
+</TabItem>
+</Tabs>
+
+
+## Add beta testers
 
 <Tabs>
 
