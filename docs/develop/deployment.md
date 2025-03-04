@@ -117,9 +117,13 @@ Check for Warnings and fix if necessary.
 
 Click "Save". When the dialog box comes up for "Go to publishing overview", click "Go to Overview".
 
+Edit the Release Notes to document the changes in this release. Maybe go to [Production Releases](https://play.google.com/console/u/0/developers/8896023390666377316/app/4974477500315919596/tracks/production?tab=releases), then click "Manage Release", then scroll down to the Release Notes section and click "Edit release details". 
+
 Click "Send 1 change for review", then "Send changes for review" when that dialog box appears.
 
 You can check the status of publishing in the [Publishing Overview page](https://play.google.com/console/u/0/developers/8896023390666377316/app/4974477500315919596/publishing). Philip should also get an email. 
+
+When published, you can see the results at the [GeoGardenClub Google Play Store listing](https://play.google.com/store/apps/details?id=com.geogardenclub.ggc_app).
 
 </TabItem>
 
