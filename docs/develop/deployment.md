@@ -119,7 +119,7 @@ Click "Save". When the dialog box comes up for "Go to publishing overview", clic
 
 Click "Send 1 change for review", then "Send changes for review" when that dialog box appears.
 
-You can check the status of publishing in the [Activity Log page](https://play.google.com/console/u/0/developers/8896023390666377316/activity-log). Philip should also get an email. 
+You can check the status of publishing in the [Publishing Overview page](https://play.google.com/console/u/0/developers/8896023390666377316/app/4974477500315919596/publishing). Philip should also get an email. 
 
 </TabItem>
 
