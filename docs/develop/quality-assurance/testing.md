@@ -90,51 +90,34 @@ $ dart pub global activate flutterfire_cli
 To start the Firebase Emulators, run the following command:
 
 ```bash
-firebase emulators:start
+firebase emulators:start --only auth,firestore
 ```
 
 The emulators will start, and you will see something like the following output:
 
 ```bash
-firebase emulators:start
-[...]
-Compiling lib/main.dart for the Web...                           2,354ms
-✓ Built build/web
-⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, database, pubsub, storage, dataconnect
+(node:76082) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+i  emulators: Starting emulators: auth, firestore
 i  firestore: Firestore Emulator logging to firestore-debug.log
 ✔  firestore: Firestore Emulator UI websocket is running on 9150.
-i  hosting[ggc-app-2de7b]: Serving hosting files from: .firebase/ggc-app-2de7b/hosting
-✔  hosting[ggc-app-2de7b]: Local server: http://127.0.0.1:5002
-i  functions: Watching "/Users/carletonmoore/GitHub/GGC/ggc_app/functions" for Cloud Functions...
-⚠  functions: Couldn't find firebase-functions package in your source code. Have you run 'npm install'?
-⬢  functions: Failed to load function definition from source: FirebaseError: There was an error reading functions/package.json:
-
- functions/lib/index.js does not exist, can't deploy Cloud Functions
 
 ┌─────────────────────────────────────────────────────────────┐
 │ ✔  All emulators ready! It is now safe to connect your app. │
 │ i  View Emulator UI at http://127.0.0.1:4000/               │
 └─────────────────────────────────────────────────────────────┘
 
-┌────────────────┬────────────────┬──────────────────────────────────┐
-│ Emulator       │ Host:Port      │ View in Emulator UI              │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth       │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions  │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore  │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Hosting        │ 127.0.0.1:5002 │ n/a                              │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Extensions     │ 127.0.0.1:5001 │ http://127.0.0.1:4000/extensions │
-└────────────────┴────────────────┴──────────────────────────────────┘
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+└────────────────┴────────────────┴─────────────────────────────────┘
   Emulator Hub host: 127.0.0.1 port: 4400
   Other reserved ports: 4500, 9150
-┌─────────────────────────┬───────────────┬─────────────────────┐
-│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
-└─────────────────────────┴───────────────┴─────────────────────┘
-Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files. 
 ```
 
 ## run_tests_emulator.sh
@@ -150,186 +133,38 @@ This script starts up the Firebase Emulators, connects to them, runs the tests, 
 You should see something like:
 
 ```bash
-$ ./run_tests_emulator.sh                                                                                                                                     09:58:10
-
-firebase emulators:start
-[...]
-Compiling lib/main.dart for the Web...                           2,354ms
-✓ Built build/web
-⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, database, pubsub, storage, dataconnect
+$ ./run_tests_emulator.sh                                                                                                                                     09:05:22
++ firebasePid=78081
++ sleep 10
++ firebase emulators:start --only auth,firestore
+(node:78081) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+i  emulators: Starting emulators: auth, firestore
 i  firestore: Firestore Emulator logging to firestore-debug.log
 ✔  firestore: Firestore Emulator UI websocket is running on 9150.
-i  hosting[ggc-app-2de7b]: Serving hosting files from: .firebase/ggc-app-2de7b/hosting
-✔  hosting[ggc-app-2de7b]: Local server: http://127.0.0.1:5002
-i  functions: Watching "/Users/carletonmoore/GitHub/GGC/ggc_app/functions" for Cloud Functions...
-⚠  functions: Couldn't find firebase-functions package in your source code. Have you run 'npm install'?
-⬢  functions: Failed to load function definition from source: FirebaseError: There was an error reading functions/package.json:
-
- functions/lib/index.js does not exist, can't deploy Cloud Functions
 
 ┌─────────────────────────────────────────────────────────────┐
 │ ✔  All emulators ready! It is now safe to connect your app. │
 │ i  View Emulator UI at http://127.0.0.1:4000/               │
 └─────────────────────────────────────────────────────────────┘
 
-┌────────────────┬────────────────┬──────────────────────────────────┐
-│ Emulator       │ Host:Port      │ View in Emulator UI              │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth       │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions  │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore  │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Hosting        │ 127.0.0.1:5002 │ n/a                              │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Extensions     │ 127.0.0.1:5001 │ http://127.0.0.1:4000/extensions │
-└────────────────┴────────────────┴──────────────────────────────────┘
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+└────────────────┴────────────────┴─────────────────────────────────┘
   Emulator Hub host: 127.0.0.1 port: 4400
   Other reserved ports: 4500, 9150
-┌─────────────────────────┬───────────────┬─────────────────────┐
-│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
-└─────────────────────────┴───────────────┴─────────────────────┘
-Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
 
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
 + flutter test integration_test/app_test_emulator.dart --coverage
-00:03 +0: loading /Users/carletonmoore/GitHub/GGC/ggc_app/integration_test/app_test_emulator.dart                                                                                                 Ru00:22 +0: loading /Users/carletonmoore/GitHub/GGC/ggc_app/integration_test/app_test_emulator.dart                                                                                                  
-00:31 +0: loading /Users/carletonmoore/GitHub/GGC/ggc_app/integration_test/app_test_emulator.dart                                                                                              9.1s
-Xcode build done.                                           28.3s
-00:34 +0: GGC Integration Test (All) Emulated Fixture 1 Tests                                                                                                                                      
-PATROL_LOG {"timestamp":"2025-03-01T10:07:12.226493","type":"config","config":{}}
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:65:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Badges count 18, 18
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:82:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  BadgeInstances count 6, 6
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:94:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Beds count 50, 50
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:105:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Chapters count 2, 2
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:117:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  ChatRooms count 5, 5
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:129:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  ChatUsers count 7, 7
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:139:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Crops count 47, 47
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:150:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Editors count 1, 1
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:161:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Families count 14, 14
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:173:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Gardeners count 7, 7
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:184:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Gardens count 3, 3
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:197:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Observations count 2, 2
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:210:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Outcomes count 160, 160
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:222:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Plantings count 451, 451
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:242:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Roles count 1, 1
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:255:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  SharePosts count 2, 2
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:268:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  ShareReplies count 3, 3
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:280:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Tags count 27, 27
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:290:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Tasks count 9, 9
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:299:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Users count 7, 7
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:313:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  ValuePerUnits count 44, 44
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ #0   initializeLocalEmulators (package:ggc_app/features/common/functions/firebase_local_emulation.dart:326:10)
-│ #1   <asynchronous suspension>
-├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-│  Varieties count 179, 179
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+00:04 +0: loading /Users/carletonmoore/GitHub/GGC/ggc_app/integration_test/app_test_emulator.dart                                                                                                 Ru00:22 +0: loading /Users/carletonmoore/GitHub/GGC/ggc_app/integration_test/app_test_emulator.dart                                                                                                  
+00:31 +0: loading /Users/carletonmoore/GitHub/GGC/ggc_app/integration_test/app_test_emulator.dart                                                                                              9.6s
+Xcode build done.                                           27.9s
+00:47 +0: GGC Integration Test (All) Emulated Fixture 1 Tests                                                                                                                                      
 Testing admin feature
 Testing badge feature
 ... test Badge Index Screen
@@ -379,18 +214,28 @@ Testing variety feature
 ... test Variety Index Screen
 ... test Variety CRUD
 ... test Variety Gold Varieties
-08:48 +1: All tests passed!                                                                                                      
+09:45 +1: All tests passed!                                                                                                                                                                        
 + flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'repositories\/.*$'
 + flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'data\/.*$'
 + flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'domain\/.*$'
 + flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'authentication\/.*$'
 + genhtml -q coverage/lcov.info -o coverage/html
 Overall coverage rate:
-  source files: 349
-  lines.......: 77.2% (7427 of 9624 lines)
+  source files: 413
+  lines.......: 74.5% (9254 of 12419 lines)
   functions...: no data found
 Message summary:
   no messages were reported
++ kill 78081
+ 
+i  emulators: Received SIGTERM for the first time. Starting a clean shutdown.
+i  emulators: Please wait for a clean shutdown or send the SIGTERM signal again to stop right now.
+i  emulators: Shutting down emulators.
+i  ui: Stopping Emulator UI
+i  firestore: Stopping Firestore Emulator
+⋊> ~/G/G/ggc_app on issue-369 ⨯ i  auth: Stopping Authentication Emulator                                                                                                                   09:15:35
+i  hub: Stopping emulator hub
+i  logging: Stopping Logging Emulator
 ```
 
 Here are the important takeaways:
@@ -1009,6 +854,9 @@ You don't need to put those comments (or the newlines) into your test code; I ad
 
 **After fixing a bug in the app, consider writing a test to verify the correct behavior.** Weirdly, bugs tend to congregate in certain areas, and even reappear after you thought you squashed them. It's a good idea after fixing a bug to see if you can quickly write a test that verifies the absence of that bug. It might feel like closing the barn door after the horse is gone, but it's a way of incrementally deepening the test quality. 
 
+**Switching between tests and running `main.dart`**. Sometimes you might want to switch between running the tests and running the app normally. If you run the tests and then run `main.dart`, you might see a blank screen. This is because the tests have left the app in a state where the wrong user is logged in. To fix this, open the simulator and choose `Device -> Erase All Content and Settings`. This will reset the simulator to its initial state. You can now run `main.dart` and log in as the admin user.
+
+**If the simulator is showing the keyboard, the tests won't pass.** Toggle the `Connect Hardware Keyboard `, `I/O -> Keyboard -> Connect Hardware Keyboard`.
 
 ## Continuous integration
 
@@ -1030,6 +878,8 @@ Each fixture directory must contain the following files:
 * `badgeInstanceData.json`
 * `bedData.json`
 * `chapterData.json`
+* `chatRoomData.json`
+* `chatUserData.json`
 * `cropData.json`
 * `editorData.json`
 * `familyData.json`
@@ -1039,24 +889,30 @@ Each fixture directory must contain the following files:
 * `outcomeData.json`
 * `plantingData.json`
 * `roleData.json`
+* `sharePostData.json`
+* `shareReplyData.json`
 * `tagData.json`
 * `taskData.json`
 * `userData.json`
+* `valuePerUnitData.json`
 * `varietyData.json`
 
 :::info
 The JSON files need to have integrity, so their ids must align. Since many of the GGC IDs end with a four digit millis field we've assigned each type a unique millis field.
 
+* badgeInstances end with 9876.
 * bedIDs end with 3456.
 * cropIDs end with 5678.
 * gardenIDs end with 7890.
 * observationIDs end with 4567.
 * outcomeIDs end with 2345.
 * plantingIDs end with 1234.
-* seedIDs end with 6789.
+* seedIDs end with 6789. // No longer used
+* sharePostIDs end with 0918.
+* shareReplyIDs end with 0918.
 * taskIDs end with 8901.
+* valuePerUnitIDs end with 8765.
 * varietyIDs end with 9012.
-* badgeInstances end with 9876.
 :::
 
 ### Fixture Paths
