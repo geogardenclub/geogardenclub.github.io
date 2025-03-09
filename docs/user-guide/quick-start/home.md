@@ -3,12 +3,12 @@ sidebar_position: 1
 hide_table_of_contents: true
 ---
 
-# Home
+# About Home
 
 :::tip Welcome home!
 :::
 
-Each time you sign in to the GeoGardenClub app, you will be taken to the Home screen.  The Home screen is your personal "dashboard" and provides quick access to the most important features of the app. 
+Each time you sign in to the GeoGardenClub app, you will be taken to the Home screen.  The Home screen is your "dashboard" and provides quick access to important features. 
 
 ## Home screen components
 

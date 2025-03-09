@@ -63,3 +63,13 @@
   background: url("/google/GetItOnGooglePlay_Badge_Web_color_English.png")
   no-repeat;
 }
+
+.header-instagram-link {
+  content: '';
+  height: 40px;
+  display: inline-flex;
+  vertical-align: middle;
+  /* padding-right: 0.5em; */
+  background: url("/google/GetItOnGooglePlay_Badge_Web_color_English.png")
+  no-repeat;
+}
