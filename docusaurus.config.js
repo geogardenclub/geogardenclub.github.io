@@ -70,9 +70,13 @@ const config = {
           items: [
             {label: 'Pricing', to: 'pricing'},
             {label: 'About', to: 'docs/home/welcome'},
-            {label: 'Quick Start', to: 'docs/user-guide/quick-start/overview'},
             {label: 'User Guide', to: 'docs/user-guide/overview'},
-            {label: 'Blog', to: 'blog'},
+            {label: 'News', to: 'blog'},
+            {
+              to: 'docs/user-guide/quick-start/overview',
+              label: 'Quick Start',
+              className: 'button button--outline button--primary button--md'
+            },
             {
               type: 'html',
               position: 'right',
