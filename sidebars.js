@@ -25,6 +25,7 @@ const sidebars = {
       'home/related-work',
       'home/food-security',
       'home/team',
+      'home/contact-us',
     ]
   },
     {

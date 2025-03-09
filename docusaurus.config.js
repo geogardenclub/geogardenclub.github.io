@@ -104,6 +104,10 @@ const config = {
               label: 'Privacy',
               href: '/docs/user-guide/privacy',
             },
+            {
+              label: 'Contact Us',
+              href: '/docs/home/contact-us',
+            },
 
           ],
           copyright: `Copyright © ${new Date().getFullYear()} Geo Garden Club, LLC`,
