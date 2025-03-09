@@ -3,9 +3,9 @@ sidebar_position: 2
 hide_table_of_contents: true
 ---
 
-# Design Innovations
+# What makes GGC different?
 
-:::tip What makes GGC different?
+:::tip It's our design innovations!
 :::
 
 What should an app provide if it is intended to support the needs of "serious" gardeners? Here is GeoGardenClub's answer:

@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import Button from '@site/src/components/Button';
 import ReactPlayer from 'react-player/youtube'
 
 import styles from './index.module.css';
@@ -18,6 +19,8 @@ function HomepageHeader() {
         </div>
         {/* <h1 className="hero__title">{siteConfig.title}</h1> */}
         <p className="hero__subtitle">{siteConfig.tagline}</p>
+
+          <p className="hero__subtitle">New to GeoGardenClub? <Button variant="success" label="Quick Start" link="/docs/user-guide/quick-start/overview" /></p>
         {/* <YouTube id="VqfuRmlm-yE"/> */}
       </div>
     </header>
