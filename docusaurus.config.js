@@ -59,7 +59,6 @@ const config = {
   themeConfig:
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
-        // Replace with your project's social card
         image: 'img/logos/png/wordmark.png',
         metadata: [
           {name: 'keywords', content: 'Garden planning app, Garden design software, Vegetable garden planner, Online garden planner, Backyard garden planner, Organic garden planning, Community garden planner, Sustainable gardening app, Community food resiliency, Local planting guide app, Smart garden planner, Vegetable garden design tool, Interactive garden planner, Garden journal and tracker, Small garden design app'},
@@ -69,19 +68,20 @@ const config = {
           title: 'Geo Garden Club',
           logo: {alt: 'Geo Garden Club', src: 'img/logos/png/icon2.png'},
           items: [
+            {label: 'Pricing', to: 'pricing'},
             {label: 'About', to: 'docs/home/welcome'},
+            {label: 'Quick Start', to: 'docs/user-guide/quick-start/overview'},
             {label: 'User Guide', to: 'docs/user-guide/overview'},
+            {label: 'Blog', to: 'blog'},
             {
-              href: "https://apps.apple.com/us/app/geogardenclub/id6478464910?itscg=30200&itsct=apps_box_badge&mttnsubad=6478464910",
-              position: "left",
-              className: "header-apple-link",
-              "aria-label": "App Store link",
+              type: 'html',
+              position: 'right',
+              value: '<a href="https://www.instagram.com/geogardenclub/" target="_blank" style="content: \'\'; width: 24px; height: 24px; background-image: url(\'/instagram/instagram.png\'); background-repeat: no-repeat;  background-size: 24px 24px; display: flex">'
             },
             {
-              href: "https://play.google.com/store/apps/details?id=com.geogardenclub.ggc_app",
-              position: "left",
-              className: "header-google-link",
-              "aria-label": "Play Store link",
+              type: 'html',
+              position: 'right',
+              value: '<a href="https://www.facebook.com/geogardenclub" target="_blank" style="content: \'\'; width: 24px; height: 24px; background-image: url(\'/facebook/facebook.png\'); background-repeat: no-repeat;  background-size: 24px 24px; display: flex">'
             },
           ],
         },
@@ -89,21 +89,18 @@ const config = {
           style: 'dark',
           links: [
             {
-              label: 'Facebook',
-              href: 'https://www.facebook.com/geogardenclub',
-            },
-            {
-              label: 'Instagram',
-              href: 'https://www.instagram.com/geogardenclub/',
-            },
-            {
               label: 'Join the GGC mailing list',
               href: 'https://geogardenclub.us10.list-manage.com/subscribe?u=2c9db5ab59b4602f6c71e2091&id=c75bee0e1e',
             },
             {
-              label: 'News Archive',
-              href: 'https://us10.campaign-archive.com/home/?u=2c9db5ab59b4602f6c71e2091&id=c75bee0e1e',
+              label: 'Terms and Conditions',
+              href: '/docs/user-guide/terms-and-conditions',
             },
+            {
+              label: 'Privacy',
+              href: '/docs/user-guide/privacy',
+            },
+
           ],
           copyright: `Copyright © ${new Date().getFullYear()} Geo Garden Club, LLC`,
         },

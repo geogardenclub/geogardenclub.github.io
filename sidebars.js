@@ -33,11 +33,20 @@ const sidebars = {
       label: "User Guide",
       items: [
         'user-guide/overview',
-        'user-guide/downloading',
-        'user-guide/registration',
-        'user-guide/user-profile',
-        'user-guide/subscription',
-        'user-guide/home',
+
+        {
+          type: 'category',
+          collapsed: false,
+          label: "Quick Start",
+          items: [
+            'user-guide/quick-start/overview',
+            'user-guide/quick-start/downloading',
+            'user-guide/quick-start/registration',
+            'user-guide/quick-start/user-profile',
+            'user-guide/quick-start/subscription',
+            'user-guide/quick-start/home',
+          ]
+        },
         'user-guide/gardens',
         'user-guide/beds',
         'user-guide/plantings',

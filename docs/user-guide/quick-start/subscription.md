@@ -5,7 +5,7 @@ hide_table_of_contents: true
 
 # Subscription
 
-:::tip How (and why) to subscribe to GeoGardenClub.
+:::tip Step 4: Confirm your subscription
 :::
 
 Before you can start to use the services provided by GeoGardenClub, you must subscribe.  The first time you sign in to GeoGardenClub, after completing your profile, you will be taken to a screen similar to the following in order to accept the terms of a subscription: 

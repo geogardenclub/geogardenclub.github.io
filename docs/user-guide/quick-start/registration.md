@@ -5,10 +5,8 @@ hide_table_of_contents: true
 
 # Registration
 
-:::tip How to create an account with GeoGardenClub.
+:::tip Step 2: Create your account with GeoGardenClub.
 :::
-
-## Registration
 
 When the GGC app comes up, it will show the Sign In screen if you have not logged in previously.  If this is your very first time using the GGC app, you will not be able to sign in since you have not registered yet.  
 
