@@ -15,7 +15,7 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <div className="text--center">
-          <img height="350px" src={'/img/logos/png/seal1.png'} />
+          <img height="300px" src={'/img/logos/png/seal1.png'} />
         </div>
         {/* <h1 className="hero__title">{siteConfig.title}</h1> */}
         <p className="hero__subtitle">{siteConfig.tagline}</p>

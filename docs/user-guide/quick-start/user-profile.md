@@ -12,7 +12,7 @@ The User Profile screen allows you to provide important information regarding yo
 
 ## Create User Profile
 
-When you first sign in to GeoGardenClub, you will be taken to the Create User Profile screen where you can provide useful information:
+When you first sign in to GeoGardenClub, you will be taken to the Create User Profile screen:
 
 <img width="300" src="/img/user-guide/create-user-profile.png"/>
 
@@ -42,14 +42,14 @@ Tap the **Submit** button to create your user profile.
 
 ## Update User Profile
 
-After your profile has been created, you can make changes to certain parts of it by selecting the Drawer, selecting Settings, and then selecting Update User Profile to be taken to the Update User Profile screen:
+After your profile has been created, you can make changes to certain parts of it by selecting the Drawer, selecting Settings, and then selecting Update User Profile. This takes you to the Update User Profile screen:
 
 
 <img width="300" src="/img/user-guide/update-user-profile.png"/>
 
 Fill out the form as follows:
 
-**Picture:** You can (optionally) define a profile picture by clicking on the Camera icon.  You can select a picture from your photos collection. Upon submission of this form, you will be prompted to crop it to a square image.
+**Picture:** You can (optionally) define a profile picture by clicking on the Camera icon.  You can select a picture from your Photo collection. Upon submission of this form, you will be prompted to crop it to a square image.
 
 **Username:** You can change your username anytime.  It must start with a "@" and be unique.
 

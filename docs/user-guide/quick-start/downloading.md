@@ -4,7 +4,7 @@ hide_table_of_contents: true
 
 # Download
 
-:::tip Step One: Download the app!
+:::tip Step 1: Download the app!
 :::
 
 GeoGardenClub is available on iOS and Android platforms. 
