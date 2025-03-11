@@ -49,9 +49,11 @@ One way to identify gardeners who are good at growing specific crops is to go to
 
 <img width="300" src="/img/user-guide/faq/faq-crop-whisperer.png"/>
 
-The "Crop Whisperer" badge is awarded to Gardeners who have grown a crop several times with good outcomes.  This badge is awarded with 1, 2, or 3 stars to indicate levels of experience.  In this case, @jenna has a lot of experience with Tomatos (and a few other crops as well!):
+The "Crop Whisperer" badge is awarded to Gardeners who have grown a crop several times with good outcomes.  This badge is awarded with 1, 2, or 3 stars to indicate levels of experience.  In this case, @jenna has a lot of experience with Tomatoes (and a few other crops as well!):
 
 <img width="300" src="/img/user-guide/faq/faq-crop-whisperer-2.png"/>
+
+As a next step, you might visit their garden to get more details about how they grew their tomatoes. You could also go to the Chat view of your Home screen, select their Garden, and ask a question about how they grew their tomatoes. 
 
 ## When should I plant tomatoes?
 
