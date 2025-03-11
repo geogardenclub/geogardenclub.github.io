@@ -4,9 +4,9 @@ hide_table_of_contents: true
 title: Overview
 ---
 
-# Welcome to the GGC Quick Start
+# Get Started with GeoGardenClub
 
-Here's how to get started:
+Here's how:
 
 1. Download the app from the App Store or Play Store.
 2. Create an account so you can sign in.

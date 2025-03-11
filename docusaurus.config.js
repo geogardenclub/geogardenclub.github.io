@@ -72,9 +72,10 @@ const config = {
             {label: 'About', to: 'docs/home/welcome'},
             {label: 'User Guide', to: 'docs/user-guide/overview'},
             {label: 'News', to: 'blog'},
+            {label: 'FAQ', to: 'docs/user-guide/faq'},
             {
-              to: 'docs/user-guide/quick-start/overview',
-              label: 'Quick Start',
+              to: 'docs/user-guide/get-started/overview',
+              label: 'Get Started',
               className: 'button button--outline button--primary button--md'
             },
             {

@@ -38,14 +38,14 @@ const sidebars = {
         {
           type: 'category',
           collapsed: false,
-          label: "Quick Start",
+          label: "Get Started",
           items: [
-            'user-guide/quick-start/overview',
-            'user-guide/quick-start/downloading',
-            'user-guide/quick-start/registration',
-            'user-guide/quick-start/user-profile',
-            'user-guide/quick-start/subscription',
-            'user-guide/quick-start/home',
+            'user-guide/get-started/overview',
+            'user-guide/get-started/downloading',
+            'user-guide/get-started/registration',
+            'user-guide/get-started/user-profile',
+            'user-guide/get-started/subscription',
+            'user-guide/get-started/home',
           ]
         },
         'user-guide/gardens',

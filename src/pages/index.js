@@ -20,7 +20,7 @@ function HomepageHeader() {
         {/* <h1 className="hero__title">{siteConfig.title}</h1> */}
         <p className="hero__subtitle">{siteConfig.tagline}</p>
 
-          <p className="hero__subtitle">New to GeoGardenClub? <Button variant="success" label="Quick Start" link="/docs/user-guide/quick-start/overview" /></p>
+          <p className="hero__subtitle">New to GeoGardenClub? <Button variant="success" label="Get Started" link="/docs/user-guide/quick-start/overview" /></p>
         {/* <YouTube id="VqfuRmlm-yE"/> */}
       </div>
     </header>
