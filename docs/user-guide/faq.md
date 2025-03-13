@@ -9,15 +9,15 @@ sidebar_position: 1
 
 ## I just moved here, what grows well?
 
-A good place to start is the Crop Index Screen. Use this screen to find crops that have been planted in several gardens in your Chapter. For example, the following screen shows that Arugula has been planted in 8 gardens in this Chapter:
+If you've recently moved to a new geographic region, GeoGardenClub can help you jump-start your garden. Start your investigation with the Crop Index Screen. Use this screen to find crops that have been planted several times in your Chapter. For example, the following screen shows that Arugula has been planted in 8 gardens in this Chapter:
 
 <img width="300" src="/img/user-guide/faq/faq-arugula.png"/>
 
-When you find a popular crop such as Arugula, you might next open the Outcomes panel to see how successfully it's been grown. In the case of Arugula, it looks pretty good!
+When you find a crop that you'd like to grow and is also popular, you might next open the Outcomes panel to see how successfully it's been grown locally. In the case of Arugula, it looks pretty good!
 
 <img width="300" src="/img/user-guide/faq/faq-arugula-2.png"/>
 
-You can also open the Varieties tab to see what kinds of Arugula gardeners have tried to grow.  If a Variety chip has a gold background, that means it's been grown several times with good outcomes.  In this Chapter, it turns out that the Astro Variety of Arugula has earned Gold status:
+You can also open the Varieties tab to see the kinds of Arugula that gardeners have tried to grow.  If a Variety chip has a gold background, that means it's been grown several times with good outcomes.  In this Chapter, it turns out that the Astro Variety of Arugula has earned Gold status:
 
 <img width="300" src="/img/user-guide/faq/faq-arugula-3.png"/>
 
@@ -26,6 +26,31 @@ To learn more about Astro Arugula, just tap the chip to take you to the Astro Ar
 <img width="300" src="/img/user-guide/faq/faq-arugula-4.png"/>
 
 Now you know the Gardens where Astro Arugula has been grown and the Gardeners who grew it. Tap a Garden or Gardener chip if you like to continue your exploration. From this screen you can also see the Observations that Gardeners have made about Astro Arugula.
+
+## What's the best way to make observations?
+
+The *simplest* way to make an observation is to go to the Observations tab of your Home screen, tap the "+ Observation" button, select your Garden, and add a photo and descriptive text. For example, here's a "Garden-level" observation about a Mango tree: 
+
+<img width="300" src="/img/user-guide/faq/faq-observations-1.png"/>
+
+That's the simplest way, but it's usually not the *best* way. The best way is to attach your Observation to the specific Planting you are observing. To do that, you go to the Gardens tab of your Home screen, then click the "Details" button to show the Timeline view of your Garden. For example,
+
+<img width="300" src="/img/user-guide/faq/faq-observations-2.png"/>
+
+Now tap on the Planting Bar representing the Planting for which you want to make an Observation. For example, if you tap on "Mango (Himayuddin)", you get its Planting Details page:
+
+<img width="300" src="/img/user-guide/faq/faq-observations-3.png"/>
+
+
+Now if you tap the "+" button, then select "+ Observation", you get the following Create Observation screen which fills in the Garden, Bed, Crop, and Variety:
+
+<img width="300" src="/img/user-guide/faq/faq-observations-4.png"/>
+
+The resulting "Planting-level" Observation is connected not just to the Garden, but also to the specific Planting under observation. It also has more details: not just the Garden and the Gardener (as in the previous Observation), but also the Crop and Variety. Here's an example:
+
+<img width="300" src="/img/user-guide/faq/faq-observations-5.png"/>
+
+One benefit of Planting-level Observations is that you see them when you filter Observations by Crop or Variety.  Another benefit is that it organizes your Observations better: instead of a collection of Garden-level Observations across all years, you can see which Observations applied to which season of your garden.
 
 ## How do I handle perennials?
 

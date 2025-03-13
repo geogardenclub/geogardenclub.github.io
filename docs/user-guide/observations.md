@@ -30,6 +30,22 @@ You can see the Observations associated with a Planting by going to its Planting
 
 <img width="300" src="/img/user-guide/planting-details.png"/>
 
+## Filter Observations
+
+By default, the Observations tab of your Home screen lists *all* the Observations made by all the Gardeners in your Chapter in reverse chronological order. This is useful when you want to catch up with the most recent Observations.
+
+Other times, you might want to see only the Observations associated with a specific Garden, or Gardener, or Crop, or Variety, or Tag.  To do this, click on the Filter icon in the navbar to reveal the Observation Filter controller:
+
+<img width="300" src="/img/user-guide/observations-filter-1.png"/>
+
+Use this controller to select a subset of Observations to see. For example, the following  shows only the Observations associated with the Alderwood Garden:
+
+<img width="300" src="/img/user-guide/observations-filter-2.png"/>
+
+You can further filter what is displayed by selecting a Crop, Variety, Gardener, or Tag. 
+
+To reset the display to show all Observations, tap the Filter icon to hide the Observation Filter controller. 
+
 ## Create an Observation
 
 Observations can be made about Gardens, Beds, Crops, Varieties, or Plantings. 
