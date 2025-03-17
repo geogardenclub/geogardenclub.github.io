@@ -13,6 +13,7 @@ export default function Landing() {
     return (
         <Layout>
             <LandingPanelOne />
+            <LandingPanelTwo />
         </Layout>
     );
 }

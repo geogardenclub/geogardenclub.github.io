@@ -1,6 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Button from '@site/src/components/Button';
+
 
 export default function LandingPanelOne() {
   return (
@@ -11,6 +13,7 @@ export default function LandingPanelOne() {
             <div className={clsx('col')}>
                 <div className={clsx('text--center padding-horiz--md')} >
                     <h1 style={{fontSize: '96px'}}>Grow and share more food.</h1>
+                    <Button style={{marginBottom: '2em'}} size='lg' variant="success" label="Get Started" link="/docs/user-guide/get-started/overview" />
                 </div>
             </div>
             <div className={clsx('col')}>
