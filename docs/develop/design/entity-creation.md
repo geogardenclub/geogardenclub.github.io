@@ -77,8 +77,15 @@ Collections typically have the following methods:
       GardenCollection gardens, UserCollection users)` checks the integrity of the collection.
 * Any other methods that are needed.
 
+Update the `ChapterCollection` or `GardenCollection` or `UserCollection` to hold the new entity collection.
+
 ## 6. Update the `With` classes.
 Think about where this new collection fits in the [Data Model](../data-model.md). In the `feature/common/with` directory update the following files:
+ * `asset_collection_builder.dart` Add the three static methods for the new entity.
+   1. `static Future<List<Entity>> getEntities(String assetPath)` to get the entities from the `endityData.json` file located in the `assetPath` directory.
+   2. `static Future<Stream<List<Entity>>> getEntitiesStream(String assetPath)` to get the entities from the `endityData.json` file located in the `assetPath` directory.
+   3. `static Future<EntityCollection> getEntityCollection(String assetPath)` to get the entity collection initialized from the `endityData.json` file located in the `assetPath` directory.
+   
  * `test_fixture.dart` Add the FixtureEntityDatabase and the two
    methods `getEntityDatabase` and `getEntityStream` 
  * `with_all_data.dart` 
