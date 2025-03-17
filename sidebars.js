@@ -136,6 +136,7 @@ const sidebars = {
     'develop/backups',
     'develop/scripts',
     'develop/privacy',
+    'develop/firebase-billing',
     'develop/adaptive-design',
     {
       type: 'category',
