@@ -109,21 +109,22 @@ static Future<TagCollection> getTags() async {
  ```
 Then depending on where the collection fits in the data model, update the `buildChapterCollection`, `buildGardenCollection`, or `buildUserCollection` methods. Update the `build` method to include the new collection in the `FutureBuilder`.
 
-In the `feature/common/controller` directory update the `mutate_controller.dart` file. Update the `Future<void> mutate` method add the `entitiesToSet` and `entitiesToDelete` fields. Then get the `entityDatabase` from the `ref.watch(entityDatabaseProvider)` and call `setEntitiesBatch` and `deleteEntitiesBatch`.
+## 7. Update the `mutate_controller.dart` and `mutate_data.dart` files
+In the `feature/common/controller` directory update the `mutate_controller.dart` file. Update the `Future<void> mutate` method add the `entitiesToSet` and `entitiesToDelete` fields. Then get the `entityDatabase` from the `ref.watch(entityDatabaseProvider)` and call `setEntitiesBatch` and `deleteEntitiesBatch`. Also update the MutateData class to include the new entity.
 
-In the `lib/main_test_fixture.dart` file override the `entityDatabaseProvider` and `entitiesProvider` with code similar to:
+## 8. Update the `firebase_local_emulation.dart` file
+The `firebase_local_emulation.dart` file is used to initialize the local Firestore emulator with test data. Update the `initializeLocalEmulators` method to include the new entity. This will ensure that the local emulator has the necessary data for testing.
+
 ```dart
-  entitiesProvider.overrideWith((_) => testFixture.getEntitiesStream()),
-  entityDatabaseProvider
-      .overrideWith((_) => testFixture.getEntityDatabase()),
+  final entitySnapShot = await firestore.collection('entities').count().get();
+  logger.t('Entities count ${entities.length}, ${entitySnapShot.count}');
+  final List<Entity> entities = await AssetCollectionBuilder.getEntities(assetPath);
+  for (final Entity entiry in entities) {
+    final docRef = firestore.collection('entities').doc(entity.entityID);
+    final doc = await docRef.get();
+    if (!doc.exists) {
+      await docRef.set(entity.toJson());
+    }
+  }
 ```
-
-In `integration_tests` update `app_test.dart` and `app_test_single.dart` to override the `entityDatabaseProvider` and `entitiesProvider` with code similar to:
-```dart
-  entityDatabaseProvider.overrideWithProvider(
-      Provider((ref) => ref.watch(entityDatabaseProvider)));
-  entitiesProvider.overrideWithProvider(
-      Provider((ref) => ref.watch(entitiesProvider)));
-```
-
-## 7. Create the Entity UI in the `presentation` directory
+## 9. Create the Entity UI in the `presentation` directory
