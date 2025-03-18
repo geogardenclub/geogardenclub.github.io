@@ -1,14 +1,16 @@
 import React from 'react';
 import Button from '@site/src/components/Button';
+import styles from './styles.module.css';
+
 
 export default function LandingPanel1() {
   return (
-      <div className='hero hero--primary' style={{backgroundImage: `url('/img/landing/garden-2b.jpeg')`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center'}}>
+      <div className='hero hero--primary' style={{backgroundImage: `url('/img/landing/mesclun.jpeg')`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center'}}>
       <div className="container">
         <div className="row">
             <div className='col'>
                 <div className='text--center padding-horiz--md' >
-                    <h1 style={{fontSize: '96px', color: 'white'}}>Grow and share more food.</h1>
+                    <h1 className={styles.outline} style={{fontSize: '96px', color: 'white'}}>Grow and share more food.</h1>
                     <Button style={{marginBottom: '2em'}} size='lg' variant="success" label="Get Started" link="/docs/user-guide/get-started/overview" />
                 </div>
             </div>
