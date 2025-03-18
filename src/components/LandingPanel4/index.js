@@ -7,26 +7,39 @@ export default function LandingPanel4() {
         <div className="row" style={{paddingBottom: '32px'}}>
             <div className='col'>
                 <div className="text--center">
-                    <h1 className="hero__title">Join your local chapter today!</h1>
+                    <h1 className="hero__title">Here's what members are saying:</h1>
                 </div>
             </div>
         </div>
           <div className="row">
               <div className='col'>
-                  <div className="text--center">
-                      <a href="https://apps.apple.com/us/app/geogardenclub/id6478464910?ign-itscg=30200&ign-itsct=apps_box_badge&mttnsubad=6478464910"><img height="150px" src="apple/black.svg"/></a>
+                  <div className="card" style={{marginBottom: '1em'}}>
+                      <div className="card__body text--primary">
+                          <p>
+                              “I like being able to see what others have planted and when they planted it.”
+                          </p>
+                          <p>P.B., Whatcom-WA Chapter</p>
+                      </div>
                   </div>
               </div>
               <div className='col'>
-                  <div className="text--center">
-                      <a href="https://play.google.com/store/apps/details?id=com.geogardenclub.ggc_app"><img height="150px" src="google/google.svg"/></a>
+                  <div className="card" style={{marginBottom: '1em'}}>
+                      <div className="card__body text--primary">
+                          <p>
+                              “I'm paying more attention to outcomes and dates... I'm realizing that I need to learn how to adapt to this cooler, shorter season.”
+                          </p>
+                          <p>P.B., Whatcom-WA Chapter</p>
+                      </div>
                   </div>
               </div>
-          </div>
-          <div className="row" style={{paddingTop: '32px'}}>
               <div className='col'>
-                  <div className="text--center">
-              <h1 className="hero__subtitle">For a limited time, get the first six months free, then $4.99/month</h1>
+                  <div className="card" style={{marginBottom: '1em'}}>
+                      <div className="card__body text--primary">
+                          <p>
+                              “I think it's reduced my frantic chaos planning that tends to happen.”
+                          </p>
+                          <p>M.V., Whatcom-WA Chapter</p>
+                      </div>
                   </div>
               </div>
           </div>
