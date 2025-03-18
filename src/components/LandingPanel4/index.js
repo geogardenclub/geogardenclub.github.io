@@ -7,7 +7,7 @@ export default function LandingPanel4() {
         <div className="row" style={{paddingBottom: '32px'}}>
             <div className='col'>
                 <div className="text--center">
-                    <h1 className="hero__title">Here's what members are saying:</h1>
+                    <h1 className="hero__title">Here's what gardeners are saying:</h1>
                 </div>
             </div>
         </div>
@@ -39,6 +39,16 @@ export default function LandingPanel4() {
                               “I think it's reduced my frantic chaos planning that tends to happen.”
                           </p>
                           <p>M.V., Whatcom-WA Chapter</p>
+                      </div>
+                  </div>
+              </div>
+              <div className='col'>
+                  <div className="card" style={{marginBottom: '1em'}}>
+                      <div className="card__body text--primary">
+                          <p>
+                              “I finally have a simple way to track the flowering and fruiting of my Mango tree from one season to the next.”
+                          </p>
+                          <p>P.J., Oahu-HI Chapter</p>
                       </div>
                   </div>
               </div>
