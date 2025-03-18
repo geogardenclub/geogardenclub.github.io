@@ -5,6 +5,7 @@ import Button from '@site/src/components/Button';
 import React from "react";
 import LandingPanelOne from '@site/src/components/LandingPanelOne';
 import LandingPanelTwo from '@site/src/components/LandingPanelTwo';
+import LandingPanelThree from '@site/src/components/LandingPanelThree';
 import styles from './landing.module.css';
 
 
@@ -14,6 +15,7 @@ export default function Landing() {
         <Layout>
             <LandingPanelOne />
             <LandingPanelTwo />
+            <LandingPanelThree />
         </Layout>
     );
 }
