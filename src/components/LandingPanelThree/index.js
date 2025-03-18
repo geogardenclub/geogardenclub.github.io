@@ -2,8 +2,10 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 import Button from '@site/src/components/Button';
+import Columns from '@site/src/components/Columns';
+import Column from '@site/src/components/Column';
 
-export default function LandingPanelThree() {
+export function LandingPanelThreeOld() {
   return (
       <div style={{backgroundColor: '#e3ddc2'}}>
     <section className={styles.features}>
@@ -22,4 +24,33 @@ export default function LandingPanelThree() {
     </section>
         </div>
   );
+}
+
+export default function LandingPanelThree() {
+    return (
+        <div style={{backgroundColor: '#e3ddc2'}}>
+            <div className="row row--no-gutters">
+
+                <div className="col">
+                    <div className="hero shadow--lw">
+                        <div className="container">
+                            <h1 className="hero__title">New to GeoGardenClub?</h1>
+
+                            <div>
+                                <Button style={{marginBottom: '2em'}} size='lg' variant="success" label="Get Started"
+                                        link="/docs/user-guide/get-started/overview"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h1 style={{fontSize: '64px', color: '#02695c'}}>New2 to GeoGardenClub?</h1>
+
+                </div>
+                <div className="col" style={{marginBottom: "-20px"}}>
+                    <img src="img/landing/overshoulder.jpg"/>
+                </div>
+
+            </div>
+        </div>
+    );
 }
