@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function LandingPanelTwo() {
+export default function LandingPanel4() {
   return (
       <div className='hero hero--primary'>
       <div className="container">

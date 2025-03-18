@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@site/src/components/Button';
 
-export default function LandingPanelThree() {
+export default function LandingPanel3() {
     return (
             <div className="row row--no-gutters">
 

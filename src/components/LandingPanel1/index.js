@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@site/src/components/Button';
 
-export default function LandingPanelOne() {
+export default function LandingPanel1() {
   return (
       <div className='hero hero--primary' style={{backgroundImage: `url('/img/landing/garden-2b.jpeg')`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center'}}>
       <div className="container">
