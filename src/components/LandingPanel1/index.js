@@ -16,7 +16,7 @@ export default function LandingPanel1() {
             </div>
             <div className='col'>
                 <div className="text--center">
-                    <img height="400px" src="img/landing/seal1.png"/>
+                    <img height="375px" src="img/landing/seal1.png"/>
                 </div>
             </div>
         </div>
