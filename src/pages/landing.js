@@ -9,6 +9,7 @@ import LandingPanel5 from '@site/src/components/LandingPanel5';
 import LandingPanel6 from '@site/src/components/LandingPanel6';
 import LandingPanel7 from '@site/src/components/LandingPanel7';
 import LandingPanel8 from '@site/src/components/LandingPanel8';
+import LandingPanel9 from '@site/src/components/LandingPanel9';
 
 
 export default function Landing() {
@@ -23,6 +24,7 @@ export default function Landing() {
             <LandingPanel6 />
             <LandingPanel7 />
             <LandingPanel8 />
+            <LandingPanel9 />
         </Layout>
     );
 }
