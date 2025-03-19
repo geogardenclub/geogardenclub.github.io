@@ -1,58 +1,34 @@
-import React from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Button from '@site/src/components/Button';
-import ReactPlayer from 'react-player/youtube'
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import React from "react";
+import LandingPanel1 from '@site/src/components/LandingPanel1';
+import LandingPanel2 from '@site/src/components/LandingPanel2';
+import LandingPanel3 from '@site/src/components/LandingPanel3';
+import LandingPanel4 from '@site/src/components/LandingPanel4';
+import LandingPanel5 from '@site/src/components/LandingPanel5';
+import LandingPanel6 from '@site/src/components/LandingPanel6';
+import LandingPanel7 from '@site/src/components/LandingPanel7';
+import LandingPanel8 from '@site/src/components/LandingPanel8';
+import LandingPanel9 from '@site/src/components/LandingPanel9';
+import LandingPanel10 from '@site/src/components/LandingPanel10';
+import LandingPanel11 from '@site/src/components/LandingPanel11';
 
-import styles from './index.module.css';
 
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <div className="text--center">
-          <img height="300px" src={'/img/logos/png/seal1.png'} />
-        </div>
-        {/* <h1 className="hero__title">{siteConfig.title}</h1> */}
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-
-          <p className="hero__subtitle">New to GeoGardenClub? <Button variant="success" label="Get Started" link="/docs/user-guide/get-started/overview" /></p>
-        {/* <YouTube id="VqfuRmlm-yE"/> */}
-      </div>
-    </header>
-  );
-}
-
-function HomepageFooter() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <h3 className="hero__subtitle">Watch our 5 minute intro to GeoGardenClub</h3>
-        <div className='wrapper'>
-          <ReactPlayer className='player' url="https://www.youtube.com/watch?v=nQuRtGop7ig" width="100%" height="100%" ></ReactPlayer>
-        </div>
-
-      </div>
-    </header>
-  );
-}
-
-export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <Layout
-      title={`${siteConfig.title}`}
-      description="Improving community food production, one garden at a time.">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-      <HomepageFooter />
-    </Layout>
-  );
+export default function Landing() {
+    const {siteConfig} = useDocusaurusContext();
+    return (
+        <Layout>
+            <LandingPanel1 image='img/landing/panel1-corn.jpeg'/>
+            <LandingPanel2 />
+            <LandingPanel3 />
+            <LandingPanel4 />
+            <LandingPanel5 />
+            <LandingPanel6 />
+            <LandingPanel7 />
+            <LandingPanel8 />
+            <LandingPanel9 />
+            <LandingPanel10 />
+            <LandingPanel11 />
+        </Layout>
+    );
 }

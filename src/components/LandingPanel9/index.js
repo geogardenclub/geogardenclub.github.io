@@ -4,7 +4,7 @@ import Button from '@site/src/components/Button';
 export default function LandingPanel9() {
     return (
         <div>
-            <img width="100%" src="img/landing/garden-9.jpeg"/>
+            <img width="100%" src="img/landing/mesclun.jpeg"/>
             <div className="row" style={{marginTop: '50px', marginBottom: '50px'}}>
                 <div className="col" style={{alignItems: 'center', display: 'flex'}}>
                     <div className="text--center">
