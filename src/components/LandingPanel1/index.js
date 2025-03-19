@@ -3,9 +3,9 @@ import Button from '@site/src/components/Button';
 import styles from './styles.module.css';
 
 
-export default function LandingPanel1() {
+export default function LandingPanel1({image}) {
   return (
-      <div className='hero hero--primary' style={{backgroundImage: `url('/img/landing/garden-2b.jpeg')`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center'}}>
+      <div className='hero hero--primary' style={{backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center'}}>
       <div className="container">
         <div className="row">
             <div className='col' style={{alignItems: 'center', display: 'flex'}}>

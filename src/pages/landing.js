@@ -11,13 +11,15 @@ import LandingPanel7 from '@site/src/components/LandingPanel7';
 import LandingPanel8 from '@site/src/components/LandingPanel8';
 import LandingPanel9 from '@site/src/components/LandingPanel9';
 import LandingPanel10 from '@site/src/components/LandingPanel10';
+import LandingPanel11 from '@site/src/components/LandingPanel11';
 
 
 export default function Landing() {
     const {siteConfig} = useDocusaurusContext();
     return (
         <Layout>
-            <LandingPanel1 />
+            <LandingPanel1 image='img/landing/garden-2b.jpeg'/>
+            <LandingPanel1 image='img/landing/mesclun.jpeg'/>
             <LandingPanel2 />
             <LandingPanel3 />
             <LandingPanel4 />
@@ -27,6 +29,7 @@ export default function Landing() {
             <LandingPanel8 />
             <LandingPanel9 />
             <LandingPanel10 />
+            <LandingPanel11 />
         </Layout>
     );
 }

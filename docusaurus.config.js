@@ -94,10 +94,6 @@ const config = {
           style: 'dark',
           links: [
             {
-              label: 'Join the GGC mailing list',
-              href: 'https://geogardenclub.us10.list-manage.com/subscribe?u=2c9db5ab59b4602f6c71e2091&id=c75bee0e1e',
-            },
-            {
               label: 'Terms and Conditions',
               href: '/docs/user-guide/terms-and-conditions',
             },
