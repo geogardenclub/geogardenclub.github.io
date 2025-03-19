@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 
 export default function LandingPanel1() {
   return (
-      <div className='hero hero--primary' style={{backgroundImage: `url('/img/landing/mesclun.jpeg')`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center'}}>
+      <div className='hero hero--primary' style={{backgroundImage: `url('/img/landing/garden-2b.jpeg')`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center'}}>
       <div className="container">
         <div className="row">
             <div className='col' style={{alignItems: 'center', display: 'flex'}}>

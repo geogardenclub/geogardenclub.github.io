@@ -5,7 +5,7 @@ export default function LandingPanel9() {
     return (
         <div>
             <img width="100%" src="img/landing/garden-9.jpeg"/>
-            <div className="row">
+            <div className="row" style={{marginTop: '50px', marginBottom: '50px'}}>
                 <div className="col" style={{alignItems: 'center', display: 'flex'}}>
                     <div className="text--center">
                         <h1 className="hero__title">Get growing with GeoGardenClub!</h1>
