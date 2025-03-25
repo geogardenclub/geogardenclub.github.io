@@ -5,24 +5,25 @@ hide_table_of_contents: false
 
 # Testing
 
-Another form of quality assurance in GGC is testing. 
+A primary form of quality assurance in GGC is testing. 
 
 In GGC, we want the main branch to always be free of any errors raised by our tests.
 
 The current goal of testing in GeoGardenClub is to minimize the risk of *catastrophic regression* from changes to the UI or business logic. In other words, we want our tests to ensure that changes to non-low level code do not result in an app where important features no longer work. This means that our test suite should ensure that:
-
 * All commonly accessed screens display without error. (The tests might not check screens that are displayed "rarely", such as those resulting from anomalous conditions like network instability.)
 * CRUD operations on entities can be performed successfully when available. 
 * Buttons on all commonly accessed screens, when tapped, do not generate an error, and the resulting screen is checked to see that at least some of the intended results are displayed.
 
+:::warning Caveat emptor
 Currently, our approach to testing does not address many important quality issues:
 
 * *No load testing.* We do not test that the system performs well under "load", where load can mean a large number of concurrent users and/or a large amount of stored data. 
 * *No external service testing.* We do not test "low-level" code, specifically external services such as database, photo storage, and authentication. This is because we mock external services in our test code.
 * *No matrix (platform/device) testing.* GGC is intended to be used on three platforms: iOS, Android, and Web. Each of these platforms supports many different devices. We only test on one platform (iOS) and one device (typically iPhone 17). 
 * *No UX testing.* Our tests do not ensure that user needs are met and that they have a positive experience using the app.
+:::
 
-Despite these limitations, our tests should help improve developer courage. In other words, the presence of a test suite that exercises most of the UI can give developers the confidence to attempt improvements to the code base because unintended ripple effects will often be caught by running the tests.  A decent test suite should enable us to incrementally improve the quality of the code over time as well as the feature set. 
+Despite its limited nature, our tests should help improve developer courage. In other words, the presence of a test suite that exercises most of the UI can give developers the confidence to attempt improvements to the code base because unintended ripple effects will often be caught by running the tests.  A decent test suite should enable us to incrementally improve the quality of the code over time as well as the feature set. 
 
 :::info When should you run the tests?
 Ideally, we want the main branch to always be able to run the tests without error.
@@ -40,33 +41,25 @@ As you will learn below, we have not figured out a reasonable way to perform con
 
 There are a few things you need to do to set up your machine to run the test suite locally.
 
-Note that at the current time, we only support testing on macOS. 
+### Configure coverage reporting
 
-First, bring up the iOS simulator and verify that you can login to GGC on it. (The test suite assumes that the iOS simulator is available, that the GGC source code can be loaded, and that you have logged in as some user.)  
-
-Second, install lcov on your machine by invoking:
+Install lcov on your machine by invoking:
 
 ```shell
 brew install lcov
 ```
 
-Third, activate the `remove_from_coverage` Dart package so that the coverage report can be customized. Do this by invoking:
+Next, activate the `remove_from_coverage` Dart package so that the coverage report can be customized. Do this by invoking:
 
 ```agsl
 dart pub global activate remove_from_coverage
 ```
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+### Install the Firebase and FlutterFire CLIs
 
-<Tabs>
-
-<TabItem value="testing-emulator" label="Use Firebase Emulator" default>
 Firebase provides a set of local emulators that allow you to test your app locally without interacting with the production environment. This is useful for testing and debugging your app before deploying it to production.
+
 You'll need to install the Firebase CLI and the FlutterFire CLI to use the local emulators. If you haven't already installed these tools, you can do so by following the instructions below.
-
-
-## Install the Firebase and FlutterFire CLIs
 
 To install Firebase, first:
 
@@ -79,50 +72,38 @@ Then login to Firebase:
 ```bash
 $ firebase login
 ```
-Now activate the flutterfire cli:
+Now activate the FlutterFire cli:
 
 ```bash
 $ dart pub global activate flutterfire_cli
 ```
 
-## Start the Emulators
+## Running tests
 
-To start the Firebase Emulators, run the following command:
+### Preparing the iOS simulator
 
-```bash
-firebase emulators:start --only auth,firestore
-```
+Using an iOS simulator for integration testing in Flutter is incredibly finicky. So far, an integration test run fails more frequently due to problems with the testing environment than from problems with the actual GGC code. This is demoralizing.  To reduce the frequency of occurrence of "false negative" test runs, here are some heuristics for setting up the iOS simulator:
 
-The emulators will start, and you will see something like the following output:
+*1.* Use the simulator **iPhone 16 Pro**.  Any other iPhone model will have different screen dimensions, which will likely cause test failures (because the test case scrolls when it shouldn't, or fails to scroll when it should).
 
-```bash
-(node:76082) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
-i  emulators: Starting emulators: auth, firestore
-i  firestore: Firestore Emulator logging to firestore-debug.log
-✔  firestore: Firestore Emulator UI websocket is running on 9150.
+*2.* Prior to running a test, reinitialize the simulator using `Device > Erase all contents and settings`.  This avoids problems due to the simulator being left in a weird state by prior usage.
 
-┌─────────────────────────────────────────────────────────────┐
-│ ✔  All emulators ready! It is now safe to connect your app. │
-│ i  View Emulator UI at http://127.0.0.1:4000/               │
-└─────────────────────────────────────────────────────────────┘
+*3.* Once the device is reinitialized, confirm keyboard settings:
 
-┌────────────────┬────────────────┬─────────────────────────────────┐
-│ Emulator       │ Host:Port      │ View in Emulator UI             │
-├────────────────┼────────────────┼─────────────────────────────────┤
-│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
-├────────────────┼────────────────┼─────────────────────────────────┤
-│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
-└────────────────┴────────────────┴─────────────────────────────────┘
-  Emulator Hub host: 127.0.0.1 port: 4400
-  Other reserved ports: 4500, 9150
+<img width="500px" src="/img/develop/testing/simulator-keyboard-settings.png"/>
 
-Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files. 
-```
+The goal here is to make sure the hardware keyboard is connected so that the "soft keyboard" does not pop up during testing (because that can overlay UI elements and cause the test to fail).
 
-## run_tests_emulator.sh
 
-To run the tests with the Firebase Emulators, invoke:
+*4.* After reinitializing the simulator, open the "Reminder" app and create a reminder.  This is because the iOS simulator will (seemingly unpredictably) prompt the user the first time they do an operation involving the keyboard with a tip about sliding ones fingers across the letters:
+
+<img width="500px" src="/img/develop/testing/reminder.png"/>
+
+You need to dismiss this tip manually by clicking "Continue" if this dialog appears so that the simulator will not display it again. Otherwise, the tests will fail if it appears during testing.
+
+### run_tests_emulator.sh
+
+Once you've dealt with all the shenanigans involving the iOS simulator, it's finally time to run the tests. To run all the tests at once, invoke:
 
 ```bash
 $ ./run_tests_emulators.sh
@@ -133,12 +114,14 @@ This script starts up the Firebase Emulators, connects to them, runs the tests, 
 You should see something like:
 
 ```bash
-$ ./run_tests_emulator.sh                                                                                                                                     09:05:22
+$ ./run_tests_emulator.sh                                                          
++ npx kill-port 8080 4400 9099
+Process on port 4400 killed
+Process on port 9099 killed
+Process on port 8080 killed                                                        
 + firebasePid=78081
 + sleep 10
 + firebase emulators:start --only auth,firestore
-(node:78081) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
 i  emulators: Starting emulators: auth, firestore
 i  firestore: Firestore Emulator logging to firestore-debug.log
 ✔  firestore: Firestore Emulator UI websocket is running on 9150.
@@ -238,17 +221,7 @@ i  hub: Stopping emulator hub
 i  logging: Stopping Logging Emulator
 ```
 
-Here are the important takeaways:
-
-* We use the [Patrol Finders](https://patrol.leancode.co/finders/overview) package, which provides a very helpful syntactic sugar over the built-in Flutter testing package. We do not use the full Patrol package, just their Patrol Finder package.
-* We use the Riverpod overrides only for the revenuecat feature so that during testing, our code manipulates the local emulated test fixture data rather than the data in the Firebase database.
-* We initialize the data in the database from our test fixture data. This is done by calling the `initializeLocalEmulators` function. This function is defined in the `firebase_local_emulation.dart` file in the `features/common/functions` directory. This function is called in the `app_test_emulator.dart` file.
-* We test each feature by calling a "test" function (i.e. testChapter, testCrop, etc.).
-* After testing each feature, the test code runs the Check Integrity admin function to ensure that the test of the previous feature did not introduce a database inconsistency.
-* Our integration testing approach is "big bang": we run the entire integration test suite in a single function. This means tests are not independent of each other, which can make individual test case design more difficult. We chose this design for pragmatic reasons: setting up the runtime environment for testing takes around 50 seconds (on my late model MacBook Pro). If we ran each of the 15 feature tests independently, that would add on an additional 12 minutes (15 features * 50 seconds) to test suite execution time. No bueno.
-* You should rarely need to edit this `app_test_emulator.dart` file. Instead, you will usually edit one of the top-level "test" feature files (i.e. testChapter.dart, testCrop.dart, etc.) You will normally need to edit app_test_emulator.dart only when you want to introduce the testing of a new feature.
-
-## run_tests_single_emulator.sh
+### run_tests_single_emulator.sh
 
 While developing the test for a feature, it is humbug to have to run the entire test suite each time you want to run your newly developed test code.
 
@@ -290,489 +263,29 @@ void main() {
   });
 }
 ```
-Here are some important takeaways:
+
+## Testing design features
+
+* We use the [Patrol Finders](https://patrol.leancode.co/finders/overview) package, which provides a very helpful syntactic sugar over the built-in Flutter testing package. We do not use the full Patrol package, just their Patrol Finder package.
+* We use the Riverpod overrides only for the revenuecat feature so that during testing, our code manipulates the local emulated test fixture data rather than the data in the Firebase database.
+* We initialize the data in the database from our test fixture data. This is done by calling the `initializeLocalEmulators` function. This function is defined in the `firebase_local_emulation.dart` file in the `features/common/functions` directory. This function is called in the `app_test_emulator.dart` file.
+* We test each feature by calling a "test" function (i.e. testChapter, testCrop, etc.).
+* After testing each feature, the test code runs the Check Integrity admin function to ensure that the test of the previous feature did not introduce a database inconsistency.
+* The run_tests_emulator script is "big bang": we run the entire integration test suite in a single function. This means tests are not independent of each other, which can make individual test case design more difficult. We chose this design for pragmatic reasons: setting up the runtime environment for testing takes around 50 seconds (on my late model MacBook Pro). If we ran each of the 15 feature tests independently, that would add on an additional 12 minutes (15 features * 50 seconds) to test suite execution time. No bueno.
+* You should rarely need to edit this `app_test_emulator.dart` file. Instead, you will usually edit one of the top-level "test" feature files (i.e. testChapter.dart, testCrop.dart, etc.) You will normally need to edit app_test_emulator.dart only when you want to introduce the testing of a new feature.
+
+For the run_tests_single_emulator, note the following:
 
 * You can freely edit this file in your branch to focus on the specific feature of interest.
 * Sometimes you might want to check multiple features at once, that's fine. You do you. The idea is that this is a kind of "sandbox" for you to develop tests so that you are not wishing to edit the global `./run_tests.sh` and `app_test.dart` files to speed up testing.
 
-</TabItem>
-
-<TabItem value="testing-local" label="Use hand-rolled backend">
-
-:::warning This approach is deprecated
-This approach uses hand-rolled mockup database backend code. 
-
-We will eventually remove this approach.
-:::
-
-## run_tests.sh
-
-To run the test suite, open the iOS simulator, make sure it is visible on your desktop, and then invoke `./run_tests.sh` in a terminal window. 
-
-:::warning Make sure you have logged in to the simulator
-For the test suite authentication mock to work correctly, you must have previously logged in to GGC on the iOS simulator. If you have never logged in to GGC, or if you have logged out of GGC on the simulator, then the test cases will fail and the simulator will display a login screen without any fields. You should also use a large iPhone simulator (e.g. iPhone 15 or 16) to run the tests.
-:::
-
-The test suite takes around 5 minutes to run, and should produce output similar to the following:
-
-```
-./run_tests.sh
-+ flutter test integration_test/app_test.dart --coverage
-00:05 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                              Ru00:34 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                               
-00:44 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                           9.8s
-Xcode build done.                                           39.3s
-00:51 +0: GGC Integration Test (All) Fixture 1 Tests                                                                             
-PATROL_LOG {"timestamp":"2024-12-17T10:26:49.557301","type":"config","config":{}}
-Testing admin feature
-Testing badge feature
-... test Badge Index Screen
-Testing bed feature
-... test Bed CRUD
-<<GGC Rate Limiting Enabled>>
-<<GGC Rate Limiting Enabled>>
-Testing chapter feature
-... test Chapter Index Screen
-... test Chapter Lurk Mode
-Testing chat feature
-Testing crop feature
-... test Crop Index Screen
-... test Crop CRUD
-Testing garden feature
-... test Garden Index Screen
-... test Garden Details Screen
-... test Garden CRUD
-Testing gardener feature
-... test Gardener Index Screen
-Testing geobot feature
-Testing home feature
-Testing observation feature
-... test Observation Feed
-... test Observation CRUD
-... test Observation Types
-Testing outcome feature
-... test Outcome Garden Details View
-... test Outcome CRUD
-Testing planting feature
-... test Planting Index Screen
-... test Planting CRUD
-... test Planting Copy Planting
-Testing settings feature
-Testing task feature
-... test Task View
-... test Task CRUD
-... test Task Completion
-Testing user feature
-... test User Profile Update
-Warning! Replacing duplicate Field for Chapter -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Ignoring Field unregistration for Chapter -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Replacing duplicate Field for UserID -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Replacing duplicate Field for Chapter -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Replacing duplicate Field for Picture -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Replacing duplicate Field for Username -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Replacing duplicate Field for Full Name -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Replacing duplicate Field for Completed Permaculture Workshop -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Ignoring Field unregistration for Completed Permaculture Workshop -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Ignoring Field unregistration for Full Name -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Ignoring Field unregistration for UserID -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Ignoring Field unregistration for Chapter -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Ignoring Field unregistration for Username -- this is OK to ignore as long as the field was intentionally replaced
-Warning! Ignoring Field unregistration for Picture -- this is OK to ignore as long as the field was intentionally replaced
-Testing value/unit feature
-... test Value/Unit CRUD
-<<GGC Rate Limiting Enabled>>
-<<GGC Rate Limiting Enabled>>
-Testing variety feature
-... test Variety Index Screen
-... test Variety CRUD
-... test Variety Gold Varieties
-08:48 +1: All tests passed!                                                                                                      
-+ flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'repositories\/.*$'
-+ flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'data\/.*$'
-+ flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'domain\/.*$'
-+ flutter pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r 'authentication\/.*$'
-+ genhtml -q coverage/lcov.info -o coverage/html
-Overall coverage rate:
-  source files: 349
-  lines.......: 77.2% (7427 of 9624 lines)
-  functions...: no data found
-Message summary:
-  no messages were reported
-```
-
-Note the line "All tests passed" after the sequence of lines documenting the feature under test.
-
-:::info Uh oh... 
-If the tests do not run successfully, there won't be the line "All tests passed", and the output will instead look similar to this:
-
-```
-$ ./run_tests.sh
-+ flutter test integration_test/app_test.dart --coverage
-00:05 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                        Ru00:28 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                         
-00:35 +0: loading /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart                     7.0s
-Xcode build done.                                           30.1s
-00:42 +0: GGC Integration Test (All) Fixture 1 Tests                                                                       
-Testing admin feature
-Testing badge feature
-Testing bed feature
-... test Bed CRUD
-#0   WriteRateLimiter.rateLimit (package:ggc_app/features/common/rate-limit/write_rate_limiter.dart:36:16)
-Rate limiting enabled.
-#0   WriteRateLimiter.rateLimit (package:ggc_app/features/common/rate-limit/write_rate_limiter.dart:36:16)
-Rate limiting enabled.
-Testing chapter feature
-Testing chat feature
-Testing crop feature
-... test Crop Index Screen
-... test Crop CRUD
-Testing garden feature
-... test Garden Index Screen
-... test Garden Details Screen
-... test Garden CRUD
-Testing gardener feature
-... test Gardener Index Screen
-Testing geobot feature
-Testing home feature
-Testing observation feature
-... test Observation Feed
-... test Observation CRUD
-Testing outcome feature
-... test Outcome Garden Details View
-... test Outcome CRUD
-Testing planting feature
-... test Planting Index Screen
-... test Planting CRUD
-... test Planting Copy Planting
-══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
-The following TestFailure was thrown running a test:
-Expected: <true>
-  Actual: <false>
-
-When the exception was thrown, this was the stack:
-#4      testPlantingCopyPlanting (file:///Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/features/planting/test_planting_copy_planting.dart:24:3)
-<asynchronous suspension>
-#5      testPlanting (file:///Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/features/planting/test_planting.dart:13:3)
-<asynchronous suspension>
-#6      main.<anonymous closure>.<anonymous closure> (file:///Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart:153:7)
-<asynchronous suspension>
-#7      patrolWidgetTest.<anonymous closure> (package:patrol_finders/src/common.dart:50:7)
-<asynchronous suspension>
-#8      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:189:15)
-<asynchronous suspension>
-#9      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1032:5)
-<asynchronous suspension>
-<asynchronous suspension>
-(elided one frame from package:stack_trace)
-
-This was caught by the test expectation on the following line:
-  file:///Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/features/planting/test_planting_copy_planting.dart line 24
-The test description was:
-  Fixture 1 Tests
-════════════════════════════════════════════════════════════════════════════════════════════════════
-03:15 +0 -1: GGC Integration Test (All) Fixture 1 Tests [E]                                                                       
-  Test failed. See exception logs above.
-  The test description was: Fixture 1 Tests
-  
-
-To run this test again: /Users/philipjohnson/Flutter/bin/cache/dart-sdk/bin/dart test /Users/philipjohnson/GitHub/geogardenclub/ggc_app/integration_test/app_test.dart -p vm --plain-name 'GGC Integration Test (All) Fixture 1 Tests'
-03:16 +0 -1: Some tests failed.                                                                                                   
-+ genhtml -q coverage/lcov.info -o coverage/html
-Overall coverage rate:
-  source files: 472
-  lines.......: 54.8% (7029 of 12823 lines)
-  functions...: no data found
-Message summary:
-  no messages were reported
-```
-
-You can see from this output that the failure occurred during the test of the planting feature. The stack trace indicates the failure occurred on line 24 of testPlantingCopyPlanting.dart. 
-
-If you cannot get the test code to execute successfully even though other developers can, it might be because the tests don't work on the device you've chosen. At the time of writing, the tests run successfully using the iPhone 15 simulator under iOS 17.5.
-:::
-
-Here are some important takeaways from this test execution output:
-
-* We only write integration tests; no unit or widget tests. This maximizes the ratio of application code exercised per line of test code. Currently, the lib/ directory contains around 44K lines of code, and the integration_test/ directory contains around 1200 lines of code. So, the test code only accounts for around 2% of the total code base.   
-* Our tests run with a specific "test fixture" (currently we're using one called Test Fixture 1). This is a sample dataset containing test values for most or all of the entities in our system (i.e. chapters, beds, gardens, gardeners, etc.).  This sample dataset is stored in `assets/test/fixture1`.  In the future, we might write tests that require a different fixture. 
-* Our test architecture is organized around features.
-* The "Rate Limiter" might be triggered. You can ignore this warning.
-* We compute coverage to provide an efficient way to find important areas of the app code that have not yet been tested, not to verify that the tests achieve 100% coverage (more on this below). We also remove several directories from the coverage report (i.e. data/, domain/, and repositories/) so that the coverage report does not report on code that is never executed due to mocking (i.e. code in the data/ and repositories/ directories) and also focuses more specifically on UI code.
-
-
-:::warning Keep the iOS simulator open and visible!
-
-When running the tests, be sure to keep the iOS simulator visible on your desktop for two reasons. 
-
-First, we have discovered that if the iOS simulator is not visible, the tests may fail unpredictably. 
-
-Second, the testing process will occasionally (and unpredictably) pause in the iOS simulator, waiting for you to click on a button to allow pasting:
-
-<img src="/img/develop/testing/core-simulator-bridge.png"/>
-
-If you don't click the button to allow pasting, the test process will hang indefinitely.
-
-This is a security feature in the iOS operating system. There is apparently no way to disable it at the current time. 
-:::
-
-## app_test.dart
-
-To further understand the test process, it's helpful to review the code that is run by the `./run_tests.sh` command:
-
-```dart
-// integration_test/app_test.dart
-void main() {
-  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-  group('GGC Integration Test (All)', () {
-    patrolWidgetTest('Fixture 1 Tests', (PatrolTester $) async {
-      await Firebase.initializeApp();
-      setFirebaseUiIsTestMode(true);
-      FirebaseAuth mockAuth = MockFirebaseAuth();
-      String email = 'jennacorindeane@gmail.com';
-      mockAuth.createUserWithEmailAndPassword(email: email, password: '');
-      TestFixture testFixture = await TestFixture.getInstance(testFixture1Path);
-      await $.pumpWidgetAndSettle(ProviderScope(
-        overrides: [
-          firebaseAuthProvider.overrideWithValue(mockAuth),
-          badgesProvider.overrideWith((_) => testFixture.getBadgesStream()),
-          badgeDatabaseProvider.overrideWith((_) => testFixture.getBadgeDatabase()),
-          badgeInstancesProvider.overrideWith((_) => testFixture.getBadgeInstancesStream()),
-          badgeInstanceDatabaseProvider.overrideWith((_) => testFixture.getBadgeInstanceDatabase()),
-          bedsProvider.overrideWith((_) => testFixture.getBedsStream()),
-          bedDatabaseProvider.overrideWith((ref) => testFixture.getBedDatabase()),
-          chaptersProvider.overrideWith((_) => testFixture.getChaptersStream()),
-          chapterDatabaseProvider.overrideWith((_) => testFixture.getChapterDatabase()),
-          chatRoomDatabaseProvider.overrideWith((_) => testFixture.getChatRoomDatabase()),
-          chatUserDatabaseProvider.overrideWith((_) => testFixture.getChatUserDatabase()),
-          cropsProvider.overrideWith((_) => testFixture.getCropsStream()),
-          cropDatabaseProvider.overrideWith((_) => testFixture.getCropDatabase()),
-          editorsProvider.overrideWith((_) => testFixture.getEditorsStream()),
-          editorDatabaseProvider.overrideWith((_) => testFixture.getEditorDatabase()),
-          familiesProvider.overrideWith((_) => testFixture.getFamiliesStream()),
-          familyDatabaseProvider.overrideWith((_) => testFixture.getFamilyDatabase()),
-          gardensProvider.overrideWith((_) => testFixture.getGardensStream()),
-          gardenDatabaseProvider.overrideWith((_) => testFixture.getGardenDatabase()),
-          gardenersProvider.overrideWith((_) => testFixture.getGardenersStream()),
-          gardenerDatabaseProvider.overrideWith((_) => testFixture.getGardenerDatabase()),
-          observationsProvider.overrideWith((_) => testFixture.getObservationsStream()),
-          observationDatabaseProvider.overrideWith((_) => testFixture.getObservationDatabase()),
-          outcomesProvider.overrideWith((_) => testFixture.getOutcomesStream()),
-          outcomeDatabaseProvider.overrideWith((_) => testFixture.getOutcomeDatabase()),
-          plantingsProvider.overrideWith((_) => testFixture.getPlantingsStream()),
-          plantingDatabaseProvider.overrideWith((_) => testFixture.getPlantingDatabase()),
-          rolesProvider.overrideWith((_) => testFixture.getRolesStream()),
-          roleDatabaseProvider.overrideWith((_) => testFixture.getRoleDatabase()),
-          tagsProvider.overrideWith((_) => testFixture.getTagsStream()),
-          tagDatabaseProvider.overrideWith((_) => testFixture.getTagDatabase()),
-          tasksProvider.overrideWith((_) => testFixture.getTasksStream()),
-          taskDatabaseProvider.overrideWith((_) => testFixture.getTaskDatabase()),
-          usersProvider.overrideWith((_) => testFixture.getUsersStream()),
-          userDatabaseProvider.overrideWith((_) => testFixture.getUserDatabase()),
-          varietiesProvider.overrideWith((_) => testFixture.getVarietiesStream()),
-          varietyDatabaseProvider.overrideWith((_) => testFixture.getVarietyDatabase()),
-        ],
-        child: const MyApp(),
-      ));
-      expect($(HomeScreen).visible, equals(true), reason: 'Login fails');
-      await checkIntegrity($, reason: 'startup');
-      await testAdmin($);
-      await checkIntegrity($, reason: 'admin feature');
-      await testBadge($);
-      await checkIntegrity($, reason: 'badge feature');
-      await testBed($);
-      await checkIntegrity($, reason: 'bed feature');
-      await testChapter($);
-      await checkIntegrity($, reason: 'chapter feature');
-      await testChat($);
-      await checkIntegrity($, reason: 'chat feature');
-      await testCrop($);
-      await checkIntegrity($, reason: 'crop feature');
-      await testGarden($);
-      await checkIntegrity($, reason: 'garden feature');
-      await testGardener($);
-      await checkIntegrity($, reason: 'gardener feature');
-      await testGeoBot($);
-      await checkIntegrity($, reason: 'geobot feature');
-      await testHome($);
-      await checkIntegrity($, reason: 'home feature');
-      await testObservation($);
-      await checkIntegrity($, reason: 'observation feature');
-      await testOutcome($);
-      await checkIntegrity($, reason: 'outcome feature');
-      await testPlanting($);
-      await checkIntegrity($, reason: 'planting feature');
-      await testSettings($);
-      await checkIntegrity($, reason: 'settings feature');
-      await testTask($);
-      await checkIntegrity($, reason: 'task feature');
-      await testVariety($);
-      await checkIntegrity($, reason: 'variety feature');
-    });
-  });
-}
-```
-
-Here are the important takeaways:
-
-* We use the [Patrol Finders](https://patrol.leancode.co/finders/overview) package, which provides a very helpful syntactic sugar over the built-in Flutter testing package. We do not use the full Patrol package, just their Patrol Finder package. 
-* We use the Riverpod overrides feature so that during testing, our code manipulates the test fixture data rather than the data in the Firebase database. 
-* We simulate Firebase authentication (using firebase_auth_mocks) and the app starts up with the (admin) user jennacorindeane@gmail.com already logged in. So, we don't currently test the registration or signin workflows. The app "starts" by displaying the Home screen for Jenna.
-* We test each feature by calling a "test" function (i.e. testChapter, testCrop, etc.).
-* After testing each feature, the test code runs the Check Integrity admin function to ensure that the test of the previous feature did not introduce a database inconsistency. 
-* Our integration testing approach is "big bang": we run the entire integration test suite in a single function. This means tests are not independent of each other, which can make individual test case design more difficult. We chose this design for pragmatic reasons: setting up the runtime environment for testing takes around 50 seconds (on my late model MacBook Pro). If we ran each of the 15 feature tests independently, that would add on an additional 12 minutes (15 features * 50 seconds) to test suite execution time. No bueno.  
-* You should rarely need to edit this `app_test.dart` file. Instead, you will usually edit one of the top-level "test" feature files (i.e. testChapter.dart, testCrop.dart, etc.) You will normally need to edit app_test.dart only when you want to introduce the testing of a new feature.
-
-## Testing a feature
-
-Let's now look at how the "Crop" feature is currently tested. Here is the top-level feature test function for Crops:
-
-```dart
-// integration_test/features/crop/test_crop.dart
-Future<void> testCrop(PatrolTester $) async {
-  // ignore: avoid_print
-  print('Testing crop feature');
-  await testCropIndexScreen($);
-  await testCropCRUD($);
-}
-```
-
-Here are some important takeaways:
-
-* Each top-level feature test function starts by printing a line of output indicating that the test of this feature is starting. That makes it easier to see how far testing has gotten and helps pinpoint the location of problems when testing fails.
-* A top-level feature test function is typically implemented by calling multiple functions, each of which tests a different aspect of the feature.
-
-Here is testCropIndexScreen:
-
-```dart
-// integration_test/features/crop/test_crop_index_screen.dart
-Future<void> testCropIndexScreen(PatrolTester $) async {
-  // ignore: avoid_print
-  print('... test Crop Index Screen');
-  String testCrop = 'Amaranth';
-  await gotoDrawerScreen($, CropIndexScreen);
-  await $(CropDropdown).tap();
-  await $(testCrop).tap();
-  expect($(CropDropdown).$(testCrop).visible, equals(true));
-  expect($(CropView).$(testCrop).visible, equals(true));
-  // Refresh CropIndexScreen so it displays all crops.
-  await gotoDrawerScreen($, ChapterIndexScreen);
-  await gotoDrawerScreen($, CropIndexScreen);
-}
-```
-
-Here are some important takeaways:
-
-* We use Patrol Finder syntax to locate widgets and manipulate them through searching for widgets of a particular type and/or containing a particular text string. Please avoid creating Keys for testing. Patrol Finders make it possible to test the source code without introducing new lines of code purely for the purpose of test support.
-
-Let's now look at the test for create, read, update, and delete of a Crop:
-
-```dart
-// integration_test/features/crop/test_crop_crud.dart
-Future<void> testCropCRUD(PatrolTester $) async {
-  // ignore: avoid_print
-  print('... test Crop CRUD');
-  String testCropName = 'AAATestCrop';
-  String updatedTestCropName = 'AAAATestCrop';
-  // Test Create.
-  await gotoDrawerScreen($, CropIndexScreen);
-  await $(GgcFAB).$('Crop').tap();
-  expect($(CreateCropScreen).visible, equals(true));
-  await $(CropNameField).enterText(testCropName);
-  await $(FamilyDropdown).tap();
-  await $('Allium').tap();
-  await $(FormButtons).$('Submit').tap();
-  expect($(CropIndexScreen).visible, equals(true));
-  // Verify Create.
-  await $(testCropName).waitUntilVisible();
-  await checkIntegrity($, reason: 'Create crop');
-  // Test Read and Update
-  await gotoDrawerScreen($, AdminScreen);
-  await $(SelectScreenTile).$('Entity Management').tap();
-  await $(SelectScreenTile).$('Manage Crops').tap();
-  await $(CropDropdown).tap();
-  await $(testCropName).tap();
-  await $('Update').tap();
-  await $(CropNameField).enterText(updatedTestCropName);
-  await $('Submit').tap();
-  await $(BackButton).tap();
-  await $(BackButton).tap();
-  await gotoDrawerScreen($, CropIndexScreen);
-  // Verify Update
-  await $(updatedTestCropName).waitUntilVisible();
-  await checkIntegrity($, reason: 'Update crop');
-  // Test Delete
-  await gotoDrawerScreen($, AdminScreen);
-  await $(SelectScreenTile).$('Entity Management').tap();
-  await $(SelectScreenTile).$('Manage Crops').tap();
-  await $(CropDropdown).tap();
-  await $(updatedTestCropName).tap();
-  await $('Update').tap();
-  await $(Icons.delete).tap();
-  await $('Delete').tap();
-  await gotoDrawerScreen($, CropIndexScreen);
-  await $(CropDropdown).tap();
-  // Verify delete
-  expect($(updatedTestCropName).exists, equals(false));
-  await checkIntegrity($, reason: 'Delete crop');
-}
-```
-Here are some important takeaways:
-
-* Testing a behavior can require a relatively long sequence of UI interactions. Getting the  sequence correct is way easier if you first step through the behavior manually. To make this easier, follow the instructions in the section below on "Run the simulator with test data".
-* It's fine to test multiple behaviors in a single function. In this case, since we are creating an object, then manipulating it, it seems reasonable to group it all in one function.
-* The function performs a behavior (i.e. create, read, update, or delete), and then verifies that the behavior succeeded.  In the case of CRUD operations, it is helpful to run an integrity check after any mutation (create, update, delete) to ensure that the database was not corrupted and to immediately throw an error if it was corrupted by the mutation.
-
-## run_tests_single.sh
-
-While developing the test for a feature, it is humbug to have to run the entire test suite each time you want to run your newly developed test code. 
-
-To speed up testing, you can use the command `./run_tests_single.sh`.  This runs the `app_test_single.dart` file, which looks similar to this:
-
-```dart
-// integration_test/app_test_single.dart
-void main() {
-  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-  group('GGC Integration Test (Single)', () {
-    patrolWidgetTest('Fixture 1 Tests', (PatrolTester $) async {
-      await Firebase.initializeApp();
-      setFirebaseUiIsTestMode(true);
-      FirebaseAuth mockAuth = MockFirebaseAuth();
-      String email = 'jennacorindeane@gmail.com';
-      mockAuth.createUserWithEmailAndPassword(email: email, password: '');
-      TestFixture testFixture = await TestFixture.getInstance(testFixture1Path);
-      await $.pumpWidgetAndSettle(ProviderScope(
-        overrides: [
-          firebaseAuthProvider.overrideWithValue(mockAuth),
-          badgesProvider.overrideWith((_) => testFixture.getBadgesStream()),
-          badgeDatabaseProvider.overrideWith((_) => testFixture.getBadgeDatabase()),
-          :
-          :
-          varietiesProvider.overrideWith((_) => testFixture.getVarietiesStream()),
-          varietyDatabaseProvider.overrideWith((_) => testFixture.getVarietyDatabase()),
-        ],
-        child: const MyApp(),
-      ));
-      expect($(HomeScreen).visible, equals(true), reason: 'Login fails');
-      await testCrop($);
-    });
-  });
-}
-```
-
-Here are some important takeaways:
-
-* You can freely edit this file in your branch to focus on the specific feature of interest.
-* Sometimes you might want to check multiple features at once, that's fine. You do you. The idea is that this is a kind of "sandbox" for you to develop tests so that you are not wishing to edit the global `./run_tests.sh` and `app_test.dart` files to speed up testing. 
-
-</TabItem>
-
-
-</Tabs>
 ## Coverage
 
 It can be useful to see the coverage of our test cases. After running the test suite, you can open the file `coverage/html/index.html`. Here's what it looks like after clicking the button to sort the rows in order of increasing coverage.
 
 <img src="/img/develop/testing/coverage.png"/>
 
-Note that our coverage report excludes the data/, domain/, and repositories/ directories. One reason is because the use of mocks means that the code in the data/ and repositories/ directories will never be executed by testing, so reporting (the necessarily low) coverage for that code is not useful; we can't fix that. We also exclude the domain/ directory so that the coverage information focuses more directly on UI code, which will hopefully make the report more useful in determining certain types of gaps in testing. 
+Note that our coverage report excludes the data/, domain/, and repositories/ directories. We do this so that the coverage information focuses more directly on UI code, which will hopefully make the report more useful in determining certain types of gaps in testing. 
 
 There are clickable links that you can use to drill down to see which statements have been executed and which have not been.
 
@@ -781,10 +294,46 @@ The primary goal of the coverage report is to simplify identification of "forgot
 :::warning High coverage does not imply high test quality
 Beware that a high level of coverage does not, by itself, indicate that the test suite is high quality--i.e reliably able to indicate the absence of important errors in the code. 
 
-To understand why, consider one important limitation of our test suite--the use of a test data fixture. Even if we got to 100% coverage with no errors with this (or any other) test data fixture, it would not guarantee that the code would execute correctly if the data was in some other state. 
+To understand why, consider one important limitation of our test suite--the use of a test data fixture. Even if we got to 100% coverage with no errors with this (or any other) test data fixture, it would not guarantee that the code would execute correctly if the database was in some other state. 
 
-That said, low coverage definitely implies low test quality: if you're not even executing code while testing, there's no way to know if it's correct or not. So, it's in our best interest to get relatively decent coverage, even if it doesn't guarantee that our tests will expose important bugs in the code. 
+That said, low coverage definitely implies low test quality: if you're not even executing code while testing, there's no way to know if it's correct or not. So, it's in our best interest to get relatively decent coverage, even if it doesn't guarantee that our tests will expose all important bugs in the code. 
 :::
+
+## Development using emulators
+
+If you want to do development by manipulating the test fixture database rather than the live production database, you need to first start the Firebase Emulators in stand-alone mode:
+
+```bash
+firebase emulators:start --only auth,firestore
+```
+
+The emulators will start, and you will see something like the following output:
+
+```bash
+i  emulators: Starting emulators: auth, firestore
+i  firestore: Firestore Emulator logging to firestore-debug.log
+✔  firestore: Firestore Emulator UI websocket is running on 9150.
+
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files. 
+```
+
+Then, you can run the main_test_fixture.dart file. 
+
 
 ## Test Design Hints
 
