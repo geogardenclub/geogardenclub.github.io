@@ -41,6 +41,12 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          blogTitle: 'GeoGardenClub News',
+          blogDescription: 'Information about GeoGardenClub App Releases, newsletter, news releases, and other garden planning information.',
+          routeBasePath: 'news',
+          blogSidebarCount: 10,
+          showReadingTime: false,
+          onUntruncatedBlogPosts: 'ignore',
         },
         sitemap: {
           ignorePatterns: ['/docs/business/**', '/docs/develop/**'],
@@ -71,7 +77,7 @@ const config = {
             {label: 'Pricing', to: 'pricing'},
             {label: 'About', to: 'docs/home/welcome'},
             {label: 'User Guide', to: 'docs/user-guide/overview'},
-            {label: 'News', to: 'blog'},
+            {label: 'News', to: 'news'},
             {label: 'FAQ', to: 'docs/user-guide/faq'},
             {
               to: 'docs/user-guide/get-started/overview',

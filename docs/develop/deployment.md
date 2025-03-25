@@ -81,9 +81,9 @@ To submit for review and release to App Store:
 * Update the App Review Guidelines google doc and save as PDF.
 * On the Distribution page, click the "+" next to "iOS App" in the left sidebar to create a new version.
 * Enter the new version number.
-* Add the recently uploaded build.
-* Add the App Review Guidelines PDF document.
-* Add text to the "What's New in This Version" field.
+* Under "What's New in This Version", add descriptive text.
+* Under "Build", add the recently uploaded build.
+* Under "App Review Information", add the App Review Guidelines PDF document as an attachment.
 * Click "Save", then "Add for Review", then "Submit to App Review".
 
 </TabItem>
