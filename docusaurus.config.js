@@ -45,6 +45,7 @@ const config = {
           blogDescription: 'Information about GeoGardenClub App Releases, newsletter, news releases, and other garden planning information.',
           routeBasePath: 'news',
           blogSidebarCount: 10,
+          onInlineAuthors: 'ignore',
           showReadingTime: false,
           onUntruncatedBlogPosts: 'ignore',
         },
