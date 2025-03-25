@@ -271,12 +271,12 @@ void main() {
 * We initialize the data in the database from our test fixture data. This is done by calling the `initializeLocalEmulators` function. This function is defined in the `firebase_local_emulation.dart` file in the `features/common/functions` directory. This function is called in the `app_test_emulator.dart` file.
 * We test each feature by calling a "test" function (i.e. testChapter, testCrop, etc.).
 * After testing each feature, the test code runs the Check Integrity admin function to ensure that the test of the previous feature did not introduce a database inconsistency.
-* The run_tests_emulator script is "big bang": we run the entire integration test suite in a single function. This means tests are not independent of each other, which can make individual test case design more difficult. We chose this design for pragmatic reasons: setting up the runtime environment for testing takes around 50 seconds (on my late model MacBook Pro). If we ran each of the 15 feature tests independently, that would add on an additional 12 minutes (15 features * 50 seconds) to test suite execution time. No bueno.
+* The `run_tests_emulator.sh` script is "big bang": we run the entire integration test suite in a single function. This means tests are not independent of each other, which can make individual test case design more difficult. We chose this design for pragmatic reasons: setting up the runtime environment for testing takes around 50 seconds (on my late model MacBook Pro). If we ran each of the 15 feature tests independently, that would add on an additional 12 minutes (15 features * 50 seconds) to test suite execution time. No bueno.
 * You should rarely need to edit this `app_test_emulator.dart` file. Instead, you will usually edit one of the top-level "test" feature files (i.e. testChapter.dart, testCrop.dart, etc.) You will normally need to edit app_test_emulator.dart only when you want to introduce the testing of a new feature.
 
-For the run_tests_single_emulator, note the following:
+For the `run_tests_single_emulator.sh`, note the following:
 
-* You can freely edit this file in your branch to focus on the specific feature of interest.
+* You can freely edit the `/integration_test/app_test_single_emulator.dart` file in your branch to focus on the specific feature of interest.
 * Sometimes you might want to check multiple features at once, that's fine. You do you. The idea is that this is a kind of "sandbox" for you to develop tests so that you are not wishing to edit the global `./run_tests.sh` and `app_test.dart` files to speed up testing.
 
 ## Coverage
@@ -332,7 +332,7 @@ i  firestore: Firestore Emulator logging to firestore-debug.log
 Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files. 
 ```
 
-Then, you can run the main_test_fixture.dart file. 
+Then, you can run the `main_local_emulators.dart` file. 
 
 
 ## Test Design Hints
@@ -391,6 +391,8 @@ expect($(GardenDetailsScreen).visible, equals(true));
 
 You don't need to put those comments (or the newlines) into your test code; I add them here just to highlight the added lines. But hopefully you can see how these expect statements make the flow of the test easier to understand. It also means the test will fail with a more helpful error message if the test ends up on an unexpected screen. 
 
+**Prefer to use `FieldKey` to identify widgets.** The `FieldKey` class is a way to identify widgets in the widget tree. It is a good idea to use `FieldKey` to identify widgets in the widget tree. This is because the `FieldKey` is a unique identifier for the widget, and it is more robust than using the widget's text or type.
+
 **Don't use an absolute "count" of items to do verification.**  For example, don't think that if the test fixture defines two gardens, your test case can assume it will see exactly two gardens. It could be that in the future, a test case gets added before yours that results in more gardens in the fixture by the time your test code runs.  Find some other way to do verification.
 
 **Don't delete or modify any entities in the test fixture.** If you want to test some sort of mutation, then please consider creating a new entity to mutate (or at the very least, make sure you restore the test fixture entity to its original condition). While other tests shouldn't assume there won't be *new* entities added, all tests can assume that the entities in the test fixture will be there exactly as defined.
@@ -426,6 +428,7 @@ Each fixture directory must contain the following files:
 * `badgeData.json`
 * `badgeInstanceData.json`
 * `bedData.json`
+* `blockedUserData.json`
 * `chapterData.json`
 * `chatRoomData.json`
 * `chatUserData.json`
@@ -471,22 +474,10 @@ The `lib/features/fixture_paths.dart` file defines two constants:
 * `monarchFixturePath` - the path to the Monarch fixture directory used by `WithMonarchData`.
 
 
-### AssetCollectionBuilder
+### AssetBuilder
 
-To facilitate the loading of the fixture files, we have created the `AssetCollectionBuilder` class. This class has three static methods to produce each of the collections from a fixture path. The three methods are as follows:
+To facilitate the loading of the fixture files, we have created the `AssetBuilder` class. This class has one static methods to produce each of the collections from a fixture path. The three methods are as follows:
 * ```Future<List<type>> getTypes(String assetPath)``` - loads the data from the fixture file and returns a list of the type.
-* ```Future<Stream<List<type>>> getTypesStream(String assetPath)``` - loads the data from the fixture file and returns a stream of a list of the type.
-* ```Future<TypeCollection> getTypeCollection(String assetPath)``` - loads the data from the fixture file and returns a collection of the type.
-
-For example, to create a `BedCollection` from the fixture path, use the following code:
-
-```
-final bedCollection = await AssetCollectionBuilder.getBedCollection(testFixturePath);
-```
-In addition, the `AssetCollectionBuilder` class has three build methods that build the collections with all the data like the `WithAllData` classes. The methods are as follows
-* `buildChapterCollection(String assetPath, String chapterId)` - builds a `ChapterCollection`.
-* `buildGardenCollection(String assetPath, String gardenId)` - builds a `GardenCollection`.
-* `buildUserCollection(String assetPath, String currentUserID, String currentUserUID)` - builds a `UserCollection`.
 
 
 ### TestFixture singleton
