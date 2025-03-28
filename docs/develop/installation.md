@@ -14,16 +14,37 @@ It is important that you are able to run `flutter doctor` without error:
 ```shell
 % flutter doctor
 Doctor summary (to see all details, run flutter doctor -v):
-[✓] Flutter (Channel stable, 3.10.0, on macOS 13.3.1 22E772610a darwin-arm64, locale en-US)
-[✓] Android toolchain - develop for Android devices (Android SDK version 33.0.1)
-[✓] Xcode - develop for iOS and macOS (Xcode 14.3)
+[✓] Flutter (Channel stable, 3.29.2, on macOS 15.3.2 24D81 darwin-arm64, locale en-US)
+[✓] Android toolchain - develop for Android devices (Android SDK version 35.0.0)
+[✓] Xcode - develop for iOS and macOS (Xcode 16.2)
 [✓] Chrome - develop for the web
-[✓] Android Studio (version 2021.3)
-[✓] IntelliJ IDEA Ultimate Edition (version 2023.1)
-[✓] Connected device (3 available)
+[✓] Android Studio (version 2024.3)
+[✓] IntelliJ IDEA Ultimate Edition (version 2024.3.5)
+[✓] VS Code (version 1.98.2)
+[✓] Connected device (4 available)
 [✓] Network resources
 
 • No issues found!
+```
+
+## FVM
+
+FVM (Flutter Version Management) is a tool that allows you to manage multiple versions of Flutter on your machine. It is not required, but it is recommended.
+To install FVM, run the following commands:
+
+```shell
+brew tap leoafarias/fvm
+brew install fvm
+```
+Then, run the following command to install the latest version of Flutter:
+
+```shell
+fvm use stable
+```
+To set the default version of Flutter to the latest version, run the following command:
+
+```shell
+fvm global stable
 ```
 
 ## Firebase CLI and FlutterFire CLI
@@ -60,14 +81,16 @@ Here is an example of the output from `run_tool_versions.sh` (as of Feb 22, 2025
 
 ```shell
 ./run_tool_versions.sh
-Computer Name: PMJ M2 2023
+Computer Name: Cam’s M4 MacBook Pro
 Cocoapods 1.16.2
-Dart SDK version: 3.6.2 
-Flutter 3.27.4 
-MacOS 15.3.1
+Dart SDK version: 3.7.2 
+Flutter 3.29.2 
+MacOS 15.3.2
 Monarch version 2.2.7
 ruby 3.2.6 (202
 Xcode 16.2
+Firebase 14.0.0
+Flutterfire 1.1.0
 iOS Simulator <version>
 ```
 Be sure to run this script locally and check it against the output from the Discord channel. Edit the last line to reflect the version of the iOS running in the Simulator.
@@ -197,44 +220,28 @@ Note that when running with test data, the paywall processing is disabled and so
 This is an alternative to the test data approach.  You can run the Firebase local emulators to test the app with a local database. First start the emulators:
 
 ```shell
-firebase emulators:start
-[...]
-Compiling lib/main.dart for the Web...                           2,354ms
-✓ Built build/web
-⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, database, pubsub, storage, dataconnect
+~/GitHub/geogardenclub/ggc_app $ firebase emulators:start --only auth,firestore                             08:15:40
+(node:19403) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+i  emulators: Starting emulators: auth, firestore
 i  firestore: Firestore Emulator logging to firestore-debug.log
 ✔  firestore: Firestore Emulator UI websocket is running on 9150.
-i  hosting[ggc-app-2de7b]: Serving hosting files from: .firebase/ggc-app-2de7b/hosting
-✔  hosting[ggc-app-2de7b]: Local server: http://127.0.0.1:5002
-i  functions: Watching "/Users/carletonmoore/GitHub/GGC/ggc_app/functions" for Cloud Functions...
-⚠  functions: Couldn't find firebase-functions package in your source code. Have you run 'npm install'?
-⬢  functions: Failed to load function definition from source: FirebaseError: There was an error reading functions/package.json:
-
- functions/lib/index.js does not exist, can't deploy Cloud Functions
 
 ┌─────────────────────────────────────────────────────────────┐
 │ ✔  All emulators ready! It is now safe to connect your app. │
 │ i  View Emulator UI at http://127.0.0.1:4000/               │
 └─────────────────────────────────────────────────────────────┘
 
-┌────────────────┬────────────────┬──────────────────────────────────┐
-│ Emulator       │ Host:Port      │ View in Emulator UI              │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth       │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions  │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore  │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Hosting        │ 127.0.0.1:5002 │ n/a                              │
-├────────────────┼────────────────┼──────────────────────────────────┤
-│ Extensions     │ 127.0.0.1:5001 │ http://127.0.0.1:4000/extensions │
-└────────────────┴────────────────┴──────────────────────────────────┘
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+└────────────────┴────────────────┴─────────────────────────────────┘
   Emulator Hub host: 127.0.0.1 port: 4400
   Other reserved ports: 4500, 9150
-┌─────────────────────────┬───────────────┬─────────────────────┐
-│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
-└─────────────────────────┴───────────────┴─────────────────────┘
+
 Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
 ```
 
