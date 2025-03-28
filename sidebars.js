@@ -72,6 +72,7 @@ const sidebars = {
     'business/milestones',
     'business/market-size',
     'business/metrics',
+    'business/instrumentation',
     {
       type: 'link',
       label: 'Lean Canvas',
