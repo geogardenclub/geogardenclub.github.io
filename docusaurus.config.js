@@ -74,7 +74,7 @@ const config = {
         announcementBar: {
           id: 'grow-more-waste-less',
           content:
-              '<h3 style="margin-top: 15px"> &#128226; Join us for a free, live webinar on April 11. Click <a target="_blank" rel="noopener noreferrer" href="news/2025/03/30/grow-more-waste-less-webinar">here</a> for details.</h3>',
+              '<h3 style="margin-top: 15px"> &#128226; Join us for a free, live webinar on April 11. Click <a target="_blank" rel="noopener noreferrer" href="news/2025/04/11/grow-more-waste-less-webinar">here</a> for details.</h3>',
           backgroundColor: '#02695c',
           textColor: 'white',
           isCloseable: false,

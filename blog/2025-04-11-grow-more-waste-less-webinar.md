@@ -10,6 +10,6 @@ Join us for a free, live webinar to learn how GeoGardenClub helps gardeners plan
 
 April 11, 2025<br />
 12:00pm - 1:00pm PDT<br />
-On Zoom: register [here (TBD)](http://zoom.link).
+On Zoom: register [here](https://zoom.us/webinar/register/WN_i2zWMELLQea9GJcvx3aVgw#/registration).
 
 You will get the most out of this webinar by first downloading GeoGardenClub from the App Store or Google Play, but this is not required. All new users get six months free!
