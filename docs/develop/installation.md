@@ -29,23 +29,31 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 ## FVM
 
-FVM (Flutter Version Management) is a tool that allows you to manage multiple versions of Flutter on your machine. It is not required, but it is recommended.
+[FVM (Flutter Version Management)](https://fvm.app/) is a tool that allows you to manage multiple versions of Flutter on your machine. It is not required, but it is recommended.
+
 To install FVM, run the following commands:
 
 ```shell
 brew tap leoafarias/fvm
 brew install fvm
 ```
-Then, run the following command to install the latest version of Flutter:
+Then, inside the GGC app's top-level directory, run the following command to install the latest version of Flutter:
 
 ```shell
 fvm use stable
 ```
-To set the default version of Flutter to the latest version, run the following command:
+
+You can review the [FVM Basic Commands](https://fvm.app/documentation/guides/basic-commands) page for more details on how to configure your environment.
+
+To set a version of Flutter as the global default for all Flutter projects on your machine, you can run the "global" command. For example:
 
 ```shell
 fvm global stable
 ```
+
+This is important because our development environment (IDE run commands, shell scripts, etc) just invoke `flutter`, not `fvm flutter`.  So the idea is to use FVM to set the "global" version of flutter to whatever version we want to be using. You should still refer to the #tool-versions channel to see the recommended Flutter version at any given time.
+
+Note that you still run `flutter upgrade` when a new version of Flutter is released to make FVM aware of it. 
 
 ## Firebase CLI and FlutterFire CLI
 
