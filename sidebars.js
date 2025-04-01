@@ -74,6 +74,18 @@ const sidebars = {
     'business/metrics',
     'business/instrumentation',
     {
+      type: 'category',
+      collapsed: false,
+      label: "Monthly Reports",
+      items: [
+        {
+          type: 'link',
+          label: 'March 2025',
+          href: 'https://docs.google.com/document/d/1yLiiYTDcJsEFNh_BVZTMfb29lsb2yqZLwG4MxLIsIC4/edit?usp=sharing',
+        },
+      ]
+    },
+    {
       type: 'link',
       label: 'Lean Canvas',
       href: 'https://www.canva.com/design/DAGXUaJ5nBg/gH6EnJ74rFjfqZYjJ2n50w/view?utm_content=DAGXUaJ5nBg&utm_campaign=designshare&utm_medium=link&utm_source=editor',
