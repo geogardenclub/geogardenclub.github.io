@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Frequently Asked Questions
 
-:::tip Tips on using GeoGardenClub to improve your garden.
+:::tip Tips on using GeoGardenClub.
 :::
 
 ## I just moved here, what grows well?
@@ -68,6 +68,16 @@ You can also create Observations for that Planting to provide further data about
 
 To easily create a new Planting for the next year, just tap the "Copy Planting" icon in the Navbar.  This will create a new Planting with fields initialized from the current Planting.
 
+## How do I manage gardens in multiple chapters?
+
+Sometimes you'll want to be part of two (or more) gardens that are located in different chapters. Let's say your home garden is in the Whatcom-WA chapter, but you want to participate in the management of a friend's garden located in the Skagit-WA chapter.  
+
+The best way to deal with this is to create a new email account (using a free service such as GMail) for the second chapter, such as "skagit-garden-pmj@gmail.com".  Then, register this new email account with GeoGardenClub, and pick the Skagit-WA chapter for it to belong to.  Now you can participate in the management of your garden in the Skagit-WA chapter by logging in with this new email. 
+
+GeoGardenClub allows you to register multiple email accounts with a single subscription, so this approach does not require you to add another subscription. 
+
+The downside of this approach is that you must log out of one account and login with the other whenever you want to manage the other garden.  At some point in the future, we might support multiple simultaneous logins to address this inconvenience. 
+
 ## Who is good at growing tomatoes?
 
 One way to identify gardeners who are good at growing specific crops is to go to the Badge Index screen, select Gardener from the bottom navigation menu, and scroll to the "Crop Whisperer" card:
@@ -91,6 +101,16 @@ Next, navigate to that Garden's Details Screen, select Filter from the bottom na
 From this, you can see that this gardener planted their tomatoes indoors in mid-March, and transplanted them outdoors in mid-May.  For more exact timing data, just tap on a Planting Bar. For example:
 
 <img width="300" src="/img/user-guide/faq/faq-filter-2.png"/>
+
+## When do I start planning next year's garden?
+
+The traditional time to plan a garden is during the off-season. For example, you might be curled up in front of the fireplace in early January while the snow falls outside.
+
+You can still use GeoGardenClub this way, but it also offers a more exciting alternative:  *opportunistic planning*. This means that you can easily plan a future garden at any time during the year, not just "between" growing seasons. 
+
+Here's a real life situation to illustrate the usefulness of opportunistic planning. A gardener in April 2025 became interested in growing Leeks, so they searched the Planting Index to see whether Leeks were being grown in their Chapter.  They discovered that Leeks were being grown successfully, but were always planted in February, so it was already too late to plant Leeks for 2025. So, the gardener used the Copy Planting feature to add a Leek planting to their garden for 2026. While they might update the bed or even the variety of Leek before actually planting it the following year, they've created a kind of "bookmark" about the crop and its timing so that they won't forget about it in the coming months. 
+
+In essence, this gardener has started planning their 2026 garden even though it was still Spring of 2025.  
 
 
 ## How do I implement crop rotation?

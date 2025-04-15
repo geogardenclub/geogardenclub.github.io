@@ -71,14 +71,14 @@ const config = {
           {name: 'keywords', content: 'Garden planning app, Garden design software, Vegetable garden planner, Online garden planner, Backyard garden planner, Organic garden planning, Community garden planner, Sustainable gardening app, Community food resiliency, Local planting guide app, Smart garden planner, Vegetable garden design tool, Interactive garden planner, Garden journal and tracker, Small garden design app'},
           {name: 'description', content: 'GeoGardenClub is an easy to use garden planning tool that allows local communities of gardeners to share information and improve their gardening skill.'},
         ],
-        // announcementBar: {
-        //   id: 'grow-more-waste-less',
-        //   content:
-        //       '<h3 style="margin-top: 15px"> &#128226; Join us for a free, live webinar on April 11. Click <a target="_blank" rel="noopener noreferrer" href="news/2025/04/11/grow-more-waste-less-webinar">here</a> for details.</h3>',
-        //   backgroundColor: '#02695c',
-        //   textColor: 'white',
-        //   isCloseable: false,
-        // },
+        announcementBar: {
+          id: 'innovate-bellingham',
+          content:
+              '<h3 style="margin-top: 15px"> &#128226; Join us at Innovate Bellingham on May 7. Click <a target="_blank" rel="noopener noreferrer" href="/news/2025/05/07/innovate-bellingham">here</a> for details.</h3>',
+          backgroundColor: '#02695c',
+          textColor: 'white',
+          isCloseable: false,
+        },
         navbar: {
           title: 'Geo Garden Club',
           logo: {alt: 'Geo Garden Club', src: 'img/logos/png/icon2.png'},

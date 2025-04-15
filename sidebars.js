@@ -62,6 +62,7 @@ const sidebars = {
         'user-guide/gardeners',
         'user-guide/retail-value',
         'user-guide/faq',
+        'user-guide/school-and-community-gardens',
         'user-guide/settings',
         'user-guide/privacy',
         ]

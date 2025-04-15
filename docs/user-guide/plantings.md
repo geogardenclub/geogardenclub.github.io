@@ -61,10 +61,6 @@ Sometimes you don't know the Variety at the time you want to define the Planting
 :::
 
 
-
-
-
-
 **Transplant Date** (optional): If you are starting your Planting indoors, in a greenhouse, or using store bought starts, you can add the date you transplanted the Planting into your Garden here.  You can add your expected transplant date if you want a transplant task to populate in your **Tasks Screen.**  You can update this to the actual date the Planting was transplanted when you complete that task.
 
 **First Harvest Date** (optional): Once you have your first harvest, you can add the date here.  It is recommended to add an expected date of first harvest so that a harvest task populates in your **Tasks Screen.**  You can update the task if your estimate is off, and by completing the task you record the actual date of first harvest.
