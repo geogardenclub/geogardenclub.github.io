@@ -6,10 +6,12 @@ hide_table_of_contents: true
 
 <img src="/img/news/grow-more-waste-less.png"/>
 
-Join us for a free, live webinar to learn how GeoGardenClub helps gardeners plan, manage, and share---wasting less food, time, seeds, and materials.
+Jenna Deane hosted a live webinar on April 11, 2025 for Food Waste Prevention Week. 
 
-April 11, 2025<br />
-12:00pm - 1:00pm PDT<br />
-On Zoom: register [here](https://zoom.us/webinar/register/WN_i2zWMELLQea9GJcvx3aVgw#/registration).
+The archived recording is now available online:
 
-You will get the most out of this webinar by first downloading GeoGardenClub from the App Store or Google Play, but this is not required. All new users get six months free!
+import ReactPlayer from 'react-player/youtube'
+
+<div className='wrapper'><ReactPlayer className='player' url="https://www.youtube.com/watch?v=jjgKgygZyUk" width="100%" height="100%" ></ReactPlayer></div>
+
+
