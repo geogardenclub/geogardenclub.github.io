@@ -337,7 +337,7 @@ Then, you can run the `main_local_emulators.dart` file.
 
 ## Test Design Hints
 
-**Set up a "Run Configuration" to simplify testing.**  In IntelliJ, make a Run configuration that invokes `lib/main_test_fixture.dart` so that you can push the green arrow to easily bring up the simulator with the test data loaded into it.
+**Set up a "Run Configuration" to simplify testing.**  In IntelliJ, make a Run configuration that invokes `lib/main_local_emulators.dart` so that you can push the green arrow to easily bring up the simulator with the test data loaded into it.
 
 **Use the Testing Run Configuration to guide the writing of test code steps.** To implement a new test, start by using the above Run Configuration to manually walk through the sequence of screens, button taps, and input controller interactions necessary for the test. You can even bring up the simulator and "translate" each of your interactions with the simulator into a line of test code as you single step through the behavior. In many cases, it's a one-to-one relationship.
 
