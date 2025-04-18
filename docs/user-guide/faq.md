@@ -33,7 +33,7 @@ The *simplest* way to make an observation is to go to the Observations tab of yo
 
 <img width="300" src="/img/user-guide/faq/faq-observations-1.png"/>
 
-That's the simplest way, but it's usually not the *best* way. The best way is to attach your Observation to the specific Planting you are observing. To do that, you go to the Gardens tab of your Home screen, then click the "Details" button to show the Timeline view of your Garden. For example,
+That's the simplest way, but it's usually not the *best* way. The best way is to attach your Observation to the specific Planting you are observing. To do that, you go to the Gardens tab of your Home screen, then tap the "Details" button to show the Timeline view of your Garden. For example,
 
 <img width="300" src="/img/user-guide/faq/faq-observations-2.png"/>
 

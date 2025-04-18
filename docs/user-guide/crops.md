@@ -25,7 +25,7 @@ Please check carefully to see that your Crop is not already defined. Some Crops 
 
 There are two ways to add a Crop.  First, when you are adding a Planting, you can add a Crop from the Add Planting form. See the [Add Planting documentation](plantings.md#create-a-planting) for details.
 
-The second way is from the Crop Index screen. Click the "+ Crop" button to bring up the Create Crop screen:
+The second way is from the Crop Index screen. Tap the "+ Crop" button to bring up the Create Crop screen:
 
 <img width="300" src="/img/user-guide/crops-create.png"/>
 

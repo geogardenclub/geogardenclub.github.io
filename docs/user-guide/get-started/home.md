@@ -35,7 +35,7 @@ Tapping the hamburger icon in the NavBar reveals the Drawer:
 
 The Drawer is your "site map" to the app.  It provides access to all of the top-level screens in the app. 
 
-Note that if you click on a screen name in the Drawer, and nothing happens, it's because you are already on that screen. Just click outside the Drawer to reveal the screen. 
+Note that if you tap on a screen name in the Drawer, and nothing happens, it's because you are already on that screen. Just tap outside the Drawer to reveal the screen. 
 
 Let's now get to the most important concept in the GeoGardenClub app: gardens!
 

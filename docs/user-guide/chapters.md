@@ -27,13 +27,13 @@ You can tap on a Chip to see more details about that item.
 
 ## Other Chapters
 
-Clicking the "Other Chapters" tab enables you to see information about all other GGC Chapters:
+Tapping the "Other Chapters" tab enables you to see information about all other GGC Chapters:
 
 <img width="300" src="/img/user-guide/chapter-other-chapters.png"/>
 
 ## Lurk mode
 
-When viewing other Chapters, a feature called "Lurk Mode" is available. By clicking the "Lurk Mode" button associated with another Chapter, you can "transport" yourself into the other Chapter and view its Gardens and certain other kinds of information. For example, tapping the "Lurk Mode" button for the Skagit-WA Chapter take you to this screen:
+When viewing other Chapters, a feature called "Lurk Mode" is available. By tapping the "Lurk Mode" button associated with another Chapter, you can "transport" yourself into the other Chapter and view its Gardens and certain other kinds of information. For example, tapping the "Lurk Mode" button for the Skagit-WA Chapter take you to this screen:
 
 <img width="300" src="/img/user-guide/chapter-lurk-mode-1.png"/>
 

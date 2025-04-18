@@ -34,7 +34,7 @@ You can see the Observations associated with a Planting by going to its Planting
 
 By default, the Observations tab of your Home screen lists *all* the Observations made by all the Gardeners in your Chapter in reverse chronological order. This is useful when you want to catch up with the most recent Observations.
 
-Other times, you might want to see only the Observations associated with a specific Garden, or Gardener, or Crop, or Variety, or Tag.  To do this, click on the Filter icon in the navbar to reveal the Observation Filter controller:
+Other times, you might want to see only the Observations associated with a specific Garden, or Gardener, or Crop, or Variety, or Tag.  To do this, tap the Filter icon in the navbar to reveal the Observation Filter controller:
 
 <img width="300" src="/img/user-guide/observations-filter-1.png"/>
 
@@ -80,11 +80,11 @@ Tap "Submit" to define the Observation.
 
 ### ... for a Planting
 
-To create an Observation for a Planting, go to its Planting Details screen and click the "+" button to reveal the "+ Observation" button:
+To create an Observation for a Planting, go to its Planting Details screen and tap the "+" button to reveal the "+ Observation" button:
 
 <img width="300" src="/img/user-guide/observations-create-planting-1.png"/>
 
-Now click the "+ Observation" button to bring up the Create Observation screen for a Planting:
+Now tap the "+ Observation" button to bring up the Create Observation screen for a Planting:
 
 <img width="300" src="/img/user-guide/observations-create-planting-2.png"/>
 
@@ -116,7 +116,7 @@ Selecting "Update Observation" brings up the Update Observation screen:
 
 The fields that you can edit will vary depending upon the Observation type.
 
-When you are done, click "Submit" (not shown above, you would need to scroll to see it) to update the Observation.
+When you are done, tap "Submit" (not shown above, you would need to scroll to see it) to update the Observation.
 
 ## Delete an Observation
 

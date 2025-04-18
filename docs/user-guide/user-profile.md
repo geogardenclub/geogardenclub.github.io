@@ -32,7 +32,7 @@ Fill out the form as follows:
 If you can't find your country, state, region, and postal code in the pull-down menus, then please email info@geogardenclub.com.  We'll fix it within a day so you can proceed with profile creation.
 :::
 
-**Username:** A text field allowing you to define a username. GeoGardenClub does not reveal your name or email address to other users. Instead, you are identified by your username. All usernames must start with a "@". For example, @gardenerbob.  Note that usernames must be unique, so if the username is taken, you will be asked to choose another one after you click "Submit".
+**Username:** A text field allowing you to define a username. GeoGardenClub does not reveal your name or email address to other users. Instead, you are identified by your username. All usernames must start with a "@". For example, @gardenerbob.  Note that usernames must be unique, so if the username is taken, you will be asked to choose another one after you tap "Submit".
 
 **Full Name:** Enter your full name.  This is for administrative purposes and will not be shared with other users.
 
@@ -49,7 +49,7 @@ After your profile has been created, you can make changes to certain parts of it
 
 Fill out the form as follows:
 
-**Picture:** You can (optionally) define a profile picture by clicking on the Camera icon.  You can select a picture from your photos collection. Upon submission of this form, you will be prompted to crop it to a square image.
+**Picture:** You can (optionally) define a profile picture by tapping on the Camera icon.  You can select a picture from your photos collection. Upon submission of this form, you will be prompted to crop it to a square image.
 
 **Username:** You can change your username anytime.  It must start with a "@" and be unique.
 

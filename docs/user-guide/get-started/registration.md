@@ -10,7 +10,7 @@ hide_table_of_contents: true
 
 When the GGC app comes up, it will show the Sign In screen if you have not logged in previously.  If this is your very first time using the GGC app, you will not be able to sign in since you have not registered yet.  
 
-So, if you have not done so previously, click on "Register" link to go to the Registration screen:
+So, if you have not done so previously, tap on "Register" link to go to the Registration screen:
 
 <img width="300" src="/img/user-guide/register-screen.png"/>
 

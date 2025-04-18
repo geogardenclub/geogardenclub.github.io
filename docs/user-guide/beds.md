@@ -15,15 +15,15 @@ For other gardens, it might make more sense to define multiple beds. For example
 
 All Gardens are required to have at least one Bed, which you specify when you first create the garden.
 
-If you want to define additional Beds, go to the Garden view of your Home screen, then click on the Details button for the garden, which takes you to the Timeline view of the Garden Details screen. For example, here is the Timeline view in the Garden Details screen for an example garden:
+If you want to define additional Beds, go to the Garden view of your Home screen, then tap on the Details button for the garden, which takes you to the Timeline view of the Garden Details screen. For example, here is the Timeline view in the Garden Details screen for an example garden:
 
 <img width="300" src="/img/user-guide/garden-details-alderwood.png"/>
 
-Now click the "+" button, which gives you the option to define a new Planting or Bed:
+Now tap the "+" button, which gives you the option to define a new Planting or Bed:
 
 <img width="300" src="/img/user-guide/garden-details-alderwood-plus-button.png"/>
 
-Click the "+ Bed" button to bring up the Create Bed Screen:
+Tap the "+ Bed" button to bring up the Create Bed Screen:
 
 <img width="300" src="/img/user-guide/create-bed.png"/>
 
@@ -38,16 +38,16 @@ Sometimes you make a mistake: you either named the bed incorrectly, or you don't
 <img width="300" src="/img/user-guide/garden-details-alderwood.png"/>
 
 :::tip I don't see the bed! 
-Note that, by default, the timeline view only displays Beds that have a Planting in the current time interval. To see all Beds including those that don't have a Planting in the current time interval, click the visibility icon (the "eye") in the navbar.
+Note that, by default, the timeline view only displays Beds that have a Planting in the current time interval. To see all Beds including those that don't have a Planting in the current time interval, tap the visibility icon (the "eye") in the navbar.
 :::
 
-Click on a bed chip to go to the Update Bed screen for that Bed:
+Tap on a bed chip to go to the Update Bed screen for that Bed:
 
 <img width="300" src="/img/user-guide/update-bed.png"/>
 
 To update the name of the Bed, just type in the new name and press "Submit".
 
-To delete the Bed, click on the Trash icon in the nav bar. Note that Beds can only be deleted if they do not contain any Plantings, so you must be sure to delete all the associated Plantings first. 
+To delete the Bed, tap on the Trash icon in the nav bar. Note that Beds can only be deleted if they do not contain any Plantings, so you must be sure to delete all the associated Plantings first. 
 
 
 

@@ -27,7 +27,7 @@ Note that every Crop is automatically defined with an "Unknown" Variety, and you
 
 There are two ways to add a Variety.  First, when you are adding a Planting, you can add a Variety from the Add Planting form. See the [Add Planting documentation](plantings.md#create-a-planting) for details.
 
-The second way is from the Variety Index screen. Click the "+ Variety" button to bring up the Create Variety screen:
+The second way is from the Variety Index screen. Tap the "+ Variety" button to bring up the Create Variety screen:
 
 <img width="300" src="/img/user-guide/variety-create.png"/>
 

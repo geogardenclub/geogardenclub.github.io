@@ -37,7 +37,7 @@ Since @fluke is the signed in Gardener (as indicated by the top navbar), this co
 
 ## Create Share Post
 
-To create a Share Post, go the Home screen, click on the "Share" icon in the bottom nav bar, and click "+ Share Post" (as shown in the above screen shots). After clicking "+ Share Post", the user is taken to the Create Share Post screen:
+To create a Share Post, go the Home screen, tap the "Share" icon in the bottom nav bar, and tap "+ Share Post" (as shown in the above screen shots). After tapping "+ Share Post", the user is taken to the Create Share Post screen:
 
 <img width="300" src="/img/user-guide/share-post-create.png"/>
 
@@ -57,7 +57,7 @@ Fill out the form as follows:
 
 ## Update Share Post
 
-If you want to change the details of your Share Post, click on the "three dot" menu associated with it to bring up a menu containing "Edit Share Post", "Set Share Post to Completed", and "Delete Share Post":
+If you want to change the details of your Share Post, tap the "three dot" menu associated with it to bring up a menu containing "Edit Share Post", "Set Share Post to Completed", and "Delete Share Post":
 
 <img width="300" src="/img/user-guide/share-post-menu.png"/>
 
@@ -69,13 +69,13 @@ Edit any details and tap "Submit" to make the changes.
 
 ## Mark Share Post as Completed
 
-To set the Share Post to completed, click on the "three dot" menu and select "Mark Share Post to Completed".  This will immediately set the Share Post to completed and hide it from view. 
+To set the Share Post to completed, tap the "three dot" menu and select "Mark Share Post to Completed".  This will immediately set the Share Post to completed and hide it from view. 
 
 If you want to see it, tap the Visibility (eye) icon in the top navbar, which toggles the display of completed Share Posts.
 
 ## Delete Share Post
 
-To delete a Share Post, click on the "three dot" menu and select "Delete Share Post". This brings up the Delete Share Post screen:
+To delete a Share Post, tap the "three dot" menu and select "Delete Share Post". This brings up the Delete Share Post screen:
 
 <img width="300" src="/img/user-guide/share-post-delete.png"/>
 
@@ -83,7 +83,7 @@ Tap "Delete" to delete the Post and all of its replies.
 
 ## Create Share Reply
 
-To create a Reply to a Post (or to another Reply), click the "Reply" button associated with the Post or Reply you want to reply to. This brings up the Create Share Reply screen:
+To create a Reply to a Post (or to another Reply), tap the "Reply" button associated with the Post or Reply you want to reply to. This brings up the Create Share Reply screen:
 
 <img width="300" src="/img/user-guide/share-reply-create.png"/>
 
@@ -91,7 +91,7 @@ Provide your reply and an optional picture, and indicate if you want this to be 
 
 ## Update Share Reply 
 
-To update your reply, click the "three dot" menu associated with the Reply and select "Edit Share Reply" to take you to the Update Share Reply screen:
+To update your reply, tap the "three dot" menu associated with the Reply and select "Edit Share Reply" to take you to the Update Share Reply screen:
 
 <img width="300" src="/img/user-guide/share-reply-update.png"/>
 

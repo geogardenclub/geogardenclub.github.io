@@ -17,15 +17,15 @@ A final example: you've still got those same silly Big Boy tomato plants, but yo
 
 ## Create a planting
 
-To define a Planting, first go to the Garden view of your Home screen, then click on the Details button for the garden, which takes you to the Timeline view of the Garden Details screen. For example, here is the Timeline view in the Garden Details screen for an example garden:
+To define a Planting, first go to the Garden view of your Home screen, then tap the Details button for the garden, which takes you to the Timeline view of the Garden Details screen. For example, here is the Timeline view in the Garden Details screen for an example garden:
 
 <img width="300" src="/img/user-guide/garden-details-alderwood.png"/>
 
-Now click the "+" button, which gives you the option to define a new Planting or Bed:
+Now tap the "+" button, which gives you the option to define a new Planting or Bed:
 
 <img width="300" src="/img/user-guide/garden-details-alderwood-plus-button.png"/>
 
-Click the "+ Planting" button to bring up the Create Planting Screen:
+Tap the "+ Planting" button to bring up the Create Planting Screen:
 
 <img width="300" src="/img/user-guide/create-planting.png"/>
 
@@ -37,7 +37,7 @@ The Create Planting form does not fit on a single screen. Here is the rest of it
 
 Although the Planting form has a lot of fields, there are only a four fields you need to fill out when planning your garden.
 
-**Crop:** A pull-down list of all currently defined Crops.  If you are planting a Crop that does not appear in the dropdown menu, you can click the "+" button to the right of the Crop menu to define a new Crop.
+**Crop:** A pull-down list of all currently defined Crops.  If you are planting a Crop that does not appear in the dropdown menu, you can tap the "+" button to the right of the Crop menu to define a new Crop.
 
 **Bed:** Choose the Bed into which you will plant this Planting. If you haven't defined the Bed yet, then press the back button to navigate back to the Garden Details page. Then press the "+" button and select "+ Bed" to define the bed you need.
 
@@ -54,7 +54,7 @@ Specify the same date for Start Date and Transplant Date if you are planting sta
 
 The remaining fields enable you to provide more details about timing, or (in the case of Outcomes) enable you to record data about the results of this Planting at the end of the season.
 
-**Variety** (optional). A pull-down list of all currently defined Varieties for.. the selected Crop.  If you are planting a Variety of a Crop that does not appear in the dropdown menu, you can click the "+" button to the right of the Variety menu to define a new Variety. 
+**Variety** (optional). A pull-down list of all currently defined Varieties for.. the selected Crop.  If you are planting a Variety of a Crop that does not appear in the dropdown menu, you can tap the "+" button to the right of the Variety menu to define a new Variety. 
 
 :::info What if I don't know the Variety?
 Sometimes you don't know the Variety at the time you want to define the Planting. For example, it's winter, you're planning next year's garden, and you know you want to plant some cucumbers but haven't decided on the Variety yet. Or, perhaps someone has given you some basil seeds but you don't know the Variety. In either case, just leave the Variety field blank and the Variety will be represented as "Unknown" (you can come back later and edit the field if you find out what the Variety is).
@@ -111,17 +111,17 @@ Let's say you (or another) gardener has previously planted Basil and has recorde
 
 <img width="300" src="/img/user-guide/copy-planting-nice-planting.png"/>
 
-So, you'd like to repeat this success by using the same Variety and same dates. In that Planting's Details screen, click on the "Copy" icon in the nav bar to bring up the Copy Planting screen:
+So, you'd like to repeat this success by using the same Variety and same dates. In that Planting's Details screen, tap the "Copy" icon in the nav bar to bring up the Copy Planting screen:
 
 <img width="300" src="/img/user-guide/copy-planting.png"/>
 
 The Copy Planting screen provides a form that is pre-filled with the Crop, Variety, and dates associated with the original Planting. However, the dates are updated to the current year (you can see from the screenshots that the original Planting was from 2021, but the dates in the Copy Planting form are now 2025.)
 
-You must select the Garden and Bed you want to create this new Planting in, then click "Submit" to create it.
+You must select the Garden and Bed you want to create this new Planting in, then tap "Submit" to create it.
 
 ## Delete a Planting
 
-If you create a Planting by mistake and want to delete it, navigate to its Planting Details page (see above for instructions) and click the Trash icon in the navbar.  That will bring up the Delete Planting dialog:
+If you create a Planting by mistake and want to delete it, navigate to its Planting Details page (see above for instructions) and tap the Trash icon in the navbar.  That will bring up the Delete Planting dialog:
 
 <img width="300" src="/img/user-guide/delete-planting.png"/>
 
@@ -141,7 +141,7 @@ In situations where a Planting's dates no longer conform to the above constraint
 
 <img width="300" src="/img/user-guide/planting-date-violation.png"/>
 
-To fix this error, simply tap on the red Planting bar to bring up its Planting Details page, then click on the Pencil icon to bring up the Update Planting screen, and edit the dates to conform to the constraints. The Planting Details screen will provide a help message: 
+To fix this error, simply tap on the red Planting bar to bring up its Planting Details page, then tap the Pencil icon to bring up the Update Planting screen, and edit the dates to conform to the constraints. The Planting Details screen will provide a help message: 
 
 <img width="300" src="/img/user-guide/planting-details-error.png"/>
 

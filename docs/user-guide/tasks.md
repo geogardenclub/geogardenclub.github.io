@@ -35,7 +35,7 @@ Tasks are always associated with a Planting. Task can be created automatically o
 
 *Automatically created Tasks:* Whenever you define a Planting date (such as Start, Transplant, First Harvest, Last Harvest, or Pull date), a Task with the associated date is automatically created for you.
 
-*Manually created Tasks:* If you want to create additional Tasks for a Planting, you can do that manually. To do that, go to the Planting Details screen for the Planting and click the "+" button at the bottom left of the screen:
+*Manually created Tasks:* If you want to create additional Tasks for a Planting, you can do that manually. To do that, go to the Planting Details screen for the Planting and tap the "+" button at the bottom left of the screen:
 
 
 <img width="300" src="/img/user-guide/tasks-manual-creation-1.png"/>

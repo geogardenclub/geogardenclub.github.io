@@ -31,7 +31,7 @@ For first time users, the screen will indicate that you have not defined any gar
 
 ## Create a garden
 
-Click on the "+ Garden" button in the lower left corner. This will bring up the **Create Garden Screen**:
+Tap on the "+ Garden" button in the lower left corner. This will bring up the **Create Garden Screen**:
 
 <img width="300" src="/img/user-guide/create-garden.png"/>
 
@@ -62,11 +62,11 @@ Tap **Submit** to define the garden. You'll be returned to the Gardens view of y
 
 ## Update a garden
 
-To update the basic information about a garden, first click on the "Details" button associated with the garden in the Gardens view of your Home Screen. This will take you to the Timeline section of the Garden Details view, which will look something like this:
+To update the basic information about a garden, first tap on the "Details" button associated with the garden in the Gardens view of your Home Screen. This will take you to the Timeline section of the Garden Details view, which will look something like this:
 
 <img width="300" src="/img/user-guide/garden-details.png"/>
 
-Now click on the pencil icon in the navbar to bring up the Update Garden screen:
+Now tap the pencil icon in the navbar to bring up the Update Garden screen:
 
 <img width="300" src="/img/user-guide/update-garden.png"/>
 
@@ -88,11 +88,11 @@ Tap "Submit" to save your changes, or "Cancel" if you want to keep the original 
 
 ## Delete a garden
 
-Sometimes you will create a garden by mistake, or want to delete it for some other reason. To do so, first click on the "Details" button associated with the garden in the Gardens view of your Home Screen. This will take you to the Timeline section of the Garden Details view, which will look something like this:
+Sometimes you will create a garden by mistake, or want to delete it for some other reason. To do so, first tap the "Details" button associated with the garden in the Gardens view of your Home Screen. This will take you to the Timeline section of the Garden Details view, which will look something like this:
 
 <img width="300" src="/img/user-guide/garden-details.png"/>
 
-Now click on the trash can icon in the navbar to bring up the Delete Garden screen:
+Now tap the trash can icon in the navbar to bring up the Delete Garden screen:
 
 <img width="300" src="/img/user-guide/delete-garden.png"/>
 
@@ -118,13 +118,13 @@ The Timeline view provides several features:
 
 **Planting details:** Tap on a Planting to go to its Planting Details Screen. For more details, see the Planting documentation.
 
-**Update bed:** Click on a Bed chip to go to its Update Bed screen. For more details, see the Bed documentation.
+**Update bed:** Tap on a Bed chip to go to its Update Bed screen. For more details, see the Bed documentation.
 
-**Add Bed, Add Planting:** Click on the "+" button to display buttons to enable you to add a new Bed or a new Planting.  For more details, see the [Bed documentation](beds.md) or [Planting documentation](plantings.md).
+**Add Bed, Add Planting:** Tap on the "+" button to display buttons to enable you to add a new Bed or a new Planting.  For more details, see the [Bed documentation](beds.md) or [Planting documentation](plantings.md).
 
 ### Filter view
 
-Click on the "Filter" icon in the bottom navigation bar of the Garden Details screen to display the Filter view. 
+Tap on the "Filter" icon in the bottom navigation bar of the Garden Details screen to display the Filter view. 
 
 The Filter view allows you to see how aspects of your Garden have changed over time. For example, the following screen shows what plantings have been in Bed 01 over the three years. This type of information is helpful for implementing crop rotation strategies, for example.
 
@@ -134,7 +134,7 @@ The Filter view allows you to see how aspects of your Garden have changed over t
 
 ### Outcomes view
 
-Click on the "Outcomes" icon in the bottom navigation bar of the Garden Details screen to display the Outcomes view.
+Tap on the "Outcomes" icon in the bottom navigation bar of the Garden Details screen to display the Outcomes view.
 
 The Outcomes view allows you to explore the Outcome data you have recorded for this garden. For example:
 
@@ -148,7 +148,7 @@ For more information on outcomes, see the [Outcomes documentation](outcomes.md).
 
 ### Task view
 
-Click on the "Tasks" icon in the bottom navigation bar of the Garden Details screen to display the Tasks view.
+Tap on the "Tasks" icon in the bottom navigation bar of the Garden Details screen to display the Tasks view.
 
 Tasks are automatically created when you define timings for a planting, such as its start date, transplant date, pull date, and so forth. For example:
 
