@@ -21,13 +21,18 @@ By creating an email specifically for the garden, when garden managers change, y
 
 ## Get your free subscriptions
 
-GeoGardenClub offers free subscriptions to *everyone* involved with a school or community garden: not just the garden educators, but any other teachers, parents, and children actively involved with the garden. 
+GeoGardenClub offers free subscriptions to *everyone* involved with a school or community garden: not just the garden educators or administrators, but any other people actively involved with the garden. 
 
 To set up your free subscriptions, the school garden educator or community garden administrator should send email to info@geogardenclub.com providing the location and contact information for the garden program. At that time, they can also provide an initial list of email accounts for the people who are currently involved with the garden.  At a minimum, this list should include the email account that owns the garden as noted above.
 
 Free subscriptions are provided in the following way: everyone who signs up with GeoGardenClub gets the first six months free.  After that, we will send discount codes to the emails currently associated with the garden to provide an additional year of free use. We will send new codes annually for the emails of people currently active in the garden.
 
-Note that GeoGardenClub enables the "Family Plan" feature in both App and Play Stores, so that all members of a family can use the app on their own device under a single subscription.
+:::tip Take full advantage of the free subscription!
+
+GeoGardenClub enables the "Family Plan" feature in both App and Play Stores. This means that all members of a family can install the app on their own device using the same free subscription.
+
+In addition, you are not limited to using GeoGardenClub for only your school or community garden. For example, if you have a home garden, don't hesitate to use your free subscription to manage it as well! 
+:::
 
 ## (School Gardens) Develop and share curriculum
 
