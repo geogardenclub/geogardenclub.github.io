@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgeogardenclub_github_io=self.webpackChunkgeogardenclub_github_io||[]).push([[248],{6655:e=>{e.exports=JSON.parse('{"tags":[{"label":"Releases","permalink":"/news/tags/releases","count":5},{"label":"Newsletter","permalink":"/news/tags/newsletter","count":3},{"label":"Article","permalink":"/news/tags/article","count":1}]}')}}]);
