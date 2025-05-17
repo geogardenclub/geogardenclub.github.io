@@ -72,9 +72,9 @@ const config = {
           {name: 'description', content: 'GeoGardenClub is an easy to use garden planning tool that allows local communities of gardeners to share information and improve their gardening skill.'},
         ],
         announcementBar: {
-          id: 'innovate-bellingham',
+          id: 'Release-2.20',
           content:
-              '<h3 style="margin-top: 15px"> &#128226; Join us at Innovate Bellingham on May 7. Click <a target="_blank" rel="noopener noreferrer" href="/news/2025/05/07/innovate-bellingham">here</a> for details.</h3>',
+              '<h3 style="margin-top: 15px"> &#128226; Release 2.20.0 now available.  Click <a target="_blank" rel="noopener noreferrer" href="/news/2025/05/10/release">here</a> for details.</h3>',
           backgroundColor: '#02695c',
           textColor: 'white',
           isCloseable: false,

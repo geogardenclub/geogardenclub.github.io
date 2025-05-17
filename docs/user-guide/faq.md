@@ -68,6 +68,14 @@ You can also create Observations for that Planting to provide further data about
 
 To easily create a new Planting for the next year, just tap the "Copy Planting" icon in the Navbar.  This will create a new Planting with fields initialized from the current Planting.
 
+## How do I represent my orchard with 12 fruit trees?
+
+One good approach is to first establish an "identifier" for each tree. For example, you give each tree a number from 1 to 12, or a letter from A to L, or (if you're into anthropomorphism) a name like Fred or Suzy. 
+
+Now that you have identifiers, create 12 Beds using them as the bed name. Each bed will have a single Planting per year (following the recommendation above for perennials) that you can use to record information about the tree (for example, when fruit appears, how long the harvest lasts, and the quantity of harvest from the tree).  
+
+You can also make Observations for the current Planting associated with a tree, and by filtering the Observations by Bed, you can see all the Observations for a single tree over multiple seasons. 
+
 ## How do I manage gardens in multiple chapters?
 
 Sometimes you'll want to be part of two (or more) gardens that are located in different chapters. Let's say your home garden is in the Whatcom-WA chapter, but you want to participate in the management of a friend's garden located in the Skagit-WA chapter.  

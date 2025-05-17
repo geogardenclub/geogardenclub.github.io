@@ -81,6 +81,11 @@ const sidebars = {
       items: [
         {
           type: 'link',
+          label: 'April 2025',
+          href: 'https://docs.google.com/document/d/1IwCf6fvT_NJnMSW1TxJ7lQJFCXyfXusoq9IbDTziMf8/edit?usp=sharing',
+        },
+        {
+          type: 'link',
           label: 'March 2025',
           href: 'https://docs.google.com/document/d/1yLiiYTDcJsEFNh_BVZTMfb29lsb2yqZLwG4MxLIsIC4/edit?usp=sharing',
         },
@@ -147,6 +152,7 @@ const sidebars = {
     'develop/data-model',
     'develop/database-management',
     'develop/deployment',
+    'develop/screenshots',
     'develop/backups',
     'develop/scripts',
     'develop/privacy',
