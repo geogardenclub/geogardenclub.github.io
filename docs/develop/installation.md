@@ -55,6 +55,13 @@ This is important because our development environment (IDE run commands, shell s
 
 Note that you still run `flutter upgrade` when a new version of Flutter is released to make FVM aware of it. 
 
+Finally, if you are using IntelliJ, you want to make sure that your Flutter environment is configured to point to the FVM installation. For example:
+
+<img src="/img/develop/installation/intellij-fvm.png"/>
+
+Edit the Flutter SDK path to be appropriate for your environment. 
+
+
 ## Firebase CLI and FlutterFire CLI
 
 To run the integration tests, you will need to install the Firebase CLI and the FlutterFire CLI.  Here are the instructions:
