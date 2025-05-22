@@ -382,6 +382,7 @@ The un-installation process involved:
 
 * Moving the `run_monarch.sh` command and `stories/` directory to `graveyard`.
 * Removing the monarch package from `pubspec.yml`.
+* Commenting out the Monarch version line from `./run_tool_versions.sh`.
 * Commenting out the installation instructions from the installation.md file used to generate this page.
 
 If we decide to start using Monarch in future, then reversing these steps should help with the re-installation.
