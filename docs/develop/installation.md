@@ -374,6 +374,22 @@ As before, consult with Philip for login credentials.
 
 ## Monarch
 
+:::warning
+
+We have uninstalled Monarch for the time being due to dependency constraint issues and the fact that we are not using it regularly for development.
+
+The un-installation process involved:
+
+* Moving the `run_monarch.sh` command and `stories/` directory to `graveyard`.
+* Removing the monarch package from `pubspec.yml`.
+* Commenting out the installation instructions from the installation.md file used to generate this page.
+
+If we decide to start using Monarch in future, then reversing these steps should help with the re-installation.
+
+:::
+
+<!--
+
 According to their home page, [Monarch](https://monarchapp.io/) is a "tool for building Flutter widgets in isolation. It makes it easy to build, test and debug complex UIs." Monarch is basically a Flutter port of React Storybook, which is popular in React UI development.
 
 Follow the [Monarch installation instructions](https://monarchapp.io/docs/install) to install the tool.
@@ -404,4 +420,4 @@ The following message was thrown while a story was selected:
 You can ignore these messages as Monarch does not actually invoke Firebase. 
 :::
 
-
+-->
