@@ -27,7 +27,7 @@ Tap the "+ Bed" button to bring up the Create Bed Screen:
 
 <img width="300" src="/img/user-guide/create-bed.png"/>
 
-**Bed name:** Provide the bed name.  You don't have to include "Bed"--we'll add that for you!
+**Bed name:** Provide the bed name.  You don't have to include "Bed"--we'll add that for you! Bed names must be unique within a Garden.
 
 Tap "Submit" to create the new Bed, or "Cancel" to cancel.
 
