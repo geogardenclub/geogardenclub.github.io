@@ -81,6 +81,11 @@ const sidebars = {
       items: [
         {
           type: 'link',
+          label: 'May 2025',
+          href: 'https://docs.google.com/document/d/1MIZPmjLCnuTUvT5gNUgO_E-u8ksb8gt8V1SCZM12Xs8/edit?usp=sharing',
+        },
+        {
+          type: 'link',
           label: 'April 2025',
           href: 'https://docs.google.com/document/d/1IwCf6fvT_NJnMSW1TxJ7lQJFCXyfXusoq9IbDTziMf8/edit?usp=sharing',
         },

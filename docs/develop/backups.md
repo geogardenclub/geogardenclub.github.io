@@ -9,7 +9,7 @@ Our backup approach involves both automated daily backups by Firebase as well as
 
 ## Automated daily backups
 
-We use the Cloud Firestore scheduled backup system, documented [here](https://firebase.google.com/docs/firestore/backups). Through this mechanism, we keep snapshots of the database for the past 8 days. Here is a screenshot of the console showing these backups:
+We use the Cloud Firestore scheduled backup system for automated daily backups. You can find the official documentation [here](https://firebase.google.com/docs/firestore/backups). Using this mechanism, we keep snapshots of the database for the past 8 days. Here is a screenshot of the console showing these backups:
 
 <img src="/img/develop/backup-8-days.png"/>
 
@@ -23,43 +23,47 @@ There are some disaster scenarios that this mechanism does not cover:
 
 ## The run_backup.sh script
 
-To provide a mechanism for downloading both the Firebase collections and the Google Cloud Storage files for off-site storage, we have the `run_backup.sh` script. Once installed by someone with appropriate Firebase privileges (currently only Philip), invoking the script results in the following:
+To provide a mechanism for downloading both the Firebase collections and the Google Cloud Storage files for off-site storage, we have the `run_backup.sh` script. When invoked by someone with appropriate Firebase privileges (currently Philip), invoking the script results in the following:
 
 ```
 ./run_backup.sh
-11:54:19 Starting firestore export to cloud storage
-11:54:39 Starting download of cloud storage
-11:54:55 Starting download of Firebase collections as JSON
-11:56:40 Backup completed. See 2025-06-09_11.54.19.backup.log for details.
-11:56:40 Next step: compress and upload backups/2025-06-09_11.54.19 to external storage
+09:03:38 Exporting firebase DB to cloud storage
+09:03:43 Downloading GGC cloud storage
+09:03:59 Downloading firebase index definitions
+09:04:01 Downloading Firebase collections as JSON
+09:05:27 Backup completed. See ../ggc-offsite-backups/2025-06-10_09.03.38/2025-06-10_09.03.38.backup.log for details.
+09:05:27 Next step: compress and upload ../ggc-offsite-backups/2025-06-10_09.03.38 to external storage
 ```
 
 As the script output indicates, this backup process involves the following:
 
-1. All firebase collections are copied (in binary format) to a "subbucket" in the root Google Cloud Storage bucket for GGC.
-2. The root Google Cloud Storage bucket for the GGC app is downloaded to a local directory. This root bucket contains both the binary format backup of the GGC collections, and all the images uploaded by users for the GGC app. 
-3. Next, the firebase collections are downloaded in JSON format. This makes it possible to manually inspect and potentially restore individual documents if needed.
-4. The script concludes by notifying the user to compress and upload the directory to external storage.  The script also creates a log file containing output from the various commands. 
+1. The Firebase collections are exported (in binary format) to a "subbucket" in GGC's root Google Cloud Storage bucket.
+2. The root GGC Google Cloud Storage bucket (including all its subbuckets) are downloaded to a local directory. This directory now contains both the binary format backup of the GGC collections, and all the images uploaded by users for the GGC app.
+3. The Firebase index definitions are downloaded in JSON format.
+4. The Firebase collections are downloaded in JSON format. This makes it possible to manually inspect and potentially restore individual documents if needed.
 
-The script currently takes about 2 minutes to execute. When it concludes, there will be a new directory (named something like "2025-06-09_11.54.19") in an adjacent "backups" directory containing a JSON file with the collection documents in JSON format (named something like "2025-06-09_11.54.19.json"), as well as a directory containing a copy of the GGC Google Cloud Storage root bucket (named "ggc-app-2de7b.appspot.com"). For example:
+The script currently takes about 2 minutes to execute. When it concludes, there will be a directory named "ggc-offsite-backups" adjacent to the GGC app top-level directory. It will contain a subdirectory (named something like "2025-06-09_11.54.19") with the newly created backup. This backup subdirectory contains two JSON files (one containing the collections, and one containing the index definitions) and a directory containing a copy of the GGC Google Cloud Storage root bucket (named "ggc-app-2de7b.appspot.com"). For example:
 
-<img src="/img/develop/backup-local-dir.png"/>
+<img src="/img/develop/ggc-offsite-backups.png"/>
+
+As you can see, the backup directory is (currently) about 100MB (uncompressed) and 85MB (compressed), both of which are too large to commit to a GitHub repository.  For the time being Philip will upload a compressed version of the directory to his personal Google Drive.
 
 Note that one result of running the script is to create a new bucket (folder) in Google Cloud Storage containing the binary backup. This folder is timestamped:
 
 <img src="/img/develop/backup-cloud-storage-dir.png"/>
 
-There is no automated mechanism for deletion of these buckets. This means that each time you run this script, you are adding a new snapshot to this directory and the download will include any previous snapshots from prior runs. It is up to a GGC admin to periodically "garbage collect" old backups from this directory.
+There is (intentionally) no automated mechanism for deletion of these backup buckets. This means that each time you run this script, you are adding a new snapshot to this directory and the download will include any previous snapshots from prior runs. It is up to a GGC admin to periodically "garbage collect" old backups from this directory. 
 
 ## Installation
 
-There is "installation" associated with the automated daily backups; this is managed through the Google Cloud Console. 
+There is no "installation" associated with the automated daily backups; this is managed through the Google Cloud Console. 
 
-To run the `run_backups.sh` script, you must:
+To install the third party libraries required to run the `run_backups.sh` script, you must:
 
 1. Install gcloud.  Installation instructions are [here](https://cloud.google.com/sdk/docs/downloads-interactive)
 2. Configure gcloud by running `gcloud init`.
-3. Install [@endran/firestore-export-import](https://www.npmjs.com/package/@endran/firestore-export-import). Note that you need to create a json file that you store locally with service account information. See the "Notes" section for information on how to do this. Please name this file "ggc-app-service-account.json" so that it is automatically git-ignored.
+3. Install [@endran/firestore-export-import](https://www.npmjs.com/package/@endran/firestore-export-import) by running `npm install @endran/firestore-export-import --save`.
+4. Create a local json file with service account information, as documented in the [Firestore-Export-Import Notes](https://gitlab.com/endran/firestore-export-import#notes). **Please name this file "ggc-app-service-account.json" so that it is git-ignored.** This service account information must **not** be uploaded to GitHub.
 
 
 

@@ -304,7 +304,7 @@ That said, low coverage definitely implies low test quality: if you're not even 
 If you want to do development by manipulating the test fixture database rather than the live production database, you need to first start the Firebase Emulators in stand-alone mode:
 
 ```bash
-firebase emulators:start --only auth,firestore
+./run_emulators.sh
 ```
 
 The emulators will start, and you will see something like the following output:
