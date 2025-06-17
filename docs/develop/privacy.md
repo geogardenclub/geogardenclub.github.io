@@ -21,6 +21,5 @@ We do collect the user's email, but do not display it in the user interface. Ins
 
 To prevent unauthorized access to the data, we have several mechanisms:
 
-1. We use [Firebase Authentication](https://firebase.google.com/docs/auth) to provide password and email based authorization and authentication. 
-2. We intend to implement [Firebase App Check](https://firebase.google.com/docs/app-check) to ensure that only GGC apps can access our Firestore services. 
-3. We also intend to implement [Cloud Firestore Security Rules](https://firebase.google.com/docs/firestore/security/get-started) so that errors in our code do not lead to inappropriate access or manipulation of database data. 
+1. We use [Firebase Authentication](https://firebase.google.com/docs/auth) to provide password and email based authorization and authentication.  Only authenticated users can access Firebase collections and Cloud Storage.
+2. We use [Firebase App Check](https://firebase.google.com/docs/app-check) to ensure that only GGC apps can access our Firestore services. (Note: as of June 2025, App Check code is now in release, but has not yet been enabled in Firestore.)
