@@ -4,10 +4,39 @@
         <title>Geo Garden Club Blog</title>
         <link>https://geogardenclub.com/news</link>
         <description>Geo Garden Club Blog</description>
-        <lastBuildDate>Sat, 07 Jun 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 17 Jun 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[2.21.0 Release]]></title>
+            <link>https://geogardenclub.com/news/2025/06/17/release</link>
+            <guid>https://geogardenclub.com/news/2025/06/17/release</guid>
+            <pubDate>Tue, 17 Jun 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[In this release:]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/06/17/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+<p>Added:</p>
+<ul>
+<li>Support for accents and non-English characters in entity names.</li>
+<li>Security and reliability improvements (AppCheck, Shorebird).</li>
+</ul>
+<p>Changed:</p>
+<ul>
+<li>Default Bed visibility changed to All Beds.</li>
+<li>Improvements to crop and variety name caching.</li>
+<li>Improvements to offsite backups.</li>
+<li>Improvements to database access code.</li>
+</ul>
+<p>Fixed:</p>
+<ul>
+<li>Check for unique bed names fixed.</li>
+<li>Fixed BadgeProcessor to eliminate level 0 badges.</li>
+<li>Fixes to chapter-local crop name display.</li>
+</ul>
+<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+            <author>info@geogardenclub.com (Philip Johnson)</author>
+            <category>Releases</category>
+        </item>
         <item>
             <title><![CDATA[GeoGardenClub at the 2025 National Grow Together Conference]]></title>
             <link>https://geogardenclub.com/news/2025/06/07/national-grow-together-conference</link>
@@ -49,7 +78,7 @@ Where: CUNY Graduate Center, New York, New York <br></p>
 <p>Added:</p>
 <ul>
 <li>Added in app review feature.</li>
-<li>New chapters for the 5 burroughs of NYC.</li>
+<li>New chapters for the 5 boroughs of NYC.</li>
 <li>Chapter-local crop names.</li>
 </ul>
 <p>Fixed:</p>
