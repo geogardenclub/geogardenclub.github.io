@@ -154,7 +154,15 @@ const sidebars = {
     'develop/onboarding',
     'develop/installation',
     'develop/architecture',
-    'develop/data-model',
+    {
+      type: 'category',
+      collapsed: false,
+      label: 'Data Models',
+      items: [
+        'develop/data-model/document-data-model',
+        'develop/data-model/cloud-storage-data-model',
+      ],
+    },
     'develop/database-management',
     'develop/deployment',
     'develop/screenshots',

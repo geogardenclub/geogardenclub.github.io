@@ -95,7 +95,7 @@ A final architectural perspective illustrates the way data flows between externa
 
 <img src="/img/develop/ggc-dataflow-diagram.png"/>
 
-Note that at the Firestore level, data is stored in a set of "flat" collections corresponding in many cases to "features" (i.e. Beds, Chapters, Crops, etc.). For the most part, the data model is similar to the table structure associated with SQL databases, even though Firestore is a document-oriented (NoSQL) database. For more details, see the [Data Model documentation](data-model.md).
+Note that at the Firestore level, data is stored in a set of "flat" collections corresponding in many cases to "features" (i.e. Beds, Chapters, Crops, etc.). For the most part, the data model is similar to the table structure associated with SQL databases, even though Firestore is a document-oriented (NoSQL) database. For more details, see the [Document Data Model documentation](./data-model/document-data-model.md).
 
 This diagram also illustrates the way GGC addresses the issue of asynchronous communication with Firebase Firestore. In asynchronous communication, there will be an unpredictable delay between the "request" (i.e. to retrieve or to store data) and the "response" (i.e. the request succeeded or failed). During this time, the UI should show some sort of "loading" indicator rather than freezing (or potentially just as bad, allowing the user to interact further with the UI). Finally, if the request fails (network or service is down), the UI should indicate the failure.
 

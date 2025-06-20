@@ -80,7 +80,7 @@ Collections typically have the following methods:
 Update the `ChapterCollection` or `GardenCollection` or `UserCollection` to hold the new entity collection.
 
 ## 6. Update the `With` classes.
-Think about where this new collection fits in the [Data Model](../data-model.md). In the `feature/common/with` directory update the following files:
+Think about where this new collection fits in the [Document Data Model](../data-model/document-data-model.md). In the `feature/common/with` directory update the following files:
  * `asset_collection_builder.dart` Add the three static methods for the new entity.
    1. `static Future<List<Entity>> getEntities(String assetPath)` to get the entities from the `endityData.json` file located in the `assetPath` directory.
    2. `static Future<Stream<List<Entity>>> getEntitiesStream(String assetPath)` to get the entities from the `endityData.json` file located in the `assetPath` directory.

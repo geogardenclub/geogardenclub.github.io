@@ -4,17 +4,19 @@ toc_max_heading_level: 2
 # sidebar_label: "Welcome"
 ---
 
-# Data Model
+# Document Data Model
 
-This page explains the data model (i.e. the set of entities and their relationships) for GGC, along with a rationale for the design decisions that we've made along the way. 
+This page explains the document data model (i.e. the set of entities and their relationships stored in Firebase) for GGC, along with a rationale for the design decisions that we've made along the way. 
 
 :::warning This page is not authoritative
-Note that our data model is continually evolving, and so this page will usually be
+Note that our document data model is continually evolving, and so this page will usually be
 only an approximation of the actual data model.
 
 Consult the source code and the Firebase console for an exact understanding
-of the current data model in use. 
+of the current document data model in use. 
 :::
+
+There is also a [Cloud Storage Data Model](./cloud-storage-data-model.md).
 
 ## Overview
 
@@ -223,7 +225,7 @@ const factory Garden(
 
 GardenIDs are generated dynamically when a Chapter member defines a new Garden or when a Chapter member defines a new Vendor (which implicitly results in the creation of a new Garden). 
 
-GardenIDs have the format `garden-<country>-<postalCode>-<gardenNum>-<millis>`. Please see the [ID Design Pattern documentation](./design/ids.md) for details regarding our approach to ID management.  
+GardenIDs have the format `garden-<country>-<postalCode>-<gardenNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.  
 
 The GardenID embeds the country code and postal code associated with the ownerID. Note that this might not be the same postal code as the one associated with the physical location of the garden!  We do this in order to ensure that if a Chapter's set of postal codes is reorganized, then the Gardens owned by a Gardener will always end up in the same Chapter as their owner.
 
@@ -267,7 +269,7 @@ const factory Editor(
 
 Editor entities are created or deleted when the owner of a Garden edits the Editor field of the Garden Details form.
 
-EditorIDs have the format `editor-<country>-<postalCode>-<gardenNum>-<editorNum>-<millis>`. Please see the [ID Design Pattern documentation](./design/ids.md) for details regarding our approach to ID management.
+EditorIDs have the format `editor-<country>-<postalCode>-<gardenNum>-<editorNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 
 ## Bed
@@ -294,7 +296,7 @@ Here is an example of a Bed document:
 
 ### BedID management
 
-BedIDs have the format `bed-<country>-<postalCode>-<gardenNum>-<bedNum>-<millis>`. Please see the [ID Design Pattern documentation](./design/ids.md) for details regarding our approach to ID management.
+BedIDs have the format `bed-<country>-<postalCode>-<gardenNum>-<bedNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 ## Family
 
@@ -362,7 +364,7 @@ const factory Crop(
 
 ### CropID management
 
-CropIDs have the format `crop-<country>-<chapterCode>-<cropNum>-<millis>`. Please see the [ID Design Pattern documentation](./design/ids.md) for details regarding our approach to ID management.
+CropIDs have the format `crop-<country>-<chapterCode>-<cropNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 CropIDs currently embed the defining user's country code and chapterCode. However, unlike other entities where the country code and chapter code can be used to filter the set of entity instances to download, the entire Crop collection will be downloaded.
 
@@ -398,7 +400,7 @@ const factory Variety(
 
 ### VarietyID management
 
-VarietyIDs have the format `variety-<country>-<chapterCode>-<varietyNum>-<millis>`. Please see the [ID Design Pattern documentation](./design/ids.md) for details regarding our approach to ID management.
+VarietyIDs have the format `variety-<country>-<chapterCode>-<varietyNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 ## Planting
 
@@ -435,7 +437,7 @@ factory Planting(
 
 ### PlantingID management
 
-PlantingIDs have the format `planting-<country>-<postalCode>-<gardenNum>-<plantingNum>-<millis>`. Please see the [ID Design Pattern documentation](./design/ids.md) for details regarding our approach to ID management.
+PlantingIDs have the format `planting-<country>-<postalCode>-<gardenNum>-<plantingNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 The country and postal code fields in the ID must match those fields in the gardenID associated with this Planting. 
 
@@ -486,7 +488,7 @@ const factory Outcome(
 
 ### OutcomeID management
 
-OutcomeIDs have the format `outcome-<country>-<postalCode>-<gardenNum>-<outcomeNum>-<millis>`. Please see the [ID Design Pattern documentation](./design/ids.md) for details regarding our approach to ID management.
+OutcomeIDs have the format `outcome-<country>-<postalCode>-<gardenNum>-<outcomeNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 Each Outcome entity is associated with exactly one Planting entity.  (Note that the converse is not true: a Planting entity need not be associated with an Outcome entity, since the Gardener might not choose to record any Outcome data.)
 
@@ -536,7 +538,7 @@ const factory Observation({
 
 ### ObservationID management
 
-ObservationIDs have the format `observation-<country>-<postalCode>-<gardenNum>-<observationNum>-<millis>`. Please see the [ID Design Pattern documentation](./design/ids.md) for details regarding our approach to ID management.
+ObservationIDs have the format `observation-<country>-<postalCode>-<gardenNum>-<observationNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 ### Observation Comments
 
@@ -579,7 +581,7 @@ const factory Tag(
 
 ### TagID management
 
-TagIDs have the format `tag-<tagNum>`. Please see the [ID Design Pattern documentation](./design/ids.md) for details regarding our approach to ID management.
+TagIDs have the format `tag-<tagNum>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 ## Task
 
@@ -626,7 +628,7 @@ factory Task(
 
 ### TaskID management
 
-TaskIDs have the format `task-<country>-<postalCode>-<gardenNum>-<plantingNum>-<taskNum>-<millis>`. Please see the [ID Design Pattern documentation](./design/ids.md) for details regarding our approach to ID management.
+TaskIDs have the format `task-<country>-<postalCode>-<gardenNum>-<plantingNum>-<taskNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 ### Task Types
 
@@ -693,7 +695,7 @@ const factory BadgeInstance(
 
 ### BadgeID and BadgeInstanceID management
 
-BadgeIDs have the format `badge-<badgeNum>`. Please see the [ID Design Pattern documentation](./design/ids.md) for details regarding our approach to ID management.
+BadgeIDs have the format `badge-<badgeNum>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 BadgeInstanceIDs have the format `badgeinstance-<country>-<chapterCode>-<badgeinstanceNum>-<millis>`.
 

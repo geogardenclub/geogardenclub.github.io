@@ -44,8 +44,8 @@ Invoke `./run_deploy.sh`.  This script does the following:
 * Invokes `cider bump minor` and `cider release` so that the unreleased changes are moved to a new release number, and that release number is recorded in the pubspec.yml.
 * Commits the updated CHANGELOG.md and pubspec.yml files to GitHub.
 * Creates a "deploy directory" at `~/Desktop/ggc-deploy-<VERSION>`.
-* Builds the ggc_app.ipa file and copies it to the deploy directory.
-* Builds the app-release.aab file and copies it to the deploy directory.
+* Builds the ggc_app.ipa file, uploads it to Shorebird, and copies it to the deploy directory.
+* Builds the app-release.aab file, uploads it to Shorebird, and copies it to the deploy directory.
 * Gets the release notes for the current release and copies them to the deploy directory.
 * Invokes `firebase deploy` to build and deploy the web version of the app.
 
@@ -142,6 +142,13 @@ Finally, "promote" this version to the "Closed testing" track. This triggers an 
 </TabItem>
 </Tabs>
 
+## Shorebird
+
+We use [Shorebird](https://shorebird.dev/) as part of our deployment tool chain. This means that it is possible for us to perform OTA (over the air) updates to released apps. 
+
+Consult the Shorebird documentation if an OTA update appears necessary.
+
+Currently, only Philip has the authorization at Shorebird to do updates. 
 
 ## Add beta testers
 
