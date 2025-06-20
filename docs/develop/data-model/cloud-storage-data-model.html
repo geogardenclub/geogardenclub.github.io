@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMYL9625P3"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-WMYL9625P3",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.83d9d443.css">
-<script src="/assets/js/runtime~main.0c3d0926.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.1dc43839.js" defer="defer"></script>
 <script src="/assets/js/main.6a74a843.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -27,7 +27,7 @@
 <p>To support the two purposes, the GGC bucket contains two top-level folders: <code>/images</code> and <code>/backups</code>.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-images-folder">The <code>/images</code> folder<a href="#the-images-folder" class="hash-link" aria-label="Direct link to the-images-folder" title="Direct link to the-images-folder">​</a></h2>
 <p>A primary goal of the data model for the <code>/images</code> folder is to create a one-to-one relationship between a documentID field that contains an image and the path to that image. In other words, given a documentID and the field of interest within that document, it is possible to deterministically construct the name of the file within the bucket.  Conversely, given the name of a file in our bucket, one can parse the string to determine the documentID and field of interest.</p>
-<p>This one-to-one relationship simplifies management of Cloud Storage For example, it makes it easier to perform &quot;integrity checking&quot; (i.e. making sure that all Cloud Storage files referenced in our Firebase collections exist, and that all Cloud Storage files are actually referenced by a document in a Firebase collection.)</p>
+<p>This one-to-one relationship simplifies management of Cloud Storage. For example, it makes it easier to perform &quot;integrity checking&quot; (i.e. making sure that all Cloud Storage files referenced in our Firebase collections exist, and that all Cloud Storage files are actually referenced by a document in a Firebase collection.)</p>
 <p>The one-to-one relationship also simplifies management and inspection of Cloud Storage using the console by providing a consistent, easy to understand folder hierarchy.</p>
 <p>There are currently seven collections that can have images associated with their documents: chapters, chat_rooms, gardens, observations, share_posts, share_replies, and users. So, the <code>/images</code> folder contains exactly seven subfolders corresponding to each of these collections: <code>/images/chapters</code>, <code>/images/gardens</code>, etc.</p>
 <p>Inside each of these subfolders are another set of subfolders that are named with the documentID in the associated collection that contains an image. So, for example, there might be a subfolder named <code>images/gardens/garden-US-98225-101-0404/</code>.</p>
