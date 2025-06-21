@@ -37,5 +37,5 @@ We use the following process for development:
 
 * Before merging your code into the main branch: 
   1. Be sure that `dart analyze` does not generate any errors (this will be verified via a GitHub action).
-  2. Be sure that `./run_tests.sh` does not generate any errors (this is not currently verified via a GitHub action).   
+  2. Be sure that `./run_tests_emulator.sh` does not generate any errors (this is not currently verified via a GitHub action).   
 

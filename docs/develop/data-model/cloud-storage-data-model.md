@@ -38,7 +38,7 @@ Inside that subfolder are one or more subfolders containing the field name which
 Now that we're at the field level, the final part of the path name is simply the name of the file.  By convention, this name will be the field name with a ".jpg" suffix (our image upload library is configured to always create a JPG file). So, for example,  `images/gardens/garden-US-98225-101-0404/pictureURL/pictureURL.jpg` and `images/gardens/garden-US-98225-101-0404/plotPlanURL/plotPlanURL.jpg`.
 
 :::info
-While we currently only allow a single image file per field, it is very likely that this restriction will be relaxed in the future to allow multiple images for a single field. We can revise this data model only slightly to support that by allowing multiple files in the `pictureURL` folder and a new, backward-compatible naming convention for those files.
+While we currently only allow a single image file per field, it is very likely that this restriction will be relaxed in the future to allow multiple images for a single field. We can revise this data model only slightly to support that by allowing multiple files in (for example) the `pictureURL` folder and a new, backward-compatible naming convention for those files.
 :::
 
 Now that you've seen an example, here's a specification that covers all image file names:
@@ -51,10 +51,10 @@ So, given a documentID like "garden-US-98225-101-0404", and a field name like "p
 
 Note that we can determine the collection name by extracting the initial prefix from the documentID (i.e. "garden") and mapping that to its associated collection name (i.e. "gardens").  
 
-Conversely, given the file path to an image, we can parse the string to determine the single collection name, documentID and field name associated with the image.
+Conversely, given the file path to an image, we can parse the string to determine the associated collection, documentID and field name.
 
 :::warning We don't adhere to this convention yet
-Note that this specification is our goal for Google Cloud Storage. We have not yet transitioned to it yet. 
+Note that this specification is our current goal for the images stored in our Google Cloud Storage bucket. 
 :::
 
 ## `/backups`
