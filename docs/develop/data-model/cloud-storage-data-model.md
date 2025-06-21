@@ -53,8 +53,15 @@ Note that we can determine the collection name by extracting the initial prefix 
 
 Conversely, given the file path to an image, we can parse the string to determine the associated collection, documentID and field name.
 
-:::warning We don't adhere to this convention yet
-Note that this specification is our current goal for the images stored in our Google Cloud Storage bucket. 
+:::warning Why is our Cloud Storage bucket still so disorganized?
+This data model specification was developed in June 2025, after almost two years of image file uploads. Previously, there was no "design", we just uploaded files and assigned them names according to different conventions at different times. 
+
+Now we are in a situation where there are users running releases of our app that do not implement this data model's name design, so the process of implementing this data model is an incremental one:
+
+1. First, we will implement a Migrate command that checks all the documents containing image URLs. If the image URL does not conform to our naming conventions, then the command will download the file and re-upload it to the new location that conforms to our naming conventions. Then the document's field will be updated to point to the new location. We can run this Migrate command periodically until there are no users running old releases of the app and thus no new documents being created wih image URLs that do not conform to these conventions.
+2. The Migrate command can result in duplicates of files: one file whose location conforms to our naming conventions and a second file with the same contents that does not. To address this, we will implement a Cloud Storage Garbage Collection command. This command finds all Cloud Storage files that are: (a) not in the backups/ directory, and (b) not referenced in their corresponding Firebase document. If both (a) and (b) are satisfied, they are deleted.
+
+Eventually, neither the Migrate command nor the Cloud Storage Garbage Collection command should result in changes to the system. 
 :::
 
 ## `/backups`
