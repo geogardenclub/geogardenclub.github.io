@@ -300,14 +300,6 @@ Found 5 connected devices:
 
 Notice that the first device is my phone connected to my laptop.
 
-If you see a message like this:
-
-```
-Error: iPhone is not available because it is unpaired. Pair with the device in the Xcode Devices Window, and respond to any
-pairing prompts on the device. (code -29)
-```
-
-Then open XCode, go to Window -> Devices and Simulators, and follow the instructions to complete the pairing of your device. XCode will extract some stuff from your device, which can take a few minutes to complete. 
 
 Now, to run the code in release mode on this physical device, you invoke `flutter run --release` and select the physical device as shown below.  (Make sure your device is unlocked while running this command.)
 
@@ -344,6 +336,27 @@ c Clear the screen
 q Quit (terminate the application on the device).
 
 ```
+
+:::warning The device might need pairing
+Note that if you see a message like this:
+
+```
+Error: iPhone is not available because it is unpaired. Pair with the device in the Xcode Devices Window, and respond to any
+pairing prompts on the device. (code -29)
+```
+
+Or like this:
+
+```
+Failed to build iOS app
+Could not build the precompiled application for the device.
+Uncategorized (Xcode): Timed out waiting for all destinations matching the provided destination specifier to become available
+```
+
+It's probably because you need to do some additional configuration:
+
+Open XCode, go to Window -> Devices and Simulators, and follow the instructions to complete the pairing of your device. XCode will extract some stuff from your device, which can take a few minutes to complete.
+:::
 
 ### ... from the App Store
 
