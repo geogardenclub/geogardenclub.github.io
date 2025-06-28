@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMYL9625P3"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-WMYL9625P3",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.83d9d443.css">
-<script src="/assets/js/runtime~main.c1b88bf8.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.0bb90a56.js" defer="defer"></script>
 <script src="/assets/js/main.6a74a843.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -24,7 +24,7 @@
 <li>To store a snapshot copy of the Firebase collections and documents for offsite backup.</li>
 </ol>
 <p>Our Cloud Storage consists of a single &quot;bucket&quot;, which is organized into a set of &quot;folders&quot; (and subfolders).  Note that the folder concept is implemented through a naming convention for the objects in a bucket: if the path name contains &quot;/&quot; characters, these are interpreted as demarcating a hierarchy of folders with a file at the end of the string. Note that using this convention, it is possible to have multiple files in a single folder (i.e. &quot;/a/b/foo.jpg&quot;, &quot;/a/b/bar.jpg&quot;).</p>
-<p>To support the two purposes, the GGC bucket contains two top-level folders: <code>/images</code> and <code>/backups</code>. (There is also a folder called <code>application-data/</code> that contains some default images.)</p>
+<p>To support the two purposes, the GGC bucket contains two top-level folders: <code>/images</code> and <code>/backups</code>. (There is also a folder called <code>application-images/</code> that contains some default images.)</p>
 <p>Here is a screenshot showing the three top-level folders in our Cloud Storage bucket:</p>
 <img src="/img/develop/data-model/storage-toplevel-folders.png">
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="images"><code>/images</code><a href="#images" class="hash-link" aria-label="Direct link to images" title="Direct link to images">​</a></h2>
