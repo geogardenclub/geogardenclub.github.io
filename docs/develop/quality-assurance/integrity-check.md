@@ -52,6 +52,8 @@ If the top level of our bucket contains more than these three folders, it indica
 
 Now you can run the Cloud Storage Integrity Check command. Note that it takes around 5 minutes to run.
 
+Again, if this command detects problems, then it is up to the developer to figure out how to manually (or automatically using a DBOperation) to restore integrity.
+
 
 
 
