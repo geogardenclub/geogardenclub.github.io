@@ -563,6 +563,58 @@ const factory ObservationComment(
 
 The lastUpdate field indicates when the comment was made or updated.
 
+## Share
+
+The SharePost and ShareReply entities are used to represent the sharing of gardening equipment, seeds, or other items among Chapter members.  The SharePost entity represents a post made by a Gardener to share an item, while the ShareReply entity represents a reply to a SharePost.
+
+Here is an example of a SharePost document:
+
+<img src="/img/develop/firestore/firestore-console-shareposts.png"/>
+
+### SharePost entity representation
+
+```dart
+  const factory SharePost({
+    required String sharePostID,
+    required String sharePostType,
+    required String sharePostItemType,
+    required String title,
+    required String chapterID,
+    required String gardenerID,
+    required String description,
+    required DateTime lastUpdate,
+    required bool completed,
+    String? pictureURL,
+  })
+```
+### SharePostID management
+
+SharePostIDs have the format `sharepost-<country>-<chapterNum>-<sharePostNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
+
+Here is an example of a ShareReply document:
+
+<img src="/img/develop/firestore/firestore-console-sharereplies.png"/>
+
+### ShareReply entity representation
+
+```dart
+  const factory ShareReply({
+    required String shareReplyID,
+    required String inReplyToSharePostID, // always connect to the past.
+    required String chapterID,
+    required String gardenerID,
+    required String description,
+    required bool private,
+    required DateTime lastUpdate,
+    String? pictureURL,
+    String? inReplyToShareReplyID, // maybe is a reply to a reply
+  })
+```
+
+### ShareReplyID management
+
+ShareReplyIDs have the format `sharereply-<country>-<chapterNum>-<shareReplyNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
+
 ## Tag
 
 The Tag entity provides "meta-data" that a gardener can use to provide information about the nature of an Observation.  Tags serve two basic purposes:
