@@ -132,9 +132,13 @@ const factory User(
   String? themeMode,
   String? themeName,
   Map<String, DateTime>? lastReadMap,
-  String? pictureURL        // null, or 'https://firebasestorage.googleapis...'
+  String? pictureURL,        // null, or 'https://firebasestorage.googleapis...'
+  TimelineData? timelineData, // null, or TimelineData
+  String? appReviewShown, // null, or '2023-06-01,2023-07-02'
 })
 ```
+
+**Note:** We are storing UI preferences such as themeMode, themeName, lastReadMap, TimelineData, etc. in the User entity. We might want to move these to a separate UI preferences entity in the future, but for now, we are keeping them here for simplicity.
 
 ### UserID management
 
@@ -214,9 +218,10 @@ const factory Garden(
   required List<String> cachedVarietyIDs,   // ['variety-US-001-302-7865']
   required List<int> cachedYears,           // [2023, 2022]
   required int cachedNumPlantings,          // 231
-  required List<String> attestations,      // ['ClimateVictory', 'PesticideFree', 'CommunityOrSchool']
+  required List<String> attestations,       // ['ClimateVictory', 'PesticideFree', 'CommunityOrSchool']
   String? pictureURL,                       // null, 'https://firebasestorage.googleapis.com/v0/...'
   String? plotPlanURL,                      // null, 'https://firebasestorage.googleapis.com/v0/...' 
+  RetailValueMap? cachedRetailValue,       // null, {2023: {'crop-US-001-201-9876': 1234}}
   DateTime? lastUpdate,                    // null (for vendors), '2023-03-19T12:19:14.164090'
   })
 ```
@@ -357,6 +362,8 @@ const factory Crop(
   required String chapterID,      // 'chapter-US-001'
   required String familyID,       // 'family-001'
   required String name,           // 'Tomato'
+  String? quantityUnit,           // 'pounds', 'bunches', 'pieces', etc.
+  Map<String, String>? chapterNameMap, // {'chapter-US-001': 'Tomato', 'chapter-CA-V6K1G8': 'Tomate'}
   DateTime? createdAt
   }           
 )
@@ -394,6 +401,7 @@ const factory Variety(
   required String cropID,          // 'crop-US-001-203-2354'
   required String cachedCropName,  // 'Asparagus'
   bool? isGold,                    // If present and set to true, the variety has "gold" status.
+  List<String>? isGoldV2,          // [chapter-US-001, chapter-US-005]
   required String name}            // 'Jersey Knight' 
 )
 ```
