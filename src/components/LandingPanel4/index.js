@@ -16,9 +16,9 @@ export default function LandingPanel4() {
                   <div className="card" style={{marginBottom: '1em'}}>
                       <div className="card__body text--primary">
                           <p>
-                              “I like being able to see what others have planted and when they planted it.”
+                              “On advice from a friend I recently downloaded this app for my urban rooftop garden. I really enjoy its sleek design and wealth of functionalities..”
                           </p>
-                          <p>P.B., Whatcom-WA Chapter</p>
+                          <p>W.J., Manhattan-NY Chapter</p>
                       </div>
                   </div>
               </div>
@@ -36,9 +36,9 @@ export default function LandingPanel4() {
                   <div className="card" style={{marginBottom: '1em'}}>
                       <div className="card__body text--primary">
                           <p>
-                              “I think it's reduced my frantic chaos planning that tends to happen.”
+                              “I have everything I need in one app for my garden - past and present. One can post photos for comparison’s sake, reminders of tasks to do, check boxes for completed chores and a community feature to connect with local gardeners. ”
                           </p>
-                          <p>M.V., Whatcom-WA Chapter</p>
+                          <p>E.R., Whatcom-WA Chapter</p>
                       </div>
                   </div>
               </div>
