@@ -32,5 +32,7 @@ Then click on "See All Plans" to see the available plans:
 
 <img width="300" src="/img/user-guide/subscription-available-plans.jpeg"/>
 
-Note that if you switch to a different plan during your free trial period, you will lose the remainder of your free trial and will be billed immediately.
+A similar approach is available for Android users: bring up the Google Play app, then go to Subscriptions, and select GeoGardenClub to change your subscription plan. 
+
+
 
