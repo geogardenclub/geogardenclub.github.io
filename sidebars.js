@@ -44,7 +44,7 @@ const sidebars = {
             'user-guide/get-started/downloading',
             'user-guide/get-started/registration',
             'user-guide/get-started/user-profile',
-            'user-guide/get-started/subscription',
+            'user-guide/get-started/subscriptions',
             'user-guide/get-started/home',
           ]
         },

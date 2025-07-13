@@ -2,7 +2,7 @@
 title: Pricing
 ---
 
-# First 6 months free, then $4.99/month
+# First 6 months free, then $44.99/year or $4.99/month
 
 GeoGardenClub is member supported!  Unlike many other gardening apps, GeoGardenClub: 
 
@@ -10,7 +10,9 @@ GeoGardenClub is member supported!  Unlike many other gardening apps, GeoGardenC
 * Does not sell or present advertisements
 * Does not sell your data 
 
-Our pricing model enables everyone to try out GeoGardenClub free for six months to see if it's a good fit and provides sufficient value for dollar. After that, you'll pay a small monthly fee to support ongoing development and hosting.
+Our subscription model enables everyone to try out GeoGardenClub free for six months to see if it's a good fit and provides sufficient value for dollar. After that, you'll pay a small annual or monthly fee to enable us to provide this service to you. You save 25% by paying once annually.
+
+Our goal is to improve your gardening productivity so much that you more than make back your investment in GeoGardenClub.
 
 Are you a school or community organization?  Contact us at info@geogardenclub.com to see if you qualify for special rates for your members. 
 

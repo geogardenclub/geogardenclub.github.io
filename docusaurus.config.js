@@ -74,7 +74,7 @@ const config = {
         announcementBar: {
           id: 'Release-2.21',
           content:
-              '<h3 style="margin-top: 15px"> &#128226; Release 2.21.0 now available.  Click <a target="_blank" rel="noopener noreferrer" href="/news/2025/06/17/release">here</a> for details.</h3>',
+              '<h3 style="margin-top: 15px"> &#128226; Release 2.22.0 now available.  Click <a target="_blank" rel="noopener noreferrer" href="/news/2025/07/10/release">here</a> for details.</h3>',
           backgroundColor: '#02695c',
           textColor: 'white',
           isCloseable: false,
