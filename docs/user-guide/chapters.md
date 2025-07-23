@@ -33,9 +33,9 @@ Tapping the "Other Chapters" tab enables you to see information about all other 
 
 ## Lurk mode
 
-When viewing other Chapters, a feature called "Lurk Mode" is available. By tapping the "Lurk Mode" button associated with another Chapter, you can "transport" yourself into another Chapter to learn more about it.
+When viewing other Chapters in the Chapter Index Screen, a feature called "Lurk Mode" is available. By tapping the "Lurk Mode" button associated with another Chapter, you can "transport" yourself into another Chapter to learn more about it.
 
-For example, the following screenshot shows the "Lurk Mode" button for the Whatcom-WA Chapter:
+For example, the following screenshot shows the "Lurk Mode" button for the Whatcom-WA Chapter for a gardener in the Oahu-HI Chapter:
 
 <img width="300" src="/img/user-guide/chapter-lurk-mode-1.png"/>
 
