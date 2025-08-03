@@ -35,7 +35,7 @@ Tasks are always associated with a Planting. Task can be created automatically o
 
 *Automatically created Tasks:* Whenever you define a Planting date (such as Start, Transplant, First Harvest, Last Harvest, or Pull date), a Task with the associated date is automatically created for you.
 
-*Manually created Tasks:* If you want to create additional Tasks for a Planting, you can do that manually. To do that, go to the Tasks view (in either your Home screen or Garden Details screen) and click the "+ Task" button:
+*Manually created Tasks:* If you want to create additional Tasks for a Planting, you can do that manually. To do that, go to the Tasks view (in either your Home Tasks view or Garden Details Tasks view) where you'll see a "+ Task" button:
 
 <img width="300" src="/img/user-guide/tasks-view-home-screen.png"/>
 
@@ -57,7 +57,7 @@ Note that the Planting crop and variety are automatically added to the title fie
 :::info Can I create Tasks that are associated with Beds or Gardens? 
 Unfortunately, not yet, but this is planned for the future.  Currently, all Tasks have to be associated with a single Planting. 
 
-As a workaround, you can create a Task that is associated with a single Planting, and then note in the Description field that the Task should actually be performed across the entire Bed (or Garden). 
+As a temporary workaround, you can create a Task that is associated with a single Planting, and then note in the Description field that the Task should actually be performed across the entire Bed (or Garden). 
 :::
 
 ## Update a Task
