@@ -29,7 +29,7 @@ The second way to view Tasks is through the Tasks view of the Garden Details scr
 
 In this case, the displayed Tasks are only those associated with the Garden you selected for Garden Details--in this case, Kaimake Loop.
 
-## Creating Tasks
+## Create a Task
 
 Tasks are always associated with a Planting. Task can be created automatically or manually.
 
