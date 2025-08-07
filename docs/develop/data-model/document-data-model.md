@@ -90,7 +90,7 @@ As will be seen, many entities contain a chapterID field.  When a client retriev
 
 ```dart
  const factory Chapter(
-{required String chapterID, // 'chapter-US-001', or 'chapter-CA-V6K1G8'
+{required String chapterID, // 'chapter-US-001', or 'chapter-CA-034'
 required String name, // 'Whatcom-WA', or 'CA-V6K1G8'
 required String countryCode, // 'US', 'CA'
 String? state,
