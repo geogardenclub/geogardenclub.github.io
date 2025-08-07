@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgeogardenclub_github_io=self.webpackChunkgeogardenclub_github_io||[]).push([[9647],{7121:(e,r,u)=>{u.r(r),u.d(r,{default:()=>l});u(6540);var s=u(8215),a=u(1213),c=u(7559),n=u(2831),t=u(781),i=u(4848);function l(e){return(0,i.jsx)(a.e3,{className:(0,s.A)(c.G.wrapper.docsPages),children:(0,i.jsx)(t.A,{children:(0,n.v)(e.route.routes)})})}}}]);
