@@ -31,6 +31,16 @@ const sidebars = {
     {
       type: 'category',
       collapsed: false,
+      label: "Featured Gardeners",
+      items: [
+        'featured-gardeners/threse',
+        'featured-gardeners/jessie',
+        'featured-gardeners/margo',
+      ]
+    },
+    {
+      type: 'category',
+      collapsed: false,
       label: "User Guide",
       items: [
         'user-guide/overview',

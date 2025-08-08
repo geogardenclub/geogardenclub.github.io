@@ -33,20 +33,9 @@ The *simplest* way to make an observation is to go to the Observations tab of yo
 
 <img width="300" src="/img/user-guide/faq/faq-observations-1.png"/>
 
-That's the simplest way, but it's usually not the *best* way. The best way is to attach your Observation to the specific Planting you are observing. To do that, you go to the Gardens tab of your Home screen, then tap the "Details" button to show the Timeline view of your Garden. For example,
+That's the simplest way, but it's usually not the *best* way. The best way is to attach your Observation to the specific Planting you are observing. To do that, after tapping the "+ Observation" button, use the pulldown menu for to select the "Planting" observation type.
 
-<img width="300" src="/img/user-guide/faq/faq-observations-2.png"/>
-
-Now tap on the Planting Bar representing the Planting for which you want to make an Observation. For example, if you tap on "Mango (Himayuddin)", you get its Planting Details page:
-
-<img width="300" src="/img/user-guide/faq/faq-observations-3.png"/>
-
-
-Now if you tap the "+" button, then select "+ Observation", you get the following Create Observation screen which fills in the Garden, Bed, Crop, and Variety:
-
-<img width="300" src="/img/user-guide/faq/faq-observations-4.png"/>
-
-The resulting "Planting-level" Observation is connected not just to the Garden, but also to the specific Planting under observation. It also has more details: not just the Garden and the Gardener (as in the previous Observation), but also the Crop and Variety. Here's an example:
+You'll then have a set of menus that enable you to select a specific Planting. The resulting "Planting-level" Observation is connected not just to the Garden, but also to the specific Planting under observation. It also has more details: not just the Garden and the Gardener (as in the previous Observation), but also the Crop and Variety. Here's an example:
 
 <img width="300" src="/img/user-guide/faq/faq-observations-5.png"/>
 
