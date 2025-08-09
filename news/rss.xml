@@ -4,10 +4,26 @@
         <title>Geo Garden Club Blog</title>
         <link>https://geogardenclub.com/news</link>
         <description>Geo Garden Club Blog</description>
-        <lastBuildDate>Wed, 06 Aug 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 09 Aug 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[GeoGardenClub News: August 2025]]></title>
+            <link>https://geogardenclub.com/news/2025/08/09/newsletter</link>
+            <guid>https://geogardenclub.com/news/2025/08/09/newsletter</guid>
+            <pubDate>Sat, 09 Aug 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[In this newsletter:]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/08/09/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:">​</a></h2>
+<ul>
+<li>New annual subscription option</li>
+<li>New feature: Simplified Task, Outcome, and Observation creation</li>
+<li>Featured Gardener: Jess!</li>
+</ul>
+<p>Click <a href="https://mailchi.mp/e92c1a99a018/aug-2025?e=511e166622" target="_blank" rel="noopener noreferrer">here</a> for the full newsletter.</p>]]></content:encoded>
+            <author>info@geogardenclub.com (Jenna Deane)</author>
+            <category>Newsletter</category>
+        </item>
         <item>
             <title><![CDATA[2.24.0 Release]]></title>
             <link>https://geogardenclub.com/news/2025/08/06/release</link>
