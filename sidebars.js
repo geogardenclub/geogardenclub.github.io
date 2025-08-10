@@ -32,6 +32,12 @@ const sidebars = {
       type: 'category',
       collapsed: false,
       label: "Featured Gardeners",
+      link: {
+        type: 'generated-index',
+        title: 'Featured Gardeners',
+        description: 'Get to know some GeoGardenClub users',
+        slug: '/category/featured-gardeners',
+      },
       items: [
         'featured-gardeners/threse',
         'featured-gardeners/jessie',
