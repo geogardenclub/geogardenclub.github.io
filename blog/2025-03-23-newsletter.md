@@ -1,5 +1,5 @@
 ---
-title: "Stress Free Gardening"
+title: "GGC News: March 2025"
 authors: jenna
 hide_table_of_contents: true
 tags:

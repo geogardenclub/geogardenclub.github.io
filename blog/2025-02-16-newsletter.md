@@ -1,5 +1,5 @@
 ---
-title: "Get Started with GeoGardenClub"
+title: "GGC News: February 2025"
 authors: jenna
 hide_table_of_contents: true
 tags:

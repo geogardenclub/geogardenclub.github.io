@@ -1,5 +1,5 @@
 ---
-title: "App Store Launch"
+title: "GGC News: January 2025"
 authors: jenna
 hide_table_of_contents: true
 tags:

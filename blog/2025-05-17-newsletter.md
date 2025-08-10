@@ -1,5 +1,5 @@
 ---
-title: "What's in a name?"
+title: "GGC News: May 2025"
 authors: jenna
 hide_table_of_contents: true
 tags:

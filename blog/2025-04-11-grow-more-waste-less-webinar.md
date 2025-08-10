@@ -1,5 +1,5 @@
 ---
-title: Grow More, Waste Less Webinar
+title: "GGC Webinar: Grow More, Waste Less"
 authors: jenna
 hide_table_of_contents: true
 ---

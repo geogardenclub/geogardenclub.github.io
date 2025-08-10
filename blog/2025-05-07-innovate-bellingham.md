@@ -1,5 +1,5 @@
 ---
-title: GeoGardenClub at Innovate Bellingham
+title: "GGC at Innovate Bellingham"
 authors: jenna
 hide_table_of_contents: true
 ---

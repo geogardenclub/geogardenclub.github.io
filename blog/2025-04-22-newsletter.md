@@ -1,5 +1,5 @@
 ---
-title: "From 2 tomato plants to 50+ varieties"
+title: "GGC News: April 2025"
 authors: jenna
 hide_table_of_contents: true
 tags:

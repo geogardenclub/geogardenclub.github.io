@@ -1,5 +1,5 @@
 ---
-title: GeoGardenClub at the 2025 National Grow Together Conference
+title: GGC at the 2025 National Grow Together Conference
 authors: jenna
 hide_table_of_contents: true
 ---
