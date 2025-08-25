@@ -61,6 +61,12 @@ No "iOS Development" signing certificate matching team ID
 The fix was to open XCode, go to the Signing and Capabilities page, and login again. 
 :::
 
+### Create a release branch
+
+Once the deploy script has completed, create a new branch off of main called `release-<version>`, for example, `release-2.26.0`. Publish that branch, then switch back to main. 
+
+The purpose of the release branch is to create an easily accessible version of the system as it was at the point of the Shorebird release. In particular, Shorebird requires that the pubspec.lock file used to create a patch be identical to the pubspec.lock file used to create a release. By making this release branch, it is easy to switch to a branch with a matching pubspec.lock file in which to incorporate fixes for a patch.
+
 ### Deploy iOS app
 
 First, open the Transporter app and drag the ggc_app.ipa file from the Desktop folder onto the App. 
