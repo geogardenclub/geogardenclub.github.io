@@ -12,7 +12,7 @@ hide_table_of_contents: true
 
 <img style={{float: "left", marginRight: "20px" }} width="150px" src="/img/team/jenna-deane.jpg"/> 
 
-[Jenna Deane](https://www.linkedin.com/in/jenna-deane-36439362/) has been a "serious" gardener and garden educator for over 15 years, and is currently Zero Waste Program Manager for Sustainable Connections in Bellingham, WA. Previously, she was the Education Program Manager at Common Threads Farm, where she supervised and trained over 20 Americorps volunteers each year to design and implement garden education programs in local schools.  Prior to that, she was the Garden Coordinator at Adelante Spanish Immersion School in Redwood City, CA where she managed their school garden program.  Jenna received a B.A. in Environmental Studies from Western Washington University.
+[Jenna Deane](https://www.linkedin.com/in/jenna-deane-36439362/) has been a "serious" gardener and garden educator for over 15 years, and is currently the Program Director at Sustainable Connections in Bellingham, WA. Previously, she was the Education Program Manager at Common Threads Farm, where she supervised and trained over 20 Americorps volunteers each year to design and implement garden education programs in local schools.  Prior to that, she was the Garden Coordinator at Adelante Spanish Immersion School in Redwood City, CA where she managed their school garden program.  Jenna received a B.A. in Environmental Studies from Western Washington University.
 
 <div style={{clear:"both"}}></div>
 
@@ -20,7 +20,7 @@ hide_table_of_contents: true
 
 <img style={{float: "left", marginRight: "20px" }} width="150px" src="/img/team/philip-johnson.jpg"/> 
 
-[Philip Johnson](https://www.linkedin.com/in/philipmjohnson/) is a Professor of Information and Computer Sciences at the University of Hawaii. He has over 30 years of experience in software engineering research and education. He has co-founded two startups, participated in multiple business accelerator and incubator programs, and led a variety of sustainability-related research initiatives. Philip received B.S. degrees in Biology and Computer Science from the University of Michigan and a Ph.D. in Computer Science from the University of Massachusetts.
+[Philip Johnson](https://www.linkedin.com/in/philipmjohnson/) is a retired Professor of Information and Computer Sciences at the University of Hawaii. He has over 30 years of experience in software engineering research and education. He has co-founded two startups, participated in multiple business accelerator and incubator programs, and led a variety of sustainability-related research initiatives. Philip received B.S. degrees in Biology and Computer Science from the University of Michigan and M.S. and Ph.D. degrees in Computer Science from the University of Massachusetts.
 
 <div style={{clear:"both"}}></div>
 
@@ -41,10 +41,8 @@ hide_table_of_contents: true
 
 ## Advisory Board
 
-* [Mercedez Castro](https://www.linkedin.com/in/mercedezcastro/) is a software engineer in Seattle, WA.
+* Charlie Reppun is a farmer and owner of Waianu Farm in Waiahole, HI.
 
-* Charlie Reppun is a farmer and owner of Waianu Farm in Waiahole, Oahu.
-
-* [Katie Amberg-Johnson](https://www.linkedin.com/in/katieambergjohnson/) is a Scientist at Schrodinger in New York City. 
+* [Katie Amberg-Johnson](https://www.linkedin.com/in/katieambergjohnson/) is a Scientist at Schrodinger in New York City, NY. 
 
 * Jessie Beck is a home gardener in Bellingham, WA.
