@@ -11,7 +11,7 @@ sidebar_label: "Margo (Whatcom-WA and Skagit-WA)"
 
 **How long have you been gardening?**
 
-Since I moved to Bellingham for an AmeriCorps service term at Common Threads Farn in 2018. I’ve been gardening at home and for work (I now am a program coordinator for Concrete Farm to School elementary garden). However, I grew up around my mom, grandmother, and aunts who all gardened together.
+Since I moved to Bellingham for an AmeriCorps service term at Common Threads Farm in 2018. I’ve been gardening at home and for work (I now am a program coordinator for Concrete Farm to School elementary garden). However, I grew up around my mom, grandmother, and aunts who all gardened together.
 
 **What are your “must-grow” crops?**
 
