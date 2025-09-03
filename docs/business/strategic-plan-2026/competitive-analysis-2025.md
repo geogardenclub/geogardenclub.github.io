@@ -11,12 +11,13 @@ I also asked [Ona](https://ona.com) to perform a competitive analysis of GGC vs 
 The garden planning app market is fragmented with multiple approaches serving different user segments, from casual hobbyists to serious data-driven gardeners. The competitive landscape reveals distinct positioning strategies and feature sets. Some significant competitors are: Seed to Spoon, Gardenize, GrowVeg, Smart Gardener, PictureThis, and iNaturalist.
 
 ### Seed to Spoon
-Market Leader - Free with Premium Features
+
+Market Leader - Free tier (10 plant limit) plus Premium Tier ($5/month, $47/year to unlock: unlimited plantings, AI GrowBot, localized planting calendar, access to historical plantings).
 
 Strengths:
 - 1M+ downloads with strong user ratings (4.8★ iOS, 4.4★ Android)
-- Completely free core functionality - no subscription required
-- AI-powered "Growbot" chatbot for instant plant advice
+- Permanent free tier without subscription (10 plant limit)
+- AI-powered "Growbot" chatbot for instant plant advice 
 - Visual garden planner with drag-and-drop interface
 - Personalized planting dates based on GPS location
 - Strong social media presence (YouTube, TikTok) with educational content
@@ -129,27 +130,27 @@ Target Audience: Nature enthusiasts and citizen scientists
 
 Here is a summary of how GGC compares to selected competitors.
 
-| App | Price Model | Target User | Key Differentiator | Smart Features | Community |
-|-----|-------------|-------------|-------------------|----------------|-----------|
-| GeoGardenClub | $60/year | Serious gardeners | Local community + data tracking | Limited | Strong local |
-| Seed to Spoon | Free | Beginner-intermediate | AI chatbot + visual planner | AI chatbot | Minimal |
-| Gardenize | $45-108/year | European gardeners | Digital diary + reminders | Basic reminders | None |
-| GrowVeg | $35-85/year | Planning-focused | Crop rotation + layouts | Email reminders | None |
-| Smart Gardener | $40-60/year | Data-driven | Automated optimization | Automation | Limited |
-| PictureThis | Freemium | Plant enthusiasts | AI identification | Advanced AI | Limited |
-| iNaturalist | Free | Nature lovers | Citizen science | Crowdsourced ID | Strong global |
+| App | Price Model              | Target User | Key Differentiator | Smart Features | Community |
+|-----|--------------------------|-------------|-------------------|----------------|-----------|
+| GeoGardenClub | 6 months free then $45-60/year | Serious gardeners | Local community + data tracking | Limited | Strong local |
+| Seed to Spoon | Free Tier or $47-60/year | Beginner-intermediate | AI chatbot + visual planner | AI chatbot | Minimal |
+| Gardenize | 14 days free then $45-108/year | European gardeners | Digital diary + reminders | Basic reminders | None |
+| GrowVeg | 7 days free then $35-85/year | Planning-focused | Crop rotation + layouts | Email reminders | None |
+| Smart Gardener | $40-60/year              | Data-driven | Automated optimization | Automation | Limited |
+| PictureThis | Freemium                 | Plant enthusiasts | AI identification | Advanced AI | Limited |
+| iNaturalist | Free                     | Nature lovers | Citizen science | Crowdsourced ID | Strong global |
 
 ## Trial offer analysis
 
 Trial offers are an important way to attract new users. Here is how GGC compares to other apps.
 
-| App | Free Trial | What You Get |
-|-----|------------|--------------|
-| GeoGardenClub | 6 months | Full access to all features |
-| Gardenize | 14 days | Full access, then $45-108/year |
-| GrowVeg | 7 days | Full access, then $35-85/year |
-| Smart Gardener | None listed | Immediate payment required |
-| Seed to Spoon | Permanent free | Limited features, no premium tier |
+| App | Free Trial         | What You Get                                       |
+|-----|--------------------|----------------------------------------------------|
+| GeoGardenClub | 6 months           | Full access, then $45-60/year                      |
+| Gardenize | 14 days            | Full access, then $45-108/year                     |
+| GrowVeg | 7 days             | Full access, then $35-85/year                      |
+| Smart Gardener | None         | Purchase required ($15/3 months, $40/year)         |
+| Seed to Spoon | Permanent free tier | Limited free features, or $47-60/year for premium. |
 
 ### Advantages of GGC's 6 month free trial
 
