@@ -87,14 +87,50 @@ const sidebars = {
     'business/index',
     'business/roadmap',
     'business/milestones',
-    'business/market-size',
-    'business/metrics',
-    'business/instrumentation',
     {
       type: 'category',
-      collapsed: false,
+      collapsed: true,
+      label: "Initial Business Plan",
+      items: [
+        'business/planning/market-size',
+        'business/planning/metrics',
+        {
+          type: 'link',
+          label: 'Lean Canvas',
+          href: 'https://www.canva.com/design/DAGXUaJ5nBg/gH6EnJ74rFjfqZYjJ2n50w/view?utm_content=DAGXUaJ5nBg&utm_campaign=designshare&utm_medium=link&utm_source=editor',
+        },
+        {
+          type: 'link',
+          label: 'Executive Summary',
+          href: 'https://geogardenclub.com/pdf/executive-summary-2024.pdf',
+        },
+        {
+          type: 'link',
+          label: 'Gardening vs. Farming',
+          href: 'https://docs.google.com/presentation/d/1rMu7DWJblHvVJt6CGmR8eyCN7uBMXPfBpc1rdhanxjQ/edit#slide=id.p',
+        },
+        {
+          type: 'link',
+          label: 'Home Gardening Pain Points',
+          href: 'https://docs.google.com/presentation/d/1TKDWQI60PxRhBpMGW0tvMyXX0nmgEBz71-DmoT2LxfU/edit#slide=id.g11d82564388_0_187',
+        },
+      ]
+    },
+    {
+      type: 'category',
+      collapsed: true,
       label: "Monthly Reports",
       items: [
+        {
+          type: 'link',
+          label: 'August 2025',
+          href: 'https://docs.google.com/document/d/1O4tjvM2d6M2zM7E-FbUaA4EpSQAEeGkcorjasYOmsEM/edit?usp=sharing',
+        },
+        {
+          type: 'link',
+          label: 'July 2025',
+          href: 'https://docs.google.com/document/d/15nZf7dkdyI_dt8-fJL_PecJaEjnh5OdEdJls3KIQ23w/edit?usp=sharing',
+        },
         {
           type: 'link',
           label: 'June 2025',
@@ -118,24 +154,18 @@ const sidebars = {
       ]
     },
     {
-      type: 'link',
-      label: 'Lean Canvas',
-      href: 'https://www.canva.com/design/DAGXUaJ5nBg/gH6EnJ74rFjfqZYjJ2n50w/view?utm_content=DAGXUaJ5nBg&utm_campaign=designshare&utm_medium=link&utm_source=editor',
-    },
-    {
-          type: 'link',
-          label: 'Executive Summary',
-          href: 'https://geogardenclub.com/pdf/executive-summary-2024.pdf',
-        },
-    {
-      type: 'link',
-      label: 'Gardening vs. Farming',
-      href: 'https://docs.google.com/presentation/d/1rMu7DWJblHvVJt6CGmR8eyCN7uBMXPfBpc1rdhanxjQ/edit#slide=id.p',
-    },
-    {
-      type: 'link',
-      label: 'Home Gardening Pain Points',
-      href: 'https://docs.google.com/presentation/d/1TKDWQI60PxRhBpMGW0tvMyXX0nmgEBz71-DmoT2LxfU/edit#slide=id.g11d82564388_0_187',
+      type: 'category',
+      collapsed: true,
+      label: "2026 Strategic Plan",
+      items: [
+        'business/strategic-plan-2026/index',
+        'business/strategic-plan-2026/review-2025',
+        'business/strategic-plan-2026/usability-2025',
+        'business/strategic-plan-2026/competitive-analysis-2025',
+        'business/strategic-plan-2026/strategic-categories',
+        'business/strategic-plan-2026/proposals-2026',
+
+      ]
     },
     {
       type: 'category',
@@ -155,15 +185,23 @@ const sidebars = {
       ],
     },
     {
-      type: 'link',
-      label: 'Business Documents Repo',
-      href: 'https://github.com/geogardenclub/documents',
+      type: 'category',
+      collapsed: true,
+      label: "Documents",
+      items: [
+        {
+          type: 'link',
+          label: 'Business Documents Repo',
+          href: 'https://github.com/geogardenclub/documents',
+        },
+        {
+          type: 'link',
+          label: 'Consultant Agreement Template',
+          href: 'https://docs.google.com/document/d/1UIgKYQrcIaY7wj515ehPrFTm1sqXfiYSNWUZvoTEWBY/edit?tab=t.0',
+        },
+      ]
     },
-    {
-      type: 'link',
-      label: 'Consultant Agreement Template',
-      href: 'https://docs.google.com/document/d/1UIgKYQrcIaY7wj515ehPrFTm1sqXfiYSNWUZvoTEWBY/edit?tab=t.0',
-    },
+
     {
       type: 'link',
       label: 'Developer Guide',
@@ -190,6 +228,7 @@ const sidebars = {
     'develop/backups',
     'develop/scripts',
     'develop/privacy',
+    'develop/instrumentation',
     'develop/firebase-billing',
     'develop/adaptive-design',
     {
