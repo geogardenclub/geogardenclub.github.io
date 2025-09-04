@@ -4,7 +4,7 @@ hide_table_of_contents: true
 
 # Strategic Planning Categories
 
-The fundamental strategic challenge for 2026 is to determine if GGC is a viable business. One customer-focused way of structuring our strategic planning process is to figure out ways to make progress according to the three areas covered in our monthly business reports: Customer acquisition, retention, and planning:
+As noted previously, a fundamental strategic challenge for 2026 is to make progress in determining if GGC is a viable business. One customer-focused way of structuring our strategic planning is along the three areas covered in our monthly business reports: Customer acquisition, retention, and planning:
 
 Customer Acquisition. This involves the following activities: (1) marketing activities by GGC to attract new customers, as well as (2) activities by new customers related to their initial "onboarding" (from downloading to subscription terms acceptance to initial garden creation). We measure customer acquisition by the number of new active users per month.
 

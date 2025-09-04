@@ -241,4 +241,10 @@ Market Positioning Opportunities:
 * "Graduate from beginner apps" - position as next step after Seed to Spoon
 * "Data-driven community gardening" - combine Smart Gardener's analytics with social features
 
+## Discussion
+
+According to this analysis, GeoGardenClub is competitively priced and is best in class for gardeners who are interested in localized, gardener-supplied (rather than AI supplied) data and communication. 
+
+The strategic planning challenge is to figure out marketing strategies that bring these kinds of gardeners to the app.
+
 

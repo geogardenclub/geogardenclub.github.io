@@ -4,9 +4,11 @@ hide_table_of_contents: true
 
 # 2025 App Usability
 
-To gain insight on how the app design might contribute to 2025's business results, I used an AI agent ([Ona](https://ona.com)) to read the GGC user guide and critique the design.  Here is a summary of its findings:
+To gain insight into how the current design of the app might contribute to 2025's problematic business results, I used an AI agent ([Ona](https://ona.com)) to read the GGC user guide and critique the design.  Here is a summary of its findings:
 
 ## Usability Concerns
+
+Ona identified these concerns:
 
 Complexity for New Users:
 * Steep Learning Curve: The app requires understanding of Gardens → Beds → Plantings → Tasks → Observations → Outcomes hierarchy
@@ -25,7 +27,7 @@ Geographic Limitations:
 
 ## Potential Features
 
-Here are some features present in other garden planning apps that are not currently in GeoGardenClub:
+Ona lists the following features as present in other garden planning apps that are not currently in GeoGardenClub:
 
 Garden Planning Tools:
 * Visual Garden Designer: Competitors offer drag-and-drop bed layouts and plant spacing
@@ -56,3 +58,10 @@ Data & Analytics:
 * Predictive Analytics: Can't predict optimal planting times or varieties
 * Comparative Analysis: Limited ability to compare performance across similar gardens
 * Export Capabilities: Data lock-in with no export options mentioned
+
+## Discussion
+
+Our team is too small and time is too tight to implement all of these improvements and enhancements for 2026. And given that a critique of the app is "cognitive overhead" from the existing 30+ features, adding more features indiscriminately might decrease the usability further. 
+
+The strategic planning challenge is to carefully pick which of these recommendations (if any) to pursue for 2026.
+
