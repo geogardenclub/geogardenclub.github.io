@@ -162,7 +162,7 @@ const sidebars = {
         'business/strategic-plan-2026/review-2025',
         'business/strategic-plan-2026/usability-2025',
         'business/strategic-plan-2026/competitive-analysis-2025',
-        'business/strategic-plan-2026/strategic-categories',
+        'business/strategic-plan-2026/customer-lifecycle',
         'business/strategic-plan-2026/proposals-2026',
 
       ]
