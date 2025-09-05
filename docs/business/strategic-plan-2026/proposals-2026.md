@@ -14,7 +14,7 @@ This page currently presents a large list of activities to potentially work on f
 
 In 2026, we need to improve our ability to find new customers and get them to download the system. Some possible activities include:
 
-*New partnerships with community organizations.* These organizations might include Master Gardener associations, school garden programs, and/or food non-profits. Note that developing a viable partnership with an organization might require enhancing the GGC app with new features.
+*Partnerships with community organizations.* These organizations might include Master Gardener associations, school garden programs, and/or food non-profits. Note that developing a viable partnership with an organization might require enhancing the GGC app with new features.
 
 *Improving GGC's social proof.* Social proof is a psychological phenomenon where people look to the actions and behaviors of others to guide their own decisions, especially in situations of uncertainty. It can be created from positive reviews, endorsements from experts or celebrities, high follower counts, or certifications. In 2026, we can solicit reviews, awards, or endorsements to improve the social proof of GGC.
 
@@ -36,7 +36,7 @@ In 2026, we need to improve the percentage of customers who, having downloaded t
 
 *Create first garden screen.*  We can streamline the evaluation phase a bit by inserting a simplified Create Garden form into the onboarding sequence. That way, when the user hits their Home screen, they already have a Garden.
 
-*Seasonal gardening challenges to encourage app use and community connections.* For example, observation based: get all gardeners paying attention to and posting observations about a single crop etc. Or: chapter competitions, and a leaderboard to create friendly competition and chapter pride. Contests like biggest pumpkin for Halloween, most beautiful squash for Thanksgiving, etc.
+*Challenges.* Gardening challenges can encourage app use and community connections. For example, a challenge to get all gardeners paying attention to and posting observations about a single crop. Or contests like biggest pumpkin for Halloween, most beautiful squash for Thanksgiving, etc. (Note: A challenge could be implemented as a specific type of forum post.)
 
 *Recurrent, user defined tasks.*  This can support watering reminders, etc.
 
@@ -48,7 +48,7 @@ In 2026, we need to improve the percentage of customers who, having downloaded t
 
 In general, paying customers have enough experience with the app to derive value from it.  To retain them, we need ways to be made aware when the app is not meeting their needs and respond appropriately.  For example, we could implement:
 
-*Forums*. A "forum" feature that enables discussion on user-generated topics. This will make it easier for users to bring up issues with the app. 
+*Forums*. A "forum" feature that enables discussion on user-generated topics. This will make it easier for users to bring up issues with the app. (Note: a feature request could be implemented as a specific type of forum post.)
 
 *In-app review mechanisms.* For example, a mechanism to periodically ask users for feedback about specific features at the time they are using them. 
 

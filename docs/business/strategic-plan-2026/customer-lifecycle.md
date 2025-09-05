@@ -4,7 +4,7 @@ hide_table_of_contents: true
 
 # GGC Customer Lifecycle
 
-As noted previously, a fundamental strategic challenge for 2026 is to make progress in determining if GGC is a viable business. To do that, we think it's helpful to define a "GGC customer lifecyle", which provides us with a way to diagnose problems in obtaining and retaining paying customers and understand how to allocate business resources to resolve them and thus increase revenue. 
+As noted previously, a fundamental strategic challenge for 2026 is to make progress in determining if GGC is a viable business. To do this, it's helpful to define a "GGC customer lifecycle". 
 
 We define the GGC customer lifecycle as three sequential phases: customer acquisition, customer evaluation, and customer retention. The customer evaluation phase has two subphases: customer onboarding and customer exploration:
 
@@ -12,15 +12,17 @@ We define the GGC customer lifecycle as three sequential phases: customer acquis
 
 Customer acquisition ends when the customer downloads the app, and customer evaluation ends when the customer pays for the app for the first time. 
 
+The model also accounts for the evolution of a user from non-user to new user to experienced user.  
+
 ## Customer acquisition 
 
-The first phase, customer acquisition, involves all the events and activities that eventually result in a person downloading the GGC app for the first time. From the business point of view, the customer acquisition phase is "marketing".
+The first phase, customer acquisition, involves all the events and activities that eventually result in a non-user downloading the GGC app for the first time. From the business point of view, the customer acquisition phase is almost exclusively about marketing.
 
 We can identify problems in the customer acquisition phase by: (a) measuring the number of times the app is downloaded in a given time period, and (b) measuring the cost and/or time of marketing activities intended to lead to downloads during that same time period.
 
 ## Customer evaluation
 
-The second phase is "customer evaluation". This involves the activities following downloading up to the point where the user makes their first subscription payment.
+The second phase is "customer evaluation". This involves the activities following downloading up to the point where the user makes their first subscription payment. It is also where non-users become new users, and (hopefully) learn to use the various app features.  
 
 There are two subphases to the customer evaluation phase: "customer onboarding" and "customer exploration".
 
@@ -38,11 +40,18 @@ Note that the "getting started" emails fit neatly into the customer evaluation p
 
 ## Customer retention
 
-Finally, the "customer retention" phase focuses on the experience of users who are currently paying for the app. The primary measure of retention is the percentage of users who, having paid for the app at least once, have not cancelled their subscription.  
+Finally, the "customer retention" phase focuses users who have acquired experience with the app and are currently paying for it. The primary measure of retention is the percentage of users who, having paid for the app at least once, have not cancelled their subscription.  
 
 There are also secondary measures, which revolve around "satisfaction"----does the app continue to address their needs? What do we need to add or fix to keep them paying us money?
 
-Now that we have a model of the customer lifecycle, the next page discusses how we should strategically allocate resources for 2026 across these phases in order to make the most progress towad understanding if GGC is a viable business.
+## Discussion
+
+In 2025, the business underperformed in at least two of the three phases:
+* Customer acquisition: Our marketing resulted in 150 downloads for the 2025 season. To be a viable business, we probably need 1000+ downloads per season.
+* Customer evaluation: We experienced a 95% rate of attrition between download and payment (150 downloads resulted in around 10 subscriptions). While some attrition is to be expected, this rate seems much too high.
+* Customer retention: we have only had paying customers for a couple of months, so it's too soon to evaluate retention. 
+
+The next page presents our proposals to fix these problems during 2026.
 
 
 
