@@ -24,7 +24,7 @@ In 2026, we need to improve our ability to find new customers and get them to do
 
 ## Customer Evaluation Phase
 
-In 2026, we need to find ways to ensure that customers who download the app successfully make it through the onboarding and exploration phases and ultimately pay for the app for the first time. This requires evolving new users into experienced users who obtain value from the app. This process could include:
+In 2026, we need to improve the percentage of customers who, having downloaded the app, successfully make it through the onboarding and exploration phases and ultimately pay for the app for the first time. This requires evolving new users into experienced users who obtain value from the app. Possible helpful changes include:
 
 *Implementing "high-touch" support during evaluation.* In addition to the Getting Started emails, we could consider sending personalized emails to customers during the evaluation phase to ensure that they are not encountering roadblocks, and using secondary measures to make these emails more effective. For example, we might send an email saying something like: "We notice you haven't created a garden yet. Can we help you learn how to do that? Is there a reason you've delayed?"
 
@@ -34,13 +34,7 @@ In 2026, we need to find ways to ensure that customers who download the app succ
 
 *Confetti.*  Providing some sort of animation when the user accomplishes some sort of task for the first time can provide a "dopamine hit" that makes the app more fun to use. 
 
-*Create first garden screen.*  We can simplify the evaluation phase a bit by create a simplified Create Garden form that the user goes to immediately after finishing Create Profile. 
-
-## Customer Retention Phase
-
-Users who are paying for the app are generally those who have some experience with the app and are deriving value from it.  To retain them, we need to improve the customer experience. For example, we could implement:
-
-*Forums*. A "forum" feature that enables discussion on user-generated topics.
+*Create first garden screen.*  We can streamline the evaluation phase a bit by inserting a simplified Create Garden form into the onboarding sequence. That way, when the user hits their Home screen, they already have a Garden.
 
 *Seasonal gardening challenges to encourage app use and community connections.* For example, observation based: get all gardeners paying attention to and posting observations about a single crop etc. Or: chapter competitions, and a leaderboard to create friendly competition and chapter pride. Contests like biggest pumpkin for Halloween, most beautiful squash for Thanksgiving, etc.
 
@@ -48,10 +42,18 @@ Users who are paying for the app are generally those who have some experience wi
 
 *Automated completion of planting dates.* It would be very helpful to auto-complete planting dates based on user or chapter data from prior seasons. In other words, after the user enters the start date, the pull date (and other dates) could be calculated and entered automatically.
 
-*Improved ability to obtain feedback.* Some possible enhancements to support this include:
-* In-app review mechanisms that periodically ask users for feedback.
-* Direct, personal reach-out to a cross-section of gardeners each month to request feedback.
-
 *Addition of competitor's features.* Implement one or more of the [features present in other gardening apps](usability-2025#potential-features).
+
+## Customer Retention Phase
+
+In general, paying customers have enough experience with the app to derive value from it.  To retain them, we need ways to be made aware when the app is not meeting their needs and respond appropriately.  For example, we could implement:
+
+*Forums*. A "forum" feature that enables discussion on user-generated topics. This will make it easier for users to bring up issues with the app. 
+
+*In-app review mechanisms.* For example, a mechanism to periodically ask users for feedback about specific features at the time they are using them. 
+
+*Personalized reach-out.* For example, an email that indicates that they are one of our most senior customers and a request for feedback.
+
+*Wizard status.* Some mechanism to award active users with some sort of status that would encourage them to let us know if they see ways to improve the app. The goal of this status is to create a feeling of ownership over the app's direction with our top users.  
 
 
