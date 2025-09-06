@@ -2,7 +2,7 @@
 hide_table_of_contents: true
 ---
 
-# Proposals for 2026
+# 2026 Activities
 
 This page presents our thinking regarding the best ways to allocate time and money across the GGC customer lifecycle phases.
 

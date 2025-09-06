@@ -164,6 +164,7 @@ const sidebars = {
         'business/strategic-plan-2026/competitive-analysis-2025',
         'business/strategic-plan-2026/customer-lifecycle',
         'business/strategic-plan-2026/proposals-2026',
+        'business/strategic-plan-2026/benchmarks-2026',
 
       ]
     },
