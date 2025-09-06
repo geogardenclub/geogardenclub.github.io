@@ -16,12 +16,12 @@ In 2026, we need to improve our ability to find new customers and get them to do
 
 *Partnerships with community organizations.* These organizations might include Master Gardener associations, school garden programs, and/or food non-profits. Note that developing a viable partnership with an organization might require enhancing the GGC app with new features.
 
-*Improving GGC's social proof.* Social proof is a psychological phenomenon where people look to the actions and behaviors of others to guide their own decisions, especially in situations of uncertainty. Here are ways to increase our social proof:
-* Obtain more reviews in the App and Play Stores.
-* Obtain reviews of GGC in gardening publications.
-* Obtain grants and/or awards.
-* Obtain endorsements from community organizations (following a successful partnership).
-* Obtain endorsements from gardening influencers on Instagram and/or TikTok
+*Improving GGC's social proof.* Social proof is a psychological phenomenon where people look to the actions and behaviors of others to guide their own decisions, especially in situations of uncertainty. Increasing GGC's social proof could increase the "conversion rate": the percentage of people who, having learned about GGC through an online ad or other channel, go ahead and download the app and try it out. Some ways to increase GGC's social proof include: 
+* Reviews in the App and Play Stores.
+* Articles about GGC in gardening publications.
+* Grants and/or awards.
+* Endorsements from community organizations (following a successful partnership).
+* Endorsements from gardening influencers on Instagram and/or TikTok
 
 *Improving online advertising strategies.*  In 2025, we eventually stopped paying for online marketing because it was not translating into new downloads. We hypothesize that this was because of a lack of social proof. In 2026, we can consider experimenting with online advertising if we make progress to improve social proof.
 
