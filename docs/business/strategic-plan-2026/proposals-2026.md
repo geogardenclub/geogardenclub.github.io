@@ -23,11 +23,15 @@ In 2026, we need to improve our ability to find new customers and get them to do
 * Endorsements from community organizations (following a successful partnership).
 * Endorsements from gardening influencers on Instagram and/or TikTok
 
-*Improve online marketing.*  In 2025, we eventually stopped paying for online marketing because it was not translating into new downloads. We hypothesize that this was because of a lack of social proof. In 2026, we will resume experimenting with online advertising. 
+*Improve online marketing.*  In 2025, we eventually stopped paying for online ads because it was not translating into new downloads. We hypothesize that this was because of a lack of social proof. In 2026, we will resume experimenting with online advertising. 
 
 *Improve offline marketing.* In 2025, appearances at events such as seed swaps seemed to create interest from attendees in GGC. In 2026, some possible offline marketing approaches include:
 * Tables at seed swap events 
 * Tables at farmers markets
+
+*Implement an "ambassador" program.* Coursicle has [ambassador](https://www.coursicle.com/blog/coursicle-ambassador/) and [affiliate](https://www.coursicle.com/blog/coursicle-affiliate/) programs whose goal is to "bring in as many new users to Coursicle as possible." Both programs involve compensated creation of short-form content for Instagram or TikTok. Compensation varies according to the program (for ambassadors, basically $10/video, for affiliates, basically 1$/download).  We could develop a similar program to complement online advertising.
+
+*Implement a street team/intern program.* In conjunction with WWU, we could develop an internship (or more colloquially, "street team") program in which students help market GeoGardenClub. These students could participate in both offline marketing and online ambassador activities.
 
 ## Customer Evaluation Phase
 
