@@ -33,6 +33,8 @@ In 2026, we need to improve our ability to find new customers and get them to do
 
 *Implement a street team/intern program.* In conjunction with WWU, we could develop an internship (or more colloquially, "street team") program in which students help market GeoGardenClub. These students could participate in both offline marketing and online ambassador activities.
 
+*Implement a referral program.* A correctly designed and implemented referral program could accelerate the growth of a chapter and thus support the creation of a useful gardening community.  It also provides "social proof" in the form of the referring customer.  
+
 ## Customer Evaluation Phase
 
 In 2026, we need to improve the percentage of customers who, having downloaded the app, successfully make it through the onboarding and exploration phases and ultimately pay for the app for the first time. This requires evolving new users into experienced users who obtain value from the app. Possible helpful changes include:
