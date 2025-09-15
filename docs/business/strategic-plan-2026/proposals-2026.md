@@ -4,7 +4,7 @@ hide_table_of_contents: true
 
 # 2026 Activities
 
-This page presents our thinking regarding ways to allocate time and money across the GGC customer lifecycle phases in 2026.
+This page presents our thinking regarding ways to allocate time and money across the four GGC customer lifecycle phases in 2026.
 
 :::warning
 This page currently presents a large list of activities to potentially work on for 2026.  It is intended to stimulate discussion.  We need to eventually decide upon a smaller set of tasks to actually focus on during Fall 2025 as preparation for 2026.
@@ -69,4 +69,6 @@ In general, paying customers have enough experience with the app to derive value
 
 *Add wizard status.* Some mechanism to award active users with some sort of status that would encourage them to let us know if they see ways to improve the app. The goal of this status is to create a feeling of ownership over the app's direction with our top users.  
 
+## Customer Churn Phase
 
+Due to lack of experience with customer churn, we are not proposing any activities regarding this phase of the customer lifecycle for 2026.

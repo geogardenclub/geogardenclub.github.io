@@ -1,18 +1,18 @@
 ---
-hide_table_of_contents: true
+hide_table_of_contents: false
 ---
 
 # GGC Customer Lifecycle
 
 As noted previously, a fundamental strategic challenge for 2026 is to make progress in determining if GGC is a viable business. To do this, it's helpful to define a "GGC customer lifecycle". 
 
-We define the GGC customer lifecycle as three sequential phases: customer acquisition, customer evaluation, and customer retention. The customer evaluation phase has two subphases: customer onboarding and customer exploration:
+We define the GGC customer lifecycle as four sequential phases: customer acquisition, customer evaluation, customer retention, and customer churn. The customer evaluation phase has two subphases: customer onboarding and customer exploration:
 
 <img src="/img/business/customer-lifecycle.png"/>
 
-Customer acquisition ends when the customer downloads the app, and customer evaluation ends when the customer pays for the app for the first time. 
+Customer acquisition ends when the customer downloads the app, customer evaluation ends when the customer pays for the app for the first time, and customer retention ends when the customer cancels their subscription. 
 
-The model also accounts for the evolution of a user from non-user to new user to experienced user.  
+The model also accounts for the evolution of a user from non-user to new user to experienced user (and ultimately, back to a non-user).  
 
 ## Customer acquisition 
 
@@ -40,16 +40,26 @@ Note that the "getting started" emails fit neatly into the customer evaluation p
 
 ## Customer retention
 
-Finally, the "customer retention" phase focuses users who have acquired experience with the app and are currently paying for it. The primary measure of retention is the percentage of users who, having paid for the app at least once, have not cancelled their subscription.  
+The "customer retention" phase focuses users who have acquired experience with the app and are currently paying for it. The primary measure of retention is the percentage of users who, having paid for the app at least once, have not cancelled their subscription.  
 
 There are also secondary measures, which revolve around "satisfaction"----does the app continue to address their needs? What do we need to add or fix to keep them paying us money?
+
+## Customer churn
+
+The final phase of the customer lifecycle is when a customer decides, after having paid at least once, to cancel their subscription. While, ultimately, every customer will eventually cancel their subscription (everyone dies, right?), we want the churn rate to be as low as possible.
+
+Note that we represent customers who cancel their subscription prior to first payment (during the customer evaluation phase) as "attrition", not "churn".
+
+Because we have just started having paying customers in the past month or two, it is too early to know much about the nature of the GeoGardenClub's customer churn phase. 
+
+
 
 ## Discussion
 
 In 2025, the business underperformed in at least two of the three phases:
 * Customer acquisition: Our marketing resulted in 150 downloads for the 2025 season. To be a viable business, we probably need 1000+ downloads per season.
 * Customer evaluation: We experienced a 95% rate of attrition between download and payment (150 downloads resulted in around 10 subscriptions). While some attrition is to be expected, this rate seems much too high.
-* Customer retention: we have only had paying customers for a couple of months, so it's too soon to evaluate retention. 
+* Customer retention and Customer churn: we have only had paying customers for a couple of months, so it's too soon to evaluate retention or churn. 
 
 The next page presents our proposals to fix these problems during 2026.
 
