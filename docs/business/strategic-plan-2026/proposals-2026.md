@@ -53,7 +53,9 @@ In 2026, we need to improve the percentage of customers who, having downloaded t
 
 *Add recurrent, user defined tasks.*  This can support watering reminders, etc.
 
-*Automate completion of planting dates.* It would be very helpful to auto-complete planting dates based on user or chapter data from prior seasons. In other words, after the user enters the start date, the pull date (and other dates) could be calculated and entered automatically.
+*Automate completion of planting dates.* It would be helpful to auto-complete planting dates based on user or chapter data from prior seasons. In other words, after the user enters the start date, the pull date (and other dates) could be calculated and entered automatically.
+
+*Implement "like" and "favorite" UI elements.*  It is possible that providing these social media features could improve engagement. 
 
 *Add selected competitor's features.* Implement one or more of the [features present in other gardening apps](usability-2025#potential-features).
 
