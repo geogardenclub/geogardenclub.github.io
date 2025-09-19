@@ -7,7 +7,7 @@ sidebar_label: "Jessie (Whatcom-WA)"
 
 <img src="/img/featured-gardeners/jessie-garden.jpeg"/>
 
-**Chapter** Whatcom-WA
+**Chapter:** Whatcom-WA
 
 
 **How long have you been gardening?** 

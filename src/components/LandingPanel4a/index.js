@@ -71,6 +71,37 @@ export default function LandingPanel4a() {
                   </FeaturedGardener>
               </div>
           </div>
+          <div className="row">
+              <div className='col'>
+                  <FeaturedGardener
+                      chapter='Whatcom-WA Chapter'
+                      name='Erin and Shanna'
+                      photo='img/featured-gardeners/erin-and-shanna.jpeg'
+                      quote="As a married couple with distinct gardening interests we love that we can share a garden in the app and post data individually."
+                      url='/docs/featured-gardeners/erin-shanna'>
+                  </FeaturedGardener>
+              </div>
+
+              <div className='col'>
+                  <FeaturedGardener
+                      chapter='Whatcom-WA Chapter'
+                      name='Jess'
+                      photo='img/featured-gardeners/jess.jpg'
+                      quote="With GeoGardenClub, everything lives in one place! I have the visual representation of how long the crop will be in the bed (that I can easily edit on the fly), and if I want data on the crop, I can click on it. "
+                      url='/docs/featured-gardeners/jessie'>
+                  </FeaturedGardener>
+              </div>
+
+              <div className='col'>
+                  <FeaturedGardener
+                      chapter='Manhattan-NY Chapter'
+                      name='Katie'
+                      photo='img/featured-gardeners/katie.jpeg'
+                      quote="I love making observations in the GGC app! Finally, a place to brag, facepalm, or send messages to future self. "
+                      url='/docs/featured-gardeners/katie'>
+                  </FeaturedGardener>
+              </div>
+          </div>
         </div>
         </div>
   );

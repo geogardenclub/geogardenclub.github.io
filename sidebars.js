@@ -42,6 +42,9 @@ const sidebars = {
         'featured-gardeners/threse',
         'featured-gardeners/jessie',
         'featured-gardeners/margo',
+        'featured-gardeners/erin-shanna',
+        'featured-gardeners/jess',
+        'featured-gardeners/katie',
       ]
     },
     {
