@@ -14,7 +14,7 @@ An analysis of the current app indicates opportunities for improvement, includin
 
 A competitive analysis indicates that our pricing model is competitive, and that we must find a way to effectively market our unique features.
 
-To help us diagnose problems and allocate resources, we define a GGC customer lifecycle model consisting of three phases: customer acquisition, customer evaluation, and customer retention.
+To help us clarify problems and allocate resources, we define a GGC customer lifecycle model consisting of four phases: customer acquisition, customer evaluation, customer retention, and customer churn.
 
 Finally, we propose a set of activities in preparation for 2026 intended to improve customer acquisition, evaluation, and retention.
 

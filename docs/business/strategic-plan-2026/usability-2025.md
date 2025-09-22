@@ -42,7 +42,7 @@ Smart Automation & AI:
 * Smart Notifications: Generic task reminders vs. intelligent, context-aware alerts
 
 Garden Management Tools:
-* Watering Tracking: Critical for garden success, especially for beginners
+* Watering Tracking: Important for garden success, especially for beginners
 * Fertilizer/Amendment Tracking: Important for soil health and plant nutrition
 * Pest/Disease Management: Limited to observations, no treatment tracking or recommendations
 * Seed Starting Calculator: Missing timing calculations for indoor seed starting
@@ -63,5 +63,5 @@ Data & Analytics:
 
 Our team is too small and time is too tight to implement all of these improvements and enhancements for 2026. And given that a critique of the app is "cognitive overhead" from the existing 30+ features, adding more features indiscriminately might decrease the usability further. 
 
-The strategic planning challenge is to carefully pick which of these recommendations (if any) to pursue for 2026.
+The strategic planning challenge is to carefully pick which improvements to pursue for 2026.
 
