@@ -32,7 +32,7 @@ Then click on "See All Plans" to see the available plans:
 
 <img width="300" src="/img/user-guide/subscription-available-plans.jpeg"/>
 
-A similar approach is available for Android users: bring up the Google Play app, then go to Subscriptions, and select GeoGardenClub to change your subscription plan. 
+A similar approach is available for Android users: open the Google Play app, tap your Profile icon, select Subscriptions, and select GeoGardenClub to change your subscription plan. 
 
 ## Cancelling your subscription
 
@@ -42,15 +42,17 @@ Cancelling your subscription is done in the same way as managing your plan. In i
 
 Now click on the red button to cancel your subscription (It will either say "Cancel Free Trial" or " Cancel Subscription"). 
 
-As we receive notice of cancelled subscriptions, we periodically go through and delete those accounts. 
+Android devices are again similar: Open the Google Play Store app, tap your profile icon, select Subscriptions, select GeoGardenClub, and then tap Cancel subscription.
+
+As we receive notice of cancelled subscriptions, we periodically go through and delete those accounts and the associated data. There may be a delay of several weeks before this happens. 
 
 ## Deleting your account
 
-Note that cancelling your subscription does not immediately delete your GeoGardenClub account or any data you have added.  To delete your account immediately, go into the GeoGardenClub app, go to the Drawer and select Settings, then select Delete Account, which brings up a screen like the following:
+Note that cancelling your subscription does not immediately delete your GeoGardenClub account or any data you have added.  To delete your account and data immediately, go into the GeoGardenClub app, go to the Drawer and select Settings, then select Delete Account, which brings up a screen like the following:
 
 <img width="300" src="/img/user-guide/delete-account.png"/>
 
-:::warning Deleting your account does not cancel your subscription
+:::warning Deleting your account does not cancel your subscription!
 As noted in the Delete Account screen above , deleting your account does **not** automatically cancel your subscription. You must cancel your subscription yourself using the Subscription management features in iOS or Android.
 :::
 
