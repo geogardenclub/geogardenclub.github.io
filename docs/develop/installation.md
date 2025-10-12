@@ -29,7 +29,7 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 ## FVM
 
-[FVM (Flutter Version Management)](https://fvm.app/) is a tool that allows you to manage multiple versions of Flutter on your machine. It is not required, but it is recommended.
+[FVM (Flutter Version Management)](https://fvm.app/) is a tool that allows you to manage multiple versions of Flutter on your machine. It is not required, but it can be useful if you end up needing to downgrade your Flutter version (which hopefully happens only very rarely).
 
 To install FVM, run the following commands:
 
@@ -83,6 +83,15 @@ $ firebase login
 ```shell
 $ dart pub global activate flutterfire_cli
 ```
+
+### Update FlutterFire
+
+Once installed, you can update the Flutter toolkit for Firebase using our shell script:
+
+```
+$ ./run_flutterfire_configure.sh
+```
+
 
 ## Tool versions
 
