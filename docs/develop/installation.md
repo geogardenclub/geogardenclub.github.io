@@ -86,12 +86,45 @@ $ dart pub global activate flutterfire_cli
 
 ### Update FlutterFire
 
-Once installed, you can update the Flutter toolkit for Firebase using our shell script:
+Once installed, you can update the Flutter toolkit for Firebase using `run_flutterfire_configure.sh`. A sample run looks like this (press return to accept the default 'yes' when prompted):
 
 ```
 $ ./run_flutterfire_configure.sh
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+added 745 packages in 16s
+81 packages are looking for funding
+  run `npm fund` for details
+Package flutterfire_cli is currently active at version 1.3.1.
+Downloading packages... . 
+  dart_console 1.2.0 (4.1.2 available)
+  intl 0.18.1 (0.20.2 available)
+> win32 5.15.0 (was 5.14.0)
+Building package executables... (1.5s)
+Built flutterfire_cli:flutterfire.
+Installed executable flutterfire.
+Activated flutterfire_cli 1.3.1.
+i Found 5 Firebase projects. Selecting project ggc-app-2de7b.                                   
+i Selected platforms: android,ios,web
+
+✔ Generated FirebaseOptions file /Users/philipjohnson/GitHub/geogardenclub/ggc_app/lib/firebase_options.dart already exists, do you want to override it? · yes
+i Firebase android app com.geogardenclub.ggc_app registered.                                     
+i Firebase ios app com.geogardenclub.ggc registered.                                            i
+i Firebase web app ggc_app (web) registered.                                                     
+                               
+Firebase configuration file lib/firebase_options.dart generated successfully with the following Firebase apps:
+
+Platform  Firebase App Id
+web       1:707735659833:web:bed8fc2f3b0e834f6274e8
+android   1:707735659833:android:b50b5bdc4dec70f36274e8
+ios       1:707735659833:ios:ca00b1577d53989a6274e8
+
+Learn more about using this file and next steps from the documentation:
+ > https://firebase.google.com/docs/flutter/setup
 ```
 
+After running it, you will normally see updates to the Firebase and/or FlutterFire versions, as revealed in the `./run_tool_versions.sh` script discussed next.
+
+Running this command writes new versions of several files (google-services.json, firebase.json, project.pbxproj, firebase_options.dart).  You can safely commit these changed files to main (please post a "Main merge alert" message to the #development channel). 
 
 ## Tool versions
 

@@ -8,19 +8,27 @@ hide_table_of_contents: true
 :::tip Show me the money
 :::
 
-There are lots of great reasons to create a home garden: the taste of fresh produce, the ability to grow varieties that might not be available locally, control over use of organic fertilizers and avoidance of pesticides, and so forth. 
+Retail Value provides an estimate of the cost to purchase the same quantity of produce you grew in your garden from a store. This is useful for the following reasons:
 
-But one thing that helps make a home garden sustainable is that it is cost-effective: the retail value of the food grown by the garden exceeds the cost of the materials used to grow the food.
+* One goal of GeoGardenClub is to improve community food resilience. Retail Value provides a measure that can help assess the impact of each GGC Chapter on its community's food resilience. 
+* Another goal of GeoGardenClub is to help gardeners improve their garden's productivity, ideally to the point where the value of the produce grown in a season exceeds the cost of materials for the garden for that same season.
 
-GeoGardenClub provides an experimental feature called "Retail Value" that is designed to help Gardeners determine if their Garden is cost-effective. 
+To utilize the Retail Value feature, all you have to do is provide a value for the "Quantity" field for a Planting.  You do this in the [Update Planting](plantings.md#update-a-planting) screen. For example, the following screen illustrates an update to a Planting of Mango to indicate that 250 lbs of mango were harvested:
 
-To utilize the Retail Value feature, all you have to do is provide a value for the "Quantity" field for a Planting.  You do this in the [Update Planting](plantings.md#update-a-planting) screen. For example, the follow screen shows the Gardener entering "2" as the number of "bunches" harvested so far from a Basil planting. 
+<img width="300" src="/img/user-guide/retail-value-quantity.png"/>
 
-<img width="300" src="/img/user-guide/retail-value-1.png"/>
+Once that value is entered and the Submit button is pressed, the Planting summary updates to indicate the quantity and retail value of that Planting:
 
-Once the Gardener presses "Submit", the Planting Details screen is updated to show an estimate of the Retail Value of the harvest from that Planting so far:
+<img width="300" src="/img/user-guide/retail-value-planting.png"/>
 
-<img width="300" src="/img/user-guide/retail-value-2.png"/>
+At the same time, that Garden's summary view is updated to indicate the new retail value of that Planting as well as all other Plantings in the garden for which quantity values have been provided:
+
+<img width="300" src="/img/user-guide/retail-value-garden.png"/>
+
+Finally, the Chapter summary view is updated to indicate the new retail value of that Planting as well as all other Plantings in all other Gardens in the Chapter for which quantity values have been provided:
+
+<img width="300" src="/img/user-guide/retail-value-chapter.png"/>
+
 
 :::info Wait. What? How did you get $3.00 a bunch for Basil?
 The Retail Value feature is experimental because there is a lot going on behind the scenes. We think calculating retail value will be too time-consuming for Gardeners if they have to come up with the cost of each crop or variety themselves.
