@@ -8,25 +8,25 @@ hide_table_of_contents: true
 :::tip Show me the money
 :::
 
-Retail Value estimates the cost to purchase from a store the same quantity of produce you grew in your garden. This estimate is useful for the following reasons:
+Retail Value estimates the cost to purchase the same quantity of produce you grew in your garden. This estimate is useful for the following reasons:
 
-* One goal of GeoGardenClub is to improve community food resilience. Retail Value indicates the impact of each GGC Chapter on its community's food resilience. 
+* A goal of GeoGardenClub is to improve community food resilience. Retail Value provides one indicator of the impact of a GGC Chapter's gardens on its community's food resilience. 
 * Another goal of GeoGardenClub is to help gardeners improve their garden's productivity, ideally to the point where the retail value of the produce grown in a season exceeds the expenses associated with the garden for that same season.
-* Retail Value provides one way to answer the question: "Am I getting better at gardening from year to year?"
+* Retail Value provides a way to answer the question: "Am I getting better at gardening from year to year?"
 
 To utilize the Retail Value feature, all you have to do is provide a value for the "Quantity" field for a Planting.  You do this in the [Update Planting](plantings.md#update-a-planting) screen. For example, the following screen illustrates an update to a Planting of Mango to indicate that 250 lbs of mango were harvested:
 
 <img width="300" src="/img/user-guide/retail-value-quantity.png"/>
 
-Once that value is entered and the Submit button is pressed, the Planting summary updates to indicate the quantity and retail value of that Planting:
+Once that value is entered and the Submit button is pressed, the Planting summary indicates the new quantity and Retail Value of that Planting:
 
 <img width="300" src="/img/user-guide/retail-value-planting.png"/>
 
-At the same time, that Garden's summary view is updated to indicate the new retail value of that Planting as well as all other Plantings in the garden for which quantity values have been provided:
+That Garden's summary view will now indicate the updated Retail Value of all Crops for which quantity values have been provided:
 
 <img width="300" src="/img/user-guide/retail-value-garden.png"/>
 
-Finally, the Chapter summary view is updated to indicate the new retail value of that Planting as well as all other Plantings in all other Gardens in the Chapter for which quantity values have been provided:
+Finally, the Chapter summary view will indicate the updated Retail Value of all Crops in all Gardens for which quantity values have been provided:
 
 <img width="300" src="/img/user-guide/retail-value-chapter.png"/>
 
@@ -38,17 +38,17 @@ To best understand Retail Value, it's useful to know about two internal concepts
 
 First, GeoGardenClub knows what country your Chapter resides in. Based on that, it determines the currency used in your country, as well as the unit of weight. For example, if your Chapter is located in the US, then the currency associated with your Retail Value is US Dollar, and the unit of weight is lbs.  On the other hand, if your Chapter is located in Canada, then the currency associated with your Retail Value is Canadian Dollar, and the unit of weight is kgs. 
 
-Second, the GeoGardenClub administrators manage a database of crop prices for each country. There is a "default" price for a crop. For example, the administrators might set the default price for tomatoes in the US to be $2.00/lb. (There are a online databases that admins can use to determine this price, such as the [USDA Database of Fruit and Vegetable Prices](https://ers.usda.gov/data-products/fruit-and-vegetable-prices) for US crop prices.) 
+Second, the GeoGardenClub administrators manage a database of Crop prices for each country. There is a "default" price for a Crop. For example, the administrators might set the default price for tomatoes in the US to be $2.00/lb. (There are online databases that admins can use to determine this price, such as the [USDA Database of Fruit and Vegetable Prices](https://ers.usda.gov/data-products/fruit-and-vegetable-prices) for US crop prices.) 
 
-There are two ways to override this default price.  First, an admin can specify a different crop price for a given year. So, if the national average for tomato prices went up to $2.50/lb in 2025, then the admins can add a 2025 price for tomatoes that will override the default price for that year (and subsequent years).
+There are two ways to override this default price.  First, an admin can specify a different Crop price for a given year. So, if the national average for tomato prices went up to $2.50/lb in 2025, then the admins can add a 2025 price for tomatoes that will override the default price for that year (and subsequent years).
 
 The second way to override this default price is by specifying a Chapter-local price. So, if the average price of tomatoes in the Oahu-HI Chapter is more like $3.00/lb, an admin can provide a Chapter-local price that overrides the default price for tomatoes in that Chapter.
 
-In cases where a gardener provides a quantity for a crop and there is no price available for that crop in the country, the system will indicate this with question marks. For example, here is the portion of the Garden screen shown above that indicates that there is no price data for 'Ulu:
+In cases where a gardener provides a quantity for a Crop and there is no price available for that Crop in their country, the system will indicate this with question marks. For example, here is the portion of the Garden screen shown above that indicates that there is no price data for 'Ulu:
 
 <img width="300" src="/img/user-guide/retail-value-unknown.png"/>
 
-In the event that you provide a quantity for a crop and no price is available, please contact us at info@geogardenclub.com and an admin will add a price. You can also contact us if you believe the price used is incorrect for your chapter.
+In the event that you provide a quantity for a Crop and no price is available, please contact us at info@geogardenclub.com and an admin will add a price. You can also contact us if you believe the price used is incorrect for your Chapter.
 
 
 :::info What's next for Retail Value?
