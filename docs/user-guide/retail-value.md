@@ -8,10 +8,11 @@ hide_table_of_contents: true
 :::tip Show me the money
 :::
 
-Retail Value provides an estimate of the cost to purchase the same quantity of produce you grew in your garden from a store. This is useful for the following reasons:
+Retail Value estimates the cost to purchase from a store the same quantity of produce you grew in your garden. This estimate is useful for the following reasons:
 
-* One goal of GeoGardenClub is to improve community food resilience. Retail Value provides a measure that can help assess the impact of each GGC Chapter on its community's food resilience. 
-* Another goal of GeoGardenClub is to help gardeners improve their garden's productivity, ideally to the point where the value of the produce grown in a season exceeds the cost of materials for the garden for that same season.
+* One goal of GeoGardenClub is to improve community food resilience. Retail Value indicates the impact of each GGC Chapter on its community's food resilience. 
+* Another goal of GeoGardenClub is to help gardeners improve their garden's productivity, ideally to the point where the retail value of the produce grown in a season exceeds the expenses associated with the garden for that same season.
+* Retail Value provides one way to answer the question: "Am I getting better at gardening from year to year?"
 
 To utilize the Retail Value feature, all you have to do is provide a value for the "Quantity" field for a Planting.  You do this in the [Update Planting](plantings.md#update-a-planting) screen. For example, the following screen illustrates an update to a Planting of Mango to indicate that 250 lbs of mango were harvested:
 
@@ -29,25 +30,33 @@ Finally, the Chapter summary view is updated to indicate the new retail value of
 
 <img width="300" src="/img/user-guide/retail-value-chapter.png"/>
 
+ That's it: all you have to do is provide (or update) the quantity field for a Planting, and the system takes care of the rest.  (If you noticed that 'Ulu does not have a Retail Value, keep reading for the explanation!)
 
-:::info Wait. What? How did you get $3.00 a bunch for Basil?
-The Retail Value feature is experimental because there is a lot going on behind the scenes. We think calculating retail value will be too time-consuming for Gardeners if they have to come up with the cost of each crop or variety themselves.
+## Behind the scenes: Countries and Prices
 
-Instead, the Chapter admin has the responsibility of doing the research and determining, for each year, a reasonable retail value for the crops and/or varieties being grown by Gardeners in their geographic region (i.e. Chapter).
+To best understand Retail Value, it's useful to know about two internal concepts: Countries and Prices. 
 
-There is a lot of subjectivity in determining a "reasonable retail value", and so we view the Retail Value feature as experimental at this time. 
+First, GeoGardenClub knows what country your Chapter resides in. Based on that, it determines the currency used in your country, as well as the unit of weight. For example, if your Chapter is located in the US, then the currency associated with your Retail Value is US Dollar, and the unit of weight is lbs.  On the other hand, if your Chapter is located in Canada, then the currency associated with your Retail Value is Canadian Dollar, and the unit of weight is kgs. 
 
-However, if it's possible to determine a "reasonable retail value", then it's possible for the app to provide Gardeners with an estimate of the retail value of their harvest for each year, simply by asking them to provide the "quantity" of harvest from each Planting, as you'll see next.
+Second, the GeoGardenClub administrators manage a database of crop prices for each country. There is a "default" price for a crop. For example, the administrators might set the default price for tomatoes in the US to be $2.00/lb. (There are a online databases that admins can use to determine this price, such as the [USDA Database of Fruit and Vegetable Prices](https://ers.usda.gov/data-products/fruit-and-vegetable-prices) for US crop prices.) 
+
+There are two ways to override this default price.  First, an admin can specify a different crop price for a given year. So, if the national average for tomato prices went up to $2.50/lb in 2025, then the admins can add a 2025 price for tomatoes that will override the default price for that year (and subsequent years).
+
+The second way to override this default price is by specifying a Chapter-local price. So, if the average price of tomatoes in the Oahu-HI Chapter is more like $3.00/lb, an admin can provide a Chapter-local price that overrides the default price for tomatoes in that Chapter.
+
+In cases where a gardener provides a quantity for a crop and there is no price available for that crop in the country, the system will indicate this with question marks. For example, here is the portion of the Garden screen shown above that indicates that there is no price data for 'Ulu:
+
+<img width="300" src="/img/user-guide/retail-value-unknown.png"/>
+
+In the event that you provide a quantity for a crop and no price is available, please contact us at info@geogardenclub.com and an admin will add a price. You can also contact us if you believe the price used is incorrect for your chapter.
+
+
+:::info What's next for Retail Value?
+
+We want to make Retail Value as useful as possible.  There are a couple of extensions we are considering for the future:
+
+* Variety-level prices. For some crops, such as tomatoes or apples, the price can vary significantly depending upon the variety. If there is sufficient interest, we could upgrade the price mechanism to support variety-level prices. 
+* "Priceless" crops and/or varieties. Some crops or varieties are simply not available in stores at all (perhaps because they are too delicate or of limited appeal).  This produce could be marked as "priceless". 
+
+If you are interested in these (or any other) extensions to Retail Value, feel free to contact us at info@geogardenclub.com to let us know.
 :::
-
-Once a Gardener has entered at least one "Quantity" for a Planting, then the Garden view will include a "Retail Value" section that shows the Retail Value for all Plantings with Quantity values for which a Chapter admin has provided Retail Value data. For example:
-
-<img width="300" src="/img/user-guide/retail-value-3.png"/>
-
-The bottom of this section provides totals for each year:
-
-<img width="300" src="/img/user-guide/retail-value-4.png"/>
-
-If a Gardener keeps a rough track of their expenses, then they can determine if the Garden was cost-effective. In this example, the app estimates that it would have cost this Gardener $647.50 to buy the equivalent amount of food that they harvested from their Garden. If that Gardener spent less than that amount on materials for the Garden, then the Garden was cost-effective.
-
-The Retail Value feature is still under development. Drop us a line at info@geogardenclub.com if you have any thoughts about it!
