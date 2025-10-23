@@ -247,6 +247,7 @@ const sidebars = {
         'develop/design/data-mutation',
         'develop/design/entity-creation',
         'develop/design/badges',
+        'develop/design/retail-value',
       ],
     },
     {

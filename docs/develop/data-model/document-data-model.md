@@ -14,6 +14,8 @@ only an approximation of the actual data model.
 
 Consult the source code and the Firebase console for an exact understanding
 of the current document data model in use. 
+
+This page last updated: October, 2025
 :::
 
 There is also a [Cloud Storage Data Model](./cloud-storage-data-model.md).
@@ -28,10 +30,17 @@ Here is a snapshot of the Firestore console showing the collections (excluding t
 
 <img src="/img/develop/firestore/firestore-console.png"/>
 
+:::warning Some Firestore collections and document fields are "vestigial"
+As the design and functionality of GeoGardenClub evolves, some collections become "vestigial", i.e. no longer used. For example, the Forum feature replaces the Chat and Share features, rendering the collections associated with the Chat and Share features vestigial.  Similarly, certain fields within various collections are vestigial.
 
-The GGC app implements a pair of Dart "domain" classes that mirror these Firebase collections. First, for an entity named "Foo", there would be a Dart class called "Foo" that represents a single instance of a Foo. Second, there would also be a Dart class called "FooCollection", which provides access to a set of Foo instances.  Note than an instance of the FooCollection is not guaranteed to contain all the Foo instances in the Firebase Foo collection; but it should always contain all the Foo instances *needed* by the app at that particular point in time.  
+Due to the presence of older releases of the app in the field, we cannot immediately delete these collections (or fields) as soon as they become vestigial since doing so might cause old versions of the app in the field to crash on launch (making it more difficult for those users to upgrade).  Eventually, we will delete them.
 
-We use the [Freezed](https://pub.dev/packages/freezed) package to facilitate the definition of entities.
+When a field within a non-vestigial collection is vestigial, we will mark it as such. We omit vestigial collections entirely.  
+:::
+
+The GGC app implements a pair of Dart "domain" classes that mirror these Firebase collections. First, for an entity named "Foo", there would be a Dart class called "Foo" enabling the creation of in-memory instances of a Foo. Second, there would also be a Dart class called "FooCollection", which provides access to a set of Foo instances.  Note that an instance of the FooCollection will often not contain all the Foo instances in the Firebase Foo collection; but it should always contain all the Foo instances *needed* by the app at that particular point in time.  
+
+We use the [Freezed](https://pub.dev/packages/freezed) package to facilitate the definition of entities, and the [With Widgets](../design/with-widgets) design pattern to manage the relationship between the Firebase collections and its in-memory counterpart. 
 
 ### Entity Hierarchy
 
@@ -39,22 +48,24 @@ The following diagram provides one way to understand the organization of GGC ent
 
 <img style={{borderStyle: "solid"}} src="/img/develop/data-entity-overview.png"/>
 
-This perspective partitions the entities into three categories:
+(Note that not all current entities may be present in this diagram.) 
 
-1. "Global-level" entities.  These entities are globally accessible to all Chapters. 
-2. "Chapter-level" entities. These are "top-level" entities for any given chapter. These entities all include a chapterID field. Each user is always associated with a single Chapter, and thus can only "see" the chapter-level entities with a matching chapterID. They are normally downloaded and cached in the client application upon login.
-3. "Garden-level" entities. These entities are all specific to a single Garden, and include both a chapterID and a gardenID. Garden-level entities are only visible within their Chapter. In addition, Garden-level entities might only be downloaded on-demand. 
+This hierarchical perspective partitions entities into three levels:
 
-This diagram can also be used to understand the relative numbers of entities that a given client must manipulate. Each of the "Global-level" entity will have dozens to hundreds of instances, and so it is practical for the client application to cache all of them locally without a large performance impact. 
+1. "Global-level" entities.  All of these entities are available in all Chapters. 
+2. "Chapter-level" entities. These entities are specific to a single Chapter.  Note that each user is associated with a single Chapter, and thus can only "see" the chapter-level entities associated with their chapterID. Chapter-level entities are normally downloaded and cached in the client application upon login.
+3. "Garden-level" entities. These entities are all specific to a single Garden, and include both a chapterID and a gardenID. Garden-level entities are only visible within their Chapter. In addition, Garden-level entities are typically downloaded on-demand. 
 
-Since each User is associated with a single Chapter, the number of "Chapter-level" entity instances visible to a User is not expected to exceed several hundred to a thousand. This means it is also practical for the client application to cache all "visible" Chapter-level entities locally.
+This diagram can also be used to understand the relative numbers of entities that a given client must manipulate. Each of the "Global-level" entities will have dozens to hundreds of instances, and so it is practical for the client application to cache all of them locally without a large performance impact. 
 
-However, we expect each of the several hundred Users in a Chapter to be associated with one to a dozen Gardens. Each Garden might have hundreds to thousands of Plantings. This means it is impractical for the client application to simply cache all the "Garden-level" entities: hundreds of entities times dozens of entities times thousands of entities equals millions of entities at the Garden level. At the Garden level, GGC must be "smart" about what it downloads from the database so that the client app remains responsive as the number of Users, Gardens, and Plantings in their Chapter grows.
+Since each User is associated with a single Chapter, the number of "Chapter-level" entity instances for a given user should be on the order of hundreds to thousands. This means it is also practical for the client application to cache all "visible" Chapter-level entities locally.
+
+However, we anticipate that each of the (potentially several hundred) Users in a Chapter could be associated with several Gardens. Each Garden might have hundreds to thousands of Garden-associated entities (Plantings, Outcomes, Observations, etc). This means it is potentially impractical for the client application to cache all the "Garden-level" entities: hundreds of Users times dozens of Gardens times thousands of Garden entities equals millions of entities. Thus, at the Garden level, GGC attempts to be "smart" about what it downloads from the database so that the client app remains responsive as the number of Users, Gardens, and Plantings in their Chapter grows.
 
 :::warning But what about huge chapter membership?
-This design does appear to have a potential problem: what if a Chapter becomes wildly popular and grows to many thousands of members? It is possible that the performance of the client application can degrade if the number of members in a single Chapter becomes too large. 
+What if a Chapter becomes wildly popular and grows to many thousands of members? It is possible that the performance of the client application can degrade if the number of members in a single Chapter becomes too large. 
 
-To address this potential problem, the data model is also designed to facilitate partitioning of large Chapters into multiple smaller Chapters. For example, the initial definition of a Chapter may comprise 8 postal (zip) codes, corresponding to all the postal codes in that country. But if that Chapter becomes too large, we could split it into two Chapters, each defined with 4 postal codes (or one with 3 postal codes and one with 5 postal codes, depending upon the concentration of members in each postal code).  Our data model does not currently allow Chapter definition "below" the level of a postal code, so the smallest possible Chapter in GeoGardenClub would be one defined by a single postal code.
+To address this potential problem, the data model is also designed to facilitate partitioning of large Chapters into multiple smaller Chapters. For example, the initial definition of a Chapter may comprise 20 postal (zip) codes, corresponding to all the postal codes in that county. But if that Chapter becomes too large, we could split it into two Chapters, each defined with 10 postal codes (or one with 15 postal codes and one with 5 postal codes, depending upon the concentration of members in each postal code).  Our data model does not currently allow Chapter definition "below" the level of a postal code, so the smallest possible Chapter in GeoGardenClub would be one defined by a single postal code.
 :::
 
 ### Entity dependencies
@@ -63,55 +74,113 @@ The following diagram presents an alternative perspective on the entities. In th
 
 <img style={{borderStyle: "solid"}} src="/img/develop/data-model-dependencies.png"/>
 
-The primary goal of this diagram is to make it clear that there is a fairly rich set of dependencies among the entities in this data model. 
+The goal of this diagram is to illustrate that there is a fairly rich set of dependencies among the entities in this data model.
 
 This is a positive thing, because it means that there are many different and interesting ways to "slice and dice" the data. 
 
 It also illustrates why we have chosen to implement the data model as a set of top-level collections with no subcollections. The many different relationships argue against the use of subcollections. The Firestore documentation indicates that there is no performance penalty to using all top-level collections. More details are available in the Firebase documentation called [Choose a data structure](https://firebase.google.com/docs/firestore/manage-data/structure-data).
 
-Let's now turn to a more detailed description of the entities in the data model. 
+Let's now turn to a more detailed description of the entities in the data model.
+
+## Country
+
+GeoGardenClub is currently available in two countries: the US and Canada. In future, we may expand to more countries. This collection provides access to important properties used for the Chapter entity and Retail Value feature.
+
+The Country entity defines four properties of a Country: its code, currency, weight unit, and states.
+
+The set of Countries in GGC are manually maintained by administrators. Here is an example Country document:
+
+<img src="/img/develop/firestore/firestore-console-countries.png"/>
+
+### Country entity representation
+
+```dart
+  const factory Country({
+    required CountryCode countryCode,
+    required CurrencyCode currencyCode,
+    required WeightUnit weightUnit,
+    required List<String> states,
+})
+```
+
+| Field        | R/O/V     | Type           | Description                                                     |
+|--------------|-----------|----------------|-----------------------------------------------------------------|
+| countryCode  | required  | `String`       | (Primary key) A country code from an enum. For example, `"US"`. |
+| currencyCode | required  | `String`       | A currency code from an enum. For example, `"USD"`.             |
+| weightUnit   | required  | `String`       | The weight unit from an enum. For example, `"lb"`.              |
+| states       | required  | `List<String>` | A list of states in this country. For example, `["AL", "AZ"]`.  |
+
 
 ## Chapter
 
-The Chapter entity defines a geographic region based on a country (represented as a two character (alpha-2) country code), a region, and a set of one or more postal (zip) codes.  GGC needs to ensure that Chapter instances partition the world: every tuple of (country code, region, postal code) is mapped to exactly one Chapter.
+The Chapter entity defines a geographic region based on a country, a state in the country, a region in the state (typically a county), and a set of one or more postal codes in the region.  
+
+GGC needs to ensure that Chapter instances partition the world: every tuple of (country code, region, postal code) maps to exactly one Chapter.
 
 The set of Chapters in GGC are manually maintained through admin commands. Here is an example Chapter document:
 
 <img src="/img/develop/firestore/firestore-console-chapters.png"/>
 
 
-
-
-### ChapterID as Firebase index
-
-As will be seen, many entities contain a chapterID field.  When a client retrieves data from Firebase, it should typically request the documents where the chapterID field is the one associated with their chapter. This is the primary way in which GGC can scale. For this to work effectively, we must define an index on the chapterID field for all collections in which the entities have that field.
+:::info ChapterID is an important Firebase index
+As will be seen, many entities contain a chapterID field.  When a client retrieves data from Firebase, it will often request only the documents where the chapterID field is the one associated with their chapter. This is a primary way to make GGC scalable to thousands of chapters and hundreds of thousands of users. 
+:::
 
 ### Chapter entity representation
 
 ```dart
- const factory Chapter(
-{required String chapterID, // 'chapter-US-001', or 'chapter-CA-034'
-required String name, // 'Whatcom-WA', or 'CA-V6K1G8'
-required String countryCode, // 'US', 'CA'
-String? state,
-String? region,
-String? currency,
-List<String>? cachedGardenNames,
-List<String>? cachedCropNames,
-List<String>? cachedUsernames,
-List<String>? cachedBadgeNames,
-List<String>? cachedVarietyNames,
-String? pictureURL, // null, 'https://firebasestorage...'
-RetailValueMap?
-cachedRetailValue, // {2023: {'crop-US-001-201-9876': 1234}}
-required List<String> postalCodes} // ['98225', '98226'], or ['V6K1GB']
-) 
+  const factory Chapter({
+    required String chapterID, 
+    required String name, 
+    required String countryCode, 
+    required List<String> postalCodes,
+    String? state,
+    String? region,
+    String? currency,
+    List<String>? cachedGardenNames,
+    List<String>? cachedCropNames,
+    List<String>? cachedUsernames,
+    List<String>? cachedBadgeNames,
+    List<String>? cachedVarietyNames,
+    String? pictureURL, 
+    DateTime? lastUpdate,
+    Map<int, Map<String, int>>? cachedCropQuantity,
+    CropQuantityMap? cachedCropQuantityMap,
+    Map<int, Map<String, List<String>>>? cachedRetailValue,
+})
 ```
-Note that some of these fields are marked as optional (state, region) for backward compatibility with previous app releases, even though they are currently required. They will be migrated to required in future.
+
+:::info Required fields may sometimes be nullable for backward compatibility 
+Note that some of these fields are declared as nullable (i.e. optional) for backward compatibility with previous app releases, even though they are effectively required. Once all apps in the field have been updated to a recent release, it would be possible to update the production database to ensure that these fields never have a null value, and then change the field declarations to indicate that they are required.
+:::
+
+| Field                 | R/O/V     | Type              | Description                                                                                                                                                                                                                                                                                                                                              |
+|-----------------------|-----------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| chapterID             | required  | `String`          | (Primary key) A unique ID with the format `chapter-<countryCode>-<NNN>`. For example, `"chapter-US-001"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details.                                                                                                                                                         |
+| name                  | required  | `String`          | A unique name. For example, `"Whatcom-WA"`.                                                                                                                                                                                                                                                                                                              |
+| countryCode           | required  | `String`          | The country code. This must be one of the countryCodes defined in the Countries collection. For example, `"US"`.                                                                                                                                                                                                                                         |
+| state                 | required  | `String`          | The state within the country. This must be one of the states defined in the associated Country document. For example, `"WA"`.                                                                                                                                                                                                                            |
+| region                | required  | `String`          | A region within the state. This can be any string, defined by the admin when a Chapter document is created. For example, `"Whatcom County"`.                                                                                                                                                                                                             | 
+| postalCodes           | required  | `List<String>`    | A list of alphanumeric postal codes. For example, `["96822", "96734"]`.                                                                                                                                                                                                                                                                                  | 
+| lastUpdate            | optional  | `DateTime?`       | Indicates the last time an entity associated with this Chapter was created, updated, or deleted.  For example, `"2025-10-22T07:11:44.385688"`.                                                                                                                                                                                                           | 
+| pictureURL            | optional  | `String?`         | The URL to a Cloud Storage file providing a picture of this Chapter. See [Cloud Storage Data Model](cloud-storage-data-model) for details.                                                                                                                                                                                                               |
+| cachedCropNames       | optional  | `List<String>?`   | A list of all the Crop names planted across all Gardens in this Chapter. For example, `["Basil", "Tomato"]`.  The chapter-local name is used when appropriate.                                                                                                                                                                                           |  
+| cachedVarietyNames    | optional  | `List<String>?`   | A list of all the Variety names planted across all Gardens in this Chapter. For example, `["Tomato (Big Boy)"]`                                                                                                                                                                                                                                          |   
+| cachedUserNames       | optional  | `List<String>?`   | A list of all the usernames of the Gardeners in this Chapter. For example, `["@FiveOClockPhil"]`.                                                                                                                                                                                                                                                        |
+| cachedGardenNames     | optional  | `List<String>?`   | A list of all the Garden names in this Chapter. For example, `["Alderwood", "Kale is for Kids"]`.                                                                                                                                                                                                                                                        |
+| cachedCropQuantityMap | optional  | `CropQuantityMap` | A map that indicates, for each year, the quantity of each Crop harvested across all Gardens in this Chapter. This data is combined with Price data to compute the Retail Value associated with this Chapter. See the [Retail Value](../design/retail-value) design document for details. For example, `{cropMap: {2024: {crop-US-003-326-0812: 15000}}`. | 
+| currency              | vestigial |                   |                                                                                                                                                                                                                                                                                                                                                          |
+| cachedBadgeNames      | vestigial |                   |                                                                                                                                                                                                                                                                                                                                                          |
+| cachedRetailValue     | vestigial |                   |                                                                                                                                                                                                                                                                                                                                                          |
+| cachedCropQuantity    | vestigial |                   |                                                                                                                                                                                                                                                                                                                                                          |
+
+:::info Why do some field names start with "cached"?
+The Chapter Index screen provides summaries of all the Chapters in GeoGardenClub. By providing cached fields, we provide a way for users to see things like the names of Gardens, Gardeners, Crops, Varieties, and Retail Values associated with other Chapters without having to download all the data associated with all Chapters. In other words, these fields "cache" information that could be derived by processing other data, but which would be expensive to do in practice.
+:::
 
 ## User
 
-A User entity is created for all the people who have created an account with the system.
+The User entity provides basic information about all the currently registered users of the system.
 
 Here is an example of a user document:
 
@@ -121,36 +190,45 @@ Here is an example of a user document:
 ### User entity representation
 
 ```dart
-const factory User(
-  {required String userID,   // 'johnson@hawaii.edu'
-  required String chapterID, // 'chapter-US-001'
-  required String name,      // 'Philip Johnson'
-  required String username,  // '@fiveoclockphil'
-  required String country,   // 'US'
-  required String postalCode, // '98225'
-  required String uid,       // '22e9fe1b-445c-4523-89c2-4450244f1959'
+ const factory User({
+  required String userID, 
+  required String chapterID, 
+  required String name, 
+  required String username, 
+  required String country, 
+  required String postalCode, 
+  required String uid, 
   String? themeMode,
   String? themeName,
   Map<String, DateTime>? lastReadMap,
-  String? pictureURL,        // null, or 'https://firebasestorage.googleapis...'
-  TimelineData? timelineData, // null, or TimelineData
-  String? appReviewShown, // null, or '2023-06-01,2023-07-02'
+  String? pictureURL, 
+  TimelineData? timelineData, 
+  String? appReviewShown, 
 })
 ```
 
-**Note:** We are storing UI preferences such as themeMode, themeName, lastReadMap, TimelineData, etc. in the User entity. We might want to move these to a separate UI preferences entity in the future, but for now, we are keeping them here for simplicity.
+| Field          | R/O/V     | Type                     | Description                                                                                                                                                                  |
+|----------------|-----------|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| userID         | required  | `String`                 | (Primary key) The email address used to register with the system. For example, `"johnson@hawaii.edu"`. This cannot be changed.                                               |
+| chapterID      | required  | `String`                 | The ID of their chapter. For example, `"chapter-US-001"`.                                                                                                                    |
+| name           | required  | `String`                 | Their name (for admin purposes only, never displayed to other users). For example, `"Philip Johnson"`.                                                                       |
+| username       | required  | `String`                 | A self-selected (and modifiable) user name that is used to identify this user to other users. For example, `"@FiveOClockPhil"`.                                              |
+| pictureURL     | optional  | `String?`                | The URL to a Cloud Storage file providing a picture of this Chapter. See [Cloud Storage Data Model](cloud-storage-data-model) for details.                                   |
+| themeMode      | optional  | `String?`                | The user's UI display mode. One of `"light"`, `"dark"`, or `"system"`.                                                                                                       | 
+| themeName      | optional  | `String?`                | The user's UI display theme. For example, `"green"`.                                                                                                                         | 
+| lastReadMap    | optional  | `Map<String, DateTime>?` | A map used to determine whether or not to display "red dots" in the UI (for example in the home page).  Some of the entries might be vestigial (i.e. the UID of Chat Rooms). |
+|                |           |                          |                                                                                                                                                                              |
+| timelineData   | optional  | `TimelineData?`          | Stores the User's last Timeline setting (i.e. the interval, year, start date, and end date) so that it's "sticky".                                                           |
+| appReviewShown | optional  | `String?`                | A comma-separated list of DateTime strings indicating the times the dialog box asking the User to review the App has been shown.                                             | 
+| uid            | vestigial |                          |                                                                                                                                                                              |  
+| country        | vestigial |                          |                                                                                                                                                                              |
+| postalCode     | vestigial |                          |                                                                                                                                                                              | 
 
-### UserID management
+### User document creation
 
-UserIDs are the email addresses of the user. We obtain the email as part of registration.
+After a user successfully registers with the system using the Firebase authentication procedures, they can log in.  Whenever a user logs in, the system checks to see if there is a User document associated with the email address of the current user. If there is no User document associated with that email, then instead of showing the Home screen, the system shows the Create Profile screen that includes a form to provide User information.
 
-### User onboarding
-
-After a user successfully registers with the system using the Firebase authentication procedures, they are logged in.  Whenever a user logs in, the system checks to see if there is a User document associated with the email address of the currently logged in user. If there is no User document for that email, then the system displays an Onboarding screen. 
-
-The onboarding screen is essentially a form that must be successfully filled out in order for the logged in user to proceed to their home page (as well as to any other areas of the application).
-
-Once the form is successfully filled out, a User and Gardener document is created for that email address. If those documents are created successfully, then the application displays the Home screen for that User.
+Once the User submits the Create Profile form, the system creates a User and Gardener document and displays the Home Screen.
 
 ## Gardener
 
@@ -158,9 +236,9 @@ Every Gardener instance has a corresponding User instance, and vice-versa.
 
 :::info What? Why have a Gardener entity in addition to a User entity?
 
-In the original design of GGC, we distinguished between "Users" (who are gardeners who created gardens in the Chapter) and "Gardeners" (who could be users or "vendors" who produce seeds used by Users in the Chapter, but don't necessarily have a gardener in the chapter, and who would not be a User in the sense of having downloaded the app.).
+In the original design of GGC, we had "Users" (everyone who has an account), "Gardeners" (Users who had Gardens), and "Vendors" (Users who sell Seeds). So, a User wasn't necessarily a Gardener.
 
-We have discovered that the explicit representation of vendors and their associated seeds created too much UI complexity.  The current version of the system has eliminated the representation of vendors. However, for the time being, we are retaining the Gardener entity, even though there is now a one-to-one correspondence between Users and Gardeners and it would be possible to represent the information within a single entity.  
+We discovered that the explicit representation of Vendors and their associated Seeds created too much complexity.  The current version of the system eliminates the representation of Vendors and Seeds, which means every User is a Gardener and vice versa. At some point in the future, we might combine these two entities.  
 :::
 
 Here is an example of a Gardener document:
@@ -171,30 +249,33 @@ Here is an example of a Gardener document:
 ### Gardener entity representation
 
 ```dart
-const factory Gardener(
-  {required String gardenerID,             // 'johnson@hawaii.edu'
-  required String chapterID,               // 'chapter-US-001'
-  required List<String> cachedCropIDs,     // ['crop-US-001-203-9987']
-  required List<String> cachedVarietyIDs,  // ['variety-US-001-305-8765']
-  required String country,                 // 'US'
-  required String postalCode,              // '98225'
-  required List<String> attestations
-  })
+ const factory Gardener({
+  required String gardenerID, 
+  required String chapterID, 
+  required List<String> cachedCropIDs, 
+  required List<String> cachedVarietyIDs, 
+  required String country, 
+  required String postalCode, 
+  required List<String> attestations, 
+  @Default(false) bool isVendor,
+  DateTime? createdAt,
+})
 ```
+| Field            | R/O/V     | Type            | Description                                                                                                                                                 |
+|------------------|-----------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| gardenerID       | required  | `String`        | (Primary key) The email address used to register with the system. (Same as the User's userID.) For example, `"johnson@hawaii.edu"`. This cannot be changed. |
+| chapterID        | required  | `String`        | The ID of their chapter. For example, `"chapter-US-001"`.                                                                                                   |
+| country          | required  | `String`        | The gardener's country. Used for creating Garden IDs.                                                                                                       | 
+| postalCode       | required  | `String`        | The gardener's postalCode. Used for creating Garden IDs.                                                                                                    | 
+| attestations     | optional  | `List<String>?` | A list of "attestations" that the Gardener declares to be true about themselves. For example, `["permacultureWorkshop"]`.                                   | 
+| cachedCropIDs    | required  | `List<String>`  | A (possibly empty) list of all the Crops planted by this Gardener across all the Gardens that they own. For example, `["crop-US-003-326-0812"]`.            |  
+| cachedVarietyIDs | required  | `List<String>`  | A (possibly empty) list of all the Varieties planted by this Gardener across all the Gardens that they own. For example, `["variety-US-003-790-0364"]`.     |   
+| createdAt        | required  | `DateTime?`     | A timestamp indicating when this Gardener came into existence.                                                                                              |
+| isVendor         | vestigial |                 |                                                                                                                                                             | 
+:::info Why do some field names start with "cached"?
+The Gardener Index screen provides information about all Gardeners in the current Chapter. Cached crop and variety fields provide a way to indicate the Crops and Varieties grown by each Gardener without having to download and process all the Plantings in the Chapter. Remember: there could be tens (or even hundreds) of thousands of Plantings in a large Chapter.
+:::
 
-### Cached values
-
-We want to provide information about Gardeners such as the crops and varieties that they are growing in the Index screens, and for performance reasons, we want to provide this information without having to retrieve all the Planting instances associated with their gardens. To do this, we "cache" the cropIDs and varietyIDs associated with this Gardener in this entity.
-
-By "associated", we mean the crops and varieties in the garden(s) for which this gardener is an owner.
-
-### Badge attestations
-
-Certain badges require Gardeners to "attest" to having performed activities. The Gardener entity contains an attestations field that holds strings indicating what has been attested to.
-
-### GardenerID management
-
-GardenerIDs are the email addresses of the gardener. In the case of registered users, the UserID is the same as the GardenerID. 
 
 ## Garden
 
@@ -209,40 +290,51 @@ Here is an example of a Garden document:
 ### Garden entity representation
 
 ```dart
-const factory Garden(
-  {required String gardenID,                // 'garden-US-98225-101-4567'
-  required String chapterID,                // 'chapter-US-001'
-  required String name,                     // 'Kale is for Kids'
-  required String ownerID,                  // 'jessie@gmail.com'
-  required List<String> cachedCropIDs,      // ['crop-US-001-201-9876']
-  required List<String> cachedVarietyIDs,   // ['variety-US-001-302-7865']
-  required List<int> cachedYears,           // [2023, 2022]
-  required int cachedNumPlantings,          // 231
-  required List<String> attestations,       // ['ClimateVictory', 'PesticideFree', 'CommunityOrSchool']
-  String? pictureURL,                       // null, 'https://firebasestorage.googleapis.com/v0/...'
-  String? plotPlanURL,                      // null, 'https://firebasestorage.googleapis.com/v0/...' 
-  RetailValueMap? cachedRetailValue,       // null, {2023: {'crop-US-001-201-9876': 1234}}
-  DateTime? lastUpdate,                    // null (for vendors), '2023-03-19T12:19:14.164090'
-  })
+const factory Garden({
+  required String gardenID, 
+  required String chapterID, 
+  required String name, 
+  required String ownerID, 
+  required List<String> cachedCropIDs, 
+  required List<String> cachedVarietyIDs, 
+  required List<int> cachedYears, 
+  required int cachedNumPlantings, 
+  required List<String> attestations, 
+  String? pictureURL, 
+  String? plotPlanURL, 
+  CropQuantityMap? cachedCropQuantityMap,
+  Map<int, Map<String, List<String>>>? cachedRetailValue, 
+  @Default(false) bool isVendor, 
+  DateTime? lastUpdate, 
+  DateTime? createdAt,
+})
 ```
+| Field                 | R/O/V     | Type              | Description                                                                                                                                                                                                                                                                                                                         |
+|-----------------------|-----------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| gardenID              | required  | `String`          | (Primary key) A unique ID for this garden. Format: `garden-<country>-<postalCode>-<NNN>-<millis>`. For example, `"garden-US-98225-101-0493"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details.                                                                                                |
+| chapterID             | required  | `String`          | The associated chapter. For example, `"chapter-US-001"`.                                                                                                                                                                                                                                                                            |
+| name                  | required  | `String`          | Garden name. Should be unique within the Chapter. For example, `"Alderwood"`.                                                                                                                                                                                                                                                       |
+| ownerID               | required  | `String`          | The gardenerID (which is also the userID). For example, `"johnson@hawaii.edu"`.                                                                                                                                                                                                                                                     | 
+| attestations          | required  | `List<String>`    | A (possibly empty) list of attestations provided by the gardener about this garden. For example, `["pesticideFree"]`.                                                                                                                                                                                                               |
+| pictureURL            | optional  | `String?`         | The URL to a Cloud Storage file providing a picture of this Garden. See [Cloud Storage Data Model](cloud-storage-data-model) for details.                                                                                                                                                                                           |
+| plotPlanURL           | optional  | `String?`         | The URL to a Cloud Storage file providing a picture of this garden's plot plan. See [Cloud Storage Data Model](cloud-storage-data-model) for details.                                                                                                                                                                               |
+| createdAt             | required  | `DateTime?`       | A timestamp indicating when this Garden came into existence.                                                                                                                                                                                                                                                                        |
+| lastUpdate            | required  | `DateTime?`       | A timestamp indicating when this Garden was last updated.                                                                                                                                                                                                                                                                           |
+| cachedCropIDs         | required  | `List<String>`    | A (possibly empty) list of all the Crops planted in this Garden. For example, `["crop-US-003-326-0812"]`.                                                                                                                                                                                                                           |  
+| cachedVarietyIDs      | required  | `List<String>`    | A (possibly empty) list of all the Varieties planted in this Garden. For example, `["variety-US-003-790-0364"]`.                                                                                                                                                                                                                    | 
+| cachedYears           | required  | `List<int>`       | A (possibly empty) list of the years where there is a Planting startDate in this Garden. For example, `[2024, 2025]`.                                                                                                                                                                                                               | 
+| cachedNumPlantings    | required  | `int`             | The number of Plantings associated with this Garden. For example, `231`.                                                                                                                                                                                                                                                            | 
+| cachedCropQuantityMap | optional  | `CropQuantityMap` | A map that indicates, for each year, the quantity of each Crop harvested in this Garden. This data is combined with Price data to compute the Retail Value associated with this Garden. See the [Retail Value](../design/retail-value) design document for details. For example, `{cropMap: {2024: {crop-US-003-326-0812: 15000}}`. | 
+| isVendor              | vestigial |                   |                                                                                                                                                                                                                                                                                                                                     | 
+| cachedRetailValue     | vestigial |                   |                                                                                                                                                                                                                                                                                                                                     | 
 
-### GardenID management
+:::warning GardenID postalCodes
 
-GardenIDs are generated dynamically when a Chapter member defines a new Garden or when a Chapter member defines a new Vendor (which implicitly results in the creation of a new Garden). 
+The GardenID embeds the country code and postal code associated with the ownerID. Note that this might not be the same postal code as the one associated with the physical location of the garden!  Instead, this is the postalCode associated with the "home address" of the Gardener. 
 
-GardenIDs have the format `garden-<country>-<postalCode>-<gardenNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.  
+Furthermore, a Gardener might be "migrated" to another chapter entirely. When this happens, we do not rewrite all of the IDs previously created for entities associated with that Gardener.  In this case, the postal code embedded in the gardenID will have no relationship to the actual location.  
+:::
 
-The GardenID embeds the country code and postal code associated with the ownerID. Note that this might not be the same postal code as the one associated with the physical location of the garden!  We do this in order to ensure that if a Chapter's set of postal codes is reorganized, then the Gardens owned by a Gardener will always end up in the same Chapter as their owner.
-
-### Cached values
-
-Each Garden entity caches the CropIDs, VarietyIDs, years, and the number of Plantings. This allows the Index screens to show this information about Gardens without needing to retrieve and process Plantings. 
-
-In addition, whenever there is a change to the Plantings associated with this Garden, the lastUpdated field is set to the current time.  This allows the community to see which Gardens in their Chapter are active.
-
-### Badge attestations
-
-Certain badges require Gardeners to "attest" to their Garden having certain properties. The Garden entity contains an attestations field with strings indicating the properties that they have attested to.
 
 ## Editor
 
