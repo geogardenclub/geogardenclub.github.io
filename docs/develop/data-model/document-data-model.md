@@ -22,25 +22,32 @@ There is also a [Cloud Storage Data Model](./cloud-storage-data-model.md).
 
 ## Overview
 
-In GGC, "entity" refers to the fundamental forms of persistent data objects. Examples of entities are: "Chapter", "Garden", "Gardener", "Observation", etc.  There are about 16 major entities in the system (see the right side menu for a listing).
+In GGC, "entity" refers to the fundamental forms of persistent data objects. Examples of entities are: "Chapter", "Garden", "Gardener", "Observation", etc.  There are around two dozen entities in the system.
 
-Entity instances are persisted as documents in a Firebase collection. In general, each entity has a corresponding collection: for example, all the Chapter entity documents are stored in a Firebase collection called Chapters, all the Gardener entity documents are stored in a Firebase collection called Gardeners, and so forth.  
+Entity instances are persisted as documents in a Firebase collection. In general, each entity has a corresponding collection: for example, all the Chapter entity documents are stored in a Firebase collection called chapters, all the Gardener entity documents are stored in a Firebase collection called gardeners, and so forth.  
 
-Here is a snapshot of the Firestore console showing the collections (excluding those used for authentication):
+Here is a snapshot of the Firestore console showing the entity collections:
 
 <img src="/img/develop/firestore/firestore-console.png"/>
 
 :::warning Some Firestore collections and document fields are "vestigial"
-As the design and functionality of GeoGardenClub evolves, some collections become "vestigial", i.e. no longer used. For example, the Forum feature replaces the Chat and Share features, rendering the collections associated with the Chat and Share features vestigial.  Similarly, certain fields within various collections are vestigial.
+As the design and functionality of GeoGardenClub evolves, some entities become "vestigial". For example, the Forum feature replaces the Chat and Share features, rendering the entities (and collections) associated with the Chat and Share features vestigial.  Similarly, certain fields within various entities have become vestigial.
 
-Due to the presence of older releases of the app in the field, we cannot immediately delete these collections (or fields) as soon as they become vestigial since doing so might cause old versions of the app in the field to crash on launch (making it more difficult for those users to upgrade).  Eventually, we will delete them.
+Due to the presence of older releases of the app in the field, we cannot immediately delete the collections associated with vestigial entities since doing so might cause old versions of the app in the field to crash on launch (making it more difficult for those users to upgrade). 
 
-When a field within a non-vestigial collection is vestigial, we will mark it as such. We omit vestigial collections entirely.  
+Please be aware that the evolutionary nature of the GGC data model creates several confusing situations:
+* A field might be marked as "required" in the Dart factory declaration, even though it is vestigial. That means that the code continues to supply a value for this field even though it is no longer actually used. (At some point, we will revise the Dart factory declaration to remove this field once it is safe to do so.)
+* A field might be marked as nullable (i.e. optional) in the Dart factory declaration, even though it is now required. This means that this field was originally optional, but became required, and now the database and code enforce that even though the type declaration does not (yet). 
+* A Firebase document in the database might include fields that do not appear in the Dart factory declaration. In this case, those fields are vestigial and have been removed from the codebase. (At some point, we will overwrite those documents to delete the vestigial fields.)
+
+What this means is that the Dart factory declaration may not accurately reflect the required vs. optional vs. vestigial nature of a given field. The page includes a table for each entity documenting each field to clarify the nature of the field.
+
+In this documentation, when an entity field is vestigial, we will mark it as such. We will also include the names of the vestigial entities at the end of this document. 
 :::
 
-The GGC app implements a pair of Dart "domain" classes that mirror these Firebase collections. First, for an entity named "Foo", there would be a Dart class called "Foo" enabling the creation of in-memory instances of a Foo. Second, there would also be a Dart class called "FooCollection", which provides access to a set of Foo instances.  Note that an instance of the FooCollection will often not contain all the Foo instances in the Firebase Foo collection; but it should always contain all the Foo instances *needed* by the app at that particular point in time.  
+The GGC app needs a way to manipulate the entities stored in the database, and does so via a pair of Dart "domain" classes that mirror these Firebase collections. So, for example, for an entity named "Foo", there will be a Dart class called "Foo" enabling the creation of in-memory instances of a Foo. In addition, there will also be a Dart class called "FooCollection", which provides access to all the in-memory Foo instances.  Note that an instance of the FooCollection will often not contain all the Foo instances in the Firebase Foo collection; but it should always contain all the Foo instances *needed* by the app at that particular point in time.  
 
-We use the [Freezed](https://pub.dev/packages/freezed) package to facilitate the definition of entities, and the [With Widgets](../design/with-widgets) design pattern to manage the relationship between the Firebase collections and its in-memory counterpart. 
+We use the [Freezed](https://pub.dev/packages/freezed) package to facilitate the definition of entities, and the [With Widgets](../design/with-widgets) design pattern to manage the relationship between the Firebase collections and their in-memory counterparts. 
 
 ### Entity Hierarchy
 
@@ -342,9 +349,9 @@ The owner of a Garden can add other Chapter members as "editors", which enables 
 
 There are some things Editors cannot do. For example, they cannot delete the garden. Only the owner can do that.
 
-To earn a Gardener Badge, only the data associated with Gardens that you own is used. Being an Editor on a Garden does not support Badge processing.
+A user earns badges only from the Gardens that they own. Being an Editor on a Garden does not help a user to earn badges.
 
-In addition, when displaying the Crops and Varieties associated with a Gardener, only those Crops and Varieties for the Gardens that you own are displayed.  The Crops and Varieties for Gardens for which you are an Editor are not included.
+When displaying the Crops and Varieties associated with a Gardener, only those Crops and Varieties for the Gardens that the gardener owns are displayed.  The Crops and Varieties for Gardens for which you are an Editor are not included.
 
 Here is an example of an Editor document:
 
@@ -354,24 +361,23 @@ Here is an example of an Editor document:
 
 ```dart
 const factory Editor(
-  {required String editorID,         // 'editor-US-98225-102-001-5231'
-  required String gardenID,          // 'garden-US-98225-102-6789'
-  required String chapterID,         // 'chapter-US-001'
-  required String gardenerID}        // 'johnson@hawaii.edu'
+  {required String editorID,         
+  required String gardenID,          
+  required String chapterID,         
+  required String gardenerID}        
 )
 ```
 
-
-### EditorID management
-
-Editor entities are created or deleted when the owner of a Garden edits the Editor field of the Garden Details form.
-
-EditorIDs have the format `editor-<country>-<postalCode>-<gardenNum>-<editorNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
-
+| Field      | R/O/V     | Type              | Description                                                                                                                                                                                                                                          |
+|------------|-----------|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| editorID   | required  | `String`          | (Primary key) A unique ID for this editor. Format: `editor-<country>-<postalCode>-<gardenNum>-<NNN>-<millis>`. For example, `"editor-US-98225-105-101-0493"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| chapterID  | required  | `String`          | The associated chapter. For example, `"chapter-US-001"`.                                                                                                                                                                                             |
+| gardenID   | required  | `String`          | The associated garden. For example, `"garden-US-98225-105-0682"`.                                                                                                                                                                                    |
+| gardenerID | required  | `String`          | An editor of the garden associated with gardenID. For example, `"johnson@hawaii.edu"`.                                                                                                                                                               |
 
 ## Bed
 
-Each Garden consists of one or more Beds. Creating a new Garden requires that a Bed for that Garden be defined as well. An owner can edit the name of an existing Bed, and can add a new Bed to a Garden, but cannot delete a Bed if there are any Plantings associated with it. 
+Each Garden consists of one or more Beds. To create a new Garden, at least one Bed must be defined. An owner can edit the name of an existing Bed, and can add a new Bed to a Garden, but cannot delete a Bed if there are any Plantings associated with it. 
 
 Here is an example of a Bed document:
 
@@ -390,18 +396,23 @@ Here is an example of a Bed document:
   }              
 )
 ```
+| Field      | R/O/V    | Type     | Description                                                                                                                                                                                                                               |
+|------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| bedID      | required | `String` | (Primary key) A unique ID for this bed. Format: `bed-<country>-<postalCode>-<gardenNum>-<NNN>-<millis>`. For example, `"bed-US-98225-101-001-5634"`. Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| chapterID  | required | `String` | The associated chapter. For example, `"chapter-US-001"`.                                                                                                                                                                                  |
+| gardenID   | required | `String` | The associated garden. For example, `"garden-US-98225-105-0682"`.                                                                                                                                                                         |
+| gardenerID | required | `String` | The owner of the garden associated with gardenID. For example, `"johnson@hawaii.edu"`.                                                                                                                                                    |
+| name       | required | `String` | The name of the bed. For example, `"01"`. Must be unique within this Garden.                                                                                                                                                              |
 
-### BedID management
 
-BedIDs have the format `bed-<country>-<postalCode>-<gardenNum>-<bedNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 ## Family
 
 The Family entity specifies the botanical family associated with one or more Crops (and implicitly, Varieties). For example, the "Nightshade" family groups together Tomatoes, Potatoes, and Peppers. Each Crop is associated with exactly one Family. 
 
-Family data is useful to facilitate planning issues including crop rotation and companion planting. However, in Release 1.0, we do not provide any explicit support for rotation or companion planning.
+Family data is useful in order to support garden management activities like crop rotation and companion planting. 
 
-The Family entity is a "global" collection in GGC. In other words, it does not include a ChapterID; every Chapter will download this collection, and it cannot be edited except by developers. 
+The Family entity is a "global" collection in GGC. In other words, it does not include a ChapterID; every Chapter will download this collection, and it is managed by administrators. 
 
 Here is an example of a Family document:
 
@@ -411,18 +422,19 @@ Here is an example of a Family document:
 
 ```dart
 const factory Family(
-  {required String familyID,       // 'family-001'
-  required String formal,          // 'Amryllidaceae'
-  required String common,          // 'Allium'
-  required String examples}        // 'onion, leek, garlic, shallot'
+  {required String familyID,       
+  required String formal,          
+  required String common,          
+  required String examples}        
 )
 ```
 
-
-### FamilyID management
-
-FamilyIDs have the format `family-<familyNum>`. The set of Family entity documents is defined in advance by GGC developers, and editing this collection requires direct interaction with the database.
-
+| Field    | R/O/V    | Type     | Description                                                                                                                                                                          |
+|----------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| familyID | required | `String` | (Primary key) A unique ID for this family. Format: `family-<NNN>`. For example, `"family-001"`. Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| formal   | required | `String` | The formal name. For example, `"Amaryllidaceae"`.                                                                                                                                    |
+| common   | required | `String` | The common name. For example, `"Allium"`.                                                                                                                                            |
+| examples | required | `String` | Some members of this family. For example, `"onion, garlic, leek, shallot"`.                                                                                                          |
 
 
 ## Crop
@@ -431,15 +443,12 @@ The Crop entity specifies a type of plant independent of its Variety. For exampl
 
 Each Crop is associated with exactly one Family entity.  A Crop can be associated with many Varieties.
 
-Crop instances can currently be defined by any User. 
+Crop instances can be defined by any User, and are global across all chapters. 
 
-:::warning Crops and Varieties are global
-Even though there is a chapterID associated with them, this is vestigial: Crops (and Varieties) are now global entities. This has both positive and negative implications for the user experience.
+:::warning Pros and cons of global crops
+Global crops make new chapter startup way easier, since each Chapter has access to all the Crops defined by all other Chapters. It also means that the overhead of Crop definition is distributed across all chapters. 
 
-The positive implication is that new Chapter startup is much easier, since each Chapter has access to all the Crops and Varieties defined by all other Chapters. It also means that the overhead of Crop (and Variety) definition is distributed across all chapters. 
-
-However, the negative implication is "noise": there can be a non-trivial number of Crops and Varieties that (perhaps due to environmental reasons) might never be grown in a Chapter. This goes against the "hyper-local" philosophy of GGC.  
-
+The downside is "noise": there can be many Crops that might never be grown in a Chapter. This goes against the "hyper-local" philosophy of GGC.
 :::
 
 Here is an example of a Crop document: 
@@ -449,35 +458,45 @@ Here is an example of a Crop document:
 ### Crop entity representation
 
 ```dart
-const factory Crop(
-  {required String cropID,        // 'crop-US-001-201-3452'
-  required String chapterID,      // 'chapter-US-001'
-  required String familyID,       // 'family-001'
-  required String name,           // 'Tomato'
-  String? quantityUnit,           // 'pounds', 'bunches', 'pieces', etc.
-  Map<String, String>? chapterNameMap, // {'chapter-US-001': 'Tomato', 'chapter-CA-V6K1G8': 'Tomate'}
-  DateTime? createdAt
-  }           
-)
+const factory Crop({
+  required String cropID,
+  required String chapterID,
+  required String familyID,
+  required String name,
+  Map<String, String>? chapterNameMap,
+  DateTime? createdAt,
+})
 ```
 
-### CropID management
+| Field          | R/O/V     | Type                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|----------------|-----------|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| cropID         | required  | `String`               | (Primary key) A unique ID for this crop. Format: `crop-<country>-<chapterCode>-<NNN>-<millis>`. For example, `"crop-US-001-201-5634"`. Although crops are global, cropIDs currently embed the defining user's country code and chapterCode in order to avoid duplicate ID strings if multiple users define a new crop at the same time. Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| familyID       | required  | `String`               | The associated family. For example, `"family-001"`.                                                                                                                                                                                                                                                                                                                                                                          |
+| name           | required  | `String`               | The name of the crop. For example, `"Amaranth"`. Must be unique across all Crops.                                                                                                                                                                                                                                                                                                                                            |
+| chapterNameMap | optional  | `Map<String, String>?` | A mapping from a chapterID to a chapter-local name for this crop. For example, the crop Breadfruit has a chapter-local name of "'Ulu" in Hawaii chapters.                                                                                                                                                                                                                                                                    |
+| createdAt      | required  | `DateTime?`            | A timestamp indicating when this Crop came into existence.                                                                                                                                                                                                                                                                                                                                                                   |
+| chapterID      | vestigial | `String`               |                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| maxQuantity    | vestigial | `int`                  |                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| quantityUnit   | vestigial | `String`               |                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
-CropIDs have the format `crop-<country>-<chapterCode>-<cropNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
-CropIDs currently embed the defining user's country code and chapterCode. However, unlike other entities where the country code and chapter code can be used to filter the set of entity instances to download, the entire Crop collection will be downloaded.
+
 
 ## Variety
 
-Variety is a specific kind of Crop which can actually be grown, i.e. it has seeds. For example, a seed packet such as "Tomato (Sun Gold)" specifies the crop ("Tomato") and the Variety ("Sun Gold"). 
+Variety is a specific kind of Crop which can actually be grown, i.e. there exists seeds for it. For example, a seed packet such as "Tomato (Sun Gold)" specifies the crop ("Tomato") and the Variety ("Sun Gold"). 
 
 Every Crop is initially defined with a Variety named "Unknown".  The Unknown Variety is used to represent two situations:
 
-1. A gardener is planning a garden, and they know they want to plant a certain Crop, but haven't picked the Variety yet. In this case, they might create a Planting with an "Unknown" Variety, which is intended to mean "to be determined". In this case, the Gardener will normally update the Planting with the actual Variety at a later time once they decide what Variety to plant.
-2. A gardener was given some seeds, and was told the Crop but no one knows the actual Variety. In this case, a Planting with the "Unknown" Variety means literally "unknown", and the Gardener would not normally update the Planting's Variety later on.
+1. A gardener is planning a garden, and they know they want to plant a certain Crop, but haven't picked the Variety yet. In this case, they can create a Planting with a Crop's "Unknown" Variety, which is intended to mean "to be determined". In this case, the Gardener will normally update the Planting with the actual Variety at a later time once they decide what Variety to plant.
+2. A gardener plants some seeds, and knows the Crop but not the Variety. In this case, a Planting with the Crop's "Unknown" Variety means literally "unknown", and the Gardener would not normally update the Planting's Variety later on.
 
-:::info
-In a previous version of GGC, we provided representational mechanisms to distinguish between these two situations, but the increase in complexity did not seem to add value, so we now use this more simple representation.
+Variety instances can be defined by any User, and are global across all chapters.
+
+:::warning Pros and cons of global varieties
+Global varieties make new chapter startup way easier, since each Chapter has access to all the Varieties defined by all other Chapters. It also means that the overhead of Variety definition is distributed across all chapters.
+
+The downside is "noise": there can be many Varieties that might never be grown in a Chapter. This goes against the "hyper-local" philosophy of GGC.
 :::
 
 Here is an example of a Variety document:
@@ -487,26 +506,34 @@ Here is an example of a Variety document:
 ### Variety entity representation
 
 ```dart
-const factory Variety(
-  {required String varietyID,      // 'variety-US-001-302-7654'
-  required String chapterID,       // 'chapter-US-001'
-  required String cropID,          // 'crop-US-001-203-2354'
-  required String cachedCropName,  // 'Asparagus'
-  bool? isGold,                    // If present and set to true, the variety has "gold" status.
-  List<String>? isGoldV2,          // [chapter-US-001, chapter-US-005]
-  required String name}            // 'Jersey Knight' 
-)
+const factory Variety({
+  required String varietyID, 
+  required String chapterID, 
+  required String cropID, 
+  required String cachedCropName, 
+  required String name, 
+  bool? isGold, 
+  List<String>? isGoldV2, 
+  DateTime? createdAt,
+})
 ```
+| Field          | R/O/V     | Type            | Description                                                                                                                                                                                                                          |
+|----------------|-----------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| varietyID      | required  | `String`        | (Primary key) A unique ID for this variety. Format: `variety-<country>-<chapterCode>-<NNN>-<millis>`. For example, `"variety-US-001-301-0498"`. Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| cropID         | required  | `String`        | The associated crop. For example, `"crop-US-001-203-0497"`.                                                                                                                                                                          |
+| name           | required  | `String`        | The name of the variety. For example, `"Jersey Night"`.                                                                                                                                                                              |
+| cachedCropName | required  | `String`        | The crop name. For example, `"Asparagus"`.                                                                                                                                                                                           |
+| isGoldV2       | optional  | `List<String>?` | A list of the chapterIDs for which this variety has achieved Gold Status. For example, `"[chapter-US-001, chapter-US-005]"`.                                                                                                         |
+| createdAt      | optional  | `DateTime?`     | A timestamp indicating when this Variety came into existence.                                                                                                                                                                        |
+| chapterID      | vestigial |                 |                                                                                                                                                                                                                                      |
+| isGold         | vestigial |                 |                                                                                                                                                                                                                                      | 
 
-### VarietyID management
-
-VarietyIDs have the format `variety-<country>-<chapterCode>-<varietyNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 ## Planting
 
-A Planting represents a set of plants of the same Variety, planted in a single Bed, all with the same approximate timings (i.e. sow date, transplant date, first harvest date, etc.).   
+A Planting represents one or more plants of the same Variety, planted in a single Bed, all with the same approximate timings (i.e. sow date, transplant date, first harvest date, etc.).   
 
-If the same Variety is planted in two different beds, then this should be represented by two Planting instances. 
+If the same Variety is planted in two different beds, then this must be represented by two Planting instances. 
 
 Here is an example of a Planting document:
 
@@ -515,33 +542,51 @@ Here is an example of a Planting document:
 ### Planting entity representation
 
 ```dart
-factory Planting(
-  {required String plantingID,   // 'planting-US-98225-102-1001-7645'
-  required String chapterID,     // 'chapter-US-001'
-  required String gardenID,      // 'garden-US-98225-102-5678'
-  required String cropID,        // 'crop-US-001-202-9432'
-  required String cachedCropName,// 'Bean'
-  required String bedID,         // 'bed-US-98225-102-003-4823'
-  required String cachedBedName, // '02'
-  required DateTime startDate,   // '2023-03-19T12:19:14.164090'
-  required DateTime pullDate,    // '2023-07-19T12:19:14.164090'
-  String? varietyID,             // 'variety-US-001-310-7645'
-  String? cachedVarietyName,     // 'Big Boy'
-  String? outcomeID,             // null, 'outcome-US-98225-102-1001-3472'
-  String? notes,                 // null, 'From Uprising Seeds'
-  DateTime? transplantDate,      // null, '2023-04-19T12:19:14.164090'
-  DateTime? firstHarvestDate,    // null, '2023-05-19T12:19:14.164090'
-  DateTime? endHarvestDate,      // null, '2023-06-19T12:19:14.164090'
-)
+factory Planting({
+  required String plantingID, 
+  required String chapterID, 
+  required String gardenID, 
+  required String cropID, 
+  required String cachedCropName, 
+  required String bedID, 
+  required String cachedBedName, 
+  required DateTime startDate, 
+  required DateTime pullDate,
+  String? notes, 
+  String? varietyID, 
+  String? cachedVarietyName, 
+  String? outcomeID, 
+  DateTime? transplantDate, 
+  DateTime? firstHarvestDate, 
+  DateTime? endHarvestDate, 
+  DateTime? createdAt,
+})
 ```
-
-### PlantingID management
-
-PlantingIDs have the format `planting-<country>-<postalCode>-<gardenNum>-<plantingNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
-
-The country and postal code fields in the ID must match those fields in the gardenID associated with this Planting. 
-
-Since, over a period of years, a single large garden can potentially result in thousands of plantings, we use a four digit number for the plantingNum.
+| Field             | R/O/V     | Type        | Description                                                                                                                                                                                                                                                |
+|-------------------|-----------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| plantingID        | required  | `String`    | (Primary key) A unique ID for this planting. Format: `planting-<country>-<postalCode>-<gardenNum>-<NNNN>-<millis>`. For example, `"planting-US-98225-101-1002-0509"`. Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| chapterID         | required  | `String`    | The associated chapterID. For example, `"chapter-US-001"`.                                                                                                                                                                                                 |
+| gardenID          | required  | `String`    | The associated gardenID. For example, `"cgarden-US-98225-101-0493"`.                                                                                                                                                                                       |
+| cropID            | required  | `String`    | The associated crop. For example, `"crop-US-001-203-0497"`.                                                                                                                                                                                                |
+| cachedCropName    | required  | `String`    | The crop name. For example, `"Asparagus"`.                                                                                                                                                                                                                 |
+| bedID             | required  | `String`    | The associated bed. For example, `"bed-US-98225-101-001-0495"`.                                                                                                                                                                                            |
+| cachedBedName     | required  | `String`    | The bed name. For example, `"01"`.                                                                                                                                                                                                                         |
+| varietyID         | required  | `String`    | The associated variety. For example, `"variety-US-001-435-0499"`.                                                                                                                                                                                          |
+| cachedVarietyName | required  | `String`    | The variety name. For example, `"Unknown"`.                                                                                                                                                                                                                |
+| startDate         | required  | `DateTime`  | The day this planting was started (or planned to be started). For example, `"2023-07-31T00:00:00.000"`.                                                                                                                                                    |
+| pullDate          | required  | `DateTime`  | The day this planting was pulled (or planned to be pulled). For example, `"2023-10-31T00:00:00.000"`.                                                                                                                                                      |
+| notes             | optional  | `String?`   | Gardener supplied notes about this planting.                                                                                                                                                                                                               |
+| outcomeID         | optional  | `String?`   | The outcomes associated with this planting, if any. For example, `"outcome-US-98225-102-1001-3472"`.                                                                                                                                                       |
+| createdAt         | optional  | `DateTime?` | A timestamp indicating when this planting came into existence.                                                                                                                                                                                             |
+| transplantDate    | optional  | `DateTime?` | A timestamp indicating if this planting was transplanted.                                                                                                                                                                                                  |
+| firstHarvestDate  | optional  | `DateTime?` | A timestamp indicating if there was a first harvest date.                                                                                                                                                                                                  |
+| endHarvestDate    | optional  | `DateTime?` | A timestamp indicating if harvest came to end (and the planting was left to seed).                                                                                                                                                                         |
+| gardenerID        | vestigial |             |                                                                                                                                                                                                                                                            |
+| harvestSeedID     | vestigial |             |                                                                                                                                                                                                                                                            | 
+| isVendor          | vestigial |             |                                                                                                                                                                                                                                                            | 
+| seedsAvailable    | vestigial |             |                                                                                                                                                                                                                                                            | 
+| sowSeedID         | vestigial |             |                                                                                                                                                                                                                                                            | 
+| usedGreenhouse    | vestigial |             |                                                                                                                                                                                                                                                            | 
 
 ## Outcome
 
@@ -554,15 +599,19 @@ Outcome data is gardener-supplied information about the result of a single Plant
 
 To support these requirements, we define five outcome types: germination, yield, flavor, pest and disease resistance, and appearance. Each planting can receive a "grade" for each of these outcome types on a five point scale.  The following table presents the definitions for each scale value for each outcome type.
 
-|   | 1    | 2    | 3                               | 4       | 5           |
-| - |------|------|---------------------------------|---------|-------------|
-| **Germination** | **None.** No germination. | **Poor.** ~25% germination.| **OK.** ~50% germination.       | **Good.** ~75% germination. | **Excellent.** >90% germination.. |
-| **Yield** | **None.** Died and/or no food | **Poor.** Less food than expected | **OK.** Expected amount of food | **Good.** More food than expected | **Excellent.** Way more food than expected |
-| **Flavor** | **Bad.** Unappealing flavor | **Poor.** Bland flavor | **OK.** Expected flavor.        | **Good.** Enjoyable flavor | **Excellent.** Awesome flavor. |
-| **Pest and disease resistance** | **Very poor.** >90% damaged | **Poor.** ~50% damaged | **OK.** < 25% damaged           | **Good.** Very few damaged | **Excellent.** No damage. |
-| **Appearance** | **Very poor.** >90% ugly | **Poor.** ~60% ugly | **OK.** ~60% not ugly           | **Good.** ~60% beautiful | **Excellent.** >90% beautiful |
+|                                 | 1                             | 2                                 | 3                               | 4                                 | 5                                          |
+|---------------------------------|-------------------------------|-----------------------------------|---------------------------------|-----------------------------------|--------------------------------------------|
+| **Germination**                 | **None.** No germination.     | **Poor.** ~25% germination.       | **OK.** ~50% germination.       | **Good.** ~75% germination.       | **Excellent.** >90% germination..          |
+| **Yield**                       | **None.** Died and/or no food | **Poor.** Less food than expected | **OK.** Expected amount of food | **Good.** More food than expected | **Excellent.** Way more food than expected |
+| **Flavor**                      | **Bad.** Unappealing flavor   | **Poor.** Bland flavor            | **OK.** Expected flavor.        | **Good.** Enjoyable flavor        | **Excellent.** Awesome flavor.             |
+| **Pest and disease resistance** | **Very poor.** >90% damaged   | **Poor.** ~50% damaged            | **OK.** < 25% damaged           | **Good.** Very few damaged        | **Excellent.** No damage.                  |
+| **Appearance**                  | **Very poor.** >90% ugly      | **Poor.** ~60% ugly               | **OK.** ~60% not ugly           | **Good.** ~60% beautiful          | **Excellent.** >90% beautiful              |
 
-In addition, an Outcome type can have a value of "0", which means there is no data regarding that type of outcome.
+Any of these Outcome types can also have a value of "0", which means there is no data regarding that type of outcome.
+
+In addition to these five outcome types, there is another outcome called "quantity". If supplied, quantity is an integer that represents the total weight of harvested food from the associated planting. 
+
+Each Outcome entity is associated with exactly one Planting entity.  (Note that the converse is not true: a Planting entity need not be associated with an Outcome entity, since the Gardener might not choose to record any Outcome data.)
 
 Here is an example of an Outcome document:
 
@@ -582,15 +631,16 @@ const factory Outcome(
   @Default(0) int yieldd,             // 0-5 (yield is a reserved word)
   @Default(0) int flavor,             // 0-5
   @Default(0) int resistance,         // 0-5
-  @Default(0) int appearance}         // 0-5
-)
+  @Default(0) int appearance,
+  int? quantity
+  })
 ```
 
 ### OutcomeID management
 
 OutcomeIDs have the format `outcome-<country>-<postalCode>-<gardenNum>-<outcomeNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
-Each Outcome entity is associated with exactly one Planting entity.  (Note that the converse is not true: a Planting entity need not be associated with an Outcome entity, since the Gardener might not choose to record any Outcome data.)
+
 
 
 ## Observation
