@@ -8,14 +8,7 @@ toc_max_heading_level: 2
 
 This page explains the document data model (i.e. the set of entities and their relationships stored in Firebase) for GGC, along with a rationale for the design decisions that we've made along the way. 
 
-:::warning This page is not authoritative
-Note that our document data model is continually evolving, and so this page will usually be
-only an approximation of the actual data model.
-
-Consult the source code and the Firebase console for an exact understanding
-of the current document data model in use. 
-
-This page last updated: October, 2025
+:::warning Last Update: October 2025
 :::
 
 There is also a [Cloud Storage Data Model](./cloud-storage-data-model.md).
@@ -30,20 +23,31 @@ Here is a snapshot of the Firestore console showing the entity collections:
 
 <img src="/img/develop/firestore/firestore-console.png"/>
 
-:::warning Some Firestore collections and document fields are "vestigial"
-As the design and functionality of GeoGardenClub evolves, some entities become "vestigial". For example, the Forum feature replaces the Chat and Share features, rendering the entities (and collections) associated with the Chat and Share features vestigial.  Similarly, certain fields within various entities have become vestigial.
+## Required vs. Optional vs. Vestigial
 
-Due to the presence of older releases of the app in the field, we cannot immediately delete the collections associated with vestigial entities since doing so might cause old versions of the app in the field to crash on launch (making it more difficult for those users to upgrade). 
+An unfortunate problem with mobile apps is that, at any time, there may be (at least one) prior version of the app "in the field" due to users not having updated.  This makes data model evolution complicated: you can't simply change the database structure to fit only the latest design since that new design may be incompatible with a prior version and cause any apps running that prior version in the field to crash.  
 
-Please be aware that the evolutionary nature of the GGC data model creates several confusing situations:
-* A field might be marked as "required" in the Dart factory declaration, even though it is vestigial. That means that the code continues to supply a value for this field even though it is no longer actually used. (At some point, we will revise the Dart factory declaration to remove this field once it is safe to do so.)
-* A field might be marked as nullable (i.e. optional) in the Dart factory declaration, even though it is now required. This means that this field was originally optional, but became required, and now the database and code enforce that even though the type declaration does not (yet). 
-* A Firebase document in the database might include fields that do not appear in the Dart factory declaration. In this case, those fields are vestigial and have been removed from the codebase. (At some point, we will overwrite those documents to delete the vestigial fields.)
+To manage this problem, evolution in the data model must always (initially) be "backward compatible": any change to enable a new feature must not break (at least) the previous version.  In many cases, that results in "vestigial" collections and entity fields: they are no longer used in the latest version of the system, but cannot be deleted until all apps in the field have been updated to the latest version. 
 
-What this means is that the Dart factory declaration may not accurately reflect the required vs. optional vs. vestigial nature of a given field. The page includes a table for each entity documenting each field to clarify the nature of the field.
+So, in this documentation, Firebase collections can be either "vestigial" or "required":
+* Vestigial: the collection is no longer used in the latest version, and will eventually be deleted.
+* Required: the collection is required for the current release.
 
-In this documentation, when an entity field is vestigial, we will mark it as such. We will also include the names of the vestigial entities at the end of this document. 
-:::
+Entity fields can be either "vestigial", "required", or "optional":
+* Vestigial: the field is no longer used in the latest version, and will eventually be deleted.
+* Required: the field must always have a value.
+* Optional: the field can be missing in Firebase (or null).
+
+While that might seem simple enough, it turns out that maintaining backward compatibility for entity fields can lead to misleading type declarations in the code. For example:
+* A field can be declared as "required" in the Dart factory declaration, even though it is "vestigial". That means that the code supplies a value for this field even though it is no longer actually used in the current version so that prior versions will not crash. 
+* A field can be declared as nullable (i.e. optional) in the Dart factory declaration, even though it is now "required". This means that this field was previously optional, but became required, and now the database and (current) code enforce that even though the type declaration does not (yet). 
+* A Firebase document in the database might include fields that do not appear in the Dart factory declaration. This happens when those fields have become vestigial and have been removed from the codebase since no apps in the field run a version that requires those fields. (We can now safely overwrite those documents to delete the vestigial fields, but have not done so.)
+
+So, what this means is that the Dart factory type declarations may not accurately reflect the "required" vs. "optional" vs. "vestigial" nature of entity fields. That is why this data model documentation provides an indication, for each field, of its required, optional, or vestigial status.
+
+In this page, only required collections are documented. The vestigial Firebase collections are: chat_rooms, chat_users, seeds, share_posts, share_replies, and value_per_units. 
+
+## In-memory entities and collections
 
 The GGC app needs a way to manipulate the entities stored in the database, and does so via a pair of Dart "domain" classes that mirror these Firebase collections. So, for example, for an entity named "Foo", there will be a Dart class called "Foo" enabling the creation of in-memory instances of a Foo. In addition, there will also be a Dart class called "FooCollection", which provides access to all the in-memory Foo instances.  Note that an instance of the FooCollection will often not contain all the Foo instances in the Firebase Foo collection; but it should always contain all the Foo instances *needed* by the app at that particular point in time.  
 
@@ -621,26 +625,35 @@ Here is an example of an Outcome document:
 
 ```dart
 const factory Outcome(
-  {required String outcomeID,         // 'outcome-US-98225-102-1001-5218'
-  required String chapterID,          // 'chapter-US-001'
-  required String gardenID,           // 'garden-US-98225-102-6789'
-  required String plantingID,         // 'planting-US-98225-102-1001-9213'
-  required String cachedCropID,       // 'crop-US-001-245-4376'
-  required String cachedVarietyID,    // 'variety-US-001-321-3214'
-  @Default(0) int germination,        // 0-5
-  @Default(0) int yieldd,             // 0-5 (yield is a reserved word)
-  @Default(0) int flavor,             // 0-5
-  @Default(0) int resistance,         // 0-5
+  {required String outcomeID,         
+  required String chapterID,          
+  required String gardenID,           
+  required String plantingID,         
+  required String cachedCropID,       
+  required String cachedVarietyID,    
+  @Default(0) int germination,        
+  @Default(0) int yieldd,             
+  @Default(0) int flavor,             
+  @Default(0) int resistance,        
   @Default(0) int appearance,
   int? quantity
   })
 ```
 
-### OutcomeID management
-
-OutcomeIDs have the format `outcome-<country>-<postalCode>-<gardenNum>-<outcomeNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
-
-
+| Field           | R/O/V    | Type           | Description                                                                                                                                                                                                                                              |
+|-----------------|----------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| outcomeID       | required | `String`       | (Primary key) A unique ID for this outcome. Format: `outcome-<country>-<postalCode>-<gardenNum>-<NNN>-<millis>`. For example, `"outcome-US-10003-101-1001-0308"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| chapterID       | required | `String`       | The associated chapter. For example, `"chapter-US-001"`.                                                                                                                                                                                                 |
+| gardenID        | required | `String`       | The associated garden. For example, `"garden-US-10003-101-0975"`.                                                                                                                                                                                        |
+| plantingID      | required | `String`       | The associated planting. For example, `"planting-US-10003-101-1001-0972"`.                                                                                                                                                                               |
+| cachedCropID    | required | `String`       | The associated crop. For example, `"crop-US-001-208-0497"`.                                                                                                                                                                                              | 
+| cachedVarietyID | required | `String`       | The associated variety. For example, `"variety-US-001-641-0401"`.                                                                                                                                                                                        | 
+| germination     | required | `int`          | 0-5                                                                                                                                                                                                                                                      |
+| yieldd          | required | `int`          | 0-5    ("yield" is a reserved word and cannot be used as a field name, so we use "yieldd").                                                                                                                                                              |
+| flavor          | required | `int`          | 0-5                                                                                                                                                                                                                                                      |
+| resistance      | required | `int`          | 0-5                                                                                                                                                                                                                                                      |
+| appearance      | required | `int`          | 0-5                                                                                                                                                                                                                                                      |
+| quantity        | optional | `int`          | A number indicating the weight of the food harvested from this planting. The integer represents a weight with two decimal places, so 400 represents a weight of 4.00, 25 represents 0.25, and forth.                                                     |
 
 
 ## Observation
@@ -649,7 +662,7 @@ An Observation is a comment (and, typically, a picture) provided by a Gardener r
 
 The observationType field indicates the type of Observation (Garden, Bed, Crop, Variety, or Planting).  There are a number of optional fields that have values depending upon the type of Observation. So, for example, a Garden Observation will not have a bedID, cropID, varietyID, or plantingID associated with it, while a Planting Observation will have all of those entities associated with it.
 
-Here is an example of an Observation document (the tagIDs and varietyID fields are not shown):
+Here is an example of an Observation document:
 
 <img src="/img/develop/firestore/firestore-console-observations.png"/>
 
@@ -657,38 +670,60 @@ Here is an example of an Observation document (the tagIDs and varietyID fields a
 
 ```dart
 const factory Observation({
-  required String observationID,     // 'observation-US-98225-102-4001-5634'
-  required String chapterID,        // 'chapter-US-001'
-  required String gardenerID,       // 'johnson@hawaii.edu'
-  required String gardenID,         // 'garden-US-98225-102-6789'
-  required String cachedGardenName, // 'Kale is for Kids'
-  required DateTime observationDate, // '2023-03-19T12:19:14.164090'
-  required DateTime lastUpdate,     // '2023-03-19T12:19:14.164090'
-  required List<String> tagIDs,    // ['tag-001-501']
-  required List<ObservationComment>
-  comments,                       // ['observation-US-98225-102-4001-001-9876']
-  required String description,    // 'First harvest of the season'
-  // Optional fields, depends upon the observationType.
-  String? observationType,        // Can be null (for now), but later required.
-  String? plantingID,             // 'planting-US-98225-102-1002-9432'
-  String? bedID,                 // 'bed-US-98225-102-1002-9432'
-  String? cropID,                // 'crop-US-98225-102-1002-9432'
-  String? varietyID,             // 'variety-US-98225-102-1002-9432'
-  String? pictureURL,           // null, 'https://firebasestorage....'
-  String? cachedCropID,         // 'crop-US-001-243-3425'
-  String? cachedVarietyID,      // 'variety-US-001-323-9654'
-  String? cachedBedName,        // '03'
-  String? cachedCropName,       // 'Tomato'
-  String? cachedVarietyName,    // 'Cherokee Purple'
-  DateTime? cachedStartDate,    // '2023-03-19T12:19:14.164090'
-  @Default(false) bool isPrivate, // true, false
-  DateTime? createdAt}
-)
+  required String observationID,     
+  required String chapterID,        
+  required String gardenerID,       
+  required String gardenID,         
+  required String cachedGardenName, 
+  required DateTime observationDate, 
+  required DateTime lastUpdate,     
+  required List<String> tagIDs,    
+  required List<ObservationComment> comments,                       
+  required String description,
+  String? observationType,        
+  String? plantingID,             
+  String? bedID,                 
+  String? cropID,                
+  String? varietyID,             
+  String? pictureURL,           
+  String? cachedCropID,         
+  String? cachedVarietyID,      
+  String? cachedBedName,        
+  String? cachedCropName,       
+  String? cachedVarietyName,    
+  DateTime? cachedStartDate,    
+  @Default(false) bool isPrivate, 
+  DateTime? createdAt
+})
 ```
 
-### ObservationID management
+| Field             | R/O/V     | Type                       | Description                                                                                                                                                                                                                                                   |
+|-------------------|-----------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| observationID     | required  | `String`                   | (Primary key) A unique ID for this outcome. Format: `observation-<country>-<postalCode>-<gardenNum>-<NNNN>-<millis>`. For example, `"outcome-US-10003-101-1001-0308"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| chapterID         | required  | `String`                   | The associated chapter. For example, `"chapter-US-001"`.                                                                                                                                                                                                      |
+| gardenID          | required  | `String`                   | The associated garden. For example, `"garden-US-10003-101-0975"`.                                                                                                                                                                                             |
+| cachedGardenName  | required  | `String`                   | The associated garden name. For example, `"Alderwood"`.                                                                                                                                                                                                       |
+| gardenerID        | required  | `String`                   | The associated gardener. For example, `"johnson@hawaii.edu"`.                                                                                                                                                                                                 |
+| observationDate   | required  | `DateTime`                 | The date to be associated with this observation. (May be in the past.) For example, `"2025-06-24T18:16:17.357180"`.                                                                                                                                           |
+| createdAt         | required  | `DateTime`                 | When this observation document was created. For example, `"2025-06-24T18:16:17.357180"`.                                                                                                                                                                      |
+| lastUpdate        | required  | `DateTime`                 | When the observation was last edited. For example, `"2025-06-24T18:16:17.357180"`.                                                                                                                                                                            |
+| tagIDs            | required  | `List<String>`             | A potentially empty list of tagIDs. For example, `["tag-001-501"]`.                                                                                                                                                                                           |
+| comments          | required  | `List<ObservationComment>` | A potentially empty list of comments.                                                                                                                                                                                                                         |
+| description       | required  | `String`                   | The observation description.                                                                                                                                                                                                                                  |
+| isPrivate         | required  | `bool`                     | If only the owner and editors of this garden can see this Observation.                                                                                                                                                                                        |
+| observationType   | required  | `String`                   | The type of Observation: `"garden"`, `"crop"`, `"variety"`, `"planting"`.                                                                                                                                                                                     |
+| pictureURL            | optional  | `String?`         | The URL to a Cloud Storage file providing a picture for this observation. See [Cloud Storage Data Model](cloud-storage-data-model) for details.                                                                                                               |
+| plantingID        | optional  | `String?`                  | The associated planting, if this is a planting observation.                                                                                                                                                                                                   |
+| bedID             | optional  | `String?`                  | The associated bed, if this is a planting observation.                                                                                                                                                                                                        |
+| cropID            | optional  | `String?`                  | The associated crop, if this is a planting or variety or crop observation.                                                                                                                                                                                    |
+| varietyID         | optional  | `String?`                  | The associated variety, if this is a planting or variety observation.                                                                                                                                                                                         |
+| cachedCropName    | optional  | `String?`                  | The associated crop name, if there's a cropID.                                                                                                                                                                                                                | 
+| cachedVarietyName | optional  | `String?`                  | The associated variety name, if there's a varietyID.                                                                                                                                                                                                          | 
+| cachedVarietyName | optional  | `String?`                  | The associated variety name, if there's a varietyID.                                                                                                                                                                                                          | 
+| cachedStartDate   | optional  | `DateTime?`                | The associated start time, if this is a planting observation.                                                                                                                                                                                                 | 
+| cachedCropID      | vestigial |                            |                                                                                                                                                                                                                                                               | 
+| cachedVarietyID   | vestigial |                            |                                                                                                                                                                                                                                                               | 
 
-ObservationIDs have the format `observation-<country>-<postalCode>-<gardenNum>-<observationNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 ### Observation Comments
 
@@ -705,57 +740,6 @@ const factory ObservationComment(
 
 The lastUpdate field indicates when the comment was made or updated.
 
-## Share
-
-The SharePost and ShareReply entities are used to represent the sharing of gardening equipment, seeds, or other items among Chapter members.  The SharePost entity represents a post made by a Gardener to share an item, while the ShareReply entity represents a reply to a SharePost.
-
-Here is an example of a SharePost document:
-
-<img src="/img/develop/firestore/firestore-console-shareposts.png"/>
-
-### SharePost entity representation
-
-```dart
-  const factory SharePost({
-    required String sharePostID,
-    required String sharePostType,
-    required String sharePostItemType,
-    required String title,
-    required String chapterID,
-    required String gardenerID,
-    required String description,
-    required DateTime lastUpdate,
-    required bool completed,
-    String? pictureURL,
-  })
-```
-### SharePostID management
-
-SharePostIDs have the format `sharepost-<country>-<chapterNum>-<sharePostNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
-
-Here is an example of a ShareReply document:
-
-<img src="/img/develop/firestore/firestore-console-sharereplies.png"/>
-
-### ShareReply entity representation
-
-```dart
-  const factory ShareReply({
-    required String shareReplyID,
-    required String inReplyToSharePostID, // always connect to the past.
-    required String chapterID,
-    required String gardenerID,
-    required String description,
-    required bool private,
-    required DateTime lastUpdate,
-    String? pictureURL,
-    String? inReplyToShareReplyID, // maybe is a reply to a reply
-  })
-```
-
-### ShareReplyID management
-
-ShareReplyIDs have the format `sharereply-<country>-<chapterNum>-<shareReplyNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
 
 ## Tag
 
@@ -765,7 +749,7 @@ The Tag entity provides "meta-data" that a gardener can use to provide informati
 
 2. Badge achievement. Many Badges are earned, at least in part, by posting (public) Observations with specific Tags.  
 
-Tags, like Badges, Families, and Chapters, are "global" entities that are not Chapter-specific. Therefore, they can only be managed by system admins.
+Tags are currently global entities that are defined and managed by admins. In the future, we plan to support chapter-local, user-defined tags. 
 
 Here is an example of a Tag document:
 
@@ -774,31 +758,37 @@ Here is an example of a Tag document:
 ### Tag entity representation
 
 ```dart
-const factory Tag(
-  {required String tagID,          // 'tag-001'
-  required String name,            // '#Biodiversity'
-  required String description}     // 'Use of practices to increase biodiversity...'
-)
+const factory Tag({
+  required String tagID,
+  required String name,
+  required String description,
+  String? chapterID, 
+})
 ```
 
-### TagID management
+| Field       | R/O/V    | Type      | Description                                                                                                                                                                   |
+|-------------|----------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| tagID       | required | `String`  | (Primary key) A unique ID for this tag. Format: `tag-<NNN>`. For example, `"tag-001"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| name        | required | `String`  | The name of this tag. By convention, starts with a "#". For example, `"#Biodiversity"`.                                                                                       |
+| description | required | `String`  | A string indicating when the use of this tag is appropriate.                                                                                                                  |
+| chapterID   | optional | `String?` | Awaiting chapter-local tags.                                                                                                                                                  |
 
-TagIDs have the format `tag-<tagNum>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
+
 
 ## Task
 
-A Task specifies an activity to perform for a specific Planting in a specific Garden. There are two  types of tasks:
+A Task specifies an activity to perform for a specific Planting in a specific Garden. There are two types of tasks:
 
 1. An *automatically created* Task that is generated from the dates associated with a Planting, such as `transplant date` or `first harvest date`. Whenever the Gardener adjusts the dates associated with a Planting, the associated Task is updated. Conversely, if a Gardener adjusts the date associated with a Task, then the associated Planting date is updated as well. 
 
-2. A *manually created* Task created by a gardener, such as `Weed cucumbers` or `Add top dressing to radishes`. 
+2. A *manually created* Task that is created by a gardener, such as `Weed cucumbers` or `Add top dressing to radishes`. 
 
 Tasks are ephemeral.  When a Gardener indicates that a task has been completed, it is deleted from the system. For automatically created Tasks that are associated with a Planting date, the system prompts the gardener to verify the completion date prior to deleting the Task.  This prompt is used to update the date in the Planting instance.  This is an important form of "quality assurance" for Planting dates, since the Gardener typically specifies these dates early in the season during planning. The ability of Tasks to help ensure that Planting dates are accurate can make Chapter data more useful.
 
-:::info Non-ephemeral (manually generated) tasks would be cool
-Currently, all tasks are ephemeral. It would be potentially useful for a Gardener to be able to mark a manually generated Task as "non-ephemeral". This would mean that if the Gardener plans a future Garden, that task could be retrieved and associated with a new Planting. 
-
-We will leave this as a possible feature for a future release.
+:::info Task enhancements
+There are two enhancements to Tasks that we hope to implement in the future:
+1. Non-ephemeral tasks. This would allow a Gardener to re-use manually created tasks in the future.
+2. Non-planting tasks. This would allow a Gardener to associate tasks with Beds, Crops, Gardens, etc.
 :::
 
 Here is an example of a Task document:
@@ -808,45 +798,43 @@ Here is an example of a Task document:
 ### Task entity representation
 
 ```dart
-factory Task(
-  {required String taskID,          // 'task-US-98225-101-1003-001-7634' 
-  required String chapterID,        // 'chapter-US-001'
-  required String gardenID,         // 'garden-US-98225-101-6789'
-  required String taskType,         // 'start'
-  required String title,            // 'Start Tomato (Big Boy)'
-  String? gardenerID,              // The owner of the garden, i.e. 'johnson@hawaii.edu'.
-  String? description,              // null, 'Clean up ground cherries.'
-  required String cropID,           // 'crop-US-001-203-5412'
-  required String varietyID,        // 'variety-US-001-101-304-6534'
-  required String bedID,            // 'bed-US-98225-101-003-8956'
-  required String plantingID,       // 'planting-US-98225-101-1003-3214'
-  required DateTime dueDate,        // '2023-03-19T12:19:14.164090'
-  required String cachedBedName,    // '02'
-  required String cachedCropName,   // 'Tomato'
-  required String cachedVarietyName} // 'Kale is for Kids'
-)
+factory Task({
+  required String taskID, 
+  required String chapterID, 
+  required String gardenID, 
+  required String taskType, 
+  required String title, 
+  required String? cropID, 
+  required String? varietyID, 
+  required String bedID, 
+  required String plantingID, 
+  required DateTime dueDate, 
+  required String cachedBedName, 
+  required String cachedCropName, 
+  required String cachedVarietyName,
+  String? description, 
+  String? gardenerID,
+})
 ```
 
+| Field             | R/O/V    | Type       | Description                                                                                                                                                                                                                                                       |
+|-------------------|----------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| taskID            | required | `String`   | (Primary key) A unique ID for this task. Format: `task-<country>-<postalCode>-<gardenNum>-<plantingNum>-<NNN>-<millis>`. For example, `"task-US-10003-101-1001-002-0283"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| chapterID         | required | `String`   | The associated chapter.                                                                                                                                                                                                                                           |
+| gardenID          | required | `String`   | The associated garden.                                                                                                                                                                                                                                            |
+| taskType          | required | `String`   | One of:  `"start"`, `"transplant"`, `"firstHarvest"`, `"endHarvest"`, `"pull"`, `"other"`.    Other indicates a manually created task.                                                                                                                            |
+| title             | required | `String`   | For automatically generated tasks, the title is automatically generated using the task type plus the variety, for example `"Start Tomato (Big Boy)"`.                                                                                                             |
+| gardenerID        | required | `String`   | The gardenerID.                                                                                                                                                                                                                                                   |
+| plantingID        | required | `String`   | The plantingID.                                                                                                                                                                                                                                                   |
+| cropID            | required | `String`   | The cropID.                                                                                                                                                                                                                                                       |
+| varietyID         | required | `String`   | The varietyID.                                                                                                                                                                                                                                                    |
+| bedID             | required | `String`   | The bedID.                                                                                                                                                                                                                                                        |
+| cachedCropName    | required | `String`   | The crop name.                                                                                                                                                                                                                                                    |
+| cachedVarietyName | required | `String`   | The variety name.                                                                                                                                                                                                                                                 |
+| cachedBedName     | required | `String`   | The bed name.                                                                                                                                                                                                                                                     |
+| dueDate           | required | `DateTime` | When this task is due.                                                                                                                                                                                                                                            |
+| description       | optional | `String?`  | For manually created tasks, the description.                                                                                                                                                                                                                      |
 
-### TaskID management
-
-TaskIDs have the format `task-<country>-<postalCode>-<gardenNum>-<plantingNum>-<taskNum>-<millis>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
-
-### Task Types
-
-Each Task has a TaskType:
-
-```dart
-enum TaskType { start, transplant, firstHarvest, endHarvest, pull, other }
-```
-
-The first five correspond to the Planting dates. "Other" is used for manually created Tasks.
-
-### Task titles and descriptions
-
-For automatically generated tasks, the title is automatically generated using the task type plus the variety, for example "Start Tomato (Big Boy)".  Automatically generated tasks are not created with a description.
-
-For manually generated tasks, the Gardener must specify the title and can also supply a description if desired.
 
 
 ## Badge
@@ -865,45 +853,86 @@ Here is an example of a BadgeInstance document:
 
 ### Badge entity representation
 
-Badges:
 ```dart
 const factory Badge(
-  {required String badgeID,       // 'badge-001'
-  required String type,           // 'garden'
-  required String name,           // 'Climate Victory'
-  required String criteria,       // 'A climate victory garden has been...' 
-  required String level1,         // 'The garden is present...'
-  required String level2,         // 'The garden is present..., and...'
-  required String level3,         // 'The garden is present..., and..., and...'
-  required List<String> tagIDs}   // ['tag-024', 'tag-037']
+  {required String badgeID,       
+  required String type,           
+  required String name,           
+  required String criteria,       
+  required String level1,        
+  required String level2,         
+  required String level3,         
+  required List<String> tagIDs}   
 )
 ```
-Badge Instances:
+
+| Field    | R/O/V    | Type           | Description                                                                                                                                                                         |
+|----------|----------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| badgeID  | required | `String`       | (Primary key) A unique ID for this badge. Format: `badge-<NNN>`. For example, `"badge-001"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| type     | required | `String`       | One of: `"garden"`, `"gardener"`.                                                                                                                                                   |
+| name     | required | `String`       | The badge name. For example, `"Climate Victory"`.                                                                                                                                   |
+| criteria | required | `String`       | Basic criteria for the badge.                                                                                                                                                       |
+| level1   | required | `String`       | Specific criteria for a Level 1 badge.                                                                                                                                              |
+| level2   | required | `String`       | Specific criteria for a Level 2 badge.                                                                                                                                              |
+| level3   | required | `String`       | Specific criteria for a Level 3 badge.                                                                                                                                              |
+| tagIDs   | required | `List<String>` | The tags that are associated with this badge.                                                                                                                                       |
+
+### BadgeInstance entity representation
 
 ```dart
 const factory BadgeInstance(
-  {required String badgeInstanceID,  // 'badgeinstance-US-001-001-5634'
-  required String chapterID,         // 'chapter-US-001'
-  required String badgeID,           // 'badge-001'
-  required int level,                // 1
-  required String id,                // 'johnson@hawaii.edu', 'garden-US-98225-101-6789', 'chapter-US-001'
-  required String type,              // 'gardener', 'garden', 'chapter'
-  required String cachedName,        // 'Climate Victory'
-  String? data,                      // null, 'supplementary data'
-  String? data2,                     // null, 'supplementary data2'
-  String? data3}                     // null, 'supplementary data3'
+  {required String badgeInstanceID,  
+  required String chapterID,         
+  required String badgeID,          
+  required int level,               
+  required String id,                
+  required String type,              
+  required String cachedName,        
+  String? data,                      
+  String? data2,                     
+  String? data3}                     
 )
 ```
+| Field           | R/O/V    | Type      | Description                                                                                                                                                                                                                                       |
+|-----------------|----------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| badgeInstanceID | required | `String`  | (Primary key) A unique ID for this badgeInstance. Format: `badgeinstance-<country>-<chapterCode>-<badgeinstanceNum>-<millis>`. For example, `"badge-001"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| chapterID       | required | `String`  | The associated chapter.                                                                                                                                                                                                                           |
+| badgeID         | required | `String`  | The associated badge.                                                                                                                                                                                                                             |
+| level           | required | `int`     | The level achieved for this badge.                                                                                                                                                                                                                |
+| id              | required | `String`  | Either a gardenID or a gardenerID.                                                                                                                                                                                                                |
+| id              | required | `String`  | Either `"garden"` or `"gardener"`                                                                                                                                                                                                                 |
+| cachedName      | required | `String`  | The badge name.                                                                                                                                                                                                                                   |
+| data1           | optional | `String?` | A slot for additional data about this badge instance.   (Should have been `Map<String, String>` rather than three fixed slots.)                                                                                                                   |
+| data2           | optional | `String?` | A slot for additional data about this badge instance.                                                                                                                                                                                             |
+| data3           | optional | `String?` | A slot for additional data about this badge instance.                                                                                                                                                                                             |
+## Event
 
-### BadgeID and BadgeInstanceID management
+The Event entity is used to implement the [Instrumentation](../instrumentation.md) feature. 
 
-BadgeIDs have the format `badge-<badgeNum>`. Please see the [ID Design Pattern documentation](../design/ids.md) for details regarding our approach to ID management.
+Here is an example of an Event document:
 
-BadgeInstanceIDs have the format `badgeinstance-<country>-<chapterCode>-<badgeinstanceNum>-<millis>`.
+<img src="/img/develop/firestore/firestore-console-events.png"/>
 
-## ChatRooms/ChatUsers
+### Event entity representation
 
-We use the [Flutter Chat UI](https://pub.dev/packages/flutter_chat_ui) package to implement Chat rooms and users. This results in the addition of some collections to Firebase. Please refer to the Flutter Chat UI documentation for details. (We are currently using Version 1) 
+```dart
+const factory Event({
+  required String eventID,
+  required EventType eventType,
+  required String chapterID,
+  required String userID,
+  required Map<String, String?> data,
+  required DateTime createdAt,
+}) 
+```
+
+| Field    | R/O/V    | Type           | Description                                                                                                                                                                         |
+|----------|----------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| badgeID  | required | `String`       | (Primary key) A unique ID for this badge. Format: `badge-<NNN>`. For example, `"badge-001"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| type     | required | `String`       | One of: `"garden"`, `"gardener"`.                                                                                                                                                   |
+| name     | required | `String`       | The badge name. For example, `"Climate Victory"`.                                                                                                                                   |
+| criteria | required | `String`       | Basic criteria for the badge.                                                                                                                                                       |
+
 
 
 
