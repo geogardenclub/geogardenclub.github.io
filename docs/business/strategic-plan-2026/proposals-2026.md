@@ -42,8 +42,6 @@ In 2026, we need to improve the percentage of customers who, having downloaded t
 
 *Automate completion of planting dates.* It would be helpful to auto-complete planting dates based on user or chapter data from prior seasons. In other words, after the user enters the start date, the pull date (and other dates) could be calculated and entered automatically.
 
-*Implement "like" and "favorite" UI elements.*  It is possible that providing these social media features could improve engagement.
-
 ## Customer Retention Phase
 
 In general, paying customers have enough experience with the app to derive value from it.  To retain them, we need ways to be made aware when the app is not meeting their needs and respond appropriately.  For example, we could implement:
@@ -80,6 +78,8 @@ Due to lack of experience with customer churn, we are not proposing any activiti
 *Add recurrent, user defined tasks.*  This can support watering reminders, etc.
 
 *Add selected competitor's features.* Implement one or more of the [features present in other gardening apps](usability-2025#potential-features).
+
+*Implement "like" and "favorite" UI elements.*  It is possible that providing these social media features could improve engagement.
 
 ### Customer Retention Phase
 
