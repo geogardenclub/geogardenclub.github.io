@@ -73,7 +73,7 @@ const sidebars = {
         'user-guide/tasks',
         'user-guide/observations',
         'user-guide/outcomes',
-        'user-guide/chat-rooms',
+        'user-guide/forums',
         'user-guide/sharing',
         'user-guide/crops',
         'user-guide/varieties',

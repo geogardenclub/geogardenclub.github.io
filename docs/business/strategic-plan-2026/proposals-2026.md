@@ -2,17 +2,17 @@
 hide_table_of_contents: true
 ---
 
-# 2026 Activities
+# 2026 Proposed Activities
 
-This page presents our thinking regarding ways to allocate time and money across the four GGC customer lifecycle phases in 2026.
+This page presents our thinking regarding the most important ways to allocate time and money across the four GGC customer lifecycle phases in 2026.
 
 :::info
-It was determined that customer retention is the primary focus of 2026 activities.  All proposed tasks should point towards this ultimate goal.  Additional activities that don't target customer retention are included at the bottom of the page for future consideration.
+Customer retention is a primary focus for 2026 activities.  All proposed tasks should directly or indirectly support this goal.  Additional activities that don't support customer retention are included at the bottom of the page for future consideration.
 :::
 
 ## Customer Acquisition Phase
 
-In 2026, we need to improve our ability to find new target customers and get them to download the system. Acquisition activities will focus on customers in our target demographic who are most likely to continue using the app beyond the free trial period.
+In 2026, we need to improve our ability to find new customers in our target demographic and get them to download the system. Acquisition activities will focus on customers in our target demographic who are most likely to be retained (i.e. continue using the app beyond the free trial period.)
 
 *Improve online marketing.*  In 2025, we eventually stopped paying for online ads because it was not translating into new downloads. We hypothesize that this was because of a lack of social proof. In 2026, we will resume experimenting with online advertising through an ambassador program which will generate content while increasing social proof.
 
@@ -26,7 +26,7 @@ In 2026, we need to improve our ability to find new target customers and get the
 
 ## Customer Evaluation Phase
 
-In 2026, we need to improve the percentage of customers who, having downloaded the app, successfully make it through the onboarding and exploration phases and ultimately pay for the app for the first time. This requires evolving new users into experienced users who obtain value from the app. In 2026, we will:
+In 2026, we need to improve the percentage of customers who, having downloaded the app, successfully make it through the onboarding and exploration phases and ultimately pay for the app for the first time. This requires evolving new users into experienced users who obtain value from the app. In 2026, we plan to:
 
 *Implement "high-touch" support during evaluation.* In addition to the Getting Started emails, we could consider sending personalized emails to customers during the evaluation phase to ensure that they are not encountering roadblocks, and using secondary measures to make these emails more effective. For example, we might send an email saying something like: "We notice you haven't created a garden yet. Can we help you learn how to do that? Is there a reason you've delayed?"
 
@@ -56,7 +56,9 @@ In general, paying customers have enough experience with the app to derive value
 
 Due to lack of experience with customer churn, we are not proposing any activities regarding this phase of the customer lifecycle for 2026.
 
-## Future activities
+## Other activities
+
+The following are proposed activities that do not directly or indirectly support customer retention, and thus are de-prioritized for 2026.  We include them because they still appear to have potential for improving the business.
 
 ### Customer Acquisition
 

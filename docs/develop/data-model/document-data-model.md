@@ -19,7 +19,7 @@ In GGC, "entity" refers to the fundamental forms of persistent data objects. Exa
 
 Entity instances are persisted as documents in a Firebase collection. In general, each entity has a corresponding collection: for example, all the Chapter entity documents are stored in a Firebase collection called chapters, all the Gardener entity documents are stored in a Firebase collection called gardeners, and so forth.  
 
-Here is a snapshot of the Firestore console showing the entity collections:
+Here is a snapshot of the Firestore console showing the entity collections at that point in time:
 
 <img src="/img/develop/firestore/firestore-console.png"/>
 
@@ -49,7 +49,10 @@ In this page, only required collections are documented. The vestigial Firebase c
 
 ## In-memory entities and collections
 
-The GGC app needs a way to manipulate the entities stored in the database, and does so via a pair of Dart "domain" classes that mirror these Firebase collections. So, for example, for an entity named "Foo", there will be a Dart class called "Foo" enabling the creation of in-memory instances of a Foo. In addition, there will also be a Dart class called "FooCollection", which provides access to all the in-memory Foo instances.  Note that an instance of the FooCollection will often not contain all the Foo instances in the Firebase Foo collection; but it should always contain all the Foo instances *needed* by the app at that particular point in time.  
+The GGC app needs a way to represent  the entities stored in the database in memory. It does so via a pair of Dart "domain" classes that mirror these Firebase collections. So, for example, if there is an entity named "Foo", then:
+1. There is a Firebase collection called "foos" providing persistant storage of these entities.
+2. There is a Dart class called "Foo" providing an in-memory representation of the Firebase foo documents. 
+3. There is a Dart class called "FooCollection", with methods that clients can call to obtain access to all the in-memory Foo instances.  Note that an instance of the FooCollection will often not contain all the Foo instances in the Firebase Foo collection; but it should always contain all the Foo instances *needed* by the app at that particular point in time.  (For example, the FooCollection might only provide access to the Foo instances associated with the current Chapter.)
 
 We use the [Freezed](https://pub.dev/packages/freezed) package to facilitate the definition of entities, and the [With Widgets](../design/with-widgets) design pattern to manage the relationship between the Firebase collections and their in-memory counterparts. 
 
@@ -834,8 +837,115 @@ factory Task({
 | cachedBedName     | required | `String`   | The bed name.                                                                                                                                                                                                                                                     |
 | dueDate           | required | `DateTime` | When this task is due.                                                                                                                                                                                                                                            |
 | description       | optional | `String?`  | For manually created tasks, the description.                                                                                                                                                                                                                      |
+## Price
+
+The Price entity is used to implement the [Retail Value](../design/retail-value.md) feature.
+
+Here is an example of a Price document:
+
+<img src="/img/develop/firestore/firestore-console-prices.png"/>
+
+### Price entity representation
+
+```dart
+const factory Price({
+  required String priceID,
+  required CountryCode countryCode,
+  required int year,
+  required String cropID,
+  required String cachedCropName,
+  required int price,
+  required bool priceless,
+  String? chapterID,
+}) 
+```
+
+| Field          | R/O/V    | Type     | Description                                                                                                                                                                                                                                                                                                                                   |
+|----------------|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| priceID        | required | `String` | (Primary key) A unique ID for this price. Format: `price-<country>-<year>-<priceType>-<cropID>-<millis>`. For example, `"price-US-2014-default-crop-US-001-300-0907"`.  PriceType is either "default" or the chapterID (if it's a chapter-local price).  Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| countryCode    | required | `String` | The associated country code.                                                                                                                                                                                                                                                                                                                  |
+| year           | required | `int`    | The associated year.                                                                                                                                                                                                                                                                                                                          |
+| cropID         | required | `String` | The associated cropID.                                                                                                                                                                                                                                                                                                                        |
+| cachedCropName | required | `String` | The associated cropName (chapter-local if different).                                                                                                                                                                                                                                                                                         |
+| price          | required | `int`    | The price, formatted as an int with two implied decimal places. For example, 400 represents a price of 4.00.                                                                                                                                                                                                                                  | 
+| priceless      | required | `bool`   | Indicates if this crop is priceless.                                                                                                                                                                                                                                                                                                          | 
+| chapterID      | required | `String` | The associated chapterID, if this is a chapter-local price.                                                                                                                                                                                                                                                                                   |
 
 
+
+## Forum
+
+The Forum feature is implemented through two collections: forum_topics and forum_messages.
+
+Here is an example of a forum_topic document:
+
+<img src="/img/develop/firestore/firestore-console-forum-topics.png"/>
+
+And here is an example of a forum_message document:
+
+<img src="/img/develop/firestore/firestore-console-forum-messages.png"/>
+
+
+### Forum Topic entity representation
+
+These entities are used to populate the "Forums" screen, which lists all the topics.
+
+```dart
+const factory ForumTopic({
+  required String forumTopicID,
+  required String chapterID,
+  required String type,
+  required String title,
+  required String createdBy,
+  required DateTime createdAt,
+  required DateTime lastUpdated,
+  required int numberOfViews,
+})
+```
+
+| Field         | R/O/V    | Type       | Description                                                                                                                                                                                                                                     |
+|---------------|----------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| forumTopicID  | required | `String`   | (Primary key) A unique ID for this forum topic. Format: `forumtopic-<country>-<chapterNum>-<NNN>-<millis>`. For example, `"forumtopic-US-001-001-0128"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| chapterID     | required | `String`   | The associated chapter.     For example, `"chapter-US-001"`.                                                                                                                                                                                    |
+| type          | required | `String`   | The forum type.  For example, `"Other"`.                                                                                                                                                                                                        |
+| title         | required | `String`   | The forum title.                                                                                                                                                                                                                                |
+| createdBy     | required | `String`   | The associated userID.                                                                                                                                                                                                                          |
+| createdAt     | required | `DateTime` | When this post was created.                                                                                                                                                                                                                     | 
+| updatedAt     | required | `DateTime` | When this post was last updated.                                                                                                                                                                                                                | 
+| numberOfViews | required | `int`      | How many times anyone has clicked on this topic to display the thread.                                                                                                                                                                          | 
+
+
+### Forum Message entity representation
+
+These entities are used to populate the screen associated with a single forum topic. 
+
+```dart
+const factory ForumMessage({
+  required String chapterID,
+  required String forumMessageID,
+  required String forumTopicID,
+  required String content,
+  required String createdBy,
+  required DateTime createdAt,
+  required DateTime lastUpdated,
+  required int numberOfLikes,
+  @Default(false) bool isTopicMessage,
+  String? pictureURL,
+})
+```
+
+| Field          | R/O/V    | Type       | Description                                                                                                                                                                                                                                           |
+|----------------|----------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| forumMessageID | required | `String`   | (Primary key) A unique ID for this forum message. Format: `forummessage-<country>-<chapterNum>-<NNN>-<millis>`. For example, `"forummessage-US-003-002-0848"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| chapterID      | required | `String`   | The associated chapter. For example, `"chapter-US-001"`.                                                                                                                                                                                              |
+| forumTopicID   | required | `String`   | The associated forum topic. For example,  `"forumtopic-US-001-001-0128"`.                                                                                                                                                                             |
+| content        | required | `String`   | The content of the message.                                                                                                                                                                                                                           |
+| createdBy      | required | `String`   | The associated userID.                                                                                                                                                                                                                                |
+| createdAt      | required | `DateTime` | When this message was created.                                                                                                                                                                                                                        | 
+| lastUpdated    | required | `DateTime` | When this message was last updated.                                                                                                                                                                                                                   |
+| numberOfLikes  | required | `int`      | (Not currently used. Might be vestigial.)                                                                                                                                                                                                             | 
+| isTopicMessage | required | `bool`     | Whether this message corresponds to the topic header.                                                                                                                                                                                                 | 
+| pictureURL     | optional | `String?`  | The URL to a Cloud Storage file providing a picture to be associated with this message. See [Cloud Storage Data Model](cloud-storage-data-model) for details.                                                                                         |
 
 ## Badge
 
@@ -926,12 +1036,15 @@ const factory Event({
 }) 
 ```
 
-| Field    | R/O/V    | Type           | Description                                                                                                                                                                         |
-|----------|----------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| badgeID  | required | `String`       | (Primary key) A unique ID for this badge. Format: `badge-<NNN>`. For example, `"badge-001"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
-| type     | required | `String`       | One of: `"garden"`, `"gardener"`.                                                                                                                                                   |
-| name     | required | `String`       | The badge name. For example, `"Climate Victory"`.                                                                                                                                   |
-| criteria | required | `String`       | Basic criteria for the badge.                                                                                                                                                       |
+| Field     | R/O/V    | Type                   | Description                                                                                                                                                                                                                                                                   |
+|-----------|----------|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| eventID   | required | `String`               | (Primary key) A unique ID for this event. Format: `event-<country>-<chapterNum>-<userID>-<eventType>-<millis>`. For example, `"event-US-001-pjohnson@gmail.com-visitHomeScreen-0098"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
+| eventType | required | `String`               | One of over thirty event types. For example,  `"visitHomeScreen"`.                                                                                                                                                                                                            |
+| chapterID | required | `String`               | The associated chapter.                                                                                                                                                                                                                                                       |
+| userID    | required | `String`               | The associated userID.                                                                                                                                                                                                                                                        |
+| createdAt | required | `DateTime`             | The timestamp for when this event occurred.                                                                                                                                                                                                                                   | 
+| data      | optional | `Map<String, String>?` | Optional data for this event type.                                                                                                                                                                                                                                            | 
+
 
 
 
