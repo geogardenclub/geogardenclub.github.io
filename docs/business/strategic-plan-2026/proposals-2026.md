@@ -18,9 +18,9 @@ In 2026, we need to improve our ability to find new target customers and get the
 
 *Implement an "ambassador" program.* Coursicle has [ambassador](https://www.coursicle.com/blog/coursicle-ambassador/) and [affiliate](https://www.coursicle.com/blog/coursicle-affiliate/) programs whose goal is to "bring in as many new users to Coursicle as possible." Both programs involve compensated creation of short-form content for Instagram or TikTok. Compensation varies according to the program (for ambassadors, basically $10/video, for affiliates, basically 1$/download).  We will develop an ambassador program to enhance online advertising.
 
-*Improve offline marketing.* In 2025, appearances at events such as seed swaps seemed to create interest from attendees in GGC. In 2026, we will continue to table at seed swaps because of the high percentange of attendees that are our target audience.
+*Improve offline marketing.* In 2025, appearances at events such as seed swaps seemed to create interest from attendees in GGC. In 2026, we will continue to table at seed swaps because of the high percentage of attendees that are our target audience.
 
-*Implement a street team/intern program.* In conjunction with WWU, we could develop an internship program in which students help market GeoGardenClub for course credit. These students could participate in both offline marketing and online ambassador activities.
+*Implement an intern program.* In conjunction with WWU, we could develop an internship program in which students help market GeoGardenClub for course credit. These students could participate in both offline marketing and online ambassador activities.
 
 *Implement a referral program.* A correctly designed and implemented referral program could accelerate the growth of a chapter and thus support the creation of a useful gardening community.  It also provides "social proof" in the form of the referring customer.  
 
