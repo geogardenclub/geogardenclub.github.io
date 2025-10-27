@@ -248,6 +248,7 @@ const sidebars = {
         'develop/design/entity-creation',
         'develop/design/badges',
         'develop/design/retail-value',
+        'develop/design/collection-classes',
       ],
     },
     {
