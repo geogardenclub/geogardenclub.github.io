@@ -13,7 +13,7 @@ GeoGardenClub Ambassadors are passionate gardeners and community connectors who 
 
 The GeoGardenClub Ambassador Program is a community leadership initiative designed to:
 * Increase awareness of and membership in GeoGardenClub
-* Foster local networks of gardeners who share data, inspiration, and best practices
+* Foster local networks of gardeners who share data, inspiration, and best practices through GeoGardenClub
 * Gather feedback to improve the GeoGardenClub membership experience
 * Amplify stories of collaboration and resilience within the gardening community
 
@@ -23,7 +23,7 @@ Ambassadors are:
 * Active vegetable gardeners who are (currently or intend to be) active members of GeoGardenClub
 * Excited to share their gardening journey online and in their community
 * Comfortable leading small local meetups or tabling at local events
-* Eager to provide feedback on the membership experience
+* Eager to provide feedback on the GeoGardenClub experience
 * Passionate about local food, sustainability, and community building
 
 ## Ambassador Activities
