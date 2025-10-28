@@ -7,28 +7,28 @@ hide_table_of_contents: false
 
 **Join the movement to grow community food resiliency—one garden at a time!**
 
-GeoGardenClub Ambassadors are passionate gardeners and community connectors who help spread the word about the app through sharing their garden stories to inspire others to grow together.
+GeoGardenClub Ambassadors are passionate gardeners and community connectors who help spread the word about GeoGardenClub with their garden stories in order to inspire others to grow together.
 
 ## Purpose
 
 The GeoGardenClub Ambassador Program is a community leadership initiative designed to:
-* Increase awareness and adoption of the GeoGardenClub app
+* Increase awareness of and membership in GeoGardenClub
 * Foster local networks of gardeners who share data, inspiration, and best practices
-* Gather feedback to improve the app for real-world gardeners
+* Gather feedback to improve the GeoGardenClub membership experience
 * Amplify stories of collaboration and resilience within the gardening community
 
 ## Who We’re Looking For
 
 Ambassadors are:
-* Active vegetable gardeners who use the GeoGardenClub app
+* Active vegetable gardeners who are (currently or intend to be) active members of GeoGardenClub
 * Excited to share their gardening journey online and in their community
 * Comfortable leading small local meetups or tabling at local events
-* Eager to provide feedback on new app features and user experience
+* Eager to provide feedback on the membership experience
 * Passionate about local food, sustainability, and community building
 
 ## Ambassador Activities
 
-Ambassadors choose from a flexible menu of activities, earning cash stipends and perks for each completed action. Activities can be logged monthly through a simple online form and verified with photos, links, or sign-in sheets. Activities can be completed January - September.  Activities outside of this timeframe can be reimbursed with prior approval.
+Ambassadors choose from a flexible menu of activities, earning cash stipends and perks for each completed action. Activities will be logged monthly through a simple online form and verified with photos, links, or sign-in sheets. Activities can be completed January - September.  Activities outside of this timeframe can be reimbursed with prior approval.
 
 | Activity | Description                                                                                                                                             | Reward |
 | -------- |---------------------------------------------------------------------------------------------------------------------------------------------------------| ------ |
@@ -38,7 +38,7 @@ Ambassadors choose from a flexible menu of activities, earning cash stipends and
 | Host or co-host a garden meetup (10+ people) | Can be a tour, seed swap, or workshop using GeoGardenClub. (Post photo/reel/video of event)                                                             | $50/event |
 | Table at a community gardening event (seed swap, plant sale) | Share the app, distribute materials, collect signups. (Post photo/reel/video of event, share sign up list)                                              | $100/event | 
 | Submit detailed feedback on features | Participate in a short survey or feedback call.                                                                                                         | $10/feedback instance | 
-| Share a seasonal success story (with photos/reel/video) for blog or social repost | Highlight how you or your community used the app effectively.                                                                                           | $25/story | 
+| Share a seasonal success story (with photos/reel/video) for blog or social repost | Highlight how you or your community used GeoGardenClub effectively.                                                                                     | $25/story | 
 
 ## Recognition Bonus
 
