@@ -26,6 +26,10 @@ In 2026, we need to improve our ability to find new customers in our target demo
 
 *Implement an intern program.* In conjunction with WWU, we could develop an internship program in which students help market GeoGardenClub for course credit. These students could participate in both offline marketing and online ambassador activities.
 
+### Q3
+
+*Implement a referral program.* A correctly designed and implemented referral program could accelerate the growth of a chapter and thus support the creation of a useful gardening community.  It also provides "social proof" in the form of the referring customer. While we won't prioritize this activity for 2026 peak user acquisition, we will begin designing a referral program for implementation in 2027. 
+
 ## Customer Evaluation Phase
 
 In 2026, we need to improve the percentage of customers who, having downloaded the app, successfully make it through the onboarding and exploration phases and ultimately pay for the app for the first time. This requires evolving new users into experienced users who obtain value from the app. In 2026, we plan to:
@@ -84,8 +88,6 @@ The following are proposed activities that do not directly or indirectly support
 *Improve offline marketing.* In 2025, appearances at events such as seed swaps seemed to create interest from attendees in GGC. Future offline marketing activities include:
 * Tables at farmers markets
 * Tables at Home and Garden Expos
-
-*Implement a referral program.* A correctly designed and implemented referral program could accelerate the growth of a chapter and thus support the creation of a useful gardening community.  It also provides "social proof" in the form of the referring customer.
 
 ### Customer Evaluation
 
