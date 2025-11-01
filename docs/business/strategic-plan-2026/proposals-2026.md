@@ -14,39 +14,49 @@ Customer retention is a primary focus for 2026 activities.  All proposed tasks s
 
 In 2026, we need to improve our ability to find new customers in our target demographic and get them to download the system. Acquisition activities will focus on customers in our target demographic who are most likely to be retained (i.e. continue using the app beyond the free trial period.)
 
-*Improve online marketing.*  In 2025, we eventually stopped paying for online ads because it was not translating into new downloads. We hypothesize that this was because of a lack of social proof. In 2026, we will resume experimenting with online advertising through an ambassador program which will generate content while increasing social proof.
+### Q1
 
 *Implement an "ambassador" program.* Coursicle has [ambassador](https://www.coursicle.com/blog/coursicle-ambassador/) and [affiliate](https://www.coursicle.com/blog/coursicle-affiliate/) programs whose goal is to "bring in as many new users to Coursicle as possible." Both programs involve compensated creation of short-form content for Instagram or TikTok. Compensation varies according to the program (for ambassadors, basically $10/video, for affiliates, basically 1$/download).  We will develop an ambassador program to enhance online advertising.
+
+*Improve online marketing.*  In 2025, we eventually stopped paying for online ads because it was not translating into new downloads. We hypothesize that this was because of a lack of social proof. In 2026, we will resume experimenting with online advertising through an ambassador program  which will generate content while increasing social proof as well as organic social media content, email marketing, and limited paid ads.
+
+### Q2
 
 *Improve offline marketing.* In 2025, appearances at events such as seed swaps seemed to create interest from attendees in GGC. In 2026, we will continue to table at seed swaps because of the high percentage of attendees that are our target audience.
 
 *Implement an intern program.* In conjunction with WWU, we could develop an internship program in which students help market GeoGardenClub for course credit. These students could participate in both offline marketing and online ambassador activities.
 
-*Implement a referral program.* A correctly designed and implemented referral program could accelerate the growth of a chapter and thus support the creation of a useful gardening community.  It also provides "social proof" in the form of the referring customer.  
-
 ## Customer Evaluation Phase
 
 In 2026, we need to improve the percentage of customers who, having downloaded the app, successfully make it through the onboarding and exploration phases and ultimately pay for the app for the first time. This requires evolving new users into experienced users who obtain value from the app. In 2026, we plan to:
 
-*Implement "high-touch" support during evaluation.* In addition to the Getting Started emails, we could consider sending personalized emails to customers during the evaluation phase to ensure that they are not encountering roadblocks, and using secondary measures to make these emails more effective. For example, we might send an email saying something like: "We notice you haven't created a garden yet. Can we help you learn how to do that? Is there a reason you've delayed?"
+### Q1
 
 *Add user-focused home screen view.* The current Home screen has views for Gardens, Observations, Tasks, Chat, and Share. We can add a view for the User that provides information about their accomplishments (badges), and indications of what they haven't experienced yet in the app, and aggregated chapter information about planned garden tasks.
+
+*Provide a simplified create garden screen.*  We can streamline the evaluation phase a bit by inserting a simplified Create Garden form into the onboarding sequence. That way, when the user hits their Home screen, they already have a Garden.
+
+*Automate completion of planting dates.* It would be helpful to auto-complete planting dates based on user or chapter data from prior seasons. In other words, after the user enters the start date, the pull date (and other dates) could be calculated and entered automatically.
+
+### Q2
+
+*Implement "high-touch" support during evaluation.* In addition to the Getting Started emails, we could consider sending personalized emails to customers during the evaluation phase to ensure that they are not encountering roadblocks, and using secondary measures to make these emails more effective. For example, we might send an email saying something like: "We notice you haven't created a garden yet. Can we help you learn how to do that? Is there a reason you've delayed?"
 
 *Add app feature badges.* Current badges all revolve around gardening-related accomplishments. We can introduce another set of badges that are awarded based on evidence that the user has used app features. For example, a badge that is awarded when the user has created their first planting. This can both provide a sense of accomplishment and enable the system to guide the user to use the system (by indicating the remaining set of App Feature badges to earn) 
 
 *Add confetti.*  Providing some sort of animation when the user accomplishes some sort of task for the first time can provide a "dopamine hit" that makes the app more fun to use. 
 
-*Provide a simplified create garden screen.*  We can streamline the evaluation phase a bit by inserting a simplified Create Garden form into the onboarding sequence. That way, when the user hits their Home screen, they already have a Garden.
-
 *Add challenges.* Gardening challenges can encourage app use and community connections. For example, a challenge to get all gardeners paying attention to and posting observations about a single crop. Or contests like biggest pumpkin for Halloween, most beautiful squash for Thanksgiving, etc. (Note: A challenge could be implemented as a specific type of forum post.)
-
-*Automate completion of planting dates.* It would be helpful to auto-complete planting dates based on user or chapter data from prior seasons. In other words, after the user enters the start date, the pull date (and other dates) could be calculated and entered automatically.
 
 ## Customer Retention Phase
 
 In general, paying customers have enough experience with the app to derive value from it.  To retain them, we need ways to be made aware when the app is not meeting their needs and respond appropriately.  For example, we could implement:
 
+### Q1
+
 *Add forums*. A "forum" feature that enables discussion on user-generated topics. This will make it easier for users to bring up issues with the app. (Note: a feature request could be implemented as a specific type of forum post.)
+
+### Q2
 
 *Add in-app review mechanisms.* For example, a mechanism to periodically ask users for feedback about specific features at the time they are using them. 
 
@@ -74,6 +84,8 @@ The following are proposed activities that do not directly or indirectly support
 *Improve offline marketing.* In 2025, appearances at events such as seed swaps seemed to create interest from attendees in GGC. Future offline marketing activities include:
 * Tables at farmers markets
 * Tables at Home and Garden Expos
+
+*Implement a referral program.* A correctly designed and implemented referral program could accelerate the growth of a chapter and thus support the creation of a useful gardening community.  It also provides "social proof" in the form of the referring customer.
 
 ### Customer Evaluation
 
