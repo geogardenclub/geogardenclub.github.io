@@ -20,7 +20,7 @@ The GeoGardenClub Ambassador Program is a community leadership initiative design
 ## Who We’re Looking For
 
 Ambassadors are:
-* Active vegetable gardeners who are (currently or intend to be) active members of GeoGardenClub
+* Active vegetable gardeners who are also active members of GeoGardenClub
 * Excited to share their gardening journey online and in their community
 * Comfortable leading small local meetups or tabling at local events
 * Eager to provide feedback on the GeoGardenClub experience
