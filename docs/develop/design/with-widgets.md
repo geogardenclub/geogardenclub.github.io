@@ -141,8 +141,10 @@ Here's an example invocation of WithGardenData:
 
 ```dart
 class GardenDetailsScreen extends StatelessWidget {
-  const GardenDetailsScreen({Key? key, required this.gardenID})
-      : super(key: key);
+  const GardenDetailsScreen({
+    required this.gardenID,
+    super.key,
+  });
 
   final String gardenID;
   @override
