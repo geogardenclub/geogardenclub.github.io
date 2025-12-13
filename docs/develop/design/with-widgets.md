@@ -167,3 +167,74 @@ Notice that WithGardenData takes two arguments, a gardenID (used to determine wh
 It is important to note that "extended" With widgets like WithGardenData call WithCoreData internally, so the resulting collection instances include all the core data, plus (in this case) the garden details data.  As a result, the client code never needs to nest multiple With widgets. 
 
 Due to the wonders of Riverpod, data is cached and reactive.  The user can navigate away from this garden and return to it later and the system will build the collections from local copies of the data. Even better, Riverpod will keep its local copies in sync with Firebase, so that if other users add data, the current user will see the updates when they redisplay the page.
+
+Some widgets require two different With widgets. For example, the ForumTopicScreen is used in two different contexts: in the HomeScreen it displays forum topics for the current chapter, while in the admin screens it displays forum topics for all chapters.  In the first case, it uses WithCoreData, while in the second case it uses WithAllData. To accomplish this, we created the `WithDataEnum` enum. In the ForumTopicScreen, we have:
+
+```dart
+class ForumTopicScreen extends StatelessWidget {
+  const ForumTopicScreen({
+    required this.forumTopicID,
+    required this.withDataEnum,
+    super.key,
+  });
+
+  final String forumTopicID;
+  final WithDataEnum withDataEnum;
+
+  @override
+  Widget build(BuildContext context) {
+    if (withDataEnum == WithDataEnum.withAllDataFull) {
+      return WithAllData(
+        chapterOnly: false,
+        whenAllData: ({
+          required ChapterCollection chapters,
+          required GardenCollection gardens,
+          required UserCollection users,
+        }) {
+          return ForumTopicScreenInternal(
+            chapters: chapters,
+            gardens: gardens,
+            users: users,
+            forumTopicID: forumTopicID,
+            isAdmin: true,
+          );
+        },
+      );
+    }
+    return WithCoreData(
+      whenCoreData: ({
+        required ChapterCollection chapters,
+        required GardenCollection gardens,
+        required UserCollection users,
+      }) {
+        return ForumTopicScreenInternal(
+          chapters: chapters,
+          gardens: gardens,
+          users: users,
+          forumTopicID: forumTopicID,
+        );
+      },
+    );
+  }
+}
+```
+
+In the router code, we can then specify which With widget to use by passing the appropriate WithDataEnum value.
+```dart
+   GoRoute(
+      path: '/${AppRoute.adminForumTopicView.name}:forumTopicID',
+      name: AppRoute.adminForumTopicView.name,
+      builder: (context, state) => ForumTopicScreen(
+        forumTopicID: state.pathParameters['forumTopicID']!,
+        withDataEnum: WithDataEnum.withAllDataFull,
+      ),
+   ),
+    GoRoute(
+      path: '/${AppRoute.forumTopic.name}/:forumTopicID',
+      name: AppRoute.forumTopic.name,
+      builder: (context, state) => ForumTopicScreen(
+        forumTopicID: state.pathParameters['forumTopicID']!,
+        withDataEnum: WithDataEnum.withCoreData,
+      ),
+    ),
+``` 
