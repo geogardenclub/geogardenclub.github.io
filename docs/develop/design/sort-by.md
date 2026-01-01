@@ -5,9 +5,7 @@ hide_table_of_contents: false
 
 # Sort By
 
-## Goals
-
-- Provide a way to sort items in the different index screens (e.g., Badges, Chapters, Gardens, Gardeners, Crops, etc.)
+The Sort By design pattern provides a way to sort items by various fields in the different index screens (e.g., Badges, Chapters, Gardens, Gardeners, Crops, etc.)
 
 ## Design
 

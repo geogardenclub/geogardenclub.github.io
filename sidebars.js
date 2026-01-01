@@ -249,6 +249,7 @@ const sidebars = {
         'develop/design/badges',
         'develop/design/retail-value',
         'develop/design/collection-classes',
+        'develop/design/sort-by',
       ],
     },
     {
