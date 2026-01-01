@@ -27,12 +27,14 @@ To provide a mechanism for downloading both the Firebase collections and the Goo
 
 ```
 ./run_backup.sh
-09:03:38 Exporting firebase DB to cloud storage
-09:03:43 Downloading GGC cloud storage
-09:03:59 Downloading firebase index definitions
-09:04:01 Downloading Firebase collections as JSON
-09:05:27 Backup completed. See ../ggc-offsite-backups/2025-06-10_09.03.38/2025-06-10_09.03.38.backup.log for details.
-09:05:27 Next step: compress and upload ../ggc-offsite-backups/2025-06-10_09.03.38 to external storage
+08:42:22 Exporting Firebase DB to cloud storage
+08:42:31 Downloading GGC cloud storage
+08:42:49 Downloading Firebase index definitions
+08:42:53 Downloading Firebase collections as JSON
+08:45:16 Backup completed.
+08:45:16 ... Deleting ggc-app-service-account.json.
+08:45:16 ... See ../ggc-offsite-backups/2026-01-01_08.42.22/2026-01-01_08.42.22.backup.log for details.
+08:45:16 ... Next step: compress and upload ../ggc-offsite-backups/2026-01-01_08.42.22 to external storage
 ```
 
 As the script output indicates, this backup process involves the following:
@@ -41,6 +43,7 @@ As the script output indicates, this backup process involves the following:
 2. The root GGC Google Cloud Storage bucket (including all its subbuckets) are downloaded to a local directory. This directory now contains both the binary format backup of the GGC collections, and all the images uploaded by users for the GGC app.
 3. The Firebase index definitions are downloaded in JSON format.
 4. The Firebase collections are downloaded in JSON format. This makes it possible to manually inspect and potentially restore individual documents if needed.
+5. The ggc-app-service-account.json file (containing Firebase credentials) is deleted. This is due to the risk of npm attacks (like SHA1-Halud) which searches local file systems for credentials. To restore, check Google Cloud Storage or consult [Firestore-export-import documentation](https://gitlab.com/endran/firestore-export-import#notes) for directions on how to regenerate it.
 
 The script currently takes about 2 minutes to execute. When it concludes, there will be a directory named "ggc-offsite-backups" adjacent to the GGC app top-level directory. It will contain a subdirectory (named something like "2025-06-09_11.54.19") with the newly created backup. This backup subdirectory contains two JSON files (one containing the collections, and one containing the index definitions) and a directory containing a copy of the GGC Google Cloud Storage root bucket (named "ggc-app-2de7b.appspot.com"). For example:
 
