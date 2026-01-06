@@ -43,13 +43,13 @@ One benefit of Planting-level Observations is that you see them when you filter 
 
 ## How do I handle perennials?
 
-First, recall that each Planting has five associated dates: Start Date, Transplant Date, First Harvest Date, Last Harvest Date, and Pull Date. Each Planting also has five Outcomes and a Quantity field:
+First, recall that each Planting has five associated dates: Sow Date, Transplant Date, First Harvest Date, Last Harvest Date, and Pull Date. Each Planting also has five Outcomes and a Quantity field:
 
 <img width="300" src="/img/user-guide/faq/faq-planting-fields.png"/>
 
 With perennials, for each year, you usually want to record data about the first and last harvest dates, one or more Outcomes, and perhaps the quantity of your harvest. 
 
-To accomplish this, you can create a Planting with the Start Date of January 1 and a Pull Date of December 31, then provide as much data as you wish regarding that perennial for that single year. For example, here is some data for a Mango tree in the Oahu-HI Chapter for 2024:
+To accomplish this, you can create a Planting with the Sow Date of January 1 and a Pull Date of December 31, then provide as much data as you wish regarding that perennial for that single year. For example, here is some data for a Mango tree in the Oahu-HI Chapter for 2024:
 
 <img width="300" src="/img/user-guide/faq/faq-perennial.png"/>
 

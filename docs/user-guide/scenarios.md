@@ -34,7 +34,7 @@ Another option is to create a separate garden for these plantings.  In the examp
 
 <img width="300" src="/img/user-guide/raspberry-filter.png"/>
 
-Perennials can be added as plantings to track harvest periods.  To add a perennial plant as a Planting, add a new planting for the perennial with the Start Date equal to the First Harvest Date and the Pull Date equal to the End Harvest Date.
+Perennials can be added as plantings to track harvest periods.  To add a perennial plant as a Planting, add a new planting for the perennial with the Sow Date equal to the first day of the year and the Pull date equal to the last day of the year. Then fill out First Harvest Date and End Harvest Date as those dates become known.
 
 Filtering by that perennial crop lets you see how harvest periods compared year to year.
 
@@ -42,14 +42,8 @@ Filtering by that perennial crop lets you see how harvest periods compared year 
 
 ## Adding transplants to your garden that you didn't grow yourself
 
-Sometimes you may buy or get gifted seedlings that you didn't start from seed yourself.  In this case, you can add a planting for the transplant with the Start Date equal to the Transplant Date.  
+Sometimes you may buy or get gifted seedlings that you didn't start from seed yourself.  In this case, check the "Sow Date Unknown?" box when creating the Planting and use Transplant Date to indicate the date you put the seedling in the ground.
 
 ## Adding plantings before the garden bed is known
 
 If you want to add a planting to your garden plans, but aren't yet sure of the bed, you can create a MISC bed to hold these plantings.  Plantings can later be reassigned to a different bed.
-
-## Adding plantings for which the variety is unknown
-
-There are two scenarios in which you may not know the variety of the crop you are planting.
-
-1.  If you are planning for the upcoming season, you may choose to leave the "varieties" field blank, and it will be represented in the format Tomato(Unknown). Once you've decided the variety, you can update the planting to include it.

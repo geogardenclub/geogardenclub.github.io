@@ -33,7 +33,7 @@ Finally, the Chapter summary view will indicate the updated Retail Value of all 
  That's it: all you have to do is provide (or update) the quantity field for a Planting, and the system takes care of the rest.  (If you noticed that 'Ulu does not have a Retail Value, keep reading for the explanation!)
 
 :::info 
-Note that Retail Value is credited in the year associated with the Start Date for a planting. So, if a Planting is planted in 2025 and harvested in 2026, then the "credit" for that harvest is associated with 2025.  A little counter-intuitive, we agree!
+Note that Retail Value is credited in the year associated with the Sow Date for a planting. So, if a Planting is planted in 2025 and harvested in 2026, then the "credit" for that harvest is associated with 2025.  A little counter-intuitive, we agree!
 :::
 
 ## Behind the scenes: Countries and Prices

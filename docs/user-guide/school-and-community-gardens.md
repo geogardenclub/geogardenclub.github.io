@@ -25,7 +25,7 @@ GeoGardenClub offers free subscriptions to *everyone* involved with a school or 
 
 To set up your free subscriptions, the school garden educator or community garden administrator should send email to info@geogardenclub.com providing the location and contact information for the garden program. At that time, they can also provide an initial list of email accounts for the people who are currently involved with the garden.  At a minimum, this list should include the email account that owns the garden as noted above.
 
-Free subscriptions are provided in the following way: everyone who signs up with GeoGardenClub gets the first six months free.  After that, we will send discount codes to the emails currently associated with the garden to provide an additional year of free use. We will send new codes annually for the emails of people currently active in the garden.
+Free subscriptions are provided in the following way: everyone who signs up with GeoGardenClub gets the first three months free.  After that, we will send discount codes to the emails currently associated with the garden to provide additional free use. We will send new codes annually for the emails of people currently active in the garden.
 
 :::tip Take full advantage of the free subscription!
 

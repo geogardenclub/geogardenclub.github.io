@@ -15,7 +15,7 @@ To see all defined Varieties, go to the Drawer and select "Varieties" to display
 
 <img width="300" src="/img/user-guide/variety-index-screen.png"/>
 
-Use the pulldown menu to quickly access a specific Variety rather than scrolling. The Show/Hide Sections allows you to see only certain sections of each Variety.
+Use the pulldown menu to quickly access a specific Variety rather than scrolling. The Sort By dropdown allows you to order the list by various criteria (Number of Gardens, Number of Gardeners, etc).
 
 ## Create a Variety
 

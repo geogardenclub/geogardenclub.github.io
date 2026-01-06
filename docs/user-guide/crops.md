@@ -15,7 +15,7 @@ You can see all the currently defined Crops by going to the Drawer and selecting
 
 <img width="300" src="/img/user-guide/crop-index-screen.png"/> 
 
-Use the pulldown menu to quickly access a specific Crop rather than scrolling. The Show/Hide Sections allows you to see only certain sections of each Crop.
+Use the pulldown menu to quickly access a specific Crop rather than scrolling. The Sort By dropdown allows you to order the list by various criteria (Number of Varieties, Number of Gardens, etc).
 
 ## Create a Crop
 

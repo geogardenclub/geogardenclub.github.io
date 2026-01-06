@@ -26,7 +26,7 @@ export default function LandingPanel2() {
           <div className="row" style={{paddingTop: '32px'}}>
               <div className='col'>
                   <div className="text--center">
-              <h1 className="hero__subtitle">First six months free, then $4.99/month or $44.99/year (25% savings!)</h1>
+              <h1 className="hero__subtitle">First three months free, then $4.99/month or $44.99/year (25% savings!)</h1>
                   </div>
               </div>
           </div>

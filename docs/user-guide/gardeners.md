@@ -18,4 +18,4 @@ You can see a list of all the Gardeners in your Chapter by going to the Drawer a
 
 <img width="300" src="/img/user-guide/gardener-index-screen.png"/> 
 
-Use the pulldown menu to quickly access a specific Gardener rather than scrolling. The Show/Hide Sections allows you to see only certain sections pertaining to each Gardener.
+Use the pulldown menu to quickly access a specific Gardener rather than scrolling. The Sort By menu allows you to order the list by various criteria (number crops, number gardens, etc).

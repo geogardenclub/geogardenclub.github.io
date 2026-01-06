@@ -67,6 +67,7 @@ const sidebars = {
             'user-guide/get-started/home',
           ]
         },
+        'user-guide/insights',
         'user-guide/gardens',
         'user-guide/beds',
         'user-guide/plantings',
@@ -74,7 +75,6 @@ const sidebars = {
         'user-guide/observations',
         'user-guide/outcomes',
         'user-guide/forums',
-        'user-guide/sharing',
         'user-guide/crops',
         'user-guide/varieties',
         'user-guide/chapters',

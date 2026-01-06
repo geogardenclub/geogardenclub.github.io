@@ -22,7 +22,7 @@ For example, you can find out which variety of Beans grows best in your area, or
 
 :::info New here? Define your first garden.
 
-The first time you sign in to GeoGardenClub, after completing the registration, profile creation, and subscription acceptance screens, you will be taken to the Garden view within your Home screen:
+The first time you sign in to GeoGardenClub, after completing the registration, profile creation, and subscription acceptance screens, the "Gardens" tab of your Home Screen will look like this:
 
 <img width="300" src="/img/user-guide/empty-garden-view.png"/>
 
@@ -45,12 +45,14 @@ Fill out the form as follows:
 
 **Editors**: (optional)  Specify people who help complete tasks in your garden as a comma-separated list of usernames.  By adding their username, they will be able to create, update, and delete beds, plantings, tasks, outcomes, and so forth. You can add or subtract editors at any time in the **Update Garden Screen.**
 
-**Initial Bed Name**: Add the name of one garden bed.  Beds can represent literal garden beds, pots/containers, a greenhouse, or other locations where you grow food.  Additional beds can be added in the **Timeline Screen** (more instructions below)  
+**Initial Bed Name**: (Optional) All Gardens must have at least one Bed. Beds can represent literal garden beds, pots/containers, a greenhouse, or other locations where you grow food. The default name for the initial bed is "01". If you want to change the Bed name, edit this field.   
 
 Bed names must be:
-* 20 characters long or less
+* 1-20 characters long
 * Made of letters, numbers, and spaces.  No special characters.
 * You don't need to include the word "bed", we'll do that for you!  
+
+Additional beds can be added in the **Timeline Screen** (more instructions below)
 
 **Community or school garden?**  Check this box if this is a community or school garden.  There are special badges for gardeners that participate in these group efforts!
 
@@ -164,7 +166,7 @@ Here is an example Garden Index screen:
 
 <img width="300" src="/img/user-guide/garden-index.png"/>
 
-Use the pulldown menu to quickly access a specific Garden rather than scrolling. The Show/Hide Sections allows you to see only certain sections of each Garden.
+Use the Garden pulldown menu to quickly access a specific Garden rather than scrolling. The Sort By pulldown menu allows you to sort the list of gardens by various criteria, including name, number of Crops, number of Gardeners, and so forth. 
 
 
 

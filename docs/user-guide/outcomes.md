@@ -55,7 +55,7 @@ Tap the "+ Outcome" button to go to the Create Outcome screen:
 
 <img width="300" src="/img/user-guide/outcomes-create-outcome.png"/>
 
-Specify the Crop, Variety, Bed, and Planting Start Date, at which point the Outcome sliders will appear. If there are previously recorded Outcome values, the sliders will be set to them:
+Specify the Crop, Variety, Bed, and Planting Date, at which point the Outcome sliders will appear. If there are previously recorded Outcome values, the sliders will be set to them:
 
 <img width="300" src="/img/user-guide/outcomes-create-outcome-2.png"/>
 

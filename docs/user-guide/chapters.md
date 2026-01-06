@@ -57,7 +57,7 @@ Lurking in a Garden for another Chapter might give you new ideas for what to pla
 
 ### Lurking in Gardeners
 
-You can also go to the Drawer and select "Gardeners" to see all the Gardeners associated with the lurked Chapter:
+While in Lurk Mode, you can also go to the Drawer and select "Gardeners" to see all the Gardeners associated with the lurked Chapter:
 
 <img width="300" src="/img/user-guide/chapter-lurk-mode-gardeners.png"/>
 
@@ -71,29 +71,19 @@ If you go to the Drawer and select "Plantings", you can see all the Plantings as
 
 Lurking in Plantings can reveal if there are differences in timings across different chapters for the same crop or variety, as well as revealing the different crops and varieties that are grown in different regions. 
 
-### Lurking in Observations
+### Lurking in Home
 
 Finally, you can go to the Drawer and select "Home" to go to the Home Screen:
 
-<img width="300" src="/img/user-guide/chapter-lurk-mode-home-gardens.png"/>
+<img width="300" src="/img/user-guide/chapter-lurk-mode-home.png"/>
 
-As you might expect, you never own any Gardens in a lurked Chapter. (Nor do you have any Tasks.) However, if you click the "Observations" icon in the bottom nav bar, you can see the Observations associated with the lurked Chapter:
+This shows you the Insight Widgets associated with the Lurked Chapter.
+
+If you click the "Observations" icon in the bottom nav bar, you can see the Observations associated with the lurked Chapter:
 
 <img width="300" src="/img/user-guide/chapter-lurk-mode-home-observations.png"/>
 
 Lurking in Observations is a way to get a visual sense for what gardeners are doing in a different Chapter. It might also give you new ideas for what is worth documenting in your own garden.
-
-### Lurking in Share Posts
-
-Finally, you can also see what resources have been shared in the lurked Chapter by clicking on the "Share" icon:
-
-<img width="300" src="/img/user-guide/chapter-lurk-mode-home-share.png"/>
-
-Lurking in Share Posts can provide insight into the resources that are being shared in different places, and might give you new ideas for what to share in your own Chapter. 
-
-:::info Chat Rooms are not shown in Lurk Mode
-We have decided to not make Chat Rooms available outside their "home" Chapter, so clicking on the Chat icon does not display any Chat Rooms when in Lurk Mode.
-:::
 
 
 

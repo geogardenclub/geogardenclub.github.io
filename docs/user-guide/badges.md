@@ -24,7 +24,7 @@ For example, the Compost Champion Badge is a gardener specific badge.  It requir
 
 ## Badge Index
 
-Open the side navigation menu and select Badges to view the **Badge Index Screen.** The **Badge Index Screen** displays all badges, requirements, and which gardeners have that badge.  Use the Show/Hide Sections to have the information you are interested in automatically displayed for each badge. The bottom menu allows you to toggle between Garden, Gardener, and Chapter badges.
+Open the side navigation menu and select Badges to view the **Badge Index Screen.** The **Badge Index Screen** displays all badges, requirements, and which gardeners have that badge.  The bottom menu allows you to toggle between Garden, Gardener, and Chapter badges.
 
 <video controls width="300">
   <source src="/img/user-guide/badges.mp4"/>

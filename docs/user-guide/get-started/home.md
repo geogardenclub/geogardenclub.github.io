@@ -10,22 +10,22 @@ hide_table_of_contents: true
 
 Each time you sign in to the GeoGardenClub app, you will be taken to the Home screen.  The Home screen is your "dashboard" and provides quick access to important features. 
 
-## Home screen components
+## Screen components
 
-Here is an example that highlights some of the Home screen components:
+Here is an example that highlights some of standard components of GeoGardenClub screens:
 
 <img width="300" src="/img/user-guide/home-annotated.png"/>
 
-**Banner:** All screens start with a Banner that shows the chapter you are in and your username. Tap your username for a drop-down list that takes you to your settings or allows you to logout.
+**Banner:** All screens start with a Banner that shows the chapter you are in and a cog wheel icon. Tap the icon for a drop-down list that takes you to your settings or allows you to logout.
 
-**NavBar:** The Home screen NavBar provides:
-* The name of the screen. 
-* The Help icon ("?"). Tap it to navigate to the User Guide documentation for the currently displayed view on this Home screen.
-* The "hamburger" icon. Tap it to reveal the Drawer.
+**NavBar:** The NavBar provides:
+* A "hamburger" icon. Tap it to reveal the Drawer.
+* The name of the current screen. 
+* A Help icon ("?"). Tap it to navigate to the User Guide documentation for the current screen.
 
 Some screens may provide additional icons in the NavBar to support operations like editing, deletion, copying, etc.
 
-**Bottom NavBar:** The Home screen includes a Bottom NavBar with icons that take you to useful "views". In the Home screen, there are five views (Gardens, Observations, Tasks, Chat, and Share). For these views, a red notification icon will appear if something has changed since the last time you visited.
+**Bottom NavBar:** Some screens, like the Home screen, include a Bottom NavBar with icons that take you to useful "views". In the Home screen, there are five views (Insights, Gardens, Observations, Tasks, and Forums). For these views, a red notification icon might appear if something has changed since the last time you visited.
 
 ## The Drawer
 
@@ -37,7 +37,7 @@ The Drawer is your "site map" to the app.  It provides access to all of the top-
 
 Note that if you tap on a screen name in the Drawer, and nothing happens, it's because you are already on that screen. Just tap outside the Drawer to reveal the screen. 
 
-Let's now get to the most important concept in the GeoGardenClub app: gardens!
+Let's next take a deeper look at the first Home Screen view: Insights.
 
 
 
