@@ -538,9 +538,33 @@ const factory Variety({
 
 ## Planting
 
-A Planting represents one or more plants of the same Variety, planted in a single Bed, all with the same approximate timings (i.e. sow date, transplant date, first harvest date, etc.).   
+A Planting represents:
+* One or more plants of the same Variety, 
+* Planted in a single Bed, 
+* All with the same approximate timings (i.e. sow date, transplant date, first harvest date, etc.).   
 
-If the same Variety is planted in two different beds, then this must be represented by two Planting instances. 
+This implies:
+* If the same Variety is planted in two different beds, then this requires two Planting instances. 
+* If two plants with the same Variety are planted in the same bed at different times, then this requires two Planting instances.
+
+The Planting entity represents several common planting situations through the `startDate`, `transplantDate` and `startDateUnknown` fields:
+
+*1. The gardener sows a seed for a planting in their bed.* In this case, the gardener supplies `startDate`. The `transplant Date` is null, and `startDateUnknown` defaults to false.  
+
+*2. The gardener sows a seed for a planting in a pot and later transplants it into a bed once it has grown.* In this case, the gardener supplies `startDate` and `transplant Date`, and `startDateUnknown` defaults to false.
+
+*3. The gardener obtains a "starter" planting and plants it into the bed, and thus does not know when it was sown.* This is the tricky one. In this case the gardener supplies `transplant Date` and sets `startDateUnknown` to true.  The system will set `startDate` to the same value as `transplantDate` (for backward compatibility). 
+
+:::warning start date vs. sow date
+The Planting entity was originally implemented with a field named "startDate", and this field was referred to as "Start Date" in the user interface.  Eventually we realized that a more precise and descriptive name was "Sow Date". However, updating the entity and database collection to use sowDate as the field would be a significant undertaking.
+
+So, for the present time, the user interface refers to this field as "Sow Date". However, in the code, it is named startDate.
+:::
+
+
+
+
+
 
 Here is an example of a Planting document:
 
@@ -550,24 +574,25 @@ Here is an example of a Planting document:
 
 ```dart
 factory Planting({
-  required String plantingID, 
-  required String chapterID, 
-  required String gardenID, 
-  required String cropID, 
-  required String cachedCropName, 
-  required String bedID, 
-  required String cachedBedName, 
-  required DateTime startDate, 
+  required String plantingID,
+  required String chapterID,
+  required String gardenID,
+  required String cropID,
+  required String cachedCropName,
+  required String bedID,
+  required String cachedBedName,
   required DateTime pullDate,
-  String? notes, 
-  String? varietyID, 
-  String? cachedVarietyName, 
-  String? outcomeID, 
-  DateTime? transplantDate, 
-  DateTime? firstHarvestDate, 
-  DateTime? endHarvestDate, 
+  bool? startDateUnknown,
+  String? notes,
+  String? varietyID,
+  String? cachedVarietyName,
+  String? outcomeID,
+  DateTime? startDate,
+  DateTime? transplantDate,
+  DateTime? firstHarvestDate,
+  DateTime? endHarvestDate,
   DateTime? createdAt,
-})
+}) 
 ```
 | Field             | R/O/V     | Type        | Description                                                                                                                                                                                                                                                |
 |-------------------|-----------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -580,12 +605,13 @@ factory Planting({
 | cachedBedName     | required  | `String`    | The bed name. For example, `"01"`.                                                                                                                                                                                                                         |
 | varietyID         | required  | `String`    | The associated variety. For example, `"variety-US-001-435-0499"`.                                                                                                                                                                                          |
 | cachedVarietyName | required  | `String`    | The variety name. For example, `"Unknown"`.                                                                                                                                                                                                                |
-| startDate         | required  | `DateTime`  | The day this planting was started (or planned to be started). For example, `"2023-07-31T00:00:00.000"`.                                                                                                                                                    |
 | pullDate          | required  | `DateTime`  | The day this planting was pulled (or planned to be pulled). For example, `"2023-10-31T00:00:00.000"`.                                                                                                                                                      |
+| startDate         | optional  | `DateTime`  | The day this planting was sown (if known). For example, `"2023-07-31T00:00:00.000"`.                                                                                                                                                                       |
+| startDateUnknown  | optional  | `bool?`     | `True` if the gardener is planting a starter and does not know the date that it was sown.                                                                                                                                                                  |                                                                                                                                                                  |
 | notes             | optional  | `String?`   | Gardener supplied notes about this planting.                                                                                                                                                                                                               |
 | outcomeID         | optional  | `String?`   | The outcomes associated with this planting, if any. For example, `"outcome-US-98225-102-1001-3472"`.                                                                                                                                                       |
 | createdAt         | optional  | `DateTime?` | A timestamp indicating when this planting came into existence.                                                                                                                                                                                             |
-| transplantDate    | optional  | `DateTime?` | A timestamp indicating if this planting was transplanted.                                                                                                                                                                                                  |
+| transplantDate    | optional  | `DateTime?` | A timestamp indicating if this planting was transplanted. Also provided when a starter is being planted.                                                                                                                                                   |
 | firstHarvestDate  | optional  | `DateTime?` | A timestamp indicating if there was a first harvest date.                                                                                                                                                                                                  |
 | endHarvestDate    | optional  | `DateTime?` | A timestamp indicating if harvest came to end (and the planting was left to seed).                                                                                                                                                                         |
 | gardenerID        | vestigial |             |                                                                                                                                                                                                                                                            |
@@ -1044,8 +1070,74 @@ const factory Event({
 | userID    | required | `String`               | The associated userID.                                                                                                                                                                                                                                                        |
 | createdAt | required | `DateTime`             | The timestamp for when this event occurred.                                                                                                                                                                                                                                   | 
 | data      | optional | `Map<String, String>?` | Optional data for this event type.                                                                                                                                                                                                                                            | 
+## Activity
 
+The Activity entity is used to implement the [Recent Chapter Activities](../../user-guide/insights#recent-chapter-activities) and [Upcoming Chapter Activities](../../user-guide/insights.md#upcoming-chapter-activities) Insight widgets.
 
+The idea is that whenever a potentially interesting "activity" occurs in the system (a new user joins, a new garden is created, a new planting date is saved, etc.), a corresponding Activity document is generated.  The Insight Widgets presents these activities and includes links that allow the user to drill down and find out more about the activity if they want. This provides users with a kind of situational awareness about their chapter (or other chapters, if they go to Lurk Mode).
 
+Here is an example of an Activity document:
+
+<img src="/img/develop/firestore/firestore-console-activities.png"/>
+
+### Activity entity representation
+
+```dart
+factory Activity({
+  required String activityID,
+  required ActivityType activityType,
+  required DateTime activityTime,
+  required String chapterID,
+  String? badgeID,
+  String? cropID,
+  String? forumTopicID,
+  String? gardenID,
+  String? newChapterID,
+  String? observationID,
+  String? outcomeID,
+  String? plantingID,
+  String? userID,
+  String? varietyID,
+  @Default({}) Map<String, String> dataMap,
+})
+```
+
+| Field         | R/O/V    | Type                   | Description                                                                                                                                                                      |
+|---------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| activityID    | required | `String`               | (Primary key) A unique ID for this activity. Format: `activity-<activityType>-<triggering-docID>`. For example, `"activity-plantingHarvestEnd-planting-US-98237-135-1331-0233"`. |
+| activityType  | required | `String`               | One of around 12 activity types. For example,  `"gardenAdded"`.                                                                                                                  |
+| activityTime  | required | `DateTime`             | The timestamp for when this activity occurred.                                                                                                                                   | 
+| chapterID     | required | `String`               | The associated chapter.                                                                                                                                                          |
+| badgeID       | optional | `String`               | The associated badgeID, if relevant.                                                                                                                                             |
+| cropID        | optional | `String`               | The associated cropID, if relevant.                                                                                                                                              |
+| forumTopicID  | optional | `String`               | The associated forumTopicID, if relevant.                                                                                                                                        |
+| gardenID      | optional | `String`               | The associated gardenID, if relevant.                                                                                                                                            |
+| newChapterID  | optional | `String`               | The associated chapterID, if relevant.                                                                                                                                           |
+| observationID | optional | `String`               | The associated observationID, if relevant.                                                                                                                                       |
+| outcomeID     | optional | `String`               | The associated outcomeID, if relevant.                                                                                                                                           |
+| plantingID    | optional | `String`               | The associated plantingID, if relevant.                                                                                                                                          |
+| userID        | optional | `String`               | The associated userID, if relevant.                                                                                                                                              |
+| varietyID     | optional | `String`               | The associated varietyID, if relevant.                                                                                                                                           |
+| dataMap       | optional | `Map<String, String>?` | Optional data for this activity type.                                                                                                                                            | 
+
+In order to ensure that the relevant optional fields are always present given a particular ActivityType, there are a set of factory methods, one per activity type, which must be used to construct Activity documents. For example:
+
+```dart
+ factory Activity.makeChapterAdd({
+    required Chapter chapter,
+    required Chapter newChapter,
+  }) {
+    return Activity(
+      activityID:
+          'activity-chapterAdd-${chapter.chapterID}-${newChapter.chapterID}',
+      activityType: ActivityType.chapterAdded,
+      activityTime: newChapter.createdAt!,
+      chapterID: chapter.chapterID,
+      newChapterID: newChapter.chapterID,
+    );
+  }
+```
+
+Note that, unlike other entities, there is no milliseconds field associated with the primary key (activityID). This is intentional. We want users to overwrite an existing Activity document when the associated activity changes. For example, if a user updates the pullDate associated with a planting, then the associated Activity document will be overwritten with the new pull date. 
 
 
