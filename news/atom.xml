@@ -2,11 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://geogardenclub.com/news</id>
     <title>Geo Garden Club Blog</title>
-    <updated>2025-12-07T00:00:00.000Z</updated>
+    <updated>2026-01-09T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://geogardenclub.com/news"/>
     <subtitle>Geo Garden Club Blog</subtitle>
     <icon>https://geogardenclub.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[GGC App: 3.0.0 Release]]></title>
+        <id>https://geogardenclub.com/news/2026/01/09/release</id>
+        <link href="https://geogardenclub.com/news/2026/01/09/release"/>
+        <updated>2026-01-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this release:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/01/09/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+<p>With a new year comes a new major release: 3.0.0!</p>
+<p>Added:</p>
+<ul>
+<li>New feature: Insight View!  When you open the app, you will be placed in this view which is designed to provide useful information about your garden and chapter. We're very excited about this feature and will roll out additional Insight Widgets in the next few releases.</li>
+</ul>
+<p>Fixed:</p>
+<ul>
+<li>"Start Date Unknown?" checkbox added to the Planting form. This makes it easy to represent starts that you bought at a store or were given from a friend.</li>
+<li>Fixes to sorting, retail value calculation, and more.</li>
+</ul>
+<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
+        <author>
+            <name>Philip Johnson</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Releases" term="Releases"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GGC App: 2.28.0 Release]]></title>
         <id>https://geogardenclub.com/news/2025/12/07/release</id>
@@ -403,25 +427,5 @@ Where: Amendment 21, Bellingham, WA <br></p>
             <email>info@geogardenclub.com</email>
         </author>
         <category label="Newsletter" term="Newsletter"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Get Growing with GeoGardenClub]]></title>
-        <id>https://geogardenclub.com/news/2025/03/21/article</id>
-        <link href="https://geogardenclub.com/news/2025/03/21/article"/>
-        <updated>2025-03-21T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Edible Seattle’s editor Lindsay Kucera recently sat down with Jenna Deane to discuss GeoGardenClub.]]></summary>
-        <content type="html"><![CDATA[<p>Edible Seattle’s editor Lindsay Kucera recently sat down with Jenna Deane to discuss GeoGardenClub.</p>
-<p>Contents:</p>
-<ul>
-<li>What it is</li>
-<li>How it works</li>
-<li>Q&amp;A with GeoGardenClub Founder Jenna Deane</li>
-</ul>
-<p>Click <a href="https://us21.campaign-archive.com/?u=b375c83a1223fb09b4bc46df2&amp;id=d7d2a1117a" target="_blank" rel="noopener noreferrer">here</a> for the full article.</p>]]></content>
-        <author>
-            <name>Lindsay Kucera</name>
-            <uri>https://www.edibleseattle.com/</uri>
-        </author>
-        <category label="Article" term="Article"/>
     </entry>
 </feed>
