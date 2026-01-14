@@ -43,7 +43,7 @@ Similar to other cloud-based document management systems, GGC enables collaborat
 
 If you create a garden, you are assigned the "owner" role, which means you have total control over the garden, including the ability to delete it. 
 
-The owner of a garden can invite one or more other gardeners in the Chapter to be an "editor" of that garden.  This enables co-management of a single garden by multiple gardeners. Editors have almost all the capabilities of the owner, except the ability to add/delete editors or delete the garden. The screenshot shows a garden owned by "@jenna" who has granted editing privileges to "@asaspades" and "@fiveoclockphil".
+The owner of a garden can invite one or more other gardeners in the Chapter to be an "editor" of that garden.  This enables co-management of a single garden by multiple gardeners. Editors have almost all the capabilities of the owner, except the ability to add/delete editors or delete the garden. The screenshot shows a garden owned by "@jenna" who has granted editing privileges to "@asaspades".
 
 All gardeners have a read-only "view" role of all gardens in the Chapter. This means that you can view everyone's garden plans and outcome data. This enables gardeners to see what other gardeners have grown successfully in their gardens and "copy" a planting from another garden plan into their own. 
 
@@ -106,12 +106,7 @@ The adjacent screenshot provides an example for all the tomato plant varieties. 
 
 We believe that an important step toward community food resiliency is to develop robust local networks for sharing "inputs", such as seeds, all the way to "outputs", such as excess food. 
 
-GGC provides a "Sharing" screen that enables gardeners to make posts to "offer" or "seek" items. Here's an example:
+GGC provides Forums that make it easy for gardeners to share (or request) local resources. Here's an example
 
-<img width="300" src="/img/user-guide/share-view.png"/>
+<img width="300" src="/img/user-guide/forum-view.png"/>
 
-Once one gardener makes a post, others can reply to participate in the "offer" or to provide help with the item being sought.
-
-
-
-In the next section, we describe some other gardening technologies and how they relate to GeoGardenClub.

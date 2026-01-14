@@ -22,8 +22,6 @@ const sidebars = {
       'home/welcome',
       'home/serious-gardeners',
       'home/innovations',
-      'home/related-work',
-      'home/food-security',
       'home/team',
       'home/contact-us',
     ]

@@ -27,8 +27,8 @@ On the other hand, if you want to "group garden", GGC allows you to provide "edi
 **3. Support for the long haul.**
 Most of the home gardening apps we've seen focus on a single season. For us, gardening is a multi-year activity where we try to build upon our experiences from prior seasons to improve our gardens each year.  To facilitate this, GGC enables you to record and analyze garden data over multiple seasons, helping you to remember what you did in the past, and build upon your successes and failures.
 
-**4. Seed saving and sharing.**
-We buy seeds from companies, but we also want to get better at growing certain plants to seed and using (and sharing) those seeds in the next growing season. GGC enables you to incorporate seed saving into planting timelines to ensure accurate space allocation for each crop. In addition, GGC provides a sharing mechanism for each chapter, enabling gardeners to post that they have seeds available for sharing with other chapter members. 
+**4. Resource sharing.**
+We buy seeds from companies, but we also want to get better at growing certain plants to seed and using (and sharing) those seeds in the next growing season. We also want easy ways to share (or request surplus) gardening resources from others in our local community. GGC enables you to incorporate seed saving into planting timelines to ensure accurate space allocation for each crop. In addition, GGC provides forums for each chapter, enabling gardeners to share resources and insights with each other.
 
 :::tip From garden planning to community food resilience
 :::
