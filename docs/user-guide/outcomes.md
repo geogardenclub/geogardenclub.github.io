@@ -66,11 +66,11 @@ After updating the Outcome values, scroll down and tap the Submit button to save
 
 ### ...from Update Planting
 
-A second way manage Outcome data is through the Update Planting screen. To do that, follow the instructions for [Updating a Planting](plantings.md#update-a-planting). 
+A second way manage Outcome data is through the Update Planting screen. To do that, follow the instructions for [Edit Outcomes](plantings.md#edit-outcomes). 
 
-Once the Update Planting screen is displayed, you can scroll down to find sliders that enable you to record (and change) the rating associated with any of the five outcomes:
+The Edit Outcomes screen allows you to adjust the outcomes:
 
-<img width="300" src="/img/user-guide/outcomes-update-planting.png"/>
+<img width="300" src="/img/user-guide/update-planting-outcomes.png"/>
 
 ## Delete Outcome data
 

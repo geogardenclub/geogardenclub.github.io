@@ -14,11 +14,13 @@ Retail Value estimates the cost to purchase the same quantity of produce you gre
 * Another goal of GeoGardenClub is to help gardeners improve their garden's productivity, ideally to the point where the retail value of the produce grown in a season exceeds the expenses associated with the garden for that same season.
 * Retail Value provides a way to answer the question: "Am I getting better at gardening from year to year?"
 
-To utilize the Retail Value feature, all you have to do is provide a value for the "Quantity" field for a Planting.  You do this in the [Update Planting](plantings.md#update-a-planting) screen. For example, the following screen illustrates an update to a Planting of Mango to indicate that 250 lbs of mango were harvested:
+To utilize the Retail Value feature, all you have to do is provide a value for the "Quantity" field for a Planting.  You do this in the [Edit Quantity](plantings.md#edit-quantity) screen of Update Planting. For example, the following screen illustrates an update to a Planting of Mango to indicate that 250 lbs of mango were harvested:
 
 <img width="300" src="/img/user-guide/retail-value-quantity.png"/>
 
-Once that value is entered and the Submit button is pressed, the Planting summary indicates the new quantity and Retail Value of that Planting:
+This field only accepts digits, and automatically inserts the decimal place, so to indicate 250 lbs you must enter "25000". 
+
+Once that value is entered and the Submit button is pressed, the Planting summary indicates the quantity and Retail Value of that Planting:
 
 <img width="300" src="/img/user-guide/retail-value-planting.png"/>
 

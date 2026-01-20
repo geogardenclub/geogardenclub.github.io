@@ -9,7 +9,7 @@ hide_table_of_contents: false
 
 Each time you bring up the GeoGardenClub app, it begins by displaying the Insights View. The Insights View consists of a number of "Insight Widgets", which are intended to help you be productive and make the most of GeoGardenClub. 
 
-Here is a screenshot that shows an example of the "Get Started" and "Recent Chapter Activities" Insight Widgets: 
+Here is a screenshot that illustrates two Insight Widgets: "Get Started" and "Recent Chapter Activities": 
 
 <img width="300" src="/img/user-guide/home-insights.png"/>
 
@@ -56,9 +56,24 @@ It can be equally useful to see what gardeners are planning to do in their garde
 
 <img width="300" src="/img/user-guide/home-insights-upcoming-activities.png"/>
 
-In this case, it turns out that three Plantings are planning to be pulled in this Chapter in the next week. 
+In this case, it turns out that one Planting is scheduled to be pulled in this Chapter in the next week. 
 
 You can tap on "Next 30 Days" to see what activities are planned in your Chapter for the next 30 days.
+
+### Community Connector
+
+The Community Connector Insight Widget provides four links to help you engage with the GeoGardenClub community:
+
+<img width="300" src="/img/user-guide/home-insights-community-connector.png"/>
+
+* Instagram: Tap the Instagram icon to go to our GeoGardenClub Instagram account. We regularly post new stories about the community.
+
+* Facebook: Tap the Facebook icon to go to our GeoGardenClub Facebook account. We regularly post new stories about the community here as well.
+
+* Message: If you want to let a friend know about GeoGardenClub, just tap this icon. It will bring up your Text Messaging app prefilled with a link to GeoGardenClub.
+
+* Review. Providing a review of GeoGardenClub is a great way to help spread the word about our community.  Tap this icon to go to the App Store (iOS) or Play Store (Android).
+
 
 ## Lurk Mode
 
