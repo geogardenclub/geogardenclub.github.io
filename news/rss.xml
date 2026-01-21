@@ -14,14 +14,14 @@
             <guid>https://geogardenclub.com/news/2026/01/21/release</guid>
             <pubDate>Wed, 21 Jan 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/01/21/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/01/21/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
 <ul>
-<li>New Insight Widget: "Community Connector".</li>
-<li>Improved support for perennials</li>
-<li>Redesign and simplification of the Planting user interface.</li>
-<li>Added Markdown support in description fields</li>
+<li class="">New Insight Widget: "Community Connector".</li>
+<li class="">Improved support for perennials</li>
+<li class="">Redesign and simplification of the Planting user interface.</li>
+<li class="">Added Markdown support in description fields</li>
 </ul>
-<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
             <category>Releases</category>
         </item>
@@ -31,18 +31,18 @@
             <guid>https://geogardenclub.com/news/2026/01/09/release</guid>
             <pubDate>Fri, 09 Jan 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/01/09/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/01/09/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
 <p>With a new year comes a new major release: 3.0.0!</p>
 <p>Added:</p>
 <ul>
-<li>New feature: Insight View!  When you open the app, you will be placed in this view which is designed to provide useful information about your garden and chapter. We're very excited about this feature and will roll out additional Insight Widgets in the next few releases.</li>
+<li class="">New feature: Insight View!  When you open the app, you will be placed in this view which is designed to provide useful information about your garden and chapter. We're very excited about this feature and will roll out additional Insight Widgets in the next few releases.</li>
 </ul>
 <p>Fixed:</p>
 <ul>
-<li>"Start Date Unknown?" checkbox added to the Planting form. This makes it easy to represent starts that you bought at a store or were given from a friend.</li>
-<li>Fixes to sorting, retail value calculation, and more.</li>
+<li class="">"Start Date Unknown?" checkbox added to the Planting form. This makes it easy to represent starts that you bought at a store or were given from a friend.</li>
+<li class="">Fixes to sorting, retail value calculation, and more.</li>
 </ul>
-<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
             <category>Releases</category>
         </item>
@@ -52,19 +52,19 @@
             <guid>https://geogardenclub.com/news/2025/12/07/release</guid>
             <pubDate>Sun, 07 Dec 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/12/07/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/12/07/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
 <p>Added:</p>
 <ul>
-<li>New feature: Forums! Replaces Chat and Share. Click <a href="https://geogardenclub.com/docs/user-guide/forums" target="_blank" rel="noopener noreferrer">here</a> for details.</li>
+<li class="">New feature: Forums! Replaces Chat and Share. Click <a href="https://geogardenclub.com/docs/user-guide/forums" target="_blank" rel="noopener noreferrer" class="">here</a> for details.</li>
 </ul>
 <p>Fixed:</p>
 <ul>
-<li>Onboarding screens refreshed.</li>
-<li>App Store screens refreshed.</li>
-<li>Fixed bug that led to user profile picture deletion after timeline view update.</li>
-<li>Background DB updates do not reinitialize in-progress form fields.</li>
+<li class="">Onboarding screens refreshed.</li>
+<li class="">App Store screens refreshed.</li>
+<li class="">Fixed bug that led to user profile picture deletion after timeline view update.</li>
+<li class="">Background DB updates do not reinitialize in-progress form fields.</li>
 </ul>
-<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
             <category>Releases</category>
         </item>
@@ -74,11 +74,11 @@
             <guid>https://geogardenclub.com/news/2025/11/23/newsletter</guid>
             <pubDate>Sun, 23 Nov 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this newsletter:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/11/23/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/11/23/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
 <ul>
-<li>We're launching the GeoGardenClub Ambassador Program!</li>
+<li class="">We're launching the GeoGardenClub Ambassador Program!</li>
 </ul>
-<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=1342e11a12" target="_blank" rel="noopener noreferrer">here</a> for the full newsletter.</p>]]></content:encoded>
+<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=1342e11a12" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Jenna Deane)</author>
             <category>Newsletter</category>
         </item>
@@ -88,12 +88,12 @@
             <guid>https://geogardenclub.com/news/2025/10/25/newsletter</guid>
             <pubDate>Sat, 25 Oct 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this newsletter:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/10/25/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/10/25/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
 <ul>
-<li>Retail Value feature</li>
-<li>Featured Gardener: Jenna!</li>
+<li class="">Retail Value feature</li>
+<li class="">Featured Gardener: Jenna!</li>
 </ul>
-<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=d993f592a0" target="_blank" rel="noopener noreferrer">here</a> for the full newsletter.</p>]]></content:encoded>
+<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=d993f592a0" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Jenna Deane)</author>
             <category>Newsletter</category>
         </item>
@@ -103,17 +103,17 @@
             <guid>https://geogardenclub.com/news/2025/10/22/release</guid>
             <pubDate>Wed, 22 Oct 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/10/22/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/10/22/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
 <p>Added:</p>
 <ul>
-<li>Improved <a href="https://geogardenclub.com/docs/user-guide/retail-value" target="_blank" rel="noopener noreferrer">Retail Value</a> feature.</li>
+<li class="">Improved <a href="https://geogardenclub.com/docs/user-guide/retail-value" target="_blank" rel="noopener noreferrer" class="">Retail Value</a> feature.</li>
 </ul>
 <p>Fixed:</p>
 <ul>
-<li>Improved Last Update timestamps</li>
-<li>Reduced odds of verification email going to spam.</li>
+<li class="">Improved Last Update timestamps</li>
+<li class="">Reduced odds of verification email going to spam.</li>
 </ul>
-<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
             <category>Releases</category>
         </item>
@@ -123,12 +123,12 @@
             <guid>https://geogardenclub.com/news/2025/09/14/newsletter</guid>
             <pubDate>Sun, 14 Sep 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this newsletter:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/09/14/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/09/14/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
 <ul>
-<li>Web interface to GGC</li>
-<li>Featured Gardener: Katie!</li>
+<li class="">Web interface to GGC</li>
+<li class="">Featured Gardener: Katie!</li>
 </ul>
-<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=af75bc7c26" target="_blank" rel="noopener noreferrer">here</a> for the full newsletter.</p>]]></content:encoded>
+<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=af75bc7c26" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Jenna Deane)</author>
             <category>Newsletter</category>
         </item>
@@ -138,14 +138,14 @@
             <guid>https://geogardenclub.com/news/2025/08/25/release</guid>
             <pubDate>Mon, 25 Aug 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/08/25/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/08/25/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
 <p>Fixed:</p>
 <ul>
-<li>UI Layout fixes for small screen devices.</li>
-<li>Improvements to subscription workflow</li>
-<li>Create Profile fixes.</li>
+<li class="">UI Layout fixes for small screen devices.</li>
+<li class="">Improvements to subscription workflow</li>
+<li class="">Create Profile fixes.</li>
 </ul>
-<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
             <category>Releases</category>
         </item>
@@ -155,13 +155,13 @@
             <guid>https://geogardenclub.com/news/2025/08/09/newsletter</guid>
             <pubDate>Sat, 09 Aug 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this newsletter:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/08/09/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/08/09/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
 <ul>
-<li>New annual subscription option</li>
-<li>New feature: Simplified Task, Outcome, and Observation creation</li>
-<li>Featured Gardener: Jess!</li>
+<li class="">New annual subscription option</li>
+<li class="">New feature: Simplified Task, Outcome, and Observation creation</li>
+<li class="">Featured Gardener: Jess!</li>
 </ul>
-<p>Click <a href="https://mailchi.mp/e92c1a99a018/aug-2025?e=511e166622" target="_blank" rel="noopener noreferrer">here</a> for the full newsletter.</p>]]></content:encoded>
+<p>Click <a href="https://mailchi.mp/e92c1a99a018/aug-2025?e=511e166622" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Jenna Deane)</author>
             <category>Newsletter</category>
         </item>
@@ -171,16 +171,16 @@
             <guid>https://geogardenclub.com/news/2025/08/06/release</guid>
             <pubDate>Wed, 06 Aug 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/08/06/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/08/06/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
 <p>Added:</p>
 <ul>
-<li>Improved UI for <a href="https://geogardenclub.com/docs/user-guide/tasks#create-a-task">Create Task</a>, <a href="https://geogardenclub.com/docs/user-guide/outcomes#manage-outcomes">Create Outcome</a>, and <a href="https://geogardenclub.com/docs/user-guide/observations#create-observation">Create Observation</a>.</li>
+<li class="">Improved UI for <a class="" href="https://geogardenclub.com/docs/user-guide/tasks#create-a-task">Create Task</a>, <a class="" href="https://geogardenclub.com/docs/user-guide/outcomes#manage-outcomes">Create Outcome</a>, and <a class="" href="https://geogardenclub.com/docs/user-guide/observations#create-observation">Create Observation</a>.</li>
 </ul>
 <p>Fixed:</p>
 <ul>
-<li>Fixed bug in Planting Creation for initial chapter member.</li>
+<li class="">Fixed bug in Planting Creation for initial chapter member.</li>
 </ul>
-<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
             <category>Releases</category>
         </item>
@@ -190,20 +190,20 @@
             <guid>https://geogardenclub.com/news/2025/07/10/release</guid>
             <pubDate>Thu, 10 Jul 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/07/10/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/07/10/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
 <p>Added:</p>
 <ul>
-<li>Timeline choices are sticky</li>
-<li>GGC App Icon now has a badge indicating if there are unread chats or obervations, or overdue tasks.</li>
+<li class="">Timeline choices are sticky</li>
+<li class="">GGC App Icon now has a badge indicating if there are unread chats or obervations, or overdue tasks.</li>
 </ul>
 <p>Fixed:</p>
 <ul>
-<li>Startup "dark screen" eliminated.</li>
-<li>Settings button is now a gear icon, not a clipped username.</li>
-<li>App Review prompts take into account multiple device installations.</li>
-<li>Misc bug fixes and performance improvements.</li>
+<li class="">Startup "dark screen" eliminated.</li>
+<li class="">Settings button is now a gear icon, not a clipped username.</li>
+<li class="">App Review prompts take into account multiple device installations.</li>
+<li class="">Misc bug fixes and performance improvements.</li>
 </ul>
-<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
             <category>Releases</category>
         </item>
@@ -213,12 +213,12 @@
             <guid>https://geogardenclub.com/news/2025/07/05/newsletter</guid>
             <pubDate>Sat, 05 Jul 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this newsletter:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/07/05/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/07/05/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
 <ul>
-<li>Top Three Tricks with GeoGardenClub</li>
-<li>Featured Gardener: Threse</li>
+<li class="">Top Three Tricks with GeoGardenClub</li>
+<li class="">Featured Gardener: Threse</li>
 </ul>
-<p>Click <a href="https://mailchi.mp/a921c2d2c791/best-garden-yet?e=511e166622" target="_blank" rel="noopener noreferrer">here</a> for the full newsletter.</p>]]></content:encoded>
+<p>Click <a href="https://mailchi.mp/a921c2d2c791/best-garden-yet?e=511e166622" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Jenna Deane)</author>
             <category>Newsletter</category>
         </item>
@@ -228,26 +228,26 @@
             <guid>https://geogardenclub.com/news/2025/06/17/release</guid>
             <pubDate>Tue, 17 Jun 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/06/17/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/06/17/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
 <p>Added:</p>
 <ul>
-<li>Support for accents and non-English characters in entity names.</li>
-<li>Security and reliability improvements (AppCheck, Shorebird).</li>
+<li class="">Support for accents and non-English characters in entity names.</li>
+<li class="">Security and reliability improvements (AppCheck, Shorebird).</li>
 </ul>
 <p>Changed:</p>
 <ul>
-<li>Default Bed visibility changed to All Beds.</li>
-<li>Improvements to crop and variety name caching.</li>
-<li>Improvements to offsite backups.</li>
-<li>Improvements to database access code.</li>
+<li class="">Default Bed visibility changed to All Beds.</li>
+<li class="">Improvements to crop and variety name caching.</li>
+<li class="">Improvements to offsite backups.</li>
+<li class="">Improvements to database access code.</li>
 </ul>
 <p>Fixed:</p>
 <ul>
-<li>Check for unique bed names fixed.</li>
-<li>Fixed BadgeProcessor to eliminate level 0 badges.</li>
-<li>Fixes to chapter-local crop name display.</li>
+<li class="">Check for unique bed names fixed.</li>
+<li class="">Fixed BadgeProcessor to eliminate level 0 badges.</li>
+<li class="">Fixes to chapter-local crop name display.</li>
 </ul>
-<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
             <category>Releases</category>
         </item>
@@ -262,7 +262,7 @@
 <p>What: 2025 National GrowTogether Conference: Planting Seeds of Resilience<br>
 When: Saturday, June 7, 2025 <br>
 Where: CUNY Graduate Center, New York, New York <br></p>
-<p>For more details and to register: <a href="https://www.nycgovparks.org/events/greenthumb-growtogether" target="_blank" rel="noopener noreferrer">https://www.nycgovparks.org/events/greenthumb-growtogether</a></p>]]></content:encoded>
+<p>For more details and to register: <a href="https://www.nycgovparks.org/events/greenthumb-growtogether" target="_blank" rel="noopener noreferrer" class="">https://www.nycgovparks.org/events/greenthumb-growtogether</a></p>]]></content:encoded>
             <author>info@geogardenclub.com (Jenna Deane)</author>
         </item>
         <item>
@@ -271,14 +271,14 @@ Where: CUNY Graduate Center, New York, New York <br></p>
             <guid>https://geogardenclub.com/news/2025/05/17/newsletter</guid>
             <pubDate>Sat, 17 May 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this newsletter:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/05/17/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/05/17/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
 <ul>
-<li>The power of names</li>
-<li>Hello Pumpkin and Zucchini crops</li>
-<li>Featured gardener: Margo</li>
-<li>How to... Create your first garden</li>
+<li class="">The power of names</li>
+<li class="">Hello Pumpkin and Zucchini crops</li>
+<li class="">Featured gardener: Margo</li>
+<li class="">How to... Create your first garden</li>
 </ul>
-<p>Click <a href="https://mailchi.mp/9b1603310fd6/chapter-local-names" target="_blank" rel="noopener noreferrer">here</a> for the full newsletter.</p>]]></content:encoded>
+<p>Click <a href="https://mailchi.mp/9b1603310fd6/chapter-local-names" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Jenna Deane)</author>
             <category>Newsletter</category>
         </item>
@@ -288,21 +288,21 @@ Where: CUNY Graduate Center, New York, New York <br></p>
             <guid>https://geogardenclub.com/news/2025/05/10/release</guid>
             <pubDate>Sat, 10 May 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/05/10/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/05/10/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
 <p>Added:</p>
 <ul>
-<li>Added in app review feature.</li>
-<li>New chapters for the 5 boroughs of NYC.</li>
-<li>Chapter-local crop names.</li>
+<li class="">Added in app review feature.</li>
+<li class="">New chapters for the 5 boroughs of NYC.</li>
+<li class="">Chapter-local crop names.</li>
 </ul>
 <p>Fixed:</p>
 <ul>
-<li>Fixed Bed Chip background color.</li>
-<li>Migrated Winter Squash pumpkin varieties to Pumpkin crop varieties.</li>
-<li>Improved Retail Value calculations.</li>
-<li>Fixed chapter and garden images.</li>
+<li class="">Fixed Bed Chip background color.</li>
+<li class="">Migrated Winter Squash pumpkin varieties to Pumpkin crop varieties.</li>
+<li class="">Improved Retail Value calculations.</li>
+<li class="">Fixed chapter and garden images.</li>
 </ul>
-<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
             <category>Releases</category>
         </item>
@@ -317,7 +317,7 @@ Where: CUNY Graduate Center, New York, New York <br></p>
 <p>What: Innovation Social<br>
 When: Wednesday, May 7, 2025, 5pm-7pm <br>
 Where: Amendment 21, Bellingham, WA <br></p>
-<p>For more details and to register: <a href="https://lu.ma/4bv49spj" target="_blank" rel="noopener noreferrer">https://lu.ma/4bv49spj</a></p>]]></content:encoded>
+<p>For more details and to register: <a href="https://lu.ma/4bv49spj" target="_blank" rel="noopener noreferrer" class="">https://lu.ma/4bv49spj</a></p>]]></content:encoded>
             <author>info@geogardenclub.com (Jenna Deane)</author>
         </item>
         <item>
@@ -326,12 +326,12 @@ Where: Amendment 21, Bellingham, WA <br></p>
             <guid>https://geogardenclub.com/news/2025/04/22/newsletter</guid>
             <pubDate>Tue, 22 Apr 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this newsletter:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/04/22/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/04/22/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
 <ul>
-<li>Gardener Spotlight: Erin &amp; Shanna!</li>
-<li>Waste Prevention in the Garden</li>
+<li class="">Gardener Spotlight: Erin &amp; Shanna!</li>
+<li class="">Waste Prevention in the Garden</li>
 </ul>
-<p>Click <a href="https://mailchi.mp/27bc210f7797/april-featured-gardeners" target="_blank" rel="noopener noreferrer">here</a> for the full newsletter.</p>]]></content:encoded>
+<p>Click <a href="https://mailchi.mp/27bc210f7797/april-featured-gardeners" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Jenna Deane)</author>
             <category>Newsletter</category>
         </item>
@@ -354,20 +354,20 @@ Where: Amendment 21, Bellingham, WA <br></p>
             <guid>https://geogardenclub.com/news/2025/03/25/release</guid>
             <pubDate>Tue, 25 Mar 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/03/25/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/03/25/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
 <p>Added</p>
 <ul>
-<li>Added Family entity management.</li>
+<li class="">Added Family entity management.</li>
 </ul>
 <p>Fixed</p>
 <ul>
-<li>Fix private observations to work correctly.</li>
-<li>Fixed share reply screen so that keyboard does not cover form.</li>
-<li>Improvements to instrumentation.</li>
-<li>Improve chapter index screen to only show chapters with members.</li>
-<li>Gold varieties are now chapter specific</li>
+<li class="">Fix private observations to work correctly.</li>
+<li class="">Fixed share reply screen so that keyboard does not cover form.</li>
+<li class="">Improvements to instrumentation.</li>
+<li class="">Improve chapter index screen to only show chapters with members.</li>
+<li class="">Gold varieties are now chapter specific</li>
 </ul>
-<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
             <category>Releases</category>
         </item>
