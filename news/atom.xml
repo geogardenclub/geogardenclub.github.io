@@ -2,11 +2,31 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://geogardenclub.com/news</id>
     <title>Geo Garden Club Blog</title>
-    <updated>2026-01-09T00:00:00.000Z</updated>
+    <updated>2026-01-21T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://geogardenclub.com/news"/>
     <subtitle>Geo Garden Club Blog</subtitle>
     <icon>https://geogardenclub.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[GGC App: 3.1.0 Release]]></title>
+        <id>https://geogardenclub.com/news/2026/01/21/release</id>
+        <link href="https://geogardenclub.com/news/2026/01/21/release"/>
+        <updated>2026-01-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this release:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/01/21/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:">​</a></h2>
+<ul>
+<li>New Insight Widget: "Community Connector".</li>
+<li>Improved support for perennials</li>
+<li>Redesign and simplification of the Planting user interface.</li>
+<li>Added Markdown support in description fields</li>
+</ul>
+<p>To get the app, see the <a href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
+        <author>
+            <name>Philip Johnson</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Releases" term="Releases"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GGC App: 3.0.0 Release]]></title>
         <id>https://geogardenclub.com/news/2026/01/09/release</id>
@@ -409,23 +429,5 @@ Where: Amendment 21, Bellingham, WA <br></p>
             <email>info@geogardenclub.com</email>
         </author>
         <category label="Releases" term="Releases"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC News: March 2025]]></title>
-        <id>https://geogardenclub.com/news/2025/03/23/newsletter</id>
-        <link href="https://geogardenclub.com/news/2025/03/23/newsletter"/>
-        <updated>2025-03-23T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[In this newsletter:]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/03/23/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:">​</a></h2>
-<ul>
-<li>How to use the Tasks feature</li>
-<li>Featured Gardener: Jessie</li>
-</ul>
-<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=0d21c5c63c" target="_blank" rel="noopener noreferrer">here</a> for the full newsletter.</p>]]></content>
-        <author>
-            <name>Jenna Deane</name>
-            <email>info@geogardenclub.com</email>
-        </author>
-        <category label="Newsletter" term="Newsletter"/>
     </entry>
 </feed>
