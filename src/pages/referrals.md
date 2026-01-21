@@ -11,13 +11,13 @@ Grow the GeoGardenClub community (and get more garden plans to snoop) with our 2
 
 ### How it works
 
-1. Get (at least) three friends to join GeoGardenClub between February 1 and April 30, 2026.  
+Get (at least) three friends to join GeoGardenClub between February 1 and April 30, 2026.  
 
-2. Email us at referrals@geogardenclub.com by April 30, 2026 with:
-   * Your name and username
-   * The names and usernames of all the gardeners you referred.
+Email us at referrals@geogardenclub.com by April 30, 2026 with:
+* Your name and username
+* The names and usernames of the gardeners you referred.
 
-3. After confirming the fine print below, we'll email you a coupon code to receive three free months of GeoGardenClub!
+After confirming the fine print below, we'll email you a coupon code to receive three free months of GeoGardenClub!
 
 ### The fine print
 

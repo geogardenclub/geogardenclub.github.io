@@ -13,7 +13,7 @@ In the case of gardening, it's helpful to record whether a Planting worked or no
 
 Recording whether a Planting worked or not is not only helpful for improving your own garden, it can also be helpful to other gardeners in your Chapter. 
 
-For example, say you want to plant Corn, and you've never done it before. Rather than start from scratch and guess at the Variety and planting dates, you can search the Chapter data for a Corn Planting that "worked" for another Gardener in your Chapter, and then [copy that Planting](plantings.md#copy-a-planting) into your own Garden.  
+For example, say you want to plant Corn, and you've never done it before. Rather than start from scratch and guess at the Variety and planting dates, you can search the Chapter data for a Corn Planting that "worked" for another Gardener in your Chapter, and then [copy that Planting](plantings.md#copy-planting) into your own Garden.  
 
 GeoGardenClub provides Outcomes as a systematic way for gardeners to record what worked and what didn't work for a Planting. There are five types of outcomes: germination, yield, flavor, pest/disease resilience, and appearance.
 
@@ -66,7 +66,7 @@ After updating the Outcome values, scroll down and tap the Submit button to save
 
 ### ...from Update Planting
 
-A second way manage Outcome data is through the Update Planting screen. To do that, follow the instructions for [Edit Outcomes](plantings.md#edit-outcomes). 
+A second way manage Outcome data is through the Update Planting screen. To do that, follow the instructions for [Edit Outcomes](plantings.md#update-outcomes). 
 
 The Edit Outcomes screen allows you to adjust the outcomes:
 

@@ -63,29 +63,29 @@ The Planting Details screen reveals that a Planting consists of five sections: B
 
 ## Update Planting
 
-You can edit any of the five sections of Planting. First, tap on the pencil icon near the top of the screen to reveal the Edit menu:
+You can update any of the five sections of a Planting. First, tap on the pencil icon near the top of the screen to reveal the Update Planting menu:
 
-<img width="300" src="/img/user-guide/update-planting-edit-menu.png"/>
+<img width="300" src="/img/user-guide/update-planting-update-menu.png"/>
 
-### Edit Basic Info
+### Update Basic Info
 
-Tapping Edit Basic Info allows you to edit the Basic Info section:
+Tap "Update Basic Info" to edit the Basic Info section:
 
 <img width="300" src="/img/user-guide/update-planting-basic-info.png"/>
 
 This is the same form you use to Create (or Copy) a Planting. You can use this to adjust the dates, or indicate the variety once you know it.
 
-### Edit Tasks
+### Update Tasks
 
-Tapping Edit Tasks allows you to edit the Tasks associated with the Planting:
+Tap "Update Tasks" to edit the Tasks associated with the Planting:
 
 <img width="300" src="/img/user-guide/update-planting-tasks.png"/>
 
 From this screen you can edit the dates associated with any Tasks, create a new one, delete a Task, or mark it as completed. See the [Tasks](tasks.md) page for details.
 
-### Edit Notes
+### Update Notes
 
-Tapping Edit Notes allows you to create or update your notes about this Planting:
+Tap "Update Notes" to edit your notes about this Planting:
 
 <img width="300" src="/img/user-guide/update-planting-notes.png"/>
 
@@ -105,9 +105,9 @@ These Notes would be displayed in the Planting Details page like this:
 See the [Markdown](markdown.md) page for more details on this format.
 :::
 
-### Edit Outcomes
+### Update Outcomes
 
-Tapping Edit Outcomes allows you to update the Outcomes associated with this Planting:
+Tap "Update Outcomes" to edit the Outcomes associated with this Planting:
 
 <img width="300" src="/img/user-guide/update-planting-outcomes.png"/>
 
@@ -118,9 +118,9 @@ You can update this section as the crop grows.  For example:
 
 For more details, see the [Outcomes documentation](outcomes.md).
 
-### Edit Quantity
+### Update Quantity
 
-Tap Edit Quantity to update the quantity of food you harvested from this Planting:
+Tap "Update Quantity" to edit the quantity of food you harvested from this Planting:
 
 <img width="300" src="/img/user-guide/update-planting-quantity.png"/>
 

@@ -25,9 +25,9 @@ Observation are listed in reverse chronological order, so the most recent Observ
 
 ### ... for a Planting
 
-To see just the observations associated with a single Planting, go to its Planting Details screen. For example:
+To see just the observations associated with a single Planting, go to its Planting Details screen. Scroll past the details to see the Observations associated with the planting. For example:
 
-<img width="300" src="/img/user-guide/planting-details.png"/>
+<img width="300" src="/img/user-guide/planting-details-observations.png"/>
 
 ## Filter Observations
 
@@ -65,7 +65,7 @@ Fill out the form as follows:
 
 **Picture:** Tap the camera icon to take a picture of the planting or tap the gallery icon to select a picture from your device's gallery.
 
-**Description:**  Describe the observation.  What is happening?  Do you have theories or questions other gardeners might be able to help with?
+**Description:**  Describe the observation.  What is happening?  Do you have theories or questions other gardeners might be able to help with? Note that you can use [Markdown](markdown.md) to format your description. 
 
 **Observation Date:** If you are adding an observation for a date other than today, tap the date to select a different date.
 
