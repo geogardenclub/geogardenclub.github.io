@@ -25,7 +25,6 @@ const config = {
   organizationName: 'geogardenclub', // Usually your GitHub org/user name.
   projectName: 'geogardenclub.github.io', // Usually your repo name.
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
