@@ -2,11 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://geogardenclub.com/news</id>
     <title>Geo Garden Club Blog</title>
-    <updated>2026-01-21T00:00:00.000Z</updated>
+    <updated>2026-02-04T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://geogardenclub.com/news"/>
     <subtitle>Geo Garden Club Blog</subtitle>
     <icon>https://geogardenclub.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[GGC App: 3.2.0 Release]]></title>
+        <id>https://geogardenclub.com/news/2026/02/04/release</id>
+        <link href="https://geogardenclub.com/news/2026/02/04/release"/>
+        <updated>2026-02-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this release:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/02/04/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
+<ul>
+<li class="">New Insight Widget: "Chapter Leaderboard".</li>
+<li class="">Improved support for editor management</li>
+<li class="">Improved support for tablets and web screen sizes.</li>
+</ul>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
+        <author>
+            <name>Philip Johnson</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Releases" term="Releases"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GGC App: 3.1.0 Release]]></title>
         <id>https://geogardenclub.com/news/2026/01/21/release</id>
@@ -403,31 +422,5 @@ Where: Amendment 21, Bellingham, WA <br></p>
             <name>Jenna Deane</name>
             <email>info@geogardenclub.com</email>
         </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC App: 2.19.0 Release]]></title>
-        <id>https://geogardenclub.com/news/2025/03/25/release</id>
-        <link href="https://geogardenclub.com/news/2025/03/25/release"/>
-        <updated>2025-03-25T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[In this release:]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/03/25/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
-<p>Added</p>
-<ul>
-<li class="">Added Family entity management.</li>
-</ul>
-<p>Fixed</p>
-<ul>
-<li class="">Fix private observations to work correctly.</li>
-<li class="">Fixed share reply screen so that keyboard does not cover form.</li>
-<li class="">Improvements to instrumentation.</li>
-<li class="">Improve chapter index screen to only show chapters with members.</li>
-<li class="">Gold varieties are now chapter specific</li>
-</ul>
-<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
-        <author>
-            <name>Philip Johnson</name>
-            <email>info@geogardenclub.com</email>
-        </author>
-        <category label="Releases" term="Releases"/>
     </entry>
 </feed>
