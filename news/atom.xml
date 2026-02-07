@@ -2,11 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://geogardenclub.com/news</id>
     <title>Geo Garden Club Blog</title>
-    <updated>2026-02-04T00:00:00.000Z</updated>
+    <updated>2026-02-06T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://geogardenclub.com/news"/>
     <subtitle>Geo Garden Club Blog</subtitle>
     <icon>https://geogardenclub.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[GGC App: 3.2.1 Release]]></title>
+        <id>https://geogardenclub.com/news/2026/02/06/release</id>
+        <link href="https://geogardenclub.com/news/2026/02/06/release"/>
+        <updated>2026-02-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this release:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/02/06/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
+<ul>
+<li class="">Fix to editor management</li>
+</ul>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
+        <author>
+            <name>Philip Johnson</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Releases" term="Releases"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GGC App: 3.2.0 Release]]></title>
         <id>https://geogardenclub.com/news/2026/02/04/release</id>
@@ -406,21 +423,5 @@ Where: Amendment 21, Bellingham, WA <br></p>
             <email>info@geogardenclub.com</email>
         </author>
         <category label="Newsletter" term="Newsletter"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC Webinar: Grow More, Waste Less]]></title>
-        <id>https://geogardenclub.com/news/2025/04/11/grow-more-waste-less-webinar</id>
-        <link href="https://geogardenclub.com/news/2025/04/11/grow-more-waste-less-webinar"/>
-        <updated>2025-04-11T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Jenna Deane hosted a live webinar on April 11, 2025 for Food Waste Prevention Week.]]></summary>
-        <content type="html"><![CDATA[<img src="https://geogardenclub.com/img/news/grow-more-waste-less.png">
-<p>Jenna Deane hosted a live webinar on April 11, 2025 for Food Waste Prevention Week.</p>
-<p>The archived recording is now available online:</p>
-<!-- -->
-<div class="wrapper"><div style="width:100%;height:100%" class="player"></div></div>]]></content>
-        <author>
-            <name>Jenna Deane</name>
-            <email>info@geogardenclub.com</email>
-        </author>
     </entry>
 </feed>
