@@ -78,6 +78,7 @@ const sidebars = {
         'user-guide/chapters',
         'user-guide/gardeners',
         'user-guide/retail-value',
+        'user-guide/web',
         'user-guide/faq',
         'user-guide/markdown',
         'user-guide/school-and-community-gardens',
@@ -233,7 +234,6 @@ const sidebars = {
     'develop/privacy',
     'develop/instrumentation',
     'develop/firebase-billing',
-    'develop/adaptive-design',
     {
       type: 'category',
       collapsed: true,
@@ -249,6 +249,7 @@ const sidebars = {
         'develop/design/retail-value',
         'develop/design/collection-classes',
         'develop/design/sort-by',
+        'develop/design/adaptive-design',
       ],
     },
     {
