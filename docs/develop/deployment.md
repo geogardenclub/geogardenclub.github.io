@@ -49,8 +49,10 @@ Invoke `./run_deploy.sh`.  This script does the following:
 * Gets the release notes for the current release and copies them to the deploy directory.
 * Invokes `firebase deploy` to build and deploy the web version of the app.
 
-:::info Don't panic if XCode fails
-I recently encountered the following error message when attempting to build the ggc_app.ipa file:
+:::info Possible iOS build/deployment Errors 
+
+#### 1. No signing certificate error
+I encountered the following error message when attempting to build the ggc_app.ipa file:
 
 ```
 Error (Xcode): No signing certificate "iOS Development" found: 
@@ -59,7 +61,19 @@ No "iOS Development" signing certificate matching team ID
 ```
 
 The fix was to open XCode, go to the Signing and Capabilities page, and login again. 
+
+#### 2. iOS version Error
+
+I encountered "issues" when running the Transporter which prevented the ggc_app.ipa from being uploaded to App Store Connect. The error message involved an incorrect/missing MinimumOSVersion. To fix it, I eventually had to make sure the MinimumOSVersion was set to the same value (15) in all of the following places:
+
+1. In XCode > General > Minimum Deployments
+2. In XCode > Build Settings > Deployment > iOS Deployment Target
+3. In ggc_app/ios/Flutter/AppFrameworksInfo.plist (key: MinimumOSVersion)
+4. In ggc_app/ios/Podfile (platform: ios)
+
 :::
+
+
 
 ### Create a release branch
 
