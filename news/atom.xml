@@ -2,11 +2,31 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://geogardenclub.com/news</id>
     <title>Geo Garden Club Blog</title>
-    <updated>2026-02-06T00:00:00.000Z</updated>
+    <updated>2026-02-18T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://geogardenclub.com/news"/>
     <subtitle>Geo Garden Club Blog</subtitle>
     <icon>https://geogardenclub.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[GGC App: 3.3.0 Release]]></title>
+        <id>https://geogardenclub.com/news/2026/02/18/release</id>
+        <link href="https://geogardenclub.com/news/2026/02/18/release"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this release:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/02/18/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
+<ul>
+<li class="">Added plus/minus year buttons to Copy Planting form.</li>
+<li class="">Fixed bug in Update Planting form.</li>
+<li class="">Improved Planting Details web view.</li>
+<li class="">Fixed missing navbar in web view.</li>
+</ul>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
+        <author>
+            <name>Philip Johnson</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Releases" term="Releases"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GGC App: 3.2.1 Release]]></title>
         <id>https://geogardenclub.com/news/2026/02/06/release</id>
@@ -405,23 +425,5 @@ Where: Amendment 21, Bellingham, WA <br></p>
             <name>Jenna Deane</name>
             <email>info@geogardenclub.com</email>
         </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC News: April 2025]]></title>
-        <id>https://geogardenclub.com/news/2025/04/22/newsletter</id>
-        <link href="https://geogardenclub.com/news/2025/04/22/newsletter"/>
-        <updated>2025-04-22T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[In this newsletter:]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/04/22/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
-<ul>
-<li class="">Gardener Spotlight: Erin &amp; Shanna!</li>
-<li class="">Waste Prevention in the Garden</li>
-</ul>
-<p>Click <a href="https://mailchi.mp/27bc210f7797/april-featured-gardeners" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content>
-        <author>
-            <name>Jenna Deane</name>
-            <email>info@geogardenclub.com</email>
-        </author>
-        <category label="Newsletter" term="Newsletter"/>
     </entry>
 </feed>
