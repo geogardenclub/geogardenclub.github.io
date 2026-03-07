@@ -61,6 +61,8 @@ Finally, if you are using IntelliJ, you want to make sure that your Flutter envi
 
 Edit the Flutter SDK path to be appropriate for your environment. 
 
+It is important to periodically check the IntelliJ configuration to make sure it is still pointing to the correct version of Flutter.  If you run `fvm use stable` and it points to a new version of Flutter, you will need to update the IntelliJ configuration to point to the new version.
+
 
 ## Firebase CLI and FlutterFire CLI
 
@@ -140,17 +142,17 @@ Here is an example of the output from `run_tool_versions.sh` (as of Feb 22, 2025
 ./run_tool_versions.sh
 Computer Name: Cam’s M4 MacBook Pro
 Cocoapods 1.16.2
-Dart SDK version: 3.7.2 
-Flutter 3.29.2 
-MacOS 15.3.2
-Monarch version 2.2.7
-ruby 3.2.6 (202
-Xcode 16.2
-Firebase 14.0.0
-Flutterfire 1.1.0
+Dart SDK version: 3.11.1
+Firebase 15.9.0
+Flutterfire 1.3.1
+Flutter 3.41.3 
 iOS Simulator <version>
+MacOS 26.3
+ruby 3.2.6 (202
+Shorebird: not installed
+Xcode 26.2
 ```
-Be sure to run this script locally and check it against the output from the Discord channel. Edit the last line to reflect the version of the iOS running in the Simulator.
+Be sure to run this script locally and check it against the output from the Discord channel. Edit the iOS line to reflect the version of the iOS running in the Simulator.
 
 Different components have different "tolerances" for version matching. In general, you should make sure that your version of Cocoapods, Dart, Flutter, Monarch, and XCode matches the Discord channel's latest versions exactly. 
 
