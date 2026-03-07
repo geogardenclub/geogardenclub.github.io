@@ -61,7 +61,7 @@ Finally, if you are using IntelliJ, you want to make sure that your Flutter envi
 
 Edit the Flutter SDK path to be appropriate for your environment. 
 
-It is important to periodically check the IntelliJ configuration to make sure it is still pointing to the correct version of Flutter.  If you run `fvm use stable` and it points to a new version of Flutter, you will need to update the IntelliJ configuration to point to the new version.
+It is important to periodically check the IntelliJ Flutter and Dart configuration to make sure it is still pointing to the correct version of Flutter.  If you run `fvm use stable` and it points to a new version of Flutter, you will need to update the IntelliJ configuration to point to the new version.
 
 
 ## Firebase CLI and FlutterFire CLI
