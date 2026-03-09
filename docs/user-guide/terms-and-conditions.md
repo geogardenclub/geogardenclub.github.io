@@ -15,7 +15,7 @@ Geo Garden Club is an application that connects you with other gardeners in your
 
 
 
-You can contact us by phone at (+1)8083425661, email at geogardenclub@gmail.com, or by mail to 3030 Alderwood Avenue, Bellingham, WA 98225, United States.
+You can contact us by email at geogardenclub@gmail.com, or by mail to 3030 Alderwood Avenue, Bellingham, WA 98225, United States.
 
 
 

@@ -89,3 +89,4 @@ npm run deploy
 ```
 
 This builds the static HTML and commits the results to the `main` branch of the geogardenclub.github.io repository.
+

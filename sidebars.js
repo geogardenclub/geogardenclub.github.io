@@ -16,7 +16,7 @@ const sidebars = {
   homeSidebar: [
     {
     type: 'category',
-    collapsed: false,
+    collapsed: true,
     label: "About GeoGardenClub",
     items: [
       'home/welcome',
@@ -28,7 +28,7 @@ const sidebars = {
   },
     {
       type: 'category',
-      collapsed: false,
+      collapsed: true,
       label: "Featured Gardeners",
       link: {
         type: 'generated-index',
@@ -79,6 +79,7 @@ const sidebars = {
         'user-guide/gardeners',
         'user-guide/retail-value',
         'user-guide/web',
+        'user-guide/public-view',
         'user-guide/faq',
         'user-guide/markdown',
         'user-guide/school-and-community-gardens',
