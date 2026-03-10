@@ -2,11 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://geogardenclub.com/news</id>
     <title>Geo Garden Club Blog</title>
-    <updated>2026-02-18T00:00:00.000Z</updated>
+    <updated>2026-03-07T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://geogardenclub.com/news"/>
     <subtitle>Geo Garden Club Blog</subtitle>
     <icon>https://geogardenclub.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[GGC News: March 2026]]></title>
+        <id>https://geogardenclub.com/news/2026/03/07/newsletter</id>
+        <link href="https://geogardenclub.com/news/2026/03/07/newsletter"/>
+        <updated>2026-03-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this newsletter:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2026/03/07/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
+<ul>
+<li class="">Join our Spring Observation Challenge (get three months free!)</li>
+<li class="">GGC from your computer</li>
+<li class="">Refer three friends, get three months free</li>
+</ul>
+<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=c707d6f622" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content>
+        <author>
+            <name>Jenna Deane</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Newsletter" term="Newsletter"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GGC App: 3.3.0 Release]]></title>
         <id>https://geogardenclub.com/news/2026/02/18/release</id>
@@ -26,6 +45,24 @@
             <email>info@geogardenclub.com</email>
         </author>
         <category label="Releases" term="Releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[GGC News: February 2026]]></title>
+        <id>https://geogardenclub.com/news/2026/02/13/newsletter</id>
+        <link href="https://geogardenclub.com/news/2026/02/13/newsletter"/>
+        <updated>2026-02-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this newsletter:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2026/02/13/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
+<ul>
+<li class="">Let's get planning!</li>
+<li class="">Refer three friends, get three months free!</li>
+</ul>
+<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=24722ddc5b" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content>
+        <author>
+            <name>Jenna Deane</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Newsletter" term="Newsletter"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[GGC App: 3.2.1 Release]]></title>
@@ -82,6 +119,24 @@
             <email>info@geogardenclub.com</email>
         </author>
         <category label="Releases" term="Releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[GGC News: January 2026]]></title>
+        <id>https://geogardenclub.com/news/2026/01/17/newsletter</id>
+        <link href="https://geogardenclub.com/news/2026/01/17/newsletter"/>
+        <updated>2026-01-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this newsletter:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2026/01/17/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
+<ul>
+<li class="">GeoGardenClub 3.0 is live!</li>
+<li class="">Join the team (Ambassador Program)</li>
+</ul>
+<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=d9cfa4d60b" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content>
+        <author>
+            <name>Jenna Deane</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Newsletter" term="Newsletter"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[GGC App: 3.0.0 Release]]></title>
@@ -357,70 +412,6 @@
 When: Saturday, June 7, 2025 <br>
 Where: CUNY Graduate Center, New York, New York <br></p>
 <p>For more details and to register: <a href="https://www.nycgovparks.org/events/greenthumb-growtogether" target="_blank" rel="noopener noreferrer" class="">https://www.nycgovparks.org/events/greenthumb-growtogether</a></p>]]></content>
-        <author>
-            <name>Jenna Deane</name>
-            <email>info@geogardenclub.com</email>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC News: May 2025]]></title>
-        <id>https://geogardenclub.com/news/2025/05/17/newsletter</id>
-        <link href="https://geogardenclub.com/news/2025/05/17/newsletter"/>
-        <updated>2025-05-17T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[In this newsletter:]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/05/17/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
-<ul>
-<li class="">The power of names</li>
-<li class="">Hello Pumpkin and Zucchini crops</li>
-<li class="">Featured gardener: Margo</li>
-<li class="">How to... Create your first garden</li>
-</ul>
-<p>Click <a href="https://mailchi.mp/9b1603310fd6/chapter-local-names" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content>
-        <author>
-            <name>Jenna Deane</name>
-            <email>info@geogardenclub.com</email>
-        </author>
-        <category label="Newsletter" term="Newsletter"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC App: 2.20.0 Release]]></title>
-        <id>https://geogardenclub.com/news/2025/05/10/release</id>
-        <link href="https://geogardenclub.com/news/2025/05/10/release"/>
-        <updated>2025-05-10T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[In this release:]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/05/10/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
-<p>Added:</p>
-<ul>
-<li class="">Added in app review feature.</li>
-<li class="">New chapters for the 5 boroughs of NYC.</li>
-<li class="">Chapter-local crop names.</li>
-</ul>
-<p>Fixed:</p>
-<ul>
-<li class="">Fixed Bed Chip background color.</li>
-<li class="">Migrated Winter Squash pumpkin varieties to Pumpkin crop varieties.</li>
-<li class="">Improved Retail Value calculations.</li>
-<li class="">Fixed chapter and garden images.</li>
-</ul>
-<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
-        <author>
-            <name>Philip Johnson</name>
-            <email>info@geogardenclub.com</email>
-        </author>
-        <category label="Releases" term="Releases"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC at Innovate Bellingham]]></title>
-        <id>https://geogardenclub.com/news/2025/05/07/innovate-bellingham</id>
-        <link href="https://geogardenclub.com/news/2025/05/07/innovate-bellingham"/>
-        <updated>2025-05-07T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Jenna Deane will be the featured speaker at the May "Innovation Social" of Innovate Bellingham.]]></summary>
-        <content type="html"><![CDATA[<img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,anim=false,background=white,quality=75,width=1250,height=357.14285714285717/calendar-cover-images/ut/839e348f-777b-4111-be60-8ccb6b795dd6">
-<p>Jenna Deane will be the featured speaker at the May "Innovation Social" of Innovate Bellingham.</p>
-<p>What: Innovation Social<br>
-When: Wednesday, May 7, 2025, 5pm-7pm <br>
-Where: Amendment 21, Bellingham, WA <br></p>
-<p>For more details and to register: <a href="https://lu.ma/4bv49spj" target="_blank" rel="noopener noreferrer" class="">https://lu.ma/4bv49spj</a></p>]]></content>
         <author>
             <name>Jenna Deane</name>
             <email>info@geogardenclub.com</email>
