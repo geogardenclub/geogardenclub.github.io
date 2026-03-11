@@ -15,18 +15,23 @@ export default function LandingPanel11() {
           <div className="row">
               <div className='col'>
                   <div className="text--center">
-                      <a href="https://www.instagram.com/geogardenclub/"><img height="150px" style={{paddingBottom: '20px'}} src="/instagram/instagram.png"/></a>
+                      <a href="https://www.instagram.com/geogardenclub/"><img height="125px" style={{paddingBottom: '20px'}} src="/instagram/instagram.png"/></a>
                   </div>
               </div>
               <div className='col'>
                   <div className="text--center">
-                      <a href="https://www.facebook.com/geogardenclub"><img height="150px" style={{paddingBottom: '20px'}} src="facebook/facebook.png"/></a>
+                      <a href="https://www.facebook.com/geogardenclub"><img height="125px" style={{paddingBottom: '20px'}} src="facebook/facebook.png"/></a>
+                  </div>
+              </div>
+              <div className='col'>
+                  <div className="text--center">
+                      <a href="https://www.youtube.com/@geogardenclub"><img height="125px" style={{paddingBottom: '20px'}} src="youtube/youtube.png"/></a>
                   </div>
               </div>
               <div className='col'>
                   <div className="text--center">
                       <div className="hero__title">
-                      <a href="https://geogardenclub.us10.list-manage.com/subscribe?u=2c9db5ab59b4602f6c71e2091&id=c75bee0e1e"><img height="150px" style={{paddingBottom: '20px'}} src="img/landing/mailing-list.png"/></a>
+                      <a href="https://geogardenclub.us10.list-manage.com/subscribe?u=2c9db5ab59b4602f6c71e2091&id=c75bee0e1e"><img height="125px" style={{paddingBottom: '20px'}} src="img/landing/mailing-list.png"/></a>
                       </div>
                   </div>
               </div>

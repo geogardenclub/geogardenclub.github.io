@@ -102,6 +102,11 @@ const config = {
               position: 'right',
               value: '<a href="https://www.facebook.com/geogardenclub" target="_blank" style="content: \'\'; width: 24px; height: 24px; background-image: url(\'/facebook/facebook.png\'); background-repeat: no-repeat;  background-size: 24px 24px; display: flex">'
             },
+            {
+              type: 'html',
+              position: 'right',
+              value: '<a href="https://youtube.com/@geogardenclub" target="_blank" style="content: \'\'; height: 24px; width: 36px; background-image: url(\'/youtube/youtube.png\'); background-repeat: no-repeat;  background-size: 36px 24px; display: flex">'
+            },
           ],
         },
         footer: {
