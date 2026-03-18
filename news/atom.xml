@@ -2,11 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://geogardenclub.com/news</id>
     <title>Geo Garden Club Blog</title>
-    <updated>2026-03-07T00:00:00.000Z</updated>
+    <updated>2026-03-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://geogardenclub.com/news"/>
     <subtitle>Geo Garden Club Blog</subtitle>
     <icon>https://geogardenclub.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[GGC App: 3.4.0 Release]]></title>
+        <id>https://geogardenclub.com/news/2026/03/14/release</id>
+        <link href="https://geogardenclub.com/news/2026/03/14/release"/>
+        <updated>2026-03-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this release:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/03/14/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
+<ul>
+<li class="">Initial release of <a class="" href="https://geogardenclub.com/docs/user-guide/public-view">Public View</a> feature.</li>
+<li class="">Hierarchical tags.</li>
+</ul>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
+        <author>
+            <name>Philip Johnson</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Releases" term="Releases"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GGC News: March 2026]]></title>
         <id>https://geogardenclub.com/news/2026/03/07/newsletter</id>
@@ -399,22 +417,5 @@
             <email>info@geogardenclub.com</email>
         </author>
         <category label="Releases" term="Releases"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC at the 2025 National Grow Together Conference]]></title>
-        <id>https://geogardenclub.com/news/2025/06/07/national-grow-together-conference</id>
-        <link href="https://geogardenclub.com/news/2025/06/07/national-grow-together-conference"/>
-        <updated>2025-06-07T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Jenna Deane will be hosting a workshop on ways that GeoGardenClub supports community and school gardens at the 2025 National GrowTogether Conference in New York City.]]></summary>
-        <content type="html"><![CDATA[<img src="https://www.nycgovparks.org/pagefiles/203/DSC-0001-Greenthumb-Grow-Together-Conf-4-1-594-mp-event-banner__67ae4caba360f.jpg">
-<p>Jenna Deane will be hosting a workshop on ways that GeoGardenClub supports community and school gardens at the 2025 National GrowTogether Conference in New York City.</p>
-<p>What: 2025 National GrowTogether Conference: Planting Seeds of Resilience<br>
-When: Saturday, June 7, 2025 <br>
-Where: CUNY Graduate Center, New York, New York <br></p>
-<p>For more details and to register: <a href="https://www.nycgovparks.org/events/greenthumb-growtogether" target="_blank" rel="noopener noreferrer" class="">https://www.nycgovparks.org/events/greenthumb-growtogether</a></p>]]></content>
-        <author>
-            <name>Jenna Deane</name>
-            <email>info@geogardenclub.com</email>
-        </author>
     </entry>
 </feed>
