@@ -218,7 +218,7 @@ The Weather Insight Widget requires a valid OpenWeather API key. To set it up:
 
 2. Add the following line to your `.env` file, replacing `YOUR_API_KEY` with your actual OpenWeather API key:
     ```
-    OPENWEATHER_API=YOUR_API_KEY
+    OPEN_WEATHER_API=YOUR_API_KEY
     ```
    Contact Jenna, Philip, or Cam to get the API key if you don't have it.
 
