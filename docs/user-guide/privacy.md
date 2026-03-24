@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated December 14, 2024**
+**Last updated March 17, 2026**
 
 This privacy notice for Geo Garden Club, LLC ("we," "us," or "our"), describes how and why we might collect, store, use, and/or share ("process") your information when you use our services ("Services"), such as when you:
 
@@ -23,7 +23,7 @@ This summary provides key points from our privacy notice, but you can find out m
 
 **How do we process your information?** We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent. We process your information only when we have a valid legal reason to do so. 
 
-**In what situations and with which parties do we share personal information?** We may share information in specific situations and with specific third parties. 
+**In what situations and with which parties do we share personal information?** We do not sell, rent, or lease your personal information to third parties, except when required by law.
 
 **How do we keep your information safe?** We have organizational and technical processes and procedures in place to protect your personal information. However, no electronic transmission over the internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. 
 
@@ -46,10 +46,6 @@ Personal Information Provided by You. The personal information that we collect d
 
 Sensitive Information. We do not process sensitive information.
 
-Application Data. If you use our application(s), we also may collect the following information if you choose to provide us with access or permission:
-
-* None at present.
-
 This information is primarily needed to maintain the security and operation of our application(s), for troubleshooting, and for our internal analytics and reporting purposes.
 
 All personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal information.
@@ -57,7 +53,7 @@ All personal information that you provide to us must be true, complete, and accu
 
 ## 2. HOW DO WE PROCESS YOUR INFORMATION?
 
-In Short: We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent.
+In Short: We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. 
 
 We process your personal information for a variety of reasons, depending on how you interact with our Services, including:
 
@@ -85,22 +81,15 @@ If you are located in Canada, this section applies to you.
 In some exceptional cases, we may be legally permitted under applicable law to process your information without your consent, including, for example:
 * If collection is clearly in the interests of an individual and consent cannot be obtained in a timely way
 * For investigations and fraud detection and prevention
-* For business transactions provided certain conditions are met
 * If it is contained in a witness statement and the collection is necessary to assess, process, or settle an insurance claim
 * For identifying injured, ill, or deceased persons and communicating with next of kin
 * If we have reasonable grounds to believe an individual has been, is, or may be victim of financial abuse
 * If it is reasonable to expect collection and use with consent would compromise the availability or the accuracy of the information and the collection is reasonable for purposes related to investigating a breach of an agreement or a contravention of the laws of Canada or a province
 * If disclosure is required to comply with a subpoena, warrant, court order, or rules of the court relating to the production of records
-* If it was produced by an individual in the course of their employment, business, or profession and the collection is consistent with the purposes for which the information was produced
-* If the collection is solely for journalistic, artistic, or literary purposes
-* If the information is publicly available and is specified by the regulations
 
 ## 4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?
 
-In Short: We may share information in specific situations described in this section and/or with the following third parties.
-
-We may need to share your personal information in the following situations:
-* Business Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.
+In Short: We do not sell, rent, or lease your personal information to third parties, except when required by law (see above).
 
 ## 5. HOW LONG DO WE KEEP YOUR INFORMATION?
 
@@ -163,28 +152,28 @@ Categories of Personal Information We Collect
 We have collected the following categories of personal information in the past twelve (12) months:
 
 A. Identifiers. 
-Contact details, such as real name, alias, postal address, telephone or mobile contact number, unique personal identifier, online identifier, Internet Protocol address, email address, and account name
+Contact details, such as your real name and email address.
 
 B. Personal information as defined in the California Customer Records statute.
-Name, contact information, education, employment, employment history, and financial information
+Name, contact information.
 
 C. Protected classification characteristics under state or federal law. 
-We have not collected Gender, age, date of birth, race and ethnicity, national origin, marital status, and other demographic data
+We have not collected gender, age, date of birth, race and ethnicity, national origin, marital status, and other demographic data
 
 D. Commercial information. 
 We have not collected Transaction information, purchase history, financial details, and payment information
 
 E. Biometric information. 
-We have not collected Fingerprints and voiceprints
+We have not collected gingerprints and voiceprints
 
 F. Internet or other similar network activity. 
-We have not collected Browsing history, search history, online behavior, interest data, and interactions with our and other websites, applications, systems, and advertisements
+We have not collected browsing history, search history, online behavior, interest data, and interactions with our and other websites, applications, systems, and advertisements
 
 G. Geolocation data. 
-We have not collected Device location. 
+We have not collected device location. 
 
 H. Audio, electronic, sensory, or similar information.
-We have collected Images and audio, video or call recordings created in connection with our business activities
+We have collected images that you have voluntarily uploaded.
 
 I. Professional or employment-related information. 
 We have not collected Business contact details in order to provide you our Services at a business level or job title, work history, and professional qualifications if you apply for a job with us
@@ -208,10 +197,6 @@ We may also collect other personal information outside of these categories throu
 * Category B - As long as the user has an account with us
 * Category H - As long as the user has an account with us
 
-
-We may disclose your personal information with our service providers pursuant to a written contract between us and each service provider. Learn more about how we disclose personal information to in the section, "WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?"
-
-We may use your personal information for our own business purposes, such as for undertaking internal research for technological development and demonstration. This is not considered to be "selling" of your personal information.
 
 We have not disclosed, sold, or shared any personal information to third parties for a business or commercial purpose in the preceding twelve (12) months. We will not sell or share personal information in the future belonging to website visitors, users, and other consumers.
 

@@ -1,6 +1,6 @@
 # Terms and Conditions
 
-**Last updated** **February 10, 2024**
+**Last updated** **March 17, 2026**
 
 **AGREEMENT TO OUR LEGAL TERMS**
 
@@ -27,7 +27,7 @@ We will provide you with prior notice of any scheduled changes to the Services y
 
 
 
-The Services are intended for users who are at least 18 years old. Persons under the age of 18 are not permitted to use or register for the Services.
+The Services are intended for users who are at least 18 years old. Persons under the age of 18 are not permitted to use or register for the Services unless you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Services.
 
 
 
@@ -136,15 +136,6 @@ Please review this section and the "[PROHIBITED ACTIVITIES](#6-prohibited-activi
 You understand that Contributions may be viewable by other users of the Services.
 
 
-
-**When you post Contributions, you grant us a license (including use of your name, trademarks, and logos):** By posting any Contributions, you grant us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to: use, copy, reproduce, distribute, sell, resell, publish, broadcast, retitle, store, publicly perform, publicly display, reformat, translate, excerpt (in whole or in part), and exploit your Contributions (including, without limitation, your image, name, and voice) for any purpose, commercial, advertising, or otherwise, to prepare derivative works of, or incorporate into other works, your Contributions, and to sublicense the licenses granted in this section. Our use and distribution may occur in any media formats and through any media channels.
-
-
-
-This license includes our use of your name, company name, and franchise name, as applicable, and any of the trademarks, service marks, trade names, logos, and personal and commercial images you provide.
-
-
-
 **You are responsible for what you post or upload:** By sending us Submissions and/or posting Contributions through any part of the Services or making Contributions accessible through the Services by linking your account through the Services to any of your social networking accounts, you:
 
 *   confirm that you have read and agree with our "[PROHIBITED ACTIVITIES](#6-prohibited-activities)" and will not post, send, publish, upload, or transmit through the Services any Submission nor post any Contribution that is illegal, harassing, hateful, harmful, defamatory, obscene, bullying, abusive, discriminatory, threatening to any person or group, sexually explicit, false, inaccurate, deceitful, or misleading;
@@ -204,7 +195,7 @@ Your subscription will continue and automatically renew unless canceled. You con
 
 
 
-We offer a 90\-day free trial to new users who register with the Services. The account will be charged according to the user's chosen subscription at the end of the free trial.
+We offer a free trial to new users who register with the Services. The account will be charged according to the user's chosen subscription at the end of the free trial.
 
 
 
@@ -212,7 +203,7 @@ We offer a 90\-day free trial to new users who register with the Services. The a
 
 
 
-You can cancel your subscription at any time by logging into your account. Your cancellation will take effect at the end of the current paid term. If you have any questions or are unsatisfied with our Services, please email us at geogardenclub@gmail.com.
+You can cancel your subscription at any time by logging into your account. Your cancellation will take effect at the end of the current paid term. If you have any questions or are unsatisfied with our Services, please email us at info@geogardenclub.com.
 
 
 
@@ -289,17 +280,7 @@ Any use of the Services in violation of the foregoing violates these Legal Terms
 ## **8. CONTRIBUTION LICENSE**
 
 
-
-By posting your Contributions to any part of the Services, you automatically grant, and you represent and warrant that you have the right to grant, to us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce, disclose, sell, resell, publish, broadcast, retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit, excerpt (in whole or in part), and distribute such Contributions (including, without limitation, your image and voice) for any purpose, commercial, advertising, or otherwise, and to prepare derivative works of, or incorporate into other works, such Contributions, and grant and authorize sublicenses of the foregoing. The use and distribution may occur in any media formats and through any media channels.
-
-
-
-This license will apply to any form, media, or technology now known or hereafter developed, and includes our use of your name, company name, and franchise name, as applicable, and any of the trademarks, service marks, trade names, logos, and personal and commercial images you provide. You waive all moral rights in your Contributions, and you warrant that moral rights have not otherwise been asserted in your Contributions.
-
-
-
 We do not assert any ownership over your Contributions. You retain full ownership of all of your Contributions and any intellectual property rights or other proprietary rights associated with your Contributions. We are not liable for any statements or representations in your Contributions provided by you in any area on the Services. You are solely responsible for your Contributions to the Services and you expressly agree to exonerate us from any and all responsibility and to refrain from any legal action against us regarding your Contributions.
-
 
 
 We have the right, in our sole and absolute discretion, (1) to edit, redact, or otherwise change any Contributions; (2) to re-categorize any Contributions to place them in more appropriate locations on the Services; and (3) to pre-screen or delete any Contributions at any time and for any reason, without notice. We have no obligation to monitor your Contributions.
@@ -377,7 +358,7 @@ Attn: Copyright Agent<br/>
 3030 Alderwood Avenue<br/>
 Bellingham, WA 98225<br/>
 United States<br/>
-geogardenclub@gmail.com
+jenna@geogardenclub.com
 
 
 
@@ -498,4 +479,4 @@ In order to resolve a complaint regarding the Services or to receive further inf
 **Bellingham, WA 98225**<br/>
 **United States**<br/>
 **Phone: (+1)808-342-5661**<br/>
-**geogardenclub@gmail.com**
+**info@geogardenclub.com**
