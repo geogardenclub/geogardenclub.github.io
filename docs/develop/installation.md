@@ -29,6 +29,11 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 ## FVM
 
+:::warning FVM might create issues
+Some developers have had problems with IntelliJ not using the correct version of Flutter. This may be related to the use of FVM. We do not recommend that new
+developers install FVM initially, and instead wait until we perceive a real need for it.
+:::
+
 [FVM (Flutter Version Management)](https://fvm.app/) is a tool that allows you to manage multiple versions of Flutter on your machine. It is not required, but it can be useful if you end up needing to downgrade your Flutter version (which hopefully happens only very rarely).
 
 To install FVM, run the following commands:
@@ -162,6 +167,8 @@ Note that all GGC development is done using macOS. We do not support Windows or 
 
 ## Install the app
 
+### Install libraries
+
 To install the app, first clone the sources from [https://github.com/geogardenclub/ggc_app](https://github.com/geogardenclub/ggc_app).
 
 Next, cd into the ggc_app directory and run `flutter pub get`. For example:
@@ -202,6 +209,23 @@ Resolving dependencies... (1.4s)
   xml 6.2.2 (6.3.0 available)
 Got dependencies!
 ```
+
+### Install the OpenWeather API key
+
+The Weather Insight Widget requires a valid OpenWeather API key. To set it up:
+
+1. Create a `.env` file in the root directory of your project if it doesn't already exist.
+
+2. Add the following line to your `.env` file, replacing `YOUR_API_KEY` with your actual OpenWeather API key:
+    ```
+    OpenWeather_API=YOUR_API_KEY
+    ```
+   Contact Jenna, Philip, or Cam to get the API key if you don't have it.
+
+3. Save the `.env` file. (Note that it is gitignored, so it does not get commited to github.)
+
+4. Run `./run_build_runner.sh` to generate the code that accesses the OpenWeather API with the new API key. The key is obscured in the `/lib/env/env.g.dart` file, so you won't see it there, but it will be used in the code that accesses the API. The `env.g.dart` file is also listed in the `.gitignore` file, so it won't be committed to version control either.
+
 
 ## Run the app
 

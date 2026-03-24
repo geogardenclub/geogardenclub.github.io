@@ -60,6 +60,12 @@ In this case, it turns out that one Planting is scheduled to be pulled in this C
 
 You can tap on "Next 30 Days" to see what activities are planned in your Chapter for the next 30 days.
 
+### Weather
+
+The Weather Insight Widget provides users with personalized current and forecasted weather conditions. The weather data is based upon the user's postal code and is updated every 24 hours using [OpenWeather](https://openweathermap.org/). Here's an example:
+
+<img width="300" src="/img/user-guide/home-insights-weather.png"/>
+
 ### Community Connector
 
 The Community Connector Insight Widget provides four links to help you engage with the GeoGardenClub community:

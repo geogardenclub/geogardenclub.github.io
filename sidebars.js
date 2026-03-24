@@ -299,11 +299,6 @@ const sidebars = {
       label: 'Business Development Guide',
       href: '/docs/business/',
     },
-    {
-        type: 'link',
-        label: 'Weather Insights Guide',
-        href: 'weather',
-    },
   ],
 };
 

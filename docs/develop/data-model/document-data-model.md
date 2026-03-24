@@ -8,7 +8,7 @@ toc_max_heading_level: 2
 
 This page explains the document data model (i.e. the set of entities and their relationships stored in Firebase) for GGC, along with a rationale for the design decisions that we've made along the way. 
 
-:::warning Last Update: October 2025
+:::warning Last Update: March 2026
 :::
 
 There is also a [Cloud Storage Data Model](./cloud-storage-data-model.md).
@@ -1140,4 +1140,97 @@ In order to ensure that the relevant optional fields are always present given a 
 
 Note that, unlike other entities, there is no milliseconds field associated with the primary key (activityID). This is intentional. We want users to overwrite an existing Activity document when the associated activity changes. For example, if a user updates the pullDate associated with a planting, then the associated Activity document will be overwritten with the new pull date. 
 
+## Weather
+
+### WeatherInfo class
+
+We created a `WeatherInfo` class to represent the weather data that we fetch from the OpenWeather API. This class provides two advantages:
+1. It abstracts away from the actual weather service being used, so that if we decide to switch to a different weather service in the future, we can simply update the code that fetches the weather data and maps it to the `WeatherInfo` class, without having to change any of the client code that uses the `WeatherInfo` class.
+2. The WeatherInfo class can provide methods to perform data transformations. For example, it could present temp data as either Fahrenheit or Celsius depending on the user's country.
+
+```dart
+@freezed
+abstract class WeatherInfo with _$WeatherInfo {
+  const factory WeatherInfo({
+    required String country, // Either US or CA for now.
+    required DateTime
+    date, // The date of the weather information, typically the current date.
+    required double minTemp, // Minimum temperature for the day.
+    required double maxTemp, // Maximum temperature for the day.
+    required double?
+    rainInMM, // Rainfall in millimeters for the day, if available.
+    required double?
+    snowInMM, // Snowfall in millimeters for the day, if available.
+    required DateTime sunrise, // Sunrise time for the day.
+    required DateTime sunset, // Sunset time for the day.
+    required String
+    description, // A brief description of the current weather conditions (e.g., "light rain", "clear sky").
+    required String
+    iconUrl, // URL to an icon representing the current weather conditions.
+    required List<WeatherForecastInfo>
+    forecast, // A list of forecast information for the upcoming days.
+    required List<WeatherAlertInfo>?
+    alerts, // A list of weather alerts for the area, if any are present.
+  }) = _WeatherInfo;
+}
+```
+
+The `WeatherInfo` class includes fields for the current weather conditions, as well as a list of `WeatherForecastInfo` objects that provide forecasted weather data for the next few days, and a list of `WeatherAlertInfo` objects that provide information about any weather alerts that may be present for the user's area. This design allows us to encapsulate all relevant weather information in a single class, making it easier for client code to access and use this data.
+
+It has another factory constructor, `WeatherInfo.fromOneCall3`, that takes in the raw data from the OpenWeather API and maps it to the `WeatherInfo` class. This constructor is responsible for extracting the relevant information from the API response and populating the fields of the `WeatherInfo` class accordingly. This design allows us to keep the mapping logic separate from the rest of the code that uses the `WeatherInfo` class, making it easier to maintain and update the code in the future if we decide to switch to a different weather service or if the API response format changes.
+
+The `WeatherInfo` class also includes methods to perform data transformations, for example:
+* `String get degreeUnit => country == 'US' ? '°F' : '°C';` to determine the appropriate degree unit based on the user's country.
+* `String get minTempWithUnit => '${minTemp.toStringAsFixed(0)} $degreeUnit';` to present the minimum temperature with the appropriate unit.
+* `bool get minTempIsFreezing => country == 'US' ? minTemp < 32 : minTemp < 0;` to determine if the minimum temperature is below freezing based on the user's country.
+* `double? get precipitationInPreferredUnit` to present the precipitation data in the appropriate unit (inches for US, millimeters for CA).
+* `String get precipitationLevel` to provide a qualitative description of the precipitation level (e.g., "light", "moderate", "heavy") based on the amount of precipitation.
+* `String get precipitationDescription` to provide a short precipitation description (e.g., "Light Rain (5.00mm) expected") that can be used in the UI.
+
+
+### WeatherForecastInfo class
+
+We also created a `WeatherForecastInfo` class to represent the forecasted weather data for the next few days. This class is used as a field in the `WeatherInfo` class to provide users with a forecast of upcoming weather conditions.
+
+```dart
+@freezed
+abstract class WeatherForecastInfo with _$WeatherForecastInfo {
+  const factory WeatherForecastInfo({
+    required String country, // Either US or CA for now.
+    required DateTime date, // The date of the forecast information.
+    required double minTemp, // Minimum temperature for the day.
+    required double maxTemp, // Maximum temperature for the day.
+    required String
+    iconUrl, // URL to an icon representing the forecasted weather conditions.
+  }) = _WeatherForecastInfo;
+}
+```
+The `WeatherForecastInfo` class has two helper methods:
+* `String get degreeUnit => country == 'US' ? '°F' : '°C';` to determine the appropriate degree unit based on the user's country.
+* `String get tempRange =>
+  '${minTemp.toStringAsFixed(0)} - ${maxTemp.toStringAsFixed(0)} $degreeUnit';` to present the temperature range for the day with the appropriate unit. These methods allow client code to easily access the forecasted weather data in a user-friendly format, without having to perform the necessary calculations and formatting themselves.
+
+### WeatherAlertInfo class
+
+Finally, we created a `WeatherAlertInfo` class to represent any weather alerts that may be present for the user's area. This class is used as a field in the `WeatherInfo` class to provide users with important information about severe weather conditions that may affect their gardening activities.
+
+```dart
+@freezed
+abstract class WeatherAlertInfo with _$WeatherAlertInfo {
+  const factory WeatherAlertInfo({
+    required String
+    senderName, // The name of the entity that issued the alert (e.g., a weather service or government agency).
+    required String
+    event, // The type of weather event (e.g., "Flood Warning", "Heat Advisory").
+    required DateTime
+    start, // The start time of the alert, indicating when the weather event is expected to begin.
+    required DateTime
+    end, // The end time of the alert, indicating when the weather event is expected to end.
+    required String
+    description, // A detailed description of the weather alert, providing information about the nature of the event, potential impacts, and any recommended actions for those in the affected area.
+    required List<String>
+    tags, // A list of tags associated with the alert, which can be used for categorization or filtering (e.g., "flood", "heat", "wind").
+  }) = _WeatherAlertInfo;
+}
+```
 
