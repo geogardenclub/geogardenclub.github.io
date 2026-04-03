@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMYL9625P3"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-WMYL9625P3",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.31be0910.css">
-<script src="/assets/js/runtime~main.b89800e2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.09e2d18b.js" defer="defer"></script>
 <script src="/assets/js/main.10e2cc1b.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -40,9 +40,9 @@
 <p>Invoke <code>cider log added &lt;message&gt;</code> to document new additions (or use <code>changed</code> or <code>fixed</code>) since the last release. Enclose the message in quotes. For example:</p>
 <div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cider log added &quot;Terms and Conditions&quot;</span><br></span></code></pre></div></div>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="build-the-deployment-files">Build the deployment files<a href="#build-the-deployment-files" class="hash-link" aria-label="Direct link to Build the deployment files" title="Direct link to Build the deployment files" translate="no">​</a></h3>
-<p>Invoke <code>./run_deploy.sh</code>.  This script does the following:</p>
+<p>Invoke <code>./run_deploy.sh</code> (or <code>./run_deploy.sh --patch</code>).  This script does the following:</p>
 <ul>
-<li class="">Invokes <code>cider bump minor</code> and <code>cider release</code> so that the unreleased changes are moved to a new release number, and that release number is recorded in the pubspec.yml.</li>
+<li class="">Invokes <code>cider bump minor</code> (or <code>cider bump patch</code>) and <code>cider release</code> so that the unreleased changes are moved to a new release number, and that release number is recorded in the pubspec.yml.</li>
 <li class="">Commits the updated CHANGELOG.md and pubspec.yml files to GitHub.</li>
 <li class="">Creates a &quot;deploy directory&quot; at <code>~/Desktop/ggc-deploy-&lt;VERSION&gt;</code>.</li>
 <li class="">Builds the ggc_app.ipa file, uploads it to Shorebird, and copies it to the deploy directory.</li>
