@@ -4,10 +4,44 @@
         <title>Geo Garden Club Blog</title>
         <link>https://geogardenclub.com/news</link>
         <description>Geo Garden Club Blog</description>
-        <lastBuildDate>Sat, 14 Mar 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 10 Apr 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[GGC News: April 2026]]></title>
+            <link>https://geogardenclub.com/news/2026/04/10/newsletter</link>
+            <guid>https://geogardenclub.com/news/2026/04/10/newsletter</guid>
+            <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[In this newsletter:]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2026/04/10/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
+<ul>
+<li class="">Share your garden (with anyone) using the public view feature</li>
+<li class="">Use the Local Insights View</li>
+<li class="">Copy plantings faster</li>
+<li class="">GGC from your computer</li>
+<li class="">Refer three friends, get three months free</li>
+</ul>
+<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=82175eac2c" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content:encoded>
+            <author>info@geogardenclub.com (Jenna Deane)</author>
+            <category>Newsletter</category>
+        </item>
+        <item>
+            <title><![CDATA[GGC App: 3.5.0 Release]]></title>
+            <link>https://geogardenclub.com/news/2026/04/08/release</link>
+            <guid>https://geogardenclub.com/news/2026/04/08/release</guid>
+            <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[In this release:]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/04/08/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
+<ul>
+<li class="">Weather Insight Widget</li>
+<li class="">7 Day Free Preview mode</li>
+<li class="">Improvements to Task Due Dates</li>
+</ul>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+            <author>info@geogardenclub.com (Philip Johnson)</author>
+            <category>Releases</category>
+        </item>
         <item>
             <title><![CDATA[GGC App: 3.4.0 Release]]></title>
             <link>https://geogardenclub.com/news/2026/03/14/release</link>
@@ -310,50 +344,6 @@
 <li class="">Settings button is now a gear icon, not a clipped username.</li>
 <li class="">App Review prompts take into account multiple device installations.</li>
 <li class="">Misc bug fixes and performance improvements.</li>
-</ul>
-<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
-            <author>info@geogardenclub.com (Philip Johnson)</author>
-            <category>Releases</category>
-        </item>
-        <item>
-            <title><![CDATA[GGC News: July 2025]]></title>
-            <link>https://geogardenclub.com/news/2025/07/05/newsletter</link>
-            <guid>https://geogardenclub.com/news/2025/07/05/newsletter</guid>
-            <pubDate>Sat, 05 Jul 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[In this newsletter:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/07/05/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
-<ul>
-<li class="">Top Three Tricks with GeoGardenClub</li>
-<li class="">Featured Gardener: Threse</li>
-</ul>
-<p>Click <a href="https://mailchi.mp/a921c2d2c791/best-garden-yet?e=511e166622" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content:encoded>
-            <author>info@geogardenclub.com (Jenna Deane)</author>
-            <category>Newsletter</category>
-        </item>
-        <item>
-            <title><![CDATA[GGC App: 2.21.0 Release]]></title>
-            <link>https://geogardenclub.com/news/2025/06/17/release</link>
-            <guid>https://geogardenclub.com/news/2025/06/17/release</guid>
-            <pubDate>Tue, 17 Jun 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/06/17/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
-<p>Added:</p>
-<ul>
-<li class="">Support for accents and non-English characters in entity names.</li>
-<li class="">Security and reliability improvements (AppCheck, Shorebird).</li>
-</ul>
-<p>Changed:</p>
-<ul>
-<li class="">Default Bed visibility changed to All Beds.</li>
-<li class="">Improvements to crop and variety name caching.</li>
-<li class="">Improvements to offsite backups.</li>
-<li class="">Improvements to database access code.</li>
-</ul>
-<p>Fixed:</p>
-<ul>
-<li class="">Check for unique bed names fixed.</li>
-<li class="">Fixed BadgeProcessor to eliminate level 0 badges.</li>
-<li class="">Fixes to chapter-local crop name display.</li>
 </ul>
 <p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
