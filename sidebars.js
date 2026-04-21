@@ -93,6 +93,17 @@ const sidebars = {
       label: "Admin Guide",
       items: [
           'admin-guide/overview',
+        {
+          type: 'category',
+          collapsed: true,
+          label: "Database Management",
+          items: [
+              "admin-guide/database-management/overview",
+              "admin-guide/database-management/integrity-check",
+              "admin-guide/database-management/cloud-storage-integrity-check",
+              "admin-guide/database-management/database-operation"
+          ]
+        }
       ]
     },
     ],
