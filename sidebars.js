@@ -86,7 +86,16 @@ const sidebars = {
         'user-guide/settings',
         'user-guide/privacy',
         ]
-    }],
+    },
+    {
+      type: 'category',
+      collapsed: true,
+      label: "Admin Guide",
+      items: [
+          'admin-guide/overview',
+      ]
+    },
+    ],
   businessSidebar: [
     'business/index',
     'business/roadmap',
