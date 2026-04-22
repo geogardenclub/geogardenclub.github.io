@@ -357,16 +357,32 @@ const sidebars = {
               {
                 type: 'category',
                 collapsed: true,
-                label: 'Manage Crops',
+                label: 'Crop Management',
                 items: [
-                  'admin-guide/feature-management/chapters/manage-chapters',
-                  'admin-guide/feature-management/chapters/create',
-                  'admin-guide/feature-management/chapters/update',
-
+                  'admin-guide/feature-management/crops/manage-crops',
+                  'admin-guide/feature-management/crops/create',
+                  'admin-guide/feature-management/crops/update',
+                  'admin-guide/feature-management/crops/delete',
                 ]
               },
-              'admin-guide/feature-management/chapters/message-chapters',
-              'admin-guide/feature-management/chapters/post-chapter-update',
+            ]
+          },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Families',
+            items: [
+              'admin-guide/feature-management/families',
+              {
+                type: 'category',
+                collapsed: true,
+                label: 'Family Management',
+                items: [
+                  'admin-guide/feature-management/families/create',
+                  'admin-guide/feature-management/families/update',
+                  'admin-guide/feature-management/families/delete',
+                ]
+              },
             ]
           },
 
