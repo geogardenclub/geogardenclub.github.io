@@ -87,25 +87,6 @@ const sidebars = {
         'user-guide/privacy',
         ]
     },
-    {
-      type: 'category',
-      collapsed: true,
-      label: "Admin Guide",
-      items: [
-          'admin-guide/overview',
-        {
-          type: 'category',
-          collapsed: true,
-          label: "Database Management",
-          items: [
-              "admin-guide/database-management/overview",
-              "admin-guide/database-management/integrity-check",
-              "admin-guide/database-management/cloud-storage-integrity-check",
-              "admin-guide/database-management/database-operation"
-          ]
-        }
-      ]
-    },
     ],
   businessSidebar: [
     'business/index',
@@ -232,6 +213,11 @@ const sidebars = {
       label: 'Developer Guide',
       href: '/docs/develop/',
     },
+    {
+      type: 'link',
+      label: 'Administrator Guide',
+      href: '/docs/admin-guide/',
+    }
   ],
   developSidebar: [
     'develop/index',
@@ -320,6 +306,64 @@ const sidebars = {
       href: '/docs/business/',
     },
   ],
+  adminSidebar: [
+      'admin-guide/index',
+      {
+        type: 'category',
+        collapsed: true,
+        label: 'Database Management',
+        items: [
+            'admin-guide/database-management/overview',
+            'admin-guide/database-management/integrity-check',
+            'admin-guide/database-management/cloud-storage-integrity-check',
+            'admin-guide/database-management/database-operation',
+        ]
+      },
+      {
+        type: 'category',
+        collapsed: true,
+        label: 'Feature Management',
+        items: [
+            'admin-guide/feature-management/overview',
+            'admin-guide/feature-management/activities',
+            'admin-guide/feature-management/badges',
+            {
+              type: 'category',
+              collapsed: true,
+              label: 'Manage Chapters',
+              items: [
+                'admin-guide/feature-management/chapters'
+              ]
+            },
+
+        ]
+      },
+    {
+      type: 'category',
+      collapsed: true,
+      label: 'Refresh Caches',
+      items: [
+          'admin-guide/refresh-caches/overview',
+      ]
+    },
+    {
+      type: 'category',
+      collapsed: true,
+      label: 'Set Images',
+      items: [
+          'admin-guide/set-images/overview',
+      ]
+    },
+    'admin-guide/view-onboarding-screens',
+    {
+      type: 'category',
+      collapsed: true,
+      label: 'Instrumentation',
+      items: [
+        'admin-guide/instrumentation/overview',
+      ]
+    },
+  ]
 };
 
 module.exports = sidebars;
