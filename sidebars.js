@@ -332,9 +332,43 @@ const sidebars = {
               collapsed: true,
               label: 'Manage Chapters',
               items: [
-                'admin-guide/feature-management/chapters'
+                'admin-guide/feature-management/chapters',
+                {
+                  type: 'category',
+                  collapsed: true,
+                  label: 'Manage Chapters',
+                  items: [
+                      'admin-guide/feature-management/chapters/manage-chapters',
+                      'admin-guide/feature-management/chapters/create',
+                      'admin-guide/feature-management/chapters/update',
+
+                  ]
+                },
+                'admin-guide/feature-management/chapters/message-chapters',
+                'admin-guide/feature-management/chapters/post-chapter-update',
               ]
             },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Crops',
+            items: [
+              'admin-guide/feature-management/crops',
+              {
+                type: 'category',
+                collapsed: true,
+                label: 'Manage Crops',
+                items: [
+                  'admin-guide/feature-management/chapters/manage-chapters',
+                  'admin-guide/feature-management/chapters/create',
+                  'admin-guide/feature-management/chapters/update',
+
+                ]
+              },
+              'admin-guide/feature-management/chapters/message-chapters',
+              'admin-guide/feature-management/chapters/post-chapter-update',
+            ]
+          },
 
         ]
       },
