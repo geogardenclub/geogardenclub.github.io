@@ -394,6 +394,17 @@ const sidebars = {
               'admin-guide/feature-management/prices/delete',
             ]
           },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Tags',
+            items: [
+              'admin-guide/feature-management/tags/manage',
+              'admin-guide/feature-management/tags/create',
+              'admin-guide/feature-management/tags/update',
+              'admin-guide/feature-management/tags/delete',
+            ]
+          },
         ]
       },
     {
