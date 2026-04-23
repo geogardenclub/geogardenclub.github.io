@@ -405,6 +405,17 @@ const sidebars = {
               'admin-guide/feature-management/tags/delete',
             ]
           },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Users',
+            items: [
+              'admin-guide/feature-management/users/manage',
+              'admin-guide/feature-management/users/blocked',
+              'admin-guide/feature-management/users/migrate',
+              'admin-guide/feature-management/users/delete',
+            ]
+          },
         ]
       },
     {
