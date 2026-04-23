@@ -7,4 +7,7 @@ title: Database Management Overview
 
 <img width="300" src="/img/admin-guide/database-management/database-management.png"/>
 
-There are three main sections to the Database Management page: **Database Integrity Check**, **Cloud Storage Integrity Check**, and **Database Operation**. 
+There are three main sections to the Database Management page:
+* [**Database Integrity Check**](integrity-check),
+* [**Cloud Storage Integrity Check**](cloud-storage-integrity-check), and
+* [**Database Operation**](database-operation). 
