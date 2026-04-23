@@ -416,6 +416,20 @@ const sidebars = {
               'admin-guide/feature-management/users/delete',
             ]
           },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Varieties',
+            items: [
+              'admin-guide/feature-management/varieties',
+              'admin-guide/feature-management/varieties/manage',
+              'admin-guide/feature-management/varieties/create',
+              'admin-guide/feature-management/varieties/update',
+              'admin-guide/feature-management/varieties/delete',
+              'admin-guide/feature-management/varieties/gold',
+            ]
+          },
+
         ]
       },
     {
