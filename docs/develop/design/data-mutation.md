@@ -87,18 +87,25 @@ Widget build(BuildContext context, WidgetRef ref) {
     badgeProcessor.forGardenAttestation(gardenID, garden.ownerID, garden);
 
     // Update the garden, editors, beds, badges, and photo
-    ref.read(mutateControllerProvider.notifier).mutate(
-      gardensToSet: [garden],
-      addChatRoom: true,
-      editorsToSet: editors,
+    ref
+        .read(mutateControllerProvider.notifier)
+        .mutate(
+      activitiesToSet: [activity],
+      gardensToSet: [Garden.setLastUpdate(garden)],
       gardenPictureImages: SingleImagePicker.value(formKey),
       gardenPlotPlanImages: PlotPlanPicker.value(formKey),
+      editorsToSet: editors,
+      chaptersToSet: [Chapter.setLastUpdate(chapterToSet)],
+      chapterPictureImages: [chapterToSet.pictureURL],
       context: context,
       bedsToSet: [bed],
       badgeInstancesToSet: badgeInstanceResult.instancesToCreate,
       badgeInstancesToDelete: badgeInstanceResult.instancesToDelete,
+      eventsToSet: [event],
       onSuccess: () {
+        FieldKey.clear();
         if (context.canPop()) context.pop();
+        FieldKey.clear();
         GlobalSnackBar.show('Garden "$name" created.');
       },
     );
@@ -118,6 +125,10 @@ That's basically all there is to it.  The MutateController's `mutate` method has
 
 ```dart title="lib/features/common/controllers/mutate_controller.dart"
   Future<void> mutate({
+    required VoidCallback onSuccess,
+    BuildContext? context,
+    List<Activity> activitiesToSet = const [],
+    List<Activity> activitiesToDelete = const [],
     List<BadgeInstance> badgeInstancesToSet = const [],
     List<BadgeInstance> badgeInstancesToDelete = const [],
     List<Badge> badgesToSet = const [],
@@ -126,30 +137,36 @@ That's basically all there is to it.  The MutateController's `mutate` method has
     List<Bed> bedsToDelete = const [],
     List<Chapter> chaptersToSet = const [],
     List<Chapter> chaptersToDelete = const [],
-    bool addChatUser = false,
-    ChatUser? updateChatUser,
-    ChatUser? deleteChatUser,
-    bool addChatRoom = false,
-    ChatRoom? updateChatRoom,
-    ChatRoom? deleteChatRoom,
-    List<ChatRoom> chatRoomsToSet = const [],
-    List<ChatRoom> chatRoomsToDelete = const [],
+    List<dynamic>? chapterPictureImages,
     List<Crop> cropsToSet = const [],
     List<Crop> cropsToDelete = const [],
+    List<dynamic>? cropPictureImages,
     List<Editor> editorsToSet = const [],
     List<Editor> editorsToDelete = const [],
     List<Family> familiesToSet = const [],
     List<Family> familiesToDelete = const [],
+    List<ForumMessage> forumMessagesToSet = const [],
+    List<ForumMessage> forumMessagesToDelete = const [],
+    List<dynamic>? forumMessageImages,
+    List<ForumTopic> forumTopicsToSet = const [],
+    List<ForumTopic> forumTopicsToDelete = const [],
     List<Gardener> gardenersToSet = const [],
     List<Gardener> gardenersToDelete = const [],
     List<Garden> gardensToSet = const [],
     List<Garden> gardensToDelete = const [],
+    List<dynamic>? gardenPictureImages,
+    List<dynamic>? gardenPlotPlanImages,
     List<Observation> observationsToSet = const [],
     List<Observation> observationsToDelete = const [],
+    List<dynamic>? observationImages,
     List<Outcome> outcomesToSet = const [],
     List<Outcome> outcomesToDelete = const [],
     List<Planting> plantingsToSet = const [],
     List<Planting> plantingsToDelete = const [],
+    List<Price> pricesToSet = const [],
+    List<Price> pricesToDelete = const [],
+    List<PublicView> publicViewsToSet = const [],
+    List<PublicView> publicViewsToDelete = const [],
     List<Role> rolesToSet = const [],
     List<Role> rolesToDelete = const [],
     List<Tag> tagsToSet = const [],
@@ -158,14 +175,11 @@ That's basically all there is to it.  The MutateController's `mutate` method has
     List<Task> tasksToDelete = const [],
     List<User> usersToSet = const [],
     List<User> usersToDelete = const [],
+    List<dynamic>? userProfileImages,
     List<Variety> varietiesToSet = const [],
     List<Variety> varietiesToDelete = const [],
-    List<dynamic>? gardenPictureImages,
-    List<dynamic>? gardenPlotPlanImages,
-    List<dynamic> userProfileImages = const [],
-    List<dynamic> observationImages = const [],
-    BuildContext? context,
-    required VoidCallback onSuccess,
+    List<dynamic>? varietyPictureImages,
+    List<Event> eventsToSet = const [],
   })
 ```
 
