@@ -455,6 +455,10 @@ const sidebars = {
       label: 'Instrumentation',
       items: [
         'admin-guide/instrumentation/overview',
+        'admin-guide/instrumentation/event-log',
+        'admin-guide/instrumentation/event-table',
+        'admin-guide/instrumentation/user-journey',
+        'admin-guide/instrumentation/set-retrieval-dates'
       ]
     },
   ]

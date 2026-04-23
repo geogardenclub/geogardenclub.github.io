@@ -6,7 +6,7 @@ sidebar_label: "Welcome"
 
 Welcome to the Administrator's Guide for the Geo Garden Club project.
 
-Please note that the Administrator's Guide consists of all pages in the `/docs/admin-guide` subdirectory of the GGC website.  The Administrator's Guide is "partially hidden", in that these pages do not appear in the sidebar of the pages discoverable from the home page of the site, and the `robots.txt` file discourages crawlers from retrieving this set of pages. So, in general, to access these pages, you need to be given the URL (https://geogardenclub.com/docs/develop) by a member of the project.
+Please note that the Administrator's Guide consists of all pages in the `/docs/admin-guide` subdirectory of the GGC website.  The Administrator's Guide is "partially hidden", in that these pages do not appear in the sidebar of the pages discoverable from the home page of the site, and the `robots.txt` file discourages crawlers from retrieving this set of pages. So, in general, to access these pages, you need to be given the URL (https://geogardenclub.com/docs/admin-guide) by a member of the project.
 
 That said, this hidden-ness is only partial because:
 
