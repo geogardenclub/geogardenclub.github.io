@@ -114,12 +114,12 @@ This script starts up the Firebase Emulators, connects to them, runs the tests, 
 You should see something like:
 
 ```bash
-$ ./run_tests_emulator.sh                                                          
-+ npx kill-port 8080 4400 9099
-Process on port 4400 killed
-Process on port 9099 killed
-Process on port 8080 killed                                                        
-+ firebasePid=78081
+$ ./run_tests_emulator.sh                                                                                                                                               13:14:46
++ lsof -ti:8080
++ lsof -ti:4400
++ lsof -ti:9099
++ lsof -ti:4000
++ firebasePid=21747
 + sleep 10
 + firebase emulators:start --only auth,firestore
 i  emulators: Starting emulators: auth, firestore
