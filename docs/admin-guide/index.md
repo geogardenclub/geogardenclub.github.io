@@ -13,7 +13,7 @@ That said, this hidden-ness is only partial because:
 1. If you share the URL with others, then they can access these pages. There is no access control. Please use restraint.
 2. The GitHub geogardenclub.github.io repository containing the sources for these pages is a public repository. (GGC,LLC is not yet rich enough to pay $4/seat/month for GitHub Teams.) Thus, anyone who cares to poke around in that repo can discover all of these pages. 
 
-As an administrator of the GeoGardenClub app (GGC), you play a critical role in ensuring the smooth operation of the app and providing support to our users.
+As an administrator of the GeoGardenClub app (GGC), you play a critical role in ensuring the smooth operation of the app and providing support to our gardeners.
 
 To get to the Admin pages, click on the "Admin" link in the drawer.
 

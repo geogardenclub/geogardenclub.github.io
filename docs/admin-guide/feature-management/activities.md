@@ -7,4 +7,6 @@ title: Manage Activities
 
 <img width="300" src="/img/admin-guide/feature-management/activities.png"/>
 
-Activities are a way to track user interactions with Ggc.
+<!--- # (TODO(Philip): please add details about activities.) --->
+
+Activities are a way to track gardener interactions with Ggc.

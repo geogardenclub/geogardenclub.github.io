@@ -14,7 +14,7 @@ There are three main sections to the Database Management page:
 
 # Integrity Checking
 
-We use a Firestore Database to store the (textual) "documents" associated with GGC, and Firestore Cloud Storage to store the (binary) image files that users upload to associate with Observation, Garden, and other documents. Let's call the combination of our Firestore Database and our Cloud Storage the GGC "repository".
+We use a Firestore Database to store the (textual) "documents" associated with GGC, and Firestore Cloud Storage to store the (binary) image files that gardeners upload to associate with Observation, Garden, and other documents. Let's call the combination of our Firestore Database and our Cloud Storage the GGC "repository".
 
 One important quality assurance issue is to ascertain whether the GGC repository is in a consistent state. In other words, does the repository exhibit integrity?  Integrity means satisfying the following constraints:
 

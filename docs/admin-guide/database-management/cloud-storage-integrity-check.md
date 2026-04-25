@@ -19,7 +19,7 @@ Before running this command, it is important to open the Firebase Storage consol
 
 <img width="700px" src="/img/develop/quality-assurance/storage-console.png"/>
 
-If the top level of our bucket contains more than these three folders, it indicates that a user has uploaded an image using an old version of the app. If this is the case, then before running this command, you should:
+If the top level of our bucket contains more than these three folders, it indicates that a gardener has uploaded an image using an old version of the app. If this is the case, then before running this command, you should:
 1. Run DBOperation36 to migrate the incorrectly placed image files to the appropriate location in Cloud Storage and update the associated Database documents.
 2. Delete the offending files/folders manually from Cloud Storage using the console so that only the appropriate three top-level folders remain.
 
