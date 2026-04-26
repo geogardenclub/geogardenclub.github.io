@@ -7,7 +7,7 @@ title: Create Chapter
 
 <img width="300" src="/img/admin-guide/feature-management/chapters/create.png"/>
 
-The Create Chapter page allows you to create a new chapter. You can specify the chapter name, country, state, region, and postal codes. You can also choose an image for the chapter. We currently support two countries: the United States and Canada. The postal codes field allows you to specify a set of one or more postal codes in the region.
+The Create Chapter page allows you to create a new chapter. You can specify the chapter name, country, state, region, postal codes, and frost dates, if any. You can also choose an image for the chapter. We currently support two countries: the United States and Canada. The postal codes field allows you to specify a set of one or more postal codes in the chapter.
 
 We traditionally have used the name of the county or city and state as the chapter name (e.g., "Whatcom-WA" or "Benton-OR").
 
