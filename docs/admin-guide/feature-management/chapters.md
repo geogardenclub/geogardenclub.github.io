@@ -13,4 +13,4 @@ The Chapter entity defines a geographic region based on a country, a state in th
 
 GGC needs to ensure that Chapter instances partition the world: every tuple of (country code, region, postal code) maps to exactly one Chapter.
 
-The set of Chapters in GGC are manually maintained through this admin page. 
+The set of Chapters in GGC are maintained through this admin page. 
