@@ -82,11 +82,14 @@ Tell Philip you've made changes to the sources.
 
 ### 3. Philip deploys the site
 
-To deploy the site, make sure that GIT_USER is set and that you have commit privileges to the repo, then invoke:
+To deploy the site, Philip has GIT_USER is set and has commit privileges to the repo, then he invokes:
 
 ```
-npm run deploy
+GIT_PASS=<token> npm run deploy
 ```
+
+He has a GitHub Personal Access Token stored someplace (like your 1Password file). Note he doesn't store it on his 
+local file system in plain text (like in an environment variable) to avoid an attack vector. 
 
 This builds the static HTML and commits the results to the `main` branch of the geogardenclub.github.io repository.
 

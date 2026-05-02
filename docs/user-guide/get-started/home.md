@@ -5,10 +5,12 @@ hide_table_of_contents: true
 
 # About Home
 
-:::tip Welcome home!
+:::tip Step 6: Welcome home!
 :::
 
-Each time you sign in to the GeoGardenClub app, you will be taken to the Home screen.  The Home screen is your "dashboard" and provides quick access to important features. 
+Whether you're in your Free Preview Period or have accepted a subscription after 7 days, you will initially arrive at the Home screen.  
+
+The Home screen is your "dashboard" and provides quick access to important features. 
 
 ## Screen components
 

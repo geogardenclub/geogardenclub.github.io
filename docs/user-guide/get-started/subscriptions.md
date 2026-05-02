@@ -5,10 +5,10 @@ hide_table_of_contents: true
 
 # Subscriptions
 
-:::tip Step 4: Select your subscription
+:::tip Step 5: Select your subscription
 :::
 
-Before you can start to use the services provided by GeoGardenClub, you must become a subscriber.  The first time you sign in to GeoGardenClub, after completing your profile, you will be taken to a screen similar to the following in order to accept the terms of either our annual or monthly subscription plan: 
+After your 7 day Free Preview period ends, you will be taken to a screen similar to the following in order to accept the terms of either our annual or monthly subscription plan: 
 
 <img width="300" src="/img/user-guide/subscription.png"/>
 
@@ -20,7 +20,6 @@ Our goal is to improve your gardening productivity so much that you actually sav
 Some GGC subscription plans come with a free introductory period so that you can experience membership and decide if GGC is for you. If it isn't, then you can cancel your subscription any time before the end of the introductory period and not be charged.
 :::
 
-Once you have accepted the subscription, after clicking through a short sequence of onboarding screens, you will arrive at your Home screen where you can define your first garden!
 
 ## Managing your subscription plan
 

@@ -19,6 +19,14 @@ Let's now look at each Insight Widget in more detail.
 
 ## Insight Widgets
 
+### Free Preview
+
+The seven days following profile creation is the "Free Preview" period, where you are able to access all features of GeoGardenClub without accepting a subscription. You will know you are in the Free Preview period because of the presence of the following Insight Widget:
+
+<img width="300" src="/img/user-guide/home-insights-free-preview.png"/>
+
+This widget disappears once the Free Preview period ends. At that point you will have to accept a subscription to continue to use GeoGardenClub.
+
 ### Get Started
 
 Getting productive in GeoGardenClub requires you to become familiar with five key features: Gardens, Beds, Plantings, Observations, and Outcomes. The Get Started Insight Widget is designed to help new users with an incremental introduction to these features. 

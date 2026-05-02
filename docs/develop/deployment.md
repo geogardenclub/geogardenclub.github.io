@@ -39,9 +39,9 @@ cider log added "Terms and Conditions"
 
 ### Build the deployment files
 
-Invoke `./run_deploy.sh`.  This script does the following:
+Invoke `./run_deploy.sh` (or `./run_deploy.sh --patch`).  This script does the following:
 
-* Invokes `cider bump minor` and `cider release` so that the unreleased changes are moved to a new release number, and that release number is recorded in the pubspec.yml.
+* Invokes `cider bump minor` (or `cider bump patch`) and `cider release` so that the unreleased changes are moved to a new release number, and that release number is recorded in the pubspec.yml.
 * Commits the updated CHANGELOG.md and pubspec.yml files to GitHub.
 * Creates a "deploy directory" at `~/Desktop/ggc-deploy-<VERSION>`.
 * Builds the ggc_app.ipa file, uploads it to Shorebird, and copies it to the deploy directory.
@@ -49,10 +49,10 @@ Invoke `./run_deploy.sh`.  This script does the following:
 * Gets the release notes for the current release and copies them to the deploy directory.
 * Invokes `firebase deploy` to build and deploy the web version of the app.
 
-:::info Possible iOS build/deployment Errors 
+:::info Possible Deployment Problems and Solutions 
 
 #### 1. No signing certificate error
-I encountered the following error message when attempting to build the ggc_app.ipa file:
+If you encounter the following error message when attempting to build the ggc_app.ipa file:
 
 ```
 Error (Xcode): No signing certificate "iOS Development" found: 
@@ -60,17 +60,31 @@ No "iOS Development" signing certificate matching team ID
 "8M69898HLM" with a private key was found.
 ```
 
-The fix was to open XCode, go to the Signing and Capabilities page, and login again. 
+Fix: open XCode, go to the Signing and Capabilities page, and login again. 
 
 #### 2. iOS version Error
 
-I encountered "issues" when running the Transporter which prevented the ggc_app.ipa from being uploaded to App Store Connect. The error message involved an incorrect/missing MinimumOSVersion. To fix it, I eventually had to make sure the MinimumOSVersion was set to the same value (15) in all of the following places:
+If you encounter "issues" when running the Transporter which prevents the ggc_app.ipa from being uploaded to App Store Connect. The error message involves an incorrect/missing MinimumOSVersion. 
+
+Fix: Make sure the MinimumOSVersion is set to the same value (15) in all of these places:
 
 1. In XCode > General > Minimum Deployments
 2. In XCode > Build Settings > Deployment > iOS Deployment Target
 3. In ggc_app/ios/Flutter/AppFrameworksInfo.plist (key: MinimumOSVersion)
 4. In ggc_app/ios/Podfile (platform: ios)
 
+#### 3. Firebase deploy fail
+
+If you get the following error running `firebase deploy --only hosting`:
+
+```
+Error: Request to https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ggc-app-2de7b/versions 
+had HTTP Error: 401, Request had invalid authentication credentials. 
+Expected OAuth 2 access token, login cookie or other valid authentication credential. 
+See https://developers.google.com/identity/sign-in/web/devconsole-project.
+```
+
+Fix: invoke `firebase logout` followed by `firebase login`. Sheesh.
 :::
 
 
