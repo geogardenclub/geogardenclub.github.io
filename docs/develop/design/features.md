@@ -9,9 +9,11 @@ The GGC app loosely follows the "feature first" design philosophy expressed in A
 
 ```shell
 ~/GitHub/geogardenclub/ggc_app/lib/features git:[main] ls
-admin/          bed/          common/       garden/       help/          outcome/       tag/           variety/
-authentication/ chapter/      crop/         gardener/     home/          planting/      task/
-badge/          chat/         family/       geobot/       observation/   settings/      user/
+activity/               bed/                    family/                 home/                   onboarding/             retail_value/           user/
+admin/                  chapter/                forum/                  insight/                outcome/                revenuecat/             variety/
+app_review/             common/                 garden/                 instrumentation/        planting/               settings/               weather/
+authentication/         country/                gardener/               notification/           price/                  tag/
+badge/                  crop/                   help/                   observation/            public_view/            task/
 ```
 
 As you can see, the `features/` directory consists of a couple dozen subdirectories, each of which contains the implementation of a "feature". In many cases, a feature is an entity in the data model (i.e. Bed, Garden, Planting, etc.). In other cases, a feature is a conceptually coherent mechanism (i.e. authentication, help). Then there's the `common/` directory, which isn't actually a feature at all, but which holds cross-cutting functionality that is used by multiple features, and which seems most appropriate to be located in this subdirectory even though it isn't actually a feature.

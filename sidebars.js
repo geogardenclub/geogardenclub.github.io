@@ -87,7 +87,8 @@ const sidebars = {
         'user-guide/settings',
         'user-guide/privacy',
         ]
-    }],
+    },
+    ],
   businessSidebar: [
     'business/index',
     'business/roadmap',
@@ -213,6 +214,11 @@ const sidebars = {
       label: 'Developer Guide',
       href: '/docs/develop/',
     },
+    {
+      type: 'link',
+      label: 'Administrator Guide',
+      href: '/docs/admin-guide/',
+    }
   ],
   developSidebar: [
     'develop/index',
@@ -301,6 +307,162 @@ const sidebars = {
       href: '/docs/business/',
     },
   ],
+  adminSidebar: [
+      'admin-guide/index',
+      {
+        type: 'category',
+        collapsed: true,
+        label: 'Database Management',
+        items: [
+            'admin-guide/database-management/overview',
+            'admin-guide/database-management/integrity-check',
+            'admin-guide/database-management/cloud-storage-integrity-check',
+            'admin-guide/database-management/database-operation',
+        ]
+      },
+      {
+        type: 'category',
+        collapsed: true,
+        label: 'Feature Management',
+        items: [
+            'admin-guide/feature-management/overview',
+            'admin-guide/feature-management/activities',
+            'admin-guide/feature-management/badges',
+            {
+              type: 'category',
+              collapsed: true,
+              label: 'Manage Chapters',
+              items: [
+                'admin-guide/feature-management/chapters',
+                      'admin-guide/feature-management/chapters/manage-chapters',
+                      'admin-guide/feature-management/chapters/create',
+                      'admin-guide/feature-management/chapters/update',
+
+                'admin-guide/feature-management/chapters/message-chapters',
+                'admin-guide/feature-management/chapters/post-chapter-update',
+              ]
+            },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Crops',
+            items: [
+              'admin-guide/feature-management/crops',
+              'admin-guide/feature-management/crops/create',
+              'admin-guide/feature-management/crops/update',
+              'admin-guide/feature-management/crops/delete',
+            ]
+          },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Families',
+            items: [
+              'admin-guide/feature-management/families',
+              'admin-guide/feature-management/families/create',
+              'admin-guide/feature-management/families/update',
+              'admin-guide/feature-management/families/delete',
+           ]
+          },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Forums',
+            items: [
+              'admin-guide/feature-management/forums',
+              'admin-guide/feature-management/forums/topics',
+              'admin-guide/feature-management/forums/messages',
+              'admin-guide/feature-management/forums/broadcast',
+            ]
+          },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Plantings',
+            items: [
+              'admin-guide/feature-management/plantings',
+              'admin-guide/feature-management/planting-details',
+            ]
+          },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Prices',
+            items: [
+              'admin-guide/feature-management/prices/manage',
+              'admin-guide/feature-management/prices/create',
+              'admin-guide/feature-management/prices/update',
+              'admin-guide/feature-management/prices/delete',
+            ]
+          },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Tags',
+            items: [
+              'admin-guide/feature-management/tags/manage',
+              'admin-guide/feature-management/tags/create',
+              'admin-guide/feature-management/tags/update',
+              'admin-guide/feature-management/tags/delete',
+            ]
+          },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Users',
+            items: [
+              'admin-guide/feature-management/users/manage',
+              'admin-guide/feature-management/users/blocked',
+              'admin-guide/feature-management/users/migrate',
+              'admin-guide/feature-management/users/delete',
+            ]
+          },
+          {
+            type: 'category',
+            collapsed: true,
+            label: 'Manage Varieties',
+            items: [
+              'admin-guide/feature-management/varieties',
+              'admin-guide/feature-management/varieties/manage',
+              'admin-guide/feature-management/varieties/create',
+              'admin-guide/feature-management/varieties/update',
+              'admin-guide/feature-management/varieties/delete',
+              'admin-guide/feature-management/varieties/gold',
+            ]
+          },
+
+        ]
+      },
+    {
+      type: 'category',
+      collapsed: true,
+      label: 'Refresh Caches',
+      items: [
+          'admin-guide/refresh-caches/overview',
+      ]
+    },
+    {
+      type: 'category',
+      collapsed: true,
+      label: 'Set Images',
+      items: [
+          'admin-guide/set-images/overview',
+      ]
+    },
+    'admin-guide/view-onboarding-screens',
+    {
+      type: 'category',
+      collapsed: true,
+      label: 'Instrumentation',
+      items: [
+        'admin-guide/instrumentation/overview',
+        'admin-guide/instrumentation/event-log',
+        'admin-guide/instrumentation/event-table',
+        'admin-guide/instrumentation/user-journey',
+        'admin-guide/instrumentation/set-retrieval-dates'
+      ]
+    },
+  ]
 };
 
 module.exports = sidebars;

@@ -20,3 +20,27 @@ So, for example, the GardenCollection class also holds pointers to instances of 
 
 This design means that although there are over 30 entities and collection classes, clients can always access whatever data they need by calling methods (or accessing fields) in just three classes: ChapterCollection, GardenCollection, and UserCollection.  It also means that when we add (or delete) collections as the design evolves, the impact on clients is only the addition (or deletion) of methods (or fields). 
 
+Each Collection classes associated with the Firestore Database collections is responsible for implementing an "Integrity Check" method that checks all of its documents. 
+
+```dart
+  static List<IntegrityViolation> integrityCheck(
+    ChapterCollection chapters,
+    GardenCollection gardens,
+    UserCollection users,
+  ) {
+    // Implementation of integrity check for this collection's documents
+  }
+```
+
+New collection classes need to add their integrity check method to the `IntegrityCheckScreen` in `lib/features/admin/presentation/database-management/integrity-check/integrity_check_screen.dart`.
+
+```dart
+   integrityCheckers = [
+      ActivityCollection.integrityCheck,
+      BadgeCollection.integrityCheck,
+      BadgeInstanceCollection.integrityCheck,
+      BedCollection.integrityCheck,
+      ChapterCollection.integrityCheck,
+      ...
+    ];
+```

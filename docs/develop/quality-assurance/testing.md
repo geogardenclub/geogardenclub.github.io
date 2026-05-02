@@ -114,12 +114,12 @@ This script starts up the Firebase Emulators, connects to them, runs the tests, 
 You should see something like:
 
 ```bash
-$ ./run_tests_emulator.sh                                                          
-+ npx kill-port 8080 4400 9099
-Process on port 4400 killed
-Process on port 9099 killed
-Process on port 8080 killed                                                        
-+ firebasePid=78081
+$ ./run_tests_emulator.sh                                                                                                                                               13:14:46
++ lsof -ti:8080
++ lsof -ti:4400
++ lsof -ti:9099
++ lsof -ti:4000
++ firebasePid=21747
 + sleep 10
 + firebase emulators:start --only auth,firestore
 i  emulators: Starting emulators: auth, firestore
@@ -401,7 +401,7 @@ You don't need to put those comments (or the newlines) into your test code; I ad
 
 **Flutter DevTools can be helpful.** Sometimes I get confused about what widgets are actually displayed on screen, and as a result have problems writing the correct Patrol Finder code. It can be helpful to run  [Flutter DevTools](https://docs.flutter.dev/tools/devtools/android-studio), then run the simulator manually. This enables you to navigate to a page in the simulator and use a browser window to inspect the widget hierarchy to see what type of widgets are visible. 
 
-**Authentication state weirdness.** I have discovered that if you perform the logout action during testing, it leaves the simulator in a weird, persistent state where you are navigated to the SignIn page, but the signin form (with fields for email and password) are not displayed. I am not sure why this happens, but to fix it, you can run the simulator normally (i.e. running main.dart) which will display the signin form. Login as any user, quit, and now you can run the tests and mocked authentication will work correctly.
+**Authentication state weirdness.** I have discovered that if you perform the logout action during testing, it leaves the simulator in a weird, persistent state where you are navigated to the SignIn page, but the signin form (with fields for email and password) are not displayed. I am not sure why this happens, but to fix it, you can run the simulator normally (i.e. running main.dart) which will display the signin form. Login as any user, quit, and now you can run the tests and mocked authentication will work correctly. A work around for this is to use the `loginAs(email, $)` function from `integration_test/features/common/switch_user.dart` to log in as a user without having to interact with the signin form. This function logs out the current user (if any) and then logs in as the specified user.
 
 **After fixing a bug in the app, consider writing a test to verify the correct behavior.** Weirdly, bugs tend to congregate in certain areas, and even reappear after you thought you squashed them. It's a good idea after fixing a bug to see if you can quickly write a test that verifies the absence of that bug. It might feel like closing the barn door after the horse is gone, but it's a way of incrementally deepening the test quality. 
 
@@ -425,28 +425,28 @@ You can look at the [.github/workflows directory](https://github.com/geogardencl
 We use JSON files to create the test data for the tests. The test files are located in one of (potentially many) directories named `assets\test\fixtureN`, when "N" is a number uniquely identifying the fixture. Currently, we only have one fixture directory.
 
 Each fixture directory must contain the following files:
+* `activityData.json`
 * `badgeData.json`
 * `badgeInstanceData.json`
 * `bedData.json`
 * `blockedUserData.json`
 * `chapterData.json`
-* `chatRoomData.json`
-* `chatUserData.json`
+* `countryData.json`
 * `cropData.json`
 * `editorData.json`
 * `familyData.json`
+* `forumMessageData.json`
+* `forumTopicData.json`
 * `gardenData.json`
 * `gardenerData.json`
 * `observationData.json`
 * `outcomeData.json`
 * `plantingData.json`
+* `priceData.json`
 * `roleData.json`
-* `sharePostData.json`
-* `shareReplyData.json`
 * `tagData.json`
 * `taskData.json`
 * `userData.json`
-* `valuePerUnitData.json`
 * `varietyData.json`
 
 :::info
@@ -459,34 +459,16 @@ The JSON files need to have integrity, so their ids must align. Since many of th
 * observationIDs end with 4567.
 * outcomeIDs end with 2345.
 * plantingIDs end with 1234.
-* seedIDs end with 6789. // No longer used
-* sharePostIDs end with 0918.
-* shareReplyIDs end with 0918.
 * taskIDs end with 8901.
-* valuePerUnitIDs end with 8765.
 * varietyIDs end with 9012.
 :::
 
 ### Fixture Paths
 
-The `lib/features/fixture_paths.dart` file defines two constants:
-* `testFixturePath` - the path to the test fixture directory. This constant is used to load the test data in the tests.
-* `monarchFixturePath` - the path to the Monarch fixture directory used by `WithMonarchData`.
-
+The `lib/features/common/constants/fixture_paths.dart` file defines a constant `testFixturePath` - the path to the test fixture directory. This constant is used to load the test data in the tests.
 
 ### AssetBuilder
 
-To facilitate the loading of the fixture files, we have created the `AssetBuilder` class. This class has one static methods to produce each of the collections from a fixture path. The three methods are as follows:
-* ```Future<List<type>> getTypes(String assetPath)``` - loads the data from the fixture file and returns a list of the type.
-
-
-### TestFixture singleton
-
-The `TestFixture` singleton is used to load the test fixture data. The singleton has the following methods:
-* `getInstance(String assetPath)` - returns a Future with the singleton instance. The first time it is called, it will load the test fixture data.
-* `setup()` - initializes the singleton by loading the test fixture data.
-
-There are two methods for each entity in the test fixture:
-* `get<Entity>Stream()` - returns a Stream of the List of the entities from the test fixture.
-* `get<Entity>Database()` - returns The `Fixture<Entity>Database` from the test fixture.
+To facilitate the loading of the fixture files, we have created the `AssetBuilder` class located in `lib/features/common/with/asset_builder.dart`. This class has one static methods to produce each of the collections from a fixture path. The three methods are as follows:
+* ```Future<List<type>> get<Type>s(String assetPath)``` - loads the data from the fixture file and returns a list of the type.
 

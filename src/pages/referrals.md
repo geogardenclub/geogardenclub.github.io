@@ -11,9 +11,9 @@ Grow the GeoGardenClub community (and get more garden plans to snoop) with our 2
 
 ### How it works
 
-Get (at least) three friends to join GeoGardenClub between February 1 and April 30, 2026.  
+Get (at least) three friends to join GeoGardenClub between February 1 and July 31, 2026.  
 
-Email us at referrals@geogardenclub.com by April 30, 2026 with:
+Email us at referrals@geogardenclub.com by July 31, 2026 with:
 * Your name and username
 * The names and usernames of the gardeners you referred.
 
@@ -25,13 +25,13 @@ You and your referrals must each create at least one garden with at least one pl
 
 You and at least three of your referrals must transition out of the free introductory period and into a paid plan before we can send you the coupon code.
 
-All of your referrals must be *new* members of GeoGardenClub (i.e. they've downloaded the app, created an account, and accepted the terms of the subscription) between February 1 and April 30, 2026. (Already existing members don't qualify as referrals.)
+All of your referrals must be *new* members of GeoGardenClub (i.e. they've downloaded the app, created an account, and accepted the terms of the subscription) between February 1 and July 31, 2026. (Already existing members don't qualify as referrals.)
 
 Referrals do not need to be in the same chapter as you! Spread the word far and wide!
 
-You can email us as many times as you want with additional names prior to April 30, 2026. There is no limit to the number of new gardeners you can refer--the more the better! That said, additional referrals do not increase the length of the coupon code.
+You can email us as many times as you want with additional names prior to July 31, 2026. There is no limit to the number of new gardeners you can refer--the more the better! That said, additional referrals do not increase the length of the coupon code.
 
-Since new members get three months free, you should expect your coupon code to be sent to you sometime in Summer 2026, after at least three of your referrals (and you) have transitioned to a paid plan. (If you haven't received your coupon code by the end of July 2026, please email us at referrals@geogardenclub.com and we will look into it.) 
+Since new members get three months free, you should expect your coupon code to be sent to you sometime in late 2026, after at least three of your referrals (and you) have transitioned to a paid plan. (If you haven't received your coupon code by the end of October 2026, please email us at referrals@geogardenclub.com and we will look into it.) 
 
 
 
