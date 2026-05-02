@@ -9,7 +9,7 @@ export default function LandingPanel10() {
                 <div className="col">
                     <div className="text--center">
                         <div className='wrapper'>
-                            <ReactPlayer className='player' url="https://www.youtube.com/watch?v=jjgKgygZyUk" width="100%" height="100%" ></ReactPlayer>
+                            <ReactPlayer className='player' url="https://www.youtube.com/watch?v=X6ke44oduOQ" width="100%" height="100%" ></ReactPlayer>
                         </div>
                     </div>
                 </div>
