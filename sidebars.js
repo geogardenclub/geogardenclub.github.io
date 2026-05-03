@@ -381,7 +381,9 @@ const sidebars = {
             label: 'Manage Plantings',
             items: [
               'admin-guide/feature-management/plantings',
-              'admin-guide/feature-management/planting-details',
+              'admin-guide/feature-management/plantings/planting-details',
+              'admin-guide/feature-management/plantings/edit-basic-info',
+              'admin-guide/feature-management/plantings/copy-planting',
             ]
           },
           {
