@@ -406,6 +406,7 @@ const sidebars = {
               'admin-guide/feature-management/tags/delete',
             ]
           },
+          'admin-guide/feature-management/tasks',
           {
             type: 'category',
             collapsed: true,

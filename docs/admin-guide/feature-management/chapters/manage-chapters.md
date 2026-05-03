@@ -7,6 +7,8 @@ title: Manage Chapters
 
 <img width="300" src="/img/admin-guide/feature-management/chapters/manage-chapters.png"/>
 
+The Manage Chapters page uses the same interface for managing GGC entities: crops, families, prices, tags, and varieties.
+
 The Manage Chapters page allows you to create, and update chapters. Currently, there is no option to delete chapters.
 
 To create a new chapter, click the `+ Chapter` button. This will take you to the [Create Chapter](create) page.
