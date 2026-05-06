@@ -433,25 +433,11 @@ const sidebars = {
               'admin-guide/feature-management/varieties/gold',
             ]
           },
-
         ]
       },
-    {
-      type: 'category',
-      collapsed: true,
-      label: 'Refresh Caches',
-      items: [
-          'admin-guide/refresh-caches/overview',
-      ]
-    },
-    {
-      type: 'category',
-      collapsed: true,
-      label: 'Set Images',
-      items: [
-          'admin-guide/set-images/overview',
-      ]
-    },
+
+    'admin-guide/refresh-caches/overview',
+    'admin-guide/set-images/overview',
     'admin-guide/view-onboarding-screens',
     {
       type: 'category',
