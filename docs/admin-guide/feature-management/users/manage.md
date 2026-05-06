@@ -1,8 +1,14 @@
 ---
 hide_table_of_contents: true
-title: Manage Users
+title: User Management
 ---
 
-# Manage Users
+# User Management
 
 <img width="300" src="/img/admin-guide/feature-management/users/manage.png"/>
+
+The User Management page allows you to:
+
+* Manage blocked users.
+* Migrate users between chapters.
+* Delete a user.
