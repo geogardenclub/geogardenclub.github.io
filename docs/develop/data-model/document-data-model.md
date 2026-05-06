@@ -789,9 +789,10 @@ Here is an example of a Tag document:
 ```dart
 const factory Tag({
   required String tagID,
-  required String name,
-  required String description,
-  String? chapterID, 
+  required String name, // '#Biodiversity'
+  required String description, // 'Use of practices to increase biodiversity.'
+  String? chapterID, // 'chapter-US-001'
+  String? parentTagID, // 'tag-001'
 })
 ```
 
@@ -800,7 +801,8 @@ const factory Tag({
 | tagID       | required | `String`  | (Primary key) A unique ID for this tag. Format: `tag-<NNN>`. For example, `"tag-001"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
 | name        | required | `String`  | The name of this tag. By convention, starts with a "#". For example, `"#Biodiversity"`.                                                                                       |
 | description | required | `String`  | A string indicating when the use of this tag is appropriate.                                                                                                                  |
-| chapterID   | optional | `String?` | Awaiting chapter-local tags.                                                                                                                                                  |
+| chapterID   | optional | `String?` | Awaiting chapter-local tags.                                                                                                                                                  |    
+| parentTagID | optional | `String?` | The parent tag ID.                                                                                                                                                            |    
 
 
 
