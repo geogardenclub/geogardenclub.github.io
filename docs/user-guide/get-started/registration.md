@@ -5,7 +5,7 @@ hide_table_of_contents: true
 
 # Registration
 
-:::tip Step 2: Regiester an account with GeoGardenClub.
+:::tip Step 2: Register an account with GeoGardenClub.
 :::
 
 When the GGC app comes up, it will show the Sign In screen if you have not logged in previously.  If this is your very first time using the GGC app, you will not be able to sign in since you have not registered yet.  
@@ -14,10 +14,14 @@ So, if you have not done so previously, tap on "Register" link to go to the Regi
 
 <img width="300" src="/img/user-guide/register-screen.png"/>
 
+In the Register Screen, enter your email address, password, and password confirmation. (Your email address will be your UserID.)  Tap "Register" to create your account. Now the screen will look like this:
 
-In the Register Screen, enter your email address, password, and password confirmation. (Your email address will be your UserID.)  Tap "Register" to create your account.
+<img width="300" src="/img/user-guide/verify-email.jpg"/>
 
-A verification email will be sent to your email address.  Please check your email and click the link to verify your account.  The email will look similar to this:
+
+You must now find the verification email and click an embedded link in it. After that, you can tap the "Go back" link in this screen to return to the signin page and login with your newly created UserID (email) and password.
+
+Here is what the verification email looks like:
 
 <img width="600" src="/img/user-guide/verify-email.png"/>
 
