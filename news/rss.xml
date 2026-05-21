@@ -4,10 +4,28 @@
         <title>Geo Garden Club Blog</title>
         <link>https://geogardenclub.com/news</link>
         <description>Geo Garden Club Blog</description>
-        <lastBuildDate>Fri, 10 Apr 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 19 May 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[GGC App: 3.6.0 Release]]></title>
+            <link>https://geogardenclub.com/news/2026/05/19/release</link>
+            <guid>https://geogardenclub.com/news/2026/05/19/release</guid>
+            <pubDate>Tue, 19 May 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[In this release:]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/05/19/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
+<ul>
+<li class="">Fixed performance issue in Observations view.</li>
+<li class="">Frost dates for weather widget.</li>
+<li class="">Fixed problem when logging in/out of different chapters.</li>
+<li class="">Improved instructions on verification screen.</li>
+<li class="">Admin page help documentation.</li>
+</ul>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+            <author>info@geogardenclub.com (Philip Johnson)</author>
+            <category>Releases</category>
+        </item>
         <item>
             <title><![CDATA[GGC News: April 2026]]></title>
             <link>https://geogardenclub.com/news/2026/04/10/newsletter</link>
@@ -321,29 +339,6 @@
 <p>Fixed:</p>
 <ul>
 <li class="">Fixed bug in Planting Creation for initial chapter member.</li>
-</ul>
-<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
-            <author>info@geogardenclub.com (Philip Johnson)</author>
-            <category>Releases</category>
-        </item>
-        <item>
-            <title><![CDATA[GGC App: 2.22.0 Release]]></title>
-            <link>https://geogardenclub.com/news/2025/07/10/release</link>
-            <guid>https://geogardenclub.com/news/2025/07/10/release</guid>
-            <pubDate>Thu, 10 Jul 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/07/10/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
-<p>Added:</p>
-<ul>
-<li class="">Timeline choices are sticky</li>
-<li class="">GGC App Icon now has a badge indicating if there are unread chats or obervations, or overdue tasks.</li>
-</ul>
-<p>Fixed:</p>
-<ul>
-<li class="">Startup "dark screen" eliminated.</li>
-<li class="">Settings button is now a gear icon, not a clipped username.</li>
-<li class="">App Review prompts take into account multiple device installations.</li>
-<li class="">Misc bug fixes and performance improvements.</li>
 </ul>
 <p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
