@@ -118,7 +118,7 @@ Before starting a refactor, make sure there are no integrity violations by runni
 
 ### Step 2: Go to DB Operation
 
-Now go to the Database Operation screen:
+Make sure that DatabaseOperation48 is being run by the Database Operation command, then go to the Database Operation screen:
 
 <img width="300" src="/img/admin-guide/database-management/walkthrough-02.png"/>
 
