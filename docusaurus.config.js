@@ -71,9 +71,9 @@ const config = {
           {name: 'description', content: 'GeoGardenClub is an easy to use garden planning tool that allows local communities of gardeners to share information and improve their gardening skill.'},
         ],
         announcementBar: {
-          id: 'Release-3.4.0',
+          id: 'Release-3.6.0',
           content:
-              '<h3 style="margin-top: 15px"> &#128226; Release 3.5.0 now available.  Click <a target="_blank" rel="noopener noreferrer" href="/news/2026/04/08/release">here</a> for details.</h3>',
+              '<h3 style="margin-top: 15px"> &#128226; Release 3.6.0 now available.  Click <a target="_blank" rel="noopener noreferrer" href="/news/2026/05/19/release">here</a> for details.</h3>',
           backgroundColor: '#02695c',
           textColor: 'white',
           isCloseable: false,

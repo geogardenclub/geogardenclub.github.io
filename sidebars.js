@@ -318,6 +318,7 @@ const sidebars = {
             'admin-guide/database-management/integrity-check',
             'admin-guide/database-management/cloud-storage-integrity-check',
             'admin-guide/database-management/database-operation',
+            'admin-guide/database-management/database-refactoring',
         ]
       },
       {
