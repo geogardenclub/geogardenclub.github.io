@@ -42,6 +42,8 @@ Then, add a title, message, and (optional) photo. For example:
 
 <img width="300px" src="/img/user-guide/forum/create-forum-topic-filled.png"/>
 
+Note that you can use [Markdown](markdown.md) to format your message.
+
 After clicking the submit button, a new forum topic will be created. It will appear in the list of topics like this:
 
 <img width="300px" src="/img/user-guide/forum/home-forum-2.png"/>

@@ -47,6 +47,8 @@ Now fill out the fields to specify a single Planting by selecting a Garden, Bed,
 
 <img width="300" src="/img/user-guide/tasks-manual-creation-2.png"/>
 
+Note that you can use [Markdown](markdown.md) to format your description. 
+
 Create the Task, and it will appear in the Tasks view:
 
 <img width="300" src="/img/user-guide/tasks-manual-creation-3.png"/>

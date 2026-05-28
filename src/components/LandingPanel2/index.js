@@ -7,26 +7,26 @@ export default function LandingPanel2() {
         <div className="row" style={{paddingBottom: '32px'}}>
             <div className='col'>
                 <div className="text--center">
-                    <h1 className="hero__title">Join your local chapter today!</h1>
+                    <h1 className="hero__title">Join your local chapter today</h1>
                 </div>
             </div>
         </div>
           <div className="row">
               <div className='col'>
                   <div className="text--center">
-                      <a href="https://apps.apple.com/us/app/geogardenclub/id6478464910?ign-itscg=30200&ign-itsct=apps_box_badge&mttnsubad=6478464910"><img height="150px" src="apple/black.svg"/></a>
+                      <a href="https://apps.apple.com/us/app/geogardenclub/id6478464910?ign-itscg=30200&ign-itsct=apps_box_badge&mttnsubad=6478464910"><img width="50%" src="apple/black.svg"/></a>
                   </div>
               </div>
               <div className='col'>
                   <div className="text--center">
-                      <a href="https://play.google.com/store/apps/details?id=com.geogardenclub.ggc_app"><img height="150px" src="google/google.svg"/></a>
+                      <a href="https://play.google.com/store/apps/details?id=com.geogardenclub.ggc_app"><img width="50%" src="google/google.svg"/></a>
                   </div>
               </div>
           </div>
           <div className="row" style={{paddingTop: '32px'}}>
               <div className='col'>
-                  <div className="text--center">
-              <h1 className="hero__subtitle">First three months free, then $4.99/month or $44.99/year (25% savings!)</h1>
+                  <div className="text--left">
+              <p className="hero__subtitle">First three months free, then $4.99/month or $44.99/year (25% savings!)</p>
                   </div>
               </div>
           </div>

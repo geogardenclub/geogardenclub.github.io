@@ -62,6 +62,16 @@ const config = {
     ],
   ],
 
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Inter&display=swap',
+      },
+    },
+  ],
+
   themeConfig:
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
