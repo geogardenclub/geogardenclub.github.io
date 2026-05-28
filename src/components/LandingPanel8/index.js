@@ -4,16 +4,16 @@ import Button from '@site/src/components/Button';
 export default function LandingPanel8() {
     return (
         <div className="hero hero--primary">
-            <div className="row row--no-gutters">
+            <div className="row">
                 <div className="col">
                     <div className="text--center">
-                        <img height="450px" src="img/landing/share-screen.png"/>
+                        <img height="450px" src="img/landing/forum.png"/>
                     </div>
                 </div>
-                <div className="col" style={{alignItems: 'center', display: 'flex'}}>
-                    <div className="text--center">
-                        <h1 className="hero__title">Waste Less.</h1>
-                        <h1 className="hero__subtitle">Share and trade surplus seeds, harvests, tools, and materials with other local gardeners.  </h1>
+                <div className="col">
+                    <div className="container">
+                        <h1 className="hero__title text--center">Waste Less</h1>
+                        <p className="hero__subtitle text--left">Share and trade surplus seeds, harvests, tools, and materials with other local gardeners.  </p>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@ export default function LandingPanel1({image}) {
         <div className="row">
             <div className='col' style={{alignItems: 'center', display: 'flex'}}>
                 <div className='text--center padding-horiz--md' >
-                    <h1 className={styles.outline} style={{fontSize: '84px', color: 'white'}}>Grow and share more food.</h1>
+                    <h2 className={styles.outline} style={{fontSize: '4rem', color: 'white'}}>Grow and share more food.</h2>
                 </div>
             </div>
             <div className='col'>

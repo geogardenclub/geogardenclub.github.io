@@ -30,7 +30,6 @@ export default function Landing() {
             <LandingPanel7 />
             <LandingPanel8 />
             <LandingPanel8a />
-            <LandingPanel9 />
             <LandingPanel10 />
             <LandingPanel11 />
         </Layout>

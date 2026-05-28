@@ -4,8 +4,8 @@ import Button from '@site/src/components/Button';
 export default function LandingPanel3() {
     return (
         <div style={{backgroundColor: "#e3ddc2"}}>
-            <div className="row row--no-gutters" style={{backgroundColor: "#e3ddc2"}}>
-                <div className="col" style={{alignItems: 'center', display: 'flex'}}>
+            <div className="row" style={{backgroundColor: "#e3ddc2"}}>
+                <div className="col">
                     <div className="hero" style={{backgroundColor: "#e3ddc2"}}>
                         <div className="container text--center">
                             <h1 className="hero__title">New to GeoGardenClub?</h1>

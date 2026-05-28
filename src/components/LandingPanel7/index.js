@@ -3,11 +3,11 @@ import React from 'react';
 export default function LandingPanel7() {
     return (
         <div className="hero" style={{backgroundColor: "#e3ddc2"}}>
-            <div className="row row--no-gutters">
-                <div className="col" style={{alignItems: 'center', display: 'flex'}}>
-                        <div className="text--center">
-                            <h1 className="hero__title">Harvest More.</h1>
-                            <h1 className="hero__subtitle">Record observations and yields to track success of each planting and improve your garden next year.</h1>
+            <div className="row">
+                <div className="col">
+                        <div className="container">
+                            <h1 className="hero__title text--center">Harvest More</h1>
+                            <p className="hero__subtitle text--left">Record observations and yields to track success of each planting and improve your garden next year.</p>
                     </div>
                 </div>
                 <div className="col">

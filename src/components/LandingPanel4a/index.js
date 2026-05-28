@@ -36,7 +36,7 @@ export default function LandingPanel4a() {
         <div className="row" style={{paddingBottom: '32px'}}>
             <div className='col'>
                 <div className="text--center">
-                    <h1 className="hero__title">Here's what gardeners are saying:</h1>
+                    <h1 className="hero__title">Reviews from real gardeners</h1>
                 </div>
             </div>
         </div>
