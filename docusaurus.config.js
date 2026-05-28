@@ -70,13 +70,10 @@ const config = {
           {name: 'keywords', content: 'Garden planning app, Garden design software, Vegetable garden planner, Online garden planner, Backyard garden planner, Organic garden planning, Community garden planner, Sustainable gardening app, Community food resiliency, Local planting guide app, Smart garden planner, Vegetable garden design tool, Interactive garden planner, Garden journal and tracker, Small garden design app'},
           {name: 'description', content: 'GeoGardenClub is an easy to use garden planning tool that allows local communities of gardeners to share information and improve their gardening skill.'},
         ],
-        announcementBar: {
-          id: 'Release-3.6.0',
-          content:
-              '<h3 style="margin-top: 15px"> &#128226; Release 3.6.0 now available.  Click <a target="_blank" rel="noopener noreferrer" href="/news/2026/05/19/release">here</a> for details.</h3>',
-          backgroundColor: '#02695c',
-          textColor: 'white',
-          isCloseable: false,
+        colorMode: {
+          defaultMode: 'light',
+          disableSwitch: true,
+          respectPrefersColorScheme: false,
         },
         navbar: {
           title: 'Geo Garden Club',

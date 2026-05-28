@@ -3,7 +3,7 @@ import Button from '@site/src/components/Button';
 
 export default function LandingPanel9() {
     return (
-        <div>
+        <div style={{backgroundColor: "#e3ddc2"}}>
             <img width="100%" src="img/landing/mesclun.jpeg"/>
             <div className="row" style={{marginTop: '50px', marginBottom: '50px'}}>
                 <div className="col" style={{alignItems: 'center', display: 'flex'}}>

@@ -3,9 +3,10 @@ import Button from '@site/src/components/Button';
 
 export default function LandingPanel3() {
     return (
-            <div className="row row--no-gutters">
+        <div style={{backgroundColor: "#e3ddc2"}}>
+            <div className="row row--no-gutters" style={{backgroundColor: "#e3ddc2"}}>
                 <div className="col" style={{alignItems: 'center', display: 'flex'}}>
-                    <div className="hero">
+                    <div className="hero" style={{backgroundColor: "#e3ddc2"}}>
                         <div className="container text--center">
                             <h1 className="hero__title">New to GeoGardenClub?</h1>
 
@@ -20,5 +21,6 @@ export default function LandingPanel3() {
                     <img src="img/landing/overshoulder4.jpg"/>
                 </div>
             </div>
+    </div>
     );
 }

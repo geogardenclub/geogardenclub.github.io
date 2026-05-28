@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function LandingPanel8a() {
     return (
-        <div className="hero">
+        <div className="hero" style={{backgroundColor: "#e3ddc2"}}>
             <div className="row ">
                 <div className="col" style={{alignItems: 'center', display: 'flex'}}>
                         <div className="text--center">

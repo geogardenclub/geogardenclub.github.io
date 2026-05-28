@@ -2,6 +2,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import React from "react";
 import LandingPanel1 from '@site/src/components/LandingPanel1';
+import LandingPanel1a from '@site/src/components/LandingPanel1a';
 import LandingPanel2 from '@site/src/components/LandingPanel2';
 import LandingPanel3 from '@site/src/components/LandingPanel3';
 import LandingPanel4a from '@site/src/components/LandingPanel4a';
@@ -20,6 +21,7 @@ export default function Landing() {
     return (
         <Layout>
             <LandingPanel1 image='img/landing/panel1-corn.jpeg'/>
+            <LandingPanel1a />
             <LandingPanel2 />
             <LandingPanel3 />
             <LandingPanel4a />

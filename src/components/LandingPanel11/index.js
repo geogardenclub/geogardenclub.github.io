@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function LandingPanel11() {
   return (
-      <div className='hero'>
+      <div className='hero' style={{backgroundColor: "#e3ddc2"}}>
       <div className="container">
         <div className="row" style={{paddingBottom: '32px'}}>
             <div className='col'>
