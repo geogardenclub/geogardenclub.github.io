@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkgeogardenclub_github_io=globalThis.webpackChunkgeogardenclub_github_io||[]).push([[1903],{1912(e){e.exports=JSON.parse('{"blogBasePath":"/news","blogTitle":"GeoGardenClub News","authorsListPath":"/news/authors"}')}}]);
