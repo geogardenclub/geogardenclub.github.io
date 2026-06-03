@@ -49,7 +49,7 @@ const config = {
           onUntruncatedBlogPosts: 'ignore',
         },
         sitemap: {
-          ignorePatterns: ['/docs/business/**', '/docs/develop/**'],
+          ignorePatterns: ['/docs/business-guide/**', '/docs/developer-guide/**', '/docs/admin-guide/**'],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -79,11 +79,33 @@ const config = {
         metadata: [
           {name: 'keywords', content: 'Garden planning app, Garden design software, Vegetable garden planner, Online garden planner, Backyard garden planner, Organic garden planning, Community garden planner, Sustainable gardening app, Community food resiliency, Local planting guide app, Smart garden planner, Vegetable garden design tool, Interactive garden planner, Garden journal and tracker, Small garden design app'},
           {name: 'description', content: 'GeoGardenClub is an easy to use garden planning tool that allows local communities of gardeners to share information and improve their gardening skill.'},
+          {name: 'algolia-site-verification', content: 'A6D58F21A54557ED'},
         ],
         colorMode: {
           defaultMode: 'light',
           disableSwitch: true,
           respectPrefersColorScheme: false,
+        },
+        algolia: {
+          appId: 'RLT29EO5JS',
+          apiKey: '93ef07f3c1d2084bfa306d35d4a783c5',
+          indexName: 'GGC2',
+          contextualSearch: true,
+          // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+          // externalUrlRegex: 'external\\.com|domain\\.com',
+          // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+          //replaceSearchResultPathname: {
+          //  from: '/docs/', // or as RegExp: /\/docs\//
+          // to: '/',
+          //},
+          // Optional: Algolia search parameters
+          searchParameters: {},
+          // Optional: path for search page that enabled by default (`false` to disable it)
+          searchPagePath: false, // 'search',
+          // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
+          insights: false,
+          // Optional: whether you want to use the new Ask AI feature (undefined by default)
+          //askAi: 'YOUR_ALGOLIA_ASK_AI_ASSISTANT_ID',
         },
         navbar: {
           title: 'Geo Garden Club',
