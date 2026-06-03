@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /docs/admin-guide/
-Disallow: /docs/develop/
-Disallow: /docs/business/
+Disallow: /docs/developer-guide/
+Disallow: /docs/business-guide/
