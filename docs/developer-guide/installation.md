@@ -210,21 +210,31 @@ Resolving dependencies... (1.4s)
 Got dependencies!
 ```
 
-### Install the OpenWeather API key
+### Set up API Keys
 
-The Weather Insight Widget requires a valid OpenWeather API key. To set it up:
+We use the [envied](https://pub.dev/packages/envied) package to manage our API keys. To set up your development environment to run correctly, you need to do a couple of things:
 
-1. Create a `.env` file in the root directory of your project if it doesn't already exist.
+1. If you don't already have a `.env` file in the root directory of your project, then copy the `sample.env` file to `.env` to create it.  This file's contents should look something like this:
 
-2. Add the following line to your `.env` file, replacing `YOUR_API_KEY` with your actual OpenWeather API key:
-    ```
-    OPEN_WEATHER_API=YOUR_API_KEY
-    ```
-   Contact Jenna, Philip, or Cam to get the API key if you don't have it.
+```
+OPEN_WEATHER_API=change_me
+RECAPTCHA_SITE_KEY=change_me_too
+```
 
-3. Save the `.env` file. (Note that it is gitignored, so it does not get commited to github.)
+2. (Optional) Contact a developer to find out how to replace `change_me` and `change_me_too` with the correct Open Weather API and Recaptcha Site Keys.  
 
-4. Run `./run_build_runner.sh` to generate the code that accesses the OpenWeather API with the new API key. The key is obscured in the `/lib/env/env.g.dart` file, so you won't see it there, but it will be used in the code that accesses the API. The `env.g.dart` file is also listed in the `.gitignore` file, so it won't be committed to version control either.
+:::info 
+Note that if you don't change these values, your app should still build and run. However, 
+* without the Open Weather API key, the app won't be able to access weather data.
+* without the Recaptcha site key, the app (when run in a browser) won't be able to access the production database. 
+:::
+
+
+3. Run `./run_build_runner.sh` to generate the `/lib/env/env.g.dart` file that contains an obscured copy of the API keys. 
+
+:::info
+The `.env` and `env.g.dart` files are git-ignored.
+:::
 
 
 ## Run the app

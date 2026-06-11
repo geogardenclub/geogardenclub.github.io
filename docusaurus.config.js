@@ -112,7 +112,7 @@ const config = {
           logo: {alt: 'Geo Garden Club', src: 'img/logos/png/icon2.png'},
           items: [
             {label: 'Pricing', to: 'pricing'},
-            {label: 'About', to: 'docs/home/welcome'},
+            {label: 'About', to: 'docs/user-guide/home/welcome'},
             {label: 'User Guide', to: 'docs/user-guide/overview'},
             {label: 'News', to: 'news'},
             {label: 'FAQ', to: 'docs/user-guide/faq'},
@@ -151,7 +151,7 @@ const config = {
             },
             {
               label: 'Contact Us',
-              href: '/docs/home/contact-us',
+              href: '/docs/user-guide/home/contact-us',
             },
 
           ],

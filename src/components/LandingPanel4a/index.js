@@ -47,7 +47,7 @@ export default function LandingPanel4a() {
                       name='Threse'
                       photo='img/featured-gardeners/threse.png'
                       quote="I love being able to look at other gardens all over the country! It's so cool to be able to share observations and learn from other gardeners!"
-                      url='/docs/featured-gardeners/threse'>
+                      url='/docs/user-guide/featured-gardeners/threse'>
                   </FeaturedGardener>
               </div>
 
@@ -57,7 +57,7 @@ export default function LandingPanel4a() {
                       name='Jessie'
                       photo='img/featured-gardeners/jessie.jpeg'
                       quote="I really enjoy reading the observations and other people’s gardens. It informs me and gives me new ideas!"
-                      url='/docs/featured-gardeners/jessie'>
+                      url='/docs/user-guide/featured-gardeners/jessie'>
                   </FeaturedGardener>
               </div>
 
@@ -67,7 +67,7 @@ export default function LandingPanel4a() {
                       name='Margo'
                       photo='img/featured-gardeners/margo.jpeg'
                       quote="I like to use the filter function to find where I planned to plant certain crops rather than scrolling through all my beds to try and find where I put things. "
-                      url='/docs/featured-gardeners/margo'>
+                      url='/docs/user-guide/featured-gardeners/margo'>
                   </FeaturedGardener>
               </div>
           </div>
@@ -78,7 +78,7 @@ export default function LandingPanel4a() {
                       name='Erin and Shanna'
                       photo='img/featured-gardeners/erin-and-shanna.jpeg'
                       quote="As a married couple with distinct gardening interests we love that we can share a garden in the app and post data individually."
-                      url='/docs/featured-gardeners/erin-shanna'>
+                      url='/docs/user-guide/featured-gardeners/erin-shanna'>
                   </FeaturedGardener>
               </div>
 
@@ -88,7 +88,7 @@ export default function LandingPanel4a() {
                       name='Jess'
                       photo='img/featured-gardeners/jess.jpg'
                       quote="With GeoGardenClub, everything lives in one place! I have the visual representation of how long the crop will be in the bed (that I can easily edit on the fly), and if I want data on the crop, I can click on it. "
-                      url='/docs/featured-gardeners/jessie'>
+                      url='/docs/user-guide/featured-gardeners/jessie'>
                   </FeaturedGardener>
               </div>
 
@@ -98,7 +98,7 @@ export default function LandingPanel4a() {
                       name='Katie'
                       photo='img/featured-gardeners/katie.jpeg'
                       quote="I love making observations in the GGC app! Finally, a place to brag, facepalm, or send messages to future self. "
-                      url='/docs/featured-gardeners/katie'>
+                      url='/docs/user-guide/featured-gardeners/katie'>
                   </FeaturedGardener>
               </div>
           </div>

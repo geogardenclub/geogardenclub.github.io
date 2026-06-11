@@ -14,43 +14,44 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   homeSidebar: [
-    {
-    type: 'category',
-    collapsed: true,
-    label: "About GeoGardenClub",
-    items: [
-      'home/welcome',
-      'home/serious-gardeners',
-      'home/innovations',
-      'home/team',
-      'home/contact-us',
-    ]
-  },
-    {
-      type: 'category',
-      collapsed: true,
-      label: "Featured Gardeners",
-      link: {
-        type: 'generated-index',
-        title: 'Featured Gardeners',
-        description: 'Get to know some GeoGardenClub users',
-        slug: '/category/featured-gardeners',
-      },
-      items: [
-        'featured-gardeners/threse',
-        'featured-gardeners/jessie',
-        'featured-gardeners/margo',
-        'featured-gardeners/erin-shanna',
-        'featured-gardeners/jess',
-        'featured-gardeners/katie',
-      ]
-    },
+
     {
       type: 'category',
       collapsed: false,
       label: "User Guide",
       items: [
         'user-guide/overview',
+        {
+          type: 'category',
+          collapsed: true,
+          label: "About GeoGardenClub",
+          items: [
+            'user-guide/home/welcome',
+            'user-guide/home/serious-gardeners',
+            'user-guide/home/innovations',
+            'user-guide/home/team',
+            'user-guide/home/contact-us',
+          ]
+        },
+        {
+          type: 'category',
+          collapsed: true,
+          label: "Featured Gardeners",
+          link: {
+            type: 'generated-index',
+            title: 'Featured Gardeners',
+            description: 'Get to know some GeoGardenClub users',
+            slug: '/category/featured-gardeners',
+          },
+          items: [
+            'user-guide/featured-gardeners/threse',
+            'user-guide/featured-gardeners/jessie',
+            'user-guide/featured-gardeners/margo',
+            'user-guide/featured-gardeners/erin-shanna',
+            'user-guide/featured-gardeners/jess',
+            'user-guide/featured-gardeners/katie',
+          ]
+        },
 
         {
           type: 'category',
