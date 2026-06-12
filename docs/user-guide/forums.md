@@ -67,11 +67,11 @@ To reply to a posted topic, tap the "+ Reply" button at the bottom left of a pos
 Type your reply in the message field. Include a photo if you wish. 
 
 :::info Private Forum Messages
-When a chapter member is offering or seeking an item, it is natural to want to reply with your contact details in order to arrange the transfer, and/or propose a specific time and place to meet up.
+When a chapter gardener is offering or seeking an item, it is natural to want to reply with your contact details in order to arrange the transfer, and/or propose a specific time and place to meet up.
 
 However, you generally don't want to share this information with the entire Chapter---just with the single person who posted the topic.
 
-To communicate with the chapter member privately, create a private message to the gardener. See the section on Private Messages. (To help ensure civil and respectful communication among chapter members, GeoGardenClub administrators can also see all private communications. If you are ever privately messaged with inappropriate content, please contact us immediately at info@geogardenclub.com.)
+To communicate with the gardener privately, create a private message to the gardener. See the section on Private Messages. (To help ensure civil and respectful communication among chapter members, GeoGardenClub administrators can also see all private messages. If you are ever privately messaged with inappropriate content, please contact us immediately at info@geogardenclub.com.)
 :::
 
 Here is an example reply:
