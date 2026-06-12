@@ -375,6 +375,7 @@ const sidebars = {
               'admin-guide/feature-management/forums/topics',
               'admin-guide/feature-management/forums/messages',
               'admin-guide/feature-management/forums/broadcast',
+              'admin-guide/feature-management/forums/delete',
             ]
           },
           {
