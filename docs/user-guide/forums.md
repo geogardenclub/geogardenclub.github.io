@@ -71,7 +71,7 @@ When a chapter member is offering or seeking an item, it is natural to want to r
 
 However, you generally don't want to share this information with the entire Chapter---just with the single person who posted the topic.
 
-To make your reply private, check the "Is this a private forum message?" box when submitting your reply. In this case, your reply will be visible to you and to the original poster, but not to all chapter members. (To help ensure civil and respectful communication among chapter members, GeoGardenClub administrators can also see all private communications. If you are ever privately messaged with inappropriate content, please contact us immediately at info@geogardenclub.com.)
+To communicate with the chapter member privately, create a private message to the gardener. See the section on Private Messages. (To help ensure civil and respectful communication among chapter members, GeoGardenClub administrators can also see all private communications. If you are ever privately messaged with inappropriate content, please contact us immediately at info@geogardenclub.com.)
 :::
 
 Here is an example reply:
@@ -92,7 +92,7 @@ Tapping "Update Topic" allows you to update the topic (i.e. edit the title, mess
 
 Tapping "Delete Topic" allows you to delete the topic. In the case of a Topic posting, this will delete the topic and all of its replies. In the case of a Topic reply, it will delete just the reply.
 
-## Private Topics or Direct Messages
+## Private Messages or Direct Messages
 
 To send a private message to another chapter member, tap on the "+" button and press "+ Private Message".
 
@@ -100,11 +100,11 @@ To send a private message to another chapter member, tap on the "+" button and p
 
 This will bring up the Create Private Message screen:
 
-<img width="300px" src="/img/user-guide/forum/create-private-topic.png"/>
+<img width="300px" src="/img/user-guide/forum/create-private-message.png"/>
 
 **Gardener.** First select the gardener you want to message. You can only send private messages to gardeners in your chapter. 
 
-Then fill out the topic type, title, message, and (optional) photo. The topic types for private messages are the same as for public topics. The private message will be visible to you and the recipient, but not to other chapter members. (To help ensure civil and respectful communication among chapter members, GeoGardenClub administrators can also see all private communications. If you are ever privately messaged with inappropriate content, please contact us immediately.
+Then fill out the title, message, and (optional) photo. The private message will be visible to you and the recipient, but not to other chapter members. (To help ensure civil and respectful communication among chapter members, GeoGardenClub administrators can also see all private communications. If you are ever privately messaged with inappropriate content, please contact us immediately.
 
 There is the same "Reply" button at the bottom of a private message as for a public topic. However, in the case of a private message, only the original sender and recipient can see the replies.
 
