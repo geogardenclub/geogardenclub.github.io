@@ -5,7 +5,7 @@ title: Message Chapters
 
 # Message Chapters
 
-<img width="300" src="/img/admin-guide/feature-management/forums/broadcast.png"/>
+<img width="300" src="/img/admin-guide/feature-management/forums/message.png"/>
 
 The Message Chapters page allows you to create a forum topic that will be broadcast to the selected chapters.
 
