@@ -7,4 +7,7 @@ title: Manage Forums
 
 <img width="300" src="/img/admin-guide/feature-management/forums/manage.png"/>
 
-From the Manage Forums page, you can view and manage all forums in GGC, you can also broadcast to chapters, and lastly you can delete forum topics.
+From the Manage Forums page, you can:
+* [View and manage all forums in GGC](forums/topics),
+* [Broadcast to chapters](forums/broadcast), and lastly 
+* [Delete forum topics](forums/delete).

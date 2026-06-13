@@ -102,9 +102,8 @@ This will bring up the Create Private Message screen:
 
 <img width="300px" src="/img/user-guide/forum/create-private-message.png"/>
 
-**Gardener.** First select the gardener you want to message. You can only send private messages to gardeners in your chapter. 
-
-Then fill out the title, message, and (optional) photo. The private message will be visible to you and the recipient, but not to other chapter members. (To help ensure civil and respectful communication among chapter members, GeoGardenClub administrators can also see all private communications. If you are ever privately messaged with inappropriate content, please contact us immediately.
+First select the gardener you want to message. You can only send private messages to gardeners in your chapter.
+Then fill out the title, message, and (optional) photo. The private message will be visible to you and the recipient, but not to other chapter members. (To help ensure civil and respectful communication among chapter members, GeoGardenClub administrators can also see all private communications. If you are ever privately messaged with inappropriate content, please contact us immediately at info@geogardenclub.com.)
 
 There is the same "Reply" button at the bottom of a private message as for a public topic. However, in the case of a private message, only the original sender and recipient can see the replies.
 
