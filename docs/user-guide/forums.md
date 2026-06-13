@@ -92,7 +92,7 @@ Tapping "Update Topic" allows you to update the topic (i.e. edit the title, mess
 
 Tapping "Delete Topic" allows you to delete the topic. In the case of a Topic posting, this will delete the topic and all of its replies. In the case of a Topic reply, it will delete just the reply.
 
-## Private Messages or Direct Messages
+## Private Messages
 
 To send a private message to another chapter member, tap on the "+" button and press "+ Private Message".
 
