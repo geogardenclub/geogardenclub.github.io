@@ -94,72 +94,7 @@ const sidebars = {
     'business-guide/index',
     'business-guide/roadmap',
     'business-guide/milestones',
-    {
-      type: 'category',
-      collapsed: true,
-      label: "Initial Business Plan",
-      items: [
-        'business-guide/planning/market-size',
-        'business-guide/planning/metrics',
-        {
-          type: 'link',
-          label: 'Lean Canvas',
-          href: 'https://www.canva.com/design/DAGXUaJ5nBg/gH6EnJ74rFjfqZYjJ2n50w/view?utm_content=DAGXUaJ5nBg&utm_campaign=designshare&utm_medium=link&utm_source=editor',
-        },
-        {
-          type: 'link',
-          label: 'Executive Summary',
-          href: 'https://geogardenclub.com/pdf/executive-summary-2024.pdf',
-        },
-        {
-          type: 'link',
-          label: 'Gardening vs. Farming',
-          href: 'https://docs.google.com/presentation/d/1rMu7DWJblHvVJt6CGmR8eyCN7uBMXPfBpc1rdhanxjQ/edit#slide=id.p',
-        },
-        {
-          type: 'link',
-          label: 'Home Gardening Pain Points',
-          href: 'https://docs.google.com/presentation/d/1TKDWQI60PxRhBpMGW0tvMyXX0nmgEBz71-DmoT2LxfU/edit#slide=id.g11d82564388_0_187',
-        },
-      ]
-    },
-    {
-      type: 'category',
-      collapsed: true,
-      label: "Monthly Reports",
-      items: [
-        {
-          type: 'link',
-          label: 'August 2025',
-          href: 'https://docs.google.com/document/d/1O4tjvM2d6M2zM7E-FbUaA4EpSQAEeGkcorjasYOmsEM/edit?usp=sharing',
-        },
-        {
-          type: 'link',
-          label: 'July 2025',
-          href: 'https://docs.google.com/document/d/15nZf7dkdyI_dt8-fJL_PecJaEjnh5OdEdJls3KIQ23w/edit?usp=sharing',
-        },
-        {
-          type: 'link',
-          label: 'June 2025',
-          href: 'https://docs.google.com/document/d/1kp_a0BokH-GdPsfg_o2fJyutoIpHekHUP2ohpkFtgVA/edit?usp=sharing',
-        },
-        {
-          type: 'link',
-          label: 'May 2025',
-          href: 'https://docs.google.com/document/d/1MIZPmjLCnuTUvT5gNUgO_E-u8ksb8gt8V1SCZM12Xs8/edit?usp=sharing',
-        },
-        {
-          type: 'link',
-          label: 'April 2025',
-          href: 'https://docs.google.com/document/d/1IwCf6fvT_NJnMSW1TxJ7lQJFCXyfXusoq9IbDTziMf8/edit?usp=sharing',
-        },
-        {
-          type: 'link',
-          label: 'March 2025',
-          href: 'https://docs.google.com/document/d/1yLiiYTDcJsEFNh_BVZTMfb29lsb2yqZLwG4MxLIsIC4/edit?usp=sharing',
-        },
-      ]
-    },
+    'business-guide/intern-onboarding',
     {
       type: 'category',
       collapsed: true,
@@ -178,17 +113,101 @@ const sidebars = {
     {
       type: 'category',
       collapsed: true,
-      label: 'BAI 2024',
+      label: "Monthly Reports",
       items: [
         {
-          type: 'link',
-          label: 'BAI 2024 Pitch Deck',
-          href: 'https://geogardenclub.com/pdf/bai-pitch-2024.pdf',
+          type: 'category',
+          collapsed: true,
+          label: "2025",
+          items: [
+            {
+              type: 'link',
+              label: 'March 2025',
+              href: 'https://docs.google.com/document/d/1yLiiYTDcJsEFNh_BVZTMfb29lsb2yqZLwG4MxLIsIC4/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'April 2025',
+              href: 'https://docs.google.com/document/d/1IwCf6fvT_NJnMSW1TxJ7lQJFCXyfXusoq9IbDTziMf8/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'May 2025',
+              href: 'https://docs.google.com/document/d/1MIZPmjLCnuTUvT5gNUgO_E-u8ksb8gt8V1SCZM12Xs8/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'June 2025',
+              href: 'https://docs.google.com/document/d/1kp_a0BokH-GdPsfg_o2fJyutoIpHekHUP2ohpkFtgVA/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'July 2025',
+              href: 'https://docs.google.com/document/d/15nZf7dkdyI_dt8-fJL_PecJaEjnh5OdEdJls3KIQ23w/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'August 2025',
+              href: 'https://docs.google.com/document/d/1O4tjvM2d6M2zM7E-FbUaA4EpSQAEeGkcorjasYOmsEM/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'September 2025',
+              href: 'https://docs.google.com/document/d/1yTiznV5TjAM3Yqagt34Z6_oMTWuPePh0pPvGI2d6yFA/edit?usp=drive_link',
+            },
+            {
+              type: 'link',
+              label: 'October 2025',
+              href: 'https://docs.google.com/document/d/1vfi-_YKRiX2kKyIEl6YfkK8UaoF2pm9cFGRh5J9mrHo/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'November 2025',
+              href: 'https://docs.google.com/document/d/1dm2VkRp1CtLZTIZh8UH3HmpsVej7PXqK-z0gPNpokO0/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'December 2025',
+              href: 'https://docs.google.com/document/d/1ltXL3Wc9HmZ7CCaIfU4bJNr_CWGCSNa9oyb0hUBdquY/edit?usp=sharing',
+            },
+          ]
         },
         {
-          type: 'link',
-          label: 'BAI 2024 Pitch (Video)',
-          href: 'https://www.youtube.com/watch?v=fo2fP-915VQ',
+          type: 'category',
+          collapsed: true,
+          label: "2026",
+          items: [
+            {
+              type: 'link',
+              label: 'January 2026',
+              href: 'https://docs.google.com/document/d/1ltXL3Wc9HmZ7CCaIfU4bJNr_CWGCSNa9oyb0hUBdquY/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'January 2026',
+              href: 'https://docs.google.com/document/d/1S1DwC85gLyjeIZaiOMXA5PlKmM3IvY0952sjviwddrk/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'February 2026',
+              href: 'https://docs.google.com/document/d/19VNB9bzUQCxCVxSRCWbnpFsjnabb9nWE3QQ-pRY4DmU/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'March 2026',
+              href: 'https://docs.google.com/document/d/1kYN3QmmoqqflmxYS3RHcXm1sZYxp-smzpobOBar-Hpg/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'April 2026',
+              href: 'https://docs.google.com/document/d/1Gj5Ps_uIf3FNFBp0ZpwMQja5WWCY_zs2tE66ll4byZM/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'May 2026',
+              href: 'https://docs.google.com/document/d/1W5k6Y_gpFzdIDEHKnWu5LJVa0H-zUHZ9Y6PpBqw00uk/edit?usp=sharing',
+            },
+          ]
         },
       ],
     },
@@ -208,6 +227,60 @@ const sidebars = {
           href: 'https://docs.google.com/document/d/1UIgKYQrcIaY7wj515ehPrFTm1sqXfiYSNWUZvoTEWBY/edit?tab=t.0',
         },
       ]
+    },
+    {
+      type: 'category',
+      collapsed: true,
+      label: "Archive",
+      items: [
+        {
+          type: 'category',
+          collapsed: true,
+          label: "2024 Business Plan",
+          items: [
+            'business-guide/planning/market-size',
+            'business-guide/planning/metrics',
+            {
+              type: 'link',
+              label: 'Lean Canvas',
+              href: 'https://www.canva.com/design/DAGXUaJ5nBg/gH6EnJ74rFjfqZYjJ2n50w/view?utm_content=DAGXUaJ5nBg&utm_campaign=designshare&utm_medium=link&utm_source=editor',
+            },
+            {
+              type: 'link',
+              label: 'Executive Summary',
+              href: 'https://geogardenclub.com/pdf/executive-summary-2024.pdf',
+            },
+            {
+              type: 'link',
+              label: 'Gardening vs. Farming',
+              href: 'https://docs.google.com/presentation/d/1rMu7DWJblHvVJt6CGmR8eyCN7uBMXPfBpc1rdhanxjQ/edit#slide=id.p',
+            },
+            {
+              type: 'link',
+              label: 'Home Gardening Pain Points',
+              href: 'https://docs.google.com/presentation/d/1TKDWQI60PxRhBpMGW0tvMyXX0nmgEBz71-DmoT2LxfU/edit#slide=id.g11d82564388_0_187',
+            },
+          ]
+        },
+
+        {
+          type: 'category',
+          collapsed: true,
+          label: 'BAI 2024',
+          items: [
+            {
+              type: 'link',
+              label: 'BAI 2024 Pitch Deck',
+              href: 'https://geogardenclub.com/pdf/bai-pitch-2024.pdf',
+            },
+            {
+              type: 'link',
+              label: 'BAI 2024 Pitch (Video)',
+              href: 'https://www.youtube.com/watch?v=fo2fP-915VQ',
+            },
+          ],
+        },
+      ],
     },
 
     {

@@ -3,7 +3,7 @@ hide_table_of_contents: false
 # sidebar_label: "Intern Support"
 ---
 
-# Onboarding
+# Intern Onboarding
 
 Welcome, new GGC Marketing Intern!  This page provides a checklist of things that may be required to get started for your internship.
 
