@@ -94,7 +94,7 @@ const sidebars = {
     'business-guide/index',
     'business-guide/roadmap',
     'business-guide/milestones',
-    'business-guide/intern-onboarding',
+    'business-guide/intern-management',
     {
       type: 'category',
       collapsed: true,
