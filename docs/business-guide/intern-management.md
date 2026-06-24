@@ -4,21 +4,21 @@ hide_table_of_contents: false
 
 # Intern Management
 
-Welcome, new GGC Marketing Intern!  This page provides a checklist of things that may be required to get started for your internship.
+This page provides a checklist of things that may be required to get a new intern onboarded and offboarded.
 
 ## Marketing sites access
 
-Jenna will give you access to the following marketing sites.
-
-* GeoGardenClub: **Wait to create an account until your first meeting with Jenna.**  New users get three months free so you will not need to pay anything during your internship.
-* Meta: GGC is active on both Instagram and Facebook.  You will receive full permissions.
-* AppStoreConnect: This site tracks downloads and  App Store metrics.  Requires the email associated with your Apple ID.  You will receive "Sales" permissions.
-* Apple Ads: This site is where we run ad campaigns for the App Store.  Requires the email associated with your Apple ID.  You will receive "Acount Read Only" access until you have your Apple Ads certificate and preparing to run an ad campaign.
-* Google Play: You may or may not receive access to Google Play, since most of our downloads are currently on iOS.
-* Google Analytics: This is where we can track metrics related to our website.  A gmail is best for accessing this site.  You will receive "Marketer" permissions.
-* Applyra: This site provides ASO support.  Please create your own free account.
+* GeoGardenClub: **This is a great opportunity to observe account creation and registration!  Ask intern to wait until the first meeting to complete these steps.**  New users get three months free so interns will not need to pay anything during their internship.
+* Meta: GGC is active on both Instagram and Facebook.  Provide full permissions.
+* AppStoreConnect: This site tracks downloads and App Store metrics.  Requires the email associated with an Apple ID.  Provide "Sales" permissions.
+* Apple Ads: This site is where we run ad campaigns for the App Store.  Requires the email associated with an Apple ID.  Provide "Acount Read Only" access until intern has received Apple Ads certificate and is planning on running an ad campaign.
+* Google Play: Interns may or may not receive access to Google Play, since most of our downloads are currently on iOS.
+* Google Analytics: This is where we can track metrics related to our website.  A gmail is best for accessing this site.  Provide "Marketer" permissions.
+* Applyra: This site provides ASO support.  Interns can create their own free account.
 
 ## Brand and Audience Discovery
+
+In order to get to know our product, brand, and marketing materials, have the intern complete a brand and audience discovery using the following prompts:
 
 **Website Review**
 * What is your first impression (within 10 seconds)?
@@ -82,15 +82,14 @@ Opportunities
 * What is the “core value” of the app from your experience?
 * Do you feel like our messaging in the App Store/website/socials matches the product?
 
-# Core Intern Project
-Now that you've gotten to know GeoGardenClub's brand, audience, website, and socials, meet with Jenna to discuss the core work of your internship.
-
 # Offboarding
 
-* GeoGardenClub: If you aren't planning on continuing use of GeoGardenClub, delete the account and cancel the subscription. 
-* Meta: Jenna will remove access.
-* AppStoreConnect: Jenna will remove access.
-* Apple Ads: Jenna will remove access.
-* Google Play: Jenna will remove access.
-* Google Analytics: Jenna will remove access.
-* Applyra: If you aren't planning on continuing to use Applyra, delete the account.
+* GeoGardenClub: If the intern isn't planning on continuing use of GeoGardenClub, delete the account and cancel the subscription. 
+* Applyra: If they aren't planning on continuing to use Applyra, intern can delete the account.
+
+Jenna will remove access from:
+* Meta
+* AppStoreConnect
+* Apple Ads
+* Google Play
+* Google Analytics
