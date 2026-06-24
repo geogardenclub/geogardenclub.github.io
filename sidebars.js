@@ -82,6 +82,7 @@ const sidebars = {
         'user-guide/retail-value',
         'user-guide/web',
         'user-guide/public-view',
+        'user-guide/export-data',
         'user-guide/faq',
         'user-guide/markdown',
         'user-guide/school-and-community-gardens',
