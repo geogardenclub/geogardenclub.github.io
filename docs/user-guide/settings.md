@@ -38,7 +38,7 @@ Change your username, your profile picture, and more:
 
 Enable or disable a public view for one or more of your gardens:
 
-<img width="700" src="/img/user-guide/settings/settings-update-user-profile.png"/>
+<img width="700" src="/img/user-guide/settings/settings-public-views.png"/>
 
 For more details, see the [Public View](public-view.md) chapter.
 
