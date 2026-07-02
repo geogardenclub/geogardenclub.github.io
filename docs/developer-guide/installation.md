@@ -219,22 +219,24 @@ We use the [envied](https://pub.dev/packages/envied) package to manage our API k
 ```
 OPEN_WEATHER_API=change_me
 RECAPTCHA_SITE_KEY=change_me_too
+APP_CHECK_DEBUG_TOKEN=change_me_three
 ```
 
-2. (Optional) Contact a developer to find out how to replace `change_me` and `change_me_too` with the correct Open Weather API and Recaptcha Site Keys.  
+2. (Optional) Contact a developer to find out how to replace the various `change_me` values with the correct API keys.
 
 :::info 
 Note that if you don't change these values, your app should still build and run. However, 
-* without the Open Weather API key, the app won't be able to access weather data.
-* without the Recaptcha site key, the app (when run in a browser) won't be able to access the production database. 
+* without the correct OPEN_WEATHER_API value, the app won't be able to access weather data.
+* without the correct RECAPTCHA_SITE_KEY value, the app (when run in a browser) won't be able to access the production database. 
+* without the correct APP_CHECK_DEBUG_TOKEN value, the app won't be able to access the production database (once App Check is enabled).
 :::
 
-
-3. Run `./run_build_runner.sh` to generate the `/lib/env/env.g.dart` file that contains an obscured copy of the API keys. 
+3. Run `./run_build_runner.sh` to generate the `/lib/env/env.g.dart` file that contains an obscured copy of the API keys.
 
 :::info
 The `.env` and `env.g.dart` files are git-ignored.
 :::
+
 
 
 ## Run the app
