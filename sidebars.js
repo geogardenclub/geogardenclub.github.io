@@ -115,6 +115,14 @@ const sidebars = {
     {
       type: 'category',
       collapsed: true,
+      label: "2027 Strategic Plan",
+      items: [
+        'business-guide/strategic-plan-2027/proposals-2027',
+      ]
+    },
+    {
+      type: 'category',
+      collapsed: true,
       label: "Monthly Reports",
       items: [
         {

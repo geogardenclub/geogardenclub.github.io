@@ -82,7 +82,7 @@ The following are proposed activities that do not directly or indirectly support
 
 *Add recurrent, user defined tasks.*  This can support watering reminders, etc.
 
-*Add selected competitor's features.* Implement one or more of the [features present in other gardening apps](usability-2025#potential-features).
+*Add selected competitor's features.* Implement one or more of the [features present in other gardening apps](../strategic-plan-2026/usability-2025#potential-features).
 
 *Implement "like" and "favorite" UI elements.*  It is possible that providing these social media features could improve engagement.
 
