@@ -28,7 +28,7 @@ hide_table_of_contents: true
 
 <img style={{float: "left", marginRight: "20px" }} width="150px" src="/img/team/cam-moore.jpg"/>
 
-[Cam Moore](https://www.linkedin.com/in/cam-moore-9a5213/) is a Professor of Information and Computer Sciences at the University of Hawaii. His background includes extensive experience in both academia and industry. His prior industry experience includes software engineering positions at Lockheed Martin and Orincon and co-founder of a software startup. His academic experience includes ACUE certification in College Education. Cam received a B.S. degree in Electrical Engineering and Computer Science from the University of Colorado and a Ph.D. in Computer Science from the University of Hawaii.
+[Cam Moore](https://www.linkedin.com/in/cam-moore-9a5213/) is a retired Professor of Information and Computer Sciences at the University of Hawaii. His background includes extensive experience in both academia and industry. His prior industry experience includes software engineering positions at Lockheed Martin and Orincon and co-founder of a software startup. His academic experience includes ACUE certification in College Education. Cam received a B.S. degree in Electrical Engineering and Computer Science from the University of Colorado and a Ph.D. in Computer Science from the University of Hawaii.
 
 <div style={{clear:"both"}}></div>
 

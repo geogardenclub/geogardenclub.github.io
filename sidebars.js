@@ -330,6 +330,7 @@ const sidebars = {
         'developer-guide/design/data-mutation',
         'developer-guide/design/entity-creation',
         'developer-guide/design/badges',
+        'developer-guide/design/badges2',
         'developer-guide/design/retail-value',
         'developer-guide/design/collection-classes',
         'developer-guide/design/sort-by',
