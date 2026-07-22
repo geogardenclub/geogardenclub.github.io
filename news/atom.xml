@@ -2,11 +2,50 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://geogardenclub.com/news</id>
     <title>Geo Garden Club Blog</title>
-    <updated>2026-05-27T00:00:00.000Z</updated>
+    <updated>2026-07-01T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://geogardenclub.com/news"/>
     <subtitle>Geo Garden Club Blog</subtitle>
     <icon>https://geogardenclub.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[GGC News: July 2026]]></title>
+        <id>https://geogardenclub.com/news/2026/07/01/newsletter</id>
+        <link href="https://geogardenclub.com/news/2026/07/01/newsletter"/>
+        <updated>2026-07-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this newsletter:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2026/07/01/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
+<ul>
+<li class="">New feature: Direct Messages</li>
+<li class="">Gardening Notes: Succession Planting</li>
+<li class="">Stacking up garden apps</li>
+<li class="">Referral program: get three months free!</li>
+</ul>
+<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=7cd0737838" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content>
+        <author>
+            <name>Jenna Deane</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Newsletter" term="Newsletter"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[GGC App: 3.7.0 Release]]></title>
+        <id>https://geogardenclub.com/news/2026/06/29/release</id>
+        <link href="https://geogardenclub.com/news/2026/06/29/release"/>
+        <updated>2026-06-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this release:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/06/29/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
+<ul>
+<li class="">New feature: Private Messaging</li>
+<li class="">New feature: Export Data command</li>
+<li class="">Bug fixes: Create Observation button display problem (Android only), forum page layout, Insight planting view, and many more!</li>
+</ul>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
+        <author>
+            <name>Philip Johnson</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Releases" term="Releases"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GGC News: May 2026]]></title>
         <id>https://geogardenclub.com/news/2026/05/27/newsletter</id>
@@ -356,45 +395,6 @@
 <li class="">Featured Gardener: Katie!</li>
 </ul>
 <p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=af75bc7c26" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content>
-        <author>
-            <name>Jenna Deane</name>
-            <email>info@geogardenclub.com</email>
-        </author>
-        <category label="Newsletter" term="Newsletter"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC App: 2.26.0 Release]]></title>
-        <id>https://geogardenclub.com/news/2025/08/25/release</id>
-        <link href="https://geogardenclub.com/news/2025/08/25/release"/>
-        <updated>2025-08-25T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[In this release:]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/08/25/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
-<p>Fixed:</p>
-<ul>
-<li class="">UI Layout fixes for small screen devices.</li>
-<li class="">Improvements to subscription workflow</li>
-<li class="">Create Profile fixes.</li>
-</ul>
-<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
-        <author>
-            <name>Philip Johnson</name>
-            <email>info@geogardenclub.com</email>
-        </author>
-        <category label="Releases" term="Releases"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC News: August 2025]]></title>
-        <id>https://geogardenclub.com/news/2025/08/09/newsletter</id>
-        <link href="https://geogardenclub.com/news/2025/08/09/newsletter"/>
-        <updated>2025-08-09T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[In this newsletter:]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/08/09/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
-<ul>
-<li class="">New annual subscription option</li>
-<li class="">New feature: Simplified Task, Outcome, and Observation creation</li>
-<li class="">Featured Gardener: Jess!</li>
-</ul>
-<p>Click <a href="https://mailchi.mp/e92c1a99a018/aug-2025?e=511e166622" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content>
         <author>
             <name>Jenna Deane</name>
             <email>info@geogardenclub.com</email>
