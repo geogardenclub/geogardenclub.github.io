@@ -10,9 +10,9 @@ Here's how:
 
 1. Download the app from the App Store or Play Store.
 2. Register an account so you can sign in.
-3. Sign in and fill out your user profile
-4. Enjoy the Free Preview Period
+3. Sign in and fill out your user profile.
+4. Start enjoying the 7 day Free Preview Period.
 5. Go to your home page, and create your first Garden!
-6. Select your subscription plan.
+6. After the Free Preview Period ends, select your subscription plan.
 
 The next few pages guide you through these steps.
