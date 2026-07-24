@@ -20,6 +20,7 @@ In addition to these original goals, the redesign is intended to improve the Bad
 * Support progress tracking. Badges typically involve satisfying several criteria. Badges V2 will enable gardeners to see, for each Badge, what criteria have been satisfied and what criteria remain to be satisfied.
 * Support a recommendation system. For example, when a gardener is reviewing or using a Crop or Variety, Badges V2 can display the gardeners who have achieved Badges related to that Crop or Variety.
 * Improve Badge visibility. Badges V2 can use the Insight system to make Badges more visible to gardeners.  This can take the form of: (a) Badge Activities, so gardeners know when other gardeners have achieved badges, and (b) a Badge Insight widget, which tells the Gardener which Badges they already have and which Badges they are close to achieving.
+* Simplify the Badge UI by removing "attestations". The original Badge system included an "attestation" system for badge achievement. Badges V2 removes attestations and replaces their functionality with tagged Observations. 
 
 We propose the following architectural changes for Badges V2:
 
@@ -39,18 +40,18 @@ There are three badge types: garden, gardener, and chapter.  Garden badges refle
 
 Each badge can be achieved at three levels of increasing sophistication and/or expertise. Level 1 badges are relatively easy to achieve. Level 2 and Level 3 badges indicate increasing levels of expertise or accomplishment with respect to the badge subject. 
 
-Levels will be visually represented by 1-3 stars along the left side of the badge. Here`s an example:
+Levels will be visually represented by 1-3 stars along the left side of the badge. Here's an example:
 
 <img style={{borderStyle: "solid"}} width="300px" src="/img/develop/badges/badge-examples.png"/>
 
 
 ### Verification
 
-Verification of badges can be done in three ways: "via attestation", "via observation", or "via planting". Depending upon the badge and/or level, one or more of these verification approaches might be required.
+Each badge defines a set of "criteria" that must be satisfied in order for the badge to be achieved.  Each time Observations or Plantings are mutated, the badge processing mechanism rechecks all the criteria associated with all the garden and gardener badges to determine if: (a) new badges should be awarded; (b) existing badge(s) should be upgraded or downgraded with respect to their level; or (c)  existing badge(s) should be deleted.
 
-"Via attestation" means that the Gardener (owner) has indicated that they (or their garden) adheres to certain practices. This is implemented as an "Attestation" section in the Garden and Gardener forms. For example, when creating or updating a Garden, the gardener (owner) can simply check a box to attest that the garden is pesticide-free. Gardeners are on the honor system to attest only to practices that they believe to be true.
+Verification of badges are done in two ways: "via observation" or "via planting". Depending upon the badge and/or level, one or both of these verification approaches might be required.
 
-"Via Observation" means that a Gardener has created one or more Observations with one or more badge-specific tags. 
+"Via Observation" means that a Gardener has created one or more Observations with one or more tags that are required by a Badge's criteria. 
 
 :::warning Tags evolve over time
 It is possible for tags to be renamed, and/or be added or deleted over time. Badges V2 must provide a way to ensure that "Via Observation" verification can evolve as the set of Tags evolves.
@@ -64,6 +65,8 @@ Badge processing occurs on the client-side. Garden and Gardener badges are award
 The criteria for Garden and Gardener badges are designed so that they can be assessed via either WithCoreData or WithGardenData. See the Implementation Notes section associated with each badge for an indication of which "With" widget must be used.
 :::
 
+To support verification, Badges V2 provides a class called "BadgeCriteria". Instances of this class encapsulate the textual definition of a criteria, along with methods to test whether the criteria have been satisfied and to provide a textual explanation for what remains to be done to satisfy the criteria.  
+
 
 ## Garden badges
 
@@ -71,21 +74,21 @@ The criteria for Garden and Gardener badges are designed so that they can be ass
 
 #### General Criteria
 
-No pesticides are used in this garden.
+Pesticides are not currently used in this garden.
 
 #### (Example) observation tags
 
-N/A
+`#PesticideFree`
 
-| Level | Verification                                                                                                                                                                                                |
-|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. The user has attested that the Garden is pesticide free. <br /> b. There is Planting data for this garden for a single calendar year.                                                                    |
-| 2     | a. The user has attested that the Garden is pesticide free. <br /> b. There is Planting data for this garden for exactly two calendar years.                                                                |
-| 3     | a. The user has attested that the Garden is pesticide free. <br /> b. There is Planting data for this garden for three or more calendar years. |
+| Level | Criteria                                                                      |
+|-------|-----------------------------------------------------------------------------------|
+| 1     | a. There are appropriately tagged Observation(s) for this garden in exactly one calendar year.    |
+| 2     | a. There are appropriately tagged Observation(s) for this garden in exactly two calendar years.   |
+| 3     | a. There are appropriately tagged Observation(s) for this garden in three or more calendar years. |
 
 #### Implementation notes
 
-Triggered as part of Garden or Planting mutation. 
+Triggered as part of Observation mutation. 
 
 Requires WithGardenData. 
 
@@ -99,11 +102,11 @@ The garden has pollinator-friendly practices such as: (1) Using a wide variety o
 
 `#DitchChemicals`, `#Habitat`, `#Hummingbirds`, `#LarvalHostPlants`, `#NativeBees`, `#NativePlants`, `#PesticideFree`, `#SaltLick`.
 
-| Level | Verification                                                                                                                                                                                                |
-|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There are Observations indicating at least three of the practices for a single calendar year.                                                                    |
-| 2     | a. There are Observations indicating at least three of the practices for  two calendar years.                                                               |
-| 3     | a. There are Observations indicating at least three of the practices for three or more calendar years. |
+| Level | Criteria                                                                                                                 |
+|-------|------------------------------------------------------------------------------------------------------------------------------|
+| 1     | a. There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in exactly one calendar year.    |
+| 2     | a. There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in exactly two calendar years.   |
+| 3     | a. There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in three or more calendar years. |
 
 #### Implementation notes
 
@@ -122,11 +125,11 @@ Garden soil has been improved by using sheet mulch, compost, and/or cover crops.
 
 `#Compost`, `#CoverCrops`, `#SheetMulch`, `#Mulch`, `#CropRotation`
 
-| Level | Verification                                                                                                                                                                                                |
-|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There are Observations indicating at least three of the practices for a single calendar year.                                                                    |
-| 2     | a. There are Observations indicating at least three of the practices for  two calendar years.                                                               |
-| 3     | a. There are Observations indicating at least three of the practices for three or more calendar years. |
+| Level | Criteria                                                                                                                 |
+|-------|------------------------------------------------------------------------------------------------------------------------------|
+| 1     | a. There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in exactly one calendar year.    |
+| 2     | a. There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in exactly two calendar years.   |
+| 3     | a. There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in three or more calendar years. |
 
 #### Implementation notes
 
@@ -144,11 +147,11 @@ The garden involves water conservation practices, including: (1) collecting and 
 
 `#DripIrrigation`, `#Rainwater`, `#WaterTimer`.
 
-| Level | Verification                                                                                         |
-|-------|------------------------------------------------------------------------------------------------------|
-| 1     | a. There are Observations indicating at least one of the practices for a single calendar year.    |
-| 2     | a. There are Observations indicating at least one of the practices for  two calendar years.          |
-| 3     | a. There are Observations indicating at least one of the practices for three or more calendar years. |
+| Level | Criteria                                                                                                                   |
+|-------|----------------------------------------------------------------------------------------------------------------------------|
+| 1     | a. There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in exactly one calendar year.    |
+| 2     | a. There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in exactly two calendar years.   |
+| 3     | a. There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in three or more calendar years. |
 
 #### Implementation notes
 
@@ -156,21 +159,47 @@ Triggered as part of Observation mutation.
 
 Requires WithGardenData.
 
+### Grocery Bill Buster
+
+#### General Criteria
+
+The garden has produced food with a significant retail value. 
+
+#### (Example) observation tags
+
+N/A
+
+| Level | Criteria                                                                                                        |
+|-------|-----------------------------------------------------------------------------------------------------------------|
+| 1     | a. The total retail value for this garden across all years is between (US$100, CA$100) and (US$499, CA$499).    |
+| 2     | a. The total retail value for this garden across all years is between (US$500, CA$500) and (US$999, CA$999).    |
+| 3     | a. The total retail value for this garden across all years is at least (US$1000, CA$1000). |
+
+#### Implementation notes
+
+Triggered as part of Planting mutation.
+
+Requires WithGardenData.
+
 ### Climate Victory
 
 #### General Criteria
 
-A Climate Victory Garden has been added to [Green America`s database](https://www.greenamerica.org/climate-victory-gardens) and the garden implements one or more of the following practices: (1) grow food, (2) cover soils, (3) compost, (4) ditch chemicals, and (5) encourage biodiversity.
+A Climate Victory Garden requires that the garden: (a) has been added to [Green America`s database](https://www.greenamerica.org/climate-victory-gardens) and (b) implements one or more of the "Climate Victory" practices: (1) grows food, (2) provides cover soils, (3) uses compost, (4) is pesticide free, and (5) encourages biodiversity.
+
+To indicate that the Garden is in the Green America database, the gardener must create an observation that includes a photo of the Green America map showing the garden with the tag `#GreenAmericaDatabase`. For example:
+
+<img style={{borderStyle: "solid"}} width="500px" src="/img/develop/badges/climate-victory-garden-screenshot.png"/>
 
 #### (Example) observation tags
 
-`#Biodiversity`, `#Compost`, `#CoverCrops`,`#DitchChemicals`, `#PesticideFree`, `#PollinatorFriendly`, `#SheetMulch`.
+`#GreenAmericaDatabase`, `#Biodiversity`, `#Compost`, `#CoverCrops`,`#DitchChemicals`, `#PesticideFree`, `#PollinatorFriendly`, `#SheetMulch`.
 
-| Level | Verification                                                                                                                                                                       |
-|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. The user has attested that the Garden is in the Green America database. <br /> b. There are Observations associated with this garden for at least two of the associated tags.   |
-| 2     | a. The user has attested that the Garden is in the Green America database. <br /> b. There are Observations associated with this garden for at least five of the associated tags.  |
-| 3     | a. The user has attested that the Garden is in the Green America database. <br /> b. There are Observations associated with this garden for at least five of the associated tags in at least two different calendar years. |
+| Level | Criteria                                                                                                                                                                                                                                     |
+|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | a. There is an Observation associated with this garden with the `#GreenAmericaDatabase` tag.  <br /> b. There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in exactly one calendar year. |
+| 2     | a. There is an Observation associated with this garden with the `#GreenAmericaDatabase` tag. <br /> b. There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in exactly two calendar years.                 |
+| 3     | a. There is an Observation associated with this garden with the `#GreenAmericaDatabase` tag.  <br /> b. There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in three or more calendar years.              |
 
 
 
@@ -180,17 +209,17 @@ A Climate Victory Garden has been added to [Green America`s database](https://ww
 
 #### General Criteria
 
-The gardener has demonstrated experience with community and/or school gardening.
+The gardener has helped grow a local community of practice by participating in Forums
 
 #### (Example) observation tags: 
 
 N/A
 
-| Level | Verification                                                                                                     |
-|-------|------------------------------------------------------------------------------------------------------------------|
-| 1     | a. The gardener is associated with exactly one garden which has the "Community or School Garden" attestation.    |
-| 2     | a. The gardener is associated with exactly two gardens that have the "Community or School Garden" attestation.   |
-| 3     | a. The gardener is associated with three or more gardens that have the "Community or School Garden" attestation. |
+| Level | Criteria                                                                     |
+|-------|------------------------------------------------------------------------------|
+| 1     | a. The gardener has made a Forum posting in exactly one calendar year.       |
+| 2     | a. The gardener has made a Forum posting in exactly two calendar years.      |
+| 3     | a. a. The gardener has made a Forum posting in three or more calendar years. |
 
 #### Implementation notes
 
@@ -209,7 +238,7 @@ The gardener has experience composting in a gardens.
 
 `#Compost`, `#CompostTea`, `#Hugelkulture`, `#Vermiculture`, `#Worms`. 
 
-| Level | Verification                                                                                                                               |
+| Level | Criteria                                                                                                                               |
 |-------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | 1     | a. The gardener (owner or editor) has posted Observations indicating at least one of the practices for a single calendar year in a garden. |
 | 2     | a. The gardener (owner or editor) has posted Observations indicating at least one of the practices for two calendar years in a single garden.                |
@@ -239,7 +268,7 @@ Unlike other badges, this badge is crop-specific, and so a gardener can earn mul
 
 N/A
 
-| Level | Verification                                                                                                                                                                |
+| Level | Criteria                                                                                                                                                                |
 |-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1     | a. There are Plantings for exactly three different varieties of the same crop. <br /> b.  At least two outcomes were awarded at least three stars in at least one Planting. |
 | 2     | a. There are Plantings for exactly four different varieties of the same crop. <br /> b.  At least two outcomes were awarded at least three stars in at least one Planting.  |
@@ -262,7 +291,7 @@ The gardener has experience growing plants successfully in a greenhouse.
 
 N/A.
 
-| Level | Verification                                                                                                                                                                |
+| Level | Criteria                                                                                                                                                                |
 |-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1     | a. There is a single Planting in a single Garden that was started in a greenhouse that survived to harvest and was awarded at least three stars for at least one outcomes.  |
 | 2     | a. There are two Plantings in a single Garden that were started in a greenhouse that survived to harvest and were awarded at least three stars for at least one outcomes.   |
@@ -278,17 +307,17 @@ Requires WithGardenData.
 
 #### General Criteria
 
-The gardener has completed a Permaculture workshop to learn about the philosophy of permaculture and is also associated with garden(s) that have achieved permaculture-related badges
+The gardener is associated with garden(s) that have Observations indicating permaculture-related practices
 
 #### (Example) observation tags
 
-`#PesticideFree`, `#SustainableSoil`, `#WaterSmart`, `#PollinatorFriendly`
+`#Permaculture`
 
-| Level | Verification                                                                                                                                                                                                |
-|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. The gardener (owner or editor) has attested in their profile that they have completed a permaculture workshop. <br /> b. There are Observations indicating at least one of the practices for a single calendar year.    |
-| 2     | a. The gardener (owner or editor) has attested in their profile that they have completed a permaculture workshop. <br /> b. There are Observations indicating at least one of the practices for exactly two calendar years.   |
-| 3     | a. The gardener (owner or editor) has attested in their profile that they have completed a permaculture workshop. <br /> b. There are Observations indicating at least one of the practices for three or more calendar years. |
+| Level | Criteria                                                                                             |
+|-------|------------------------------------------------------------------------------------------------------|
+| 1     | a. There are Observations indicating permaculture practices for only a single calendar year.         |
+| 2     | a. There are Observations indicating permaculture practices for exactly two calendar years.   |
+| 3     | a. There are Observations indicating permaculture practices for three or more calendar years. |
 
 #### Implementation notes
 
@@ -306,7 +335,7 @@ The gardener has experience with vermiculture (the controlled growing of worms) 
 
 `#CompostTea`, `#Vermiculture`, `#Worms`.  
 
-| Level | Verification                                                                                                         |
+| Level | Criteria                                                                                                         |
 |-------|----------------------------------------------------------------------------------------------------------------------|
 | 1     | a. There are Observations indicating at least one of the practices for a single calendar year in a single Garden. |
 | 2     | a. There are Observations indicating at least one of the practices for  two calendar years in a single Garden.       |
@@ -329,7 +358,7 @@ The gardener has demonstrated experience with seed saving practices, including: 
 
 `#SeedSaving`, `#SeedSharing`
 
-| Level | Verification                                                                                                         |
+| Level | Criteria                                                                                                         |
 |-------|----------------------------------------------------------------------------------------------------------------------|
 | 1     | a. There are Observations indicating at least one of the practices for a single calendar year in a single Garden. |
 | 2     | a. There are Observations indicating at least one of the practices for  two calendar years in a single Garden.       |
@@ -345,21 +374,17 @@ Requires WithGardenData.
 
 #### General Criteria
 
-The gardener has completed a master gardener program.
-
-:::warning Shucks
-I cannot think of a simple way to award more than one star. Ideas?
-:::
+The gardener is volunteering as a Master Gardener.
 
 #### (Example) observation tags
 
-N/A
+`#MasterGardenerAtWork`
 
-| Level | Verification                                                                                 |
-|-------|----------------------------------------------------------------------------------------------|
-| 1     | a. The gardener attests in their profile to having received a Master Gardener certification. |
-| 2     | (Not yet available)                                                                          |
-| 3     | (Not yet available)                                                                          |
+| Level | Criteria                                                                                        |
+|-------|-------------------------------------------------------------------------------------------------|
+| 1     | a. There are Observations indicating Master Gardener practices for only a single calendar year. |
+| 2     | a. There are Observations indicating Master Gardener practices for exactly two calendar years.     |
+| 3     | a. There are Observations indicating Master Gardener practices for three or more calendar years.   |
 
 ### Bee Buddy
 
@@ -371,6 +396,12 @@ The gardener has experience caring for bees.
 
 `#Beekeeping`, `#Beekeeper`
 
+| Level | Criteria                                                                                                         |
+|-------|----------------------------------------------------------------------------------------------------------------------|
+| 1     | a. There are Observations indicating at least one of the practices for a single calendar year in a single Garden. |
+| 2     | a. There are Observations indicating at least one of the practices for  two calendar years in a single Garden.       |
+| 3     | a. There are Observations indicating at least one of the practices for three or more calendar years in a single Garden.                |
+
 ### Aquaponics Ace
 
 #### General Criteria
@@ -380,6 +411,12 @@ The gardener has demonstrated experience with aquaponics.
 #### (Example) observation tags
 
 `#Aquaponics`, `#FishAndPlants`,
+
+| Level | Criteria                                                                                                         |
+|-------|----------------------------------------------------------------------------------------------------------------------|
+| 1     | a. There are Observations indicating at least one of the practices for a single calendar year in a single Garden. |
+| 2     | a. There are Observations indicating at least one of the practices for  two calendar years in a single Garden.       |
+| 3     | a. There are Observations indicating at least one of the practices for three or more calendar years in a single Garden.                |
 
 ### Herbalist Hero
 
@@ -391,6 +428,12 @@ The gardener has grown medicinal herbs and created remedies from them.
 
 `#Herbalist`, `#HerbalRemedy`, `#PlantMedicine`
 
+| Level | Criteria                                                                                                         |
+|-------|----------------------------------------------------------------------------------------------------------------------|
+| 1     | a. There are Observations indicating at least one of the practices for a single calendar year in a single Garden. |
+| 2     | a. There are Observations indicating at least one of the practices for  two calendar years in a single Garden.       |
+| 3     | a. There are Observations indicating at least one of the practices for three or more calendar years in a single Garden.                |
+
 ### Educator Extraordinaire
 
 #### General Criteria
@@ -400,6 +443,12 @@ The gardener has provided educational experiences such as leading workshops, wri
 #### (Example) observation tags:
 
 `#InspireAndTeach`, `#SkillSharing`, `#CommunityWorkshop`
+
+| Level | Criteria                                                                                                         |
+|-------|----------------------------------------------------------------------------------------------------------------------|
+| 1     | a. There are Observations indicating at least one of the practices for a single calendar year in a single Garden. |
+| 2     | a. There are Observations indicating at least one of the practices for  two calendar years in a single Garden.       |
+| 3     | a. There are Observations indicating at least one of the practices for three or more calendar years in a single Garden.                |
 
 ### Orchard Orchestrator
 
@@ -413,13 +462,15 @@ The gardener has demonstrated experience with orchard management.
 
 The gardener is serving as a Chair for the Chapter.
 
-Gardeners can self-identify as a Chapter Chair by attesting in their profile. Or an Admin can do it via an Admin command.
+:::warning
+Not sure how to implement this. An Observation seems weird. Admin command?
+:::
 
-| Level | Verification                                                                                            |
-|-------|---------------------------------------------------------------------------------------------------------|
-| 1     | a. The gardener is currently the Chapter Chair, and has served as a Chapter Chair for one or two years. |
-| 2     | N/A                                                                                                     |                                                                                                      |
-| 3     | N/A                                                                                                     |
+| Level | Criteria |
+|-------|----------|
+| 1     | TBD      |
+| 2     | TBD      |                                                                                                      |
+| 3     | TBD      |
 
 
 
@@ -432,11 +483,11 @@ Gardeners can self-identify as a Chapter Chair by attesting in their profile. Or
 
 The chapter has demonstrated a commitment to building a community of practice.
 
-| Level | Verification                              |
-|-------|-------------------------------------------|
-| 1     | a. At least 25 gardeners in the chapter.  |
-| 2     | a. At least 50 gardeners in the chapter.  |
-| 3     | a. At least 100 gardeners in the chapter. |
+| Level | Criteria                                                                              |
+|-------|---------------------------------------------------------------------------------------|
+| 1     | a. At least 25 gardeners in the chapter have achieved the Community Connector badge.  |
+| 2     | a. At least 50 gardeners in the chapter have achieved the Community Connector badge.. |
+| 3     | a. At least 100 gardeners in the chapter have achieved the Community Connector badge..                                            |
 
 
 ### Climate Victors
@@ -445,11 +496,11 @@ The chapter has demonstrated a commitment to building a community of practice.
 
 The chapter has demonstrated a commitment to creating Climate Victory Gardens.
 
-| Level | Verification                                                    |
-|-------|-----------------------------------------------------------------|
-| 1     | a. At least 50% of the chapter gardens have achieved the badge. |
-| 2     | a. At least 75% of the chapter gardens have achieved the badge. |
-| 3     | a. At least 90% of the chapter gardens have achieved the badge. |
+| Level | Criteria                                                                        |
+|-------|---------------------------------------------------------------------------------|
+| 1     | a. At least 50% of the chapter gardens have achieved the Climate Victory badge. |
+| 2     | a. At least 75% of the chapter gardens have achieved the Climate Victory badge. |
+| 3     | a. At least 90% of the chapter gardens have achieved the Climate Victory badge. |
 
 
 ### Pesticide Resistors
@@ -458,24 +509,24 @@ The chapter has demonstrated a commitment to creating Climate Victory Gardens.
 
 The chapter has demonstrated a commitment to avoiding the use of pesticides in their gardens.
 
-| Level | Verification                                                    |
-|-------|-----------------------------------------------------------------|
-| 1     | a. At least 50% of the chapter gardens have achieved the badge. |
-| 2     | a. At least 75% of the chapter gardens have achieved the badge. |
-| 3     | a. At least 90% of the chapter gardens have achieved the badge. |
+| Level | Criteria                                                                       |
+|-------|--------------------------------------------------------------------------------|
+| 1     | a. At least 50% of the chapter gardens have achieved the Pesticide Free badge. |
+| 2     | a. At least 75% of the chapter gardens have achieved the Pesticide Free badge. |
+| 3     | a. At least 90% of the chapter gardens have achieved the Pesticide Free badge. |
 
 
-### Seed Sharers
+### Seed Savers
 
 #### General Criteria:
 
-The chapter has demonstrated a commitment to seed sharing.
+The chapter has demonstrated a commitment to seed saving and sharing.
 
-| Level | Verification                                                    |
-|-------|-----------------------------------------------------------------|
-| 1     | a. At least 50% of the chapter gardens have achieved the badge. |
-| 2     | a. At least 75% of the chapter gardens have achieved the badge. |
-| 3     | a. At least 90% of the chapter gardens have achieved the badge. |
+| Level | Criteria                                                                     |
+|-------|------------------------------------------------------------------------------|
+| 1     | a. At least 50% of the chapter gardeners have achieved the Seed Saver badge. |
+| 2     | a. At least 75% of the chapter gardeners have achieved the Seed Saver badge. |
+| 3     | a. At least 90% of the chapter gardeners have achieved the Seed Saver badge. |
 
 
 
