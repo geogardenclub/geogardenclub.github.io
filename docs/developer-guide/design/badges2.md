@@ -27,6 +27,7 @@ We propose the following architectural changes for Badges V2:
 1. DbUpdateSnapshot. This is a class that can be instantiated in the submit() method and is passed the entities to be set or deleted by the MutateController. The DbUpdateSnapshot enables access to new instances of the `chapters`, `gardens`, and `users` objects that reflects the state of the database as if MutateController had already completed the commit. This "lookahead" ability simplifies Badge processing by providing uniform access to the state of the database both before and after the commit.
 2. Badges as classes.  In the current system, Badges are represented by a Badge document. All of the "behavior" of Badges is implemented in the badge processing mechanism. In Badges V2, each Badge will be associated with a class, not a document. There will also be a BadgeCriteria class which supports the definition and implementation of criteria checking. These new classes simplify the implementation of features like "What criteria for this Badge have been satisfied by this user/garden/chapter?" 
 3. BadgeInstanceIDs. In the current system, badge instance IDs look like this: "badgeinstance-US-001-001-0962". This means that given a badge and the garden/gardener/chapter to which it will be awarded, we must search all badge instances to see if one already exists. To simplify this kind of processing, we can instead create a bidirectional mapping by encoding the badge ID and the user/chapter/gardenID into the badge instance ID. For example, for the badge instance associated with badge-001 and the garden garden-US-12546-101-0019, the badgeinstance ID will be: "badgeinstance-badge-001-garden-US-12546-101-0019". This mapping guarantees that there can be only one badge instance for a badge and recipient, and it simplifies setting or deleting a badge instance based on its ID. 
+4. BadgeTag collection. Badges V2 adds a new collection to simplify management of the relationship between Badges and Tags. (See [below](#badge-to-tag-mapping)).
 
 In the initial implementation of Badges V2, we will name the new representation of badges as "Badges2", and create a new Firebase collection called badgeinstances2.  This will enable Badges V2 to co-exist with the current Badge implementation.  Eventually, we can perform a cut-over and ultimately remove the current implementation.
 
@@ -67,6 +68,17 @@ The criteria for Garden and Gardener badges are designed so that they can be ass
 
 To support verification, Badges V2 provides a class called "BadgeCriteria". Instances of this class encapsulate the textual definition of a criteria, along with methods to test whether the criteria have been satisfied and to provide a textual explanation for what remains to be done to satisfy the criteria.  
 
+### Badge to Tag mapping
+
+Many Badge Criteria involve checking to see if an Observation contains one or more of a set of tags.  Tags can evolve over time: new tags can be created, and existing ones could be deleted.  To simplify the management of the relationship between badges and tags, BadgesV2 uses a collection called BadgeTag. Each document in the BadgeTag collection contains just two fields: a BadgeID and a TagID.  This provides a simple mapping from badges to all of the Tags that can be used to satisfy its criteria, and from a Tag to all of the Badges that utilize it. 
+
+One implication is that when an admin updates the set of Tags, they must make sure that the BadgeTag mapping is updated appropriately:
+* The Tag deletion command must delete all of the documents containing that TagID from the BadgeTag collection.
+* When a new Tag is created, the admin must manually check to see if any Badges should add this TagID as satisfying its criteria.
+
+:::warning
+Note that this representation does not support criteria-specific badges. So far, we have not yet defined any Badges that require criteria specific badges. So, YAGNI.
+:::
 
 ## Garden badges
 
@@ -455,23 +467,6 @@ The gardener has provided educational experiences such as leading workshops, wri
 #### General Criteria
 
 The gardener has demonstrated experience with orchard management.
-
-### Chapter Chair
-
-#### General Criteria
-
-The gardener is serving as a Chair for the Chapter.
-
-:::warning
-Not sure how to implement this. An Observation seems weird. Admin command?
-:::
-
-| Level | Criteria |
-|-------|----------|
-| 1     | TBD      |
-| 2     | TBD      |                                                                                                      |
-| 3     | TBD      |
-
 
 
 ## Chapter badges

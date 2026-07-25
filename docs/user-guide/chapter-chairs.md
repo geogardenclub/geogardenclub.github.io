@@ -16,11 +16,15 @@ The GeoGardenClub Chapter Chair program enables one or more members of a Chapter
 
 We have created a simple process to designate Chapter Chair(s) for each chapter.
 
-1. One or more members of a Chapter are identified as candidates for Chapter Chair. In some cases, GeoGardenClub admins might reach out to a gardener to ask if they would agree to be nominated for Chair for their Chapter. Alternatively, a member can contact GeoGardenClub admins (at info@geogardenclub.com) to nominate themselves.  
+1. One or more members of a Chapter are identified as candidates for Chapter Chair. In some cases, GeoGardenClub staff might reach out to a gardener to ask if they would agree to be nominated for Chair for their Chapter. Alternatively, a member can contact GeoGardenClub staff (at info@geogardenclub.com) to nominate themselves.  
 
-2. The GeoGardenClub admins will make a forum posting to that chapter to say that one or more gardeners (identified by username only) are nominated for Chapter Chair and to please privately email info@geogardenclub.com with any comments or concerns within 7 days.
+2. The GeoGardenClub staff will make a forum posting to that chapter to say that one or more gardeners (identified by username only) are nominated for Chapter Chair and to please privately email info@geogardenclub.com with any comments or concerns within 7 days.
 
-3. After reviewing private feedback from the chapter members, the GeoGardenClub admins decide whether to designate the gardener(s) as Chapter Chair. Once a member is designated as a Chapter Chair, then their username is noted as a Chapter Chair in the app, and GeoGardenClub admins will provide you with your first year of benefits (see below).
+3. After reviewing private feedback from the chapter members, the GeoGardenClub staff decide whether to designate the gardener(s) as Chapter Chair. Once a member is designated as a Chapter Chair, their username is noted as a Chapter Chair in the app, and GeoGardenClub staff will provide the new Chair with their first year of benefits (see below).
+
+4. Each new Chapter Chair will be invited to a short Zoom orientation meeting with GeoGardenClub staff where we will provide you with training and information to help you get off to a good start.
+
+5. The GeoGardenClub staff also runs an optional, monthly Zoom meeting for all Chapter Chairs where Chairs can meet, discuss issues with other Chairs, and ask questions to staff.
 
 Chapter Chair status normally lasts as long as the gardener is willing to do it and is carrying out the duties. That said, we hope Chapter Chairs will accept the role for at least a year (although Chairs are free to resign at any time). 
 
