@@ -217,6 +217,52 @@ To indicate that the Garden is in the Green America database, the gardener must 
 
 ## Gardener badges
 
+### Plant Pioneer
+
+#### General Criteria
+
+The gardener has helped grow a local community of practice by adding new  varieties to the database.
+
+#### (Example) observation tags:
+
+N/A
+
+| Level | Criteria                                                                      |
+|-------|-------------------------------------------------------------------------------|
+| 1     | a. The gardener has added one Crop or Variety to the database.                |
+| 2     | a. The gardener has added two Crops or Varieties to the database.             |
+| 3     | a. a. The gardener has added three or more Crops or Varieties to the database |
+
+#### Implementation notes
+
+Triggered as part of Crop or Variety mutation.
+
+Requires WithCoreData.
+
+### Plant-fluencer
+
+#### General Criteria
+
+The gardener has defined plantings that have been copied by other users. 
+
+#### (Example) observation tags:
+
+N/A
+
+| Level | Criteria                                                                    |
+|-------|-----------------------------------------------------------------------------|
+| 1     | a. The gardener has had one Planting copied by another user.                |
+| 2     | a. The gardener has had two Plantings copied by other user(s).              |
+| 3     | a. a. The gardener has had three or more Plantings copied by other user(s). |
+
+#### Implementation notes
+
+Triggered as part of Crop or Variety mutation.
+
+Requires WithCoreData.
+
+
+
 ### Community Cultivator
 
 #### General Criteria
