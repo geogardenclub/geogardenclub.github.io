@@ -217,6 +217,28 @@ To indicate that the Garden is in the Green America database, the gardener must 
 
 ## Gardener badges
 
+### Green Thumb
+
+#### General Criteria
+
+The gardener is demonstrating active gardening by creating plantings in their garden.
+
+#### (Example) observation tags:
+
+N/A
+
+| Level | Criteria                                                      |
+|-------|---------------------------------------------------------------|
+| 1     | a. The gardener has added one planting to their garden.       |
+| 2     | a. The gardener has added twenty-five plantings to their garden. |
+| 3     | a. The gardener has added fifty plantings to their garden.    |
+
+#### Implementation notes
+
+Please add implementation notes!
+
+Please add requirements (ie Requires WithCoreData.)
+
 ### Plant Pioneer
 
 #### General Criteria
