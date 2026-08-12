@@ -15,7 +15,7 @@
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap"><link rel="stylesheet" href="/assets/css/styles.09580e75.css">
-<script src="/assets/js/runtime~main.a94a51a8.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.e533784f.js" defer="defer"></script>
 <script src="/assets/js/main.9d336ad2.js" defer="defer"></script>
 </head>
 <body>
@@ -48,9 +48,10 @@
 <img style="border-style:solid" width="300px" src="/img/develop/badges/badge-examples.png">
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="verification">Verification<a href="#verification" class="hash-link" aria-label="Direct link to Verification" title="Direct link to Verification" translate="no">​</a></h3>
 <p>Each Badge is associated with a BadgeCriteria instance which defines what must be satisfied in order for the badge to be achieved, and at what Level of achievement.</p>
-<p>Verification of badges are generally done in two ways: &quot;via observation&quot; or &quot;via planting&quot;. Depending upon the badge and/or level, one or both of these verification approaches might be required.</p>
+<p>Verification of badges are mostly done in two ways: &quot;via observation&quot; or &quot;via planting&quot;. Depending upon the badge and/or level, one or both of these verification approaches might be required.</p>
 <p>&quot;Via Observation&quot; means that a Gardener has created one or more Observations with one or more tags that are required by a Badge&#x27;s criteria.</p>
 <p>&quot;Via Planting&quot; means that a Gardener has created one or more Plantings that satisfies the criteria for a badge.</p>
+<p>A few of the Chapter badges are verified based on the achievement of badges by member gardener or gardens. So these badges could be said to be verified &quot;via badge&quot;.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dbupdatesnapshot">DbUpdateSnapshot<a href="#dbupdatesnapshot" class="hash-link" aria-label="Direct link to DbUpdateSnapshot" title="Direct link to DbUpdateSnapshot" translate="no">​</a></h3>
 <p>This is a class that can be instantiated in the submit() method and is passed the entities to be set or deleted by the MutateController. DbUpdateSnapshot enables access to new instances of the <code>chapters</code>, <code>gardens</code>, and <code>users</code> objects that reflects the state of the database as if MutateController had already completed the commit. This &quot;lookahead&quot; ability simplifies Badge processing by providing uniform access to the state of the database both before and after the commit.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="badge-and-tags">Badge and Tags<a href="#badge-and-tags" class="hash-link" aria-label="Direct link to Badge and Tags" title="Direct link to Badge and Tags" translate="no">​</a></h3>
