@@ -7,35 +7,39 @@ hide_table_of_contents: false
 
 ## Goals
 
-GGC already implements a badge system for gardens and gardeners. This page documents a proposed redesign. The redesigned system is intended to continue to support the original goals for GGC Badges:
+The GGC Badge system is designed to achieve the following:
 
-* Foster user engagement and enjoyment through a game mechanic that publicizes achievements by gardens and gardeners.  Gardeners should find it fun to accumulate badges that are associated with themselves, their garden(s), and their chapter.
-* Foster a community of practice by helping gardeners connect with others with similar interests and/or greater expertise with respect to a specific gardening topic. For example, if a user is interested in vermiculture, the badge system provides a mechanism for them to find other gardeners who already have experience in this area. 
-* Provide a useful, compact representation of garden, gardener, and chapter characteristics. The app provides "summary" cards for gardens, gardeners, and chapters. Users should find the presence (and/or absence) of badges helpful in forming a high level understanding of these entities.
-* Provide a mechanism that identifies ways to improve gardening practices. The badge system makes visible the practices that are important to the GGC mission of food resiliency and sustainable gardening, such as seed saving, composting, and water conservation. This means that a simple heuristic for "getting better at gardening" is to simply "get more badges".
+* *Support user engagement and enjoyment through a game mechanic that publicizes achievements by gardens and gardeners.*  Gardeners should find it fun to accumulate badges that are associated with themselves, their garden(s), and their chapter.
+* *Support a community of practice by helping gardeners connect with others with similar interests and/or greater expertise with respect to a specific gardening topic.* For example, if a user is interested in vermiculture, the badge system provides a mechanism for them to find other gardeners who already have experience in this are
+* *Provide a useful, compact representation of garden, gardener, and chapter characteristics.* The app provides "summary" cards for gardens, gardeners, and chapters. Users should find the presence (and/or absence) of badges helpful in forming a high level understanding of these entities.
+* *Provide guidance on GGC best practices.* The badge system makes visible the practices that are important to the GGC mission of food resiliency and sustainable gardening, such as seed saving, composting, and water conservation. This means that a simple heuristic for "getting better at gardening" is to simply "get more badges".
 
-In addition to these original goals, the redesign is intended to improve the Badge feature in the following ways:
+## User experience
 
-* Support Chapter badges. The original badge implementation does not support Chapter badges. This is because, unlike Garden and Gardener badges, determining Chapter badges can require WithAllData (which is not typically the With method preceding most submit() methods). Badges V2 will implement an Admin command (using WithAllData) to award/retract Chapter badges that can be run regularly (for example, at the start of each month).  Chapter badges will be achieved infrequently and a small delay in awarding them shouldn't impact on their benefits.  
-* Support progress tracking. Badges typically involve satisfying several criteria. Badges V2 will enable gardeners to see, for each Badge, what criteria have been satisfied and what criteria remain to be satisfied.
-* Support a recommendation system. For example, when a gardener is reviewing or using a Crop or Variety, Badges V2 can display the gardeners who have achieved Badges related to that Crop or Variety.
-* Improve Badge visibility. Badges V2 can use the Insight system to make Badges more visible to gardeners.  This can take the form of: (a) Badge Activities, so gardeners know when other gardeners have achieved badges, and (b) a Badge Insight widget, which tells the Gardener which Badges they already have and which Badges they are close to achieving.
-* Simplify the Badge UI by removing "attestations". The original Badge system included an "attestation" system for badge achievement. Badges V2 removes attestations and replaces their functionality with tagged Observations. 
+Each time a gardener submits a change to the system (a new, modified, or deleted garden, observation, planting, etc), the badge processor runs to see if this change will result in a new badge (or a higher level of an already achieved badge). If so, the system will throw "confetti" to announce the badge achievement to the user, and create an Activity so that others in the Chapter will be aware of the achievement in their Insights panel. The summary cards for the gardener and/or garden will also be updated to indicate the achievement of a new (or upgraded) badge.
 
-We propose the following architectural changes for Badges V2:
+If the gardener submits a change that results in the criteria for a badge (or its current level) no longer being satisfied, then the badge is silently removed (or downgraded to a lower level). No confetti is thrown and no Activity is created in this situation.
 
-1. DbUpdateSnapshot. This is a class that can be instantiated in the submit() method and is passed the entities to be set or deleted by the MutateController. The DbUpdateSnapshot enables access to new instances of the `chapters`, `gardens`, and `users` objects that reflects the state of the database as if MutateController had already completed the commit. This "lookahead" ability simplifies Badge processing by providing uniform access to the state of the database both before and after the commit.
-2. Badges as classes.  In the current system, Badges are represented by a Badge document. All of the "behavior" of Badges is implemented in the badge processing mechanism. In Badges V2, each Badge will be associated with a class, not a document. There will also be a BadgeCriteria class which supports the definition and implementation of criteria checking. These new classes simplify the implementation of features like "What criteria for this Badge have been satisfied by this user/garden/chapter?" 
-3. BadgeInstanceIDs. In the current system, badge instance IDs look like this: "badgeinstance-US-001-001-0962". This means that given a badge and the garden/gardener/chapter to which it will be awarded, we must search all badge instances to see if one already exists. To simplify this kind of processing, we can instead create a bidirectional mapping by encoding the badge ID and the user/chapter/gardenID into the badge instance ID. For example, for the badge instance associated with badge-001 and the garden garden-US-12546-101-0019, the badgeinstance ID will be: "badgeinstance-badge-001-garden-US-12546-101-0019". This mapping guarantees that there can be only one badge instance for a badge and recipient, and it simplifies setting or deleting a badge instance based on its ID. Note that for Badges like "Crop Whisperer" which have "sub-badges", the "data" field (i.e. "crop-US-101-201-0497") is also embedded into the BadgeInstance ID to retain the one-to-one mapping.
-4. BadgeTag collection. Badges V2 adds a new collection to simplify management of the relationship between Badges and Tags. (See [below](#badge-to-tag-mapping)).
+It is problematic to assess the achievement of Chapter badges through individual gardener actions because Chapter badge assessment requires "WithAllData". So, there is an Admin command for assessing and updating Chapter badges for all Chapters.  The recommended strategy is to manually run this command (say) once a month. Chapter badge achievement creates an Activity so that members of the Chapter are aware of it. No confetti is thrown (unless the Admin really wants to see some.)
 
-In the initial implementation of Badges V2, we will name the new representation of badges as "Badges2", and create a new Firebase collection called badgeinstances2.  This will enable Badges V2 to co-exist with the current Badge implementation.  Eventually, we can perform a cut-over and ultimately remove the current implementation.
 
 ## Design principles
 
 ### Types
 
-There are three badge types: garden, gardener, and chapter.  Garden badges reflect the characteristics of a garden across one or more years.  Gardener badges reflect characteristics of a gardener across all the gardens with which they are associated. Chapter badges reflect the characteristics of all *current* gardens and gardeners in the Chapter. In other words, Chapter badges can be retracted if (for example) gardeners leave the chapter. 
+There are three badge types: garden, gardener, and chapter.  
+
+Garden badges reflect the characteristics of a garden across one or more years.  
+
+Gardener badges reflect characteristics of a gardener across all the gardens for which they are an owner or editor. Note that most Gardener badges require the posting of one or more Observations, and only Observations posted by the Gardener are considered for satisfying badge criteria. This means that each editor might need to make Observations similar to those of other editors/owner in order to achieve a badge. This seems appropriate.
+
+:::info Planting-based gardener badge caveat
+In the case of badges based on Plantings, then the Planting activities of one Gardener can lead to satisfaction of Badge criteria for other editors of the garden. (This is impossible to avoid, since we do not record the gardenerID who created and/or modified a Planting.)  
+
+What this means in practice is that if a Gardener achieves a badge through a Planting activity, then the Badge will be awarded and "confetti" thrown for that Gardener immediately. However, other editors of that Garden will not be awarded that badge (or get confetti) until they submit a change to the system that results in running the badge processor for them. This means that a user might be informed of achieving a badge after making an unrelated submission to the system. Time will tell if this is a usability problem.
+:::
+
+Chapter badges reflect the characteristics of all gardens and gardeners in the Chapter. 
 
 ### Levels
 
@@ -48,37 +52,36 @@ Levels will be visually represented by 1-3 stars along the left side of the badg
 
 ### Verification
 
-Each badge defines a set of "criteria" that must be satisfied in order for the badge to be achieved.  Each time Observations or Plantings are mutated, the badge processing mechanism rechecks all the criteria associated with all the garden and gardener badges to determine if: (a) new badges should be awarded; (b) existing badge(s) should be upgraded or downgraded with respect to their level; or (c)  existing badge(s) should be deleted.
+Each Badge is associated with a BadgeCriteria instance which defines what must be satisfied in order for the badge to be achieved, and at what Level of achievement.  
 
-Verification of badges are done in two ways: "via observation" or "via planting". Depending upon the badge and/or level, one or both of these verification approaches might be required.
+Verification of badges are mostly done in two ways: "via observation" or "via planting". Depending upon the badge and/or level, one or both of these verification approaches might be required.
 
-"Via Observation" means that a Gardener has created one or more Observations with one or more tags that are required by a Badge's criteria. 
-
-:::warning Tags evolve over time
-It is possible for tags to be renamed, and/or be added or deleted over time. Badges V2 must provide a way to ensure that "Via Observation" verification can evolve as the set of Tags evolves.
-:::
+"Via Observation" means that a Gardener has created one or more Observations with one or more tags that are required by a Badge's criteria.
 
 "Via Planting" means that a Gardener has created one or more Plantings that satisfies the criteria for a badge.
 
-:::warning Badge processing is client-side only
-Badge processing occurs on the client-side. Garden and Gardener badges are awarded/retracted during the creation, update, and deletion of garden, gardener, observation, and planting documents.  Chapter badges are awarded/retracted through the invocation of an Admin command.
+A few of the Chapter badges are verified based on the achievement of badges by member gardener or gardens. So these badges could be said to be verified "via badge".
 
-The criteria for Garden and Gardener badges are designed so that they can be assessed via either WithCoreData or WithGardenData. See the Implementation Notes section associated with each badge for an indication of which "With" widget must be used.
-:::
+### DbUpdateSnapshot 
 
-To support verification, Badges V2 provides a class called "BadgeCriteria". Instances of this class encapsulate the textual definition of a criteria, along with methods to test whether the criteria have been satisfied and to provide a textual explanation for what remains to be done to satisfy the criteria.  
+This is a class that can be instantiated in the submit() method and is passed the entities to be set or deleted by the MutateController. DbUpdateSnapshot enables access to new instances of the `chapters`, `gardens`, and `users` objects that reflects the state of the database as if MutateController had already completed the commit. This "lookahead" ability simplifies Badge processing by providing uniform access to the state of the database both before and after the commit.
 
-### Badge to Tag mapping
+### Badge and Tags
 
-Many Badge Criteria involve checking to see if an Observation contains one or more of a set of tags.  Tags can evolve over time: new tags can be created, and existing ones could be deleted.  To simplify the management of the relationship between badges and tags, BadgesV2 uses a collection called BadgeTag. Each document in the BadgeTag collection contains just two fields: a BadgeID and a TagID.  This provides a simple mapping from badges to all of the Tags that can be used to satisfy its criteria, and from a Tag to all of the Badges that utilize it. 
+Many Badge Criteria involve checking to see if an Observation contains one or more of a set of tags.  Tags can evolve over time: new tags can be created, and existing ones could be deleted.
 
-One implication is that when an admin updates the set of Tags, they must make sure that the BadgeTag mapping is updated appropriately:
-* The Tag deletion command must delete all of the documents containing that TagID from the BadgeTag collection.
-* When a new Tag is created, the admin must manually check to see if any Badges should add this TagID as satisfying its criteria.
+Currently, Badges are implemented with a specification of the "parent tags" that are used in assessing the badge. These are (hopefully) tags that change only rarely (such as "#PesticideFree"). The subtags associated with that parent tag can change without any impact. 
 
-:::warning
-Note that this representation does not support criteria-specific badges. So far, we have not yet defined any Badges that require criteria specific badges. So, YAGNI.
-:::
+Badge processing will be affected if any "parent tag" is altered or deleted.  If a parent tag is changed in an incompatible way, then fixing badge processing requires a redeployment of the app.
+
+To help address this situation, the Badge Integrity checker ensures that parent tags exist and will flag missing parent tags. In addition, the manage tags admin command will note when a tag is being used as a parent tag in any Badge, to avoid inadvertant changes.
+
+
+Longer term, a better solution will be to manage the relationship between Badges and Tags through a collection. For example, a BadgeTag collection where each document contains two fields: a BadgeID and a TagID.  This provides a simple mapping from badges to all of the Tags that can be used to satisfy its criteria, and from a Tag to all of the Badges that utilize it. 
+
+### Migration
+
+In the initial implementation of Badges V2, we will name the new representation of badges as "Badges2", and create a new Firebase collection called badgeinstances2.  This will enable Badges V2 to co-exist with the current Badge implementation.  Eventually, we can perform a cut-over and ultimately remove the current implementation.
 
 ## Garden badges
 
@@ -86,23 +89,20 @@ Note that this representation does not support criteria-specific badges. So far,
 
 #### General Criteria
 
-Pesticides are not currently used in this garden.
+Pesticides are being avoided in this garden.
 
-#### (Example) observation tags
+#### Parent tags
 
 `#PesticideFree`
 
+#### Level Criteria
+
 | Level | Criteria                                                                      |
 |-------|-----------------------------------------------------------------------------------|
-| 1     | a. There are appropriately tagged Observation(s) for this garden in exactly one calendar year.    |
-| 2     | a. There are appropriately tagged Observation(s) for this garden in exactly two calendar years.   |
-| 3     | a. There are appropriately tagged Observation(s) for this garden in three or more calendar years. |
+| 1     | There are appropriately tagged Observation(s) for this garden in exactly one calendar year.    |
+| 2     | There are appropriately tagged Observation(s) for this garden in exactly two calendar years.   |
+| 3     | There are appropriately tagged Observation(s) for this garden in three or more calendar years. |
 
-#### Implementation notes
-
-Triggered as part of Observation mutation. 
-
-Requires WithGardenData. 
 
 ### Pollinator Friendly
 
@@ -110,22 +110,17 @@ Requires WithGardenData.
 
 The garden has pollinator-friendly practices such as: (1) Using a wide variety of plants that bloom from early spring into late fall, (2) Avoiding modern hybrid flowers, especially those with "doubled" flowers, (3) Eliminating pesticides whenever possible, (4) Including larval host plants in your landscape, (5) Creating a damp salt lick for butterflies and bees, (6) Leaving dead trees, or at least an occasional dead limb, in order to provide essential nesting sites for native bees, and (7) Adding to nectar resources by providing a hummingbird feeder.
 
-#### (Example) observation tags
+#### Parent tags
 
 `#DitchChemicals`, `#Habitat`, `#Hummingbirds`, `#LarvalHostPlants`, `#NativeBees`, `#NativePlants`, `#PesticideFree`, `#SaltLick`.
 
+#### Level Criteria
+
 | Level | Criteria                                                                                                                 |
 |-------|------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in exactly one calendar year.    |
-| 2     | a. There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in exactly two calendar years.   |
-| 3     | a. There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in three or more calendar years. |
-
-#### Implementation notes
-
-Triggered as part of Observation mutation.
-
-Requires WithGardenData.
-
+| 1     | There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in exactly one calendar year.    |
+| 2     | There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in exactly two calendar years.   |
+| 3     | There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in three or more calendar years. |
 
 ### Sustainable Soil
 
@@ -133,21 +128,17 @@ Requires WithGardenData.
 
 Garden soil has been improved by using sheet mulch, compost, and/or cover crops.
 
-#### (Example) observation tags
+#### Parent tags
 
 `#Compost`, `#CoverCrops`, `#SheetMulch`, `#Mulch`, `#CropRotation`
 
+#### Level Criteria
+
 | Level | Criteria                                                                                                                 |
 |-------|------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in exactly one calendar year.    |
-| 2     | a. There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in exactly two calendar years.   |
-| 3     | a. There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in three or more calendar years. |
-
-#### Implementation notes
-
-Triggered as part of Observation mutation.
-
-Requires WithGardenData.
+| 1     | There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in exactly one calendar year.    |
+| 2     | There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in exactly two calendar years.   |
+| 3     | There are appropriately tagged Observation(s) for this garden indicating at least three of the practices in three or more calendar years. |
 
 ### Water Smart
 
@@ -155,21 +146,17 @@ Requires WithGardenData.
 
 The garden involves water conservation practices, including: (1) collecting and using rainwater; (2) drip irrigation or soaker hoses, or (3) timers to water during cooler parts of day to minimize water use.
 
-#### (Example) observation tags
+#### Parent tags
 
 `#DripIrrigation`, `#Rainwater`, `#WaterTimer`.
 
+#### Level Criteria
+
 | Level | Criteria                                                                                                                   |
 |-------|----------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in exactly one calendar year.    |
-| 2     | a. There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in exactly two calendar years.   |
-| 3     | a. There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in three or more calendar years. |
-
-#### Implementation notes
-
-Triggered as part of Observation mutation.
-
-Requires WithGardenData.
+| 1     | There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in exactly one calendar year.    |
+| 2     | There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in exactly two calendar years.   |
+| 3     | There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in three or more calendar years. |
 
 ### Grocery Bill Buster
 
@@ -177,23 +164,20 @@ Requires WithGardenData.
 
 The garden has produced food with a significant retail value. 
 
-#### (Example) observation tags
+#### Level Criteria
 
-N/A
 
 | Level | Criteria                                                                                                        |
 |-------|-----------------------------------------------------------------------------------------------------------------|
-| 1     | a. The total retail value for this garden across all years is between (US$100, CA$100) and (US$499, CA$499).    |
-| 2     | a. The total retail value for this garden across all years is between (US$500, CA$500) and (US$999, CA$999).    |
-| 3     | a. The total retail value for this garden across all years is at least (US$1000, CA$1000). |
-
-#### Implementation notes
-
-Triggered as part of Planting mutation.
-
-Requires WithGardenData.
+| 1     | The total retail value for this garden across all years is between (US$100, CA$100) and (US$499, CA$499).    |
+| 2     | The total retail value for this garden across all years is between (US$500, CA$500) and (US$999, CA$999).    |
+| 3     | The total retail value for this garden across all years is at least (US$1000, CA$1000). |
 
 ### Climate Victory
+
+:::warning
+Not sure if we will implement this badge in this way. We aren't sure whether we should be requiring gardeners to provide information to the Green America database. 
+:::
 
 #### General Criteria
 
@@ -203,15 +187,17 @@ To indicate that the Garden is in the Green America database, the gardener must 
 
 <img style={{borderStyle: "solid"}} width="500px" src="/img/develop/badges/climate-victory-garden-screenshot.png"/>
 
-#### (Example) observation tags
+#### Parent tags
 
 `#GreenAmericaDatabase`, `#Biodiversity`, `#Compost`, `#CoverCrops`,`#DitchChemicals`, `#PesticideFree`, `#PollinatorFriendly`, `#SheetMulch`.
 
-| Level | Criteria                                                                                                                                                                                                                                     |
-|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There is an Observation associated with this garden with the `#GreenAmericaDatabase` tag.  <br /> b. There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in exactly one calendar year. |
-| 2     | a. There is an Observation associated with this garden with the `#GreenAmericaDatabase` tag. <br /> b. There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in exactly two calendar years.                 |
-| 3     | a. There is an Observation associated with this garden with the `#GreenAmericaDatabase` tag.  <br /> b. There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in three or more calendar years.              |
+#### Level Criteria
+
+| Level | Criteria                                                                                                                                                                                                                                   |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | (1) There is an Observation associated with this garden with the `#GreenAmericaDatabase` tag.   (2) There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in exactly one calendar year.   |
+| 2     | (1) There is an Observation associated with this garden with the `#GreenAmericaDatabase` tag.  (2) There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in exactly two calendar years.   |
+| 3     | (1) There is an Observation associated with this garden with the `#GreenAmericaDatabase` tag.  (2) There are appropriately tagged Observation(s) for this garden indicating at least one of the practices in three or more calendar years. |
 
 
 
@@ -221,69 +207,47 @@ To indicate that the Garden is in the Green America database, the gardener must 
 
 #### General Criteria
 
-The gardener is demonstrating active gardening by creating plantings in their garden.
+The gardener is demonstrating that they are actively gardening by creating Plantings.
 
-#### (Example) observation tags:
 
-N/A
+#### Level Criteria
 
-| Level | Criteria                                                      |
-|-------|---------------------------------------------------------------|
-| 1     | a. The gardener has added one planting to their garden.       |
-| 2     | a. The gardener has added twenty-five plantings to their garden. |
-| 3     | a. The gardener has added fifty plantings to their garden.    |
 
-#### Implementation notes
+| Level | Criteria                                                             |
+|-------|----------------------------------------------------------------------|
+| 1     | The gardener has 1-24 Plantings across all their gardens.     |
+| 2     | The gardener has 25-49 Plantings across all their gardens.    |
+| 3     | The gardener has 50 or more Plantings across all their gardens. |
 
-Please add implementation notes!
-
-Please add requirements (ie Requires WithCoreData.)
 
 ### Plant Pioneer
 
 #### General Criteria
 
-The gardener has helped grow a local community of practice by adding new  varieties to the database.
+The gardener has fostered a local community of practice by adding new varieties to the database.
 
-#### (Example) observation tags:
+#### Level Criteria
 
-N/A
+| Level | Criteria                                                                 |
+|-------|--------------------------------------------------------------------------|
+| 1     | The gardener has added exactly 1 Crop and/or Variety to the database.    |
+| 2     | The gardener has added exactly 2 Crops and/or Varieties to the database. |
+| 3     | The gardener has added 3 or more Crops or Varieties to the database      |
 
-| Level | Criteria                                                                      |
-|-------|-------------------------------------------------------------------------------|
-| 1     | a. The gardener has added one Crop or Variety to the database.                |
-| 2     | a. The gardener has added two Crops or Varieties to the database.             |
-| 3     | a. a. The gardener has added three or more Crops or Varieties to the database |
-
-#### Implementation notes
-
-Triggered as part of Crop or Variety mutation.
-
-Requires WithCoreData.
 
 ### Plant-fluencer
 
 #### General Criteria
 
-The gardener has defined plantings that have been copied by other users. 
+The gardener has defined plantings that have been copied by other users.
 
-#### (Example) observation tags:
+#### Level Criteria
 
-N/A
-
-| Level | Criteria                                                                    |
-|-------|-----------------------------------------------------------------------------|
-| 1     | a. The gardener has had one Planting copied by another user.                |
-| 2     | a. The gardener has had two Plantings copied by other user(s).              |
-| 3     | a. a. The gardener has had three or more Plantings copied by other user(s). |
-
-#### Implementation notes
-
-Triggered as part of Crop or Variety mutation.
-
-Requires WithCoreData.
-
-
+| Level | Criteria                                                                   |
+|-------|----------------------------------------------------------------------------|
+| 1     | The gardener is associated with exactly 1 Planting copied by another user. |
+| 2     | The gardener is associated with exactly 2 Plantings copied by other user(s).         |
+| 3     | The gardener is associated with 3 or more Plantings copied by other user(s).         |
 
 ### Community Cultivator
 
@@ -291,22 +255,13 @@ Requires WithCoreData.
 
 The gardener has helped grow a local community of practice by participating in Forums
 
-#### (Example) observation tags: 
-
-N/A
+#### Level Criteria
 
 | Level | Criteria                                                                     |
 |-------|------------------------------------------------------------------------------|
-| 1     | a. The gardener has made a Forum posting in exactly one calendar year.       |
-| 2     | a. The gardener has made a Forum posting in exactly two calendar years.      |
-| 3     | a. a. The gardener has made a Forum posting in three or more calendar years. |
-
-#### Implementation notes
-
-Triggered as part of Garden and Gardener mutation.
-
-Requires WithCoreData.
-
+| 1     | The gardener has made a Forum posting in exactly one calendar year.       |
+| 2     | The gardener has made a Forum posting in exactly two calendar years.      |
+| 3     | The gardener has made a Forum posting in three or more calendar years. |
 
 ### Compost Champion
 
@@ -314,25 +269,18 @@ Requires WithCoreData.
 
 The gardener has experience composting in a gardens.
 
-#### (Example) observation tags
+#### Parent tags
 
 `#Compost`, `#CompostTea`, `#Hugelkulture`, `#Vermiculture`, `#Worms`. 
 
-| Level | Criteria                                                                                                                               |
-|-------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. The gardener (owner or editor) has posted Observations indicating at least one of the practices for a single calendar year in a garden. |
-| 2     | a. The gardener (owner or editor) has posted Observations indicating at least one of the practices for two calendar years in a single garden.                |
-| 3     | a. The gardener (owner or editor) has posted Observations indicating at least one of the practices for three or more calendar years in a single garden.      |
+#### Level Criteria
 
-#### Implementation notes
+| Level | Criteria                                                                                                                   |
+|-------|----------------------------------------------------------------------------------------------------------------------------|
+| 1     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly one calendar year.    |
+| 2     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly two calendar years.   |
+| 3     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in three or more calendar years. |
 
-Triggered as part of Observation mutation.
-
-Requires WithGardenData.
-
-Note that the gardener cannot get to levels 2 or 3 by "switching" among different gardens. The postings must be from the same garden. This means WithGardenData is enough to evaluate the criteria.
-
-Also, the gardener must make the Observations themselves. They can't "passively" obtain the badge because someone else in the Garden made Observations with the appropriate tags.
 
 ### Crop Whisperer
 
@@ -344,44 +292,29 @@ The gardener has demonstrated expertise in growing a specific crop in a single g
 Unlike other badges, this badge is crop-specific, and so a gardener can earn multiple Crop Whisperer badges ("Bean Whisperer", "Cucumber Whisperer")
 :::
 
-#### (Example) observation tags 
 
-N/A
+#### Level Criteria
 
-| Level | Criteria                                                                                                                                                                |
-|-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There are Plantings for exactly three different varieties of the same crop. <br /> b.  At least two outcomes were awarded at least three stars in at least one Planting. |
-| 2     | a. There are Plantings for exactly four different varieties of the same crop. <br /> b.  At least two outcomes were awarded at least three stars in at least one Planting.  |
-| 3     | a. There are Plantings for at least five different varieties of the same crop. <br /> b.  At least two outcomes were awarded at least three stars in at least one Planting.     |
-
-#### Implementation notes
-
-Triggered as part of Planting mutation.
-
-Requires WithGardenData.
+| Level | Criteria                                                                                                                                                                     |
+|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | (1) There are Plantings for exactly three different varieties of the same crop. (2)   At least two outcomes were awarded at least three stars in at least one Planting.      |
+| 2     | (1) There are Plantings for exactly four different varieties of the same crop. (2)  At least two outcomes were awarded at least three stars in at least one Planting.  |
+| 3     | (1) There are Plantings for at least five different varieties of the same crop. (2)   At least two outcomes were awarded at least three stars in at least one Planting. |
 
 
 ### Greenhouse Grower
 
 #### General Criteria
 
-The gardener has experience growing plants successfully in a greenhouse.
+The gardener is associated with garden(s) for which plants have been grown successfully in a greenhouse.
 
-#### (Example) observation tags 
-
-N/A.
+#### Level Criteria
 
 | Level | Criteria                                                                                                                                                                |
 |-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There is a single Planting in a single Garden that was started in a greenhouse that survived to harvest and was awarded at least three stars for at least one outcomes.  |
-| 2     | a. There are two Plantings in a single Garden that were started in a greenhouse that survived to harvest and were awarded at least three stars for at least one outcomes.   |
-| 3     | a. There are three Plantings in a single Garden that were started in a greenhouse that survived to harvest and were awarded at least three stars for at least one outcomes. |
-
-#### Implementation notes
-
-Triggered as part of Planting mutation.
-
-Requires WithGardenData.
+| 1     | There is a single Planting in a single Garden that was started in a greenhouse that survived to harvest and was awarded at least three stars for at least one outcomes.  |
+| 2     | There are two Plantings in a single Garden that were started in a greenhouse that survived to harvest and were awarded at least three stars for at least one outcomes.   |
+| 3     | There are three Plantings in a single Garden that were started in a greenhouse that survived to harvest and were awarded at least three stars for at least one outcomes. |
 
 ### Permaculture Pro
 
@@ -389,21 +322,18 @@ Requires WithGardenData.
 
 The gardener is associated with garden(s) that have Observations indicating permaculture-related practices
 
-#### (Example) observation tags
+#### Parent tags
 
 `#Permaculture`
 
-| Level | Criteria                                                                                             |
-|-------|------------------------------------------------------------------------------------------------------|
-| 1     | a. There are Observations indicating permaculture practices for only a single calendar year.         |
-| 2     | a. There are Observations indicating permaculture practices for exactly two calendar years.   |
-| 3     | a. There are Observations indicating permaculture practices for three or more calendar years. |
+#### Level Criteria
 
-#### Implementation notes
+| Level | Criteria                                                                                                                                                           |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly one calendar year. |
+| 2     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly two calendar years.                              |
+| 3     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in three or more calendar years.                            |
 
-Triggered as part of Garden and Observation mutations.
-
-Requires WithGardenData.
 
 ### Vermiculturalist
 
@@ -411,21 +341,17 @@ Requires WithGardenData.
 
 The gardener has experience with vermiculture (the controlled growing of worms) and vermicomposting (the use of worms to produce compost).
 
-#### (Example) observation tags: 
+#### Parent tags: 
 
 `#CompostTea`, `#Vermiculture`, `#Worms`.  
 
-| Level | Criteria                                                                                                         |
-|-------|----------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There are Observations indicating at least one of the practices for a single calendar year in a single Garden. |
-| 2     | a. There are Observations indicating at least one of the practices for  two calendar years in a single Garden.       |
-| 3     | a. There are Observations indicating at least one of the practices for three or more calendar years in a single Garden.                |
+#### Level Criteria
 
-#### Implementation notes
-
-Triggered as part of Observation mutations.
-
-Requires WithGardenData.
+| Level | Criteria                                                                                                                                                           |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly one calendar year. |
+| 2     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly two calendar years.                              |
+| 3     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in three or more calendar years.                            |
 
 
 ### Seed Saver
@@ -434,21 +360,17 @@ Requires WithGardenData.
 
 The gardener has demonstrated experience with seed saving practices, including: (1) Harvesting seeds from plants, (2) Drying seeds, (3) Storing seeds, (4) Germinating seeds, (5) Providing seeds to other members of the community.
 
-#### (Example) observation tags: 
+#### Parent tags: 
 
 `#SeedSaving`, `#SeedSharing`
 
-| Level | Criteria                                                                                                         |
-|-------|----------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There are Observations indicating at least one of the practices for a single calendar year in a single Garden. |
-| 2     | a. There are Observations indicating at least one of the practices for  two calendar years in a single Garden.       |
-| 3     | a. There are Observations indicating at least one of the practices for three or more calendar years in a single Garden.                |
+#### Level Criteria
 
-#### Implementation notes
-
-Triggered as part of Observation mutations.
-
-Requires WithGardenData.
+| Level | Criteria                                                                                                                                                           |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly one calendar year. |
+| 2     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly two calendar years.                              |
+| 3     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in three or more calendar years.                            |
 
 ### Master Gardener
 
@@ -456,15 +378,17 @@ Requires WithGardenData.
 
 The gardener is volunteering as a Master Gardener.
 
-#### (Example) observation tags
+#### Parent tags
 
 `#MasterGardenerAtWork`
 
-| Level | Criteria                                                                                        |
-|-------|-------------------------------------------------------------------------------------------------|
-| 1     | a. There are Observations indicating Master Gardener practices for only a single calendar year. |
-| 2     | a. There are Observations indicating Master Gardener practices for exactly two calendar years.     |
-| 3     | a. There are Observations indicating Master Gardener practices for three or more calendar years.   |
+#### Level Criteria
+
+| Level | Criteria                                                                                                                                                           |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly one calendar year. |
+| 2     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly two calendar years.                              |
+| 3     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in three or more calendar years.                            |
 
 ### Bee Buddy
 
@@ -472,15 +396,17 @@ The gardener is volunteering as a Master Gardener.
 
 The gardener has experience caring for bees.
 
-#### (Example) observation tags
+#### Parent tags
 
 `#Beekeeping`, `#Beekeeper`
 
-| Level | Criteria                                                                                                         |
-|-------|----------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There are Observations indicating at least one of the practices for a single calendar year in a single Garden. |
-| 2     | a. There are Observations indicating at least one of the practices for  two calendar years in a single Garden.       |
-| 3     | a. There are Observations indicating at least one of the practices for three or more calendar years in a single Garden.                |
+#### Level Criteria
+
+| Level | Criteria                                                                                                                                                           |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly one calendar year. |
+| 2     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly two calendar years.                              |
+| 3     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in three or more calendar years.                            |
 
 ### Aquaponics Ace
 
@@ -488,15 +414,17 @@ The gardener has experience caring for bees.
 
 The gardener has demonstrated experience with aquaponics.
 
-#### (Example) observation tags
+#### Parent tags
 
 `#Aquaponics`, `#FishAndPlants`,
 
-| Level | Criteria                                                                                                         |
-|-------|----------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There are Observations indicating at least one of the practices for a single calendar year in a single Garden. |
-| 2     | a. There are Observations indicating at least one of the practices for  two calendar years in a single Garden.       |
-| 3     | a. There are Observations indicating at least one of the practices for three or more calendar years in a single Garden.                |
+#### Level Criteria
+
+| Level | Criteria                                                                                                                                                           |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly one calendar year. |
+| 2     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly two calendar years.                              |
+| 3     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in three or more calendar years.                            |
 
 ### Herbalist Hero
 
@@ -504,15 +432,17 @@ The gardener has demonstrated experience with aquaponics.
 
 The gardener has grown medicinal herbs and created remedies from them.
 
-#### (Example) observation tags:
+#### Parent tags:
 
 `#Herbalist`, `#HerbalRemedy`, `#PlantMedicine`
 
-| Level | Criteria                                                                                                         |
-|-------|----------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There are Observations indicating at least one of the practices for a single calendar year in a single Garden. |
-| 2     | a. There are Observations indicating at least one of the practices for  two calendar years in a single Garden.       |
-| 3     | a. There are Observations indicating at least one of the practices for three or more calendar years in a single Garden.                |
+#### Level Criteria
+
+| Level | Criteria                                                                                                                                                           |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly one calendar year. |
+| 2     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly two calendar years.                              |
+| 3     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in three or more calendar years.                            |
 
 ### Educator Extraordinaire
 
@@ -520,15 +450,17 @@ The gardener has grown medicinal herbs and created remedies from them.
 
 The gardener has provided educational experiences such as leading workshops, writing articles, or working as a garden educator in schools.
 
-#### (Example) observation tags:
+#### Parent tags:
 
 `#InspireAndTeach`, `#SkillSharing`, `#CommunityWorkshop`
 
-| Level | Criteria                                                                                                         |
-|-------|----------------------------------------------------------------------------------------------------------------------|
-| 1     | a. There are Observations indicating at least one of the practices for a single calendar year in a single Garden. |
-| 2     | a. There are Observations indicating at least one of the practices for  two calendar years in a single Garden.       |
-| 3     | a. There are Observations indicating at least one of the practices for three or more calendar years in a single Garden.                |
+#### Level Criteria
+
+| Level | Criteria                                                                                                                                                           |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly one calendar year. |
+| 2     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in exactly two calendar years.                              |
+| 3     | There are appropriately tagged Observation(s) across all the gardens associated with this gardener indicating at least one of the practices in three or more calendar years.                            |
 
 ### Orchard Orchestrator
 
@@ -546,11 +478,17 @@ The gardener has demonstrated experience with orchard management.
 
 The chapter has demonstrated a commitment to building a community of practice.
 
-| Level | Criteria                                                                              |
-|-------|---------------------------------------------------------------------------------------|
-| 1     | a. At least 25 gardeners in the chapter have achieved the Community Connector badge.  |
-| 2     | a. At least 50 gardeners in the chapter have achieved the Community Connector badge.. |
-| 3     | a. At least 100 gardeners in the chapter have achieved the Community Connector badge..                                            |
+#### "Community" badges
+
+`Plant Pioneer`, `Plant-fluencer`, `Community Cultivator`, `Master Gardener`, `Educator Extraordinaire`
+
+#### Level Criteria
+
+| Level | Criteria                                                                          |
+|-------|-----------------------------------------------------------------------------------|
+| 1     | 10-24 gardeners in the chapter have achieved one or more "community" badges.      |
+| 2     | 25-49 gardeners in the chapter have achieved one or more "community" badges.      |
+| 3     | 50 or more gardeners in the chapter have achieved one or more "community" badges. |
 
 
 ### Climate Victors
@@ -559,11 +497,13 @@ The chapter has demonstrated a commitment to building a community of practice.
 
 The chapter has demonstrated a commitment to creating Climate Victory Gardens.
 
-| Level | Criteria                                                                        |
-|-------|---------------------------------------------------------------------------------|
-| 1     | a. At least 50% of the chapter gardens have achieved the Climate Victory badge. |
-| 2     | a. At least 75% of the chapter gardens have achieved the Climate Victory badge. |
-| 3     | a. At least 90% of the chapter gardens have achieved the Climate Victory badge. |
+#### Level Criteria
+
+| Level | Criteria                                                                     |
+|-------|------------------------------------------------------------------------------|
+| 1     | 10-24 of the chapter gardens have achieved the `Climate Victory` badge.      |
+| 2     | 25-49 of the chapter gardens have achieved the `Climate Victory` badge.      |
+| 3     | 50 or more of the chapter gardens have achieved the `Climate Victory` badge. |
 
 
 ### Pesticide Resistors
@@ -572,11 +512,13 @@ The chapter has demonstrated a commitment to creating Climate Victory Gardens.
 
 The chapter has demonstrated a commitment to avoiding the use of pesticides in their gardens.
 
-| Level | Criteria                                                                       |
-|-------|--------------------------------------------------------------------------------|
-| 1     | a. At least 50% of the chapter gardens have achieved the Pesticide Free badge. |
-| 2     | a. At least 75% of the chapter gardens have achieved the Pesticide Free badge. |
-| 3     | a. At least 90% of the chapter gardens have achieved the Pesticide Free badge. |
+#### Level Criteria
+
+| Level | Criteria                                                                    |
+|-------|-----------------------------------------------------------------------------|
+| 1     | 10-24 of the chapter gardens have achieved the `Pesticide Free` badge.      |
+| 2     | 25-49 of the chapter gardens have achieved the `Pesticide Free` badge.      |
+| 3     | 50 or more of the chapter gardens have achieved the `Pesticide Free` badge. |
 
 
 ### Seed Savers
@@ -585,11 +527,13 @@ The chapter has demonstrated a commitment to avoiding the use of pesticides in t
 
 The chapter has demonstrated a commitment to seed saving and sharing.
 
+#### Level Criteria
+
 | Level | Criteria                                                                     |
 |-------|------------------------------------------------------------------------------|
-| 1     | a. At least 50% of the chapter gardeners have achieved the Seed Saver badge. |
-| 2     | a. At least 75% of the chapter gardeners have achieved the Seed Saver badge. |
-| 3     | a. At least 90% of the chapter gardeners have achieved the Seed Saver badge. |
+| 1     | 10-24  of the chapter gardeners have achieved the `Seed Saver` badge. |
+| 2     | 25-49 of the chapter gardeners have achieved the `Seed Saver` badge. |
+| 3     | 50 or more of the chapter gardeners have achieved the `Seed Saver` badge. |
 
 
 
