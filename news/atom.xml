@@ -2,11 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://geogardenclub.com/news</id>
     <title>Geo Garden Club Blog</title>
-    <updated>2026-07-01T00:00:00.000Z</updated>
+    <updated>2026-08-08T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://geogardenclub.com/news"/>
     <subtitle>Geo Garden Club Blog</subtitle>
     <icon>https://geogardenclub.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[GGC News: August 2026]]></title>
+        <id>https://geogardenclub.com/news/2026/08/08/newsletter</id>
+        <link href="https://geogardenclub.com/news/2026/08/08/newsletter"/>
+        <updated>2026-08-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this newsletter:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2026/08/08/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
+<ul>
+<li class="">Learn from every planting: Outcomes and Quantity Tracking</li>
+<li class="">Harvest time! Observations from around the Club</li>
+<li class="">ICYMI: Stacking up garden apps</li>
+</ul>
+<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=0a5f9ff6ca" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content>
+        <author>
+            <name>Jenna Deane</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Newsletter" term="Newsletter"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GGC News: July 2026]]></title>
         <id>https://geogardenclub.com/news/2026/07/01/newsletter</id>
@@ -382,23 +401,5 @@
             <email>info@geogardenclub.com</email>
         </author>
         <category label="Releases" term="Releases"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC News: September 2025]]></title>
-        <id>https://geogardenclub.com/news/2025/09/14/newsletter</id>
-        <link href="https://geogardenclub.com/news/2025/09/14/newsletter"/>
-        <updated>2025-09-14T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[In this newsletter:]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/09/14/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
-<ul>
-<li class="">Web interface to GGC</li>
-<li class="">Featured Gardener: Katie!</li>
-</ul>
-<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=af75bc7c26" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content>
-        <author>
-            <name>Jenna Deane</name>
-            <email>info@geogardenclub.com</email>
-        </author>
-        <category label="Newsletter" term="Newsletter"/>
     </entry>
 </feed>
