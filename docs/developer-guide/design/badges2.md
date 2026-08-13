@@ -9,8 +9,8 @@ hide_table_of_contents: false
 
 The GGC Badge system is designed to achieve the following:
 
-* *Support user engagement and enjoyment through a game mechanic that publicizes achievements by gardens and gardeners.*  Gardeners should find it fun to accumulate badges that are associated with themselves, their garden(s), and their chapter.
-* *Support a community of practice by helping gardeners connect with others with similar interests and/or greater expertise with respect to a specific gardening topic.* For example, if a user is interested in vermiculture, the badge system provides a mechanism for them to find other gardeners who already have experience in this are
+* *Support user engagement and enjoyment through a game mechanic that publicizes achievements by gardens, gardeners, and chapters.*  Gardeners should find it fun and useful to achieve badges that are associated with themselves, their garden(s), and their chapter.
+* *Support a community of practice by helping gardeners connect with others with similar interests and/or expertise.* For example, if a user is interested in vermiculture, the badge system provides a mechanism for them to find other gardeners who have experience in this area.
 * *Provide a useful, compact representation of garden, gardener, and chapter characteristics.* The app provides "summary" cards for gardens, gardeners, and chapters. Users should find the presence (and/or absence) of badges helpful in forming a high level understanding of these entities.
 * *Provide guidance on GGC best practices.* The badge system makes visible the practices that are important to the GGC mission of food resiliency and sustainable gardening, such as seed saving, composting, and water conservation. This means that a simple heuristic for "getting better at gardening" is to simply "get more badges".
 
