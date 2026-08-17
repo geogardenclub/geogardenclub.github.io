@@ -20,7 +20,7 @@ Each time a gardener submits a change to the system (a new, modified, or deleted
 
 If the gardener submits a change that results in the criteria for a badge (or its current level) no longer being satisfied, then the badge is silently removed (or downgraded to a lower level). No confetti is thrown and no Activity is created in this situation.
 
-It is problematic to assess the achievement of Chapter badges through individual gardener actions because Chapter badge assessment requires "WithAllData". So, there is an Admin command for assessing and updating Chapter badges for all Chapters.  The recommended strategy is to manually run this command (say) once a month. Chapter badge achievement creates an Activity so that members of the Chapter are aware of it. No confetti is thrown (unless the Admin really wants to see some.)
+It is problematic to assess the achievement of Chapter badges through individual gardener actions because Chapter badge assessment requires "WithAllData". So, there is an Admin command for assessing and updating Chapter badges for all Chapters.  The recommended strategy is for an Admin to manually invoke this command (say) once a month. Chapter badge achievement creates an Activity so that members of the Chapter are aware of it. No confetti is thrown (unless the Admin really wants to see some.)
 
 
 ## Design principles
@@ -535,6 +535,182 @@ The chapter has demonstrated a commitment to seed saving and sharing.
 | 2     | 25-49 of the chapter gardeners have achieved the `Seed Saver` badge. |
 | 3     | 50 or more of the chapter gardeners have achieved the `Seed Saver` badge. |
 
+## Implementation 
 
+To understand the implementation of Badges, let's consider a simple Badge: Pesticide Free. This is a Garden Badge, and the criteria for achievement are as follows:
 
+| Level | Criteria                                                                      |
+|-------|-----------------------------------------------------------------------------------|
+| 1     | There are appropriately tagged Observation(s) for this garden in exactly one calendar year.    |
+| 2     | There are appropriately tagged Observation(s) for this garden in exactly two calendar years.   |
+| 3     | There are appropriately tagged Observation(s) for this garden in three or more calendar years. |
 
+"Appropriately tagged" means that the Observation has the tag "#PesticideFree".
+
+### Badge Processing
+
+To implement this Badge (and any other whose criteria are based on Observations), we must perform Badge processing whenever an Observation is created, deleted, or modified. So, here's an elided and slightly modified version of the onSubmit() method for the Create Observation screen:
+
+```dart
+void onSubmit() {
+  // Elided code for activity, chapter, event, garden, observation entities
+  
+  // Create a "snapshot" of the chapters, users, and gardens objects 
+  // as they would look after the database is updated.
+  final DbUpdateSnapshot snapshot = DbUpdateSnapshot(
+    chapters: widget.chapters,
+    gardens: widget.gardens,
+    users: widget.users,
+    activitiesToSet: activitiesToSet,
+    chaptersToSet: [
+      Chapter.setLastUpdate(widget.chapters.currentChapter()),
+    ],
+    chapterPictureImages: [widget.chapters.currentChapter().pictureURL],
+    eventsToSet: [event],
+    gardensToSet: [Garden.setLastUpdate(gardenToSet)],
+    gardenPictureImages: [gardenToSet.pictureURL],
+    gardenPlotPlanImages: [gardenToSet.plotPlanURL], 
+    observationsToSet: [observation],
+    observationImages: SingleImagePicker.value(formKey))
+    ..init();
+
+   // Use the snapshot to determine badge instance creation, update, deletion
+   final Badge2Processor processor = Badge2Processor(snapshot);
+
+   // Now modify the database, passing the badge instances
+   ref
+       .read(mutateControllerProvider.notifier)
+       .mutate(
+         activitiesToSet: [...activitiesToSet, ...processor.activitiesToSet],
+         activitiesToDelete: processor.activitiesToDelete,
+         badgeInstances2ToSet: processor.badgeInstances2ToSet,
+         badgeInstances2ToDelete: processor.badgeInstances2ToDelete,
+         chaptersToSet: [
+           Chapter.setLastUpdate(widget.chapters.currentChapter()),
+         ],
+         chapterPictureImages: [widget.chapters.currentChapter().pictureURL],
+         context: context,
+         eventsToSet: [event],
+         gardensToSet: [Garden.setLastUpdate(gardenToSet)],
+         gardenPictureImages: [gardenToSet.pictureURL],
+         gardenPlotPlanImages: [gardenToSet.plotPlanURL],
+         observationsToSet: [observation],
+         observationImages: SingleImagePicker.value(formKey),
+         onSuccess: () {
+           FieldKey.clear();
+           final GgcConfetti confetti = GgcConfetti(context, willPop: true);
+           context.pop();
+           GlobalSnackBar.show('Observation created.');
+           confetti.maybeThrowConfetti(processor);
+           },
+    );
+}
+```
+
+For the Pesticide Free badge, and in fact for every badge, the same strategy is used in the onSubmit method:
+
+1. Process the form and figure out the entities to be created, updated, or deleted.
+2. Pass all of those entities into a call to DbUpdateSnapshot. This returns an object that includes a representation of the ChapterCollection, UserCollection, and GardenCollection instances as they would look after the database is updated.
+3. Now pass the snapshot to the Badge Processor. The Badge Processor invokes the computeBadgeInstances() method of each Badge, passing it the "updated" versions of the ChapterCollection, UserCollection, and GardenCollection. It then compares these BadgeInstances to the existing ones to figure out what BadgeInstances to create, update, or delete. 
+4. Finally, the database is updated with both the entities and the BadgeInstances specified by the Badge Processor. In addition, the Badge Processor updates Activities.
+5. The onSuccess() method calls `confetti.maybeThrowConfetti(processor)`. This method uses the processor instance to determine if new (or updated) badges have been achieved, and if so, generates confetti with an informative message. 
+
+It's important to note that the DbUpdateSnapshot constructor takes (almost) the same set of arguments as the mutate() method. The primary exception is the badgeInstancesToSet and badgeInstancesToDelete arguments, because those are computed by the processor in a later step.
+
+### Badge Definition
+
+Now that you understand the basics of badge processing, let's look at the implementation of the Pesticide Free badge. Let's start with the constructor and the `computeBadgeInstances` method:
+
+```dart
+class PesticideFreeBadge extends Badge2 {
+  PesticideFreeBadge()
+    : super(
+        badgeID: 'badge-002',
+        type: BadgeType.garden,
+        name: 'Pesticide Free',
+        description: 'This garden is (or is becoming) pesticide-free.',
+        badgeCriteria: PesticideFreeBadgeCriteria(),
+      );
+
+  @override
+  List<BadgeInstance2> computeBadgeInstances(
+    ChapterCollection chapters,
+    GardenCollection gardens,
+    UserCollection users, {
+    Chapter? chapter,
+    Garden? garden,
+    Gardener? gardener,
+  }) {
+    if (garden == null) {
+      throw ArgumentError('Garden is required.');
+    }
+    final String chapterID = chapters.currentChapterID;
+    final String badgeInstanceID =
+        'badgeInstance-${chapters.currentChapterID}-$badgeID-${garden.gardenID}';
+    final BadgeLevel level = badgeCriteria.getLevel(
+      chapters,
+      gardens,
+      users,
+      garden: garden,
+    );
+    return (level == BadgeLevel.noBadge)
+        ? []
+        : [
+            BadgeInstance2(
+              badgeInstanceID: badgeInstanceID,
+              chapterID: chapterID,
+              badgeID: badgeID,
+              level: level,
+              id: garden.gardenID,
+              type: BadgeType.garden,
+              cachedName: name,
+              data: {},
+              createdAt: DateTime.now(),
+            ),
+          ];
+  }
+}
+```
+
+The constructor defines some basic information about the badge, including a BadgeCriteria instance. 
+
+The Badge Processor is responsible for invoking `computeBadgeInstances()`. This method is passed the chapters, gardens, and user instances (which may or may not be from the "snapshot") as well as (potentially) the current chapter, garden, or gardener. For Garden badges, a garden will always be supplied by the Badge Processor.  This method is pretty simple: it always returns a (potentially empty) list of Badge instances. In the case of the Pesticide Free badge, it will return either an empty list or a list containing a single Badge Instance. To determine what to do, it invokes the `BadgeCriteria.getLevel()` method. 
+
+Let's look at the Badge Criteria  `getLevel()` method for Pesticide Free:
+
+```dart
+class PesticideFreeBadgeCriteria extends BadgeCriteria {
+  @override
+  List<String> parentTagNames = ['#PesticideFree'];
+
+  @override
+  BadgeLevel getLevel(
+    ChapterCollection chapters,
+    GardenCollection gardens,
+    UserCollection users, {
+    Chapter? chapter,
+    Garden? garden,
+    User? user,
+    BadgeData? data,
+  }) {
+    if (garden == null) {
+      throw ArgumentError('Garden is required.');
+    }
+    final List<Tag> parentTags = parentTagNames
+        .map((tagName) => chapters.tags.getTagWithName(tagName))
+        .toList();
+    final Map<int, List<Observation>> observationMap = buildObservationMap(
+      chapters,
+      gardens,
+      garden,
+      parentTags,
+    );
+    return BadgeLevel.fromYears(observationMap.keys.length);
+  };
+```
+
+This method uses a built-in method called `buildObservationMap` to create a data structure containing all the Observations associated with the Garden that are tagged with a matching tag. 
+
+In the case of Pesticide Free (as is the case with many badges) the badge level is based on the number of years for which there is a matching Observation. So, we can use the `BadgeLevel.fromYears()` method to compute the Badge Level to return.
+
+There is a lot more to the Badge system, but hopefully this introduction gives you enough context to dig into the code. 
