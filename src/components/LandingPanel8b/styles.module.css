@@ -1,0 +1,25 @@
+
+
+/* CSS Styling */
+.image-container {
+  position: relative;     /* Pins the coordinate system to this box */
+  display: inline-block;  /* Shrinks the container to wrap tight around the image */
+}
+
+.base-img {
+  display: block;         /* Eliminates unwanted bottom spacing */
+  max-width: 300px;        /* Keeps the layout responsive */
+  height: auto;
+}
+
+.overlay-svg {
+  position: absolute;
+  bottom: -10px;
+  right: -20px;
+  z-index: 10;
+
+  /* CRITICAL: SVGs need an explicit width or height defined */
+  width: 100px;
+  height: 100px;
+}
+

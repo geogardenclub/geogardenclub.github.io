@@ -286,7 +286,7 @@ The gardener has experience composting in a gardens.
 
 #### General Criteria 
 
-The gardener has demonstrated expertise in growing a specific crop in a single garden. 
+The gardener has demonstrated expertise in growing multiple varieties of a crop across all their gardens.
 
 :::info Multiple Badge Alert!
 Unlike other badges, this badge is crop-specific, and so a gardener can earn multiple Crop Whisperer badges ("Bean Whisperer", "Cucumber Whisperer")

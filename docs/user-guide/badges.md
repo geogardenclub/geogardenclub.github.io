@@ -5,18 +5,18 @@ hide_table_of_contents: false
 
 # Badges
 
-:::tip Having fun while getting better
+:::tip Have fun, get better
 :::
 
 ## Why Badges?
 
-Badges are intended to be a fun way to mark progress in your gardening practices and skills.  They also provide a way to summarize and share your gardening experiences with other users.  Finally, Chapter Badges provide a way to your Chapter's progress toward community food resilience.
+Badges are designed to be a fun way to identify progress in your gardening practices and skills.  They also provide a way to summarize and share your gardening experiences with other users.  Finally, Chapter Badges provide a way to your Chapter's progress toward community food resilience.
 
-There are three types of Badges: Garden, Gardener, and Chapter. Example Garden badges include Pesticide Free, Pollinator Friendly, and Water Smart. Example Gardener badges include Green Thumb, Grocery Bill Buster, and Compost Champion. Example Chapter badges include Connected Community and Seed Saver. (Complete descriptions of all badges are found in the app.) 
+There are three types of Badges: Garden, Gardener, and Chapter. Examples of Garden badges are Pesticide Free, Pollinator Friendly, and Water Smart. Examples of Gardener badges are Green Thumb, Grocery Bill Buster, and Compost Champion. Examples of Chapter badges are Connected Community and Seed Saver. 
 
 Each badge has three levels, corresponding to increased experience with the topic of the badge.
 
-For example, the Compost Champion badge identifies gardeners who are using compost rather than (or in addition to) chemical fertilizer. Using compost as much as possible is an important practice: it improves soil structure, invites worms, creates beneficial bacteria, and reduces waste. The Compost Champion badge advertises this practice as positive and important, and helps gardeners interested in composting to find other local gardeners who have experience with it.
+For example, the Compost Champion badge identifies gardeners who are using compost rather than (or perhaps in addition to) chemical fertilizer. Using compost as much as possible is an important practice: it improves soil structure, invites worms, creates beneficial bacteria, and reduces waste. The Compost Champion badge advertises this practice as positive and important, and helps gardeners interested in composting to find other local gardeners who have experience with it.
 
 Like many badges, a gardener earns the Compost Champion badge by making one or more Observations with a badge-related tag. A Level 1 Compost Champion badge indicates that the Gardener made one or more compost-related Observations in a single calendar year. For Level 2, the gardener made compost-related Observations in two calendar years. Level 3 indicates compost-related Observations in three or more calendar years. 
 

@@ -4,7 +4,7 @@ import ReactPlayer from "react-player/youtube";
 
 export default function LandingPanel10() {
     return (
-        <div className="hero hero--primary">
+        <div className="hero" style={{backgroundColor: "#e3ddc2"}}>
                 <div className="col">
                     <div className="container">
                         <h1 className="hero__title text--center">Watch GeoGardenClub in action</h1>

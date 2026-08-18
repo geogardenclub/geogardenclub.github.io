@@ -11,6 +11,7 @@ import LandingPanel6 from '@site/src/components/LandingPanel6';
 import LandingPanel7 from '@site/src/components/LandingPanel7';
 import LandingPanel8 from '@site/src/components/LandingPanel8';
 import LandingPanel8a from '@site/src/components/LandingPanel8a';
+import LandingPanel8b from '@site/src/components/LandingPanel8b';
 import LandingPanel9 from '@site/src/components/LandingPanel9';
 import LandingPanel10 from '@site/src/components/LandingPanel10';
 import LandingPanel11 from '@site/src/components/LandingPanel11';
@@ -30,6 +31,7 @@ export default function Landing() {
             <LandingPanel7 />
             <LandingPanel8 />
             <LandingPanel8a />
+            <LandingPanel8b />
             <LandingPanel10 />
             <LandingPanel11 />
         </Layout>
