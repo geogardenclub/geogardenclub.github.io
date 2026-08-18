@@ -468,6 +468,15 @@ The gardener has provided educational experiences such as leading workshops, wri
 
 The gardener has demonstrated experience with orchard management.
 
+### Food Saving Specialist
+
+#### General Criteria
+
+The gardener has demonstrated experience with food preservation, including canning, pickling, drying, and freezing.
+
+#### Parent tags: (these will need to be added)
+
+`#Preservation`, `#Pickling`, `#Canning`, `#Drying`, `#Freezing`, `#FoodStorage`
 
 ## Chapter badges
 
