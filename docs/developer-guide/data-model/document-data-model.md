@@ -793,6 +793,7 @@ const factory Tag({
   required String description, // 'Use of practices to increase biodiversity.'
   String? chapterID, // 'chapter-US-001'
   String? parentTagID, // 'tag-001'
+  bool? expired, 
 })
 ```
 
@@ -803,6 +804,7 @@ const factory Tag({
 | description | required | `String`  | A string indicating when the use of this tag is appropriate.                                                                                                                  |
 | chapterID   | optional | `String?` | Awaiting chapter-local tags.                                                                                                                                                  |    
 | parentTagID | optional | `String?` | The parent tag ID.                                                                                                                                                            |    
+| expired     | optional | `bool?`   | Whether the tag is expired.                                                                                                                                                  |    
 
 
 
