@@ -7,7 +7,7 @@ hide_table_of_contents: true
 This page presents our thinking regarding the most important ways to allocate time and money across the four GGC customer lifecycle phases in 2027.
 
 :::info
-Customer growth is a primary focus for 2027 activities.  All proposed tasks should directly or indirectly support this goal.  Additional activities that don't support customer retention are included at the bottom of the page for future consideration.
+Customer growth is a primary focus for 2027 activities.  All proposed tasks should directly or indirectly support this goal.  Additional activities that don't support customer growth are included at the bottom of the page for future consideration.
 :::
 
 ## Customer Acquisition Phase
@@ -20,11 +20,20 @@ In 2027, we need to improve our ability to find new customers in our target demo
 
 *Continue intern program.* In 2026, we worked with two interns to support online marketing of GeoGardenClub.  In 2027, we will continue recruiting interns to support social media marketing efforts.
 
-*Improve offline marketing.* In 2026, appearances at events such as seed swaps seemed to create interest from attendees in GGC. In 2027, we will continue to table at seed swaps because of the high percentage of attendees that are our target audience.  In addition, we will perform outreach to garden stores and nurserys to offer garden planning workshops.
+*Improve offline marketing.* In 2026, appearances at events such as seed swaps seemed to create interest from attendees in GGC. In 2027, we will continue to table at seed swaps because of the high percentage of attendees that are our target audience.  In addition, we will perform outreach to garden stores and garden stores and nurseries to offer garden planning workshops.
+
+*Develop partnerships with community organizations.* These organizations might include Master Gardener associations, school garden programs, and/or food non-profits. Note that developing a viable partnership with an organization might require enhancing the GGC app with new features.
 
 ### Q2
 
 *Improve referral program.* A correctly designed and implemented referral program could accelerate the growth of a chapter and thus support the creation of a useful gardening community.  It also provides "social proof" in the form of the referring customer. While we didn't see success in our 2026 iteration, we will revise this program and try again.
+
+*Improve GGC's social proof.* Increasing GGC's social proof could increase the "conversion rate": the percentage of people who, having learned about GGC through an online ad or other channel, go ahead and download the app and try it out. Priority activities to increase GGC's social proof include:
+* Increasing number of reviews in the App and Play Stores: Include this ask in reach out to senior customers.
+* Articles about GGC in gardening publications: Continue publishing articles to Medium account.  Aim for 4-6 articles.
+* Grants and/or awards: Partner with an organization to submit a funding request.
+* Endorsements from community organizations (following a successful partnership).
+* Endorsements from gardening influencers on Instagram and/or TikTok: Continue working with influencer.
 
 ## Customer Evaluation Phase
 
@@ -32,60 +41,42 @@ In 2027, we need to improve the percentage of customers who, having downloaded t
 
 ### Q1
 
+*Implement "high-touch" support during evaluation.* In addition to the Getting Started emails, we will continue sending personalized emails to customers during the evaluation phase to ensure that they are not encountering roadblocks, and using secondary measures to make these emails more effective. For example, we might send an email saying something like: "We notice you haven't created a garden yet. Can we help you learn how to do that? Is there a reason you've delayed?"  
 
 ### Q2
 
-*Implement "high-touch" support during evaluation.* In addition to the Getting Started emails, we could consider sending personalized emails to customers during the evaluation phase to ensure that they are not encountering roadblocks, and using secondary measures to make these emails more effective. For example, we might send an email saying something like: "We notice you haven't created a garden yet. Can we help you learn how to do that? Is there a reason you've delayed?"
+*Continue "high-touch" support during evaluation.* Understanding customer pain points is a high priority for 2027.
 
-*Add app feature badges.* Current badges all revolve around gardening-related accomplishments. We can introduce another set of badges that are awarded based on evidence that the user has used app features. For example, a badge that is awarded when the user has created their first planting. This can both provide a sense of accomplishment and enable the system to guide the user to use the system (by indicating the remaining set of App Feature badges to earn)
-
-*Add confetti.*  Providing some sort of animation when the user accomplishes some sort of task for the first time can provide a "dopamine hit" that makes the app more fun to use.
-
-*Add challenges.* Gardening challenges can encourage app use and community connections. For example, a challenge to get all gardeners paying attention to and posting observations about a single crop. Or contests like biggest pumpkin for Halloween, most beautiful squash for Thanksgiving, etc. (Note: A challenge could be implemented as a specific type of forum post.)
+*Host in person and in app challenges.* Gardening challenges can encourage app use and community connections. For example, an in app challenge to get all gardeners paying attention to and posting observations about a single crop or contests like biggest pumpkin for Halloween.  An in person challenge could be hosting a garden tour or plant swap. (Note: A challenge could be implemented as a specific type of forum post.)
 
 ## Customer Retention Phase
 
 In general, paying customers have enough experience with the app to derive value from it.  To retain them, we need ways to be made aware when the app is not meeting their needs and respond appropriately.  For example, we could implement:
 
 ### Q1
+*Add personalized reach-out.* Reach out to customers entering their second or third year and request a feedback session via a phone call or meeting.  Attach this request to an offer of a gift card to a local garden store.
 
 ### Q2
-
-*Add in-app review mechanisms.* For example, a mechanism to periodically ask users for feedback about specific features at the time they are using them.
-
-*Add personalized reach-out.* For example, an email that indicates that they are one of our most senior customers and a request for feedback.
+*Continue personalized reach-out.* Obtaining customer feedback is a high priority for 2027.
 
 ## Customer Churn Phase
 
-Due to lack of experience with customer churn, we are not proposing any activities regarding this phase of the customer lifecycle for 2026.
+### Q2
+
+*Add personalized reach-out.* Reach out to customers who have cancelled their subscription and request feedback. Consider multiple options for feedback - a short form, phone call, or meeting.  Consider attaching this request to a gift card to a local garden store.
 
 ## Other activities
 
-The following are proposed activities that do not directly or indirectly support customer retention, and thus are de-prioritized for 2026.  We include them because they still appear to have potential for improving the business.
+The following are proposed activities that do not directly or indirectly support customer growth, and thus are de-prioritized for 2027.  We include them because they still appear to have potential for improving the business.
 
 ### Customer Acquisition
 
-*Develop partnerships with community organizations.* These organizations might include Master Gardener associations, school garden programs, and/or food non-profits. Note that developing a viable partnership with an organization might require enhancing the GGC app with new features.
-
-*Improve GGC's social proof.* Social proof is a psychological phenomenon where people look to the actions and behaviors of others to guide their own decisions, especially in situations of uncertainty. Increasing GGC's social proof could increase the "conversion rate": the percentage of people who, having learned about GGC through an online ad or other channel, go ahead and download the app and try it out. Some ways to increase GGC's social proof include:
-* Reviews in the App and Play Stores.
-* Articles about GGC in gardening publications.
-* Grants and/or awards.
-* Endorsements from community organizations (following a successful partnership).
-* Endorsements from gardening influencers on Instagram and/or TikTok
-
-*Improve offline marketing.* In 2025, appearances at events such as seed swaps seemed to create interest from attendees in GGC. Future offline marketing activities include:
+*Improve offline marketing.* In 2026, appearances at events such as seed swaps seemed to create interest from attendees in GGC. Future offline marketing activities include:
 * Tables at farmers markets
 * Tables at Home and Garden Expos
-
-### Customer Evaluation
-
-*Add recurrent, user defined tasks.*  This can support watering reminders, etc.
-
-*Add selected competitor's features.* Implement one or more of the [features present in other gardening apps](../strategic-plan-2026/usability-2025#potential-features).
-
-*Implement "like" and "favorite" UI elements.*  It is possible that providing these social media features could improve engagement.
 
 ### Customer Retention Phase
 
 *Add wizard status.* Some mechanism to award active users with some sort of status that would encourage them to let us know if they see ways to improve the app. The goal of this status is to create a feeling of ownership over the app's direction with our top users.
+
+*Implement "like" and "favorite" UI elements.*  It is possible that providing these social media features could improve engagement.
