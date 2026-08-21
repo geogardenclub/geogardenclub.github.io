@@ -837,14 +837,15 @@ factory Task({
   required String gardenID, 
   required String taskType, 
   required String title, 
-  required String? cropID, 
-  required String? varietyID, 
-  required String bedID, 
-  required String plantingID, 
   required DateTime dueDate, 
-  required String cachedBedName, 
-  required String cachedCropName, 
-  required String cachedVarietyName,
+  String? taskType, 
+  String? bedID, 
+  String? cachedBedName, 
+  String? cropID, 
+  String? cachedCropName, 
+  String? varietyID, 
+  String? cachedVarietyName,
+  String? plantingID, 
   String? description, 
   String? gardenerID,
 })
@@ -858,15 +859,16 @@ factory Task({
 | taskType          | required | `String`   | One of:  `"sowIndoors"`, `"sowOutdoors"`, `"transplant"`, `"firstHarvest"`, `"endHarvest"`, `"pull"`, `"other"`.  This is really plantingTaskType. Other indicates a manually created task.                                                    |
 | title             | required | `String`   | For automatically generated tasks, the title is automatically generated using the task type plus the variety, for example `"Start Tomato (Big Boy)"`.                                                                                          |
 | dueDate           | required | `DateTime` | When this task is due.                                                                                                                                                                                                                         |
-| bedID             | optional | `String?`  | The bedID.                                                                                                                                                                                                                                     |
-| cachedBedName     | optional | `String?`  | The bed name.                                                                                                                                                                                                                                  |
-| cropID            | optional | `String?`  | The cropID.                                                                                                                                                                                                                                    |
-| cachedCropName    | optional | `String?`  | The crop name.                                                                                                                                                                                                                                 |
-| varietyID         | required | `String`   | The varietyID.                                                                                                                                                                                                                                 |
-| cachedVarietyName | required | `String`   | The variety name.                                                                                                                                                                                                                              |
-| plantingID        | required | `String`   | The plantingID.                                                                                                                                                                                                                                |
-| gardenerID        | required | `String`   | The gardenerID.                                                                                                                                                                                                                                |
+| taskTarget        | optional | `String?`  | The task target. One of: `"null"`, `"garden"`, `"bed"`, `"crop"`, `"variety"`, `"planting"`, `"invalid"`. We support non planting tasks.                                                                                                       |
+| bedID             | optional | `String?`  | `"null"` or the bedID if the task is a `"bed"` or `"planting"` task.                                                                                                                                                                           |
+| cachedBedName     | optional | `String?`  | `"null"` or the bed name if the task is a `"bed"` or `"planting"` task.                                                                                                                                                                        |
+| cropID            | optional | `String?`  | `"null"` or the cropID if the task is a `"crop"`, `"variety"` or `"planting"` task.                                                                                                                                                            |
+| cachedCropName    | optional | `String?`  | `"null"` or the crop name if the task is a `"crop"`, `"variety"` or `"planting"` task.                                                                                                                                                         |
+| varietyID         | optional | `String?`  | `"null"` or the varietyID if the task is a `"variety"` or `"planting"` task.                                                                                                                                                                   |
+| cachedVarietyName | optional | `String?`  | `"null"` or the variety name if the task is a `"variety"` or `"planting"` task.                                                                                                                                                                |
+| plantingID        | optional | `String?`  | `"null"` or the plantingID if the task is a `"planting"` task.                                                                                                                                                                                 |
 | description       | optional | `String?`  | For manually created tasks, the description.                                                                                                                                                                                                   |
+| gardenerID        | optional | `String?`  | The gardenerID.                                                                                                                                                                                                                                |
 ## Price
 
 The Price entity is used to implement the [Retail Value](../design/retail-value.md) feature.
