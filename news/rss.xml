@@ -4,10 +4,27 @@
         <title>Geo Garden Club Blog</title>
         <link>https://geogardenclub.com/news</link>
         <description>Geo Garden Club Blog</description>
-        <lastBuildDate>Sat, 08 Aug 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 24 Aug 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[GGC App: 3.8.1 Release]]></title>
+            <link>https://geogardenclub.com/news/2026/08/24/release</link>
+            <guid>https://geogardenclub.com/news/2026/08/24/release</guid>
+            <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[In this release:]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/08/24/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
+<ul>
+<li class="">Added Planting Details button to Planting Observations</li>
+<li class="">Crop and Variety index screens have Current Chapter and All tabs</li>
+<li class="">Double tap on images now supports zooming</li>
+<li class="">And the usual assortment of bug fixes!</li>
+</ul>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+            <author>info@geogardenclub.com (Philip Johnson)</author>
+            <category>Releases</category>
+        </item>
         <item>
             <title><![CDATA[GGC News: August 2026]]></title>
             <link>https://geogardenclub.com/news/2026/08/08/newsletter</link>
@@ -322,26 +339,6 @@
 <p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=d993f592a0" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Jenna Deane)</author>
             <category>Newsletter</category>
-        </item>
-        <item>
-            <title><![CDATA[GGC App: 2.27.0 Release]]></title>
-            <link>https://geogardenclub.com/news/2025/10/22/release</link>
-            <guid>https://geogardenclub.com/news/2025/10/22/release</guid>
-            <pubDate>Wed, 22 Oct 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[In this release:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/10/22/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
-<p>Added:</p>
-<ul>
-<li class="">Improved <a href="https://geogardenclub.com/docs/user-guide/retail-value" target="_blank" rel="noopener noreferrer" class="">Retail Value</a> feature.</li>
-</ul>
-<p>Fixed:</p>
-<ul>
-<li class="">Improved Last Update timestamps</li>
-<li class="">Reduced odds of verification email going to spam.</li>
-</ul>
-<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
-            <author>info@geogardenclub.com (Philip Johnson)</author>
-            <category>Releases</category>
         </item>
     </channel>
 </rss>

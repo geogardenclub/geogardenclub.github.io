@@ -2,11 +2,31 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://geogardenclub.com/news</id>
     <title>Geo Garden Club Blog</title>
-    <updated>2026-08-08T00:00:00.000Z</updated>
+    <updated>2026-08-24T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://geogardenclub.com/news"/>
     <subtitle>Geo Garden Club Blog</subtitle>
     <icon>https://geogardenclub.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[GGC App: 3.8.1 Release]]></title>
+        <id>https://geogardenclub.com/news/2026/08/24/release</id>
+        <link href="https://geogardenclub.com/news/2026/08/24/release"/>
+        <updated>2026-08-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this release:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/08/24/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
+<ul>
+<li class="">Added Planting Details button to Planting Observations</li>
+<li class="">Crop and Variety index screens have Current Chapter and All tabs</li>
+<li class="">Double tap on images now supports zooming</li>
+<li class="">And the usual assortment of bug fixes!</li>
+</ul>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
+        <author>
+            <name>Philip Johnson</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Releases" term="Releases"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GGC News: August 2026]]></title>
         <id>https://geogardenclub.com/news/2026/08/08/newsletter</id>
@@ -378,28 +398,5 @@
             <email>info@geogardenclub.com</email>
         </author>
         <category label="Newsletter" term="Newsletter"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC App: 2.27.0 Release]]></title>
-        <id>https://geogardenclub.com/news/2025/10/22/release</id>
-        <link href="https://geogardenclub.com/news/2025/10/22/release"/>
-        <updated>2025-10-22T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[In this release:]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/10/22/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
-<p>Added:</p>
-<ul>
-<li class="">Improved <a href="https://geogardenclub.com/docs/user-guide/retail-value" target="_blank" rel="noopener noreferrer" class="">Retail Value</a> feature.</li>
-</ul>
-<p>Fixed:</p>
-<ul>
-<li class="">Improved Last Update timestamps</li>
-<li class="">Reduced odds of verification email going to spam.</li>
-</ul>
-<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
-        <author>
-            <name>Philip Johnson</name>
-            <email>info@geogardenclub.com</email>
-        </author>
-        <category label="Releases" term="Releases"/>
     </entry>
 </feed>
