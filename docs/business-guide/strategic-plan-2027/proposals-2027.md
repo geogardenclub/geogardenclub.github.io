@@ -24,6 +24,8 @@ In 2027, we need to improve our ability to find new customers in our target demo
 
 *Develop partnerships with community organizations.* These organizations might include Master Gardener associations, school garden programs, and/or food non-profits. Note that developing a viable partnership with an organization might require enhancing the GGC app with new features.
 
+*Implement Chapter Chairs.*  Promote Chapter Chair program to increase local leadership and recruitment efforts. 
+
 ### Q2
 
 *Improve referral program.* A correctly designed and implemented referral program could accelerate the growth of a chapter and thus support the creation of a useful gardening community.  It also provides "social proof" in the form of the referring customer. While we didn't see success in our 2026 iteration, we will revise this program and try again.
@@ -41,7 +43,7 @@ In 2027, we need to improve the percentage of customers who, having downloaded t
 
 ### Q1
 
-*Implement "high-touch" support during evaluation.* In addition to the Getting Started emails, we will continue sending personalized emails to customers during the evaluation phase to ensure that they are not encountering roadblocks, and using secondary measures to make these emails more effective. For example, we might send an email saying something like: "We notice you haven't created a garden yet. Can we help you learn how to do that? Is there a reason you've delayed?"  
+*Implement "high-touch" support during evaluation.* In addition to the Getting Started emails, we will continue sending personalized emails to customers during the evaluation phase to ensure that they are not encountering roadblocks, and using secondary measures to make these emails more effective. For example, we might send an email saying something like: "We notice you haven't created a garden yet. Can we help you learn how to do that? Is there a reason you've delayed?"  We will send 5 emails a month to a random set of users who downloaded the month prior.  
 
 ### Q2
 
