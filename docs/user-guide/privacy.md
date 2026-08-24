@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated March 17, 2026**
+**Last updated August 24, 2026**
 
 This privacy notice for Geo Garden Club, LLC ("we," "us," or "our"), describes how and why we might collect, store, use, and/or share ("process") your information when you use our services ("Services"), such as when you:
 
@@ -8,10 +8,15 @@ This privacy notice for Geo Garden Club, LLC ("we," "us," or "our"), describes h
 * Download and use our mobile application (GeoGardenClub), or any other application of ours that links to this privacy notice
 * Engage with us in other related ways, including any sales, marketing, or events 
 
-Questions or concerns? Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at info@geogardenclub.com.
+:::info Goal of this policy
+
+In a nutshell, our goal is to be the best gardening app for privacy-conscious gardeners.  Our policies are designed to protect your privacy as much as possible, so, for example, we do not sell your data, assert any ownership over your content, run advertisements, perform location tracking, provide your content to AI, or provide any of your data to third parties (unless required by law).
+:::
+ 
+If you do not agree with our policies and practices, please do not use our Services. If you have any questions or concerns, please contact us at info@geogardenclub.com. We are continuously looking for ways to make our privacy policies the best among all gardening apps. 
 
 
-## SUMMARY OF KEY POINTS
+## Summary of key points
 
 This summary provides key points from our privacy notice, but you can find out more details about any of these topics by using our table of contents to find the section you are looking for.
 
@@ -31,7 +36,7 @@ This summary provides key points from our privacy notice, but you can find out m
 
 **How do you exercise your rights?** The easiest way to exercise your rights is by visiting info@geogardenclub.com, or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.
 
-## 1. WHAT INFORMATION DO WE COLLECT?
+## 1. What information do we collect?
 
 In Short: We collect personal information that you provide to us.
 
@@ -40,9 +45,8 @@ We collect personal information that you voluntarily provide to us when you regi
 Personal Information Provided by You. The personal information that we collect depends on the context of your interactions with us and the Services, the choices you make, and the products and features you use. The personal information we collect may include the following:
 * names
 * email addresses
-* usernames
 * (encrypted) passwords
-* general geographic location (postal code)
+* general geographic location (postal code). Our services do not enable location tracking.
 
 Sensitive Information. We do not process sensitive information.
 
@@ -51,7 +55,7 @@ This information is primarily needed to maintain the security and operation of o
 All personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal information.
 
 
-## 2. HOW DO WE PROCESS YOUR INFORMATION?
+## 2. How do we process your information?
 
 In Short: We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. 
 
@@ -61,7 +65,7 @@ We process your personal information for a variety of reasons, depending on how 
 * To protect our Services. We may process your information as part of our efforts to keep our Services safe and secure, including fraud monitoring and prevention.
 * To save or protect an individual's vital interest. We may process your information when necessary to save or protect an individual’s vital interest, such as to prevent harm.
 
-## 3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR INFORMATION?
+## 3. What legal bases do we rely on to process your information?
 
 In Short: We only process your personal information when we believe it is necessary, and we have a valid legal reason (i.e., legal basis) to do so under applicable law, like with your consent, to comply with laws, to provide you with services to enter into or fulfill our contractual obligations, to protect your rights, or to fulfill our legitimate business interests.
 
@@ -87,11 +91,11 @@ In some exceptional cases, we may be legally permitted under applicable law to p
 * If it is reasonable to expect collection and use with consent would compromise the availability or the accuracy of the information and the collection is reasonable for purposes related to investigating a breach of an agreement or a contravention of the laws of Canada or a province
 * If disclosure is required to comply with a subpoena, warrant, court order, or rules of the court relating to the production of records
 
-## 4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?
+## 4. When and with whom do we share your personal information?
 
 In Short: We do not sell, rent, or lease your personal information to third parties, except when required by law (see above).
 
-## 5. HOW LONG DO WE KEEP YOUR INFORMATION?
+## 5. How long do we keep your information?
 
 In Short: We keep your information for as long as necessary to fulfill the purposes outlined in this privacy notice unless otherwise required by law.
 
@@ -99,19 +103,19 @@ We will only keep your personal information for as long as it is necessary for t
 
 When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize such information, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.
 
-# 6. HOW DO WE KEEP YOUR INFORMATION SAFE?
+## 6. How do we keep your information safe?
 
 In Short: We aim to protect your personal information through a system of organizational and technical security measures.
 
 We have implemented appropriate and reasonable technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Services is at your own risk. You should only access the Services within a secure environment.
 
-# 7. DO WE COLLECT INFORMATION FROM MINORS?
+## 7. Do we collect information from minors?
 
 In Short: We do not knowingly collect data from or market to children under 18 years of age.
 
 We do not knowingly collect, solicit data from, or market to children under 18 years of age, nor do we knowingly sell such personal information. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18, please contact us at info@geogardenclub.com.
 
-## 8. WHAT ARE YOUR PRIVACY RIGHTS?
+## 8. What are your privacy rights?
 
 In Short: Depending on your state of residence in the US or in some regions, such as the European Economic Area (EEA), United Kingdom (UK), Switzerland, and Canada, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time, depending on your country, province, or state of residence.
 
@@ -137,13 +141,13 @@ Upon your request to terminate your account, we will deactivate or delete your a
 
 If you have questions or comments about your privacy rights, you may email us at info@geogardenclub.com.
 
-## 9. CONTROLS FOR DO-NOT-TRACK FEATURES
+## 9. Controls for do-not-track features
 
 Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ("DNT") feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage, no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.
 
 California law requires us to let you know how we respond to web browser DNT signals. Because there currently is not an industry or legal standard for recognizing or honoring DNT signals, we do not respond to them at this time.
 
-## 10. DO UNITED STATES RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?
+## 10. Do United States residents have specific privacy rights?
 
 In Short: If you are a resident of California, Colorado, Connecticut, Delaware, Florida, Indiana, Iowa, Kentucky, Montana, New Hampshire, New Jersey, Oregon, Tennessee, Texas, Utah, or Virginia, you may have the right to request access to and receive details about the personal information we maintain about you and how we have processed it, correct inaccuracies, get a copy of, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. More information is provided below.
 
@@ -239,13 +243,13 @@ California "Shine The Light" Law
 
 California Civil Code Section 1798.83, also known as the "Shine The Light" law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us by using the contact details provided in the section "HOW CAN YOU CONTACT US ABOUT THIS NOTICE?"
 
-## 11. DO WE MAKE UPDATES TO THIS NOTICE?
+## 11. Do we make updates to this notice?
 
 In Short: Yes, we will update this notice as necessary to stay compliant with relevant laws.
 
 We may update this privacy notice from time to time. The updated version will be indicated by an updated "Revised" date at the top of this privacy notice. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.
 
-## 12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
+## 12. How can you contact us about this notice?
 
 If you have questions or comments about this notice, you may email us at info@geogardenclub.com or contact us by post at:
 
@@ -256,6 +260,6 @@ Bellingham, WA 98225
 United States
 ```
 
-## 13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
+## 13. How can you review, update, or delete the data we collect from you?
 
-Based on the applicable laws of your country or state of residence in the US, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. To request to review, update, or delete your personal information, please visit: info@geogardenclub.com.
+You have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, and delete your personal information. You have the right to withdraw your consent to our processing of your personal information.  To request to review, update, or delete your personal information, please visit: info@geogardenclub.com.
