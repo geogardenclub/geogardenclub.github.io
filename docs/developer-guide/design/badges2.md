@@ -213,11 +213,11 @@ The gardener is demonstrating that they are actively gardening by creating Plant
 #### Level Criteria
 
 
-| Level | Criteria                                                             |
-|-------|----------------------------------------------------------------------|
-| 1     | The gardener has 1-24 Plantings across all their gardens.     |
-| 2     | The gardener has 25-49 Plantings across all their gardens.    |
-| 3     | The gardener has 50 or more Plantings across all their gardens. |
+| Level | Criteria                                                                                                                                                                                                                                                     |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | You achieve a Level 1 Green Thumb badge when there at least 50 Plantings associated with your gardens for which you are an Owner or Editor.                                                                                                                  |
+| 2     | You achieve a Level 2 Green Thumb badge when: (1) there are at least 50 Plantings associated with your gardens in each of two calendar years, (2) there are Outcomes for at least 50 of those Plantings, and (3) you have made at least 50 Observations.     |
+| 3     | You achieve a Level 3 Green Thumb badge when: (1) there are at least 50 Plantings associated with your gardens in each of three calendar years, (2) there are Outcomes for at least 100 of those Plantings, and (3) you have made at least 100 Observations. |
 
 
 ### Plant Pioneer
