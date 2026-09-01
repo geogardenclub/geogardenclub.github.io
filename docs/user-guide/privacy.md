@@ -1,19 +1,19 @@
 # Privacy Policy
 
-**Last updated August 24, 2026**
+:::info Goal of this policy
+
+In a nutshell, our goal is to be the best gardening app for privacy-conscious gardeners.  Our policies are designed to protect your privacy as much as possible, so, for example, we do not sell your data, assert any ownership over your content, run advertisements, perform location tracking, provide your content to AI, or provide any of your data to third parties (unless required by law).
+:::
 
 This privacy notice for Geo Garden Club, LLC ("we," "us," or "our"), describes how and why we might collect, store, use, and/or share ("process") your information when you use our services ("Services"), such as when you:
 
 * Visit our website at https://geogardenclub.com, or any website of ours that links to this privacy notice
 * Download and use our mobile application (GeoGardenClub), or any other application of ours that links to this privacy notice
-* Engage with us in other related ways, including any sales, marketing, or events 
-
-:::info Goal of this policy
-
-In a nutshell, our goal is to be the best gardening app for privacy-conscious gardeners.  Our policies are designed to protect your privacy as much as possible, so, for example, we do not sell your data, assert any ownership over your content, run advertisements, perform location tracking, provide your content to AI, or provide any of your data to third parties (unless required by law).
-:::
+* Engage with us in other related ways, including any sales, marketing, or events
  
 If you do not agree with our policies and practices, please do not use our Services. If you have any questions or concerns, please contact us at info@geogardenclub.com. We are continuously looking for ways to make our privacy policies the best among all gardening apps. 
+
+**Last Update: August 26, 2026**
 
 
 ## Summary of key points
