@@ -11,9 +11,17 @@ There is a single Crop database that is shared by all GeoGardenClub chapters.
 
 ## Crop Index
 
-You can see all the currently defined Crops by going to the Drawer and selecting "Crops" to display the Crop Index screen:
+You can see all Crops by going to the Drawer and tapping "Crops" to display the Crop Index screen:
 
 <img width="300" src="/img/user-guide/crop-index-screen.png"/> 
+
+By default, the Crop Index Screen displays only the Crops that have been used in at least
+one Planting in your Chapter. 
+
+To display all of the currently defined Crops, tap "All Crops" at the bottom of the screen:
+
+<img width="300" src="/img/user-guide/crop-index-screen-all-crops.png"/> 
+
 
 Use the pulldown menu to quickly access a specific Crop rather than scrolling. The Sort By dropdown allows you to order the list by various criteria (Number of Varieties, Number of Gardens, etc).
 

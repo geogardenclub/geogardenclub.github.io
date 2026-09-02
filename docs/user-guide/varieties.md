@@ -11,9 +11,16 @@ There is a single Variety database that is shared by all GeoGardenClub chapters.
 
 ## Variety Index
 
-To see all defined Varieties, go to the Drawer and select "Varieties" to display the Variety Index screen:
+You can see all Varieties by going to the Drawer and tapping "Varieties" to display the Variety Index screen:
 
 <img width="300" src="/img/user-guide/variety-index-screen.png"/>
+
+By default, the Variety Index Screen displays only the Varieties that have been used in at least one Planting in your Chapter.
+
+To display all the currently defined Varieties, tap "All Varieties" at the bottom of the screen:
+
+<img width="300" src="/img/user-guide/variety-index-screen-all-varieties.png"/>
+
 
 Use the pulldown menu to quickly access a specific Variety rather than scrolling. The Sort By dropdown allows you to order the list by various criteria (Number of Gardens, Number of Gardeners, etc).
 

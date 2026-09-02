@@ -78,6 +78,7 @@ const sidebars = {
         'user-guide/private-messages',
         'user-guide/crops',
         'user-guide/varieties',
+        'user-guide/families',
         'user-guide/chapters',
         'user-guide/gardeners',
         'user-guide/retail-value',

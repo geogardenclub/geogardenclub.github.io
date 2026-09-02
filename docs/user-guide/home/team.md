@@ -68,7 +68,7 @@ Jessie Beck is a home gardener in Bellingham, WA. She advises the GeoGardenClub 
 
 ## Interns
 
-### Amelia Larson (Summer, 2026)
+### Amelia Larsen (Summer, 2026)
 
 <img alt="picture" className="team-img" width="150px" src="/img/team/amelia-larson.jpg"/>
 
