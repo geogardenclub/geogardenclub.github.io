@@ -239,7 +239,19 @@ The gardener has fostered a local community of practice by adding new varieties 
 
 #### General Criteria
 
-The gardener has defined plantings that have been copied by other users.
+The gardener is associated with plantings that have been copied by other users.
+
+:::warning Implementation issues
+To implement this, we want to filter out situations in which a gardener is copying plantings from within their own gardens (either owner or editor). You shouldn't get the badge for copying your own plantings.
+
+So, we could add an optional field to Planting called "copiedFromOtherGardenID", which is set only when the Planting is being copied from a "different" garden (i.e. one that the gardener is *currently* not an editor or owner of).
+
+The problem with this approach is the use of "currently"---the gardener could become an editor of that "other" garden, and/or the set of owners/editors of the other garden could change.  When that happens, and the badges are rebuilt from scratch, we would be awarding this badge to a different set of gardeners. 
+
+Instead, we will provide an optional "copiedFromGardenerIDs" field, where that is a list of gardenerIDs representing the owners and editors of the "other" garden at the time of the Copy Planting who qualify for this badge.  This would enable the badges to be rebuilt from scratch, but if the set of owners/editors of either the "to" garden or the "from" garden change, then the badge would be awarded in a situation that no longer qualifies. (Maybe that's OK).
+
+Finally, it should be noted that no confetti will be thrown when this badge is awarded, since the badge is achieved for a gardener at the moment that a *different* gardener is creating a planting (via the Copy Planting screen). 
+:::
 
 #### Level Criteria
 
