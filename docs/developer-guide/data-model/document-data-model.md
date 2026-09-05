@@ -8,7 +8,7 @@ toc_max_heading_level: 2
 
 This page explains the document data model (i.e. the set of entities and their relationships stored in Firebase) for GGC, along with a rationale for the design decisions that we've made along the way. 
 
-:::warning Last Update: March 2026
+:::warning Last Update: September 2026
 :::
 
 There is also a [Cloud Storage Data Model](./cloud-storage-data-model.md).
@@ -918,7 +918,7 @@ And here is an example of a forum_message document:
 
 ### Forum Topic entity representation
 
-These entities are used to populate the "Forums" screen, which lists all the topics.
+These entities are used to populate the "Forums" screen, which lists all the topics. GGC supports private messages between gardeners. If the `to` and `message` Strings are not `null` then the topic is a private message between the `userID` and the `to` userID.  The `message` field contains the content of the private message.  The `eventDate` field is used for topics that are associated with an event, such as a chapter meeting or a chapter challenge.
 
 ```dart
 const factory ForumTopic({
@@ -926,10 +926,13 @@ const factory ForumTopic({
   required String chapterID,
   required String type,
   required String title,
-  required String createdBy,
+  required String userID,
   required DateTime createdAt,
   required DateTime lastUpdated,
   required int numberOfViews,
+  DateTime? eventDate,
+  String? to,
+  String? message,
 })
 ```
 
@@ -937,17 +940,19 @@ const factory ForumTopic({
 |---------------|----------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | forumTopicID  | required | `String`   | (Primary key) A unique ID for this forum topic. Format: `forumtopic-<country>-<chapterNum>-<NNN>-<millis>`. For example, `"forumtopic-US-001-001-0128"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
 | chapterID     | required | `String`   | The associated chapter.     For example, `"chapter-US-001"`.                                                                                                                                                                                    |
-| type          | required | `String`   | The forum type.  For example, `"Other"`.                                                                                                                                                                                                        |
+| type          | required | `String`   | The forum type.  "Announcement", "App Feedback", "ChapterChallenge", "Event", "Question", "Offering or Seeking", "Other"`.                                                                                                                                                                                                        |
 | title         | required | `String`   | The forum title.                                                                                                                                                                                                                                |
-| createdBy     | required | `String`   | The associated userID.                                                                                                                                                                                                                          |
+| userID        | required | `String`   | The associated userID.                                                                                                                                                                                                                          |
 | createdAt     | required | `DateTime` | When this post was created.                                                                                                                                                                                                                     | 
 | updatedAt     | required | `DateTime` | When this post was last updated.                                                                                                                                                                                                                | 
-| numberOfViews | required | `int`      | How many times anyone has clicked on this topic to display the thread.                                                                                                                                                                          | 
-
+| numberOfViews | required | `int`      | How many times anyone has clicked on this topic to display the thread.                                                                                                                                                                         | 
+| eventDate     | optional | `DateTime?`| The date of the event. |
+| to            | optional | `String?`  | The userID of the recipient of a private message.                                                                                                                                                                                               |
+| message       | optional | `String?`  | The content of the private message. |
 
 ### Forum Message entity representation
 
-These entities are used to populate the screen associated with a single forum topic. 
+These entities are used to populate the screen associated with a single forum topic or private message. 
 
 ```dart
 const factory ForumMessage({
@@ -961,6 +966,7 @@ const factory ForumMessage({
   required int numberOfLikes,
   @Default(false) bool isTopicMessage,
   String? pictureURL,
+  String? replyTo, 
 })
 ```
 
@@ -976,6 +982,7 @@ const factory ForumMessage({
 | numberOfLikes  | required | `int`      | (Not currently used. Might be vestigial.)                                                                                                                                                                                                             | 
 | isTopicMessage | required | `bool`     | Whether this message corresponds to the topic header.                                                                                                                                                                                                 | 
 | pictureURL     | optional | `String?`  | The URL to a Cloud Storage file providing a picture to be associated with this message. See [Cloud Storage Data Model](cloud-storage-data-model) for details.                                                                                         |
+| replyTo        | optional | `String?`  | The reply to userID for private messages. |
 
 ## Badge
 
