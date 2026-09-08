@@ -16,7 +16,7 @@ Here is an example Chapter Index screen:
 
 <img width="300" src="/img/user-guide/chapter-index-screen.png"/>
 
-By default, this screen shows the "My Chapter" tab, which provides a summary of information about your own chapter: the crops used, the gardens defined, the number of gardeners, and so forth.
+By default, this screen shows your current chapter's tab, which provides a summary of information about your own chapter: the crops used, the gardens defined, the number of gardeners, and so forth.
 
 Note that each section can be expanded to show more detail. For example:
 
@@ -25,9 +25,9 @@ Note that each section can be expanded to show more detail. For example:
 You can tap on a Chip to see more details about that item.
 
 
-## Other Chapters
+## All Chapters
 
-Tapping the "Other Chapters" tab enables you to see information about all other GGC Chapters:
+Tapping the "All Chapters" tab enables you to see information about all other GGC Chapters:
 
 <img width="300" src="/img/user-guide/chapter-other-chapters.png"/>
 
