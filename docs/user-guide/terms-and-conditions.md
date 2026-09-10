@@ -1,8 +1,8 @@
 # Terms and Conditions
 
-**Last updated** **March 17, 2026**
+Last updated: September 10, 2026
 
-**AGREEMENT TO OUR LEGAL TERMS**
+## Agreement to our legal terms
 
 We are Geo Garden Club LLC, doing business as Geo Garden Club ("**Company**," "**we**," "**us**," "**our**"), a company registered in Washington, United States at 3030 Alderwood Avenue, Bellingham, WA 98225.
 
@@ -34,45 +34,13 @@ The Services are intended for users who are at least 18 years old. Persons under
 We recommend that you print a copy of these Legal Terms for your records.
 
 
-
-
-
-**TABLE OF CONTENTS**
-
-
-[1\. OUR SERVICES](#1-our-services)<br/>
-[2\. INTELLECTUAL PROPERTY RIGHTS](#2-intellectual-property-rights)<br/>
-[3\. USER REPRESENTATIONS](#3-user-representations)<br/>
-[4\. USER REGISTRATION](#4-user-registration)<br/>
-[5\. SUBSCRIPTIONS](#5-subscriptions)<br/>
-[6\. PROHIBITED ACTIVITIES](#6-prohibited-activities)<br/>
-[7\. USER GENERATED CONTRIBUTIONS](#7-user-generated-contributions)<br/>
-[8\. CONTRIBUTION LICENSE](#8-contribution-license)<br/>
-[9\. MOBILE APPLICATION LICENSE](#9-mobile-application-license)<br/>
-[10\. SERVICES MANAGEMENT](#10-services-management)<br/>
-[11\. PRIVACY POLICY](#11-privacy-policy)<br/>
-[12\. DIGITAL MILLENNIUM COPYRIGHT ACT (DMCA) NOTICE AND POLICY](#12-digital-millennium-copyright-act-dmca-notice-and-policy)<br/>
-[13\. TERM AND TERMINATION](#13-term-and-termination)<br/>
-[14\. MODIFICATIONS AND INTERRUPTIONS](#14-modifications-and-interruptions)<br/>
-[15\. GOVERNING LAW](#15-governing-law)<br/>
-[16\. DISPUTE RESOLUTION](#16-dispute-resolution)<br/>
-[17\. CORRECTIONS](#17-corrections)<br/>
-[18\. DISCLAIMER](#18-disclaimer)<br/>
-[19\. LIMITATIONS OF LIABILITY](#19-limitations-of-liability)<br/>
-[20\. INDEMNIFICATION](#20-indemnification)<br/>
-[21\. USER DATA](#21-user-data)<br/>
-[22\. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES](#22-electronic-communications-transactions-and-signatures)<br/>
-[23\. CALIFORNIA USERS AND RESIDENTS](#23-california-users-and-residents)<br/>
-[24\. MISCELLANEOUS](#24-miscellaneous)<br/>
-[25\. CONTACT US](#25-contact-us)<br/>
-
-## **1. OUR SERVICES**
+## 1. Our services
 
 The information provided when using the Services is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Services from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.
 
 The Services are not tailored to comply with industry-specific regulations (Health Insurance Portability and Accountability Act (HIPAA), Federal Information Security Management Act (FISMA), etc.), so if your interactions would be subjected to such laws, you may not use the Services. You may not use the Services in a way that would violate the Gramm-Leach-Bliley Act (GLBA).
 
-## **2. INTELLECTUAL PROPERTY RIGHTS**
+## 2. Intellectual property rights
 
 **Our intellectual property**
 
@@ -125,26 +93,23 @@ Please review this section and the "[PROHIBITED ACTIVITIES](#6-prohibited-activi
 
 
 
-**Submissions:** By directly sending us any question, comment, suggestion, idea, feedback, or other information about the Services ("Submissions"), you agree to assign to us all intellectual property rights in such Submission. You agree that we shall own this Submission and be entitled to its unrestricted use and dissemination for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you.
-
+**Submissions:** By directly sending us any question, comment, suggestion, idea, feedback, or other information about the Services ("Submissions"), you agree that we are entitled to its unrestricted use and dissemination for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you.
 
 
 **Contributions:** The Services may invite you to chat, contribute to, or participate in blogs, message boards, online forums, and other functionality during which you may create, submit, post, display, transmit, publish, distribute, or broadcast content and materials to us or through the Services, including but not limited to text, writings, video, audio, photographs, music, graphics, comments, reviews, rating suggestions, personal information, or other material ("Contributions"). Any Submission that is publicly posted shall also be treated as a Contribution.
 
-
-
 You understand that Contributions may be viewable by other users of the Services.
+
+We do not assert any intellectual property rights over your contributions.
 
 
 **You are responsible for what you post or upload:** By sending us Submissions and/or posting Contributions through any part of the Services or making Contributions accessible through the Services by linking your account through the Services to any of your social networking accounts, you:
 
 *   confirm that you have read and agree with our "[PROHIBITED ACTIVITIES](#6-prohibited-activities)" and will not post, send, publish, upload, or transmit through the Services any Submission nor post any Contribution that is illegal, harassing, hateful, harmful, defamatory, obscene, bullying, abusive, discriminatory, threatening to any person or group, sexually explicit, false, inaccurate, deceitful, or misleading;
-*   to the extent permissible by applicable law, waive any and all moral rights to any such Submission and/or Contribution;
 *   warrant that any such Submission and/or Contributions are original to you or that you have the necessary rights and licenses to submit such Submissions and/or Contributions and that you have full authority to grant us the above-mentioned rights in relation to your Submissions and/or Contributions; and
 *   warrant and represent that your Submissions and/or Contributions do not constitute confidential information.
 
 You are solely responsible for your Submissions and/or Contributions and you expressly agree to reimburse us for any and all losses that we may suffer because of your breach of (a) this section, (b) any third party’s intellectual property rights, or (c) applicable law.
-
 
 
 **We may remove or edit your Content:** Although we have no obligation to monitor any Contributions, we shall have the right to remove or edit any Contributions at any time without notice if in our reasonable opinion we consider such Contributions harmful or in breach of these Legal Terms. If we remove or edit any such Contributions, we may also suspend or disable your account and report you to the authorities.
@@ -155,11 +120,11 @@ You are solely responsible for your Submissions and/or Contributions and you exp
 
 
 
-We respect the intellectual property rights of others. If you believe that any material available on or through the Services infringes upon any copyright you own or control, please immediately refer to the "[DIGITAL MILLENNIUM COPYRIGHT ACT (DMCA) NOTICE AND POLICY](#12-digital-millennium-copyright-act-dmca-notice-and-policy)" section below.
+We respect the intellectual property rights of others. If you believe that any material available on or through the Services infringes upon any copyright you own or control, please immediately refer to the "[DIGITAL MILLENNIUM COPYRIGHT ACT (DMCA) NOTICE AND POLICY](#12-digital-millenium-copyright-act-dmca-notice-and-policy)" section below.
 
 
 
-## **3. USER REPRESENTATIONS**
+## 3. User representations
 
 
 
@@ -171,7 +136,7 @@ If you provide any information that is untrue, inaccurate, not current, or incom
 
 
 
-## **4. USER REGISTRATION**
+## 4. User registration
 
 
 
@@ -179,7 +144,7 @@ You may be required to register to use the Services. You agree to keep your pass
 
 
 
-## **5. SUBSCRIPTIONS**
+## 5. Subscriptions
 
 
 
@@ -215,7 +180,7 @@ We may, from time to time, make changes to the subscription fee and will communi
 
 
 
-## **6. PROHIBITED ACTIVITIES**
+## 6. Prohibited activities
 
 
 
@@ -253,7 +218,7 @@ As a user of the Services, you agree not to:
 
 
 
-## **7. USER GENERATED CONTRIBUTIONS**
+## 7. User generated contributions
 
 
 
@@ -277,7 +242,7 @@ Any use of the Services in violation of the foregoing violates these Legal Terms
 
 
 
-## **8. CONTRIBUTION LICENSE**
+## 8. Contribution license
 
 
 We do not assert any ownership over your Contributions. You retain full ownership of all of your Contributions and any intellectual property rights or other proprietary rights associated with your Contributions. We are not liable for any statements or representations in your Contributions provided by you in any area on the Services. You are solely responsible for your Contributions to the Services and you expressly agree to exonerate us from any and all responsibility and to refrain from any legal action against us regarding your Contributions.
@@ -287,7 +252,7 @@ We have the right, in our sole and absolute discretion, (1) to edit, redact, or 
 
 
 
-## **9. MOBILE APPLICATION LICENSE**
+## 9. Mobile Application License
 
 
 
@@ -307,7 +272,7 @@ The following terms apply when you use the App obtained from either the Apple St
 
 
 
-## **10. SERVICES MANAGEMENT**
+## 10. Services management
 
 
 
@@ -315,7 +280,7 @@ We reserve the right, but not the obligation, to: (1) monitor the Services for v
 
 
 
-## **11. PRIVACY POLICY**
+## 11. Privacy policy
 
 
 
@@ -323,7 +288,7 @@ We care about data privacy and security. By using the Services, you agree to be 
 
 
 
-## **12. DIGITAL MILLENNIUM COPYRIGHT ACT (DMCA) NOTICE AND POLICY**
+## 12. Digital Millenium Copyright Act (DMCA) Notice and Policy
 
 
 
@@ -362,7 +327,7 @@ jenna@geogardenclub.com
 
 
 
-## **13. TERM AND TERMINATION**
+## 13. Term and termination
 
 
 
@@ -374,7 +339,7 @@ If we terminate or suspend your account for any reason, you are prohibited from 
 
 
 
-## **14. MODIFICATIONS AND INTERRUPTIONS**
+## 14. Modifications and interruptions
 
 
 
@@ -386,7 +351,7 @@ We cannot guarantee the Services will be available at all times. We may experien
 
 
 
-## **15. GOVERNING LAW**
+## 15. Governing law
 
 
 
@@ -394,7 +359,7 @@ These Legal Terms and your use of the Services are governed by and construed in 
 
 
 
-## **16. DISPUTE RESOLUTION**
+## 16. Dispute resolution
 
 
 
@@ -402,7 +367,7 @@ Any legal action of whatever nature brought by either you or us (collectively, t
 
 
 
-## **17. CORRECTIONS**
+## 17. Corrections
 
 
 
@@ -410,7 +375,7 @@ There may be information on the Services that contains typographical errors, ina
 
 
 
-## **18. DISCLAIMER**
+## 18. Disclaimer
 
 
 
@@ -418,7 +383,7 @@ THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOU
 
 
 
-## **19. LIMITATIONS OF LIABILITY**
+## 19. Limitations of liability
 
 
 
@@ -426,7 +391,7 @@ IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR A
 
 
 
-## **20. INDEMNIFICATION**
+## 20. Indemnification
 
 
 
@@ -434,7 +399,7 @@ You agree to defend, indemnify, and hold us harmless, including our subsidiaries
 
 
 
-## **21. USER DATA**
+## 21. User data
 
 
 
@@ -442,7 +407,7 @@ We will maintain certain data that you transmit to the Services for the purpose 
 
 
 
-## **22. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES**
+## 22. Electronic communications, transactions, and signatures
 
 
 
@@ -450,7 +415,7 @@ Visiting the Services, sending us emails, and completing online forms constitute
 
 
 
-## **23. CALIFORNIA USERS AND RESIDENTS**
+## 23. California users and residents 
 
 
 
@@ -458,7 +423,7 @@ If any complaint with us is not satisfactorily resolved, you can contact the Com
 
 
 
-## **24. MISCELLANEOUS** 
+## 24. Miscellaneous
 
   
 
@@ -466,7 +431,7 @@ These Legal Terms and any policies or operating rules posted by us on the Servic
 
 
 
-## **25. CONTACT US**
+## 25. Contact us
 
 
 
