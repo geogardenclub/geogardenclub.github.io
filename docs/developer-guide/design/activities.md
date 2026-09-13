@@ -7,6 +7,9 @@ hide_table_of_contents: false
 
 ## Goals
 
+The GGC Activity system is designed to provide the Gardener insights into what is going on in their chapter and Geo Garden Club.
+
+
 ## User experience
 
 ## Design principles
