@@ -71,7 +71,7 @@ The Activity class has several factory methods to create Activities.
 
 When a gardener creates a new planting GGC creates [Tasks](../../developer-guide/data-model/document-data-model#task) and [Activities](../../developer-guide/data-model/document-data-model#activity) for the planting's dates.
 
-The following factory methods are used to create Planting activities `Activity.makePlanting`. Many of the planting activities are in the future and are shown in the Upcoming chapter activities. When the current date is past the planting date the activity is added to the Recent activities.
+The following factory methods are used to create Planting activities `Activity.makePlanting`. Many of the planting activities are in the future and are shown in the Upcoming chapter activities. When the current date is past the planting date the activity is added to the Recent activities. 
 
 
 
