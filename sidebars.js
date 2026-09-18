@@ -338,6 +338,7 @@ const sidebars = {
         'developer-guide/design/with-widgets',
         'developer-guide/design/data-mutation',
         'developer-guide/design/entity-creation',
+        'developer-guide/design/activities',
         'developer-guide/design/badges',
         'developer-guide/design/badges2',
         'developer-guide/design/retail-value',
