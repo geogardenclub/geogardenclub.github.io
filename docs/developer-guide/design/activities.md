@@ -52,10 +52,9 @@ These activities have occurred in the past 7 or 30 days. The Insight widget will
 
 **Note** Administrators need to remove activities that are older than 30 days. To do this go to `Admin` -> `Manage Features` -> `Manage Activities`.
 
-
 #### Upcoming chapter activities (Next 7 or 30 days)
 
-These activities are scheduled to occur in the next 7 or 30 days. The Insight widget will show the soonest upcoming activities first.
+The Upcoming Chapter Activities show Planting activities are scheduled to occur in the next 7 or 30 days.
 
 ### Activity entity creation
 
