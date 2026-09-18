@@ -15,6 +15,8 @@ The idea is that whenever a potentially interesting "activity" occurs in the sys
 
 ## User experience
 
+Each time a gardener or administrator submits a change to the system (a new, modified, or deleted garden, observation, planting, task, etc), we decide whether to create/modify an Activity document. The Insight widgets will then display the new/modified activity to the gardener.
+
 ## Design principles
 
 ### Activity types
@@ -44,6 +46,6 @@ There are many different activities that we want to show the gardeners. They can
   * forum topic, 
   * other.
 
-### Activity  entity creation
+### Activity entity creation
 
 See the [Activity Entity](../data-model/document-data-model#activity) for a description of the Activity entity.
