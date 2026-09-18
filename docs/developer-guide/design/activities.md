@@ -58,10 +58,21 @@ The Upcoming Chapter Activities show Planting activities are scheduled to occur 
 
 ### Activity entity creation
 
-See the [Activity Entity](../data-model/document-data-model#activity) for a description of the Activity entity. 
+The Activity class has several factory methods to create Activities.
 
-#### Badge activities
+#### Recent activities
+* `Activity.makeBadgeAchieved2` creates an Activity for a Badge Achievement. This constructor works for `Garden` and `Gardener` badges. The `Chapter` badge is not yet implemented.
+* `Activity.makeChapterAdd` creates an Activity for a new chapter.
+* `Activity.makeForumTopicActivity` creates an Activity for a new forum topic.
+* `Activity.makeGardenAdd` creates an Activity for a new garden.
+* `Activity.makeObservationAdd` creates an Activity for a new observation.
 
-#### Added activities
+#### Planting activities
 
-#### Planting Task activities
+When a gardener creates a new planting GGC creates [Tasks](../../developer-guide/data-model/document-data-model#task) and [Activities](../../developer-guide/data-model/document-data-model#activity) for the planting's dates.
+
+The following factory methods are used to create Planting activities `Activity.makePlanting`. Many of the planting activities are in the future and are shown in the Upcoming chapter activities. When the current date is past the planting date the activity is added to the Recent activities.
+
+
+
+
