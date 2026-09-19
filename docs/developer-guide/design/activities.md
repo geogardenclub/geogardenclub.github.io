@@ -91,6 +91,57 @@ When a User deletes the following entities their associated Activity or Activiti
   * Deleting a Chapter, Garden, User, Crop, Variety, Observation, Planting Outcome or Forum Topic.
 
 
+## Creating, copying, or updating a Planting.
 
+1. Create the newPlanting or updatedPlanting.
+2. Update the Garden's cached values based upon the new or updated planting. `Garden updatedGarden = Garden.withUpdatedCaches(`.
+3. Update the Badges(v1). `BadgeProcessor badgeProcessor`, `BadgeProcessorResult badgeProcessorRestult(`.
+4. Update the Badges(v2). `Badge2Processor processor(`.
+5. Create the Tasks from the planting. `List<Task> tasksToSet = Task.tasksFromCreatePlanting` or `List<List<Task>> newTasks = Task.tasksFromUpdatePlanting(` `List<Task> tasksToDelete = newTasks[1]`.
+6. Update the Gardener's cached values. `Gardener updatedGardener = Gardener.withUpdatedCaches(`.
+7. Update the Chapter's cached values. `Chapter chapterToSet = chapter.copyWith(`.
+8. Create the Activities. `List<Activity> activitiesToSet = [
+        ...ActivityCollection.makeActivitiesFromPlanting(newPlanting),
+        ...badgeProcessorResult.instancesToCreate.map(
+          (badgeInstance) =>
+              Activity.makeBadgeAchieved(badgeInstance: badgeInstance),),
+        ...processor.actvitiesToSet,];`.
+9. Create the Event. `Event event = Event.from(`.
+10. If updating a planting update all Observations for the planting. `for (final Observation observation
+          in widget.gardens.getObservationsForPlanting(newPlanting)) {`.
+11. If updating a planting update the Outcome. `final Outcome? oldOutcome = widget.gardens.getOutcome(`. `Outcome? newOutcome`.
+12. Call
+     ```
+          ref
+          .read(mutateControllerProvider.notifier)
+          .mutate(
+            activitiesToSet: [...activitiesToSet, ...processor.activitiesToSet],
+            activitiesToDelete: processor.activitiesToDelete,
+            badgeInstancesToSet: badgeProcessorResult.instancesToCreate,
+            badgeInstancesToDelete: badgeProcessorResult.instancesToDelete,
+            badgeInstances2ToSet: processor.badgeInstances2ToSet,
+            badgeInstances2ToDelete: processor.badgeInstances2ToDelete,
+            chaptersToSet: [Chapter.setLastUpdate(chapterToSet)],
+            chapterPictureImages: [chapterToSet.pictureURL],
+            eventsToSet: [event],
+            gardensToSet: [Garden.setLastUpdate(updatedGarden)],
+            gardenPictureImages: [updatedGarden.pictureURL],
+            gardenPlotPlanImages: [updatedGarden.plotPlanURL],
+            gardenersToSet: [updatedGardener],
+            observationsToSet: observationsToSet,
+            observationImages: observationImages,
+            outcomesToDelete: [if (oldOutcome != null) oldOutcome],
+            outcomesToSet: [if (newOutcome != null) newOutcome],
+            plantingsToSet: [newPlanting],
+            tasksToSet: tasksToSet,
+            tasksToDelete: tasksToDelete,
+            onSuccess: () {
+              FieldKey.clear();
+              final GgcConfetti confetti = GgcConfetti(context, willPop: true);
+              if (context.canPop()) context.pop();
+              GlobalSnackBar.show('Planting <created, copied, or updated>.');
+              confetti.maybeThrowConfetti(processor);
+            },
+     ```
 
 
