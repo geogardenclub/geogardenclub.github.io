@@ -79,7 +79,14 @@ There are two different Badge implementations:
 These are both used in `createCopyUpdatePlantingOnSubmit` (see below).
 
 #### New * activities
-
+ * Chapter. This is a special activity since it needs to be seen by all chapters. Our first, incorrect, solution was to create a New Chapter activity in each of the existing chapters. 
+ * Garden
+ * User
+ * Crop
+ * Variety
+ * Observation
+ * Planting Outcome
+ * Forum Topic. Only public forum topics are turned into activities.
 #### Planting activities
 
 When a user creates a new planting GGC creates [Tasks](../../developer-guide/data-model/document-data-model#task) and [Activities](../../developer-guide/data-model/document-data-model#activity) for the planting's dates.
