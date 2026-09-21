@@ -72,6 +72,6 @@ Jessie Beck is a home gardener in Bellingham, WA. She advises the GeoGardenClub 
 
 <img alt="picture" className="team-img" width="150px" src="/img/team/amelia-larson.jpg"/>
 
-<p>Amelia Larsen is an aspiring marketer and gardener with a passion for community and creativity. She earned her baccalaureate degree in marketing at Western Washington University, where she also founded their first women’s boxing club, Femme Fight Club, and managed the social media for their first fashion magazine, The Rage Magazine.</p>
+<p>[Amelia Larsen](https://www.linkedin.com/in/wwuamelialarsen/) is an aspiring marketer and gardener with a passion for community and creativity. She earned her baccalaureate degree in marketing at Western Washington University, where she also founded their first women’s boxing club, Femme Fight Club, and managed the social media for their first fashion magazine, The Rage Magazine.</p>
 
 <div style={{clear:"both"}}></div>

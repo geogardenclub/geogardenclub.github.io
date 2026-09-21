@@ -235,20 +235,20 @@ The gardener has fostered a local community of practice by adding new varieties 
 | 3     | The gardener has added 3 or more Crops or Varieties to the database      |
 
 
-### Plant-fluencer
+### Plantfluencer
 
 #### General Criteria
 
 The gardener is associated with plantings that have been copied by other users.
 
 :::warning Implementation issues
-To implement this, we want to filter out situations in which a gardener is copying plantings from within their own gardens (either owner or editor). You shouldn't get the badge for copying your own plantings.
+To implement this, we want to filter out situations in which a gardener is copying plantings from within their own gardens (either owner or editor). You shouldn't get the badge for copying your own plantings. We do this by comparing the associated gardenerIDs of the originating garden to the receiving garden. If the two lists are the same, then we assume it's a "local" copy planting and don't use this for badge achievement.
 
-So, we could add an optional field to Planting called "copiedFromOtherGardenID", which is set only when the Planting is being copied from a "different" garden (i.e. one that the gardener is *currently* not an editor or owner of).
+To do this, we provide an optional "copiedFromGardenerIDs" field, which is a list of gardenerIDs representing the owners and editors of the "other" garden at the time of the Copy Planting who qualify for this badge.  This would enable the badges to be rebuilt from scratch, but if the set of owners/editors of either the "to" garden or the "from" garden change, then the badge would be awarded in a situation that no longer qualifies. (Maybe that's OK).
 
-The problem with this approach is the use of "currently"---the gardener could become an editor of that "other" garden, and/or the set of owners/editors of the other garden could change.  When that happens, and the badges are rebuilt from scratch, we would be awarding this badge to a different set of gardeners. 
+The copiedFromGardenerIDs field is not enough to actually display badges, because it is set in another gardener's Planting document, and we need to be able to compute badges based only on the current gardener's data. So, we must add another field to the originating garden: `int? cachedNumPlantingsCopiedFromThisGarden`.  This field manages the number of times a planting was copied from this garden, and enables the badge to be computed and awarded from the current gardener's data. 
 
-Instead, we will provide an optional "copiedFromGardenerIDs" field, where that is a list of gardenerIDs representing the owners and editors of the "other" garden at the time of the Copy Planting who qualify for this badge.  This would enable the badges to be rebuilt from scratch, but if the set of owners/editors of either the "to" garden or the "from" garden change, then the badge would be awarded in a situation that no longer qualifies. (Maybe that's OK).
+Note that if a Planting is deleted, then when badges are rebuilt, the badge may go away. 
 
 Finally, it should be noted that no confetti will be thrown when this badge is awarded, since the badge is achieved for a gardener at the moment that a *different* gardener is creating a planting (via the Copy Planting screen). 
 :::
