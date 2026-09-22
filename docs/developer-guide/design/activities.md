@@ -33,7 +33,7 @@ There are many different activities that we want to show the users. They can be 
   * Forum Topics (Chapter only),
   * Observations (Chapter only),
   * Planting Outcomes (Chapter only),
-  * Users (Global), 
+  * Users (Chapter only), 
   * Varieties (Global).
 * Planting (Chapter only): 
   * Start, 
@@ -45,6 +45,30 @@ There are many different activities that we want to show the users. They can be 
   * Pull.
 * Miscellaneous (Chapter only): 
   * Other.
+
+Grouped by visibility:
+* Global:
+  * Chapter Added
+  * Crop Added
+  * Variety Added
+  * Chapter Badge Achieved
+  
+* Chapter Local:
+  * Garden Badge Achieved
+  * User Badge Achieved
+  * Garden Added
+  * User Added
+  * Forum Topic Added
+  * Observation Added
+  * Planting Outcome Added
+  * Planting Start
+  * Planting Start Indoors
+  * Planting Start Outdoors
+  * Planting Transplant
+  * Planting Harvest Start
+  * Planting Harvest End
+  * Planting Pull
+  * Other
 
 ### Widgets
 #### Recent chapter activities (Last 7 or 30 days)
