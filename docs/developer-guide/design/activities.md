@@ -23,19 +23,19 @@ Each time a user or administrator submits a change to the system (a new, modifie
 
 There are many different activities that we want to show the users. They can be grouped into four categories:
 * Badge achievement: 
-  * Gardens, 
-  * Users, 
+  * Gardens (Chapter only),
+  * Users (Chapter only), 
   * Chapters (not yet implemented).
 * Added: 
-  * Chapters,
-  * Gardens, 
-  * Crops, 
-  * Forum Topics,
-  * Observations,
-  * Planting Outcomes,
-  * Users, 
-  * Varieties.
-* Planting: 
+  * Chapters (Global),
+  * Gardens (Chapter only), 
+  * Crops (Global), 
+  * Forum Topics (Chapter only),
+  * Observations (Chapter only),
+  * Planting Outcomes (Chapter only),
+  * Users (Global), 
+  * Varieties (Global).
+* Planting (Chapter only): 
   * Start, 
   * Start Indoors, 
   * Start Outdoors, 
@@ -43,7 +43,7 @@ There are many different activities that we want to show the users. They can be 
   * Harvest Start, 
   * Harvest End, 
   * Pull.
-* Miscellaneous: 
+* Miscellaneous (Chapter only): 
   * Other.
 
 ### Widgets
