@@ -25,7 +25,7 @@ There are many different activities that we want to show the users. They can be 
 * Badge achievement: 
   * Gardens (Chapter only),
   * Users (Chapter only), 
-  * Chapters (not yet implemented).
+  * Chapters (not yet implemented, Global).
 * Added: 
   * Chapters (Global),
   * Gardens (Chapter only), 
