@@ -130,7 +130,7 @@ The steps involved with creating, copying or updating a planting are as follows:
         ...badgeProcessorResult.instancesToCreate.map(
           (badgeInstance) =>
               Activity.makeBadgeAchieved(badgeInstance: badgeInstance),),
-        ...processor.actvitiesToSet,];`.
+        ...processor.activitiesToSet,];`.
 9. Create the Event. `Event event = Event.from(`.
 10. If updating a planting update all Observations for the planting. `for (final Observation observation
           in widget.gardens.getObservationsForPlanting(newPlanting)) {`.
