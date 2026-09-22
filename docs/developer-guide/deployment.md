@@ -97,7 +97,7 @@ The purpose of the release branch is to create an easily accessible version of t
 
 ### Deploy iOS app
 
-First, open the Transporter app and drag the ggc_app.ipa file from the Desktop folder onto the App. 
+First, open the Transporter app and drag the ggc_app.ipa file from the Desktop folder onto the App.  Click "Deliver" to begin transfer of file to App Store.
 
 Second, login to [App Store Connect](https://appstoreconnect.apple.com/login). Click on "Apps", then "GeoGardenClub", then "TestFlight".
 
