@@ -70,6 +70,30 @@ Grouped by visibility:
   * Planting Pull
   * Other
 
+### ActivityDatabase
+
+`ActivityDatabase` now provides two methods for getting activities:
+  1. `Stream<List<Activity>> watchActivities(String? chapterID)` - returns a stream of the chapter local activities. If `chapterID` is null, then it returns all activities for all chapters.
+  2. `Stream<List<Activity>> watchGlobalActivities()` - returns a stream of the global activities.
+
+### WithCoreData
+
+`WithCoreData` now creates a `ActivityCollection` with the chapter local and global activities.
+    ```
+        final AsyncValue<List<Activity>> asyncActivities = ref.watch(
+          activitiesProvider(currentChapterIDToUse),
+        );
+        final AsyncValue<List<Activity>> asyncGlobalActivities = ref.watch(
+          globalActivitiesProvider,
+        );
+        
+        final List<Activity> allActivities = <Activity>{
+          ...asyncActivities.value!,
+          ...asyncGlobalActivities.value!,
+        }.toList();
+        final ActivityCollection activities = ActivityCollection(allActivities);
+    ```
+
 ### Widgets
 #### Recent chapter activities (Last 7 or 30 days)
 
@@ -130,7 +154,7 @@ The steps involved with creating, copying or updating a planting are as follows:
         ...badgeProcessorResult.instancesToCreate.map(
           (badgeInstance) =>
               Activity.makeBadgeAchieved(badgeInstance: badgeInstance),),
-        ...processor.actvitiesToSet,];`.
+        ...processor.activitiesToSet,];`.
 9. Create the Event. `Event event = Event.from(`.
 10. If updating a planting update all Observations for the planting. `for (final Observation observation
           in widget.gardens.getObservationsForPlanting(newPlanting)) {`.
