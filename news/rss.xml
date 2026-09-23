@@ -4,10 +4,27 @@
         <title>Geo Garden Club Blog</title>
         <link>https://geogardenclub.com/news</link>
         <description>Geo Garden Club Blog</description>
-        <lastBuildDate>Sat, 05 Sep 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 22 Sep 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[GGC App: 3.9.0 Release]]></title>
+            <link>https://geogardenclub.com/news/2026/09/22/release</link>
+            <guid>https://geogardenclub.com/news/2026/09/22/release</guid>
+            <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[In this release:]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2026/09/22/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
+<ul>
+<li class="">Tasks can now be associated with gardens, beds, crops, varieties, and plantings.</li>
+<li class="">Active Tag chips (tapping a chip takes you to all the Observations with that tag).</li>
+<li class="">User, crop, variety, and forum images are not lost on update.</li>
+<li class="">Home/Gardens FAB no longer covers retail value toggle.</li>
+</ul>
+<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
+            <author>info@geogardenclub.com (Philip Johnson)</author>
+            <category>Releases</category>
+        </item>
         <item>
             <title><![CDATA[GGC News: September 2026]]></title>
             <link>https://geogardenclub.com/news/2026/09/05/newsletter</link>
@@ -325,20 +342,6 @@
 <p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content:encoded>
             <author>info@geogardenclub.com (Philip Johnson)</author>
             <category>Releases</category>
-        </item>
-        <item>
-            <title><![CDATA[GGC News: November 2025]]></title>
-            <link>https://geogardenclub.com/news/2025/11/23/newsletter</link>
-            <guid>https://geogardenclub.com/news/2025/11/23/newsletter</guid>
-            <pubDate>Sun, 23 Nov 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[In this newsletter:]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2025/11/23/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
-<ul>
-<li class="">We're launching the GeoGardenClub Ambassador Program!</li>
-</ul>
-<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=1342e11a12" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content:encoded>
-            <author>info@geogardenclub.com (Jenna Deane)</author>
-            <category>Newsletter</category>
         </item>
     </channel>
 </rss>
