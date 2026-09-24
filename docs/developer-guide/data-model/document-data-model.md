@@ -1150,6 +1150,51 @@ In order to ensure that the relevant optional fields are always present given a 
     );
   }
 ```
+### ActivityType
+
+We have defined the following activity types:
+```dart
+enum ActivityType {
+  badgeAchievedGarden(iconData: Icons.celebration, label: 'New Garden Badge'),
+  badgeAchievedUser(iconData: Icons.celebration, label: 'New User Badge'),
+  badgeAchievedChapter(iconData: Icons.celebration, label: 'New Chapter Badge'),
+  chapterAdded(iconData: Icons.group_add, label: 'New Chapter'),
+  forumTopicActivity(iconData: Icons.message, label: 'New Forum Activity'),
+  gardenAdded(iconData: Icons.grass, label: 'New Garden'),
+  observationAdded(iconData: Icons.camera_alt, label: 'New Observation'),
+  cropAdded(iconData: Icons.grass, label: 'New Crop'),
+  varietyAdded(iconData: Icons.grass, label: 'New Variety'),
+  plantingHarvestStart(iconData: Icons.local_florist, label: 'Harvest Start'),
+  plantingHarvestEnd(iconData: Icons.local_florist, label: 'Harvest End'),
+  plantingOutcomeAdded(iconData: Icons.local_florist, label: 'New Outcome'),
+  plantingStart(
+    iconData: Icons.local_florist,
+    label: 'Planting Start',
+  ),
+  plantingStartIndoors(
+    iconData: Icons.local_florist,
+    label: 'Planting Start Indoor',
+  ),
+  plantingStartOutdoors(
+    iconData: Icons.local_florist,
+    label: 'Planting Start Outdoor',
+  ),
+  plantingPull(iconData: Icons.local_florist, label: 'Planting Pull'),
+  plantingTransplant(
+    iconData: Icons.local_florist,
+    label: 'Planting Transplant',
+  ),
+  userAdded(iconData: Icons.emoji_people, label: 'New User'),
+  // Default fallback case for unmapped/unknown values
+  unknown(iconData: Icons.help_outline, label: 'Unknown Activity');
+  const ActivityType({required this.iconData, required this.label});
+  final IconData iconData;
+  final String label;
+  IconData get getIconData => iconData;
+  String get getLabel => label;
+}
+
+```
 
 Note that, unlike other entities, there is no milliseconds field associated with the primary key (activityID). This is intentional. We want users to overwrite an existing Activity document when the associated activity changes. For example, if a user updates the pullDate associated with a planting, then the associated Activity document will be overwritten with the new pull date. 
 
