@@ -16,7 +16,7 @@ In 2027, we need to improve our ability to find new customers in our target demo
 
 ### Q1
 
-*Improve online marketing.*  In 2026, we had success with influencer marketing and Apple Ads.  In 2027, we will continue these two forms of marketing.  We will begin influencer marketing earlier in the year.
+*Improve online marketing.*  In 2026, we had success with influencer marketing and Apple Ads.  In 2027, we will continue these two forms of marketing.  We will begin influencer marketing earlier in the year.  In addition, focus online marketing on storytelling about the impact gardening can have on food security and community building.
 
 *Continue intern program.* In 2026, we worked with two interns to support online marketing of GeoGardenClub.  In 2027, we will continue recruiting interns to support social media marketing efforts.
 
@@ -57,6 +57,8 @@ In general, paying customers have enough experience with the app to derive value
 
 ### Q1
 *Add personalized reach-out.* Reach out to customers entering their second or third year and request a feedback session via a phone call or meeting.  Attach this request to an offer of a gift card to a local garden store.
+
+*Increase Brand Loyalty.* Offer new subscribers a GGC t shirt.  Alternatively, have a "chapter of the month" campaign in which chapters in that chapter are offered a free GGC t shirt.
 
 ### Q2
 *Continue personalized reach-out.* Obtaining customer feedback is a high priority for 2027.
