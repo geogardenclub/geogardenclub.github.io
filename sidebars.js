@@ -321,6 +321,7 @@ const sidebars = {
     },
     'developer-guide/database-management',
     'developer-guide/deployment',
+    'developer-guide/documentation',
     'developer-guide/screenshots',
     'developer-guide/backups',
     'developer-guide/scripts',
