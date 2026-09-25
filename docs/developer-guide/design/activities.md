@@ -11,7 +11,7 @@ We designed the GGC [Activity](../../developer-guide/data-model/document-data-mo
 
 We use the `Activity` entity to implement the [Recent Chapter Activities](../../user-guide/insights#recent-chapter-activities) and [Upcoming Chapter Activities](../../user-guide/insights.md#upcoming-chapter-activities) Insight widgets.
 
-The idea is that whenever a potentially interesting "activity" occurs in the system (a new user joins, a new garden is created, a new planting date is saved, etc.), a corresponding `Activity` document is created.  The Insight Widgets presents these activities and includes links that allow the user to drill down and find out more about the activity if they want. This provides users with a kind of situational awareness about their chapter (or other chapters, if they go to Lurk Mode). Some activities like planting activities are created for future dates. This supports the `Upcoming Chapter Activities` insight.
+The idea is that whenever a potentially interesting "activity" occurs in the system (a new user joins, a new garden is created, a new planting date is saved, etc.), a corresponding `Activity` document is created.  The Insight Widgets present these activities and include links that let the user drill down and learn more about the activity if they want. This provides users with a kind of situational awareness about their chapter (or other chapters, if they go to Lurk Mode). Some activities, like planting activities, are created for future dates. This supports the `Upcoming Chapter Activities` insight.
 
 ## User experience
 
@@ -21,7 +21,7 @@ Each time a user or administrator submits a change to the system (a new, modifie
 
 ### Activity types
 
-There are many different activities that we want to show the users. Grouped by visibility:
+We want to show many different activities to users. The Activity types grouped by visibility are:
 * Global:
   * Chapter Added
   * Crop Added
@@ -53,7 +53,7 @@ There are many different activities that we want to show the users. Grouped by v
 
 ### WithCoreData
 
-`WithCoreData` creates a `ActivityCollection` with the chapter local and global activities.
+`WithCoreData` creates a `ActivityCollection` with the chapter's local and global activities.
     ```
         final AsyncValue<List<Activity>> asyncActivities = ref.watch(
           activitiesProvider(currentChapterIDToUse),
@@ -73,7 +73,7 @@ There are many different activities that we want to show the users. Grouped by v
 
 The `ActivityCollection` has several methods not found in other typical collections.
 
-  * `String buildActivityID({required ActivityType activityType, required String id,})`. Since the format for activityIDs are based upon the ActivityType and the document id, the ActivityCollection provides a method to create the activityID.
+  * `String buildActivityID({required ActivityType activityType, required String id,})`. Since the format for activityIDs is based upon the ActivityType and the triggering document ID, the ActivityCollection provides a method to create the activityID.
   * `List<Activity> getActivities(ActivityInterval interval, {bool includeToday = false,})`. This method returns the activities for the specified interval. The `includeToday` parameter is used to include or exclude today's activities. It is used by `RecentActivitiesInsightView` and `UpcomingActivitiesInsightView` to get the activities for the last 7 or 30 days, or the next 7 or 30 days.
 
 ### Widgets
