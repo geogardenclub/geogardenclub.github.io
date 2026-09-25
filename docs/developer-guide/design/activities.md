@@ -21,37 +21,12 @@ Each time a user or administrator submits a change to the system (a new, modifie
 
 ### Activity types
 
-There are many different activities that we want to show the users. They can be grouped into four categories:
-* Badge achievement: 
-  * Gardens (Chapter only),
-  * Users (Chapter only), 
-  * Chapters (not yet implemented, Global).
-* Added: 
-  * Chapters (Global),
-  * Gardens (Chapter only), 
-  * Crops (Global), 
-  * Forum Topics (Chapter only),
-  * Observations (Chapter only),
-  * Planting Outcomes (Chapter only),
-  * Users (Chapter only), 
-  * Varieties (Global).
-* Planting (Chapter only): 
-  * Start, 
-  * Start Indoors, 
-  * Start Outdoors, 
-  * Transplant, 
-  * Harvest Start, 
-  * Harvest End, 
-  * Pull.
-* Miscellaneous (Chapter only): 
-  * Other.
-
-Grouped by visibility:
+There are many different activities that we want to show the users. Grouped by visibility:
 * Global:
   * Chapter Added
   * Crop Added
   * Variety Added
-  * Chapter Badge Achieved
+  * Chapter Badge Achieved (When implemented)
   
 * Chapter Local:
   * Garden Badge Achieved
@@ -72,13 +47,13 @@ Grouped by visibility:
 
 ### ActivityDatabase
 
-`ActivityDatabase` now provides two methods for getting activities:
+`ActivityDatabase` provides two methods for getting activities:
   1. `Stream<List<Activity>> watchActivities(String? chapterID)` - returns a stream of the chapter local activities. If `chapterID` is null, then it returns all activities for all chapters.
   2. `Stream<List<Activity>> watchGlobalActivities()` - returns a stream of the global activities.
 
 ### WithCoreData
 
-`WithCoreData` now creates a `ActivityCollection` with the chapter local and global activities.
+`WithCoreData` creates a `ActivityCollection` with the chapter local and global activities.
     ```
         final AsyncValue<List<Activity>> asyncActivities = ref.watch(
           activitiesProvider(currentChapterIDToUse),
@@ -93,6 +68,13 @@ Grouped by visibility:
         }.toList();
         final ActivityCollection activities = ActivityCollection(allActivities);
     ```
+
+### ActivityCollection
+
+The `ActivityCollection` has several methods not found in other typical collections.
+
+  * `String buildActivityID({required ActivityType activityType, required String id,})`. Since the format for activityIDs are based upon the ActivityType and the document id, the ActivityCollection provides a method to create the activityID.
+  * `List<Activity> getActivities(ActivityInterval interval, {bool includeToday = false,})`. This method returns the activities for the specified interval. The `includeToday` parameter is used to include or exclude today's activities. It is used by `RecentActivitiesInsightView` and `UpcomingActivitiesInsightView` to get the activities for the last 7 or 30 days, or the next 7 or 30 days.
 
 ### Widgets
 #### Recent chapter activities (Last 7 or 30 days)
@@ -118,16 +100,23 @@ There are several GGC actions that create or update activities:
   * Completing a `Planting Task` updates the `Planting` and the associated `Activity`.
 
 The Activity class has several factory methods to create Activities.
+* `Activity.makeBadgeAchieved2` creates an Activity for a Badge Achievement. This constructor works for `Garden` and `User` badges. (The `Chapter` badge is not yet implemented.)
+* `Activity.makeChapterAdd` creates an Activity for a new chapter.
+* `Activity.makeForumTopicActivity` creates an Activity for a new forum topic.
+* `Activity.makeGardenAdd` creates an Activity for a new garden.
+* `Activity.makeObservationAdd` creates an Activity for a new observation.
 
 #### Badge activities
 
 There are two different Badge implementations:
-  * `Badge`. The `Activity` class has a method to create an Activity for a `BadgeInstance`, `Activity.makeBadgeAchieved(badgeInstance: badgeInstance)`.
-  * `Badgev2`. The `Badge2Processor` has a method to return all the `Activities`, `processor.activitiesToSet`.
+  * `Badge`: The `Activity` class has a method to create an Activity for a `BadgeInstance`, `Activity.makeBadgeAchieved(badgeInstance: badgeInstance)`.
+  * `Badgev2`: The `Badge2Processor` has a method to return all the `Activities`, `processor.activitiesToSet`.
 These are both used in `createCopyUpdatePlantingOnSubmit` (see below).
 
 #### New * activities
- * Chapter. This is a special activity since it needs to be seen by all chapters. Our first, incorrect, solution was to create a New Chapter activity in each of the existing chapters. 
+The `onSubmit` function in the `Create*Screen`s creates the new instance, an Event, the Activity, runs the Badge2Processor, and lastly gets the old Activities `final List<Activity> activitiesToDelete = widget.chapters.activities
+.oldActivities();` and calls the `mutateController` to update the database. `activities.oldActivities` takes an optional `Duration`, the number of days to filter the activities. By default, it is 60 days.
+ * Chapter. This is a special activity since it needs to be seen by all chapters. Our first, incorrect, solution was to create a New Chapter activity in each of the existing chapters. Now, `chapterAdd` activities are global and are seen by all chapters.
  * Garden
  * User
  * Crop
@@ -143,12 +132,12 @@ When a user creates a new planting GGC creates [Tasks](../../developer-guide/dat
 The steps involved with creating, copying or updating a planting are as follows:
 
 1. Create the newPlanting or updatedPlanting.
-2. Update the Garden's cached values based upon the new or updated planting. `Garden updatedGarden = Garden.withUpdatedCaches(`.
-3. Update the Badges(v1). `BadgeProcessor badgeProcessor`, `BadgeProcessorResult badgeProcessorRestult(`.
-4. Update the Badges(v2). `Badge2Processor processor(`.
+2. Update the Garden's cached values based upon the new or updated planting. `Garden updatedGarden = Garden.withUpdatedCaches`.
+3. Update the Badges(v1). `BadgeProcessor badgeProcessor`, `BadgeProcessorResult badgeProcessorRestult`.
+4. Update the Badges(v2). `Badge2Processor processor`.
 5. Create the Tasks from the planting. `List<Task> tasksToSet = Task.tasksFromCreatePlanting` or `List<List<Task>> newTasks = Task.tasksFromUpdatePlanting(` `List<Task> tasksToDelete = newTasks[1]`.
-6. Update the Gardener's cached values. `Gardener updatedGardener = Gardener.withUpdatedCaches(`.
-7. Update the Chapter's cached values. `Chapter chapterToSet = chapter.copyWith(`.
+6. Update the Gardener's cached values. `Gardener updatedGardener = Gardener.withUpdatedCaches`.
+7. Update the Chapter's cached values. `Chapter chapterToSet = chapter.copyWith`.
 8. Create the Activities. `List<Activity> activitiesToSet = [
         ...ActivityCollection.makeActivitiesFromPlanting(newPlanting),
         ...badgeProcessorResult.instancesToCreate.map(
@@ -192,7 +181,7 @@ The steps involved with creating, copying or updating a planting are as follows:
               confetti.maybeThrowConfetti(processor);
             },
      ```
-All of this logic is encapsulated in 
+All of this logic is encapsulated in `lib/features/planting/presentation/create_copy_update_planting.dart`.
     ```
     void createCopyUpdatePlantingOnSubmit({
       required BuildContext context,
@@ -206,22 +195,11 @@ All of this logic is encapsulated in
       bool isCopy = false,
     })
     ``` 
-in `features/planting/presentation/create_copy_update_planting_screen.dart`.
-
-
-
-#### Recent activities
-* `Activity.makeBadgeAchieved2` creates an Activity for a Badge Achievement. This constructor works for `Garden` and `User` badges. (The `Chapter` badge is not yet implemented.)
-* `Activity.makeChapterAdd` creates an Activity for a new chapter.
-* `Activity.makeForumTopicActivity` creates an Activity for a new forum topic.
-* `Activity.makeGardenAdd` creates an Activity for a new garden.
-* `Activity.makeObservationAdd` creates an Activity for a new observation.
-
 
 
 ### Activity deletion
 
-When a User deletes the following entities their associated Activity or Activities are deleted also.
+When a User deletes the following entities their associated Activity or Activities are deleted also. The easiest way to get the `List<Activity> activitiesToDelete` is to call `ActivityCollection.filter(<ActivityFilter>, id)`.
   * Deleting a Planting. All the activities for the planting are deleted.
   * Deleting a Chapter, Garden, User, Crop, Variety, Observation, Planting Outcome or Forum Topic.
 
