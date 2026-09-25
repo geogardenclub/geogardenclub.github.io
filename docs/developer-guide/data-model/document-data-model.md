@@ -1196,7 +1196,7 @@ enum ActivityType {
 
 ```
 
-Note that, unlike other entities, there is no milliseconds field associated with the primary key (activityID). This is intentional. We want users to overwrite an existing Activity document when the associated activity changes. For example, if a user updates the pullDate associated with a planting, then the associated Activity document will be overwritten with the new pull date. 
+Note unlike other entities, there are no milliseconds field associated with the primary key (activityID). This is intentional. We want users to overwrite an existing Activity document when the associated activity changes. For example, if a user updates the pullDate associated with a planting, then the associated Activity document will be overwritten with the new pull date. 
 
 ## Weather
 

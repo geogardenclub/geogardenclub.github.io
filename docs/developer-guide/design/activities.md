@@ -7,7 +7,7 @@ hide_table_of_contents: false
 
 ## Goals
 
-We designed the GGC [Activity](../../developer-guide/data-model/document-data-model#activity) system to provide the Gardener insights into what is going on in their chapter and Geo Garden Club.
+We designed the GGC [Activity](../../developer-guide/data-model/document-data-model#activity) system to give Gardeners insights into what's happening in their chapter and Geo Garden Club.
 
 We use the `Activity` entity to implement the [Recent Chapter Activities](../../user-guide/insights#recent-chapter-activities) and [Upcoming Chapter Activities](../../user-guide/insights.md#upcoming-chapter-activities) Insight widgets.
 
