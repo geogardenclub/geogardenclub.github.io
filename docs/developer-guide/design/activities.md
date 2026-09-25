@@ -73,30 +73,30 @@ We want to show many different activities to users. The Activity types grouped b
 
 The `ActivityCollection` has several methods not found in other typical collections.
 
-  * `String buildActivityID({required ActivityType activityType, required String id,})`. Since the format for activityIDs is based upon the ActivityType and the triggering document ID, the ActivityCollection provides a method to create the activityID.
-  * `List<Activity> getActivities(ActivityInterval interval, {bool includeToday = false,})`. This method returns the activities for the specified interval. The `includeToday` parameter is used to include or exclude today's activities. It is used by `RecentActivitiesInsightView` and `UpcomingActivitiesInsightView` to get the activities for the last 7 or 30 days, or the next 7 or 30 days.
+  * Since the format for activityIDs is based upon the ActivityType and the triggering document ID, the ActivityCollection provides a method to create the activityID. `String buildActivityID({required ActivityType activityType, required String id,})`. 
+  * The ActivityCollection also provides a method to return the activities for the specified interval. `List<Activity> getActivities(ActivityInterval interval, {bool includeToday = false,})`. The `includeToday` parameter is used to include or exclude today's activities. It is used by `RecentActivitiesInsightView` and `UpcomingActivitiesInsightView` to get the activities for the last 7 or 30 days, or the next 7 or 30 days.
 
 ### Widgets
 #### Recent chapter activities (Last 7 or 30 days)
 
-A core principle of GeoGardenClub is that your local community can be a key source of insight into how to garden more effectively. For example, you can learn from others what crops grow in your Chapter, and when to plant them.
+A core principle of GeoGardenClub is that the local community can be a key source of insight into how to garden more effectively. For example, a gardener can learn from others what crops grow in their Chapter, and when to plant them.
 
-The Recent Chapter Activities Insight Widget provides a way for you learn about what others in your community have been doing recently.
+The Recent Chapter Activities Insight Widget provides a way for a gardener to learn about what others in their community have been doing recently.
 
-These activities have occurred in the past 7 or 30 days. The Insight widget will show the most recent activities first. Some of the kinds of activities in the recent activities are Badge Achievements, Added, Plantings.
+These activities have occurred in the past 7 or 30 days. The Insight widget will show the most recent activities first. Some  recent activities include Badge Achievements, Chapter Crop or Varieties Added, and Planting activities.
 
-**Note** Administrators need to remove activities that are older than 30 days. To do this go to `Admin` -> `Manage Features` -> `Manage Activities`.
+**Note**: Administrators need to remove activities older than 30 days. To do this, go to `Admin` -> `Manage Features` -> `Manage Activities`.
 
 #### Upcoming chapter activities (Next 7 or 30 days)
 
-The Upcoming Chapter Activities show Planting activities are scheduled to occur in the next 7 or 30 days.
+The Upcoming Chapter Activities show Planting activities scheduled to occur in the next 7 or 30 days.
 
 ### Activity creation / update
 
 There are several GGC actions that create or update activities:
   * Achieving a `Badge`: `Garden` or `User`. (`Chapter` badges are not implemented yet.)
   * Adding a new chapter, garden, user, crop, variety, observation, planting outcome, or forum topic.
-  * Creating a new `Planting`. This will create the Activities for the dates of the planting.
+  * Creating a new `Planting`. This creates Activities for the planting dates.
   * Completing a `Planting Task` updates the `Planting` and the associated `Activity`.
 
 The Activity class has several factory methods to create Activities.
@@ -109,14 +109,14 @@ The Activity class has several factory methods to create Activities.
 #### Badge activities
 
 There are two different Badge implementations:
-  * `Badge`: The `Activity` class has a method to create an Activity for a `BadgeInstance`, `Activity.makeBadgeAchieved(badgeInstance: badgeInstance)`.
+  * `Badge`: The `Activity` class has a method to create an Activity for a `BadgeInstance`: `Activity.makeBadgeAchieved(badgeInstance: badgeInstance)`.
   * `Badgev2`: The `Badge2Processor` has a method to return all the `Activities`, `processor.activitiesToSet`.
 These are both used in `createCopyUpdatePlantingOnSubmit` (see below).
 
 #### New * activities
 The `onSubmit` function in the `Create*Screen`s creates the new instance, an Event, the Activity, runs the Badge2Processor, and lastly gets the old Activities `final List<Activity> activitiesToDelete = widget.chapters.activities
 .oldActivities();` and calls the `mutateController` to update the database. `activities.oldActivities` takes an optional `Duration`, the number of days to filter the activities. By default, it is 60 days.
- * Chapter. This is a special activity since it needs to be seen by all chapters. Our first, incorrect, solution was to create a New Chapter activity in each of the existing chapters. Now, `chapterAdd` activities are global and are seen by all chapters.
+ * Chapter. This is a special activity because all chapters need to see it. Our first, incorrect solution was to create a New Chapter activity in each existing chapter. Now, `chapterAdd` activities are global and visible to all chapters.
  * Garden
  * User
  * Crop
@@ -126,10 +126,10 @@ The `onSubmit` function in the `Create*Screen`s creates the new instance, an Eve
  * Forum Topic. Only public forum topics are turned into activities.
 #### Planting activities
 
-When a user creates a new planting GGC creates [Tasks](../../developer-guide/data-model/document-data-model#task) and [Activities](../../developer-guide/data-model/document-data-model#activity) for the planting's dates.
+When a user creates a new planting, GGC creates [Tasks](../../developer-guide/data-model/document-data-model#task) and [Activities](../../developer-guide/data-model/document-data-model#activity) for the planting's dates.
 
 ##### Creating, copying, or updating a Planting.
-The steps involved with creating, copying or updating a planting are as follows:
+The steps involved with creating, copying, or updating a planting are as follows:
 
 1. Create the newPlanting or updatedPlanting.
 2. Update the Garden's cached values based upon the new or updated planting. `Garden updatedGarden = Garden.withUpdatedCaches`.
@@ -145,9 +145,9 @@ The steps involved with creating, copying or updating a planting are as follows:
               Activity.makeBadgeAchieved(badgeInstance: badgeInstance),),
         ...processor.activitiesToSet,];`.
 9. Create the Event. `Event event = Event.from(`.
-10. If updating a planting update all Observations for the planting. `for (final Observation observation
+10. If updating a planting, update all Observations for the planting. `for (final Observation observation
           in widget.gardens.getObservationsForPlanting(newPlanting)) {`.
-11. If updating a planting update the Outcome. `final Outcome? oldOutcome = widget.gardens.getOutcome(`. `Outcome? newOutcome`.
+11. If updating a planting, update the Outcome. `final Outcome? oldOutcome = widget.gardens.getOutcome(`. `Outcome? newOutcome`.
 12. Call the mutateController's mutate method.
      ```
           ref
@@ -199,9 +199,9 @@ All of this logic is encapsulated in `lib/features/planting/presentation/create_
 
 ### Activity deletion
 
-When a User deletes the following entities their associated Activity or Activities are deleted also. The easiest way to get the `List<Activity> activitiesToDelete` is to call `ActivityCollection.filter(<ActivityFilter>, id)`.
+When a User deletes the following entities their, associated Activity or Activities need to be deleted also. The easiest way to get the `List<Activity> activitiesToDelete` is to call `ActivityCollection.filter(<ActivityFilter>, id)`.
   * Deleting a Planting. All the activities for the planting are deleted.
-  * Deleting a Chapter, Garden, User, Crop, Variety, Observation, Planting Outcome or Forum Topic.
+  * Deleting a Chapter, Garden, User, Crop, Variety, Observation, Planting Outcome, or Forum Topic.
 
 
 
