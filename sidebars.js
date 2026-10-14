@@ -118,7 +118,9 @@ const sidebars = {
       collapsed: true,
       label: "2027 Strategic Plan",
       items: [
+        'business-guide/strategic-plan-2027/review-2026',
         'business-guide/strategic-plan-2027/proposals-2027',
+        'business-guide/strategic-plan-2027/benchmarks-2027',
       ]
     },
     {
@@ -217,6 +219,26 @@ const sidebars = {
               type: 'link',
               label: 'May 2026',
               href: 'https://docs.google.com/document/d/1W5k6Y_gpFzdIDEHKnWu5LJVa0H-zUHZ9Y6PpBqw00uk/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'June 2026',
+              href: 'https://docs.google.com/document/d/1AujyIfFEeWYPMZxEKO023HnwJcdkdHK0LVahv3wxmRE/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'July 2026',
+              href: 'https://docs.google.com/document/d/1frqLtoqKE-5ww6_4OwPsvaDvYFDzDO9zY0NbL0s6Ds4/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'August 2026',
+              href: 'https://docs.google.com/document/d/1XLhrn3KshWiRJLtwH7Khg_zFkbREimqJoUQhW9a21A4/edit?usp=sharing',
+            },
+            {
+              type: 'link',
+              label: 'September 2026',
+              href: 'https://docs.google.com/document/d/1pMZT26hpmnXDPuDYMAp-H4DHy_2dCjNFKo5j2845nbs/edit?usp=sharing',
             },
           ]
         },
