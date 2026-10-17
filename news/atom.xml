@@ -2,11 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://geogardenclub.com/news</id>
     <title>Geo Garden Club Blog</title>
-    <updated>2026-09-22T00:00:00.000Z</updated>
+    <updated>2026-10-17T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://geogardenclub.com/news"/>
     <subtitle>Geo Garden Club Blog</subtitle>
     <icon>https://geogardenclub.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[GGC News: October 2026]]></title>
+        <id>https://geogardenclub.com/news/2026/10/17/newsletter</id>
+        <link href="https://geogardenclub.com/news/2026/10/17/newsletter"/>
+        <updated>2026-10-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this newsletter:]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-newsletter">In this newsletter:<a href="https://geogardenclub.com/news/2026/10/17/newsletter#in-this-newsletter" class="hash-link" aria-label="Direct link to In this newsletter:" title="Direct link to In this newsletter:" translate="no">​</a></h2>
+<ul>
+<li class="">Switch to an annual plan and save!</li>
+<li class="">Fall Garden Tip: Protect your soil</li>
+<li class="">Thank you, Amelia! Hi Sheridan!</li>
+</ul>
+<p>Click <a href="https://us10.campaign-archive.com/?u=2c9db5ab59b4602f6c71e2091&amp;id=2c567f997e" target="_blank" rel="noopener noreferrer" class="">here</a> for the full newsletter.</p>]]></content>
+        <author>
+            <name>Jenna Deane</name>
+            <email>info@geogardenclub.com</email>
+        </author>
+        <category label="Newsletter" term="Newsletter"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GGC App: 3.9.0 Release]]></title>
         <id>https://geogardenclub.com/news/2026/09/22/release</id>
@@ -369,31 +388,6 @@
 <ul>
 <li class="">"Start Date Unknown?" checkbox added to the Planting form. This makes it easy to represent starts that you bought at a store or were given from a friend.</li>
 <li class="">Fixes to sorting, retail value calculation, and more.</li>
-</ul>
-<p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
-        <author>
-            <name>Philip Johnson</name>
-            <email>info@geogardenclub.com</email>
-        </author>
-        <category label="Releases" term="Releases"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GGC App: 2.28.0 Release]]></title>
-        <id>https://geogardenclub.com/news/2025/12/07/release</id>
-        <link href="https://geogardenclub.com/news/2025/12/07/release"/>
-        <updated>2025-12-07T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[In this release:]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-this-release">In this release:<a href="https://geogardenclub.com/news/2025/12/07/release#in-this-release" class="hash-link" aria-label="Direct link to In this release:" title="Direct link to In this release:" translate="no">​</a></h2>
-<p>Added:</p>
-<ul>
-<li class="">New feature: Forums! Replaces Chat and Share. Click <a href="https://geogardenclub.com/docs/user-guide/forums" target="_blank" rel="noopener noreferrer" class="">here</a> for details.</li>
-</ul>
-<p>Fixed:</p>
-<ul>
-<li class="">Onboarding screens refreshed.</li>
-<li class="">App Store screens refreshed.</li>
-<li class="">Fixed bug that led to user profile picture deletion after timeline view update.</li>
-<li class="">Background DB updates do not reinitialize in-progress form fields.</li>
 </ul>
 <p>To get the app, see the <a class="" href="https://geogardenclub.com/docs/user-guide/get-started/overview">Getting Started page</a>.</p>]]></content>
         <author>
