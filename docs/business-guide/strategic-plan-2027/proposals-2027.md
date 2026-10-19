@@ -16,7 +16,7 @@ In 2027, we need to improve our ability to find new customers in our target demo
 
 ### Q1
 
-*Improve online marketing.*  In 2026, we had success with influencer marketing and Apple Ads.  In 2027, we will continue these two forms of marketing.  We will begin influencer marketing earlier in the year.  In addition, focus online marketing on storytelling about the impact gardening can have on food security and community building.
+*Improve online marketing.*  In 2026, we had success with influencer marketing and Apple Ads.  In 2027, we will prioritize influencer marketing for paid digital advertising.  We will begin influencer marketing earlier in the year.  In addition, focus online social media content on storytelling about the impact gardening can have on food security and community building.
 
 *Continue intern program.* In 2026, we worked with two interns to support online marketing of GeoGardenClub.  In 2027, we will continue recruiting interns to support social media marketing efforts.
 
@@ -28,7 +28,7 @@ In 2027, we need to improve our ability to find new customers in our target demo
 
 ### Q2
 
-*Improve referral program.* A correctly designed and implemented referral program could accelerate the growth of a chapter and thus support the creation of a useful gardening community.  It also provides "social proof" in the form of the referring customer. While we didn't see success in our 2026 iteration, we will revise this program and try again.
+*Improve referral program.* A correctly designed and implemented referral program could accelerate the growth of a chapter and thus support the creation of a useful gardening community.  It also provides "social proof" in the form of the referring customer. While we didn't see success in our 2026 iteration, we will revise this program and try again using swag as an incentive.
 
 *Improve GGC's social proof.* Increasing GGC's social proof could increase the "conversion rate": the percentage of people who, having learned about GGC through an online ad or other channel, go ahead and download the app and try it out. Priority activities to increase GGC's social proof include:
 * Increasing number of reviews in the App and Play Stores: Include this ask in reach out to senior customers.
@@ -58,7 +58,7 @@ In general, paying customers have enough experience with the app to derive value
 ### Q1
 *Add personalized reach-out.* Reach out to customers entering their second or third year and request a feedback session via a phone call or meeting.  Attach this request to an offer of a gift card to a local garden store.
 
-*Increase Brand Loyalty.* Offer new subscribers a GGC t shirt.  Alternatively, have a "chapter of the month" campaign in which chapters in that chapter are offered a free GGC t shirt.
+*Increase Brand Loyalty.* Offer all winter subscribers a GGC t shirt.  
 
 ### Q2
 *Continue personalized reach-out.* Obtaining customer feedback is a high priority for 2027.
