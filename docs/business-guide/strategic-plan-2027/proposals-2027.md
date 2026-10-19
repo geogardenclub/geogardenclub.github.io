@@ -60,6 +60,8 @@ In general, paying customers have enough experience with the app to derive value
 
 *Increase Brand Loyalty.* Offer all winter subscribers a GGC t shirt.  
 
+*Implement "like" and "favorite" UI elements.*  It is possible that providing these features could improve engagement.
+
 ### Q2
 *Continue personalized reach-out.* Obtaining customer feedback is a high priority for 2027.
 
@@ -83,4 +85,3 @@ The following are proposed activities that do not directly or indirectly support
 
 *Add wizard status.* Some mechanism to award active users with some sort of status that would encourage them to let us know if they see ways to improve the app. The goal of this status is to create a feeling of ownership over the app's direction with our top users.
 
-*Implement "like" and "favorite" UI elements.*  It is possible that providing these social media features could improve engagement.
