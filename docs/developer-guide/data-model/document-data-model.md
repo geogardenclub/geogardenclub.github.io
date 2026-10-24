@@ -131,7 +131,7 @@ The set of Countries in GGC are manually maintained by administrators. Here is a
 
 The Chapter entity defines a geographic region based on a country, a state in the country, a region in the state (typically a county), and a set of one or more postal codes in the region.  
 
-GGC needs to ensure that Chapter instances partition the world: every tuple of (country code, region, postal code) maps to exactly one Chapter.
+[//]: # (GGC needs to ensure that Chapter instances partition the world: every tuple of &#40;country code, region, postal code&#41; maps to exactly one Chapter.)
 
 The set of Chapters in GGC are manually maintained through admin commands. Here is an example Chapter document:
 
@@ -146,10 +146,11 @@ As will be seen, many entities contain a chapterID field.  When a client retriev
 
 ```dart
   const factory Chapter({
-    required String chapterID, 
-    required String name, 
-    required String countryCode, 
+    required String chapterID,
+    required String name,
+    required String countryCode,
     required List<String> postalCodes,
+    Map<String, Geo>? geoByPostalCode,
     String? state,
     String? region,
     String? currency,
@@ -158,11 +159,16 @@ As will be seen, many entities contain a chapterID field.  When a client retriev
     List<String>? cachedUsernames,
     List<String>? cachedBadgeNames,
     List<String>? cachedVarietyNames,
-    String? pictureURL, 
+    int? cachedTotalPlantings,
+    String? pictureURL,
+    String? pictureCaption,
     DateTime? lastUpdate,
     Map<int, Map<String, int>>? cachedCropQuantity,
     CropQuantityMap? cachedCropQuantityMap,
     Map<int, Map<String, List<String>>>? cachedRetailValue,
+    DateTime? createdAt,
+    DateTime? lastSpringFrostDate,
+    DateTime? firstFallFrostDate,
 })
 ```
 
@@ -175,15 +181,20 @@ Note that some of these fields are declared as nullable (i.e. optional) for back
 | chapterID             | required  | `String`          | (Primary key) A unique ID with the format `chapter-<countryCode>-<NNN>`. For example, `"chapter-US-001"`.   Please see the [ID Design Pattern documentation](../design/ids.md) for more details.                                                                                                                                                         |
 | name                  | required  | `String`          | A unique name. For example, `"Whatcom-WA"`.                                                                                                                                                                                                                                                                                                              |
 | countryCode           | required  | `String`          | The country code. This must be one of the countryCodes defined in the Countries collection. For example, `"US"`.                                                                                                                                                                                                                                         |
-| state                 | required  | `String`          | The state within the country. This must be one of the states defined in the associated Country document. For example, `"WA"`.                                                                                                                                                                                                                            |
-| region                | required  | `String`          | A region within the state. This can be any string, defined by the admin when a Chapter document is created. For example, `"Whatcom County"`.                                                                                                                                                                                                             | 
 | postalCodes           | required  | `List<String>`    | A list of alphanumeric postal codes. For example, `["96822", "96734"]`.                                                                                                                                                                                                                                                                                  | 
-| lastUpdate            | optional  | `DateTime?`       | Indicates the last time an entity associated with this Chapter was created, updated, or deleted.  For example, `"2025-10-22T07:11:44.385688"`.                                                                                                                                                                                                           | 
-| pictureURL            | optional  | `String?`         | The URL to a Cloud Storage file providing a picture of this Chapter. See [Cloud Storage Data Model](cloud-storage-data-model) for details.                                                                                                                                                                                                               |
-| cachedCropNames       | optional  | `List<String>?`   | A list of all the Crop names planted across all Gardens in this Chapter. For example, `["Basil", "Tomato"]`.  The chapter-local name is used when appropriate.                                                                                                                                                                                           |  
-| cachedVarietyNames    | optional  | `List<String>?`   | A list of all the Variety names planted across all Gardens in this Chapter. For example, `["Tomato (Big Boy)"]`                                                                                                                                                                                                                                          |   
-| cachedUserNames       | optional  | `List<String>?`   | A list of all the usernames of the Gardeners in this Chapter. For example, `["@FiveOClockPhil"]`.                                                                                                                                                                                                                                                        |
+| geoByPostalCode       | optional  | `Map<String, Geo>` | A map of postal codes to geolocations. This is used for getting the weather.                                                                                                                                                                                                             | 
+| state                 | optional  | `String?`          | The state within the country. This must be one of the states defined in the associated Country document. For example, `"WA"`.                                                                                                                                                                                                                            |
+| region                | optional  | `String?`          | A region within the state. This can be any string, defined by the admin when a Chapter document is created. For example, `"Whatcom County"`.                                                                                                                                                                                                             | 
 | cachedGardenNames     | optional  | `List<String>?`   | A list of all the Garden names in this Chapter. For example, `["Alderwood", "Kale is for Kids"]`.                                                                                                                                                                                                                                                        |
+| cachedCropNames       | optional  | `List<String>?`   | A list of all the Crop names planted across all Gardens in this Chapter. For example, `["Basil", "Tomato"]`.  The chapter-local name is used when appropriate.                                                                                                                                                                                           |  
+| cachedUsernames       | optional  | `List<String>?`   | A list of all the usernames of the Gardeners in this Chapter. For example, `["@FiveOClockPhil"]`.                                                                                                                                                                                                                                                        |
+| cachedVarietyNames    | optional  | `List<String>?`   | A list of all the Variety names planted across all Gardens in this Chapter. For example, `["Tomato (Big Boy)"]`                                                                                                                                                                                                                                          |   
+| cachedTotalPlantings  | optional  | `int?`            | The number of plantings across all Gardens in this Chapter. For example, `1324`.                                                                                                                                                                                                                                          |   
+| pictureURL            | optional  | `String?`         | The URL to a Cloud Storage file providing a picture of this Chapter. See [Cloud Storage Data Model](cloud-storage-data-model) for details.                                                                                                                                                                                                               |
+| pictureCaption        | optional  | `String?`         | The caption for the picture of this Chapter.                                                                                                                                                                                                               |
+| lastUpdate            | optional  | `DateTime?`       | Indicates the last time an entity associated with this Chapter was created, updated, or deleted.  For example, `"2025-10-22T07:11:44.385688"`.                                                                                                                                                                                                           | 
+| lastSpringFrostDate   | optional  | `DateTime?`       | Indicates the last Spring frost date associated with this Chapter. Gathered from `https://www.almanac.com/gardening/frostdates`.                                                                                                                                                                                                           | 
+| firstFallFrostDate    | optional  | `DateTime?`       | Indicates the first Fall frost date associated with this Chapter.  Gathered from `https://www.almanac.com/gardening/frostdates`.                                                                                                                                                                                                          | 
 | cachedCropQuantityMap | optional  | `CropQuantityMap` | A map that indicates, for each year, the quantity of each Crop harvested across all Gardens in this Chapter. This data is combined with Price data to compute the Retail Value associated with this Chapter. See the [Retail Value](../design/retail-value) design document for details. For example, `{cropMap: {2024: {crop-US-003-326-0812: 15000}}`. | 
 | currency              | vestigial |                   |                                                                                                                                                                                                                                                                                                                                                          |
 | cachedBadgeNames      | vestigial |                   |                                                                                                                                                                                                                                                                                                                                                          |
