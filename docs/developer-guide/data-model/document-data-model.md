@@ -542,20 +542,27 @@ const factory Variety({
   required String chapterID, 
   required String cropID, 
   required String cachedCropName, 
-  required String name, 
+  required String name,
+  String? pictureURL,
+  String? pictureCaption,
   bool? isGold, 
   List<String>? isGoldV2, 
   DateTime? createdAt,
+  String? createdBy,
 })
 ```
 | Field          | R/O/V     | Type            | Description                                                                                                                                                                                                                          |
 |----------------|-----------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | varietyID      | required  | `String`        | (Primary key) A unique ID for this variety. Format: `variety-<country>-<chapterCode>-<NNN>-<millis>`. For example, `"variety-US-001-301-0498"`. Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
 | cropID         | required  | `String`        | The associated crop. For example, `"crop-US-001-203-0497"`.                                                                                                                                                                          |
-| name           | required  | `String`        | The name of the variety. For example, `"Jersey Night"`.                                                                                                                                                                              |
 | cachedCropName | required  | `String`        | The crop name. For example, `"Asparagus"`.                                                                                                                                                                                           |
+| name           | required  | `String`        | The name of the variety. For example, `"Jersey Night"`.                                                                                                                                                                              |
+| pictureURL     | optional  | `String?`       | The URL of the variety's picture. For example, `"https://example.com/images/jersey-night.jpg"`.                                                                                                                                     |
+| pictureCaption | optional  | `String?`       | The caption for the variety's picture. For example, `"Jersey Night in full bloom"`.                                                                                                                                                  |
 | isGoldV2       | optional  | `List<String>?` | A list of the chapterIDs for which this variety has achieved Gold Status. For example, `"[chapter-US-001, chapter-US-005]"`.                                                                                                         |
 | createdAt      | optional  | `DateTime?`     | A timestamp indicating when this Variety came into existence.                                                                                                                                                                        |
+| createdBy      | optional  | `String?`       | The user who created this Variety.                                                                                                                                                                                                   |
+|                |           |                 |                                                                                                                                                                                                                                      |
 | chapterID      | vestigial |                 |                                                                                                                                                                                                                                      |
 | isGold         | vestigial |                 |                                                                                                                                                                                                                                      | 
 
