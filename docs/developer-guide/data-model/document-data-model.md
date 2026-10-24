@@ -775,15 +775,16 @@ const factory Observation({
 | description       | required  | `String`                   | The observation description.                                                                                                                                                                                                                                  |
 | isPrivate         | required  | `bool`                     | If only the owner and editors of this garden can see this Observation.                                                                                                                                                                                        |
 | observationType   | required  | `String`                   | The type of Observation: `"garden"`, `"crop"`, `"variety"`, `"planting"`.                                                                                                                                                                                     |
-| pictureURL            | optional  | `String?`         | The URL to a Cloud Storage file providing a picture for this observation. See [Cloud Storage Data Model](cloud-storage-data-model) for details.                                                                                                               |
+| pictureURL        | optional  | `String?`                  | The URL to a Cloud Storage file providing a picture for this observation. See [Cloud Storage Data Model](cloud-storage-data-model) for details.                                                                                                               |
 | plantingID        | optional  | `String?`                  | The associated planting, if this is a planting observation.                                                                                                                                                                                                   |
-| bedID             | optional  | `String?`                  | The associated bed, if this is a planting observation.                                                                                                                                                                                                        |
+| bedID             | optional  | `String?`                  | The associated bed, if this is a planting or bed observation.                                                                                                                                                                                                        |
 | cropID            | optional  | `String?`                  | The associated crop, if this is a planting or variety or crop observation.                                                                                                                                                                                    |
 | varietyID         | optional  | `String?`                  | The associated variety, if this is a planting or variety observation.                                                                                                                                                                                         |
+| cachedBedName     | optional  | `String?`                  | The associated bed name, if there's a bedID.                                                                                                                                                                                                          | 
 | cachedCropName    | optional  | `String?`                  | The associated crop name, if there's a cropID.                                                                                                                                                                                                                | 
 | cachedVarietyName | optional  | `String?`                  | The associated variety name, if there's a varietyID.                                                                                                                                                                                                          | 
-| cachedVarietyName | optional  | `String?`                  | The associated variety name, if there's a varietyID.                                                                                                                                                                                                          | 
 | cachedStartDate   | optional  | `DateTime?`                | The associated start time, if this is a planting observation.                                                                                                                                                                                                 | 
+|                   |           |                            |                                                                                                                                                                                                                                                               | 
 | cachedCropID      | vestigial |                            |                                                                                                                                                                                                                                                               | 
 | cachedVarietyID   | vestigial |                            |                                                                                                                                                                                                                                                               | 
 
@@ -793,12 +794,12 @@ const factory Observation({
 As shown above, each Observation entity includes an embedded (potentially empty) list of ObservationComments, which have this structure:
 
 ```dart
-const factory ObservationComment(
-  {required String observationCommentID,   // 'observationcomment-US-98225-102-4001-001-4532'
+const factory ObservationComment({
+  required String observationCommentID,   // 'observationcomment-US-98225-102-4001-001-4532'
   required String gardenerID,              // 'johnson@hawaii.edu'
   required String description,             // 'Is that an aphid on the left leaf?'
-  required DateTime lastUpdate}            // '2023-03-19T12:19:14.164090'          
-)
+  required DateTime lastUpdate             // '2023-03-19T12:19:14.164090'          
+})
 ```
 
 The lastUpdate field indicates when the comment was made or updated.
@@ -872,7 +873,7 @@ factory Task({
   required String taskType, 
   required String title, 
   required DateTime dueDate, 
-  String? taskType, 
+  String? taskTarget, 
   String? bedID, 
   String? cachedBedName, 
   String? cropID, 
