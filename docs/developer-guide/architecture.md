@@ -56,7 +56,9 @@ The lib/ directory is where most of the action is. Here's a semi-annotated persp
 
 ```
 lib/
+  env/             #  Encrypted environment variables 
   features/        #  Feature-based organization for Data, Domain, and Presentation layers
+  overrides/       #  Overrides for third-party packages
   repositories/    #  Implements the "Repository" layer
   theme/           #  UI Theme (fonts, colors, etc.
   main.dart        #  Main entry point
