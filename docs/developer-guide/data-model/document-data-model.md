@@ -623,6 +623,7 @@ factory Planting({
   DateTime? firstHarvestDate,
   DateTime? endHarvestDate,
   DateTime? createdAt,
+  List<String>? copiedFromGardenerIDs,
 }) 
 ```
 | Field             | R/O/V     | Type        | Description                                                                                                                                                                                                                                                |
@@ -645,6 +646,8 @@ factory Planting({
 | transplantDate    | optional  | `DateTime?` | A timestamp indicating if this planting was transplanted. Also provided when a starter is being planted.                                                                                                                                                   |
 | firstHarvestDate  | optional  | `DateTime?` | A timestamp indicating if there was a first harvest date.                                                                                                                                                                                                  |
 | endHarvestDate    | optional  | `DateTime?` | A timestamp indicating if harvest came to end (and the planting was left to seed).                                                                                                                                                                         |
+| copiedFromGardenerIDs | optional  | `List<String>?` | A List of the gardenerIDs that this planting was copied from.                                                                                                                                                                         |
+|                   |           |             |                                                                                                                                                                                                                                                            |
 | gardenerID        | vestigial |             |                                                                                                                                                                                                                                                            |
 | harvestSeedID     | vestigial |             |                                                                                                                                                                                                                                                            | 
 | isVendor          | vestigial |             |                                                                                                                                                                                                                                                            | 
@@ -661,7 +664,7 @@ Outcome data is gardener-supplied information about the result of a single Plant
 * Is relatively easy to provide, 
 * Is interpreted in a relatively consistent manner by different gardeners,
 
-To support these requirements, we define five outcome types: germination, yield, flavor, pest and disease resistance, and appearance. Each planting can receive a "grade" for each of these outcome types on a five point scale.  The following table presents the definitions for each scale value for each outcome type.
+To support these requirements, we define six outcome types: germination, yield, flavor, pest and disease resistance, and appearance. Each planting can receive a "grade" for each of these outcome types on a five point scale.  The following table presents the definitions for each scale value for each outcome type.
 
 |                                 | 1                             | 2                                 | 3                               | 4                                 | 5                                          |
 |---------------------------------|-------------------------------|-----------------------------------|---------------------------------|-----------------------------------|--------------------------------------------|
