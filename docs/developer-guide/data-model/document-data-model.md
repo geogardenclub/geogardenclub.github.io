@@ -113,6 +113,7 @@ The set of Countries in GGC are manually maintained by administrators. Here is a
     required CountryCode countryCode,
     required CurrencyCode currencyCode,
     required WeightUnit weightUnit,
+    required TemperatureUnit temperatureUnit,
     required List<String> states,
 })
 ```
@@ -122,6 +123,7 @@ The set of Countries in GGC are manually maintained by administrators. Here is a
 | countryCode  | required  | `String`       | (Primary key) A country code from an enum. For example, `"US"`. |
 | currencyCode | required  | `String`       | A currency code from an enum. For example, `"USD"`.             |
 | weightUnit   | required  | `String`       | The weight unit from an enum. For example, `"lb"`.              |
+| temperatureUnit   | required  | `String`       | The temperature unit from an enum. For example, `"imperial"`.              |
 | states       | required  | `List<String>` | A list of states in this country. For example, `["AL", "AZ"]`.  |
 
 
