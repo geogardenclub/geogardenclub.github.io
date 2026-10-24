@@ -332,7 +332,8 @@ const factory Garden({
   String? pictureURL, 
   String? plotPlanURL, 
   CropQuantityMap? cachedCropQuantityMap,
-  Map<int, Map<String, List<String>>>? cachedRetailValue, 
+  Map<int, Map<String, List<String>>>? cachedRetailValue,
+  int? cachedNumPlantingsCopiedFromThisGarden,
   @Default(false) bool isVendor, 
   DateTime? lastUpdate, 
   DateTime? createdAt,
@@ -354,6 +355,8 @@ const factory Garden({
 | cachedYears           | required  | `List<int>`       | A (possibly empty) list of the years where there is a Planting startDate in this Garden. For example, `[2024, 2025]`.                                                                                                                                                                                                               | 
 | cachedNumPlantings    | required  | `int`             | The number of Plantings associated with this Garden. For example, `231`.                                                                                                                                                                                                                                                            | 
 | cachedCropQuantityMap | optional  | `CropQuantityMap` | A map that indicates, for each year, the quantity of each Crop harvested in this Garden. This data is combined with Price data to compute the Retail Value associated with this Garden. See the [Retail Value](../design/retail-value) design document for details. For example, `{cropMap: {2024: {crop-US-003-326-0812: 15000}}`. | 
+| cachedNumPlantingCopiedFromThisGarden | optional |  `int?` | The number of Plantings copied from the garden. For example, `192`.                                                                                                                                                                                                                                                                                                                                     | 
+|                       |           |                   |                                                                                                                                                                                                                                                                                                                                     | 
 | isVendor              | vestigial |                   |                                                                                                                                                                                                                                                                                                                                     | 
 | cachedRetailValue     | vestigial |                   |                                                                                                                                                                                                                                                                                                                                     | 
 
@@ -382,12 +385,12 @@ Here is an example of an Editor document:
 ### Editor entity representation
 
 ```dart
-const factory Editor(
-  {required String editorID,         
+const factory Editor({
+  required String editorID,         
   required String gardenID,          
   required String chapterID,         
-  required String gardenerID}        
-)
+  required String gardenerID,
+})
 ```
 
 | Field      | R/O/V     | Type              | Description                                                                                                                                                                                                                                          |
@@ -409,14 +412,13 @@ Here is an example of a Bed document:
 ### Bed entity representation
 
 ```dart
- const factory Bed(
-  {required String bedID,          // 'bed-US-98225-101-001-5634'
+ const factory Bed({
+  required String bedID,          // 'bed-US-98225-101-001-5634'
   required String chapterID,       // 'chapter-US-001'
   required String gardenID,        // 'garden-US-98225-101-6789'
   required String name,            // '02'
   String? gardenerID,              // The owner of the garden, i.e. 'johnson@hawaii.edu'.
-  }              
-)
+})
 ```
 | Field      | R/O/V    | Type     | Description                                                                                                                                                                                                                               |
 |------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -443,12 +445,12 @@ Here is an example of a Family document:
 ### Family entity representation
 
 ```dart
-const factory Family(
-  {required String familyID,       
+const factory Family({
+  required String familyID,       
   required String formal,          
   required String common,          
-  required String examples}        
-)
+  required String examples,
+})
 ```
 
 | Field    | R/O/V    | Type     | Description                                                                                                                                                                          |
@@ -485,8 +487,11 @@ const factory Crop({
   required String chapterID,
   required String familyID,
   required String name,
+  String? pictureURL, 
+  String? pictureCaption,
   Map<String, String>? chapterNameMap,
   DateTime? createdAt,
+  String? createdBy,
 })
 ```
 
@@ -495,8 +500,12 @@ const factory Crop({
 | cropID         | required  | `String`               | (Primary key) A unique ID for this crop. Format: `crop-<country>-<chapterCode>-<NNN>-<millis>`. For example, `"crop-US-001-201-5634"`. Although crops are global, cropIDs currently embed the defining user's country code and chapterCode in order to avoid duplicate ID strings if multiple users define a new crop at the same time. Please see the [ID Design Pattern documentation](../design/ids.md) for more details. |
 | familyID       | required  | `String`               | The associated family. For example, `"family-001"`.                                                                                                                                                                                                                                                                                                                                                                          |
 | name           | required  | `String`               | The name of the crop. For example, `"Amaranth"`. Must be unique across all Crops.                                                                                                                                                                                                                                                                                                                                            |
+| pictureURL     | optional  | `String?`              | The URL to a Cloud Storage file providing a picture of this Crop. See [Cloud Storage Data Model](cloud-storage-data-model) for details.                                                                                                                                                                                                                                                                                                                                            |
+| pictureCaption | optional  | `String?`              | The caption for the picture of this Crop.                                                                                                                                                                                                                                                                                                                                            |
 | chapterNameMap | optional  | `Map<String, String>?` | A mapping from a chapterID to a chapter-local name for this crop. For example, the crop Breadfruit has a chapter-local name of "'Ulu" in Hawaii chapters.                                                                                                                                                                                                                                                                    |
 | createdAt      | required  | `DateTime?`            | A timestamp indicating when this Crop came into existence.                                                                                                                                                                                                                                                                                                                                                                   |
+| createdBy      | optional  | `String?`              | The username of the user who created this Crop.                                                                                                                                                                                                                                                                                                                                                                   |
+|                |           |                        |                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | chapterID      | vestigial | `String`               |                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | maxQuantity    | vestigial | `int`                  |                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | quantityUnit   | vestigial | `String`               |                                                                                                                                                                                                                                                                                                                                                                                                                              |
