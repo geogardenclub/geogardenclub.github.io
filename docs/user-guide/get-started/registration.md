@@ -19,9 +19,7 @@ In the Register Screen, enter your email address, password, and password confirm
 <img width="300" src="/img/user-guide/verify-email.jpg"/>
 
 
-You must now find the verification email and click an embedded link in it. After that, you can tap the "Go back" link in this screen to return to the signin page and login with your newly created UserID (email) and password.
-
-Here is what the verification email looks like:
+You must now find the verification email, which looks like this:
 
 <img width="600" src="/img/user-guide/verify-email.png"/>
 
@@ -33,4 +31,14 @@ Another possibility is that you made a typo when you entered your email address.
 If neither of these hints result in a verification email, send us an email at info@geogardenclub.com and we will help you resolve the problem.
 :::
 
-Once you have registered and verified your email address, you will be able to sign in. The first time you sign in, you will be taken to the Create User Profile screen.
+Clicking on the link in the verification email will take you to a page that looks like this:
+
+<img width="600" src="/img/user-guide/complete-verification-page-1.png"/>
+
+Tap the button labeled "COMPLETE VERIFICATION". This should send you to the following page:
+
+<img width="600" src="/img/user-guide/complete-verification-page-2.png"/>
+
+Once you reach this page, you can go back to the app. In most cases, the app will automatically log you in and take you to the Create User Profile screen within a few seconds. If that doesn't happen, you can tap "Go back" link to return to the login page and sign in manually.
+
+At this point, you're ready to create your profile, as discussed next.
