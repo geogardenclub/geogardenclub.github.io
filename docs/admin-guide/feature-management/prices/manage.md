@@ -5,6 +5,8 @@ title: Manage Prices
 
 # Manage Prices
 
-<img width="300" src="/img/admin-guide/feature-management/prices/manage.png"/>
+<img width="300" src="/img/admin-guide/feature-management/prices/manage_prices.png"/>
 
-The Manage Prices page uses the standard GGC manage page layout. It has a dropdown menu to select the price to [update](update) or [delete](delete), and a `+ Price` button to [create](create) a new price.
+The Manage Prices allows you to:
+* [Manage the existing prices](manage_existing) update, delete, or create new prices.
+* See and create any missing prices. Crops with outcomes that have a quantity, but no price are shown in the "Missing Prices" screen. You can create a new price for any of these crops by clicking on the crop name.

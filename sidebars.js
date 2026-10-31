@@ -504,9 +504,11 @@ const sidebars = {
             label: 'Manage Prices',
             items: [
               'admin-guide/feature-management/prices/manage',
+              'admin-guide/feature-management/prices/manage_existing',
               'admin-guide/feature-management/prices/create',
               'admin-guide/feature-management/prices/update',
               'admin-guide/feature-management/prices/delete',
+              'admin-guide/feature-management/prices/missing',
             ]
           },
           {
