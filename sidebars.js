@@ -509,6 +509,7 @@ const sidebars = {
               'admin-guide/feature-management/prices/update',
               'admin-guide/feature-management/prices/delete',
               'admin-guide/feature-management/prices/missing',
+              'admin-guide/feature-management/prices/create_missing',
             ]
           },
           {
