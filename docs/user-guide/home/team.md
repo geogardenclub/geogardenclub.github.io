@@ -68,6 +68,14 @@ Jessie Beck is a home gardener in Bellingham, WA. She advises the GeoGardenClub 
 
 ## Interns
 
+### Sheridan Secrist (Fall, 2026)
+
+<img alt="picture" className="team-img" width="150px" src="/img/team/sheridan-secrist.jpg"/>
+
+<p>[Sheridan Secrist](https://www.linkedin.com/in/sheridan-secrist/) is a marketing student at Western Washington University who enjoys bringing people together through creativity, shared interests, and community. Outside of her studies, she has a passion for cars, content creation, fashion, and finding new ways to connect with the people and world around her. Through GeoGardenClub, she is excited to contribute to a community that makes gardening and local connections more accessible to everyone.</p>
+
+<div style={{clear:"both"}}></div>
+
 ### Amelia Larsen (Summer, 2026)
 
 <img alt="picture" className="team-img" width="150px" src="/img/team/amelia-larson.jpg"/>
