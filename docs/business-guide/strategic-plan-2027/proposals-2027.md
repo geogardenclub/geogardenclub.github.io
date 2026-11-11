@@ -24,18 +24,18 @@ In 2027, we need to improve our ability to find new customers in our target demo
 
 *Develop partnerships with community organizations.* These organizations might include Master Gardener associations, school garden programs, and/or food non-profits. Note that developing a viable partnership with an organization might require enhancing the GGC app with new features.
 
-*Implement Chapter Chairs.*  Promote Chapter Chair program to increase local leadership and recruitment efforts. 
+*Implement Chapter Chairs.*  Promote Chapter Chair program to select users to increase local leadership and recruitment efforts. 
 
 ### Q2
 
-*Improve referral program.* A correctly designed and implemented referral program could accelerate the growth of a chapter and thus support the creation of a useful gardening community.  It also provides "social proof" in the form of the referring customer. While we didn't see success in our 2026 iteration, we will revise this program and try again using swag as an incentive.
+*Improve referral program.* A correctly designed and implemented referral program could accelerate the growth of a chapter and thus support the creation of a useful gardening community.  It also provides "social proof" in the form of the referring customer. While we didn't see success in our 2026 iteration, we will revise this program and try again this time offering a GGC t shirt as a reward for bringing in one subscriber.
 
 *Improve GGC's social proof.* Increasing GGC's social proof could increase the "conversion rate": the percentage of people who, having learned about GGC through an online ad or other channel, go ahead and download the app and try it out. Priority activities to increase GGC's social proof include:
 * Increasing number of reviews in the App and Play Stores: Include this ask in reach out to senior customers.
 * Articles about GGC in gardening publications: Continue publishing articles to Medium account.  Aim for 4-6 articles.
 * Grants and/or awards: Partner with an organization to submit a funding request.
 * Endorsements from community organizations (following a successful partnership).
-* Endorsements from gardening influencers on Instagram and/or TikTok: Continue working with influencer.
+* Endorsements from gardening influencers on Instagram: Continue working with influencer.
 
 ## Customer Evaluation Phase
 
@@ -43,7 +43,9 @@ In 2027, we need to improve the percentage of customers who, having downloaded t
 
 ### Q1
 
-*Implement "high-touch" support during evaluation.* In addition to the Getting Started emails, we will continue sending personalized emails to customers during the evaluation phase to ensure that they are not encountering roadblocks, and using secondary measures to make these emails more effective. For example, we might send an email saying something like: "We notice you haven't created a garden yet. Can we help you learn how to do that? Is there a reason you've delayed?"  We will send 5 emails a month to a random set of users who downloaded the month prior.  
+*Implement "high-touch" support during evaluation.* In addition to the Getting Started emails, we will continue sending personalized emails to customers during the evaluation phase to ensure that they are not encountering roadblocks, and using secondary measures to make these emails more effective. For example, we might send an email saying something like: "We notice you haven't created a garden yet. Can we help you learn how to do that? Is there a reason you've delayed?"  We will send 5 emails a month to a random set of users who downloaded the month prior.
+
+*Implement planting timing recommendation feature.* Expedite the ability of users to create a planting with feature that suggests planting dates for users to use or adapt.
 
 ### Q2
 
@@ -51,25 +53,25 @@ In 2027, we need to improve the percentage of customers who, having downloaded t
 
 *Host in person and in app challenges.* Gardening challenges can encourage app use and community connections. For example, an in app challenge to get all gardeners paying attention to and posting observations about a single crop or contests like biggest pumpkin for Halloween.  An in person challenge could be hosting a garden tour or plant swap. (Note: A challenge could be implemented as a specific type of forum post.)
 
+*Implement Almanac feature.*  Create an interactive database that quickly points users to successful plantings in their chapter.
+
 ## Customer Retention Phase
 
 In general, paying customers have enough experience with the app to derive value from it.  To retain them, we need ways to be made aware when the app is not meeting their needs and respond appropriately.  For example, we could implement:
 
 ### Q1
-*Add personalized reach-out.* Reach out to customers entering their second or third year and request a feedback session via a phone call or meeting.  Attach this request to an offer of a gift card to a local garden store.
+*Add personalized reach-out.* Reach out to customers entering their second or third year and request a feedback session via a phone call or meeting.  Attach this request to an offer of a GGC t shirt.
 
-*Increase Brand Loyalty.* Offer all winter subscribers a GGC t shirt.  
-
-*Implement "like" and "favorite" UI elements.*  It is possible that providing these features could improve engagement.
+*Increase Brand Loyalty.* Offer all winter subscribers a GGC t shirt.
 
 ### Q2
 *Continue personalized reach-out.* Obtaining customer feedback is a high priority for 2027.
 
 ## Customer Churn Phase
 
-### Q2
+### Q3
 
-*Add personalized reach-out.* Reach out to customers who have cancelled their subscription and request feedback. Consider multiple options for feedback - a short form, phone call, or meeting.  Consider attaching this request to a gift card to a local garden store.
+*Add personalized reach-out.* Reach out to customers who have cancelled their subscription and request feedback. Consider multiple options for feedback - a short form, phone call, or meeting.  Consider attaching this request to a gift card to a local garden store or a cash incentive.
 
 ## Other activities
 
@@ -84,4 +86,6 @@ The following are proposed activities that do not directly or indirectly support
 ### Customer Retention Phase
 
 *Add wizard status.* Some mechanism to award active users with some sort of status that would encourage them to let us know if they see ways to improve the app. The goal of this status is to create a feeling of ownership over the app's direction with our top users.
+
+*Implement "like" and "favorite" UI elements.*  It is possible that providing these features could improve engagement.
 
