@@ -11,4 +11,5 @@ The User Management page allows you to:
 
 * Manage blocked users.
 * Migrate users between chapters.
+* Manage preferred users.
 * Delete a user.
